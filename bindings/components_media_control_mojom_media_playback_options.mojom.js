@@ -187,7 +187,7 @@ mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec,
       null,
-      { arg_blocked: arg_blocked },
+      [arg_blocked],
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsRemote
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsRemote
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec,
       null,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 

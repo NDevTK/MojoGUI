@@ -264,7 +264,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -273,7 +273,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec,
       null,
-      { arg_feedback: arg_feedback },
+      [arg_feedback],
       false);
   }
 
@@ -427,7 +427,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec,
       null,
-      { arg_data: arg_data, arg_info: arg_info, arg_content_rect: arg_content_rect, arg_callbacks: arg_callbacks },
+      [arg_data, arg_info, arg_content_rect, arg_callbacks],
       false);
   }
 
@@ -436,7 +436,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec,
       null,
-      { arg_capture_version: arg_capture_version },
+      [arg_capture_version],
       false);
   }
 
@@ -445,7 +445,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -454,7 +454,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -463,7 +463,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumerRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -665,7 +665,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec,
       null,
-      { arg_format: arg_format },
+      [arg_format],
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec,
       null,
-      { arg_min_period: arg_min_period },
+      [arg_min_period],
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec,
       null,
-      { arg_min_period: arg_min_period },
+      [arg_min_period],
       false);
   }
 
@@ -692,7 +692,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec,
       null,
-      { arg_min_size: arg_min_size, arg_max_size: arg_max_size, arg_use_fixed_aspect_ratio: arg_use_fixed_aspect_ratio },
+      [arg_min_size, arg_max_size, arg_use_fixed_aspect_ratio],
       false);
   }
 
@@ -701,7 +701,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -710,7 +710,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled, arg_majority_damaged_pixel_min_ratio: arg_majority_damaged_pixel_min_ratio },
+      [arg_enabled, arg_majority_damaged_pixel_min_ratio],
       false);
   }
 
@@ -719,7 +719,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec,
       null,
-      { arg_target: arg_target, arg_sub_capture_version: arg_sub_capture_version },
+      [arg_target, arg_sub_capture_version],
       false);
   }
 
@@ -728,7 +728,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec,
       null,
-      { arg_consumer: arg_consumer, arg_buffer_format_preference: arg_buffer_format_preference },
+      [arg_consumer, arg_buffer_format_preference],
       false);
   }
 
@@ -737,7 +737,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -746,7 +746,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -755,7 +755,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturerRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec,
       null,
-      { arg_stacking_index: arg_stacking_index, arg_receiver: arg_receiver },
+      [arg_stacking_index, arg_receiver],
       false);
   }
 
@@ -973,7 +973,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec,
       null,
-      { arg_image: arg_image, arg_bounds: arg_bounds },
+      [arg_image, arg_bounds],
       false);
   }
 
@@ -982,7 +982,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec,
       null,
-      { arg_bounds: arg_bounds },
+      [arg_bounds],
       false);
   }
 
@@ -991,7 +991,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlayRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec,
       null,
-      { arg_coordinates: arg_coordinates },
+      [arg_coordinates],
       false);
   }
 

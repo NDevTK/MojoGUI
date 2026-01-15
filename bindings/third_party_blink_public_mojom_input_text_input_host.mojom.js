@@ -181,7 +181,7 @@ mojo.internal.bindings.blink.mojom.TextInputHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec,
       null,
-      { arg_index: arg_index },
+      [arg_index],
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.blink.mojom.TextInputHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec,
       null,
-      { arg_rect: arg_rect },
+      [arg_rect],
       false);
   }
 

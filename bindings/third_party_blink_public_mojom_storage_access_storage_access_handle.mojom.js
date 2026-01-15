@@ -244,7 +244,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec,
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ParamsSpec,
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -298,7 +298,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -307,7 +307,7 @@ mojo.internal.bindings.blink.mojom.StorageAccessHandleRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

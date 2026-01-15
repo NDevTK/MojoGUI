@@ -213,7 +213,7 @@ mojo.internal.bindings.mirroring.mojom.MirroringServiceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mirroring.mojom.MirroringService_Start_ParamsSpec,
       null,
-      { arg_params: arg_params, arg_max_resolution: arg_max_resolution, arg_observer: arg_observer, arg_resource_provider: arg_resource_provider, arg_outbound_channel: arg_outbound_channel, arg_inbound_channel: arg_inbound_channel },
+      [arg_params, arg_max_resolution, arg_observer, arg_resource_provider, arg_outbound_channel, arg_inbound_channel],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.mirroring.mojom.MirroringServiceRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.mirroring.mojom.MirroringServiceRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec,
       mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

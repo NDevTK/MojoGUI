@@ -488,7 +488,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintHost_GetServer_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintHost_GetServer_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -627,7 +627,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintInstanceRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -869,7 +869,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SetSystemVersion_ParamsSpec,
       null,
-      { arg_android_version: arg_android_version, arg_android_patchlevel: arg_android_patchlevel },
+      [arg_android_version, arg_android_patchlevel],
       false);
   }
 
@@ -878,7 +878,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_AddRngEntropy_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_AddRngEntropy_ResponseParamsSpec,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -887,7 +887,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateKey_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -896,7 +896,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportKey_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -905,7 +905,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -914,7 +914,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpgradeKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpgradeKey_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -923,7 +923,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteKey_ResponseParamsSpec,
-      { arg_key_blob: arg_key_blob },
+      [arg_key_blob],
       false);
   }
 
@@ -932,7 +932,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -941,7 +941,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -950,7 +950,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Begin_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Begin_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -959,7 +959,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeviceLocked_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_DeviceLocked_ResponseParamsSpec,
-      { arg_password_only: arg_password_only, arg_timestamp_token: arg_timestamp_token },
+      [arg_password_only, arg_timestamp_token],
       false);
   }
 
@@ -968,7 +968,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -977,7 +977,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ResponseParamsSpec,
-      { arg_storage_key_blob: arg_storage_key_blob },
+      [arg_storage_key_blob],
       false);
   }
 
@@ -986,7 +986,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -995,7 +995,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1004,7 +1004,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ResponseParamsSpec,
-      { arg_challenge: arg_challenge },
+      [arg_challenge],
       false);
   }
 
@@ -1013,7 +1013,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ResponseParamsSpec,
-      { arg_root_of_trust: arg_root_of_trust },
+      [arg_root_of_trust],
       false);
   }
 
@@ -1022,7 +1022,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpdateAad_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_UpdateAad_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -1031,7 +1031,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Update_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Update_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -1040,7 +1040,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Finish_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Finish_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -1049,7 +1049,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Abort_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_Abort_ResponseParamsSpec,
-      { arg_op_handle: arg_op_handle },
+      [arg_op_handle],
       false);
   }
 
@@ -1058,7 +1058,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1067,7 +1067,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ResponseParamsSpec,
-      { arg_secret_params: arg_secret_params },
+      [arg_secret_params],
       false);
   }
 
@@ -1076,7 +1076,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ResponseParamsSpec,
-      { arg_challenge: arg_challenge },
+      [arg_challenge],
       false);
   }
 
@@ -1085,7 +1085,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ResponseParamsSpec,
-      { arg_test_mode: arg_test_mode },
+      [arg_test_mode],
       false);
   }
 
@@ -1094,7 +1094,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ParamsSpec,
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -1103,7 +1103,7 @@ mojo.internal.bindings.arc.mojom.keymint.KeyMintServerRemoteCallHandler = class 
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.arc.mojom.keymint.KeyMintServer_SetVendorPatchLevel_ParamsSpec,
       null,
-      { arg_android_vendor_patchlevel: arg_android_vendor_patchlevel },
+      [arg_android_vendor_patchlevel],
       false);
   }
 

@@ -205,7 +205,7 @@ mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec,
-      { arg_app_id: arg_app_id, arg_is_network_ready: arg_is_network_ready },
+      [arg_app_id, arg_is_network_ready],
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServiceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec,
       null,
-      { arg_controller: arg_controller },
+      [arg_controller],
       false);
   }
 

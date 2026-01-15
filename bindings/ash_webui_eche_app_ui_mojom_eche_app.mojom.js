@@ -316,7 +316,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchangerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec,
       null,
-      { arg_signal: arg_signal },
+      [arg_signal],
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchangerRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchangerRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpec,
       null,
-      { arg_signal: arg_signal },
+      [arg_signal],
       false);
   }
 
@@ -614,7 +614,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProviderRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec,
       mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -623,7 +623,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProviderRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -778,7 +778,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserverRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -787,7 +787,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserverRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_ParamsSpec,
       null,
-      { arg_is_tablet_mode: arg_is_tablet_mode },
+      [arg_is_tablet_mode],
       false);
   }
 
@@ -796,7 +796,7 @@ mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserverRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSpec,
       null,
-      { arg_is_different_network: arg_is_different_network, arg_android_device_on_cellular: arg_android_device_on_cellular },
+      [arg_is_different_network, arg_android_device_on_cellular],
       false);
   }
 
@@ -950,7 +950,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProviderRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_ParamsSpec,
       null,
-      { arg_serialized_proto: arg_serialized_proto },
+      [arg_serialized_proto],
       false);
   }
 
@@ -959,7 +959,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProviderRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -968,7 +968,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProviderRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ParamsSpec,
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1135,7 +1135,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_ParamsSpec,
       null,
-      { arg_enable: arg_enable },
+      [arg_enable],
       false);
   }
 
@@ -1144,7 +1144,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_ParamsSpec,
       null,
-      { arg_enable: arg_enable },
+      [arg_enable],
       false);
   }
 
@@ -1153,7 +1153,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_PerformAction_ParamsSpec,
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec,
-      { arg_serialized_proto: arg_serialized_proto },
+      [arg_serialized_proto],
       false);
   }
 
@@ -1162,7 +1162,7 @@ mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec,
       mojo.internal.bindings.ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec,
-      { arg_refresh_data_proto: arg_refresh_data_proto },
+      [arg_refresh_data_proto],
       false);
   }
 
@@ -1334,7 +1334,7 @@ mojo.internal.bindings.ash.eche_app.mojom.UidGeneratorRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec,
       mojo.internal.bindings.ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1477,7 +1477,7 @@ mojo.internal.bindings.ash.eche_app.mojom.NotificationGeneratorRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec,
       null,
-      { arg_title: arg_title, arg_message: arg_message, arg_type: arg_type },
+      [arg_title, arg_message, arg_type],
       false);
   }
 
@@ -1486,7 +1486,7 @@ mojo.internal.bindings.ash.eche_app.mojom.NotificationGeneratorRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec,
       null,
-      { arg_text: arg_text },
+      [arg_text],
       false);
   }
 
@@ -1632,7 +1632,7 @@ mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandlerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1641,7 +1641,7 @@ mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandlerRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -1650,7 +1650,7 @@ mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandlerRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -1796,7 +1796,7 @@ mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserverRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec,
       null,
-      { arg_action: arg_action },
+      [arg_action],
       false);
   }
 
@@ -1926,7 +1926,7 @@ mojo.internal.bindings.ash.eche_app.mojom.StreamOrientationObserverRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSpec,
       null,
-      { arg_isLandscape: arg_isLandscape },
+      [arg_isLandscape],
       false);
   }
 
@@ -2056,7 +2056,7 @@ mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -2190,7 +2190,7 @@ mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2199,7 +2199,7 @@ mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2337,7 +2337,7 @@ mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutObserverRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec,
       null,
-      { arg_id: arg_id, arg_longName: arg_longName, arg_shortName: arg_shortName, arg_layoutTag: arg_layoutTag },
+      [arg_id, arg_longName, arg_shortName, arg_layoutTag],
       false);
   }
 

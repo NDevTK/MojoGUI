@@ -183,7 +183,7 @@ mojo.internal.bindings.webui_examples.mojom.PageHandlerFactoryRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.webui_examples.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webui_examples.mojom.PageHandler_Navigate_ParamsSpec,
       null,
-      { arg_guest_contents_id: arg_guest_contents_id, arg_src: arg_src },
+      [arg_guest_contents_id, arg_src],
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.webui_examples.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webui_examples.mojom.PageHandler_GoBack_ParamsSpec,
       null,
-      { arg_guest_contents_id: arg_guest_contents_id },
+      [arg_guest_contents_id],
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.webui_examples.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webui_examples.mojom.PageHandler_GoForward_ParamsSpec,
       null,
-      { arg_guest_contents_id: arg_guest_contents_id },
+      [arg_guest_contents_id],
       false);
   }
 

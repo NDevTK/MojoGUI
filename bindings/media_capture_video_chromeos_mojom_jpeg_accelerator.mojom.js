@@ -186,7 +186,7 @@ mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec,
       null,
-      { arg_jea: arg_jea },
+      [arg_jea],
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec,
       null,
-      { arg_jda: arg_jda },
+      [arg_jda],
       false);
   }
 

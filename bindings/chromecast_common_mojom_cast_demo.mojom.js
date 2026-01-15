@@ -198,7 +198,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserverRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec,
       null,
-      { arg_level: arg_level },
+      [arg_level],
       false);
   }
 
@@ -376,7 +376,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec,
       null,
-      { arg_event_name: arg_event_name, arg_data: arg_data },
+      [arg_event_name, arg_data],
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec,
       null,
-      { arg_retailer_name: arg_retailer_name },
+      [arg_retailer_name],
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec,
       null,
-      { arg_store_id: arg_store_id },
+      [arg_store_id],
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec,
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec,
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec,
       null,
-      { arg_level: arg_level },
+      [arg_level],
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec,
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec,
       null,
-      { arg_ssid: arg_ssid, arg_psk: arg_psk },
+      [arg_ssid, arg_psk],
       false);
   }
 
@@ -457,7 +457,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec,
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -466,7 +466,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec,
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -475,7 +475,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -484,7 +484,7 @@ mojo.internal.bindings.chromecast.shell.mojom.CastDemoRemoteCallHandler = class 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

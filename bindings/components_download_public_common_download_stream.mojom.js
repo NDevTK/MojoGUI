@@ -186,7 +186,7 @@ mojo.internal.bindings.download.mojom.DownloadStreamClientRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 

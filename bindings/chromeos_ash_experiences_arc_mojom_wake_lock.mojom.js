@@ -182,7 +182,7 @@ mojo.internal.bindings.arc.mojom.WakeLockHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec,
       mojo.internal.bindings.arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.arc.mojom.WakeLockHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec,
       mojo.internal.bindings.arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -347,7 +347,7 @@ mojo.internal.bindings.arc.mojom.WakeLockInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.WakeLockInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 

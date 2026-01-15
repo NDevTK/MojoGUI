@@ -468,7 +468,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -477,7 +477,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParamsSpec,
-      { arg_id: arg_id, arg_command: arg_command, arg_include_output: arg_include_output },
+      [arg_id, arg_command, arg_include_output],
       false);
   }
 
@@ -486,7 +486,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -495,7 +495,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -504,7 +504,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec,
-      { arg_percentage_used_threshold: arg_percentage_used_threshold },
+      [arg_percentage_used_threshold],
       false);
   }
 
@@ -513,7 +513,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec,
-      { arg_expected_status: arg_expected_status, arg_expected_power_type: arg_expected_power_type },
+      [arg_expected_status, arg_expected_power_type],
       false);
   }
 
@@ -522,7 +522,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec,
-      { arg_length_seconds: arg_length_seconds },
+      [arg_length_seconds],
       false);
   }
 
@@ -531,7 +531,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec,
-      { arg_length_seconds: arg_length_seconds },
+      [arg_length_seconds],
       false);
   }
 
@@ -540,7 +540,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec,
-      { arg_length_seconds: arg_length_seconds },
+      [arg_length_seconds],
       false);
   }
 
@@ -549,7 +549,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec,
-      { arg_wear_level_threshold: arg_wear_level_threshold },
+      [arg_wear_level_threshold],
       false);
   }
 
@@ -558,7 +558,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec,
-      { arg_nvme_self_test_type: arg_nvme_self_test_type },
+      [arg_nvme_self_test_type],
       false);
   }
 
@@ -567,7 +567,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec,
-      { arg_type: arg_type, arg_length_seconds: arg_length_seconds, arg_file_size_mb: arg_file_size_mb },
+      [arg_type, arg_length_seconds, arg_file_size_mb],
       false);
   }
 
@@ -576,7 +576,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec,
-      { arg_length_seconds: arg_length_seconds },
+      [arg_length_seconds],
       false);
   }
 
@@ -585,7 +585,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec,
-      { arg_length_seconds: arg_length_seconds, arg_maximum_discharge_percent_allowed: arg_maximum_discharge_percent_allowed },
+      [arg_length_seconds, arg_maximum_discharge_percent_allowed],
       false);
   }
 
@@ -594,7 +594,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec,
-      { arg_length_seconds: arg_length_seconds, arg_minimum_charge_percent_required: arg_minimum_charge_percent_required },
+      [arg_length_seconds, arg_minimum_charge_percent_required],
       false);
   }
 
@@ -603,7 +603,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -612,7 +612,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -621,7 +621,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -630,7 +630,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -639,7 +639,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -648,7 +648,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -675,7 +675,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -684,7 +684,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -693,7 +693,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -702,7 +702,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec,
-      { arg_timeout_seconds: arg_timeout_seconds },
+      [arg_timeout_seconds],
       false);
   }
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -720,7 +720,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -729,7 +729,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec,
-      { arg_length_seconds: arg_length_seconds },
+      [arg_length_seconds],
       false);
   }
 
@@ -738,7 +738,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec,
-      { arg_peripheral_id: arg_peripheral_id },
+      [arg_peripheral_id],
       false);
   }
 
@@ -747,7 +747,7 @@ mojo.internal.bindings.crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

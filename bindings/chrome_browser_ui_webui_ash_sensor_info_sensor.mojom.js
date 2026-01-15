@@ -189,7 +189,7 @@ mojo.internal.bindings.sensor.mojom.PageHandlerFactoryRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -323,7 +323,7 @@ mojo.internal.bindings.sensor.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -332,7 +332,7 @@ mojo.internal.bindings.sensor.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

@@ -183,7 +183,7 @@ mojo.internal.bindings.extensions.mime_handler.MimeHandlerServiceRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec,
       mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.extensions.mime_handler.MimeHandlerServiceRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec,
       null,
-      { arg_pdf_plugin_attributes: arg_pdf_plugin_attributes },
+      [arg_pdf_plugin_attributes],
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec,
       mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec,
-      { arg_show_dialog: arg_show_dialog },
+      [arg_show_dialog],
       false);
   }
 

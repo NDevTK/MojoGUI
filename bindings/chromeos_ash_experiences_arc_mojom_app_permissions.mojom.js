@@ -195,7 +195,7 @@ mojo.internal.bindings.arc.mojom.AppPermissionsInstanceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name, arg_permission: arg_permission },
+      [arg_package_name, arg_permission],
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.arc.mojom.AppPermissionsInstanceRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name, arg_permission: arg_permission },
+      [arg_package_name, arg_permission],
       false);
   }
 

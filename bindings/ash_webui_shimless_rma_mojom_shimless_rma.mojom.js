@@ -644,7 +644,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ErrorObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 
@@ -774,7 +774,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.OsUpdateObserverRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec,
       null,
-      { arg_operation: arg_operation, arg_progress: arg_progress, arg_update_error_code: arg_update_error_code },
+      [arg_operation, arg_progress, arg_update_error_code],
       false);
   }
 
@@ -908,7 +908,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.CalibrationObserverRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec,
       null,
-      { arg_componentStatus: arg_componentStatus },
+      [arg_componentStatus],
       false);
   }
 
@@ -917,7 +917,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.CalibrationObserverRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -1055,7 +1055,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ProvisioningObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec,
       null,
-      { arg_status: arg_status, arg_progress: arg_progress, arg_error: arg_error },
+      [arg_status, arg_progress, arg_error],
       false);
   }
 
@@ -1185,7 +1185,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.HardwareWriteProtectionStateObserv
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -1315,7 +1315,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.PowerCableStateObserverRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec,
       null,
-      { arg_plugged_in: arg_plugged_in },
+      [arg_plugged_in],
       false);
   }
 
@@ -1445,7 +1445,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ExternalDiskStateObserverRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec,
       null,
-      { arg_detected: arg_detected },
+      [arg_detected],
       false);
   }
 
@@ -1575,7 +1575,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.HardwareVerificationStatusObserver
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec,
       null,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 
@@ -1705,7 +1705,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.FinalizationObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec,
       null,
-      { arg_status: arg_status, arg_progress: arg_progress, arg_error: arg_error },
+      [arg_status, arg_progress, arg_error],
       false);
   }
 
@@ -1835,7 +1835,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -2257,7 +2257,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2266,7 +2266,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2275,7 +2275,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2284,7 +2284,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2293,7 +2293,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2302,7 +2302,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2311,7 +2311,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2320,7 +2320,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2329,7 +2329,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2338,7 +2338,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2347,7 +2347,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2356,7 +2356,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2365,7 +2365,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2374,7 +2374,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec,
-      { arg_should_wipe_device: arg_should_wipe_device },
+      [arg_should_wipe_device],
       false);
   }
 
@@ -2383,7 +2383,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2392,7 +2392,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2401,7 +2401,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2410,7 +2410,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2419,7 +2419,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2428,7 +2428,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec,
-      { arg_code: arg_code },
+      [arg_code],
       false);
   }
 
@@ -2437,7 +2437,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2446,7 +2446,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2455,7 +2455,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2464,7 +2464,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2473,7 +2473,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec,
-      { arg_components: arg_components },
+      [arg_components],
       false);
   }
 
@@ -2482,7 +2482,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2491,7 +2491,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2500,7 +2500,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2509,7 +2509,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2518,7 +2518,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2527,7 +2527,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2536,7 +2536,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2545,7 +2545,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2554,7 +2554,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2563,7 +2563,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2572,7 +2572,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2581,7 +2581,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2590,7 +2590,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2599,7 +2599,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2608,7 +2608,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec,
-      { arg_serial_number: arg_serial_number, arg_region_index: arg_region_index, arg_sku_index: arg_sku_index, arg_custom_label_index: arg_custom_label_index, arg_dram_part_number: arg_dram_part_number, arg_is_chassis_branded: arg_is_chassis_branded, arg_hw_compliance_version: arg_hw_compliance_version },
+      [arg_serial_number, arg_region_index, arg_sku_index, arg_custom_label_index, arg_dram_part_number, arg_is_chassis_branded, arg_hw_compliance_version],
       false);
   }
 
@@ -2617,7 +2617,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[40],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2626,7 +2626,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[41],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2635,7 +2635,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[42],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec,
-      { arg_components: arg_components },
+      [arg_components],
       false);
   }
 
@@ -2644,7 +2644,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[43],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2653,7 +2653,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[44],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2662,7 +2662,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[45],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2671,7 +2671,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[46],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2680,7 +2680,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[47],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2689,7 +2689,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[48],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2698,7 +2698,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[49],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2707,7 +2707,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[50],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2716,7 +2716,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[51],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2725,7 +2725,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[52],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2734,7 +2734,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[53],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2743,7 +2743,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[54],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2752,7 +2752,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[55],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec,
-      { arg_shutdown_method: arg_shutdown_method },
+      [arg_shutdown_method],
       false);
   }
 
@@ -2761,7 +2761,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[56],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2770,7 +2770,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[57],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2779,7 +2779,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[58],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2788,7 +2788,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[59],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2797,7 +2797,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[60],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2806,7 +2806,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[61],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2815,7 +2815,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[62],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ResponseParamsSpec,
-      { arg_is_approved: arg_is_approved },
+      [arg_is_approved],
       false);
   }
 
@@ -2824,7 +2824,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[63],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec,
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2833,7 +2833,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[64],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2842,7 +2842,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[65],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2851,7 +2851,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[66],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2860,7 +2860,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[67],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2869,7 +2869,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[68],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2878,7 +2878,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[69],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2887,7 +2887,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[70],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2896,7 +2896,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[71],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2905,7 +2905,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[72],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2914,7 +2914,7 @@ mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandle
       this.ordinals[73],  // ordinal
       mojo.internal.bindings.ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

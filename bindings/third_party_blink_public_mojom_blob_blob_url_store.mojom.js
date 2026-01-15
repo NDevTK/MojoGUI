@@ -211,7 +211,7 @@ mojo.internal.bindings.blink.mojom.BlobURLStoreRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BlobURLStore_Register_ResponseParamsSpec,
-      { arg_blob: arg_blob, arg_url: arg_url },
+      [arg_blob, arg_url],
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.blink.mojom.BlobURLStoreRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobURLStore_Revoke_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.blink.mojom.BlobURLStoreRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_factory: arg_factory },
+      [arg_url, arg_factory],
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.blink.mojom.BlobURLStoreRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_token: arg_token, arg_is_top_level_navigation: arg_is_top_level_navigation },
+      [arg_url, arg_token, arg_is_top_level_navigation],
       false);
   }
 
@@ -404,7 +404,7 @@ mojo.internal.bindings.blink.mojom.BlobURLTokenRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobURLToken_Clone_ParamsSpec,
       null,
-      { arg_token: arg_token },
+      [arg_token],
       false);
   }
 
@@ -413,7 +413,7 @@ mojo.internal.bindings.blink.mojom.BlobURLTokenRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

@@ -170,7 +170,7 @@ mojo.internal.bindings.notifications_internals.mojom.PageHandlerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec,
       null,
-      { arg_feature: arg_feature },
+      [arg_feature],
       false);
   }
 

@@ -178,7 +178,7 @@ mojo.internal.bindings.updater_ui.mojom.PageHandlerFactoryRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.updater_ui.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec,
       mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

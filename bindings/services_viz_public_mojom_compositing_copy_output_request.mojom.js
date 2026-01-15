@@ -199,7 +199,7 @@ mojo.internal.bindings.viz.mojom.CopyOutputResultSenderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec,
       null,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 

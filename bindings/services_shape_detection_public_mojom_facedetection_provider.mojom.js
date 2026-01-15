@@ -179,7 +179,7 @@ mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_options: arg_options },
+      [arg_receiver, arg_options],
       false);
   }
 

@@ -287,7 +287,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserver_OnEnrollmentFinished_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserverRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncObserver_OnNewDevicesSynced_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -482,7 +482,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_AddObserver_ResponseParamsSpec,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -491,7 +491,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -500,7 +500,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceSyncNow_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_ForceSyncNow_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -509,7 +509,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -518,7 +518,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -527,7 +527,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -536,7 +536,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -545,7 +545,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParamsSpec,
-      { arg_device_public_key: arg_device_public_key, arg_software_feature: arg_software_feature, arg_enabled: arg_enabled, arg_is_exclusive: arg_is_exclusive },
+      [arg_device_public_key, arg_software_feature, arg_enabled, arg_is_exclusive],
       false);
   }
 
@@ -554,7 +554,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParamsSpec,
-      { arg_device_instance_id: arg_device_instance_id, arg_feature: arg_feature, arg_status_change: arg_status_change },
+      [arg_device_instance_id, arg_feature, arg_status_change],
       false);
   }
 
@@ -563,7 +563,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec,
-      { arg_software_feature: arg_software_feature },
+      [arg_software_feature],
       false);
   }
 
@@ -572,7 +572,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParamsSpec,
-      { arg_device_instance_ids: arg_device_instance_ids, arg_cryptauth_service: arg_cryptauth_service, arg_feature: arg_feature },
+      [arg_device_instance_ids, arg_cryptauth_service, arg_feature],
       false);
   }
 
@@ -581,7 +581,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -590,7 +590,7 @@ mojo.internal.bindings.ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDebugInfo_ParamsSpec,
       mojo.internal.bindings.ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

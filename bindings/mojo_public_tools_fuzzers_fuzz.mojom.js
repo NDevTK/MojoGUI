@@ -200,7 +200,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzDummyInterfaceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec,
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec,
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec,
       null,
-      { arg_a: arg_a, arg_b: arg_b },
+      [arg_a, arg_b],
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec,
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec,
-      { arg_a: arg_a, arg_b: arg_b },
+      [arg_a, arg_b],
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec,
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec,
-      { arg_a: arg_a, arg_b: arg_b },
+      [arg_a, arg_b],
       false);
   }
 
@@ -408,7 +408,7 @@ mojo.internal.bindings.fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

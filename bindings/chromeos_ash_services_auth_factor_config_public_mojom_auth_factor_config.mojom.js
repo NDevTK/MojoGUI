@@ -277,7 +277,7 @@ mojo.internal.bindings.ash.auth.mojom.FactorObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec,
       null,
-      { arg_factor: arg_factor },
+      [arg_factor],
       false);
   }
 
@@ -427,7 +427,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -436,7 +436,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec,
-      { arg_auth_token: arg_auth_token, arg_factor: arg_factor },
+      [arg_auth_token, arg_factor],
       false);
   }
 
@@ -445,7 +445,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec,
-      { arg_auth_token: arg_auth_token, arg_factor: arg_factor },
+      [arg_auth_token, arg_factor],
       false);
   }
 
@@ -454,7 +454,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec,
-      { arg_auth_token: arg_auth_token, arg_factor: arg_factor },
+      [arg_auth_token, arg_factor],
       false);
   }
 
@@ -463,7 +463,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec,
-      { arg_auth_token: arg_auth_token, arg_factor: arg_factor },
+      [arg_auth_token, arg_factor],
       false);
   }
 
@@ -472,7 +472,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec,
       null,
-      { arg_auth_token: arg_auth_token },
+      [arg_auth_token],
       false);
   }
 
@@ -678,7 +678,7 @@ mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditorRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec,
-      { arg_auth_token: arg_auth_token, arg_enabled: arg_enabled },
+      [arg_auth_token, arg_enabled],
       false);
   }
 
@@ -833,7 +833,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec,
-      { arg_auth_token: arg_auth_token, arg_pin: arg_pin },
+      [arg_auth_token, arg_pin],
       false);
   }
 
@@ -842,7 +842,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec,
-      { arg_auth_token: arg_auth_token, arg_pin: arg_pin },
+      [arg_auth_token, arg_pin],
       false);
   }
 
@@ -851,7 +851,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec,
-      { arg_auth_token: arg_auth_token },
+      [arg_auth_token],
       false);
   }
 
@@ -860,7 +860,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec,
-      { arg_auth_token: arg_auth_token },
+      [arg_auth_token],
       false);
   }
 
@@ -869,7 +869,7 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec,
-      { arg_auth_token: arg_auth_token, arg_pin: arg_pin },
+      [arg_auth_token, arg_pin],
       false);
   }
 
@@ -1096,7 +1096,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec,
-      { arg_auth_token: arg_auth_token, arg_new_password: arg_new_password },
+      [arg_auth_token, arg_new_password],
       false);
   }
 
@@ -1105,7 +1105,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec,
-      { arg_auth_token: arg_auth_token, arg_new_password: arg_new_password },
+      [arg_auth_token, arg_new_password],
       false);
   }
 
@@ -1114,7 +1114,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec,
-      { arg_auth_token: arg_auth_token, arg_new_password: arg_new_password },
+      [arg_auth_token, arg_new_password],
       false);
   }
 
@@ -1123,7 +1123,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec,
-      { arg_auth_token: arg_auth_token, arg_new_password: arg_new_password },
+      [arg_auth_token, arg_new_password],
       false);
   }
 
@@ -1132,7 +1132,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec,
-      { arg_password: arg_password },
+      [arg_password],
       false);
   }
 
@@ -1141,7 +1141,7 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec,
       mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec,
-      { arg_auth_token: arg_auth_token },
+      [arg_auth_token],
       false);
   }
 

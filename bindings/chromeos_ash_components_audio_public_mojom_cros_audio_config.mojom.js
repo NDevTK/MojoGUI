@@ -239,7 +239,7 @@ mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec,
       null,
-      { arg_properties: arg_properties },
+      [arg_properties],
       false);
   }
 
@@ -417,7 +417,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec,
       null,
-      { arg_muted: arg_muted },
+      [arg_muted],
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec,
       null,
-      { arg_volume: arg_volume },
+      [arg_volume],
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec,
       null,
-      { arg_gain: arg_gain },
+      [arg_gain],
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec,
       null,
-      { arg_device: arg_device },
+      [arg_device],
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec,
       null,
-      { arg_muted: arg_muted },
+      [arg_muted],
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec,
       null,
-      { arg_preferred_effect: arg_preferred_effect },
+      [arg_preferred_effect],
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -507,7 +507,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -516,7 +516,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -525,7 +525,7 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler =
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 

@@ -586,7 +586,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsBootstrapRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec,
       null,
-      { arg_config: arg_config, arg_drive_fs: arg_drive_fs, arg_delegate: arg_delegate },
+      [arg_config, arg_drive_fs, arg_delegate],
       false);
   }
 
@@ -860,7 +860,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadata_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -869,7 +869,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinned_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinned_ResponseParamsSpec,
-      { arg_path: arg_path, arg_pinned: arg_pinned },
+      [arg_path, arg_pinned],
       false);
   }
 
@@ -878,7 +878,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec,
       null,
-      { arg_pause_syncing: arg_pause_syncing, arg_is_offline: arg_is_offline },
+      [arg_pause_syncing, arg_is_offline],
       false);
   }
 
@@ -887,7 +887,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_ResetCache_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_ResetCache_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -896,7 +896,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetThumbnail_ResponseParamsSpec,
-      { arg_path: arg_path, arg_crop_to_square: arg_crop_to_square },
+      [arg_path, arg_crop_to_square],
       false);
   }
 
@@ -905,7 +905,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_CopyFile_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_CopyFile_ResponseParamsSpec,
-      { arg_source: arg_source, arg_target: arg_target },
+      [arg_source, arg_target],
       false);
   }
 
@@ -914,7 +914,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec,
       null,
-      { arg_query: arg_query, arg_query_params: arg_query_params },
+      [arg_query, arg_query_params],
       false);
   }
 
@@ -923,7 +923,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -932,7 +932,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec,
       null,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -941,7 +941,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -950,7 +950,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec,
-      { arg_arguments: arg_arguments },
+      [arg_arguments],
       false);
   }
 
@@ -959,7 +959,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetStartupArguments_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -968,7 +968,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetTracingEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -977,7 +977,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -986,7 +986,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_ForcePauseSyncing_ParamsSpec,
       null,
-      { arg_enable: arg_enable },
+      [arg_enable],
       false);
   }
 
@@ -995,7 +995,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_DumpAccountSettings_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1004,7 +1004,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_LoadAccountSettings_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1013,7 +1013,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec,
       null,
-      { arg_params: arg_params, arg_host: arg_host, arg_port: arg_port },
+      [arg_params, arg_host, arg_port],
       false);
   }
 
@@ -1022,7 +1022,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec,
-      { arg_item_ids: arg_item_ids },
+      [arg_item_ids],
       false);
   }
 
@@ -1031,7 +1031,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetQuotaUsage_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1040,7 +1040,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -1049,7 +1049,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec,
-      { arg_path: arg_path, arg_status: arg_status },
+      [arg_path, arg_status],
       false);
   }
 
@@ -1058,7 +1058,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetSyncingPaths_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1067,7 +1067,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1076,7 +1076,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1085,7 +1085,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec,
-      { arg_stable_id: arg_stable_id, arg_pinned: arg_pinned },
+      [arg_stable_id, arg_pinned],
       false);
   }
 
@@ -1094,7 +1094,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec,
-      { arg_stable_id: arg_stable_id },
+      [arg_stable_id],
       false);
   }
 
@@ -1103,7 +1103,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec,
       null,
-      { arg_path: arg_path, arg_cancel_mode: arg_cancel_mode },
+      [arg_path, arg_cancel_mode],
       false);
   }
 
@@ -1112,7 +1112,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -1121,7 +1121,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1130,7 +1130,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_ClearOfflineFiles_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1139,7 +1139,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -1148,7 +1148,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -1157,7 +1157,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -1166,7 +1166,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1175,7 +1175,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -1184,7 +1184,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsRemoteCallHandler = class {
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -1894,7 +1894,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec,
-      { arg_client_id: arg_client_id, arg_app_id: arg_app_id, arg_scopes: arg_scopes },
+      [arg_client_id, arg_app_id, arg_scopes],
       false);
   }
 
@@ -1903,7 +1903,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnMounted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1912,7 +1912,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec,
       null,
-      { arg_retry_delay: arg_retry_delay },
+      [arg_retry_delay],
       false);
   }
 
@@ -1921,7 +1921,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec,
       null,
-      { arg_retry_delay: arg_retry_delay },
+      [arg_retry_delay],
       false);
   }
 
@@ -1930,7 +1930,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -1939,7 +1939,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec,
       null,
-      { arg_changes: arg_changes },
+      [arg_changes],
       false);
   }
 
@@ -1948,7 +1948,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 
@@ -1957,7 +1957,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec,
       null,
-      { arg_team_drive_ids: arg_team_drive_ids },
+      [arg_team_drive_ids],
       false);
   }
 
@@ -1966,7 +1966,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec,
       null,
-      { arg_team_drive_id: arg_team_drive_id, arg_change_type: arg_change_type },
+      [arg_team_drive_id, arg_change_type],
       false);
   }
 
@@ -1975,7 +1975,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1984,7 +1984,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec,
-      { arg_params: arg_params, arg_port: arg_port, arg_host: arg_host },
+      [arg_params, arg_port, arg_host],
       false);
   }
 
@@ -1993,7 +1993,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec,
-      { arg_reason: arg_reason },
+      [arg_reason],
       false);
   }
 
@@ -2002,7 +2002,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec,
       null,
-      { arg_request: arg_request, arg_delegate: arg_delegate },
+      [arg_request, arg_delegate],
       false);
   }
 
@@ -2011,7 +2011,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2020,7 +2020,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec,
       null,
-      { arg_doc_id: arg_doc_id },
+      [arg_doc_id],
       false);
   }
 
@@ -2029,7 +2029,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -2038,7 +2038,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec,
       null,
-      { arg_progress_event: arg_progress_event },
+      [arg_progress_event],
       false);
   }
 
@@ -2047,7 +2047,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec,
-      { arg_client_id: arg_client_id, arg_app_id: arg_app_id, arg_scopes: arg_scopes },
+      [arg_client_id, arg_app_id, arg_scopes],
       false);
   }
 
@@ -2056,7 +2056,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec,
       null,
-      { arg_notification: arg_notification },
+      [arg_notification],
       false);
   }
 
@@ -2065,7 +2065,7 @@ mojo.internal.bindings.drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec,
       null,
-      { arg_error_list: arg_error_list },
+      [arg_error_list],
       false);
   }
 
@@ -2390,7 +2390,7 @@ mojo.internal.bindings.drivefs.mojom.SearchQueryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec,
       mojo.internal.bindings.drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2540,7 +2540,7 @@ mojo.internal.bindings.drivefs.mojom.HttpDelegateRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec,
       null,
-      { arg_request_body: arg_request_body },
+      [arg_request_body],
       false);
   }
 
@@ -2549,7 +2549,7 @@ mojo.internal.bindings.drivefs.mojom.HttpDelegateRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec,
       null,
-      { arg_response: arg_response },
+      [arg_response],
       false);
   }
 
@@ -2558,7 +2558,7 @@ mojo.internal.bindings.drivefs.mojom.HttpDelegateRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec,
       null,
-      { arg_response_body: arg_response_body },
+      [arg_response_body],
       false);
   }
 
@@ -2567,7 +2567,7 @@ mojo.internal.bindings.drivefs.mojom.HttpDelegateRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 

@@ -171,7 +171,7 @@ mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetterRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec,
       mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec,
-      { arg_adapter_name: arg_adapter_name },
+      [arg_adapter_name],
       false);
   }
 

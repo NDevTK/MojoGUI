@@ -171,7 +171,7 @@ mojo.internal.bindings.chromecast.mojom.AudioSocketBrokerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec,
       mojo.internal.bindings.chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

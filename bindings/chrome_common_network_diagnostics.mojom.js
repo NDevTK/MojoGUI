@@ -181,7 +181,7 @@ mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec,
       null,
-      { arg_failed_url: arg_failed_url },
+      [arg_failed_url],
       false);
   }
 
@@ -315,7 +315,7 @@ mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClientRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec,
       null,
-      { arg_can_show: arg_can_show },
+      [arg_can_show],
       false);
   }
 
@@ -324,7 +324,7 @@ mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClientRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 

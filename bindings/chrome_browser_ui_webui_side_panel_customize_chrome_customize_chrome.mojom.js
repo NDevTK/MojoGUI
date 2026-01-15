@@ -280,7 +280,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerFactoryRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -522,7 +522,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec,
       null,
-      { arg_shortcuts_types: arg_shortcuts_types, arg_shortcuts_visible: arg_shortcuts_visible, arg_personal_shortcuts_visible: arg_personal_shortcuts_visible },
+      [arg_shortcuts_types, arg_shortcuts_visible, arg_personal_shortcuts_visible],
       false);
   }
 
@@ -531,7 +531,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateMostVisitedSettings_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -540,7 +540,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ParamsSpec,
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -549,7 +549,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ParamsSpec,
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec,
-      { arg_collection_id: arg_collection_id },
+      [arg_collection_id],
       false);
   }
 
@@ -558,7 +558,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec,
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec,
-      { arg_collection_id: arg_collection_id },
+      [arg_collection_id],
       false);
   }
 
@@ -567,7 +567,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateModulesSettings_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -576,7 +576,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateTheme_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -585,7 +585,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateThemeEditable_ParamsSpec,
       null,
-      { arg_is_theme_editable: arg_is_theme_editable },
+      [arg_is_theme_editable],
       false);
   }
 
@@ -594,7 +594,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetDefaultColor_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -603,7 +603,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_ParamsSpec,
       null,
-      { arg_follow: arg_follow },
+      [arg_follow],
       false);
   }
 
@@ -612,7 +612,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_RemoveBackgroundImage_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -621,7 +621,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ParamsSpec,
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -630,7 +630,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec,
       null,
-      { arg_attribution_1: arg_attribution_1, arg_attribution_2: arg_attribution_2, arg_attribution_url: arg_attribution_url, arg_image_url: arg_image_url, arg_thumbnail_url: arg_thumbnail_url, arg_collection_id: arg_collection_id },
+      [arg_attribution_1, arg_attribution_2, arg_attribution_url, arg_image_url, arg_thumbnail_url, arg_collection_id],
       false);
   }
 
@@ -639,7 +639,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_ParamsSpec,
       null,
-      { arg_collection_id: arg_collection_id },
+      [arg_collection_id],
       false);
   }
 
@@ -648,7 +648,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStore_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreHomePage_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_ParamsSpec,
       null,
-      { arg_theme_id: arg_theme_id },
+      [arg_theme_id],
       false);
   }
 
@@ -675,7 +675,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_ParamsSpec,
       null,
-      { arg_category: arg_category },
+      [arg_category],
       false);
   }
 
@@ -684,7 +684,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_ParamsSpec,
       null,
-      { arg_collection: arg_collection },
+      [arg_collection],
       false);
   }
 
@@ -693,7 +693,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_OpenNtpManagedByPage_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -702,7 +702,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetModulesVisible_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetModuleDisabled_ParamsSpec,
       null,
-      { arg_module_id: arg_module_id, arg_disabled: arg_disabled },
+      [arg_module_id, arg_disabled],
       false);
   }
 
@@ -720,7 +720,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetToolChipsVisible_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 
@@ -729,7 +729,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateToolChipsSettings_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -738,7 +738,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateScrollToSection_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -747,7 +747,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateAttachedTabState_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -756,7 +756,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateNtpManagedByName_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -765,7 +765,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_SetFooterVisible_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 
@@ -774,7 +774,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandlerRemoteCallHand
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePageHandler_UpdateFooterSettings_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1196,7 +1196,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec,
       null,
-      { arg_modules_settings: arg_modules_settings, arg_managed: arg_managed, arg_visible: arg_visible },
+      [arg_modules_settings, arg_managed, arg_visible],
       false);
   }
 
@@ -1205,7 +1205,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec,
       null,
-      { arg_shortcuts_types: arg_shortcuts_types, arg_visible: arg_visible, arg_personal_shortcuts_visible: arg_personal_shortcuts_visible, arg_disabled_shortcuts: arg_disabled_shortcuts },
+      [arg_shortcuts_types, arg_visible, arg_personal_shortcuts_visible, arg_disabled_shortcuts],
       false);
   }
 
@@ -1214,7 +1214,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetToolsSettings_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 
@@ -1223,7 +1223,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec,
       null,
-      { arg_visible: arg_visible, arg_extension_policy_enabled: arg_extension_policy_enabled, arg_management_notice_state: arg_management_notice_state },
+      [arg_visible, arg_extension_policy_enabled, arg_management_notice_state],
       false);
   }
 
@@ -1232,7 +1232,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetTheme_ParamsSpec,
       null,
-      { arg_theme: arg_theme },
+      [arg_theme],
       false);
   }
 
@@ -1241,7 +1241,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageRemoteCallHandler = c
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_SetThemeEditable_ParamsSpec,
       null,
-      { arg_is_theme_editable: arg_is_theme_editable },
+      [arg_is_theme_editable],
       false);
   }
 
@@ -1250,7 +1250,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageRemoteCallHandler = c
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec,
       null,
-      { arg_section: arg_section },
+      [arg_section],
       false);
   }
 
@@ -1259,7 +1259,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageRemoteCallHandler = c
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec,
       null,
-      { arg_ntp_type: arg_ntp_type },
+      [arg_ntp_type],
       false);
   }
 
@@ -1268,7 +1268,7 @@ mojo.internal.bindings.side_panel.mojom.CustomizeChromePageRemoteCallHandler = c
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.side_panel.mojom.CustomizeChromePage_NtpManagedByNameUpdated_ParamsSpec,
       null,
-      { arg_name: arg_name, arg_description: arg_description },
+      [arg_name, arg_description],
       false);
   }
 

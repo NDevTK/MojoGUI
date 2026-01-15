@@ -184,7 +184,7 @@ mojo.internal.bindings.blink.mojom.WebTransportConnectorRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebTransportConnector_Connect_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_fingerprints: arg_fingerprints, arg_application_protocols: arg_application_protocols, arg_client: arg_client },
+      [arg_url, arg_fingerprints, arg_application_protocols, arg_client],
       false);
   }
 

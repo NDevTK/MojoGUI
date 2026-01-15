@@ -256,7 +256,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerHostRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id, arg_service_worker_version_id: arg_service_worker_version_id, arg_worker_thread_id: arg_worker_thread_id, arg_service_worker_token: arg_service_worker_token, arg_event_dispatcher: arg_event_dispatcher },
+      [arg_extension_id, arg_service_worker_version_id, arg_worker_thread_id, arg_service_worker_token, arg_event_dispatcher],
       false);
   }
 
@@ -265,7 +265,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerHostRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id, arg_activation_token: arg_activation_token, arg_service_worker_scope: arg_service_worker_scope, arg_service_worker_version_id: arg_service_worker_version_id, arg_worker_thread_id: arg_worker_thread_id },
+      [arg_extension_id, arg_activation_token, arg_service_worker_scope, arg_service_worker_version_id, arg_worker_thread_id],
       false);
   }
 
@@ -274,7 +274,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerHostRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id, arg_activation_token: arg_activation_token, arg_service_worker_scope: arg_service_worker_scope, arg_service_worker_version_id: arg_service_worker_version_id, arg_worker_thread_id: arg_worker_thread_id },
+      [arg_extension_id, arg_activation_token, arg_service_worker_scope, arg_service_worker_version_id, arg_worker_thread_id],
       false);
   }
 
@@ -283,7 +283,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerHostRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -292,7 +292,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerHostRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec,
       null,
-      { arg_request_uuid: arg_request_uuid },
+      [arg_request_uuid],
       false);
   }
 
@@ -301,7 +301,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerHostRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec,
       null,
-      { arg_info: arg_info, arg_channel_type: arg_channel_type, arg_channel_name: arg_channel_name, arg_port_id: arg_port_id, arg_port: arg_port, arg_port_host: arg_port_host },
+      [arg_info, arg_channel_type, arg_channel_name, arg_port_id, arg_port, arg_port_host],
       false);
   }
 
@@ -310,7 +310,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerHostRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec,
       null,
-      { arg_native_app_name: arg_native_app_name, arg_port_id: arg_port_id, arg_port: arg_port, arg_port_host: arg_port_host },
+      [arg_native_app_name, arg_port_id, arg_port, arg_port_host],
       false);
   }
 
@@ -319,7 +319,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerHostRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec,
       null,
-      { arg_tab_id: arg_tab_id, arg_frame_id: arg_frame_id, arg_document_id: arg_document_id, arg_channel_type: arg_channel_type, arg_channel_name: arg_channel_name, arg_port_id: arg_port_id, arg_port: arg_port, arg_port_host: arg_port_host },
+      [arg_tab_id, arg_frame_id, arg_document_id, arg_channel_type, arg_channel_name, arg_port_id, arg_port, arg_port_host],
       false);
   }
 

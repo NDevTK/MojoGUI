@@ -225,7 +225,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.UserInterface_DarkenScreen_ParamsSpec,
       null,
-      { arg_darken: arg_darken },
+      [arg_darken],
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec,
       null,
-      { arg_subpage: arg_subpage },
+      [arg_subpage],
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec,
       mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec,
-      { arg_title: arg_title, arg_description: arg_description, arg_cancelName: arg_cancelName },
+      [arg_title, arg_description, arg_cancelName],
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ax.mojom.UserInterface_SetFocusRings_ParamsSpec,
       null,
-      { arg_focus_rings: arg_focus_rings, arg_at_type: arg_at_type },
+      [arg_focus_rings, arg_at_type],
       false);
   }
 
@@ -261,7 +261,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ax.mojom.UserInterface_SetHighlights_ParamsSpec,
       null,
-      { arg_rects: arg_rects, arg_color: arg_color },
+      [arg_rects, arg_color],
       false);
   }
 
@@ -270,7 +270,7 @@ mojo.internal.bindings.ax.mojom.UserInterfaceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec,
       null,
-      { arg_is_visible: arg_is_visible },
+      [arg_is_visible],
       false);
   }
 

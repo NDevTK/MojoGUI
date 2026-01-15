@@ -285,7 +285,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec,
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec,
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec,
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec,
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCa
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec,
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec,
-      { arg_pref: arg_pref },
+      [arg_pref],
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCa
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec,
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec,
-      { arg_pref: arg_pref, arg_value: arg_value },
+      [arg_pref, arg_value],
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCa
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec,
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCa
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec,
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec,
-      { arg_storage_dir_name: arg_storage_dir_name },
+      [arg_storage_dir_name],
       false);
   }
 
@@ -357,7 +357,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCa
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec,
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec,
-      { arg_url: arg_url, arg_method: arg_method, arg_request_body: arg_request_body, arg_use_credentials: arg_use_credentials, arg_use_api_key: arg_use_api_key, arg_headers: arg_headers, arg_account_email: arg_account_email },
+      [arg_url, arg_method, arg_request_body, arg_use_credentials, arg_use_api_key, arg_headers, arg_account_email],
       false);
   }
 
@@ -366,7 +366,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCa
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec,
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -375,7 +375,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCa
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec,
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec,
-      { arg_video_file_id: arg_video_file_id, arg_resource_key: arg_resource_key },
+      [arg_video_file_id, arg_resource_key],
       false);
   }
 
@@ -698,7 +698,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec,
       null,
-      { arg_precondition: arg_precondition },
+      [arg_precondition],
       false);
   }
 
@@ -707,7 +707,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec,
       null,
-      { arg_progress: arg_progress },
+      [arg_progress],
       false);
   }
 
@@ -716,7 +716,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -725,7 +725,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -734,7 +734,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageRemoteCallHandl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec,
       null,
-      { arg_pending_screencasts: arg_pending_screencasts },
+      [arg_pending_screencasts],
       false);
   }
 
@@ -896,7 +896,7 @@ mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactoryR
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec,
       null,
-      { arg_handler: arg_handler, arg_page: arg_page },
+      [arg_handler, arg_page],
       false);
   }
 

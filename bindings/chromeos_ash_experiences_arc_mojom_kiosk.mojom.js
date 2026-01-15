@@ -180,7 +180,7 @@ mojo.internal.bindings.arc.mojom.KioskHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec,
       null,
-      { arg_session_id: arg_session_id },
+      [arg_session_id],
       false);
   }
 
@@ -189,7 +189,7 @@ mojo.internal.bindings.arc.mojom.KioskHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec,
       null,
-      { arg_session_id: arg_session_id, arg_succeeded: arg_succeeded },
+      [arg_session_id, arg_succeeded],
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.arc.mojom.KioskInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.KioskInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KioskInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 

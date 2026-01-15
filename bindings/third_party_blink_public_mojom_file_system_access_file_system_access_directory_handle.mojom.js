@@ -224,7 +224,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListenerRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec,
       null,
-      { arg_result: arg_result, arg_entries: arg_entries, arg_has_more_entries: arg_has_more_entries },
+      [arg_result, arg_entries, arg_has_more_entries],
       false);
   }
 
@@ -402,7 +402,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec,
-      { arg_mode: arg_mode },
+      [arg_mode],
       false);
   }
 
@@ -411,7 +411,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec,
-      { arg_mode: arg_mode },
+      [arg_mode],
       false);
   }
 
@@ -420,7 +420,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec,
-      { arg_basename: arg_basename, arg_create: arg_create },
+      [arg_basename, arg_create],
       false);
   }
 
@@ -429,7 +429,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec,
-      { arg_basename: arg_basename, arg_create: arg_create },
+      [arg_basename, arg_create],
       false);
   }
 
@@ -438,7 +438,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec,
       null,
-      { arg_listener: arg_listener },
+      [arg_listener],
       false);
   }
 
@@ -447,7 +447,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec,
-      { arg_new_entry_name: arg_new_entry_name },
+      [arg_new_entry_name],
       false);
   }
 
@@ -456,7 +456,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec,
-      { arg_destination_directory: arg_destination_directory, arg_new_entry_name: arg_new_entry_name },
+      [arg_destination_directory, arg_new_entry_name],
       false);
   }
 
@@ -465,7 +465,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec,
-      { arg_recurse: arg_recurse },
+      [arg_recurse],
       false);
   }
 
@@ -474,7 +474,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec,
-      { arg_basename: arg_basename, arg_recurse: arg_recurse },
+      [arg_basename, arg_recurse],
       false);
   }
 
@@ -483,7 +483,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec,
-      { arg_possible_child: arg_possible_child },
+      [arg_possible_child],
       false);
   }
 
@@ -492,7 +492,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec,
       null,
-      { arg_token: arg_token },
+      [arg_token],
       false);
   }
 
@@ -501,7 +501,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -510,7 +510,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHand
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

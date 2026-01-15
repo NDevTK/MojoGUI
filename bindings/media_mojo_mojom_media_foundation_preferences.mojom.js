@@ -171,7 +171,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationPreferencesRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

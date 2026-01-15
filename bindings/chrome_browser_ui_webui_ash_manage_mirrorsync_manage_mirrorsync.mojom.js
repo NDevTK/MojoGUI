@@ -192,7 +192,7 @@ mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactoryRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec,
       mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandlerRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec,
       mojo.internal.bindings.ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

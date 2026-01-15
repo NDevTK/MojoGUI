@@ -234,7 +234,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactoryRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -396,7 +396,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec,
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec,
-      { arg_model_path: arg_model_path, arg_performance_hint: arg_performance_hint, arg_model: arg_model },
+      [arg_model_path, arg_performance_hint, arg_model],
       false);
   }
 
@@ -405,7 +405,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec,
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec,
-      { arg_model_path: arg_model_path, arg_model: arg_model },
+      [arg_model_path, arg_model],
       false);
   }
 
@@ -414,7 +414,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec,
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -423,7 +423,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec,
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -432,7 +432,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -441,7 +441,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec,
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec,
       null,
-      { arg_feature_key: arg_feature_key, arg_is_recently_used: arg_is_recently_used },
+      [arg_feature_key, arg_is_recently_used],
       false);
   }
 
@@ -459,7 +459,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec,
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec,
-      { arg_image_buffer: arg_image_buffer },
+      [arg_image_buffer],
       false);
   }
 
@@ -468,7 +468,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -718,7 +718,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
-      { arg_event_time: arg_event_time, arg_source_file: arg_source_file, arg_source_line: arg_source_line, arg_message: arg_message },
+      [arg_event_time, arg_source_file, arg_source_line, arg_message],
       false);
   }
 
@@ -727,7 +727,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec,
       null,
-      { arg_downloaded_bytes: arg_downloaded_bytes, arg_total_bytes: arg_total_bytes },
+      [arg_downloaded_bytes, arg_total_bytes],
       false);
   }
 

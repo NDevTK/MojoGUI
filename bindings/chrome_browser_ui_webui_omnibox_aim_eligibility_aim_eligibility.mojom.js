@@ -189,7 +189,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec,
       mojo.internal.bindings.aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -336,7 +336,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec,
       mojo.internal.bindings.aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec,
-      { arg_base64_encoded_response: arg_base64_encoded_response },
+      [arg_base64_encoded_response],
       false);
   }
 
@@ -509,7 +509,7 @@ mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactoryRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 

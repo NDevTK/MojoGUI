@@ -194,7 +194,7 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingClientRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec,
       mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingClientRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec,
       mojo.internal.bindings.heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

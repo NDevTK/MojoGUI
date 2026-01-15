@@ -195,7 +195,7 @@ mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec,
       null,
-      { arg_table_region: arg_table_region },
+      [arg_table_region],
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec,
       null,
-      { arg_link_hashes: arg_link_hashes },
+      [arg_link_hashes],
       false);
   }
 
@@ -213,7 +213,7 @@ mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec,
       null,
-      { arg_invalidate_cached_hashes: arg_invalidate_cached_hashes },
+      [arg_invalidate_cached_hashes],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec,
       null,
-      { arg_origin_salts: arg_origin_salts },
+      [arg_origin_salts],
       false);
   }
 

@@ -213,7 +213,7 @@ mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec,
       mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec,
-      { arg_session: arg_session },
+      [arg_session],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec,
       mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec,
-      { arg_session: arg_session },
+      [arg_session],
       false);
   }
 

@@ -243,7 +243,7 @@ mojo.internal.bindings.media.mojom.VideoFrameHandleReleaserRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_ParamsSpec,
       null,
-      { arg_release_token: arg_release_token, arg_release_export_result: arg_release_export_result },
+      [arg_release_token, arg_release_export_result],
       false);
   }
 
@@ -393,7 +393,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.VideoDecoder_GetSupportedConfigs_ParamsSpec,
       mojo.internal.bindings.media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -402,7 +402,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.VideoDecoder_Construct_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_media_log: arg_media_log, arg_video_frame_handle_releaser: arg_video_frame_handle_releaser, arg_decoder_buffer_pipe: arg_decoder_buffer_pipe, arg_command_buffer_id: arg_command_buffer_id, arg_target_color_space: arg_target_color_space },
+      [arg_client, arg_media_log, arg_video_frame_handle_releaser, arg_decoder_buffer_pipe, arg_command_buffer_id, arg_target_color_space],
       false);
   }
 
@@ -411,7 +411,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.VideoDecoder_Initialize_ParamsSpec,
       mojo.internal.bindings.media.mojom.VideoDecoder_Initialize_ResponseParamsSpec,
-      { arg_config: arg_config, arg_low_delay: arg_low_delay, arg_cdm: arg_cdm },
+      [arg_config, arg_low_delay, arg_cdm],
       false);
   }
 
@@ -420,7 +420,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.VideoDecoder_Decode_ParamsSpec,
       mojo.internal.bindings.media.mojom.VideoDecoder_Decode_ResponseParamsSpec,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 
@@ -429,7 +429,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.VideoDecoder_Reset_ParamsSpec,
       mojo.internal.bindings.media.mojom.VideoDecoder_Reset_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -438,7 +438,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.VideoDecoder_OnOverlayInfoChanged_ParamsSpec,
       null,
-      { arg_overlay_info: arg_overlay_info },
+      [arg_overlay_info],
       false);
   }
 
@@ -649,7 +649,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec,
       null,
-      { arg_frame: arg_frame, arg_can_read_without_stalling: arg_can_read_without_stalling, arg_release_token: arg_release_token },
+      [arg_frame, arg_can_read_without_stalling, arg_release_token],
       false);
   }
 
@@ -658,7 +658,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.VideoDecoderClient_OnWaiting_ParamsSpec,
       null,
-      { arg_reason: arg_reason },
+      [arg_reason],
       false);
   }
 
@@ -667,7 +667,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.VideoDecoderClient_RequestOverlayInfo_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

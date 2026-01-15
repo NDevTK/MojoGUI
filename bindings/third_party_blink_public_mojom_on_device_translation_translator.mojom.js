@@ -181,7 +181,7 @@ mojo.internal.bindings.blink.mojom.TranslatorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.Translator_Translate_ParamsSpec,
       null,
-      { arg_input: arg_input, arg_pending_responder: arg_pending_responder },
+      [arg_input, arg_pending_responder],
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.blink.mojom.TranslatorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.Translator_TranslateStreaming_ParamsSpec,
       null,
-      { arg_input: arg_input, arg_pending_responder: arg_pending_responder },
+      [arg_input, arg_pending_responder],
       false);
   }
 

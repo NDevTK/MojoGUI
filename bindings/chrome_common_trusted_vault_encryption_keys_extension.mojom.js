@@ -178,7 +178,7 @@ mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec,
-      { arg_gaia_id: arg_gaia_id, arg_encryption_keys: arg_encryption_keys },
+      [arg_gaia_id, arg_encryption_keys],
       false);
   }
 
@@ -187,7 +187,7 @@ mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec,
-      { arg_gaia_id: arg_gaia_id, arg_public_key: arg_public_key, arg_method_type_hint: arg_method_type_hint },
+      [arg_gaia_id, arg_public_key, arg_method_type_hint],
       false);
   }
 

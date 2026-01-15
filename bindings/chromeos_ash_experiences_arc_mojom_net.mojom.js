@@ -496,7 +496,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_StartScan_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -514,7 +514,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec,
-      { arg_is_enabled: arg_is_enabled },
+      [arg_is_enabled],
       false);
   }
 
@@ -523,7 +523,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_CreateNetwork_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_CreateNetwork_ResponseParamsSpec,
-      { arg_cfg: arg_cfg },
+      [arg_cfg],
       false);
   }
 
@@ -532,7 +532,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_ForgetNetwork_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_ForgetNetwork_ResponseParamsSpec,
-      { arg_guid: arg_guid },
+      [arg_guid],
       false);
   }
 
@@ -541,7 +541,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec,
-      { arg_guid: arg_guid, arg_cfg: arg_cfg },
+      [arg_guid, arg_cfg],
       false);
   }
 
@@ -550,7 +550,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_StartConnect_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_StartConnect_ResponseParamsSpec,
-      { arg_guid: arg_guid },
+      [arg_guid],
       false);
   }
 
@@ -559,7 +559,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_StartDisconnect_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_StartDisconnect_ResponseParamsSpec,
-      { arg_guid: arg_guid },
+      [arg_guid],
       false);
   }
 
@@ -568,7 +568,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_GetNetworks_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_GetNetworks_ResponseParamsSpec,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -577,7 +577,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec,
       null,
-      { arg_cfg: arg_cfg },
+      [arg_cfg],
       false);
   }
 
@@ -586,7 +586,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec,
       null,
-      { arg_cfg: arg_cfg },
+      [arg_cfg],
       false);
   }
 
@@ -595,7 +595,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -604,7 +604,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -613,7 +613,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec,
       null,
-      { arg_vpnPackage: arg_vpnPackage, arg_lockdown: arg_lockdown },
+      [arg_vpnPackage, arg_lockdown],
       false);
   }
 
@@ -622,7 +622,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -631,7 +631,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec,
       null,
-      { arg_credentials: arg_credentials },
+      [arg_credentials],
       false);
   }
 
@@ -640,7 +640,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec,
       null,
-      { arg_properties: arg_properties },
+      [arg_properties],
       false);
   }
 
@@ -649,7 +649,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_DisconnectHostVpn_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -658,7 +658,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_StartLohs_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetHost_StartLohs_ResponseParamsSpec,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -667,7 +667,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_StopLohs_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -676,7 +676,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec,
       null,
-      { arg_is_held: arg_is_held },
+      [arg_is_held],
       false);
   }
 
@@ -685,7 +685,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec,
       null,
-      { arg_msg: arg_msg },
+      [arg_msg],
       false);
   }
 
@@ -694,7 +694,7 @@ mojo.internal.bindings.arc.mojom.NetHostRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec,
       null,
-      { arg_msg: arg_msg },
+      [arg_msg],
       false);
   }
 
@@ -1126,7 +1126,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -1135,7 +1135,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_ScanCompleted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1144,7 +1144,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec,
       null,
-      { arg_is_enabled: arg_is_enabled },
+      [arg_is_enabled],
       false);
   }
 
@@ -1153,7 +1153,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1162,7 +1162,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1171,7 +1171,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec,
       null,
-      { arg_network: arg_network },
+      [arg_network],
       false);
   }
 
@@ -1180,7 +1180,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec,
-      { arg_transport_name: arg_transport_name, arg_host_name: arg_host_name },
+      [arg_transport_name, arg_host_name],
       false);
   }
 
@@ -1189,7 +1189,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_HttpTest_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetInstance_HttpTest_ResponseParamsSpec,
-      { arg_transport_name: arg_transport_name, arg_url: arg_url },
+      [arg_transport_name, arg_url],
       false);
   }
 
@@ -1198,7 +1198,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_PingTest_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NetInstance_PingTest_ResponseParamsSpec,
-      { arg_transport_name: arg_transport_name, arg_ip_address: arg_ip_address },
+      [arg_transport_name, arg_ip_address],
       false);
   }
 
@@ -1207,7 +1207,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.NetInstance_SetUpFlag_ParamsSpec,
       null,
-      { arg_flag: arg_flag, arg_value: arg_value },
+      [arg_flag, arg_value],
       false);
   }
 

@@ -170,7 +170,7 @@ mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfaceRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

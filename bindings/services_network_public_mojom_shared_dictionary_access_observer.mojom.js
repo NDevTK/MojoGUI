@@ -192,7 +192,7 @@ mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserverRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSpec,
       null,
-      { arg_details: arg_details },
+      [arg_details],
       false);
   }
 
@@ -201,7 +201,7 @@ mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserverRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

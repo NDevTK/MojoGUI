@@ -170,7 +170,7 @@ mojo.internal.bindings.web_ui_test.mojom.TestRunnerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec,
       null,
-      { arg_failureMessage: arg_failureMessage },
+      [arg_failureMessage],
       false);
   }
 

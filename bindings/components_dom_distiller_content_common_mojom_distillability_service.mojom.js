@@ -170,7 +170,7 @@ mojo.internal.bindings.dom_distiller.mojom.DistillabilityServiceRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec,
       null,
-      { arg_page_is_distillable: arg_page_is_distillable, arg_is_last_update: arg_is_last_update, arg_is_long_article: arg_is_long_article, arg_is_mobile_friendly: arg_is_mobile_friendly },
+      [arg_page_is_distillable, arg_is_last_update, arg_is_long_article, arg_is_mobile_friendly],
       false);
   }
 

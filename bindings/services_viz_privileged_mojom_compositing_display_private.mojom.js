@@ -282,7 +282,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec,
       mojo.internal.bindings.viz.mojom.DisplayPrivate_DisableSwapUntilResize_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_Resize_ParamsSpec,
       null,
-      { arg_size: arg_size },
+      [arg_size],
       false);
   }
 
@@ -309,7 +309,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec,
       null,
-      { arg_color_matrix: arg_color_matrix },
+      [arg_color_matrix],
       false);
   }
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec,
       null,
-      { arg_display_color_spaces: arg_display_color_spaces },
+      [arg_display_color_spaces],
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec,
       null,
-      { arg_secure: arg_secure },
+      [arg_secure],
       false);
   }
 
@@ -336,7 +336,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec,
       null,
-      { arg_timebase: arg_timebase, arg_interval: arg_interval },
+      [arg_timebase, arg_interval],
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec,
       null,
-      { arg_refresh_rates: arg_refresh_rates },
+      [arg_refresh_rates],
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.viz.mojom.DisplayPrivateRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec,
       null,
-      { arg_max_vsync_interval: arg_max_vsync_interval, arg_vrr_state: arg_vrr_state },
+      [arg_max_vsync_interval, arg_vrr_state],
       false);
   }
 
@@ -636,7 +636,7 @@ mojo.internal.bindings.viz.mojom.DisplayClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -645,7 +645,7 @@ mojo.internal.bindings.viz.mojom.DisplayClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec,
       null,
-      { arg_child_window: arg_child_window },
+      [arg_child_window],
       false);
   }
 
@@ -654,7 +654,7 @@ mojo.internal.bindings.viz.mojom.DisplayClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec,
       null,
-      { arg_size: arg_size },
+      [arg_size],
       false);
   }
 
@@ -663,7 +663,7 @@ mojo.internal.bindings.viz.mojom.DisplayClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec,
       null,
-      { arg_refresh_rate: arg_refresh_rate },
+      [arg_refresh_rate],
       false);
   }
 

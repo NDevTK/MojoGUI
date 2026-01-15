@@ -198,7 +198,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotatorRemo
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec,
-      { arg_rgb_bytes: arg_rgb_bytes, arg_width: arg_width, arg_height: arg_height, arg_line_stride: arg_line_stride },
+      [arg_rgb_bytes, arg_width, arg_height, arg_line_stride],
       false);
   }
 
@@ -207,7 +207,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotatorRemo
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec,
-      { arg_encoded_image: arg_encoded_image },
+      [arg_encoded_image],
       false);
   }
 

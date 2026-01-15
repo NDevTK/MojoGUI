@@ -196,7 +196,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec,
       mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -465,7 +465,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec,
       null,
-      { arg_event_time: arg_event_time, arg_source_file: arg_source_file, arg_source_line: arg_source_line, arg_message: arg_message },
+      [arg_event_time, arg_source_file, arg_source_line, arg_message],
       false);
   }
 

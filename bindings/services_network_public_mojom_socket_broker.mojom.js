@@ -185,7 +185,7 @@ mojo.internal.bindings.network.mojom.SocketBrokerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec,
       mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec,
-      { arg_address_family: arg_address_family },
+      [arg_address_family],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.network.mojom.SocketBrokerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec,
       mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec,
-      { arg_address_family: arg_address_family },
+      [arg_address_family],
       false);
   }
 

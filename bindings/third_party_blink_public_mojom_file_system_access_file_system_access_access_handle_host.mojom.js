@@ -171,7 +171,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHostRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHost_Close_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

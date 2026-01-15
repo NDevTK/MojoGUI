@@ -194,7 +194,7 @@ mojo.internal.bindings.media_router.mojom.MediaStatusObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 

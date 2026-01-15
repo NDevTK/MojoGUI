@@ -417,7 +417,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec,
       null,
-      { arg_result: arg_result, arg_account: arg_account },
+      [arg_result, arg_account],
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_ReportMetrics_ParamsSpec,
       null,
-      { arg_metrics_type: arg_metrics_type, arg_value: arg_value },
+      [arg_metrics_type, arg_value],
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccount_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_RequestAccountInfo_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec,
-      { arg_account_name: arg_account_name },
+      [arg_account_name],
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AuthHost_IsAccountManagerAvailable_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_HandleAddAccountRequest_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec,
       null,
-      { arg_account_name: arg_account_name },
+      [arg_account_name],
       false);
   }
 
@@ -507,7 +507,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec,
       null,
-      { arg_account_name: arg_account_name },
+      [arg_account_name],
       false);
   }
 
@@ -516,7 +516,7 @@ mojo.internal.bindings.arc.mojom.AuthHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec,
       null,
-      { arg_reason: arg_reason },
+      [arg_reason],
       false);
   }
 
@@ -783,7 +783,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AuthInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -792,7 +792,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthInstance_OnAccountUpdated_ParamsSpec,
       null,
-      { arg_account_name: arg_account_name, arg_update_type: arg_update_type },
+      [arg_account_name, arg_update_type],
       false);
   }
 
@@ -801,7 +801,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -810,7 +810,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -819,7 +819,7 @@ mojo.internal.bindings.arc.mojom.AuthInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.AuthInstance_SetAccounts_ParamsSpec,
       null,
-      { arg_accounts: arg_accounts },
+      [arg_accounts],
       false);
   }
 

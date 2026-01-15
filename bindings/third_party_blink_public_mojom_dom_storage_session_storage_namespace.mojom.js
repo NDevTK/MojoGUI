@@ -170,7 +170,7 @@ mojo.internal.bindings.blink.mojom.SessionStorageNamespaceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SessionStorageNamespace_Clone_ParamsSpec,
       null,
-      { arg_clone_to_namespace: arg_clone_to_namespace },
+      [arg_clone_to_namespace],
       false);
   }
 

@@ -197,7 +197,7 @@ mojo.internal.bindings.arc.mojom.OnDeviceSafetyHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstanceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec,
-      { arg_session: arg_session },
+      [arg_session],
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstanceRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 

@@ -201,7 +201,7 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactoryRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec,
       null,
-      { arg_shared_memory: arg_shared_memory, arg_child_histogram_fetcher: arg_child_histogram_fetcher },
+      [arg_shared_memory, arg_child_histogram_fetcher],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec,
       mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec,
       mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec,
-      { arg_call_source: arg_call_source },
+      [arg_call_source],
       false);
   }
 

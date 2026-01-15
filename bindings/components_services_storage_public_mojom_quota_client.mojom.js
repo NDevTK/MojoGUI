@@ -201,7 +201,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec,
       mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec,
-      { arg_bucket: arg_bucket },
+      [arg_bucket],
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec,
       mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec,
-      { arg_bucket: arg_bucket },
+      [arg_bucket],
       false);
   }
 
@@ -228,7 +228,7 @@ mojo.internal.bindings.storage.mojom.QuotaClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec,
       mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

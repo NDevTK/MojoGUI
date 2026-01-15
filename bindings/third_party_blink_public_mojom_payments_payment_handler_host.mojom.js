@@ -200,7 +200,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec,
       mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec,
-      { arg_method_data: arg_method_data },
+      [arg_method_data],
       false);
   }
 
@@ -209,7 +209,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec,
       mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec,
-      { arg_shipping_option_id: arg_shipping_option_id },
+      [arg_shipping_option_id],
       false);
   }
 
@@ -218,7 +218,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec,
       mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec,
-      { arg_shipping_address: arg_shipping_address },
+      [arg_shipping_address],
       false);
   }
 

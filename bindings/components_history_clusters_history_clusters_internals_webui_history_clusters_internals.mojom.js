@@ -180,7 +180,7 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactoryRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_page_handler: arg_page_handler },
+      [arg_page, arg_page_handler],
       false);
   }
 
@@ -314,7 +314,7 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec,
       mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -323,7 +323,7 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -470,7 +470,7 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 

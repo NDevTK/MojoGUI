@@ -218,7 +218,7 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec,
       mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec,
-      { arg_id: arg_id, arg_guid: arg_guid },
+      [arg_id, arg_guid],
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec,
       mojo.internal.bindings.ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec,
-      { arg_id: arg_id, arg_mapping_ctrl: arg_mapping_ctrl },
+      [arg_id, arg_mapping_ctrl],
       false);
   }
 
@@ -236,7 +236,7 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec,
       mojo.internal.bindings.ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec,
-      { arg_id: arg_id, arg_ctrl: arg_ctrl, arg_fn: arg_fn },
+      [arg_id, arg_ctrl, arg_fn],
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.ash.cfm.mojom.XuCameraRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec,
       mojo.internal.bindings.ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec,
-      { arg_id: arg_id, arg_ctrl: arg_ctrl, arg_data: arg_data },
+      [arg_id, arg_ctrl, arg_data],
       false);
   }
 

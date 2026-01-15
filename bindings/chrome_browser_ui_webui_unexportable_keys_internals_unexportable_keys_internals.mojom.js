@@ -191,7 +191,7 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerFactoryRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec,
       mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec,
       mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec,
-      { arg_key_id: arg_key_id },
+      [arg_key_id],
       false);
   }
 

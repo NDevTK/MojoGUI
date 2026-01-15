@@ -276,7 +276,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec,
-      { arg_frame_data: arg_frame_data },
+      [arg_frame_data],
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec,
-      { arg_index: arg_index },
+      [arg_index],
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec,
-      { arg_index: arg_index },
+      [arg_index],
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.device_test.mojom.XRTestHookRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec,
-      { arg_view_index: arg_view_index },
+      [arg_view_index],
       false);
   }
 
@@ -626,7 +626,7 @@ mojo.internal.bindings.device_test.mojom.XRServiceTestHookRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec,
-      { arg_hook: arg_hook },
+      [arg_hook],
       false);
   }
 
@@ -635,7 +635,7 @@ mojo.internal.bindings.device_test.mojom.XRServiceTestHookRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec,
       mojo.internal.bindings.device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

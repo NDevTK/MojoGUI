@@ -177,7 +177,7 @@ mojo.internal.bindings.commerce_web_extractor.mojom.CommerceWebExtractorRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec,
       mojo.internal.bindings.commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

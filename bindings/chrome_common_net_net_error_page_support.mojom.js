@@ -175,7 +175,7 @@ mojo.internal.bindings.chrome.mojom.NetErrorPageSupportRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -184,7 +184,7 @@ mojo.internal.bindings.chrome.mojom.NetErrorPageSupportRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec,
       null,
-      { arg_showing_download_button: arg_showing_download_button },
+      [arg_showing_download_button],
       false);
   }
 

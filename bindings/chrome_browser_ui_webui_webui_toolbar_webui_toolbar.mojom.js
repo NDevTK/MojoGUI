@@ -188,7 +188,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactoryRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webui_toolbar.mojom.PageHandler_Reload_ParamsSpec,
       null,
-      { arg_ignore_cache: arg_ignore_cache, arg_flags: arg_flags },
+      [arg_ignore_cache, arg_flags],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webui_toolbar.mojom.PageHandler_StopReload_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webui_toolbar.mojom.PageHandler_ShowContextMenu_ParamsSpec,
       null,
-      { arg_offset_x: arg_offset_x, arg_offset_y: arg_offset_y },
+      [arg_offset_x, arg_offset_y],
       false);
   }
 
@@ -490,7 +490,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webui_toolbar.mojom.Page_SetReloadButtonState_ParamsSpec,
       null,
-      { arg_is_loading: arg_is_loading, arg_is_menu_enabled: arg_is_menu_enabled },
+      [arg_is_loading, arg_is_menu_enabled],
       false);
   }
 

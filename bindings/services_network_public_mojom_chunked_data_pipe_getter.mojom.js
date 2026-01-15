@@ -176,7 +176,7 @@ mojo.internal.bindings.network.mojom.ChunkedDataPipeGetterRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec,
       mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -185,7 +185,7 @@ mojo.internal.bindings.network.mojom.ChunkedDataPipeGetterRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec,
       null,
-      { arg_pipe: arg_pipe },
+      [arg_pipe],
       false);
   }
 

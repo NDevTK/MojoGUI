@@ -539,7 +539,7 @@ mojo.internal.bindings.device.mojom.VRServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.VRService_SetClient_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -548,7 +548,7 @@ mojo.internal.bindings.device.mojom.VRServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.VRService_RequestSession_ParamsSpec,
       mojo.internal.bindings.device.mojom.VRService_RequestSession_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -557,7 +557,7 @@ mojo.internal.bindings.device.mojom.VRServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.VRService_SupportsSession_ParamsSpec,
       mojo.internal.bindings.device.mojom.VRService_SupportsSession_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -566,7 +566,7 @@ mojo.internal.bindings.device.mojom.VRServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.VRService_ExitPresent_ParamsSpec,
       mojo.internal.bindings.device.mojom.VRService_ExitPresent_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -575,7 +575,7 @@ mojo.internal.bindings.device.mojom.VRServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.VRService_SetFramesThrottled_ParamsSpec,
       null,
-      { arg_throttled: arg_throttled },
+      [arg_throttled],
       false);
   }
 
@@ -584,7 +584,7 @@ mojo.internal.bindings.device.mojom.VRServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.device.mojom.VRService_MakeXrCompatible_ParamsSpec,
       mojo.internal.bindings.device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -789,7 +789,7 @@ mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec,
       null,
-      { arg_feature: arg_feature },
+      [arg_feature],
       false);
   }
 
@@ -919,7 +919,7 @@ mojo.internal.bindings.device.mojom.VRServiceClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1065,7 +1065,7 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec,
       mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec,
-      { arg_native_origin_information: arg_native_origin_information, arg_entity_types: arg_entity_types, arg_ray: arg_ray },
+      [arg_native_origin_information, arg_entity_types, arg_ray],
       false);
   }
 
@@ -1074,7 +1074,7 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec,
       mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec,
-      { arg_profile_name: arg_profile_name, arg_entity_types: arg_entity_types, arg_ray: arg_ray },
+      [arg_profile_name, arg_entity_types, arg_ray],
       false);
   }
 
@@ -1083,7 +1083,7 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec,
       null,
-      { arg_subscription_id: arg_subscription_id },
+      [arg_subscription_id],
       false);
   }
 
@@ -1092,7 +1092,7 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemoteCallHa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec,
       mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec,
-      { arg_native_origin_information: arg_native_origin_information, arg_native_origin_from_anchor: arg_native_origin_from_anchor, arg_plane_id: arg_plane_id },
+      [arg_native_origin_information, arg_native_origin_from_anchor, arg_plane_id],
       false);
   }
 
@@ -1101,7 +1101,7 @@ mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemoteCallHa
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec,
       null,
-      { arg_anchor_id: arg_anchor_id },
+      [arg_anchor_id],
       false);
   }
 
@@ -1294,7 +1294,7 @@ mojo.internal.bindings.device.mojom.XRFrameDataProviderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec,
       mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -1303,7 +1303,7 @@ mojo.internal.bindings.device.mojom.XRFrameDataProviderRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec,
       null,
-      { arg_environment_provider: arg_environment_provider },
+      [arg_environment_provider],
       false);
   }
 
@@ -1466,7 +1466,7 @@ mojo.internal.bindings.device.mojom.XRPresentationProviderRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec,
       null,
-      { arg_frame_id: arg_frame_id, arg_left_bounds: arg_left_bounds, arg_right_bounds: arg_right_bounds, arg_source_size: arg_source_size },
+      [arg_frame_id, arg_left_bounds, arg_right_bounds, arg_source_size],
       false);
   }
 
@@ -1475,7 +1475,7 @@ mojo.internal.bindings.device.mojom.XRPresentationProviderRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec,
       null,
-      { arg_frame_id: arg_frame_id, arg_sync_token: arg_sync_token },
+      [arg_frame_id, arg_sync_token],
       false);
   }
 
@@ -1484,7 +1484,7 @@ mojo.internal.bindings.device.mojom.XRPresentationProviderRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec,
       null,
-      { arg_frame_id: arg_frame_id, arg_time_waited: arg_time_waited },
+      [arg_frame_id, arg_time_waited],
       false);
   }
 
@@ -1493,7 +1493,7 @@ mojo.internal.bindings.device.mojom.XRPresentationProviderRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec,
       null,
-      { arg_frame_id: arg_frame_id, arg_texture: arg_texture, arg_sync_token: arg_sync_token },
+      [arg_frame_id, arg_texture, arg_sync_token],
       false);
   }
 
@@ -1502,7 +1502,7 @@ mojo.internal.bindings.device.mojom.XRPresentationProviderRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec,
       null,
-      { arg_frame_id: arg_frame_id, arg_layer_ids: arg_layer_ids, arg_sync_token: arg_sync_token, arg_time_waited: arg_time_waited },
+      [arg_frame_id, arg_layer_ids, arg_sync_token, arg_time_waited],
       false);
   }
 
@@ -1672,7 +1672,7 @@ mojo.internal.bindings.device.mojom.XRPresentationClientRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec,
       null,
-      { arg_success: arg_success },
+      [arg_success],
       false);
   }
 
@@ -1681,7 +1681,7 @@ mojo.internal.bindings.device.mojom.XRPresentationClientRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1690,7 +1690,7 @@ mojo.internal.bindings.device.mojom.XRPresentationClientRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec,
       null,
-      { arg_gpu_fence_handle: arg_gpu_fence_handle },
+      [arg_gpu_fence_handle],
       false);
   }
 
@@ -1840,7 +1840,7 @@ mojo.internal.bindings.device.mojom.XRSessionClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.XRSessionClient_OnExitPresent_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1849,7 +1849,7 @@ mojo.internal.bindings.device.mojom.XRSessionClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec,
       null,
-      { arg_visibility_state: arg_visibility_state },
+      [arg_visibility_state],
       false);
   }
 
@@ -1999,7 +1999,7 @@ mojo.internal.bindings.device.mojom.XRLayerManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec,
       mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec,
-      { arg_create_data: arg_create_data },
+      [arg_create_data],
       false);
   }
 
@@ -2008,7 +2008,7 @@ mojo.internal.bindings.device.mojom.XRLayerManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec,
       null,
-      { arg_layer_id: arg_layer_id },
+      [arg_layer_id],
       false);
   }
 
@@ -2017,7 +2017,7 @@ mojo.internal.bindings.device.mojom.XRLayerManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec,
       null,
-      { arg_layer_id: arg_layer_id, arg_update_data: arg_update_data },
+      [arg_layer_id, arg_update_data],
       false);
   }
 
@@ -2026,7 +2026,7 @@ mojo.internal.bindings.device.mojom.XRLayerManagerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec,
       null,
-      { arg_layer_ids: arg_layer_ids },
+      [arg_layer_ids],
       false);
   }
 
@@ -2193,7 +2193,7 @@ mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec,
       null,
-      { arg_xrframe_statistics: arg_xrframe_statistics },
+      [arg_xrframe_statistics],
       false);
   }
 
@@ -2202,7 +2202,7 @@ mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec,
       null,
-      { arg_xrlogging_statistics: arg_xrlogging_statistics },
+      [arg_xrlogging_statistics],
       false);
   }
 

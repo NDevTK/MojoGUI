@@ -176,7 +176,7 @@ mojo.internal.bindings.wl.mojom.ConfigTraitsTestServiceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec,
       mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec,
-      { arg_t: arg_t },
+      [arg_t],
       false);
   }
 

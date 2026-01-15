@@ -186,7 +186,7 @@ mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec,
       mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

@@ -197,7 +197,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerFactoryRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler, arg_searchbox_page: arg_searchbox_page, arg_searchbox_handler: arg_searchbox_handler },
+      [arg_page, arg_handler, arg_searchbox_page, arg_searchbox_handler],
       false);
   }
 
@@ -347,7 +347,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.composebox.mojom.PageHandler_FocusChanged_ParamsSpec,
       null,
-      { arg_focused: arg_focused },
+      [arg_focused],
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled, arg_image_present: arg_image_present },
+      [arg_enabled, arg_image_present],
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec,
       null,
-      { arg_is_image: arg_is_image },
+      [arg_is_image],
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.composebox.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.composebox.mojom.PageHandler_NavigateUrl_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 

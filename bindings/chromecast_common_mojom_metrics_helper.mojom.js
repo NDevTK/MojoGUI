@@ -171,7 +171,7 @@ mojo.internal.bindings.chromecast.metrics.mojom.MetricsHelperRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id, arg_session_id: arg_session_id, arg_sdk_version: arg_sdk_version, arg_event: arg_event },
+      [arg_app_id, arg_session_id, arg_sdk_version, arg_event],
       false);
   }
 

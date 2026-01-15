@@ -259,7 +259,7 @@ mojo.internal.bindings.device.mojom.FingerprintObserverRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.FingerprintObserver_OnRestarted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.device.mojom.FingerprintObserverRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.device.mojom.FingerprintObserverRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec,
       null,
-      { arg_scan_result: arg_scan_result, arg_is_complete: arg_is_complete, arg_percent_complete: arg_percent_complete },
+      [arg_scan_result, arg_is_complete, arg_percent_complete],
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.device.mojom.FingerprintObserverRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec,
       null,
-      { arg_msg: arg_msg, arg_matches: arg_matches },
+      [arg_msg, arg_matches],
       false);
   }
 
@@ -295,7 +295,7 @@ mojo.internal.bindings.device.mojom.FingerprintObserverRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec,
       mojo.internal.bindings.device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec,
-      { arg_user_id: arg_user_id },
+      [arg_user_id],
       false);
   }
 
@@ -506,7 +506,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_StartEnrollSession_ParamsSpec,
       null,
-      { arg_user_id: arg_user_id, arg_label: arg_label },
+      [arg_user_id, arg_label],
       false);
   }
 
@@ -515,7 +515,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec,
       mojo.internal.bindings.device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -524,7 +524,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec,
       mojo.internal.bindings.device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec,
-      { arg_record_path: arg_record_path },
+      [arg_record_path],
       false);
   }
 
@@ -533,7 +533,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ParamsSpec,
       mojo.internal.bindings.device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec,
-      { arg_record_path: arg_record_path, arg_new_label: arg_new_label },
+      [arg_record_path, arg_new_label],
       false);
   }
 
@@ -542,7 +542,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ParamsSpec,
       mojo.internal.bindings.device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec,
-      { arg_record_path: arg_record_path },
+      [arg_record_path],
       false);
   }
 
@@ -551,7 +551,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_StartAuthSession_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -560,7 +560,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec,
       mojo.internal.bindings.device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -569,7 +569,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ParamsSpec,
       mojo.internal.bindings.device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -578,7 +578,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -587,7 +587,7 @@ mojo.internal.bindings.device.mojom.FingerprintRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ParamsSpec,
       mojo.internal.bindings.device.mojom.Fingerprint_RequestType_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

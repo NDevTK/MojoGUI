@@ -189,7 +189,7 @@ mojo.internal.bindings.device.mojom.ScreenOrientationRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ParamsSpec,
       mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec,
-      { arg_orientation: arg_orientation },
+      [arg_orientation],
       false);
   }
 
@@ -198,7 +198,7 @@ mojo.internal.bindings.device.mojom.ScreenOrientationRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.device.mojom.ScreenOrientationListenerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec,
       mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

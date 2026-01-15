@@ -171,7 +171,7 @@ mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfigurationRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec,
       null,
-      { arg_filter: arg_filter },
+      [arg_filter],
       false);
   }
 

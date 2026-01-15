@@ -218,7 +218,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec,
       null,
-      { arg_eligible_shown: arg_eligible_shown, arg_completed_shown: arg_completed_shown },
+      [arg_eligible_shown, arg_completed_shown],
       false);
   }
 
@@ -236,7 +236,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec,
       null,
-      { arg_promo_id: arg_promo_id },
+      [arg_promo_id],
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec,
       null,
-      { arg_eligible: arg_eligible, arg_completed: arg_completed },
+      [arg_eligible, arg_completed],
       false);
   }
 
@@ -580,7 +580,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactoryRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_handler: arg_handler },
+      [arg_client, arg_handler],
       false);
   }
 

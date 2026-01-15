@@ -331,7 +331,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.ChannelRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec,
       mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.ChannelRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec,
       mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec,
-      { arg_payload_id: arg_payload_id, arg_payload_files: arg_payload_files, arg_listener: arg_listener },
+      [arg_payload_id, arg_payload_files, arg_listener],
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.ChannelRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec,
       mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -521,7 +521,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -655,7 +655,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegateRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec,
       null,
-      { arg_reason: arg_reason },
+      [arg_reason],
       false);
   }
 
@@ -664,7 +664,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegateRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec,
       null,
-      { arg_channel: arg_channel, arg_message_receiver_receiver: arg_message_receiver_receiver, arg_nearby_connection_state_listener_receiver: arg_nearby_connection_state_listener_receiver },
+      [arg_channel, arg_message_receiver_receiver, arg_nearby_connection_state_listener_receiver],
       false);
   }
 
@@ -810,7 +810,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLo
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec,
       null,
-      { arg_result: arg_result, arg_error_code: arg_error_code },
+      [arg_result, arg_error_code],
       false);
   }
 
@@ -819,7 +819,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLo
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec,
       null,
-      { arg_step: arg_step, arg_status: arg_status },
+      [arg_step, arg_status],
       false);
   }
 
@@ -828,7 +828,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLo
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -986,7 +986,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec,
       null,
-      { arg_device_to_connect: arg_device_to_connect, arg_local_device: arg_local_device, arg_feature: arg_feature, arg_connection_medium: arg_connection_medium, arg_connection_priority: arg_connection_priority, arg_delegate: arg_delegate },
+      [arg_device_to_connect, arg_local_device, arg_feature, arg_connection_medium, arg_connection_priority, arg_delegate],
       false);
   }
 
@@ -995,7 +995,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec,
       null,
-      { arg_device_to_connect: arg_device_to_connect, arg_local_device: arg_local_device, arg_feature: arg_feature, arg_connection_medium: arg_connection_medium, arg_connection_priority: arg_connection_priority, arg_delegate: arg_delegate, arg_secure_channel_structured_metrics_logger: arg_secure_channel_structured_metrics_logger },
+      [arg_device_to_connect, arg_local_device, arg_feature, arg_connection_medium, arg_connection_priority, arg_delegate, arg_secure_channel_structured_metrics_logger],
       false);
   }
 
@@ -1004,7 +1004,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec,
       null,
-      { arg_nearby_connector: arg_nearby_connector },
+      [arg_nearby_connector],
       false);
   }
 
@@ -1013,7 +1013,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec,
       mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec,
-      { arg_remote_device_id: arg_remote_device_id },
+      [arg_remote_device_id],
       false);
   }
 

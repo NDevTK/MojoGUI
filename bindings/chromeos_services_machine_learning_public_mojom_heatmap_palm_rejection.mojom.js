@@ -192,7 +192,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClien
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 

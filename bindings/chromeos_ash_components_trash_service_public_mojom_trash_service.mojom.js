@@ -188,7 +188,7 @@ mojo.internal.bindings.ash.trash_service.mojom.TrashServiceRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec,
       mojo.internal.bindings.ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec,
-      { arg_trash_info_file: arg_trash_info_file },
+      [arg_trash_info_file],
       false);
   }
 

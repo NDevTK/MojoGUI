@@ -190,7 +190,7 @@ mojo.internal.bindings.remoting.mojom.AgentProcessRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -199,7 +199,7 @@ mojo.internal.bindings.remoting.mojom.AgentProcessRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.remoting.mojom.AgentProcessRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.remoting.mojom.AgentProcessBrokerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec,
       null,
-      { arg_agent_process: arg_agent_process },
+      [arg_agent_process],
       false);
   }
 

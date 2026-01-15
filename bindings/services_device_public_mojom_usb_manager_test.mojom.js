@@ -190,7 +190,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerTestRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec,
-      { arg_name: arg_name, arg_serial_number: arg_serial_number, arg_landing_page: arg_landing_page },
+      [arg_name, arg_serial_number, arg_landing_page],
       false);
   }
 
@@ -199,7 +199,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerTestRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec,
-      { arg_guid: arg_guid },
+      [arg_guid],
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerTestRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

@@ -186,7 +186,7 @@ mojo.internal.bindings.arc.mojom.CompatibilityModeInstanceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name, arg_state: arg_state },
+      [arg_package_name, arg_state],
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.arc.mojom.CompatibilityModeInstanceRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec,
       mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec,
-      { arg_package_name: arg_package_name },
+      [arg_package_name],
       false);
   }
 

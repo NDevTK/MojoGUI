@@ -204,7 +204,7 @@ mojo.internal.bindings.updater.mojom.PostRequestObserverRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec,
       null,
-      { arg_http_status_code: arg_http_status_code, arg_content_length: arg_content_length },
+      [arg_http_status_code, arg_content_length],
       false);
   }
 
@@ -213,7 +213,7 @@ mojo.internal.bindings.updater.mojom.PostRequestObserverRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.updater.mojom.PostRequestObserver_OnProgress_ParamsSpec,
       null,
-      { arg_current: arg_current },
+      [arg_current],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.updater.mojom.PostRequestObserverRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec,
       null,
-      { arg_response_body: arg_response_body, arg_net_error: arg_net_error, arg_header_etag: arg_header_etag, arg_header_x_cup_server_proof: arg_header_x_cup_server_proof, arg_header_set_cookie: arg_header_set_cookie, arg_xheader_retry_after_sec: arg_xheader_retry_after_sec },
+      [arg_response_body, arg_net_error, arg_header_etag, arg_header_x_cup_server_proof, arg_header_set_cookie, arg_xheader_retry_after_sec],
       false);
   }
 
@@ -376,7 +376,7 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec,
       null,
-      { arg_http_status_code: arg_http_status_code, arg_content_length: arg_content_length },
+      [arg_http_status_code, arg_content_length],
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec,
       null,
-      { arg_current: arg_current },
+      [arg_current],
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec,
       null,
-      { arg_net_error: arg_net_error, arg_content_size: arg_content_size },
+      [arg_net_error, arg_content_size],
       false);
   }
 
@@ -544,7 +544,7 @@ mojo.internal.bindings.updater.mojom.FetchServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec,
       mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec,
-      { arg_url: arg_url, arg_post_data: arg_post_data, arg_content_type: arg_content_type, arg_additional_headers: arg_additional_headers },
+      [arg_url, arg_post_data, arg_content_type, arg_additional_headers],
       false);
   }
 
@@ -553,7 +553,7 @@ mojo.internal.bindings.updater.mojom.FetchServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec,
       mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec,
-      { arg_url: arg_url, arg_output_file: arg_output_file },
+      [arg_url, arg_output_file],
       false);
   }
 

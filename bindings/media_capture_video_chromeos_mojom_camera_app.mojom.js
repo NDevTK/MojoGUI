@@ -301,7 +301,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec,
-      { arg_source_id: arg_source_id },
+      [arg_source_id],
       false);
   }
 
@@ -310,7 +310,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsSupported_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsSupported_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -319,7 +319,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceProviderRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ResponseParamsSpec,
-      { arg_source_id: arg_source_id },
+      [arg_source_id],
       false);
   }
 
@@ -503,7 +503,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec,
-      { arg_device_id: arg_device_id },
+      [arg_device_id],
       false);
   }
 
@@ -512,7 +512,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsSupported_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsSupported_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -521,7 +521,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ResponseParamsSpec,
-      { arg_device_id: arg_device_id, arg_enabled: arg_enabled },
+      [arg_device_id, arg_enabled],
       false);
   }
 
@@ -530,7 +530,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ResponseParamsSpec,
-      { arg_device_id: arg_device_id },
+      [arg_device_id],
       false);
   }
 
@@ -767,7 +767,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_TakePortraitModePhoto_ResponseParamsSpec,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -776,7 +776,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetFpsRange_ResponseParamsSpec,
-      { arg_fps_range: arg_fps_range },
+      [arg_fps_range],
       false);
   }
 
@@ -785,7 +785,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetStillCaptureResolution_ResponseParamsSpec,
-      { arg_resolution: arg_resolution },
+      [arg_resolution],
       false);
   }
 
@@ -794,7 +794,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCaptureIntent_ResponseParamsSpec,
-      { arg_intent: arg_intent },
+      [arg_intent],
       false);
   }
 
@@ -803,7 +803,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_AddResultMetadataObserver_ResponseParamsSpec,
-      { arg_observer: arg_observer, arg_stream_type: arg_stream_type },
+      [arg_observer, arg_stream_type],
       false);
   }
 
@@ -812,7 +812,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_AddCameraEventObserver_ResponseParamsSpec,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -821,7 +821,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ResponseParamsSpec,
-      { arg_is_enabled: arg_is_enabled },
+      [arg_is_enabled],
       false);
   }
 
@@ -830,7 +830,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_GetCameraFrameRotation_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_GetCameraFrameRotation_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -839,7 +839,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ResponseParamsSpec,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -848,7 +848,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ResponseParamsSpec,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -857,7 +857,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ResponseParamsSpec,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -866,7 +866,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_SetCropRegion_ResponseParamsSpec,
-      { arg_crop_region: arg_crop_region },
+      [arg_crop_region],
       false);
   }
 
@@ -875,7 +875,7 @@ mojo.internal.bindings.cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraAppDevice_ResetCropRegion_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraAppDevice_ResetCropRegion_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1208,7 +1208,7 @@ mojo.internal.bindings.cros.mojom.ResultMetadataObserverRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec,
       null,
-      { arg_camera_metadata: arg_camera_metadata },
+      [arg_camera_metadata],
       false);
   }
 
@@ -1338,7 +1338,7 @@ mojo.internal.bindings.cros.mojom.CameraEventObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraEventObserver_OnShutterDone_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1468,7 +1468,7 @@ mojo.internal.bindings.cros.mojom.DocumentCornersObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec,
       null,
-      { arg_corners: arg_corners },
+      [arg_corners],
       false);
   }
 
@@ -1598,7 +1598,7 @@ mojo.internal.bindings.cros.mojom.CameraInfoObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec,
       null,
-      { arg_camera_info: arg_camera_info },
+      [arg_camera_info],
       false);
   }
 
@@ -1728,7 +1728,7 @@ mojo.internal.bindings.cros.mojom.StillCaptureResultObserverRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec,
       null,
-      { arg_effect: arg_effect, arg_status: arg_status, arg_blob: arg_blob },
+      [arg_effect, arg_status, arg_blob],
       false);
   }
 

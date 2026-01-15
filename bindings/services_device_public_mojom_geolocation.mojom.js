@@ -181,7 +181,7 @@ mojo.internal.bindings.device.mojom.GeolocationRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec,
       null,
-      { arg_high_accuracy: arg_high_accuracy },
+      [arg_high_accuracy],
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.device.mojom.GeolocationRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.Geolocation_QueryNextPosition_ParamsSpec,
       mojo.internal.bindings.device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

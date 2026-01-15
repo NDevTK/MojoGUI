@@ -247,7 +247,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnFocusGained_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -256,7 +256,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusObserverRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnFocusLost_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -265,7 +265,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusObserverRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusObserver_OnRequestIdReleased_ParamsSpec,
       null,
-      { arg_request_id: arg_request_id },
+      [arg_request_id],
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusRequestClientRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ParamsSpec,
       mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ResponseParamsSpec,
-      { arg_session_info: arg_session_info, arg_type: arg_type },
+      [arg_session_info, arg_type],
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusRequestClientRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_AbandonAudioFocus_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -437,7 +437,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusRequestClientRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_ParamsSpec,
       null,
-      { arg_session_info: arg_session_info },
+      [arg_session_info],
       false);
   }
 
@@ -635,7 +635,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec,
       mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec,
-      { arg_client: arg_client, arg_session: arg_session, arg_session_info: arg_session_info, arg_type: arg_type },
+      [arg_client, arg_session, arg_session_info, arg_type],
       false);
   }
 
@@ -644,7 +644,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec,
       mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ResponseParamsSpec,
-      { arg_request_id: arg_request_id, arg_client: arg_client, arg_session: arg_session, arg_session_info: arg_session_info, arg_type: arg_type, arg_group_id: arg_group_id },
+      [arg_request_id, arg_client, arg_session, arg_session_info, arg_type, arg_group_id],
       false);
   }
 
@@ -653,7 +653,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetFocusRequests_ParamsSpec,
       mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -662,7 +662,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusManager_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -671,7 +671,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusManager_SetSource_ParamsSpec,
       null,
-      { arg_identity: arg_identity, arg_name: arg_name },
+      [arg_identity, arg_name],
       false);
   }
 
@@ -680,7 +680,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusManager_SetEnforcementMode_ParamsSpec,
       null,
-      { arg_mode: arg_mode },
+      [arg_mode],
       false);
   }
 
@@ -689,7 +689,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemoteCallHandler = 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusManager_AddSourceObserver_ParamsSpec,
       null,
-      { arg_source_id: arg_source_id, arg_observer: arg_observer },
+      [arg_source_id, arg_observer],
       false);
   }
 
@@ -698,7 +698,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemoteCallHandler = 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ParamsSpec,
       mojo.internal.bindings.media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParamsSpec,
-      { arg_source_id: arg_source_id },
+      [arg_source_id],
       false);
   }
 
@@ -707,7 +707,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemoteCallHandler = 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusManager_RequestIdReleased_ParamsSpec,
       null,
-      { arg_request_id: arg_request_id },
+      [arg_request_id],
       false);
   }
 
@@ -716,7 +716,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemoteCallHandler = 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusManager_StartDuckingAllAudio_ParamsSpec,
       null,
-      { arg_exempted_request_id: arg_exempted_request_id },
+      [arg_exempted_request_id],
       false);
   }
 
@@ -725,7 +725,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemoteCallHandler = 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusManager_StopDuckingAllAudio_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -734,7 +734,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemoteCallHandler = 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusManager_FlushForTesting_ParamsSpec,
       mojo.internal.bindings.media_session.mojom.AudioFocusManager_FlushForTesting_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -996,7 +996,7 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebugRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ParamsSpec,
       mojo.internal.bindings.media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec,
-      { arg_request_id: arg_request_id },
+      [arg_request_id],
       false);
   }
 

@@ -193,7 +193,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHostRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -202,7 +202,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHostRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerObjectRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 

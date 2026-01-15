@@ -193,7 +193,7 @@ mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec,
       null,
-      { arg_blocked_url: arg_blocked_url, arg_destination: arg_destination, arg_report_only: arg_report_only },
+      [arg_blocked_url, arg_destination, arg_report_only],
       false);
   }
 
@@ -202,7 +202,7 @@ mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

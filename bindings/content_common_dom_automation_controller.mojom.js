@@ -170,7 +170,7 @@ mojo.internal.bindings.content.mojom.DomAutomationControllerHostRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec,
       null,
-      { arg_json_string: arg_json_string },
+      [arg_json_string],
       false);
   }
 

@@ -193,7 +193,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor_Execute_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec,
-      { arg_inputs: arg_inputs, arg_output_names: arg_output_names },
+      [arg_inputs, arg_output_names],
       false);
   }
 

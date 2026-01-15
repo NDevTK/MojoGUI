@@ -215,7 +215,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioEncoder_Initialize_ResponseParamsSpec,
-      { arg_client: arg_client, arg_config: arg_config },
+      [arg_client, arg_config],
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioEncoder_Encode_ResponseParamsSpec,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioEncoder_Flush_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -406,7 +406,7 @@ mojo.internal.bindings.media.mojom.AudioEncoderClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec,
       null,
-      { arg_buffer: arg_buffer, arg_description: arg_description },
+      [arg_buffer, arg_description],
       false);
   }
 

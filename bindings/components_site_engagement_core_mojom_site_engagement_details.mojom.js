@@ -183,7 +183,7 @@ mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec,
       mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderRemote
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_score: arg_score },
+      [arg_url, arg_score],
       false);
   }
 

@@ -261,7 +261,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitorRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -391,7 +391,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.QuietModeMonitorRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec,
       null,
-      { arg_in_quiet_mode: arg_in_quiet_mode },
+      [arg_in_quiet_mode],
       false);
   }
 
@@ -585,7 +585,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec,
-      { arg_feature: arg_feature },
+      [arg_feature],
       false);
   }
 
@@ -594,7 +594,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec,
-      { arg_model_id: arg_model_id, arg_model: arg_model },
+      [arg_model_id, arg_model],
       false);
   }
 
@@ -603,7 +603,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec,
-      { arg_uuid: arg_uuid, arg_feature: arg_feature, arg_fields: arg_fields },
+      [arg_uuid, arg_feature, arg_fields],
       false);
   }
 
@@ -612,7 +612,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec,
-      { arg_safety_feature: arg_safety_feature, arg_text: arg_text, arg_safety_info: arg_safety_info },
+      [arg_safety_feature, arg_text, arg_safety_info],
       false);
   }
 
@@ -621,7 +621,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec,
-      { arg_model_id: arg_model_id, arg_monitor: arg_monitor },
+      [arg_model_id, arg_monitor],
       false);
   }
 
@@ -630,7 +630,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -639,7 +639,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -648,7 +648,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec,
-      { arg_language: arg_language, arg_monitor: arg_monitor },
+      [arg_language, arg_monitor],
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_InstallSoda_ResponseParamsSpec,
-      { arg_language: arg_language },
+      [arg_language],
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec,
-      { arg_language: arg_language, arg_soda_client: arg_soda_client, arg_soda_recognizer: arg_soda_recognizer },
+      [arg_language, arg_soda_client, arg_soda_recognizer],
       false);
   }
 
@@ -675,7 +675,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec,
       null,
-      { arg_description_template: arg_description_template },
+      [arg_description_template],
       false);
   }
 
@@ -684,7 +684,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec,
-      { arg_source_id: arg_source_id },
+      [arg_source_id],
       false);
   }
 
@@ -693,7 +693,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec,
-      { arg_monitor: arg_monitor },
+      [arg_monitor],
       false);
   }
 
@@ -702,7 +702,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec,
       null,
-      { arg_quiet_mode: arg_quiet_mode },
+      [arg_quiet_mode],
       false);
   }
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -720,7 +720,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec,
       null,
-      { arg_consent_given: arg_consent_given, arg_consent_description_names: arg_consent_description_names, arg_consent_confirmation_name: arg_consent_confirmation_name },
+      [arg_consent_given, arg_consent_description_names, arg_consent_confirmation_name],
       false);
   }
 
@@ -729,7 +729,7 @@ mojo.internal.bindings.ash.recorder_app.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec,
       mojo.internal.bindings.ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

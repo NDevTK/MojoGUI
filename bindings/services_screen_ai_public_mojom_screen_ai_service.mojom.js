@@ -260,7 +260,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec,
       mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec,
-      { arg_image: arg_image },
+      [arg_image],
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec,
       null,
-      { arg_client_type: arg_client_type },
+      [arg_client_type],
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec,
       mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec,
       mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec,
       mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec,
-      { arg_snapshot: arg_snapshot },
+      [arg_snapshot],
       false);
   }
 
@@ -506,7 +506,7 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec,
       mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec,
-      { arg_snapshot: arg_snapshot },
+      [arg_snapshot],
       false);
   }
 
@@ -515,7 +515,7 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec,
       mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec,
-      { arg_ax_tree: arg_ax_tree },
+      [arg_ax_tree],
       false);
   }
 
@@ -524,7 +524,7 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec,
       null,
-      { arg_client_type: arg_client_type },
+      [arg_client_type],
       false);
   }
 
@@ -704,7 +704,7 @@ mojo.internal.bindings.screen_ai.mojom.OCRServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec,
       null,
-      { arg_annotator: arg_annotator },
+      [arg_annotator],
       false);
   }
 
@@ -834,7 +834,7 @@ mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec,
       null,
-      { arg_main_content_extractor: arg_main_content_extractor },
+      [arg_main_content_extractor],
       false);
   }
 

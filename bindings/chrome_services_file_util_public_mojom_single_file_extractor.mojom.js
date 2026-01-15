@@ -188,7 +188,7 @@ mojo.internal.bindings.chrome.mojom.SingleFileExtractorRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec,
-      { arg_src_file: arg_src_file, arg_dst_file: arg_dst_file, arg_listener: arg_listener },
+      [arg_src_file, arg_dst_file, arg_listener],
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec,
       null,
-      { arg_total_bytes: arg_total_bytes, arg_progress_bytes: arg_progress_bytes },
+      [arg_total_bytes, arg_progress_bytes],
       false);
   }
 

@@ -199,7 +199,7 @@ mojo.internal.bindings.printing.mojom.PdfToEmfConverterRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec,
-      { arg_page_index: arg_page_index },
+      [arg_page_index],
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.printing.mojom.PdfToEmfConverterRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.printing.mojom.PdfToEmfConverterRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
-      { arg_use_skia: arg_use_skia },
+      [arg_use_skia],
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec,
-      { arg_pdf_region: arg_pdf_region, arg_render_settings: arg_render_settings },
+      [arg_pdf_region, arg_render_settings],
       false);
   }
 

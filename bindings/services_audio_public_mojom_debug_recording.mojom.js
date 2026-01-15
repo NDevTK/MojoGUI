@@ -196,7 +196,7 @@ mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec,
       mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec,
-      { arg_stream_type: arg_stream_type, arg_id: arg_id },
+      [arg_stream_type, arg_id],
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.audio.mojom.DebugRecordingFileProviderRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec,
       mojo.internal.bindings.audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.audio.mojom.DebugRecordingRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.audio.mojom.DebugRecording_Enable_ParamsSpec,
       null,
-      { arg_file_provider: arg_file_provider },
+      [arg_file_provider],
       false);
   }
 

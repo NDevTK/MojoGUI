@@ -174,7 +174,7 @@ mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProviderRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec,
       null,
-      { arg_histogram_name: arg_histogram_name, arg_min: arg_min, arg_max: arg_max, arg_bucket_count: arg_bucket_count, arg_flags: arg_flags, arg_receiver: arg_receiver },
+      [arg_histogram_name, arg_min, arg_max, arg_bucket_count, arg_flags, arg_receiver],
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.metrics.mojom.SingleSampleMetricRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec,
       null,
-      { arg_sample: arg_sample },
+      [arg_sample],
       false);
   }
 

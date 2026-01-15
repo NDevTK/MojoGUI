@@ -219,7 +219,7 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognizerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec,
       mojo.internal.bindings.handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec,
-      { arg_strokes: arg_strokes, arg_hints: arg_hints },
+      [arg_strokes, arg_hints],
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec,
       mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec,
-      { arg_constraint: arg_constraint },
+      [arg_constraint],
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionServiceRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec,
       mojo.internal.bindings.handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec,
-      { arg_constraint: arg_constraint },
+      [arg_constraint],
       false);
   }
 

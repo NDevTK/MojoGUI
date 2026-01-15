@@ -191,7 +191,7 @@ mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriverRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ParamsSpec,
       mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriverRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ParamsSpec,
       mojo.internal.bindings.language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

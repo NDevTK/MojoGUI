@@ -203,7 +203,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerFactoryRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandler_AcceptFre_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandler_RejectFre_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandler_DismissFre_ParamsSpec,
       null,
-      { arg_panel: arg_panel },
+      [arg_panel],
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandler_FreReloaded_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec,
       mojo.internal.bindings.glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec,
       null,
-      { arg_new_state: arg_new_state },
+      [arg_new_state],
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -437,7 +437,7 @@ mojo.internal.bindings.glic.mojom.FrePageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

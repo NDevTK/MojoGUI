@@ -231,7 +231,7 @@ mojo.internal.bindings.network.mojom.TCPBoundSocketRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ParamsSpec,
       mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec,
-      { arg_backlog: arg_backlog, arg_socket: arg_socket },
+      [arg_backlog, arg_socket],
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.network.mojom.TCPBoundSocketRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ParamsSpec,
       mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec,
-      { arg_remote_addr_list: arg_remote_addr_list, arg_tcp_connected_socket_options: arg_tcp_connected_socket_options, arg_socket: arg_socket, arg_observer: arg_observer },
+      [arg_remote_addr_list, arg_tcp_connected_socket_options, arg_socket, arg_observer],
       false);
   }
 
@@ -411,7 +411,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec,
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec,
-      { arg_host_port_pair: arg_host_port_pair, arg_options: arg_options, arg_traffic_annotation: arg_traffic_annotation, arg_receiver: arg_receiver, arg_observer: arg_observer },
+      [arg_host_port_pair, arg_options, arg_traffic_annotation, arg_receiver, arg_observer],
       false);
   }
 
@@ -420,7 +420,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec,
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec,
-      { arg_send_buffer_size: arg_send_buffer_size },
+      [arg_send_buffer_size],
       false);
   }
 
@@ -429,7 +429,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec,
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec,
-      { arg_receive_buffer_size: arg_receive_buffer_size },
+      [arg_receive_buffer_size],
       false);
   }
 
@@ -438,7 +438,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec,
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec,
-      { arg_no_delay: arg_no_delay },
+      [arg_no_delay],
       false);
   }
 
@@ -447,7 +447,7 @@ mojo.internal.bindings.network.mojom.TCPConnectedSocketRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec,
       mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec,
-      { arg_enable: arg_enable, arg_delay_secs: arg_delay_secs },
+      [arg_enable, arg_delay_secs],
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.network.mojom.SocketObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.SocketObserver_OnReadError_ParamsSpec,
       null,
-      { arg_net_error: arg_net_error },
+      [arg_net_error],
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.network.mojom.SocketObserverRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.SocketObserver_OnWriteError_ParamsSpec,
       null,
-      { arg_net_error: arg_net_error },
+      [arg_net_error],
       false);
   }
 
@@ -804,7 +804,7 @@ mojo.internal.bindings.network.mojom.TCPServerSocketRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ParamsSpec,
       mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ResponseParamsSpec,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

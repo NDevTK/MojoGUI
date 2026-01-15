@@ -200,7 +200,7 @@ mojo.internal.bindings.ax.mojom.UserInputRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec,
       null,
-      { arg_key_event: arg_key_event },
+      [arg_key_event],
       false);
   }
 
@@ -209,7 +209,7 @@ mojo.internal.bindings.ax.mojom.UserInputRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec,
       null,
-      { arg_mouse_event: arg_mouse_event },
+      [arg_mouse_event],
       false);
   }
 

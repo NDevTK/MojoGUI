@@ -234,7 +234,7 @@ mojo.internal.bindings.pdf.mojom.SaveDataBufferHandlerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec,
       mojo.internal.bindings.pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec,
-      { arg_offset: arg_offset, arg_block_size: arg_block_size },
+      [arg_offset, arg_block_size],
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec,
       null,
-      { arg_position: arg_position },
+      [arg_position],
       false);
   }
 
@@ -406,7 +406,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec,
       null,
-      { arg_extent: arg_extent },
+      [arg_extent],
       false);
   }
 
@@ -415,7 +415,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec,
       null,
-      { arg_base: arg_base, arg_extent: arg_extent },
+      [arg_base, arg_extent],
       false);
   }
 
@@ -424,7 +424,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec,
       mojo.internal.bindings.pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec,
-      { arg_size_limit: arg_size_limit },
+      [arg_size_limit],
       false);
   }
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfListener_GetPageText_ParamsSpec,
       mojo.internal.bindings.pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec,
-      { arg_page_index: arg_page_index },
+      [arg_page_index],
       false);
   }
 
@@ -442,7 +442,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec,
       mojo.internal.bindings.pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -451,7 +451,7 @@ mojo.internal.bindings.pdf.mojom.PdfListenerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec,
       mojo.internal.bindings.pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec,
-      { arg_request_type: arg_request_type },
+      [arg_request_type],
       false);
   }
 
@@ -688,7 +688,7 @@ mojo.internal.bindings.pdf.mojom.PdfHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfHost_SetListener_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -697,7 +697,7 @@ mojo.internal.bindings.pdf.mojom.PdfHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -706,7 +706,7 @@ mojo.internal.bindings.pdf.mojom.PdfHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec,
       null,
-      { arg_restrictions: arg_restrictions },
+      [arg_restrictions],
       false);
   }
 
@@ -715,7 +715,7 @@ mojo.internal.bindings.pdf.mojom.PdfHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_policy: arg_policy },
+      [arg_url, arg_policy],
       false);
   }
 
@@ -724,7 +724,7 @@ mojo.internal.bindings.pdf.mojom.PdfHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfHost_SelectionChanged_ParamsSpec,
       null,
-      { arg_left: arg_left, arg_left_height: arg_left_height, arg_right: arg_right, arg_right_height: arg_right_height },
+      [arg_left, arg_left_height, arg_right, arg_right_height],
       false);
   }
 
@@ -733,7 +733,7 @@ mojo.internal.bindings.pdf.mojom.PdfHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec,
       null,
-      { arg_can_save: arg_can_save },
+      [arg_can_save],
       false);
   }
 
@@ -742,7 +742,7 @@ mojo.internal.bindings.pdf.mojom.PdfHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

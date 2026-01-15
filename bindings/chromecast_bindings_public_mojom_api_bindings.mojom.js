@@ -183,7 +183,7 @@ mojo.internal.bindings.chromecast.mojom.ApiBindingsRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ParamsSpec,
       mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.chromecast.mojom.ApiBindingsRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.ApiBindings_Connect_ParamsSpec,
       null,
-      { arg_port_name: arg_port_name, arg_port: arg_port },
+      [arg_port_name, arg_port],
       false);
   }
 

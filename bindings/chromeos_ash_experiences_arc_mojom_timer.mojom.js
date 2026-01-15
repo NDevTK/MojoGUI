@@ -212,7 +212,7 @@ mojo.internal.bindings.arc.mojom.TimerHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ParamsSpec,
       mojo.internal.bindings.arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec,
-      { arg_timer_requests: arg_timer_requests },
+      [arg_timer_requests],
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.arc.mojom.TimerHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ParamsSpec,
       mojo.internal.bindings.arc.mojom.TimerHost_StartTimer_ResponseParamsSpec,
-      { arg_clock_id: arg_clock_id, arg_absolute_expiration_time: arg_absolute_expiration_time },
+      [arg_clock_id, arg_absolute_expiration_time],
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.arc.mojom.TimerHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ParamsSpec,
       mojo.internal.bindings.arc.mojom.TimerHost_SetTime_ResponseParamsSpec,
-      { arg_time: arg_time },
+      [arg_time],
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.arc.mojom.TimerInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.TimerInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.TimerInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 

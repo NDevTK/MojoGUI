@@ -195,7 +195,7 @@ mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedderRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec,
       mojo.internal.bindings.passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec,
-      { arg_passages: arg_passages, arg_priority: arg_priority },
+      [arg_passages, arg_priority],
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsServiceRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec,
       mojo.internal.bindings.passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec,
-      { arg_model_params: arg_model_params, arg_params: arg_params, arg_model: arg_model },
+      [arg_model_params, arg_params, arg_model],
       false);
   }
 

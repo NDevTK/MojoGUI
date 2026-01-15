@@ -278,7 +278,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnTokenUpserted_ParamsSpec,
       null,
-      { arg_account: arg_account },
+      [arg_account],
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerObserverRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAccountRemoved_ParamsSpec,
       null,
-      { arg_account: arg_account },
+      [arg_account],
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerObserverRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_ParamsSpec,
       null,
-      { arg_account: arg_account, arg_error: arg_error },
+      [arg_account, arg_error],
       false);
   }
 
@@ -305,7 +305,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerObserverRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnSigninDialogClosed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -491,7 +491,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -500,7 +500,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManager_AddObserver_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.AccountManager_AddObserver_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -509,7 +509,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManager_GetAccounts_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.AccountManager_GetAccounts_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -518,7 +518,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec,
-      { arg_add_account_options: arg_add_account_options },
+      [arg_add_account_options],
       false);
   }
 
@@ -527,7 +527,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec,
-      { arg_email: arg_email },
+      [arg_email],
       false);
   }
 
@@ -536,7 +536,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManager_ShowManageAccountsSettings_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -545,7 +545,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParamsSpec,
-      { arg_account: arg_account },
+      [arg_account],
       false);
   }
 
@@ -554,7 +554,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec,
-      { arg_account_key: arg_account_key, arg_oauth_consumer_name: arg_oauth_consumer_name },
+      [arg_account_key, arg_oauth_consumer_name],
       false);
   }
 
@@ -563,7 +563,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccountManager_ReportAuthError_ParamsSpec,
       null,
-      { arg_account: arg_account, arg_error: arg_error },
+      [arg_account, arg_error],
       false);
   }
 
@@ -820,7 +820,7 @@ mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ResponseParamsSpec,
-      { arg_scopes: arg_scopes },
+      [arg_scopes],
       false);
   }
 

@@ -206,7 +206,7 @@ mojo.internal.bindings.unzip.mojom.UnzipFilterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec,
       mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.unzip.mojom.UnzipListenerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.unzip.mojom.UnzipListener_OnProgress_ParamsSpec,
       null,
-      { arg_bytes: arg_bytes },
+      [arg_bytes],
       false);
   }
 
@@ -487,7 +487,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ParamsSpec,
       mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ResponseParamsSpec,
-      { arg_zip_file: arg_zip_file, arg_output_dir: arg_output_dir, arg_options: arg_options, arg_filter: arg_filter, arg_listener: arg_listener },
+      [arg_zip_file, arg_output_dir, arg_options, arg_filter, arg_listener],
       false);
   }
 
@@ -496,7 +496,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ParamsSpec,
       mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec,
-      { arg_zip_file: arg_zip_file },
+      [arg_zip_file],
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec,
       mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec,
-      { arg_zip_file: arg_zip_file },
+      [arg_zip_file],
       false);
   }
 
@@ -514,7 +514,7 @@ mojo.internal.bindings.unzip.mojom.UnzipperRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ParamsSpec,
       mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec,
-      { arg_in_file: arg_in_file, arg_out_file: arg_out_file },
+      [arg_in_file, arg_out_file],
       false);
   }
 

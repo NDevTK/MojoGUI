@@ -325,7 +325,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerFormExtraction_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_ApplyFieldsAction_ParamsSpec,
       null,
-      { arg_action_type: arg_action_type, arg_action_persistence: arg_action_persistence, arg_fields: arg_fields, arg_fill_id: arg_fill_id, arg_supports_refill: arg_supports_refill },
+      [arg_action_type, arg_action_persistence, arg_fields, arg_fill_id, arg_supports_refill],
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec,
       null,
-      { arg_action_type: arg_action_type, arg_action_persistence: arg_action_persistence, arg_field: arg_field, arg_value: arg_value },
+      [arg_action_type, arg_action_persistence, arg_field, arg_value],
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_ExtractFormWithField_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParamsSpec,
-      { arg_field_id: arg_field_id },
+      [arg_field_id],
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ResponseParamsSpec,
-      { arg_value_regex: arg_value_regex, arg_label_regex: arg_label_regex, arg_number_of_ancestor_levels_to_search: arg_number_of_ancestor_levels_to_search },
+      [arg_value_regex, arg_label_regex, arg_number_of_ancestor_levels_to_search],
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_FieldTypePredictionsAvailable_ParamsSpec,
       null,
-      { arg_forms: arg_forms },
+      [arg_forms],
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -406,7 +406,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec,
       null,
-      { arg_field: arg_field, arg_trigger_source: arg_trigger_source },
+      [arg_field, arg_trigger_source],
       false);
   }
 
@@ -415,7 +415,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec,
       null,
-      { arg_field: arg_field, arg_suggestion_availability: arg_suggestion_availability },
+      [arg_field, arg_suggestion_availability],
       false);
   }
 
@@ -424,7 +424,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec,
       null,
-      { arg_field: arg_field, arg_value: arg_value },
+      [arg_field, arg_value],
       false);
   }
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec,
       null,
-      { arg_username: arg_username, arg_password: arg_password },
+      [arg_username, arg_password],
       false);
   }
 
@@ -442,7 +442,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec,
       null,
-      { arg_password: arg_password },
+      [arg_password],
       false);
   }
 
@@ -451,7 +451,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -460,7 +460,7 @@ mojo.internal.bindings.autofill.mojom.AutofillAgentRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec,
       null,
-      { arg_field_id: arg_field_id, arg_presentation_token: arg_presentation_token },
+      [arg_field_id, arg_presentation_token],
       false);
   }
 
@@ -790,7 +790,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec,
       null,
-      { arg_form_data: arg_form_data },
+      [arg_form_data],
       false);
   }
 
@@ -799,7 +799,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ResponseParamsSpec,
-      { arg_username: arg_username, arg_password: arg_password },
+      [arg_username, arg_password],
       false);
   }
 
@@ -808,7 +808,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestionById_ParamsSpec,
       null,
-      { arg_username_element_id: arg_username_element_id, arg_password_element_id: arg_password_element_id, arg_username: arg_username, arg_password: arg_password, arg_suggestion_source: arg_suggestion_source },
+      [arg_username_element_id, arg_password_element_id, arg_username, arg_password, arg_suggestion_source],
       false);
   }
 
@@ -817,7 +817,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_PreviewPasswordSuggestionById_ParamsSpec,
       null,
-      { arg_username_element_id: arg_username_element_id, arg_password_element_id: arg_password_element_id, arg_username: arg_username, arg_password: arg_password },
+      [arg_username_element_id, arg_password_element_id, arg_username, arg_password],
       false);
   }
 
@@ -826,7 +826,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_InformNoSavedCredentials_ParamsSpec,
       null,
-      { arg_should_show_popup_without_passwords: arg_should_show_popup_without_passwords },
+      [arg_should_show_popup_without_passwords],
       false);
   }
 
@@ -835,7 +835,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentRemoteCallHandler = c
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec,
       null,
-      { arg_is_password: arg_is_password, arg_credential: arg_credential },
+      [arg_is_password, arg_credential],
       false);
   }
 
@@ -844,7 +844,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentRemoteCallHandler = c
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_PreviewField_ParamsSpec,
       null,
-      { arg_field_id: arg_field_id, arg_value: arg_value },
+      [arg_field_id, arg_value],
       false);
   }
 
@@ -853,7 +853,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentRemoteCallHandler = c
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillField_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillField_ResponseParamsSpec,
-      { arg_field_id: arg_field_id, arg_value: arg_value, arg_field_properties: arg_field_properties },
+      [arg_field_id, arg_value, arg_field_properties],
       false);
   }
 
@@ -862,7 +862,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentRemoteCallHandler = c
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec,
-      { arg_password_element_id: arg_password_element_id, arg_new_password_element_id: arg_new_password_element_id, arg_confirm_password_element_id: arg_confirm_password_element_id, arg_old_password: arg_old_password, arg_new_password: arg_new_password },
+      [arg_password_element_id, arg_new_password_element_id, arg_confirm_password_element_id, arg_old_password, arg_new_password],
       false);
   }
 
@@ -871,7 +871,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentRemoteCallHandler = c
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_SetLoggingState_ParamsSpec,
       null,
-      { arg_active: arg_active },
+      [arg_active],
       false);
   }
 
@@ -880,7 +880,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentRemoteCallHandler = c
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec,
       null,
-      { arg_parsing_result: arg_parsing_result },
+      [arg_parsing_result],
       false);
   }
 
@@ -889,7 +889,7 @@ mojo.internal.bindings.autofill.mojom.PasswordAutofillAgentRemoteCallHandler = c
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec,
-      { arg_field_id: arg_field_id },
+      [arg_field_id],
       false);
   }
 
@@ -1159,7 +1159,7 @@ mojo.internal.bindings.autofill.mojom.PasswordGenerationAgentRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec,
       null,
-      { arg_generated_password: arg_generated_password },
+      [arg_generated_password],
       false);
   }
 
@@ -1168,7 +1168,7 @@ mojo.internal.bindings.autofill.mojom.PasswordGenerationAgentRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_GeneratedPasswordRejected_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1177,7 +1177,7 @@ mojo.internal.bindings.autofill.mojom.PasswordGenerationAgentRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1186,7 +1186,7 @@ mojo.internal.bindings.autofill.mojom.PasswordGenerationAgentRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_FoundFormEligibleForGeneration_ParamsSpec,
       null,
-      { arg_form: arg_form },
+      [arg_form],
       false);
   }
 
@@ -1195,7 +1195,7 @@ mojo.internal.bindings.autofill.mojom.PasswordGenerationAgentRemoteCallHandler =
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.autofill.mojom.PasswordGenerationAgent_FocusNextFieldAfterPasswords_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

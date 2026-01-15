@@ -203,7 +203,7 @@ mojo.internal.bindings.media.mojom.DemuxerStreamRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ParamsSpec,
       mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.media.mojom.DemuxerStreamRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.DemuxerStream_Read_ParamsSpec,
       mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec,
-      { arg_count: arg_count },
+      [arg_count],
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.media.mojom.DemuxerStreamRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

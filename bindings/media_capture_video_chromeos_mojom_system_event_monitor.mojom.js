@@ -213,7 +213,7 @@ mojo.internal.bindings.cros.mojom.CrosDisplayObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec,
       null,
-      { arg_rotation: arg_rotation },
+      [arg_rotation],
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.cros.mojom.CrosLidObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec,
       null,
-      { arg_new_state: arg_new_state },
+      [arg_new_state],
       false);
   }
 
@@ -477,7 +477,7 @@ mojo.internal.bindings.cros.mojom.CrosPowerObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -486,7 +486,7 @@ mojo.internal.bindings.cros.mojom.CrosPowerObserverRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -644,7 +644,7 @@ mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -653,7 +653,7 @@ mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -662,7 +662,7 @@ mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec,
       null,
-      { arg_client_name: arg_client_name, arg_observer: arg_observer },
+      [arg_client_name, arg_observer],
       false);
   }
 
@@ -671,7 +671,7 @@ mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec,
       null,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 

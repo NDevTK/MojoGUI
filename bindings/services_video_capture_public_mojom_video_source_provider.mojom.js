@@ -235,7 +235,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec,
       null,
-      { arg_source_id: arg_source_id, arg_stream: arg_stream },
+      [arg_source_id, arg_stream],
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec,
       null,
-      { arg_device_info: arg_device_info, arg_producer: arg_producer, arg_virtual_device_receiver: arg_virtual_device_receiver },
+      [arg_device_info, arg_producer, arg_virtual_device_receiver],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec,
       null,
-      { arg_device_info: arg_device_info, arg_virtual_device_receiver: arg_virtual_device_receiver },
+      [arg_device_info, arg_virtual_device_receiver],
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemoteCallHandler 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer, arg_raise_event_if_virtual_devices_already_present: arg_raise_event_if_virtual_devices_already_present },
+      [arg_observer, arg_raise_event_if_virtual_devices_already_present],
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemoteCallHandler 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemoteCallHandler 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

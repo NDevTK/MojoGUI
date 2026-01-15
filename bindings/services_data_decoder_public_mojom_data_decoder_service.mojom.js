@@ -234,7 +234,7 @@ mojo.internal.bindings.data_decoder.mojom.DataDecoderServiceRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.data_decoder.mojom.DataDecoderServiceRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec,
       null,
-      { arg_reciever: arg_reciever },
+      [arg_reciever],
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.data_decoder.mojom.DataDecoderServiceRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -261,7 +261,7 @@ mojo.internal.bindings.data_decoder.mojom.DataDecoderServiceRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -270,7 +270,7 @@ mojo.internal.bindings.data_decoder.mojom.DataDecoderServiceRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -279,7 +279,7 @@ mojo.internal.bindings.data_decoder.mojom.DataDecoderServiceRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -288,7 +288,7 @@ mojo.internal.bindings.data_decoder.mojom.DataDecoderServiceRemoteCallHandler = 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

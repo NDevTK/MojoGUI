@@ -203,7 +203,7 @@ mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_session_id: arg_session_id, arg_params: arg_params, arg_automatic_gain_control: arg_automatic_gain_control, arg_shared_memory_count: arg_shared_memory_count, arg_processing_config: arg_processing_config },
+      [arg_client, arg_session_id, arg_params, arg_automatic_gain_control, arg_shared_memory_count, arg_processing_config],
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec,
       null,
-      { arg_input_stream_id: arg_input_stream_id, arg_output_device_id: arg_output_device_id },
+      [arg_input_stream_id, arg_output_device_id],
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClientRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec,
       null,
-      { arg_stream: arg_stream, arg_client_request: arg_client_request, arg_data_pipe: arg_data_pipe, arg_initially_muted: arg_initially_muted, arg_stream_id: arg_stream_id },
+      [arg_stream, arg_client_request, arg_data_pipe, arg_initially_muted, arg_stream_id],
       false);
   }
 

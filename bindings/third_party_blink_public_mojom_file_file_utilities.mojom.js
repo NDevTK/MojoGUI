@@ -180,7 +180,7 @@ mojo.internal.bindings.blink.mojom.FileUtilitiesHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 

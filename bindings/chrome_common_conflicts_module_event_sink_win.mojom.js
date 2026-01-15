@@ -169,7 +169,7 @@ mojo.internal.bindings.mojom.ModuleEventSinkRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.ModuleEventSink_OnModuleEvents_ParamsSpec,
       null,
-      { arg_module_load_addresses: arg_module_load_addresses },
+      [arg_module_load_addresses],
       false);
   }
 

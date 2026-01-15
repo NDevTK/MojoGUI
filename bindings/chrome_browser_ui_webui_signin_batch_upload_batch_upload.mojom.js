@@ -184,7 +184,7 @@ mojo.internal.bindings.batch_upload.mojom.PageHandlerFactoryRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -322,7 +322,7 @@ mojo.internal.bindings.batch_upload.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec,
       null,
-      { arg_height: arg_height },
+      [arg_height],
       false);
   }
 
@@ -331,7 +331,7 @@ mojo.internal.bindings.batch_upload.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec,
       null,
-      { arg_idsToMove: arg_idsToMove },
+      [arg_idsToMove],
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.batch_upload.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.batch_upload.mojom.PageHandler_Close_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -486,7 +486,7 @@ mojo.internal.bindings.batch_upload.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec,
       null,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 

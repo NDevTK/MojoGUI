@@ -176,7 +176,7 @@ mojo.internal.bindings.watermark.mojom.PageHandlerFactoryRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -310,7 +310,7 @@ mojo.internal.bindings.watermark.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec,
       null,
-      { arg_style: arg_style },
+      [arg_style],
       false);
   }
 
@@ -319,7 +319,7 @@ mojo.internal.bindings.watermark.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

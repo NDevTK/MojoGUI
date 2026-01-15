@@ -170,7 +170,7 @@ mojo.internal.bindings.arc.mojom.BackupSettingsInstanceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled, arg_managed: arg_managed },
+      [arg_enabled, arg_managed],
       false);
   }
 

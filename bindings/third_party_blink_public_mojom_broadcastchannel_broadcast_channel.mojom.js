@@ -179,7 +179,7 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelClientRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -309,7 +309,7 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelProviderRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec,
       null,
-      { arg_name: arg_name, arg_client: arg_client, arg_connection: arg_connection },
+      [arg_name, arg_client, arg_connection],
       false);
   }
 

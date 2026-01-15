@@ -182,7 +182,7 @@ mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec,
       mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec,
-      { arg_size: arg_size, arg_id: arg_id },
+      [arg_size, arg_id],
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 

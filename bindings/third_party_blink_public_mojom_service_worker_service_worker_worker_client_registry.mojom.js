@@ -181,7 +181,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec,
       null,
-      { arg_host: arg_host },
+      [arg_host],
       false);
   }
 

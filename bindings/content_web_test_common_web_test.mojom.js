@@ -350,7 +350,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ParamsSpec,
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_DumpFrameLayout_ParamsSpec,
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_DumpFrameLayout_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_SetTestConfiguration_ParamsSpec,
       null,
-      { arg_config: arg_config, arg_starting_test: arg_starting_test },
+      [arg_config, arg_starting_test],
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_OnDeactivated_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -386,7 +386,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_OnReactivated_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -395,7 +395,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_BlockTestUntilStart_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -404,7 +404,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_StartTest_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -413,7 +413,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_SetupRendererProcessForNonTestWindow_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -422,7 +422,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_ReplicateWebTestRuntimeFlagsChanges_ParamsSpec,
       null,
-      { arg_changed_layout_test_runtime_flags: arg_changed_layout_test_runtime_flags },
+      [arg_changed_layout_test_runtime_flags],
       false);
   }
 
@@ -431,7 +431,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_TestFinishedFromSecondaryRenderer_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_ResetRendererAfterWebTest_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_ProcessWorkItem_ParamsSpec,
       null,
-      { arg_work_item: arg_work_item },
+      [arg_work_item],
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.content.mojom.WebTestRenderFrameRemoteCallHandler = class
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestRenderFrame_ReplicateWorkQueueStates_ParamsSpec,
       null,
-      { arg_work_queue_states: arg_work_queue_states },
+      [arg_work_queue_states],
       false);
   }
 
@@ -857,7 +857,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_InitiateCaptureDump_ParamsSpec,
       null,
-      { arg_result: arg_result, arg_capture_navigation_history: arg_capture_navigation_history, arg_capture_pixels: arg_capture_pixels },
+      [arg_result, arg_capture_navigation_history, arg_capture_pixels],
       false);
   }
 
@@ -866,7 +866,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_TestFinishedInSecondaryRenderer_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -875,7 +875,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_PrintMessageToStderr_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -884,7 +884,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_PrintMessage_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -893,7 +893,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_OverridePreferences_ParamsSpec,
       null,
-      { arg_web_preferences: arg_web_preferences },
+      [arg_web_preferences],
       false);
   }
 
@@ -902,7 +902,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_Reload_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -911,7 +911,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_CheckForLeakedWindows_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -920,7 +920,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetMainWindowHidden_ParamsSpec,
       null,
-      { arg_hidden: arg_hidden },
+      [arg_hidden],
       false);
   }
 
@@ -929,7 +929,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetFrameWindowHidden_ParamsSpec,
       null,
-      { arg_frame_token: arg_frame_token, arg_hidden: arg_hidden },
+      [arg_frame_token, arg_hidden],
       false);
   }
 
@@ -938,7 +938,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_GoToOffset_ParamsSpec,
       null,
-      { arg_offset: arg_offset },
+      [arg_offset],
       false);
   }
 
@@ -947,7 +947,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SendBluetoothManualChooserEvent_ParamsSpec,
       null,
-      { arg_event: arg_event, arg_argument: arg_argument },
+      [arg_event, arg_argument],
       false);
   }
 
@@ -956,7 +956,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetBluetoothManualChooser_ParamsSpec,
       null,
-      { arg_enable: arg_enable },
+      [arg_enable],
       false);
   }
 
@@ -965,7 +965,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ParamsSpec,
       mojo.internal.bindings.content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -974,7 +974,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetPopupBlockingEnabled_ParamsSpec,
       null,
-      { arg_block_popups: arg_block_popups },
+      [arg_block_popups],
       false);
   }
 
@@ -983,7 +983,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_LoadURLForFrame_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_frame_name: arg_frame_name },
+      [arg_url, arg_frame_name],
       false);
   }
 
@@ -992,7 +992,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SimulateScreenOrientationChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1001,7 +1001,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetPermission_ParamsSpec,
       null,
-      { arg_name: arg_name, arg_status: arg_status, arg_origin: arg_origin, arg_embedding_origin: arg_embedding_origin },
+      [arg_name, arg_status, arg_origin, arg_embedding_origin],
       false);
   }
 
@@ -1010,7 +1010,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_BlockThirdPartyCookies_ParamsSpec,
       null,
-      { arg_block: arg_block },
+      [arg_block],
       false);
   }
 
@@ -1019,7 +1019,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_GetWritableDirectory_ParamsSpec,
       mojo.internal.bindings.content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1028,7 +1028,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetFilePathForMockFileDialog_ParamsSpec,
       null,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -1037,7 +1037,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ParamsSpec,
       mojo.internal.bindings.content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParamsSpec,
-      { arg_disallowed_suffixes: arg_disallowed_suffixes },
+      [arg_disallowed_suffixes],
       false);
   }
 
@@ -1046,7 +1046,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_FocusDevtoolsSecondaryWindow_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1055,7 +1055,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ParamsSpec,
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ResponseParamsSpec,
-      { arg_raw_commitments: arg_raw_commitments },
+      [arg_raw_commitments],
       false);
   }
 
@@ -1064,7 +1064,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_ClearTrustTokenState_ParamsSpec,
       mojo.internal.bindings.content.mojom.WebTestControlHost_ClearTrustTokenState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1073,7 +1073,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SimulateWebNotificationClick_ParamsSpec,
       null,
-      { arg_title: arg_title, arg_action_index: arg_action_index, arg_reply: arg_reply },
+      [arg_title, arg_action_index, arg_reply],
       false);
   }
 
@@ -1082,7 +1082,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SimulateWebNotificationClose_ParamsSpec,
       null,
-      { arg_title: arg_title, arg_by_user: arg_by_user },
+      [arg_title, arg_by_user],
       false);
   }
 
@@ -1091,7 +1091,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SimulateWebContentIndexDelete_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -1100,7 +1100,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_WebTestRuntimeFlagsChanged_ParamsSpec,
       null,
-      { arg_changed_web_test_runtime_flags: arg_changed_web_test_runtime_flags },
+      [arg_changed_web_test_runtime_flags],
       false);
   }
 
@@ -1109,7 +1109,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ParamsSpec,
       mojo.internal.bindings.content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ResponseParamsSpec,
-      { arg_file_paths: arg_file_paths },
+      [arg_file_paths],
       false);
   }
 
@@ -1118,7 +1118,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_DropPointerLock_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1127,7 +1127,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetPointerLockWillFail_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1136,7 +1136,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetPointerLockWillRespondAsynchronously_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1145,7 +1145,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_AllowPointerLock_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1154,7 +1154,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_WorkItemAdded_ParamsSpec,
       null,
-      { arg_work_item: arg_work_item },
+      [arg_work_item],
       false);
   }
 
@@ -1163,7 +1163,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_RequestWorkItem_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1172,7 +1172,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_WorkQueueStatesChanged_ParamsSpec,
       null,
-      { arg_changed_work_queue_states: arg_changed_work_queue_states },
+      [arg_changed_work_queue_states],
       false);
   }
 
@@ -1181,7 +1181,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetAcceptLanguages_ParamsSpec,
       null,
-      { arg_accept_languages: arg_accept_languages },
+      [arg_accept_languages],
       false);
   }
 
@@ -1190,7 +1190,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_ParamsSpec,
       null,
-      { arg_mode: arg_mode },
+      [arg_mode],
       false);
   }
 
@@ -1199,7 +1199,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_EnableAutoResize_ParamsSpec,
       null,
-      { arg_min_size: arg_min_size, arg_max_size: arg_max_size },
+      [arg_min_size, arg_max_size],
       false);
   }
 
@@ -1208,7 +1208,7 @@ mojo.internal.bindings.content.mojom.WebTestControlHostRemoteCallHandler = class
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.content.mojom.WebTestControlHost_DisableAutoResize_ParamsSpec,
       null,
-      { arg_new_size: arg_new_size },
+      [arg_new_size],
       false);
   }
 
@@ -1702,7 +1702,7 @@ mojo.internal.bindings.content.mojom.NonAssociatedWebTestControlHostRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.NonAssociatedWebTestControlHost_SetLCPPNavigationHint_ParamsSpec,
       null,
-      { arg_hint: arg_hint },
+      [arg_hint],
       false);
   }
 

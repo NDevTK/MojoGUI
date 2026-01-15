@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -185,7 +185,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

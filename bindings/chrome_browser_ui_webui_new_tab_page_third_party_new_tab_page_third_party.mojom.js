@@ -189,7 +189,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactoryRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -319,7 +319,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec,
       null,
-      { arg_theme: arg_theme },
+      [arg_theme],
       false);
   }
 

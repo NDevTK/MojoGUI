@@ -332,7 +332,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec,
       null,
-      { arg_text: arg_text, arg_cursor_behavior: arg_cursor_behavior },
+      [arg_text, arg_cursor_behavior],
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec,
       null,
-      { arg_text: arg_text, arg_spans: arg_spans },
+      [arg_text, arg_spans],
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec,
       null,
-      { arg_text: arg_text, arg_spans: arg_spans, arg_new_cursor_position: arg_new_cursor_position },
+      [arg_text, arg_spans, arg_new_cursor_position],
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec,
       null,
-      { arg_start_index: arg_start_index, arg_end_index: arg_end_index },
+      [arg_start_index, arg_end_index],
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec,
       null,
-      { arg_num_before_cursor: arg_num_before_cursor, arg_num_after_cursor: arg_num_after_cursor },
+      [arg_num_before_cursor, arg_num_after_cursor],
       false);
   }
 
@@ -386,7 +386,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec,
       null,
-      { arg_num_before_cursor: arg_num_before_cursor, arg_num_after_cursor: arg_num_after_cursor, arg_text: arg_text },
+      [arg_num_before_cursor, arg_num_after_cursor, arg_text],
       false);
   }
 
@@ -395,7 +395,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec,
       null,
-      { arg_autocorrect_span: arg_autocorrect_span },
+      [arg_autocorrect_span],
       false);
   }
 
@@ -404,7 +404,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec,
       null,
-      { arg_suggestions: arg_suggestions, arg_context: arg_context },
+      [arg_suggestions, arg_context],
       false);
   }
 
@@ -413,7 +413,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec,
       null,
-      { arg_window: arg_window },
+      [arg_window],
       false);
   }
 
@@ -422,7 +422,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -431,7 +431,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec,
       null,
-      { arg_settings: arg_settings },
+      [arg_settings],
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec,
       null,
-      { arg_entry: arg_entry },
+      [arg_entry],
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec,
       null,
-      { arg_action: arg_action },
+      [arg_action],
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec,
       null,
-      { arg_settings: arg_settings },
+      [arg_settings],
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec,
       null,
-      { arg_mode: arg_mode },
+      [arg_mode],
       false);
   }
 
@@ -476,7 +476,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec,
       null,
-      { arg_histogram: arg_histogram, arg_value: arg_value },
+      [arg_histogram, arg_value],
       false);
   }
 

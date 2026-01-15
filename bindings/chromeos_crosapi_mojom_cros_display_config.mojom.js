@@ -317,7 +317,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec,
-      { arg_single_unified: arg_single_unified },
+      [arg_single_unified],
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec,
-      { arg_id: arg_id, arg_properties: arg_properties, arg_source: arg_source },
+      [arg_id, arg_properties, arg_source],
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec,
-      { arg_display_id: arg_display_id, arg_op: arg_op, arg_delta: arg_delta },
+      [arg_display_id, arg_op, arg_delta],
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec,
-      { arg_display_id: arg_display_id, arg_op: arg_op, arg_calibration: arg_calibration },
+      [arg_display_id, arg_op, arg_calibration],
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandle
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec,
       null,
-      { arg_display_id: arg_display_id, arg_delta_x: arg_delta_x, arg_delta_y: arg_delta_y },
+      [arg_display_id, arg_delta_x, arg_delta_y],
       false);
   }
 
@@ -654,7 +654,7 @@ mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserverRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

@@ -205,7 +205,7 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRemo
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page },
+      [arg_page],
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRemo
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec,
       mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRemo
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec,
       mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRemo
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec,
       mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -413,7 +413,7 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
-      { arg_event_time: arg_event_time, arg_log_source: arg_log_source, arg_source_file: arg_source_file, arg_source_line: arg_source_line, arg_message: arg_message },
+      [arg_event_time, arg_log_source, arg_source_file, arg_source_line, arg_message],
       false);
   }
 

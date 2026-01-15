@@ -213,7 +213,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec,
       mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec,
       null,
-      { arg_url_visits: arg_url_visits },
+      [arg_url_visits],
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteC
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec,
       null,
-      { arg_url_visit: arg_url_visit },
+      [arg_url_visit],
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteC
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec,
       null,
-      { arg_url_visits: arg_url_visits },
+      [arg_url_visits],
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteC
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec,
       null,
-      { arg_url_visit: arg_url_visit },
+      [arg_url_visit],
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteC
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec,
       null,
-      { arg_action: arg_action, arg_url_key: arg_url_key, arg_visit_request_id: arg_visit_request_id },
+      [arg_action, arg_url_key, arg_visit_request_id],
       false);
   }
 

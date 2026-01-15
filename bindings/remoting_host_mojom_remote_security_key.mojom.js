@@ -177,7 +177,7 @@ mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec,
-      { arg_request_data: arg_request_data },
+      [arg_request_data],
       false);
   }
 

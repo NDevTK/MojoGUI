@@ -193,7 +193,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec,
-      { arg_details: arg_details, arg_action_handler: arg_action_handler },
+      [arg_details, arg_action_handler],
       false);
   }
 
@@ -332,7 +332,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationInstanceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -470,7 +470,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationItemRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -604,7 +604,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec,
       null,
-      { arg_buttonIndex: arg_buttonIndex },
+      [arg_buttonIndex],
       false);
   }
 
@@ -613,7 +613,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

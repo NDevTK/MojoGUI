@@ -253,7 +253,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec,
       null,
-      { arg_version: arg_version },
+      [arg_version],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec,
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec,
-      { arg_urls: arg_urls, arg_name: arg_name, arg_set_id: arg_set_id },
+      [arg_urls, arg_name, arg_set_id],
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec,
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -298,7 +298,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec,
       null,
-      { arg_uuid: arg_uuid, arg_in_new_tab: arg_in_new_tab },
+      [arg_uuid, arg_in_new_tab],
       false);
   }
 
@@ -307,7 +307,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec,
       null,
-      { arg_uuids: arg_uuids, arg_disposition: arg_disposition },
+      [arg_uuids, arg_disposition],
       false);
   }
 
@@ -316,7 +316,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec,
       null,
-      { arg_in_new_tab: arg_in_new_tab },
+      [arg_in_new_tab],
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec,
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec,
-      { arg_uuid: arg_uuid },
+      [arg_uuid],
       false);
   }
 
@@ -558,7 +558,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.PageRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec,
       null,
-      { arg_set: arg_set },
+      [arg_set],
       false);
   }
 
@@ -567,7 +567,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.PageRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec,
       null,
-      { arg_set: arg_set },
+      [arg_set],
       false);
   }
 
@@ -576,7 +576,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.PageRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec,
       null,
-      { arg_uuid: arg_uuid },
+      [arg_uuid],
       false);
   }
 
@@ -585,7 +585,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.PageRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -739,7 +739,7 @@ mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificatio
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 

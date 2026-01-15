@@ -245,7 +245,7 @@ mojo.internal.bindings.sharing.mojom.SharingRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.Sharing_Connect_ParamsSpec,
       null,
-      { arg_deps: arg_deps, arg_nearby_connections: arg_nearby_connections, arg_nearby_presence: arg_nearby_presence, arg_decoder: arg_decoder, arg_quick_start_decoder: arg_quick_start_decoder },
+      [arg_deps, arg_nearby_connections, arg_nearby_presence, arg_decoder, arg_quick_start_decoder],
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.sharing.mojom.SharingRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

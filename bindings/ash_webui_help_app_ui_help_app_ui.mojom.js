@@ -231,7 +231,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactoryRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -405,7 +405,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec,
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -414,7 +414,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -423,7 +423,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -432,7 +432,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec,
       null,
-      { arg_action_type_id: arg_action_type_id },
+      [arg_action_type_id],
       false);
   }
 
@@ -441,7 +441,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec,
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -459,7 +459,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -468,7 +468,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec,
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -477,7 +477,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -486,7 +486,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec,
       null,
-      { arg_component: arg_component },
+      [arg_component],
       false);
   }
 
@@ -495,7 +495,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -504,7 +504,7 @@ mojo.internal.bindings.ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

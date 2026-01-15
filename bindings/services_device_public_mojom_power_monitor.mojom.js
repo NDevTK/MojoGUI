@@ -182,7 +182,7 @@ mojo.internal.bindings.device.mojom.PowerMonitorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.PowerMonitor_AddClient_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -320,7 +320,7 @@ mojo.internal.bindings.device.mojom.PowerMonitorClientRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec,
       null,
-      { arg_battery_power_status: arg_battery_power_status },
+      [arg_battery_power_status],
       false);
   }
 
@@ -329,7 +329,7 @@ mojo.internal.bindings.device.mojom.PowerMonitorClientRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.PowerMonitorClient_Suspend_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -338,7 +338,7 @@ mojo.internal.bindings.device.mojom.PowerMonitorClientRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.PowerMonitorClient_Resume_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

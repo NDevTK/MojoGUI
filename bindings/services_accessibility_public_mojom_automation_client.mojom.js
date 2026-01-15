@@ -194,7 +194,7 @@ mojo.internal.bindings.ax.mojom.AutomationClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ParamsSpec,
       mojo.internal.bindings.ax.mojom.AutomationClient_Enable_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.ax.mojom.AutomationClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.mojom.AutomationClient_Disable_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.ax.mojom.AutomationClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ax.mojom.AutomationClient_EnableChildTree_ParamsSpec,
       null,
-      { arg_tree_id: arg_tree_id },
+      [arg_tree_id],
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.ax.mojom.AutomationClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ax.mojom.AutomationClient_PerformAction_ParamsSpec,
       null,
-      { arg_action_data: arg_action_data },
+      [arg_action_data],
       false);
   }
 

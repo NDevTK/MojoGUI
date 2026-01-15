@@ -244,7 +244,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_storage: arg_storage, arg_cdm: arg_cdm, arg_output_protection: arg_output_protection },
+      [arg_client, arg_storage, arg_cdm, arg_output_protection],
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_storage: arg_storage, arg_output_protection: arg_output_protection, arg_host: arg_host, arg_cdm: arg_cdm },
+      [arg_client, arg_storage, arg_output_protection, arg_host, arg_cdm],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec,
-      { arg_client: arg_client, arg_storage: arg_storage, arg_output_protection: arg_output_protection, arg_host: arg_host, arg_cdm: arg_cdm },
+      [arg_client, arg_storage, arg_output_protection, arg_host, arg_cdm],
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec,
-      { arg_key_system: arg_key_system },
+      [arg_key_system],
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_ParamsSpec,
       null,
-      { arg_oemcryptor: arg_oemcryptor, arg_protected_buffer_manager: arg_protected_buffer_manager, arg_output_protection: arg_output_protection },
+      [arg_oemcryptor, arg_protected_buffer_manager, arg_output_protection],
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -507,7 +507,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -516,7 +516,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec,
-      { arg_key_id: arg_key_id, arg_hw_identifier: arg_hw_identifier },
+      [arg_key_id, arg_hw_identifier],
       false);
   }
 
@@ -525,7 +525,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParamsSpec,
-      { arg_size: arg_size },
+      [arg_size],
       false);
   }
 
@@ -534,7 +534,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = cl
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParamsSpec,
-      { arg_secure_handle: arg_secure_handle, arg_offset: arg_offset, arg_stream_data: arg_stream_data },
+      [arg_secure_handle, arg_offset, arg_stream_data],
       false);
   }
 

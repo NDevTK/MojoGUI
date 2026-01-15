@@ -241,7 +241,7 @@ mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHostRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec,
       null,
-      { arg_service: arg_service },
+      [arg_service],
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHostRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec,
       null,
-      { arg_service: arg_service },
+      [arg_service],
       false);
   }
 
@@ -557,7 +557,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_Init_ParamsSpec,
       null,
-      { arg_locale: arg_locale, arg_remote: arg_remote },
+      [arg_locale, arg_remote],
       false);
   }
 
@@ -566,7 +566,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_Poke_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -575,7 +575,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -584,7 +584,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -593,7 +593,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec,
       null,
-      { arg_printer_name: arg_printer_name },
+      [arg_printer_name],
       false);
   }
 
@@ -602,7 +602,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec,
-      { arg_printer_name: arg_printer_name, arg_media: arg_media },
+      [arg_printer_name, arg_media],
       false);
   }
 
@@ -611,7 +611,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec,
       null,
-      { arg_context_id: arg_context_id, arg_parent_window_id: arg_parent_window_id },
+      [arg_context_id, arg_parent_window_id],
       false);
   }
 
@@ -620,7 +620,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec,
       null,
-      { arg_context_id: arg_context_id },
+      [arg_context_id],
       false);
   }
 
@@ -629,7 +629,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec,
       null,
-      { arg_context_id: arg_context_id, arg_max_pages: arg_max_pages, arg_has_selection: arg_has_selection, arg_is_scripted: arg_is_scripted },
+      [arg_context_id, arg_max_pages, arg_has_selection, arg_is_scripted],
       false);
   }
 
@@ -638,7 +638,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec,
       null,
-      { arg_context_id: arg_context_id, arg_job_settings: arg_job_settings },
+      [arg_context_id, arg_job_settings],
       false);
   }
 
@@ -647,7 +647,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec,
-      { arg_context_id: arg_context_id, arg_document_cookie: arg_document_cookie, arg_document_name: arg_document_name, arg_settings: arg_settings },
+      [arg_context_id, arg_document_cookie, arg_document_name, arg_settings],
       false);
   }
 
@@ -656,7 +656,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec,
-      { arg_document_cookie: arg_document_cookie, arg_page_index: arg_page_index, arg_page_data_type: arg_page_data_type, arg_serialized_page: arg_serialized_page, arg_page_size: arg_page_size, arg_page_content_rect: arg_page_content_rect, arg_shrink_factor: arg_shrink_factor },
+      [arg_document_cookie, arg_page_index, arg_page_data_type, arg_serialized_page, arg_page_size, arg_page_content_rect, arg_shrink_factor],
       false);
   }
 
@@ -665,7 +665,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec,
-      { arg_document_cookie: arg_document_cookie, arg_page_count: arg_page_count, arg_data_type: arg_data_type, arg_serialized_doc: arg_serialized_doc },
+      [arg_document_cookie, arg_page_count, arg_data_type, arg_serialized_doc],
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec,
-      { arg_document_cookie: arg_document_cookie },
+      [arg_document_cookie],
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.printing.mojom.PrintBackendServiceRemoteCallHandler = cla
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintBackendService_Cancel_ResponseParamsSpec,
-      { arg_document_cookie: arg_document_cookie },
+      [arg_document_cookie],
       false);
   }
 

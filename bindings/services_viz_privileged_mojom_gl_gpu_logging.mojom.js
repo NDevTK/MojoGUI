@@ -170,7 +170,7 @@ mojo.internal.bindings.viz.mojom.GpuLoggingRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec,
       null,
-      { arg_severity: arg_severity, arg_header: arg_header, arg_message: arg_message },
+      [arg_severity, arg_header, arg_message],
       false);
   }
 

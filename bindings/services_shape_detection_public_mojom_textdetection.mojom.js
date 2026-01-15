@@ -185,7 +185,7 @@ mojo.internal.bindings.shape_detection.mojom.TextDetectionRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.shape_detection.mojom.TextDetection_Detect_ParamsSpec,
       mojo.internal.bindings.shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec,
-      { arg_bitmap_data: arg_bitmap_data },
+      [arg_bitmap_data],
       false);
   }
 

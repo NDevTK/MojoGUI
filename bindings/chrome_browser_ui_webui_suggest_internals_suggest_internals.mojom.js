@@ -209,7 +209,7 @@ mojo.internal.bindings.suggest_internals.mojom.PageHandlerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.suggest_internals.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      { arg_page: arg_page },
+      [arg_page],
       false);
   }
 
@@ -218,7 +218,7 @@ mojo.internal.bindings.suggest_internals.mojom.PageHandlerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec,
       mojo.internal.bindings.suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec,
-      { arg_response: arg_response, arg_delay: arg_delay },
+      [arg_response, arg_delay],
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.suggest_internals.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec,
       null,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.suggest_internals.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec,
       null,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -391,7 +391,7 @@ mojo.internal.bindings.suggest_internals.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec,
       null,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 

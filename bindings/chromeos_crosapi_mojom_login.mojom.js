@@ -190,7 +190,7 @@ mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec,
-      { arg_password: arg_password },
+      [arg_password],
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec,
-      { arg_password: arg_password },
+      [arg_password],
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec,
-      { arg_password: arg_password },
+      [arg_password],
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec,
-      { arg_password: arg_password },
+      [arg_password],
       false);
   }
 
@@ -406,7 +406,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec,
-      { arg_password: arg_password },
+      [arg_password],
       false);
   }
 
@@ -415,7 +415,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec,
-      { arg_properties: arg_properties },
+      [arg_properties],
       false);
   }
 
@@ -424,7 +424,7 @@ mojo.internal.bindings.crosapi.mojom.LoginRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec,
-      { arg_password: arg_password },
+      [arg_password],
       false);
   }
 

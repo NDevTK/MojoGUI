@@ -207,7 +207,7 @@ mojo.internal.bindings.blink.mojom.ManifestManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -216,7 +216,7 @@ mojo.internal.bindings.blink.mojom.ManifestManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.blink.mojom.ManifestManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.blink.mojom.ManifestManagerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec,
-      { arg_document_url: arg_document_url, arg_manifest_url: arg_manifest_url, arg_manifest_content: arg_manifest_content },
+      [arg_document_url, arg_manifest_url, arg_manifest_content],
       false);
   }
 

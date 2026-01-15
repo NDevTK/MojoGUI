@@ -233,7 +233,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec,
       mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec,
-      { arg_options: arg_options, arg_delegate: arg_delegate },
+      [arg_options, arg_delegate],
       false);
   }
 
@@ -375,7 +375,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec,
       mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -384,7 +384,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec,
       mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -540,7 +540,7 @@ mojo.internal.bindings.smbfs.mojom.SmbFsDelegateRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec,
       mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

@@ -177,7 +177,7 @@ mojo.internal.bindings.network.mojom.CookieEncryptionProviderRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

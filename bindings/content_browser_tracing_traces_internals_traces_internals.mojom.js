@@ -268,7 +268,7 @@ mojo.internal.bindings.traces_internals.mojom.TracesInternalsHandlerFactoryRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -474,7 +474,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec,
-      { arg_config_pb: arg_config_pb, arg_enable_privacy_filters: arg_enable_privacy_filters },
+      [arg_config_pb, arg_enable_privacy_filters],
       false);
   }
 
@@ -483,7 +483,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -492,7 +492,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -501,7 +501,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -510,7 +510,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -519,7 +519,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -528,7 +528,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec,
-      { arg_uuid: arg_uuid },
+      [arg_uuid],
       false);
   }
 
@@ -537,7 +537,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -546,7 +546,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec,
-      { arg_uuid: arg_uuid },
+      [arg_uuid],
       false);
   }
 
@@ -555,7 +555,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec,
-      { arg_uuid: arg_uuid },
+      [arg_uuid],
       false);
   }
 
@@ -564,7 +564,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -573,7 +573,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec,
-      { arg_new_config: arg_new_config },
+      [arg_new_config],
       false);
   }
 
@@ -582,7 +582,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec,
-      { arg_config_string: arg_config_string },
+      [arg_config_string],
       false);
   }
 
@@ -591,7 +591,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec,
-      { arg_config_pb: arg_config_pb },
+      [arg_config_pb],
       false);
   }
 
@@ -600,7 +600,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -609,7 +609,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec,
       null,
-      { arg_enable: arg_enable },
+      [arg_enable],
       false);
   }
 
@@ -618,7 +618,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -627,7 +627,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -636,7 +636,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -645,7 +645,7 @@ mojo.internal.bindings.traces_internals.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec,
       mojo.internal.bindings.traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1095,7 +1095,7 @@ mojo.internal.bindings.traces_internals.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.traces_internals.mojom.Page_OnTraceComplete_ParamsSpec,
       null,
-      { arg_trace: arg_trace, arg_uuid: arg_uuid },
+      [arg_trace, arg_uuid],
       false);
   }
 

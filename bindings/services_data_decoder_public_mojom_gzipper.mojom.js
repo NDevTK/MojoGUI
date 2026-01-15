@@ -195,7 +195,7 @@ mojo.internal.bindings.data_decoder.mojom.GzipperRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.data_decoder.mojom.GzipperRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec,
-      { arg_data: arg_data, arg_max_uncompressed_size: arg_max_uncompressed_size },
+      [arg_data, arg_max_uncompressed_size],
       false);
   }
 
@@ -213,7 +213,7 @@ mojo.internal.bindings.data_decoder.mojom.GzipperRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.data_decoder.mojom.GzipperRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec,
-      { arg_compressed_data: arg_compressed_data },
+      [arg_compressed_data],
       false);
   }
 

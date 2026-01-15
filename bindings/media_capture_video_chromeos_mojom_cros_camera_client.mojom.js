@@ -176,7 +176,7 @@ mojo.internal.bindings.cros.mojom.CameraHalClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec,
       null,
-      { arg_camera_module: arg_camera_module },
+      [arg_camera_module],
       false);
   }
 

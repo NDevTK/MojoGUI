@@ -180,7 +180,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerClientRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec,
       null,
-      { arg_device_info: arg_device_info },
+      [arg_device_info],
       false);
   }
 
@@ -189,7 +189,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerClientRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec,
       null,
-      { arg_device_info: arg_device_info },
+      [arg_device_info],
       false);
   }
 

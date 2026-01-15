@@ -220,7 +220,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec,
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec,
-      { arg_name: arg_name, arg_add_to_front: arg_add_to_front },
+      [arg_name, arg_add_to_front],
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec,
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec,
-      { arg_source_id: arg_source_id, arg_name: arg_name, arg_folder_id: arg_folder_id, arg_icon_url: arg_icon_url, arg_add_to_front: arg_add_to_front },
+      [arg_source_id, arg_name, arg_folder_id, arg_icon_url, arg_add_to_front],
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec,
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec,
-      { arg_app_id: arg_app_id },
+      [arg_app_id],
       false);
   }
 
@@ -247,7 +247,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec,
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -256,7 +256,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec,
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec,
-      { arg_app_ids: arg_app_ids },
+      [arg_app_ids],
       false);
   }
 
@@ -463,7 +463,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactoryRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec,
       null,
-      { arg_source_id: arg_source_id, arg_remote_apps: arg_remote_apps, arg_observer: arg_observer },
+      [arg_source_id, arg_remote_apps, arg_observer],
       false);
   }
 
@@ -593,7 +593,7 @@ mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id, arg_source_id: arg_source_id },
+      [arg_app_id, arg_source_id],
       false);
   }
 

@@ -314,7 +314,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryEventObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryEventServiceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec,
       null,
-      { arg_category: arg_category, arg_observer: arg_observer },
+      [arg_category, arg_observer],
       false);
   }
 
@@ -457,7 +457,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryEventServiceRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec,
-      { arg_category: arg_category },
+      [arg_category],
       false);
   }
 

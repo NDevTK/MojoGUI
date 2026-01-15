@@ -282,7 +282,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec,
       null,
-      { arg_has_nonempty_beforeunload: arg_has_nonempty_beforeunload },
+      [arg_has_nonempty_beforeunload],
       false);
   }
 
@@ -309,7 +309,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -336,7 +336,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec,
       null,
-      { arg_is_ad_frame: arg_is_ad_frame },
+      [arg_is_ad_frame],
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec,
       null,
-      { arg_time_since_navigation_start: arg_time_since_navigation_start },
+      [arg_time_since_navigation_start],
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec,
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec,
-      { arg_mode: arg_mode },
+      [arg_mode],
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnitRemoteC
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -628,7 +628,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec,
       null,
-      { arg_main_thread_task_load_is_low: arg_main_thread_task_load_is_low },
+      [arg_main_thread_task_load_is_low],
       false);
   }
 
@@ -637,7 +637,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitRemoteCa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec,
       null,
-      { arg_description: arg_description, arg_iframe_attribution_data: arg_iframe_attribution_data },
+      [arg_description, arg_iframe_attribution_data],
       false);
   }
 
@@ -646,7 +646,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitRemoteCa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec,
       null,
-      { arg_v8_context_token: arg_v8_context_token },
+      [arg_v8_context_token],
       false);
   }
 
@@ -655,7 +655,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitRemoteCa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec,
       null,
-      { arg_v8_context_token: arg_v8_context_token },
+      [arg_v8_context_token],
       false);
   }
 
@@ -664,7 +664,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitRemoteCa
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec,
       null,
-      { arg_parent_frame_token: arg_parent_frame_token, arg_remote_frame_token: arg_remote_frame_token, arg_iframe_attribution_data: arg_iframe_attribution_data },
+      [arg_parent_frame_token, arg_remote_frame_token, arg_iframe_attribution_data],
       false);
   }
 
@@ -673,7 +673,7 @@ mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnitRemoteCa
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec,
       null,
-      { arg_parent_frame_token: arg_parent_frame_token, arg_remote_frame_token: arg_remote_frame_token },
+      [arg_parent_frame_token, arg_remote_frame_token],
       false);
   }
 
@@ -843,7 +843,7 @@ mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnitRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec,
       mojo.internal.bindings.performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

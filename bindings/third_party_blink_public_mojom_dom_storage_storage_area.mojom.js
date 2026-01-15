@@ -209,7 +209,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec,
       null,
-      { arg_key: arg_key, arg_new_value: arg_new_value, arg_old_value: arg_old_value, arg_source: arg_source },
+      [arg_key, arg_new_value, arg_old_value, arg_source],
       false);
   }
 
@@ -218,7 +218,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec,
       null,
-      { arg_key: arg_key, arg_source: arg_source },
+      [arg_key, arg_source],
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec,
       null,
-      { arg_key: arg_key, arg_old_value: arg_old_value, arg_source: arg_source },
+      [arg_key, arg_old_value, arg_source],
       false);
   }
 
@@ -236,7 +236,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec,
       null,
-      { arg_was_nonempty: arg_was_nonempty, arg_source: arg_source },
+      [arg_was_nonempty, arg_source],
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaObserverRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec,
       null,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -427,7 +427,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageArea_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -436,7 +436,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageArea_Put_ParamsSpec,
       mojo.internal.bindings.blink.mojom.StorageArea_Put_ResponseParamsSpec,
-      { arg_key: arg_key, arg_value: arg_value, arg_client_old_value: arg_client_old_value, arg_source: arg_source },
+      [arg_key, arg_value, arg_client_old_value, arg_source],
       false);
   }
 
@@ -445,7 +445,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageArea_Delete_ParamsSpec,
       mojo.internal.bindings.blink.mojom.StorageArea_Delete_ResponseParamsSpec,
-      { arg_key: arg_key, arg_client_old_value: arg_client_old_value, arg_source: arg_source },
+      [arg_key, arg_client_old_value, arg_source],
       false);
   }
 
@@ -454,7 +454,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ParamsSpec,
       mojo.internal.bindings.blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec,
-      { arg_source: arg_source, arg_new_observer: arg_new_observer },
+      [arg_source, arg_new_observer],
       false);
   }
 
@@ -463,7 +463,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageArea_Get_ParamsSpec,
       mojo.internal.bindings.blink.mojom.StorageArea_Get_ResponseParamsSpec,
-      { arg_key: arg_key },
+      [arg_key],
       false);
   }
 
@@ -472,7 +472,7 @@ mojo.internal.bindings.blink.mojom.StorageAreaRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ParamsSpec,
       mojo.internal.bindings.blink.mojom.StorageArea_GetAll_ResponseParamsSpec,
-      { arg_new_observer: arg_new_observer },
+      [arg_new_observer],
       false);
   }
 

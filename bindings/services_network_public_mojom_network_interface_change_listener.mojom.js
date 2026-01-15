@@ -180,7 +180,7 @@ mojo.internal.bindings.network.mojom.NetworkInterfaceChangeListenerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 

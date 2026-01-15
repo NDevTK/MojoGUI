@@ -380,7 +380,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServiceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothService_GetAvailability_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebBluetoothService_GetAvailability_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServiceRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RequestDevice_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RequestDevice_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServiceRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothService_GetDevices_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebBluetoothService_GetDevices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServiceRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothService_ForgetDevice_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebBluetoothService_ForgetDevice_ResponseParamsSpec,
-      { arg_device_id: arg_device_id },
+      [arg_device_id],
       false);
   }
 
@@ -416,7 +416,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServiceRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteServerConnect_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteServerConnect_ResponseParamsSpec,
-      { arg_device_id: arg_device_id, arg_client: arg_client },
+      [arg_device_id, arg_client],
       false);
   }
 
@@ -425,7 +425,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServiceRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteServerDisconnect_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id },
+      [arg_device_id],
       false);
   }
 
@@ -434,7 +434,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServiceRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ResponseParamsSpec,
-      { arg_device_id: arg_device_id, arg_quantity: arg_quantity, arg_services_uuid: arg_services_uuid },
+      [arg_device_id, arg_quantity, arg_services_uuid],
       false);
   }
 
@@ -443,7 +443,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServiceRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ResponseParamsSpec,
-      { arg_service_instance_id: arg_service_instance_id, arg_quantity: arg_quantity, arg_characteristics_uuid: arg_characteristics_uuid },
+      [arg_service_instance_id, arg_quantity, arg_characteristics_uuid],
       false);
   }
 
@@ -452,7 +452,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServiceRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ResponseParamsSpec,
-      { arg_characteristic_instance_id: arg_characteristic_instance_id },
+      [arg_characteristic_instance_id],
       false);
   }
 
@@ -461,7 +461,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServiceRemoteCallHandler = class 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ResponseParamsSpec,
-      { arg_characteristic_instance_id: arg_characteristic_instance_id, arg_value: arg_value, arg_write_type: arg_write_type },
+      [arg_characteristic_instance_id, arg_value, arg_write_type],
       false);
   }
 
@@ -470,7 +470,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServiceRemoteCallHandler = class 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ResponseParamsSpec,
-      { arg_characteristic_instance_id: arg_characteristic_instance_id, arg_client: arg_client },
+      [arg_characteristic_instance_id, arg_client],
       false);
   }
 
@@ -479,7 +479,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServiceRemoteCallHandler = class 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteCharacteristicStopNotifications_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteCharacteristicStopNotifications_ResponseParamsSpec,
-      { arg_characteristic_instance_id: arg_characteristic_instance_id },
+      [arg_characteristic_instance_id],
       false);
   }
 
@@ -488,7 +488,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServiceRemoteCallHandler = class 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ResponseParamsSpec,
-      { arg_characteristics_instance_id: arg_characteristics_instance_id, arg_quantity: arg_quantity, arg_descriptor_uuid: arg_descriptor_uuid },
+      [arg_characteristics_instance_id, arg_quantity, arg_descriptor_uuid],
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServiceRemoteCallHandler = class 
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ResponseParamsSpec,
-      { arg_descriptor_instance_id: arg_descriptor_instance_id },
+      [arg_descriptor_instance_id],
       false);
   }
 
@@ -506,7 +506,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServiceRemoteCallHandler = class 
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ResponseParamsSpec,
-      { arg_descriptor_instance_id: arg_descriptor_instance_id, arg_value: arg_value },
+      [arg_descriptor_instance_id, arg_value],
       false);
   }
 
@@ -515,7 +515,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServiceRemoteCallHandler = class 
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RequestScanningStart_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebBluetoothService_RequestScanningStart_ResponseParamsSpec,
-      { arg_client: arg_client, arg_options: arg_options },
+      [arg_client, arg_options],
       false);
   }
 
@@ -524,7 +524,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServiceRemoteCallHandler = class 
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ResponseParamsSpec,
-      { arg_device_id: arg_device_id, arg_client: arg_client },
+      [arg_device_id, arg_client],
       false);
   }
 
@@ -918,7 +918,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServerClientRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1048,7 +1048,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothCharacteristicClientRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothCharacteristicClient_RemoteCharacteristicValueChanged_ParamsSpec,
       null,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -1178,7 +1178,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothAdvertisementClientRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebBluetoothAdvertisementClient_AdvertisingEvent_ParamsSpec,
       null,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 

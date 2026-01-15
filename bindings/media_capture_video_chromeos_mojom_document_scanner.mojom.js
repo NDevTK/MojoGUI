@@ -182,7 +182,7 @@ mojo.internal.bindings.cros.mojom.CrosDocumentScannerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec,
-      { arg_nv12_image: arg_nv12_image },
+      [arg_nv12_image],
       false);
   }
 

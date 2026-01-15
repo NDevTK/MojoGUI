@@ -251,7 +251,7 @@ mojo.internal.bindings.viz.mojom.VizMainRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.viz.mojom.VizMainRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.VizMain_CreateGpuService_ParamsSpec,
       null,
-      { arg_gpu_service: arg_gpu_service, arg_gpu_host: arg_gpu_host, arg_gpu_logging: arg_gpu_logging, arg_discardable_memory_manager: arg_discardable_memory_manager, arg_use_shader_cache_shm_count: arg_use_shader_cache_shm_count, arg_params: arg_params },
+      [arg_gpu_service, arg_gpu_host, arg_gpu_logging, arg_discardable_memory_manager, arg_use_shader_cache_shm_count, arg_params],
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.viz.mojom.VizMainRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.VizMain_SetRenderParams_ParamsSpec,
       null,
-      { arg_subpixel_rendering: arg_subpixel_rendering, arg_text_contrast: arg_text_contrast, arg_text_gamma: arg_text_gamma },
+      [arg_subpixel_rendering, arg_text_contrast, arg_text_gamma],
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.viz.mojom.VizMainRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec,
       null,
-      { arg_info_collection_gpu_service: arg_info_collection_gpu_service },
+      [arg_info_collection_gpu_service],
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.viz.mojom.VizMainRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.viz.mojom.VizMain_StartDebugStream_ParamsSpec,
       null,
-      { arg_viz_debug: arg_viz_debug },
+      [arg_viz_debug],
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.viz.mojom.VizMainRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.viz.mojom.VizMain_FilterDebugStream_ParamsSpec,
       null,
-      { arg_filterData: arg_filterData },
+      [arg_filterData],
       false);
   }
 
@@ -305,7 +305,7 @@ mojo.internal.bindings.viz.mojom.VizMainRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.viz.mojom.VizMain_StopDebugStream_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

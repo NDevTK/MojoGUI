@@ -263,7 +263,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec,
       null,
-      { arg_upload_total: arg_upload_total, arg_uploaded: arg_uploaded, arg_download_total: arg_download_total, arg_downloaded: arg_downloaded, arg_result: arg_result, arg_failure_reason: arg_failure_reason },
+      [arg_upload_total, arg_uploaded, arg_download_total, arg_downloaded, arg_result, arg_failure_reason],
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec,
       null,
-      { arg_request: arg_request, arg_response: arg_response },
+      [arg_request, arg_response],
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec,
-      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_developer_id: arg_developer_id, arg_requests: arg_requests, arg_options: arg_options, arg_icon: arg_icon, arg_ukm_data: arg_ukm_data },
+      [arg_service_worker_registration_id, arg_developer_id, arg_requests, arg_options, arg_icon, arg_ukm_data],
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec,
-      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_developer_id: arg_developer_id },
+      [arg_service_worker_registration_id, arg_developer_id],
       false);
   }
 
@@ -457,7 +457,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec,
-      { arg_service_worker_registration_id: arg_service_worker_registration_id },
+      [arg_service_worker_registration_id],
       false);
   }
 
@@ -466,7 +466,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -665,7 +665,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec,
-      { arg_title: arg_title, arg_icon: arg_icon },
+      [arg_title, arg_icon],
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec,
-      { arg_request_to_match: arg_request_to_match, arg_cache_query_options: arg_cache_query_options, arg_match_all: arg_match_all },
+      [arg_request_to_match, arg_cache_query_options, arg_match_all],
       false);
   }
 
@@ -692,7 +692,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

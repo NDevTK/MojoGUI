@@ -183,7 +183,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec,
-      { arg_query: arg_query },
+      [arg_query],
       false);
   }
 

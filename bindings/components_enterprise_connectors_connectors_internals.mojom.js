@@ -239,7 +239,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec,
       mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec,
       mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec,
       mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec,
       mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

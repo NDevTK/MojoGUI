@@ -176,7 +176,7 @@ mojo.internal.bindings.chromecast.mojom.ServiceConnectorRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.ServiceConnector_Connect_ParamsSpec,
       null,
-      { arg_service_name: arg_service_name, arg_receiver: arg_receiver },
+      [arg_service_name, arg_receiver],
       false);
   }
 

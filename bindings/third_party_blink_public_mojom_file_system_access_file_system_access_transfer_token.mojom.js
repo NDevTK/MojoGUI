@@ -182,7 +182,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessTransferToken_GetInternalID_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessTransferToken_Clone_ParamsSpec,
       null,
-      { arg_token_clone: arg_token_clone },
+      [arg_token_clone],
       false);
   }
 

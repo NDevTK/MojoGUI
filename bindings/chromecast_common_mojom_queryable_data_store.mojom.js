@@ -177,7 +177,7 @@ mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStoreRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec,
       null,
-      { arg_key: arg_key, arg_value: arg_value },
+      [arg_key, arg_value],
       false);
   }
 

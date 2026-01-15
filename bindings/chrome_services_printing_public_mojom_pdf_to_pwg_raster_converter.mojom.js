@@ -203,7 +203,7 @@ mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec,
-      { arg_pdf_region: arg_pdf_region, arg_pdf_settings: arg_pdf_settings, arg_pwg_raster_settings: arg_pwg_raster_settings },
+      [arg_pdf_region, arg_pdf_settings, arg_pwg_raster_settings],
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
-      { arg_use_skia: arg_use_skia },
+      [arg_use_skia],
       false);
   }
 

@@ -242,7 +242,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserFactoryRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_base_url: arg_base_url, arg_data_source: arg_data_source },
+      [arg_receiver, arg_base_url, arg_data_source],
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserFactoryRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec,
       null,
-      { arg_data_source: arg_data_source, arg_file: arg_file },
+      [arg_data_source, arg_file],
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec,
       mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec,
       mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec,
-      { arg_offset: arg_offset },
+      [arg_offset],
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec,
       mojo.internal.bindings.web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec,
-      { arg_response_offset: arg_response_offset, arg_response_length: arg_response_length },
+      [arg_response_offset, arg_response_length],
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.web_package.mojom.WebBundleParser_Close_ParamsSpec,
       mojo.internal.bindings.web_package.mojom.WebBundleParser_Close_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -626,7 +626,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.web_package.mojom.BundleDataSource_Read_ParamsSpec,
       mojo.internal.bindings.web_package.mojom.BundleDataSource_Read_ResponseParamsSpec,
-      { arg_offset: arg_offset, arg_length: arg_length },
+      [arg_offset, arg_length],
       false);
   }
 
@@ -635,7 +635,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.web_package.mojom.BundleDataSource_Length_ParamsSpec,
       mojo.internal.bindings.web_package.mojom.BundleDataSource_Length_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -644,7 +644,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec,
       mojo.internal.bindings.web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -653,7 +653,7 @@ mojo.internal.bindings.web_package.mojom.BundleDataSourceRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.web_package.mojom.BundleDataSource_Close_ParamsSpec,
       mojo.internal.bindings.web_package.mojom.BundleDataSource_Close_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

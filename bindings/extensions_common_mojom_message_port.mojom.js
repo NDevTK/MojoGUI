@@ -237,7 +237,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 
@@ -246,7 +246,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.MessagePort_DeliverMessage_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortHostRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.MessagePortHost_ClosePort_ParamsSpec,
       null,
-      { arg_close_channel: arg_close_channel, arg_error_message: arg_error_message },
+      [arg_close_channel, arg_error_message],
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortHostRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.MessagePortHost_PostMessage_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.extensions.mojom.MessagePortHostRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

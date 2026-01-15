@@ -212,7 +212,7 @@ mojo.internal.bindings.printing.mojom.PdfNupConverterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec,
-      { arg_pages_per_sheet: arg_pages_per_sheet, arg_page_size: arg_page_size, arg_printable_area: arg_printable_area, arg_pdf_page_regions: arg_pdf_page_regions },
+      [arg_pages_per_sheet, arg_page_size, arg_printable_area, arg_pdf_page_regions],
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.printing.mojom.PdfNupConverterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec,
-      { arg_pages_per_sheet: arg_pages_per_sheet, arg_page_size: arg_page_size, arg_printable_area: arg_printable_area, arg_src_pdf_region: arg_src_pdf_region },
+      [arg_pages_per_sheet, arg_page_size, arg_printable_area, arg_src_pdf_region],
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.printing.mojom.PdfNupConverterRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.printing.mojom.PdfNupConverterRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
-      { arg_use_skia: arg_use_skia },
+      [arg_use_skia],
       false);
   }
 

@@ -186,7 +186,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec,
       null,
-      { arg_prerewritten_key_event: arg_prerewritten_key_event, arg_key_event: arg_key_event },
+      [arg_prerewritten_key_event, arg_key_event],
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec,
       null,
-      { arg_prerewritten_key_event: arg_prerewritten_key_event, arg_key_event: arg_key_event },
+      [arg_prerewritten_key_event, arg_key_event],
       false);
   }
 
@@ -337,7 +337,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -346,7 +346,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

@@ -177,7 +177,7 @@ mojo.internal.bindings.ash.growth.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec,
       mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -186,7 +186,7 @@ mojo.internal.bindings.ash.growth.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

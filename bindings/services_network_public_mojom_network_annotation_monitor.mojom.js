@@ -170,7 +170,7 @@ mojo.internal.bindings.network.mojom.NetworkAnnotationMonitorRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec,
       null,
-      { arg_hash_code: arg_hash_code },
+      [arg_hash_code],
       false);
   }
 

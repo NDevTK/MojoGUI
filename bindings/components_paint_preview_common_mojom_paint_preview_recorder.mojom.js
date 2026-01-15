@@ -225,7 +225,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorderRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorderRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec,
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 

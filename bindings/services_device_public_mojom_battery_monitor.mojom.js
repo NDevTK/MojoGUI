@@ -176,7 +176,7 @@ mojo.internal.bindings.device.mojom.BatteryMonitorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec,
       mojo.internal.bindings.device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

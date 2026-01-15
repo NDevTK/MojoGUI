@@ -211,7 +211,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec,
-      { arg_query: arg_query },
+      [arg_query],
       false);
   }
 

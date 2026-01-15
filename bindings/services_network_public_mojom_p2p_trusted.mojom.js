@@ -182,7 +182,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClientRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClientRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec,
       null,
-      { arg_packet_header: arg_packet_header, arg_packet_length: arg_packet_length, arg_incoming: arg_incoming },
+      [arg_packet_header, arg_packet_length, arg_incoming],
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec,
       null,
-      { arg_incoming: arg_incoming, arg_outgoing: arg_outgoing },
+      [arg_incoming, arg_outgoing],
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec,
       null,
-      { arg_incoming: arg_incoming, arg_outgoing: arg_outgoing },
+      [arg_incoming, arg_outgoing],
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

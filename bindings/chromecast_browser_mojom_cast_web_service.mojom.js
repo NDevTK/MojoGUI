@@ -242,7 +242,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebServiceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebService_CreateWebView_ParamsSpec,
       null,
-      { arg_params: arg_params, arg_web_contents: arg_web_contents, arg_window: arg_window },
+      [arg_params, arg_web_contents, arg_window],
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebServiceRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_hosts: arg_hosts },
+      [arg_client, arg_hosts],
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebServiceRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebServiceRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec,
       mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

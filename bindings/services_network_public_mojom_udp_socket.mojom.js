@@ -254,7 +254,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_Bind_ParamsSpec,
       mojo.internal.bindings.network.mojom.UDPSocket_Bind_ResponseParamsSpec,
-      { arg_local_addr: arg_local_addr, arg_socket_options: arg_socket_options },
+      [arg_local_addr, arg_socket_options],
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_Connect_ParamsSpec,
       mojo.internal.bindings.network.mojom.UDPSocket_Connect_ResponseParamsSpec,
-      { arg_remote_addr: arg_remote_addr, arg_socket_options: arg_socket_options },
+      [arg_remote_addr, arg_socket_options],
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_SetBroadcast_ParamsSpec,
       mojo.internal.bindings.network.mojom.UDPSocket_SetBroadcast_ResponseParamsSpec,
-      { arg_broadcast: arg_broadcast },
+      [arg_broadcast],
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_SetSendBufferSize_ParamsSpec,
       mojo.internal.bindings.network.mojom.UDPSocket_SetSendBufferSize_ResponseParamsSpec,
-      { arg_send_buffer_size: arg_send_buffer_size },
+      [arg_send_buffer_size],
       false);
   }
 
@@ -290,7 +290,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec,
       mojo.internal.bindings.network.mojom.UDPSocket_SetReceiveBufferSize_ResponseParamsSpec,
-      { arg_receive_buffer_size: arg_receive_buffer_size },
+      [arg_receive_buffer_size],
       false);
   }
 
@@ -299,7 +299,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_JoinGroup_ParamsSpec,
       mojo.internal.bindings.network.mojom.UDPSocket_JoinGroup_ResponseParamsSpec,
-      { arg_group_address: arg_group_address },
+      [arg_group_address],
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_LeaveGroup_ParamsSpec,
       mojo.internal.bindings.network.mojom.UDPSocket_LeaveGroup_ResponseParamsSpec,
-      { arg_group_address: arg_group_address },
+      [arg_group_address],
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_ReceiveMore_ParamsSpec,
       null,
-      { arg_num_additional_datagrams: arg_num_additional_datagrams },
+      [arg_num_additional_datagrams],
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec,
       null,
-      { arg_num_additional_datagrams: arg_num_additional_datagrams, arg_buffer_size: arg_buffer_size },
+      [arg_num_additional_datagrams, arg_buffer_size],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_SendTo_ParamsSpec,
       mojo.internal.bindings.network.mojom.UDPSocket_SendTo_ResponseParamsSpec,
-      { arg_dest_addr: arg_dest_addr, arg_data: arg_data, arg_traffic_annotation: arg_traffic_annotation },
+      [arg_dest_addr, arg_data, arg_traffic_annotation],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_Send_ParamsSpec,
       mojo.internal.bindings.network.mojom.UDPSocket_Send_ResponseParamsSpec,
-      { arg_data: arg_data, arg_traffic_annotation: arg_traffic_annotation },
+      [arg_data, arg_traffic_annotation],
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.network.mojom.UDPSocketRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocket_Close_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -650,7 +650,7 @@ mojo.internal.bindings.network.mojom.UDPSocketListenerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.UDPSocketListener_OnReceived_ParamsSpec,
       null,
-      { arg_result: arg_result, arg_src_addr: arg_src_addr, arg_data: arg_data },
+      [arg_result, arg_src_addr, arg_data],
       false);
   }
 

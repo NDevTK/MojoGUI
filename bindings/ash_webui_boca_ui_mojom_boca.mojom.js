@@ -593,7 +593,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -602,7 +602,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -611,7 +611,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_ListCourses_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -620,7 +620,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_ListStudents_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_ListStudents_ResponseParamsSpec,
-      { arg_course_id: arg_course_id },
+      [arg_course_id],
       false);
   }
 
@@ -629,7 +629,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_ListAssignments_ResponseParamsSpec,
-      { arg_course_id: arg_course_id },
+      [arg_course_id],
       false);
   }
 
@@ -638,7 +638,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_CreateSession_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -647,7 +647,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_GetSession_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -656,7 +656,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_EndSession_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -665,7 +665,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec,
-      { arg_extended_duration: arg_extended_duration },
+      [arg_extended_duration],
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec,
-      { arg_student_id: arg_student_id },
+      [arg_student_id],
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec,
-      { arg_student_id: arg_student_id },
+      [arg_student_id],
       false);
   }
 
@@ -692,7 +692,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_AddStudents_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec,
-      { arg_students: arg_students },
+      [arg_students],
       false);
   }
 
@@ -701,7 +701,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec,
-      { arg_on_task_config: arg_on_task_config },
+      [arg_on_task_config],
       false);
   }
 
@@ -710,7 +710,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec,
-      { arg_caption_config: arg_caption_config },
+      [arg_caption_config],
       false);
   }
 
@@ -719,7 +719,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_SetFloatMode_ResponseParamsSpec,
-      { arg_is_float_mode: arg_is_float_mode },
+      [arg_is_float_mode],
       false);
   }
 
@@ -728,7 +728,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec,
-      { arg_access_code: arg_access_code },
+      [arg_access_code],
       false);
   }
 
@@ -737,7 +737,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -746,7 +746,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -755,7 +755,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -764,7 +764,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec,
-      { arg_pref: arg_pref },
+      [arg_pref],
       false);
   }
 
@@ -773,7 +773,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_SetUserPref_ResponseParamsSpec,
-      { arg_pref: arg_pref, arg_value: arg_value },
+      [arg_pref, arg_value],
       false);
   }
 
@@ -782,7 +782,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec,
-      { arg_url: arg_url, arg_permission: arg_permission, arg_setting: arg_setting },
+      [arg_url, arg_permission, arg_setting],
       false);
   }
 
@@ -791,7 +791,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec,
-      { arg_tab_id: arg_tab_id },
+      [arg_tab_id],
       false);
   }
 
@@ -800,7 +800,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -809,7 +809,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_RefreshWorkbook_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -818,7 +818,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -827,7 +827,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_StartSpotlight_ResponseParamsSpec,
-      { arg_crd_connection_code: arg_crd_connection_code },
+      [arg_crd_connection_code],
       false);
   }
 
@@ -836,7 +836,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentStudentScreen_ResponseParamsSpec,
-      { arg_student: arg_student, arg_receiver_id: arg_receiver_id },
+      [arg_student, arg_receiver_id],
       false);
   }
 
@@ -845,7 +845,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -854,7 +854,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParamsSpec,
-      { arg_receiver_id: arg_receiver_id },
+      [arg_receiver_id],
       false);
   }
 
@@ -863,7 +863,7 @@ mojo.internal.bindings.ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec,
       mojo.internal.bindings.ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1544,7 +1544,7 @@ mojo.internal.bindings.ash.boca.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec,
       null,
-      { arg_activities: arg_activities },
+      [arg_activities],
       false);
   }
 
@@ -1553,7 +1553,7 @@ mojo.internal.bindings.ash.boca.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec,
       null,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -1562,7 +1562,7 @@ mojo.internal.bindings.ash.boca.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec,
       null,
-      { arg_active_networks: arg_active_networks },
+      [arg_active_networks],
       false);
   }
 
@@ -1571,7 +1571,7 @@ mojo.internal.bindings.ash.boca.mojom.PageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1580,7 +1580,7 @@ mojo.internal.bindings.ash.boca.mojom.PageRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -1589,7 +1589,7 @@ mojo.internal.bindings.ash.boca.mojom.PageRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec,
       null,
-      { arg_is_error: arg_is_error },
+      [arg_is_error],
       false);
   }
 
@@ -1598,7 +1598,7 @@ mojo.internal.bindings.ash.boca.mojom.PageRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec,
       null,
-      { arg_frame_data: arg_frame_data },
+      [arg_frame_data],
       false);
   }
 
@@ -1607,7 +1607,7 @@ mojo.internal.bindings.ash.boca.mojom.PageRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -1616,7 +1616,7 @@ mojo.internal.bindings.ash.boca.mojom.PageRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1625,7 +1625,7 @@ mojo.internal.bindings.ash.boca.mojom.PageRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1827,7 +1827,7 @@ mojo.internal.bindings.ash.boca.mojom.BocaPageHandlerFactoryRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec,
       null,
-      { arg_handler: arg_handler, arg_page: arg_page },
+      [arg_handler, arg_page],
       false);
   }
 

@@ -215,7 +215,7 @@ mojo.internal.bindings.ax.mojom.TtsUtteranceClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.ax.mojom.TtsRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.Tts_Speak_ParamsSpec,
       mojo.internal.bindings.ax.mojom.Tts_Speak_ResponseParamsSpec,
-      { arg_utterance: arg_utterance, arg_options: arg_options },
+      [arg_utterance, arg_options],
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.ax.mojom.TtsRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.mojom.Tts_Stop_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.ax.mojom.TtsRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ax.mojom.Tts_Pause_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.ax.mojom.TtsRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ax.mojom.Tts_Resume_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.ax.mojom.TtsRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ax.mojom.Tts_IsSpeaking_ParamsSpec,
       mojo.internal.bindings.ax.mojom.Tts_IsSpeaking_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.ax.mojom.TtsRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ax.mojom.Tts_GetVoices_ParamsSpec,
       mojo.internal.bindings.ax.mojom.Tts_GetVoices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

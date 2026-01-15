@@ -214,7 +214,7 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec,
       null,
-      { arg_frame_token: arg_frame_token, arg_metadata: arg_metadata },
+      [arg_frame_token, arg_metadata],
       false);
   }
 
@@ -357,7 +357,7 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec,
       null,
-      { arg_frame_token: arg_frame_token },
+      [arg_frame_token],
       false);
   }
 

@@ -245,7 +245,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec,
       null,
-      { arg_step: arg_step, arg_result: arg_result },
+      [arg_step, arg_result],
       false);
   }
 
@@ -375,7 +375,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec,
       mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -514,7 +514,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -644,7 +644,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec,
       mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec,
-      { arg_payload_id: arg_payload_id, arg_payload_files: arg_payload_files, arg_listener: arg_listener },
+      [arg_payload_id, arg_payload_files, arg_listener],
       false);
   }
 
@@ -783,7 +783,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec,
       mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec,
-      { arg_bluetooth_public_address: arg_bluetooth_public_address, arg_eid: arg_eid, arg_message_receiver: arg_message_receiver, arg_nearby_connection_state_listener: arg_nearby_connection_state_listener },
+      [arg_bluetooth_public_address, arg_eid, arg_message_receiver, arg_nearby_connection_state_listener],
       false);
   }
 

@@ -212,7 +212,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec,
-      { arg_uid: arg_uid },
+      [arg_uid],
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec,
-      { arg_gid: arg_gid },
+      [arg_gid],
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec,
-      { arg_project_id: arg_project_id },
+      [arg_project_id],
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec,
-      { arg_uids: arg_uids, arg_gids: arg_gids, arg_project_ids: arg_project_ids },
+      [arg_uids, arg_gids, arg_project_ids],
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DiskSpaceInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -507,7 +507,7 @@ mojo.internal.bindings.arc.mojom.DiskSpaceInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec,
       null,
-      { arg_free_space_bytes: arg_free_space_bytes },
+      [arg_free_space_bytes],
       false);
   }
 

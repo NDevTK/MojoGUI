@@ -226,7 +226,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.echo.mojom.EchoService_EchoString_ParamsSpec,
       mojo.internal.bindings.echo.mojom.EchoService_EchoString_ResponseParamsSpec,
-      { arg_input: arg_input },
+      [arg_input],
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec,
       null,
-      { arg_input: arg_input, arg_region: arg_region },
+      [arg_input, arg_region],
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.echo.mojom.EchoService_Quit_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.echo.mojom.EchoService_Crash_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.echo.mojom.EchoService_DelayLoad_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec,
       mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec,
-      { arg_library: arg_library, arg_call_winmm_delayload: arg_call_winmm_delayload },
+      [arg_library, arg_call_winmm_delayload],
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ParamsSpec,
       mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec,
-      { arg_encryptor: arg_encryptor, arg_input: arg_input },
+      [arg_encryptor, arg_input],
       false);
   }
 

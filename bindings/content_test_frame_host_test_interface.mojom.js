@@ -176,7 +176,7 @@ mojo.internal.bindings.content.mojom.FrameHostTestInterfaceRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHostTestInterface_Ping_ParamsSpec,
       null,
-      { arg_source_url: arg_source_url, arg_source_event: arg_source_event },
+      [arg_source_url, arg_source_event],
       false);
   }
 

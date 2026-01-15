@@ -261,7 +261,7 @@ mojo.internal.bindings.arc.mojom.PowerHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec,
       null,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -270,7 +270,7 @@ mojo.internal.bindings.arc.mojom.PowerHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec,
       null,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -279,7 +279,7 @@ mojo.internal.bindings.arc.mojom.PowerHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec,
       null,
-      { arg_mode: arg_mode },
+      [arg_mode],
       false);
   }
 
@@ -288,7 +288,7 @@ mojo.internal.bindings.arc.mojom.PowerHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -297,7 +297,7 @@ mojo.internal.bindings.arc.mojom.PowerHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec,
       null,
-      { arg_percent: arg_percent },
+      [arg_percent],
       false);
   }
 
@@ -306,7 +306,7 @@ mojo.internal.bindings.arc.mojom.PowerHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerHost_OnPreAnr_ParamsSpec,
       null,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -315,7 +315,7 @@ mojo.internal.bindings.arc.mojom.PowerHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec,
       null,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -324,7 +324,7 @@ mojo.internal.bindings.arc.mojom.PowerHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -564,7 +564,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PowerInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -573,7 +573,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -582,7 +582,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PowerInstance_Suspend_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -591,7 +591,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_Resume_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -600,7 +600,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec,
       null,
-      { arg_percent: arg_percent },
+      [arg_percent],
       false);
   }
 
@@ -609,7 +609,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -618,7 +618,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -627,7 +627,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -636,7 +636,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -645,7 +645,7 @@ mojo.internal.bindings.arc.mojom.PowerInstanceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.PowerInstance_SetIdleState_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 

@@ -189,7 +189,7 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -198,7 +198,7 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -207,7 +207,7 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -216,7 +216,7 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

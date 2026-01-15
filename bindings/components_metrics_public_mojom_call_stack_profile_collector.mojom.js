@@ -187,7 +187,7 @@ mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec,
       null,
-      { arg_start_timestamp: arg_start_timestamp, arg_profile_type: arg_profile_type, arg_profile: arg_profile },
+      [arg_start_timestamp, arg_profile_type, arg_profile],
       false);
   }
 

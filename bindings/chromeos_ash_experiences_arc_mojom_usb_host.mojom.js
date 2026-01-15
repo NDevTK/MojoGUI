@@ -196,7 +196,7 @@ mojo.internal.bindings.arc.mojom.UsbHostHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.UsbHostHost_OpenDevice_ParamsSpec,
       mojo.internal.bindings.arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec,
-      { arg_guid: arg_guid, arg_pkg_name: arg_pkg_name },
+      [arg_guid, arg_pkg_name],
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.arc.mojom.UsbHostHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec,
       mojo.internal.bindings.arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec,
-      { arg_guid: arg_guid },
+      [arg_guid],
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.arc.mojom.UsbHostHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.UsbHostHost_RequestPermission_ParamsSpec,
       mojo.internal.bindings.arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec,
-      { arg_guid: arg_guid, arg_pkg_name: arg_pkg_name, arg_interactive: arg_interactive },
+      [arg_guid, arg_pkg_name, arg_interactive],
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.arc.mojom.UsbHostInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.arc.mojom.UsbHostInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec,
       null,
-      { arg_guid: arg_guid, arg_event_receiver_packages: arg_event_receiver_packages },
+      [arg_guid, arg_event_receiver_packages],
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.arc.mojom.UsbHostInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec,
       null,
-      { arg_guid: arg_guid, arg_event_receiver_packages: arg_event_receiver_packages },
+      [arg_guid, arg_event_receiver_packages],
       false);
   }
 

@@ -170,7 +170,7 @@ mojo.internal.bindings.ui.mojom.ScenicGpuHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec,
       null,
-      { arg_window_id: arg_window_id, arg_view_holder_token: arg_view_holder_token },
+      [arg_window_id, arg_view_holder_token],
       false);
   }
 

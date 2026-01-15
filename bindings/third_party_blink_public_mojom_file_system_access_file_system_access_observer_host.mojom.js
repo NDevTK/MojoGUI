@@ -189,7 +189,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec,
-      { arg_token: arg_token, arg_is_recursive: arg_is_recursive },
+      [arg_token, arg_is_recursive],
       false);
   }
 
@@ -198,7 +198,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec,
       null,
-      { arg_token: arg_token },
+      [arg_token],
       false);
   }
 

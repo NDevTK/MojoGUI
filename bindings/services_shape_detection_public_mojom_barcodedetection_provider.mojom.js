@@ -186,7 +186,7 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_options: arg_options },
+      [arg_receiver, arg_options],
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec,
       mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

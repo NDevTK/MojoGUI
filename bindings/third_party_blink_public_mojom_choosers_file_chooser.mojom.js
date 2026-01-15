@@ -211,7 +211,7 @@ mojo.internal.bindings.blink.mojom.FileChooserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.blink.mojom.FileChooserRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec,
-      { arg_directory_path: arg_directory_path },
+      [arg_directory_path],
       false);
   }
 

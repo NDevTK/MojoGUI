@@ -178,7 +178,7 @@ mojo.internal.bindings.cast_streaming.mojom.RendererControllerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec,
       mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParamsSpec,
-      { arg_renderer: arg_renderer },
+      [arg_renderer],
       false);
   }
 

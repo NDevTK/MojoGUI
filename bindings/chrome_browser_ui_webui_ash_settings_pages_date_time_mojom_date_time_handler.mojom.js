@@ -184,7 +184,7 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactoryRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -322,7 +322,7 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -331,7 +331,7 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec,
       mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -499,7 +499,7 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec,
       null,
-      { arg_is_allowed: arg_is_allowed },
+      [arg_is_allowed],
       false);
   }
 
@@ -508,7 +508,7 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec,
       null,
-      { arg_success: arg_success },
+      [arg_success],
       false);
   }
 

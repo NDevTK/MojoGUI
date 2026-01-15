@@ -182,7 +182,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec,
       null,
-      { arg_script_url: arg_script_url },
+      [arg_script_url],
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec,
       null,
-      { arg_script_info: arg_script_info },
+      [arg_script_info],
       false);
   }
 

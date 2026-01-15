@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.KeepAliveHandleFactoryRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec,
       null,
-      { arg_keep_alive_handle: arg_keep_alive_handle },
+      [arg_keep_alive_handle],
       false);
   }
 

@@ -212,7 +212,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerFactoryRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec,
       mojo.internal.bindings.reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -391,7 +391,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.reading_list.mojom.PageHandler_OpenURL_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_mark_as_read: arg_mark_as_read, arg_click_modifiers: arg_click_modifiers },
+      [arg_url, arg_mark_as_read, arg_click_modifiers],
       false);
   }
 
@@ -400,7 +400,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_read: arg_read },
+      [arg_url, arg_read],
       false);
   }
 
@@ -409,7 +409,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -418,7 +418,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -427,7 +427,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -436,7 +436,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_x: arg_x, arg_y: arg_y },
+      [arg_url, arg_x, arg_y],
       false);
   }
 
@@ -445,7 +445,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -454,7 +454,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.reading_list.mojom.PageHandler_ShowUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -463,7 +463,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.reading_list.mojom.PageHandler_CloseUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -472,7 +472,7 @@ mojo.internal.bindings.reading_list.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ParamsSpec,
       mojo.internal.bindings.reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -704,7 +704,7 @@ mojo.internal.bindings.reading_list.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.reading_list.mojom.Page_ItemsChanged_ParamsSpec,
       null,
-      { arg_entries: arg_entries },
+      [arg_entries],
       false);
   }
 
@@ -713,7 +713,7 @@ mojo.internal.bindings.reading_list.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 

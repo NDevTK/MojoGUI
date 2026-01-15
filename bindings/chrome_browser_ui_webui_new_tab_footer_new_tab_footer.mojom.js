@@ -209,7 +209,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactoryRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec,
       null,
-      { arg_document: arg_document, arg_handler: arg_handler },
+      [arg_document, arg_handler],
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -416,7 +416,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -425,7 +425,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -434,7 +434,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec,
       null,
-      { arg_point: arg_point },
+      [arg_point],
       false);
   }
 
@@ -443,7 +443,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -649,7 +649,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec,
       null,
-      { arg_name: arg_name },
+      [arg_name],
       false);
   }
 
@@ -658,7 +658,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec,
       null,
-      { arg_notice: arg_notice },
+      [arg_notice],
       false);
   }
 
@@ -667,7 +667,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec,
       null,
-      { arg_ntp_type: arg_ntp_type, arg_can_customize_chrome: arg_can_customize_chrome },
+      [arg_ntp_type, arg_can_customize_chrome],
       false);
   }
 
@@ -676,7 +676,7 @@ mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandle
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec,
       null,
-      { arg_background_image_attribution: arg_background_image_attribution },
+      [arg_background_image_attribution],
       false);
   }
 

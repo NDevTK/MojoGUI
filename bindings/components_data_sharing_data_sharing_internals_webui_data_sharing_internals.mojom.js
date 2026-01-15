@@ -195,7 +195,7 @@ mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerFactoryRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -329,7 +329,7 @@ mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_IsEmptyService_ParamsSpec,
       mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -338,7 +338,7 @@ mojo.internal.bindings.data_sharing_internals.mojom.PageHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_GetAllGroups_ParamsSpec,
       mojo.internal.bindings.data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -493,7 +493,7 @@ mojo.internal.bindings.data_sharing_internals.mojom.PageRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_sharing_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
-      { arg_event_time: arg_event_time, arg_log_source: arg_log_source, arg_source_file: arg_source_file, arg_source_line: arg_source_line, arg_message: arg_message },
+      [arg_event_time, arg_log_source, arg_source_file, arg_source_line, arg_message],
       false);
   }
 

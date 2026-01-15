@@ -193,7 +193,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfac
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec,
       null,
-      { arg_child_document: arg_child_document },
+      [arg_child_document],
       false);
   }
 
@@ -202,7 +202,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfac
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler, arg_document: arg_document },
+      [arg_handler, arg_document],
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemot
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemot
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec,
       null,
-      { arg_access_token: arg_access_token },
+      [arg_access_token],
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemot
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec,
       null,
-      { arg_error_code: arg_error_code, arg_error_message: arg_error_message },
+      [arg_error_code, arg_error_message],
       false);
   }
 

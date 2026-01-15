@@ -246,7 +246,7 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -376,7 +376,7 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec,
       mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -515,7 +515,7 @@ mojo.internal.bindings.tab_strip_internals.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec,
       null,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 

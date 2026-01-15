@@ -440,7 +440,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReaderRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReaderRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec,
-      { arg_size: arg_size },
+      [arg_size],
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReaderRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -634,7 +634,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriterRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec,
-      { arg_response_head: arg_response_head },
+      [arg_response_head],
       false);
   }
 
@@ -643,7 +643,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriterRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -799,7 +799,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerResourceMetadataWriterRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -1102,7 +1102,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Disable_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Disable_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1111,7 +1111,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1120,7 +1120,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_Recover_ResponseParamsSpec,
-      { arg_versions: arg_versions },
+      [arg_versions],
       false);
   }
 
@@ -1129,7 +1129,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1138,7 +1138,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec,
-      { arg_client_url: arg_client_url, arg_key: arg_key },
+      [arg_client_url, arg_key],
       false);
   }
 
@@ -1147,7 +1147,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec,
-      { arg_scope: arg_scope, arg_key: arg_key },
+      [arg_scope, arg_key],
       false);
   }
 
@@ -1156,7 +1156,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec,
-      { arg_registration_id: arg_registration_id, arg_key: arg_key },
+      [arg_registration_id, arg_key],
       false);
   }
 
@@ -1165,7 +1165,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec,
-      { arg_key: arg_key },
+      [arg_key],
       false);
   }
 
@@ -1174,7 +1174,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec,
-      { arg_key: arg_key },
+      [arg_key],
       false);
   }
 
@@ -1183,7 +1183,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1192,7 +1192,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec,
-      { arg_registration: arg_registration, arg_resources: arg_resources },
+      [arg_registration, arg_resources],
       false);
   }
 
@@ -1201,7 +1201,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec,
-      { arg_registration_id: arg_registration_id, arg_key: arg_key },
+      [arg_registration_id, arg_key],
       false);
   }
 
@@ -1210,7 +1210,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec,
-      { arg_registration_id: arg_registration_id, arg_key: arg_key },
+      [arg_registration_id, arg_key],
       false);
   }
 
@@ -1219,7 +1219,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec,
-      { arg_registration_id: arg_registration_id, arg_key: arg_key, arg_last_update_check_time: arg_last_update_check_time },
+      [arg_registration_id, arg_key, arg_last_update_check_time],
       false);
   }
 
@@ -1228,7 +1228,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec,
-      { arg_registration_id: arg_registration_id, arg_key: arg_key, arg_enable: arg_enable },
+      [arg_registration_id, arg_key, arg_enable],
       false);
   }
 
@@ -1237,7 +1237,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec,
-      { arg_registration_id: arg_registration_id, arg_key: arg_key, arg_value: arg_value },
+      [arg_registration_id, arg_key, arg_value],
       false);
   }
 
@@ -1246,7 +1246,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec,
-      { arg_registration_id: arg_registration_id, arg_key: arg_key, arg_type: arg_type },
+      [arg_registration_id, arg_key, arg_type],
       false);
   }
 
@@ -1255,7 +1255,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec,
-      { arg_registratation_id: arg_registratation_id, arg_key: arg_key, arg_updated_sha256_checksums: arg_updated_sha256_checksums },
+      [arg_registratation_id, arg_key, arg_updated_sha256_checksums],
       false);
   }
 
@@ -1264,7 +1264,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1273,7 +1273,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1282,7 +1282,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1291,7 +1291,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec,
       null,
-      { arg_resource_id: arg_resource_id, arg_reader: arg_reader },
+      [arg_resource_id, arg_reader],
       false);
   }
 
@@ -1300,7 +1300,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec,
       null,
-      { arg_resource_id: arg_resource_id, arg_writer: arg_writer },
+      [arg_resource_id, arg_writer],
       false);
   }
 
@@ -1309,7 +1309,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec,
       null,
-      { arg_resource_id: arg_resource_id, arg_writer: arg_writer },
+      [arg_resource_id, arg_writer],
       false);
   }
 
@@ -1318,7 +1318,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec,
-      { arg_resource_id: arg_resource_id },
+      [arg_resource_id],
       false);
   }
 
@@ -1327,7 +1327,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec,
-      { arg_resource_ids: arg_resource_ids },
+      [arg_resource_ids],
       false);
   }
 
@@ -1336,7 +1336,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec,
-      { arg_registration_id: arg_registration_id, arg_keys: arg_keys },
+      [arg_registration_id, arg_keys],
       false);
   }
 
@@ -1345,7 +1345,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec,
-      { arg_registration_id: arg_registration_id, arg_key: arg_key, arg_user_data: arg_user_data },
+      [arg_registration_id, arg_key, arg_user_data],
       false);
   }
 
@@ -1354,7 +1354,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec,
-      { arg_registration_id: arg_registration_id, arg_keys: arg_keys },
+      [arg_registration_id, arg_keys],
       false);
   }
 
@@ -1363,7 +1363,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec,
-      { arg_registration_id: arg_registration_id, arg_key_prefix: arg_key_prefix },
+      [arg_registration_id, arg_key_prefix],
       false);
   }
 
@@ -1372,7 +1372,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec,
-      { arg_registration_id: arg_registration_id, arg_key_prefix: arg_key_prefix },
+      [arg_registration_id, arg_key_prefix],
       false);
   }
 
@@ -1381,7 +1381,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec,
-      { arg_registratation_id: arg_registratation_id, arg_key_prefixes: arg_key_prefixes },
+      [arg_registratation_id, arg_key_prefixes],
       false);
   }
 
@@ -1390,7 +1390,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec,
-      { arg_key: arg_key },
+      [arg_key],
       false);
   }
 
@@ -1399,7 +1399,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec,
-      { arg_key_prefix: arg_key_prefix },
+      [arg_key_prefix],
       false);
   }
 
@@ -1408,7 +1408,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec,
-      { arg_key_prefix: arg_key_prefix },
+      [arg_key_prefix],
       false);
   }
 
@@ -1417,7 +1417,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1426,7 +1426,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec,
-      { arg_policy_updates: arg_policy_updates },
+      [arg_policy_updates],
       false);
   }
 
@@ -1435,7 +1435,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1444,7 +1444,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec,
-      { arg_version_id: arg_version_id },
+      [arg_version_id],
       false);
   }
 
@@ -1453,7 +1453,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1462,7 +1462,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[40],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1471,7 +1471,7 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControlRemoteCallHandle
       this.ordinals[41],  // ordinal
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ParamsSpec,
       mojo.internal.bindings.storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

@@ -225,7 +225,7 @@ mojo.internal.bindings.arc.mojom.VideoDecoderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoDecoder_Initialize_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VideoDecoder_Initialize_ResponseParamsSpec,
-      { arg_config: arg_config, arg_client: arg_client, arg_video_frame_pool: arg_video_frame_pool },
+      [arg_config, arg_client, arg_video_frame_pool],
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.arc.mojom.VideoDecoderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoDecoder_Decode_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VideoDecoder_Decode_ResponseParamsSpec,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.arc.mojom.VideoDecoderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoDecoder_Reset_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VideoDecoder_Reset_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.arc.mojom.VideoDecoderRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoDecoder_ReleaseVideoFrame_ParamsSpec,
       null,
-      { arg_video_frame_id: arg_video_frame_id },
+      [arg_video_frame_id],
       false);
   }
 
@@ -436,7 +436,7 @@ mojo.internal.bindings.arc.mojom.VideoDecoderClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec,
       null,
-      { arg_video_frame_id: arg_video_frame_id, arg_visible_rect: arg_visible_rect, arg_timestamp: arg_timestamp },
+      [arg_video_frame_id, arg_visible_rect, arg_timestamp],
       false);
   }
 
@@ -445,7 +445,7 @@ mojo.internal.bindings.arc.mojom.VideoDecoderClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoDecoderClient_OnError_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 

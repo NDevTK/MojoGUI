@@ -199,7 +199,7 @@ mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec,
-      { arg_ime_spec: arg_ime_spec, arg_input_method: arg_input_method, arg_input_method_host: arg_input_method_host, arg_settings: arg_settings },
+      [arg_ime_spec, arg_input_method, arg_input_method_host, arg_settings],
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec,
-      { arg_unused: arg_unused },
+      [arg_unused],
       false);
   }
 

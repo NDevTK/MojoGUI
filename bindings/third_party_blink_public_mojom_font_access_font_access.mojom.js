@@ -189,7 +189,7 @@ mojo.internal.bindings.blink.mojom.FontAccessManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FontAccessManager_EnumerateLocalFonts_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

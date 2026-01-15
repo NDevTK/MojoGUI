@@ -176,7 +176,7 @@ mojo.internal.bindings.mojom.WebEngineMediaResourceProviderRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec,
       mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -185,7 +185,7 @@ mojo.internal.bindings.mojom.WebEngineMediaResourceProviderRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec,
       null,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 

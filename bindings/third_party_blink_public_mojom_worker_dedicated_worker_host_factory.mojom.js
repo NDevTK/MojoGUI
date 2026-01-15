@@ -244,7 +244,7 @@ mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec,
       null,
-      { arg_browser_interface_broker: arg_browser_interface_broker, arg_host: arg_host, arg_origin: arg_origin },
+      [arg_browser_interface_broker, arg_host, arg_origin],
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec,
       null,
-      { arg_service_worker_container_info: arg_service_worker_container_info, arg_main_script_load_params: arg_main_script_load_params, arg_subresource_loader_factories: arg_subresource_loader_factories, arg_subresource_loader_updater: arg_subresource_loader_updater, arg_controller_info: arg_controller_info, arg_back_forward_cache_controller_host: arg_back_forward_cache_controller_host, arg_coep_reporting_observer_receiver: arg_coep_reporting_observer_receiver, arg_dip_reporting_observer_receiver: arg_dip_reporting_observer_receiver },
+      [arg_service_worker_container_info, arg_main_script_load_params, arg_subresource_loader_factories, arg_subresource_loader_updater, arg_controller_info, arg_back_forward_cache_controller_host, arg_coep_reporting_observer_receiver, arg_dip_reporting_observer_receiver],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClientRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -408,7 +408,7 @@ mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactoryRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec,
       null,
-      { arg_token: arg_token, arg_script_url: arg_script_url, arg_credentials_mode: arg_credentials_mode, arg_outside_fetch_client_settings_object: arg_outside_fetch_client_settings_object, arg_blob_url_token: arg_blob_url_token, arg_client: arg_client, arg_storage_access_api_status: arg_storage_access_api_status },
+      [arg_token, arg_script_url, arg_credentials_mode, arg_outside_fetch_client_settings_object, arg_blob_url_token, arg_client, arg_storage_access_api_status],
       false);
   }
 

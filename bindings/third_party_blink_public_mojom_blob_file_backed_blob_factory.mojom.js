@@ -185,7 +185,7 @@ mojo.internal.bindings.blink.mojom.FileBackedBlobFactoryRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec,
       null,
-      { arg_blob: arg_blob, arg_uuid: arg_uuid, arg_content_type: arg_content_type, arg_file: arg_file },
+      [arg_blob, arg_uuid, arg_content_type, arg_file],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.FileBackedBlobFactoryRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParamsSpec,
-      { arg_blob: arg_blob, arg_uuid: arg_uuid, arg_content_type: arg_content_type, arg_file: arg_file },
+      [arg_blob, arg_uuid, arg_content_type, arg_file],
       false);
   }
 

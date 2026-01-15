@@ -188,7 +188,7 @@ mojo.internal.bindings.blink.mojom.InnerTextAgentRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec,
       mojo.internal.bindings.blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 

@@ -206,7 +206,7 @@ mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec,
-      { arg_rect: arg_rect },
+      [arg_rect],
       false);
   }
 
@@ -634,7 +634,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

@@ -212,7 +212,7 @@ mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec,
       mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec,
       mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetStatistics_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec,
       null,
-      { arg_origin_url: arg_origin_url },
+      [arg_origin_url],
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec,
       mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec,
       mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.storage.mojom.QuotaInternalsHandlerRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec,
       mojo.internal.bindings.storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

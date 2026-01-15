@@ -397,7 +397,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec,
       mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -406,7 +406,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec,
       null,
-      { arg_reason: arg_reason, arg_session: arg_session },
+      [arg_reason, arg_session],
       false);
   }
 
@@ -415,7 +415,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec,
       mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ResponseParamsSpec,
-      { arg_reason: arg_reason, arg_created_after_time: arg_created_after_time, arg_created_before_time: arg_created_before_time, arg_filter: arg_filter },
+      [arg_reason, arg_created_after_time, arg_created_before_time, arg_filter],
       false);
   }
 
@@ -424,7 +424,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_observer: arg_observer },
+      [arg_url, arg_observer],
       false);
   }
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerRemoteCallHandler 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -442,7 +442,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerRemoteCallHandler 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec,
       mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec,
-      { arg_params: arg_params, arg_wrapped_key: arg_wrapped_key, arg_cookies_to_set: arg_cookies_to_set, arg_cookie_options: arg_cookie_options },
+      [arg_params, arg_wrapped_key, arg_cookies_to_set, arg_cookie_options],
       false);
   }
 
@@ -641,7 +641,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec,
       null,
-      { arg_access: arg_access },
+      [arg_access],
       false);
   }
 
@@ -650,7 +650,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -792,7 +792,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -801,7 +801,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec,
       null,
-      { arg_session_displays: arg_session_displays },
+      [arg_session_displays],
       false);
   }
 

@@ -214,7 +214,7 @@ mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec,
       mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequesterRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec,
       mojo.internal.bindings.cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec,
       mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequesterRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec,
       mojo.internal.bindings.cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -552,7 +552,7 @@ mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec,
       mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -561,7 +561,7 @@ mojo.internal.bindings.cast_streaming.mojom.DemuxerConnectorRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec,
       null,
-      { arg_audio_buffer_requester: arg_audio_buffer_requester, arg_video_buffer_requester: arg_video_buffer_requester },
+      [arg_audio_buffer_requester, arg_video_buffer_requester],
       false);
   }
 

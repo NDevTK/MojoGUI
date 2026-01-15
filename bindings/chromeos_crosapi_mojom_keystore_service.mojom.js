@@ -402,7 +402,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ResponseParamsSpec,
-      { arg_type: arg_type, arg_challenge: arg_challenge, arg_migrate: arg_migrate, arg_algorithm: arg_algorithm },
+      [arg_type, arg_challenge, arg_migrate, arg_algorithm],
       false);
   }
 
@@ -411,7 +411,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyStores_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyStores_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -420,7 +420,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_SelectClientCertificates_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_SelectClientCertificates_ResponseParamsSpec,
-      { arg_certificate_authorities: arg_certificate_authorities },
+      [arg_certificate_authorities],
       false);
   }
 
@@ -429,7 +429,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GetCertificates_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GetCertificates_ResponseParamsSpec,
-      { arg_keystore: arg_keystore },
+      [arg_keystore],
       false);
   }
 
@@ -438,7 +438,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_AddCertificate_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_AddCertificate_ResponseParamsSpec,
-      { arg_keystore: arg_keystore, arg_certificate: arg_certificate },
+      [arg_keystore, arg_certificate],
       false);
   }
 
@@ -447,7 +447,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveCertificate_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveCertificate_ResponseParamsSpec,
-      { arg_keystore: arg_keystore, arg_certificate: arg_certificate },
+      [arg_keystore, arg_certificate],
       false);
   }
 
@@ -456,7 +456,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GetPublicKey_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GetPublicKey_ResponseParamsSpec,
-      { arg_certificate: arg_certificate, arg_algorithm_name: arg_algorithm_name },
+      [arg_certificate, arg_algorithm_name],
       false);
   }
 
@@ -465,7 +465,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GenerateKey_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GenerateKey_ResponseParamsSpec,
-      { arg_keystore: arg_keystore, arg_algorithm: arg_algorithm },
+      [arg_keystore, arg_algorithm],
       false);
   }
 
@@ -474,7 +474,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveKey_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_RemoveKey_ResponseParamsSpec,
-      { arg_keystore: arg_keystore, arg_public_key: arg_public_key },
+      [arg_keystore, arg_public_key],
       false);
   }
 
@@ -483,7 +483,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_Sign_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_Sign_ResponseParamsSpec,
-      { arg_is_keystore_provided: arg_is_keystore_provided, arg_keystore: arg_keystore, arg_public_key: arg_public_key, arg_scheme: arg_scheme, arg_data: arg_data },
+      [arg_is_keystore_provided, arg_keystore, arg_public_key, arg_scheme, arg_data],
       false);
   }
 
@@ -492,7 +492,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyTags_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_GetKeyTags_ResponseParamsSpec,
-      { arg_public_key: arg_public_key },
+      [arg_public_key],
       false);
   }
 
@@ -501,7 +501,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_AddKeyTags_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_AddKeyTags_ResponseParamsSpec,
-      { arg_public_key: arg_public_key, arg_tags: arg_tags },
+      [arg_public_key, arg_tags],
       false);
   }
 
@@ -510,7 +510,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ResponseParamsSpec,
-      { arg_public_key: arg_public_key },
+      [arg_public_key],
       false);
   }
 
@@ -519,7 +519,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_SetAttributeForKey_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_SetAttributeForKey_ResponseParamsSpec,
-      { arg_keystore: arg_keystore, arg_public_key: arg_public_key, arg_attribute_type: arg_attribute_type, arg_attribute_value: arg_attribute_value },
+      [arg_keystore, arg_public_key, arg_attribute_type, arg_attribute_value],
       false);
   }
 
@@ -528,7 +528,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ResponseParamsSpec,
-      { arg_keystore: arg_keystore, arg_algorithm: arg_algorithm, arg_extension_id: arg_extension_id },
+      [arg_keystore, arg_algorithm, arg_extension_id],
       false);
   }
 
@@ -537,7 +537,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ResponseParamsSpec,
-      { arg_keystore: arg_keystore, arg_public_key: arg_public_key, arg_scheme: arg_scheme, arg_data: arg_data, arg_extension_id: arg_extension_id },
+      [arg_keystore, arg_public_key, arg_scheme, arg_data, arg_extension_id],
       false);
   }
 
@@ -546,7 +546,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ResponseParamsSpec,
-      { arg_certificate: arg_certificate, arg_algorithm_name: arg_algorithm_name },
+      [arg_certificate, arg_algorithm_name],
       false);
   }
 
@@ -555,7 +555,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -564,7 +564,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ResponseParamsSpec,
-      { arg_keystore: arg_keystore },
+      [arg_keystore],
       false);
   }
 
@@ -573,7 +573,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ResponseParamsSpec,
-      { arg_keystore: arg_keystore, arg_certificate: arg_certificate },
+      [arg_keystore, arg_certificate],
       false);
   }
 
@@ -582,7 +582,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ResponseParamsSpec,
-      { arg_keystore: arg_keystore, arg_certificate: arg_certificate },
+      [arg_keystore, arg_certificate],
       false);
   }
 
@@ -591,7 +591,7 @@ mojo.internal.bindings.crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ResponseParamsSpec,
-      { arg_challenge: arg_challenge, arg_type: arg_type, arg_migrate: arg_migrate },
+      [arg_challenge, arg_type, arg_migrate],
       false);
   }
 

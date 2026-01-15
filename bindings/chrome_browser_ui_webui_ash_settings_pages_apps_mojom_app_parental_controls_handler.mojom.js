@@ -226,7 +226,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec,
       mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id, arg_is_blocked: arg_is_blocked },
+      [arg_app_id, arg_is_blocked],
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec,
       mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec,
-      { arg_pin: arg_pin },
+      [arg_pin],
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec,
       mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ResponseParamsSpec,
-      { arg_pin: arg_pin },
+      [arg_pin],
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec,
       mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ResponseParamsSpec,
-      { arg_pin: arg_pin },
+      [arg_pin],
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec,
       mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -524,7 +524,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec,
       null,
-      { arg_app: arg_app },
+      [arg_app],
       false);
   }
 
@@ -533,7 +533,7 @@ mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalContr
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec,
       null,
-      { arg_app: arg_app },
+      [arg_app],
       false);
   }
 

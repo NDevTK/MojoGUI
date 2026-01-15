@@ -205,7 +205,7 @@ mojo.internal.bindings.continuous_search.mojom.SearchResultExtractorRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec,
       mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec,
-      { arg_result_types: arg_result_types },
+      [arg_result_types],
       false);
   }
 

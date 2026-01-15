@@ -300,7 +300,7 @@ mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserverRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec,
       null,
-      { arg_progress: arg_progress },
+      [arg_progress],
       false);
   }
 
@@ -442,7 +442,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec,
-      { arg_params: arg_params, arg_model: arg_model },
+      [arg_params, arg_model],
       false);
   }
 
@@ -451,7 +451,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec,
-      { arg_weights: arg_weights },
+      [arg_weights],
       false);
   }
 
@@ -460,7 +460,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec,
       null,
-      { arg_params: arg_params, arg_model: arg_model },
+      [arg_params, arg_model],
       false);
   }
 
@@ -469,7 +469,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelServiceRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -665,7 +665,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec,
-      { arg_uuid: arg_uuid, arg_model: arg_model, arg_progress_observer: arg_progress_observer },
+      [arg_uuid, arg_model, arg_progress_observer],
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec,
-      { arg_uuid: arg_uuid },
+      [arg_uuid],
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceRemoteC
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -692,7 +692,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceRemoteC
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec,
-      { arg_uuid: arg_uuid, arg_feature: arg_feature, arg_fields: arg_fields },
+      [arg_uuid, arg_feature, arg_fields],
       false);
   }
 
@@ -701,7 +701,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformServiceRemoteC
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec,
-      { arg_safety_feature: arg_safety_feature, arg_text: arg_text, arg_safety_info: arg_safety_info },
+      [arg_safety_feature, arg_text, arg_safety_info],
       false);
   }
 

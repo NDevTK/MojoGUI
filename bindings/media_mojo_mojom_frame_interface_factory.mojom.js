@@ -202,7 +202,7 @@ mojo.internal.bindings.media.mojom.MuteStateObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec,
       null,
-      { arg_muted: arg_muted },
+      [arg_muted],
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec,
       null,
-      { arg_provision_fetcher: arg_provision_fetcher },
+      [arg_provision_fetcher],
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec,
       null,
-      { arg_cdm_storage: arg_cdm_storage },
+      [arg_cdm_storage],
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec,
       null,
-      { arg_site_mute_observer: arg_site_mute_observer },
+      [arg_site_mute_observer],
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec,
       null,
-      { arg_registry: arg_registry },
+      [arg_registry],
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec,
       mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemoteCallHandler = clas
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

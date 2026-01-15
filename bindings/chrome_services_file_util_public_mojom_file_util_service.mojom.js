@@ -191,7 +191,7 @@ mojo.internal.bindings.chrome.mojom.FileUtilServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.chrome.mojom.FileUtilServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -209,7 +209,7 @@ mojo.internal.bindings.chrome.mojom.FileUtilServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

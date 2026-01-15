@@ -181,7 +181,7 @@ mojo.internal.bindings.device.mojom.VibrationManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ParamsSpec,
       mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ResponseParamsSpec,
-      { arg_milliseconds: arg_milliseconds },
+      [arg_milliseconds],
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.device.mojom.VibrationManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ParamsSpec,
       mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.device.mojom.VibrationManagerListenerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

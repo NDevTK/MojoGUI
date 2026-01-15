@@ -193,7 +193,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec,
       null,
-      { arg_rect_f: arg_rect_f, arg_transform: arg_transform },
+      [arg_rect_f, arg_transform],
       false);
   }
 
@@ -323,7 +323,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriberRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec,
       mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec,
-      { arg_overlay_plane_id: arg_overlay_plane_id, arg_client_pending_remote: arg_client_pending_remote },
+      [arg_overlay_plane_id, arg_client_pending_remote],
       false);
   }
 
@@ -461,7 +461,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec,
       null,
-      { arg_rect_f: arg_rect_f, arg_transform: arg_transform, arg_overlay_plane_id: arg_overlay_plane_id },
+      [arg_rect_f, arg_transform, arg_overlay_plane_id],
       false);
   }
 

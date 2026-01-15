@@ -182,7 +182,7 @@ mojo.internal.bindings.blink.mojom.DocumentMetadataRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DocumentMetadata_GetEntities_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

@@ -176,7 +176,7 @@ mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxyRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 

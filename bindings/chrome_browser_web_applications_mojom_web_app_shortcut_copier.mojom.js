@@ -177,7 +177,7 @@ mojo.internal.bindings.web_app.mojom.WebAppShortcutCopierRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec,
       mojo.internal.bindings.web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec,
-      { arg_source_path: arg_source_path, arg_destination_path: arg_destination_path },
+      [arg_source_path, arg_destination_path],
       false);
   }
 

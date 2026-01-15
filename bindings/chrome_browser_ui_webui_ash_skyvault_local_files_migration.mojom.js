@@ -198,7 +198,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactoryRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -336,7 +336,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec,
       mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_Close_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -508,7 +508,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec,
       null,
-      { arg_remaining_time: arg_remaining_time },
+      [arg_remaining_time],
       false);
   }
 

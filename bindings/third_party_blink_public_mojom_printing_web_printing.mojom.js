@@ -338,7 +338,7 @@ mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec,
       null,
-      { arg_update: arg_update },
+      [arg_update],
       false);
   }
 
@@ -468,7 +468,7 @@ mojo.internal.bindings.blink.mojom.WebPrintJobControllerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebPrintJobController_Cancel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -602,7 +602,7 @@ mojo.internal.bindings.blink.mojom.WebPrinterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -611,7 +611,7 @@ mojo.internal.bindings.blink.mojom.WebPrinterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.WebPrinter_Print_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebPrinter_Print_ResponseParamsSpec,
-      { arg_document: arg_document, arg_attributes: arg_attributes },
+      [arg_document, arg_attributes],
       false);
   }
 
@@ -767,7 +767,7 @@ mojo.internal.bindings.blink.mojom.WebPrintingServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

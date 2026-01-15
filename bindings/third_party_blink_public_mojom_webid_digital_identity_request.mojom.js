@@ -202,7 +202,7 @@ mojo.internal.bindings.blink.mojom.DigitalIdentityRequestRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec,
-      { arg_digital_credential_requests: arg_digital_credential_requests },
+      [arg_digital_credential_requests],
       false);
   }
 
@@ -211,7 +211,7 @@ mojo.internal.bindings.blink.mojom.DigitalIdentityRequestRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec,
-      { arg_digital_credential_requests: arg_digital_credential_requests },
+      [arg_digital_credential_requests],
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.blink.mojom.DigitalIdentityRequestRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

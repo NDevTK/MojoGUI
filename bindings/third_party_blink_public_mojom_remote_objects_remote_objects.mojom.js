@@ -248,7 +248,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObjectHost_GetObject_ParamsSpec,
       null,
-      { arg_object_id: arg_object_id, arg_receiver: arg_receiver },
+      [arg_object_id, arg_receiver],
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec,
       null,
-      { arg_object_id: arg_object_id },
+      [arg_object_id],
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec,
       null,
-      { arg_object_id: arg_object_id },
+      [arg_object_id],
       false);
   }
 
@@ -424,7 +424,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ParamsSpec,
       mojo.internal.bindings.blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec,
-      { arg_name: arg_name },
+      [arg_name],
       false);
   }
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ParamsSpec,
       mojo.internal.bindings.blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -442,7 +442,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ParamsSpec,
       mojo.internal.bindings.blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec,
-      { arg_name: arg_name, arg_arguments: arg_arguments },
+      [arg_name, arg_arguments],
       false);
   }
 
@@ -451,7 +451,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -632,7 +632,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactoryRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec,
       null,
-      { arg_host: arg_host, arg_gateway: arg_gateway },
+      [arg_host, arg_gateway],
       false);
   }
 
@@ -766,7 +766,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectGatewayRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec,
       null,
-      { arg_name: arg_name, arg_object_id: arg_object_id },
+      [arg_name, arg_object_id],
       false);
   }
 
@@ -775,7 +775,7 @@ mojo.internal.bindings.blink.mojom.RemoteObjectGatewayRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec,
       null,
-      { arg_name: arg_name },
+      [arg_name],
       false);
   }
 

@@ -220,7 +220,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec,
       null,
-      { arg_kelvin: arg_kelvin },
+      [arg_kelvin],
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec,
       null,
-      { arg_kelvin: arg_kelvin, arg_duration: arg_duration },
+      [arg_kelvin, arg_duration],
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -247,7 +247,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec,
       null,
-      { arg_brightness: arg_brightness },
+      [arg_brightness],
       false);
   }
 
@@ -256,7 +256,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec,
       null,
-      { arg_brightness: arg_brightness, arg_duration: arg_duration },
+      [arg_brightness, arg_duration],
       false);
   }
 
@@ -265,7 +265,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -274,7 +274,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec,
       null,
-      { arg_display_on: arg_display_on },
+      [arg_display_on],
       false);
   }
 
@@ -283,7 +283,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec,
       null,
-      { arg_allow_power_off: arg_allow_power_off },
+      [arg_allow_power_off],
       false);
   }
 
@@ -292,7 +292,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -486,7 +486,7 @@ mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec,
       null,
-      { arg_brightness: arg_brightness },
+      [arg_brightness],
       false);
   }
 

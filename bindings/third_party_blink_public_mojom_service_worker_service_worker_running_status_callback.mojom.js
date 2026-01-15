@@ -175,7 +175,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallbackRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 

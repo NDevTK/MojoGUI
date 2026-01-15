@@ -235,7 +235,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ParamsSpec,
       mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec,
-      { arg_family_name: arg_family_name, arg_style: arg_style },
+      [arg_family_name, arg_style],
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ParamsSpec,
       mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ResponseParamsSpec,
-      { arg_id_number: arg_id_number },
+      [arg_id_number],
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec,
       mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec,
-      { arg_character: arg_character, arg_locale: arg_locale },
+      [arg_character, arg_locale],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec,
       mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec,
-      { arg_family: arg_family, arg_size: arg_size, arg_is_italic: arg_is_italic, arg_is_bold: arg_is_bold, arg_device_scale_factor: arg_device_scale_factor },
+      [arg_family, arg_size, arg_is_italic, arg_is_bold, arg_device_scale_factor],
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpec,
       mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec,
-      { arg_postscript_name_or_full_font_name: arg_postscript_name_or_full_font_name },
+      [arg_postscript_name_or_full_font_name],
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ParamsSpec,
       mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.font_service.mojom.FontServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec,
       mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec,
-      { arg_family: arg_family, arg_is_bold: arg_is_bold, arg_is_italic: arg_is_italic, arg_charset: arg_charset, arg_fallback_family_type: arg_fallback_family_type },
+      [arg_family, arg_is_bold, arg_is_italic, arg_charset, arg_fallback_family_type],
       false);
   }
 

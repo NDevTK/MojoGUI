@@ -214,7 +214,7 @@ mojo.internal.bindings.sharing.mojom.TcpSocketFactoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec,
-      { arg_local_addr: arg_local_addr, arg_port: arg_port, arg_backlog: arg_backlog, arg_traffic_annotation: arg_traffic_annotation, arg_socket: arg_socket },
+      [arg_local_addr, arg_port, arg_backlog, arg_traffic_annotation, arg_socket],
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.sharing.mojom.TcpSocketFactoryRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec,
-      { arg_timeout: arg_timeout, arg_local_addr: arg_local_addr, arg_remote_addr_list: arg_remote_addr_list, arg_tcp_connected_socket_options: arg_tcp_connected_socket_options, arg_traffic_annotation: arg_traffic_annotation, arg_socket: arg_socket, arg_observer: arg_observer },
+      [arg_timeout, arg_local_addr, arg_remote_addr_list, arg_tcp_connected_socket_options, arg_traffic_annotation, arg_socket, arg_observer],
       false);
   }
 

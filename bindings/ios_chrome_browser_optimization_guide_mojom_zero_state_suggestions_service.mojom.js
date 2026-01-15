@@ -181,7 +181,7 @@ mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsServiceRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec,
       mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

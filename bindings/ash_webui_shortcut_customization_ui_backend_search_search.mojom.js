@@ -190,7 +190,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilit
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -324,7 +324,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec,
-      { arg_query: arg_query, arg_max_num_results: arg_max_num_results },
+      [arg_query, arg_max_num_results],
       false);
   }
 
@@ -333,7 +333,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

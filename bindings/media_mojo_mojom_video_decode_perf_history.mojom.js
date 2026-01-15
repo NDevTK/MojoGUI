@@ -176,7 +176,7 @@ mojo.internal.bindings.media.mojom.VideoDecodePerfHistoryRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec,
       mojo.internal.bindings.media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec,
-      { arg_features: arg_features },
+      [arg_features],
       false);
   }
 

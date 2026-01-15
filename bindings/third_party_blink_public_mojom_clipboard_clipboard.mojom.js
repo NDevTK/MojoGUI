@@ -265,7 +265,7 @@ mojo.internal.bindings.blink.mojom.ClipboardListenerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec,
       null,
-      { arg_types: arg_types, arg_change_id: arg_change_id },
+      [arg_types, arg_change_id],
       false);
   }
 
@@ -479,7 +479,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 
@@ -488,7 +488,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec,
-      { arg_format: arg_format, arg_buffer: arg_buffer },
+      [arg_format, arg_buffer],
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 
@@ -506,7 +506,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadText_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 
@@ -515,7 +515,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadHtml_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 
@@ -524,7 +524,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadSvg_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 
@@ -533,7 +533,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadRtf_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 
@@ -542,7 +542,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadPng_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 
@@ -551,7 +551,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadFiles_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 
@@ -560,7 +560,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec,
-      { arg_buffer: arg_buffer, arg_type: arg_type },
+      [arg_buffer, arg_type],
       false);
   }
 
@@ -569,7 +569,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -578,7 +578,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec,
-      { arg_format: arg_format },
+      [arg_format],
       false);
   }
 
@@ -587,7 +587,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_WriteText_ParamsSpec,
       null,
-      { arg_text: arg_text },
+      [arg_text],
       false);
   }
 
@@ -596,7 +596,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_WriteHtml_ParamsSpec,
       null,
-      { arg_markup: arg_markup, arg_url: arg_url },
+      [arg_markup, arg_url],
       false);
   }
 
@@ -605,7 +605,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_WriteSvg_ParamsSpec,
       null,
-      { arg_markup: arg_markup },
+      [arg_markup],
       false);
   }
 
@@ -614,7 +614,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -623,7 +623,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec,
       null,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -632,7 +632,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_title: arg_title },
+      [arg_url, arg_title],
       false);
   }
 
@@ -641,7 +641,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_WriteImage_ParamsSpec,
       null,
-      { arg_image: arg_image },
+      [arg_image],
       false);
   }
 
@@ -650,7 +650,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec,
       null,
-      { arg_format: arg_format, arg_data: arg_data },
+      [arg_format, arg_data],
       false);
   }
 
@@ -659,7 +659,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_CommitWrite_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -668,7 +668,7 @@ mojo.internal.bindings.blink.mojom.ClipboardHostRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec,
       null,
-      { arg_listener: arg_listener },
+      [arg_listener],
       false);
   }
 

@@ -208,7 +208,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec,
-      { arg_device_id: arg_device_id },
+      [arg_device_id],
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec,
-      { arg_device_id: arg_device_id, arg_name: arg_name },
+      [arg_device_id, arg_name],
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec,
-      { arg_device_id: arg_device_id, arg_name: arg_name, arg_value: arg_value },
+      [arg_device_id, arg_name, arg_value],
       false);
   }
 

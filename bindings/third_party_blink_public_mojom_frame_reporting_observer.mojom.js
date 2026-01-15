@@ -179,7 +179,7 @@ mojo.internal.bindings.blink.mojom.ReportingObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ReportingObserver_Notify_ParamsSpec,
       null,
-      { arg_report: arg_report },
+      [arg_report],
       false);
   }
 

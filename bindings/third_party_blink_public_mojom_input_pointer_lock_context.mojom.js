@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.PointerLockContextRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec,
-      { arg_unadjusted_movement: arg_unadjusted_movement },
+      [arg_unadjusted_movement],
       false);
   }
 

@@ -193,7 +193,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec,
       null,
-      { arg_chunk: arg_chunk },
+      [arg_chunk],
       false);
   }
 
@@ -202,7 +202,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextServiceRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec,
       null,
-      { arg_request: arg_request, arg_consumer: arg_consumer },
+      [arg_request, arg_consumer],
       false);
   }
 

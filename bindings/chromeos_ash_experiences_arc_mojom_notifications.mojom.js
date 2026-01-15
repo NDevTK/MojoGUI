@@ -327,7 +327,7 @@ mojo.internal.bindings.arc.mojom.NotificationsHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -336,7 +336,7 @@ mojo.internal.bindings.arc.mojom.NotificationsHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsHost_OnNotificationPosted_ParamsSpec,
       null,
-      { arg_notification_data: arg_notification_data },
+      [arg_notification_data],
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.arc.mojom.NotificationsHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsHost_OnNotificationRemoved_ParamsSpec,
       null,
-      { arg_key: arg_key },
+      [arg_key],
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.arc.mojom.NotificationsHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsHost_OnNotificationUpdated_ParamsSpec,
       null,
-      { arg_notification_data: arg_notification_data },
+      [arg_notification_data],
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.arc.mojom.NotificationsHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsHost_OpenMessageCenter_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.arc.mojom.NotificationsHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsHost_CloseMessageCenter_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.arc.mojom.NotificationsHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsHost_ProcessUserAction_ParamsSpec,
       null,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.arc.mojom.NotificationsHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsHost_OnLockScreenSettingUpdated_ParamsSpec,
       null,
-      { arg_setting: arg_setting },
+      [arg_setting],
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.arc.mojom.NotificationsHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsHost_LogInlineReplySent_ParamsSpec,
       null,
-      { arg_key: arg_key },
+      [arg_key],
       false);
   }
 
@@ -649,7 +649,7 @@ mojo.internal.bindings.arc.mojom.NotificationsInstanceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NotificationsInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -658,7 +658,7 @@ mojo.internal.bindings.arc.mojom.NotificationsInstanceRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsInstance_SendNotificationEventToAndroid_ParamsSpec,
       null,
-      { arg_key: arg_key, arg_event: arg_event },
+      [arg_key, arg_event],
       false);
   }
 
@@ -667,7 +667,7 @@ mojo.internal.bindings.arc.mojom.NotificationsInstanceRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsInstance_CreateNotificationWindow_ParamsSpec,
       null,
-      { arg_key: arg_key },
+      [arg_key],
       false);
   }
 
@@ -676,7 +676,7 @@ mojo.internal.bindings.arc.mojom.NotificationsInstanceRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsInstance_CloseNotificationWindow_ParamsSpec,
       null,
-      { arg_key: arg_key },
+      [arg_key],
       false);
   }
 
@@ -685,7 +685,7 @@ mojo.internal.bindings.arc.mojom.NotificationsInstanceRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsInstance_OpenNotificationSettings_ParamsSpec,
       null,
-      { arg_key: arg_key },
+      [arg_key],
       false);
   }
 
@@ -694,7 +694,7 @@ mojo.internal.bindings.arc.mojom.NotificationsInstanceRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_ParamsSpec,
       null,
-      { arg_key: arg_key },
+      [arg_key],
       false);
   }
 
@@ -703,7 +703,7 @@ mojo.internal.bindings.arc.mojom.NotificationsInstanceRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -712,7 +712,7 @@ mojo.internal.bindings.arc.mojom.NotificationsInstanceRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsInstance_CancelPress_ParamsSpec,
       null,
-      { arg_key: arg_key },
+      [arg_key],
       false);
   }
 
@@ -721,7 +721,7 @@ mojo.internal.bindings.arc.mojom.NotificationsInstanceRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsInstance_PerformDeferredUserAction_ParamsSpec,
       null,
-      { arg_action_id: arg_action_id },
+      [arg_action_id],
       false);
   }
 
@@ -730,7 +730,7 @@ mojo.internal.bindings.arc.mojom.NotificationsInstanceRemoteCallHandler = class 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsInstance_CancelDeferredUserAction_ParamsSpec,
       null,
-      { arg_action_id: arg_action_id },
+      [arg_action_id],
       false);
   }
 
@@ -739,7 +739,7 @@ mojo.internal.bindings.arc.mojom.NotificationsInstanceRemoteCallHandler = class 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_ParamsSpec,
       null,
-      { arg_setting: arg_setting },
+      [arg_setting],
       false);
   }
 
@@ -748,7 +748,7 @@ mojo.internal.bindings.arc.mojom.NotificationsInstanceRemoteCallHandler = class 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsInstance_SetNotificationConfiguration_ParamsSpec,
       null,
-      { arg_configuration: arg_configuration },
+      [arg_configuration],
       false);
   }
 
@@ -757,7 +757,7 @@ mojo.internal.bindings.arc.mojom.NotificationsInstanceRemoteCallHandler = class 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_ParamsSpec,
       null,
-      { arg_visibility: arg_visibility },
+      [arg_visibility],
       false);
   }
 
@@ -766,7 +766,7 @@ mojo.internal.bindings.arc.mojom.NotificationsInstanceRemoteCallHandler = class 
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_ParamsSpec,
       null,
-      { arg_key: arg_key, arg_action_button_index: arg_action_button_index, arg_input: arg_input },
+      [arg_key, arg_action_button_index, arg_input],
       false);
   }
 
@@ -775,7 +775,7 @@ mojo.internal.bindings.arc.mojom.NotificationsInstanceRemoteCallHandler = class 
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.NotificationsInstance_PopUpAppNotificationSettings_ParamsSpec,
       null,
-      { arg_key: arg_key },
+      [arg_key],
       false);
   }
 

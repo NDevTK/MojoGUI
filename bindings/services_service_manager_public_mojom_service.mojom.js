@@ -203,7 +203,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.service_manager.mojom.Service_OnStart_ParamsSpec,
       mojo.internal.bindings.service_manager.mojom.Service_OnStart_ResponseParamsSpec,
-      { arg_identity: arg_identity },
+      [arg_identity],
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ParamsSpec,
       mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec,
-      { arg_source: arg_source, arg_interface_name: arg_interface_name, arg_interface_pipe: arg_interface_pipe },
+      [arg_source, arg_interface_name, arg_interface_pipe],
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec,
       null,
-      { arg_identity: arg_identity, arg_receiver: arg_receiver, arg_metadata: arg_metadata },
+      [arg_identity, arg_receiver, arg_metadata],
       false);
   }
 

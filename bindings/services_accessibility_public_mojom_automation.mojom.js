@@ -211,7 +211,7 @@ mojo.internal.bindings.ax.mojom.AutomationRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec,
       null,
-      { arg_tree_id: arg_tree_id },
+      [arg_tree_id],
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.ax.mojom.AutomationRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.mojom.Automation_DispatchActionResult_ParamsSpec,
       null,
-      { arg_data: arg_data, arg_result: arg_result },
+      [arg_data, arg_result],
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.ax.mojom.AutomationRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec,
       null,
-      { arg_tree_id: arg_tree_id, arg_updates: arg_updates, arg_mouse_location: arg_mouse_location, arg_events: arg_events },
+      [arg_tree_id, arg_updates, arg_mouse_location, arg_events],
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.ax.mojom.AutomationRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec,
       null,
-      { arg_tree_id: arg_tree_id, arg_node_id: arg_node_id, arg_bounds: arg_bounds },
+      [arg_tree_id, arg_node_id, arg_bounds],
       false);
   }
 
@@ -247,7 +247,7 @@ mojo.internal.bindings.ax.mojom.AutomationRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec,
       null,
-      { arg_tree_id: arg_tree_id, arg_node_id: arg_node_id, arg_scroll_x: arg_scroll_x, arg_scroll_y: arg_scroll_y },
+      [arg_tree_id, arg_node_id, arg_scroll_x, arg_scroll_y],
       false);
   }
 

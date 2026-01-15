@@ -182,7 +182,7 @@ mojo.internal.bindings.arc.mojom.ObbMounterHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ObbMounterHost_MountObb_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec,
-      { arg_obb_file: arg_obb_file, arg_target_path: arg_target_path, arg_owner_gid: arg_owner_gid },
+      [arg_obb_file, arg_target_path, arg_owner_gid],
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.arc.mojom.ObbMounterHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec,
-      { arg_target_path: arg_target_path },
+      [arg_target_path],
       false);
   }
 
@@ -347,7 +347,7 @@ mojo.internal.bindings.arc.mojom.ObbMounterInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ObbMounterInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ObbMounterInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 

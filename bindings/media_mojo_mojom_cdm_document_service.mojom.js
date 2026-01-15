@@ -206,7 +206,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_challenge: arg_challenge },
+      [arg_service_id, arg_challenge],
       false);
   }
 
@@ -215,7 +215,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec,
-      { arg_version: arg_version },
+      [arg_version],
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec,
       null,
-      { arg_client_token: arg_client_token },
+      [arg_client_token],
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec,
       null,
-      { arg_event: arg_event, arg_hresult: arg_hresult },
+      [arg_event, arg_hresult],
       false);
   }
 

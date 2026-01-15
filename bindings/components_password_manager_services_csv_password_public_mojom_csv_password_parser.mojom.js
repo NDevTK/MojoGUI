@@ -188,7 +188,7 @@ mojo.internal.bindings.password_manager.mojom.CSVPasswordParserRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec,
       mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec,
-      { arg_raw_csv: arg_raw_csv },
+      [arg_raw_csv],
       false);
   }
 

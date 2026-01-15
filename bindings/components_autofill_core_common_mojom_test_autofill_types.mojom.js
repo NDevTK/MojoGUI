@@ -239,7 +239,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec,
-      { arg_s: arg_s },
+      [arg_s],
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec,
-      { arg_s: arg_s },
+      [arg_s],
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec,
-      { arg_s: arg_s },
+      [arg_s],
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec,
-      { arg_s: arg_s },
+      [arg_s],
       false);
   }
 
@@ -275,7 +275,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec,
-      { arg_s: arg_s },
+      [arg_s],
       false);
   }
 
@@ -284,7 +284,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec,
-      { arg_s: arg_s },
+      [arg_s],
       false);
   }
 
@@ -293,7 +293,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec,
-      { arg_s: arg_s },
+      [arg_s],
       false);
   }
 
@@ -302,7 +302,7 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec,
-      { arg_s: arg_s },
+      [arg_s],
       false);
   }
 

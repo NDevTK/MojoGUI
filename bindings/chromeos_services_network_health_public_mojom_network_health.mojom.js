@@ -209,7 +209,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec,
       null,
-      { arg_guid: arg_guid, arg_state: arg_state },
+      [arg_guid, arg_state],
       false);
   }
 
@@ -218,7 +218,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverRemote
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec,
       null,
-      { arg_guid: arg_guid, arg_signal_strength: arg_signal_strength },
+      [arg_guid, arg_signal_strength],
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserverRemote
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec,
       null,
-      { arg_networks: arg_networks },
+      [arg_networks],
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec,
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceRemoteC
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec,
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthServiceRemoteC
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec,
       mojo.internal.bindings.chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

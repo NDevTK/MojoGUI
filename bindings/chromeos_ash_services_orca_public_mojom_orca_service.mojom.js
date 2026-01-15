@@ -340,7 +340,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec,
       mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec,
       mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec,
-      { arg_text_query_id: arg_text_query_id, arg_text_override: arg_text_override },
+      [arg_text_query_id, arg_text_override],
       false);
   }
 
@@ -358,7 +358,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec,
       mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec,
-      { arg_input: arg_input, arg_text_override: arg_text_override },
+      [arg_input, arg_text_override],
       false);
   }
 
@@ -367,7 +367,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec,
       mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec,
-      { arg_input: arg_input },
+      [arg_input],
       false);
   }
 
@@ -376,7 +376,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_InsertText_ParamsSpec,
       null,
-      { arg_text: arg_text },
+      [arg_text],
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_ShowUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_CloseUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_AppendText_ParamsSpec,
       null,
-      { arg_text: arg_text },
+      [arg_text],
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec,
       mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec,
-      { arg_result_id: arg_result_id },
+      [arg_result_id],
       false);
   }
 
@@ -457,7 +457,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec,
       null,
-      { arg_result_id: arg_result_id, arg_user_description: arg_user_description },
+      [arg_result_id, arg_user_description],
       false);
   }
 
@@ -466,7 +466,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec,
       null,
-      { arg_trigger_context: arg_trigger_context },
+      [arg_trigger_context],
       false);
   }
 
@@ -475,7 +475,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec,
       null,
-      { arg_metric_event: arg_metric_event },
+      [arg_metric_event],
       false);
   }
 
@@ -770,7 +770,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec,
       null,
-      { arg_editor_client: arg_editor_client },
+      [arg_editor_client],
       false);
   }
 
@@ -900,7 +900,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorEventSinkRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec,
       null,
-      { arg_context: arg_context },
+      [arg_context],
       false);
   }
 
@@ -1062,7 +1062,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.SystemActuator_InsertText_ParamsSpec,
       null,
-      { arg_text: arg_text },
+      [arg_text],
       false);
   }
 
@@ -1071,7 +1071,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1080,7 +1080,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1089,7 +1089,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -1098,7 +1098,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1107,7 +1107,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1116,7 +1116,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec,
       null,
-      { arg_description: arg_description },
+      [arg_description],
       false);
   }
 
@@ -1125,7 +1125,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec,
       null,
-      { arg_trigger_context: arg_trigger_context },
+      [arg_trigger_context],
       false);
   }
 
@@ -1134,7 +1134,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec,
       null,
-      { arg_metric_event: arg_metric_event },
+      [arg_metric_event],
       false);
   }
 
@@ -1328,7 +1328,7 @@ mojo.internal.bindings.ash.orca.mojom.TextQueryProviderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ParamsSpec,
       mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -1467,7 +1467,7 @@ mojo.internal.bindings.ash.orca.mojom.OrcaServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.orca.mojom.OrcaService_BindEditor_ParamsSpec,
       null,
-      { arg_system_actuator: arg_system_actuator, arg_text_query_provider: arg_text_query_provider, arg_client_connector: arg_client_connector, arg_event_sink: arg_event_sink, arg_editor_config: arg_editor_config },
+      [arg_system_actuator, arg_text_query_provider, arg_client_connector, arg_event_sink, arg_editor_config],
       false);
   }
 

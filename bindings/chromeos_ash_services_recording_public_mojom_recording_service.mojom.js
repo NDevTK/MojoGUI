@@ -234,7 +234,7 @@ mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegateRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec,
       mojo.internal.bindings.recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceClientRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec,
       null,
-      { arg_status: arg_status, arg_thumbnail: arg_thumbnail },
+      [arg_status, arg_thumbnail],
       false);
   }
 
@@ -527,7 +527,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.recording.mojom.RecordingService_RecordFullscreen_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_video_capturer: arg_video_capturer, arg_microphone_stream_factory: arg_microphone_stream_factory, arg_system_audio_stream_factory: arg_system_audio_stream_factory, arg_drive_fs_quota_delegate: arg_drive_fs_quota_delegate, arg_output_file_path: arg_output_file_path, arg_frame_sink_id: arg_frame_sink_id, arg_frame_sink_size_dip: arg_frame_sink_size_dip, arg_device_scale_factor: arg_device_scale_factor },
+      [arg_client, arg_video_capturer, arg_microphone_stream_factory, arg_system_audio_stream_factory, arg_drive_fs_quota_delegate, arg_output_file_path, arg_frame_sink_id, arg_frame_sink_size_dip, arg_device_scale_factor],
       false);
   }
 
@@ -536,7 +536,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.recording.mojom.RecordingService_RecordWindow_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_video_capturer: arg_video_capturer, arg_microphone_stream_factory: arg_microphone_stream_factory, arg_system_audio_stream_factory: arg_system_audio_stream_factory, arg_drive_fs_quota_delegate: arg_drive_fs_quota_delegate, arg_output_file_path: arg_output_file_path, arg_frame_sink_id: arg_frame_sink_id, arg_frame_sink_size_dip: arg_frame_sink_size_dip, arg_device_scale_factor: arg_device_scale_factor, arg_subtree_capture_id: arg_subtree_capture_id, arg_window_size_dip: arg_window_size_dip },
+      [arg_client, arg_video_capturer, arg_microphone_stream_factory, arg_system_audio_stream_factory, arg_drive_fs_quota_delegate, arg_output_file_path, arg_frame_sink_id, arg_frame_sink_size_dip, arg_device_scale_factor, arg_subtree_capture_id, arg_window_size_dip],
       false);
   }
 
@@ -545,7 +545,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.recording.mojom.RecordingService_RecordRegion_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_video_capturer: arg_video_capturer, arg_microphone_stream_factory: arg_microphone_stream_factory, arg_system_audio_stream_factory: arg_system_audio_stream_factory, arg_drive_fs_quota_delegate: arg_drive_fs_quota_delegate, arg_output_file_path: arg_output_file_path, arg_frame_sink_id: arg_frame_sink_id, arg_frame_sink_size_dip: arg_frame_sink_size_dip, arg_device_scale_factor: arg_device_scale_factor, arg_crop_region_dip: arg_crop_region_dip },
+      [arg_client, arg_video_capturer, arg_microphone_stream_factory, arg_system_audio_stream_factory, arg_drive_fs_quota_delegate, arg_output_file_path, arg_frame_sink_id, arg_frame_sink_size_dip, arg_device_scale_factor, arg_crop_region_dip],
       false);
   }
 
@@ -554,7 +554,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.recording.mojom.RecordingService_StopRecording_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -563,7 +563,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec,
       null,
-      { arg_new_frame_sink_id: arg_new_frame_sink_id, arg_new_frame_sink_size_dip: arg_new_frame_sink_size_dip, arg_new_device_scale_factor: arg_new_device_scale_factor },
+      [arg_new_frame_sink_id, arg_new_frame_sink_size_dip, arg_new_device_scale_factor],
       false);
   }
 
@@ -572,7 +572,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec,
       null,
-      { arg_new_window_size_dip: arg_new_window_size_dip },
+      [arg_new_window_size_dip],
       false);
   }
 
@@ -581,7 +581,7 @@ mojo.internal.bindings.recording.mojom.RecordingServiceRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec,
       null,
-      { arg_new_frame_sink_size_dip: arg_new_frame_sink_size_dip, arg_new_device_scale_factor: arg_new_device_scale_factor },
+      [arg_new_frame_sink_size_dip, arg_new_device_scale_factor],
       false);
   }
 

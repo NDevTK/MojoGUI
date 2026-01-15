@@ -193,7 +193,7 @@ mojo.internal.bindings.network.mojom.WebBundleHandleRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.WebBundleHandle_Clone_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -202,7 +202,7 @@ mojo.internal.bindings.network.mojom.WebBundleHandleRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec,
       null,
-      { arg_type: arg_type, arg_message: arg_message },
+      [arg_type, arg_message],
       false);
   }
 
@@ -211,7 +211,7 @@ mojo.internal.bindings.network.mojom.WebBundleHandleRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec,
       null,
-      { arg_success: arg_success },
+      [arg_success],
       false);
   }
 

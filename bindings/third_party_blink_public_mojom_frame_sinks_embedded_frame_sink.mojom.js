@@ -218,7 +218,7 @@ mojo.internal.bindings.blink.mojom.SurfaceEmbedderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec,
       null,
-      { arg_local_surface_id: arg_local_surface_id },
+      [arg_local_surface_id],
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.blink.mojom.SurfaceEmbedderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec,
       null,
-      { arg_is_opaque: arg_is_opaque },
+      [arg_is_opaque],
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClientRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec,
       null,
-      { arg_embedder: arg_embedder },
+      [arg_embedder],
       false);
   }
 
@@ -523,7 +523,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec,
       null,
-      { arg_parent_frame_sink_id: arg_parent_frame_sink_id, arg_frame_sink_id: arg_frame_sink_id, arg_client: arg_client },
+      [arg_parent_frame_sink_id, arg_frame_sink_id, arg_client],
       false);
   }
 
@@ -532,7 +532,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec,
       null,
-      { arg_bundle_id: arg_bundle_id, arg_receiver: arg_receiver, arg_client: arg_client },
+      [arg_bundle_id, arg_receiver, arg_client],
       false);
   }
 
@@ -541,7 +541,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec,
       null,
-      { arg_frame_sink_id: arg_frame_sink_id, arg_client: arg_client, arg_sink: arg_sink },
+      [arg_frame_sink_id, arg_client, arg_sink],
       false);
   }
 
@@ -550,7 +550,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec,
       null,
-      { arg_frame_sink_id: arg_frame_sink_id, arg_bundle_id: arg_bundle_id, arg_client: arg_client, arg_sink: arg_sink },
+      [arg_frame_sink_id, arg_bundle_id, arg_client, arg_sink],
       false);
   }
 
@@ -559,7 +559,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec,
       null,
-      { arg_parent_frame_sink_id: arg_parent_frame_sink_id, arg_frame_sink_id: arg_frame_sink_id, arg_surface_client: arg_surface_client, arg_client: arg_client, arg_sink: arg_sink },
+      [arg_parent_frame_sink_id, arg_frame_sink_id, arg_surface_client, arg_client, arg_sink],
       false);
   }
 
@@ -568,7 +568,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec,
       null,
-      { arg_frame_sink_id: arg_frame_sink_id, arg_embedder: arg_embedder },
+      [arg_frame_sink_id, arg_embedder],
       false);
   }
 
@@ -577,7 +577,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec,
       null,
-      { arg_frame_sink_id: arg_frame_sink_id },
+      [arg_frame_sink_id],
       false);
   }
 
@@ -586,7 +586,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec,
       null,
-      { arg_frame_sink_id: arg_frame_sink_id },
+      [arg_frame_sink_id],
       false);
   }
 

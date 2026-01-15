@@ -203,7 +203,7 @@ mojo.internal.bindings.chromecast.mojom.SettingsClientRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec,
       null,
-      { arg_event: arg_event, arg_origin: arg_origin, arg_touch_location: arg_touch_location },
+      [arg_event, arg_origin, arg_touch_location],
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.chromecast.mojom.SettingsClientRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec,
       null,
-      { arg_platform_info_json: arg_platform_info_json },
+      [arg_platform_info_json],
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.chromecast.mojom.SettingsPlatformRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.SettingsPlatform_Connect_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.chromecast.mojom.SettingsPlatformRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 

@@ -188,7 +188,7 @@ mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactoryRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec,
       mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec,
-      { arg_stream_provider_receiver: arg_stream_provider_receiver, arg_session_id: arg_session_id, arg_device_id: arg_device_id },
+      [arg_stream_provider_receiver, arg_session_id, arg_device_id],
       false);
   }
 

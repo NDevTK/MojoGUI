@@ -190,7 +190,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingHostServicesRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -328,7 +328,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -337,7 +337,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -346,7 +346,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

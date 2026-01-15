@@ -208,7 +208,7 @@ mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnectorRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec,
       null,
-      { arg_url_loader_factory: arg_url_loader_factory },
+      [arg_url_loader_factory],
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec,
       null,
-      { arg_url_loader_factory: arg_url_loader_factory, arg_reconnector: arg_reconnector },
+      [arg_url_loader_factory, arg_reconnector],
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec,
       null,
-      { arg_params: arg_params, arg_net_log_source: arg_net_log_source, arg_cert_verifier_request: arg_cert_verifier_request },
+      [arg_params, arg_net_log_source, arg_cert_verifier_request],
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec,
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec,
-      { arg_binding: arg_binding, arg_hostname: arg_hostname, arg_tls_certificate: arg_tls_certificate, arg_net_log_source: arg_net_log_source },
+      [arg_binding, arg_hostname, arg_tls_certificate, arg_net_log_source],
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec,
       null,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -540,7 +540,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -670,7 +670,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequestRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec,
       null,
-      { arg_result: arg_result, arg_net_error: arg_net_error },
+      [arg_result, arg_net_error],
       false);
   }
 

@@ -174,7 +174,7 @@ mojo.internal.bindings.color_change_listener.mojom.PageHandlerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.color_change_listener.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      { arg_page: arg_page },
+      [arg_page],
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.color_change_listener.mojom.PageRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

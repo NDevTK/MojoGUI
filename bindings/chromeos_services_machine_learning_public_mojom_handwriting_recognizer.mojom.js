@@ -213,7 +213,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerRemo
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ResponseParamsSpec,
-      { arg_query: arg_query },
+      [arg_query],
       false);
   }
 

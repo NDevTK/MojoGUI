@@ -258,7 +258,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec,
       null,
-      { arg_clicked: arg_clicked },
+      [arg_clicked],
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec,
       null,
-      { arg_metrics: arg_metrics, arg_removed_elements: arg_removed_elements },
+      [arg_metrics, arg_removed_elements],
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec,
       null,
-      { arg_elements: arg_elements },
+      [arg_elements],
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec,
       null,
-      { arg_elements: arg_elements },
+      [arg_elements],
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec,
       null,
-      { arg_elements: arg_elements },
+      [arg_elements],
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec,
       null,
-      { arg_pointer_over_event: arg_pointer_over_event },
+      [arg_pointer_over_event],
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec,
       null,
-      { arg_hover_event: arg_hover_event },
+      [arg_hover_event],
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec,
       null,
-      { arg_pointer_down_event: arg_pointer_down_event },
+      [arg_pointer_down_event],
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec,
       null,
-      { arg_pointer_data: arg_pointer_data },
+      [arg_pointer_data],
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec,
       null,
-      { arg_pointer_event: arg_pointer_event },
+      [arg_pointer_event],
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemoteCallHandler = c
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

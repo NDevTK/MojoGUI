@@ -229,7 +229,7 @@ mojo.internal.bindings.ash.settings.mojom.SearchResultsObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.ash.settings.mojom.SearchHandlerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.SearchHandler_Search_ParamsSpec,
       mojo.internal.bindings.ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec,
-      { arg_query: arg_query, arg_max_num_results: arg_max_num_results, arg_parent_result_behavior: arg_parent_result_behavior },
+      [arg_query, arg_max_num_results, arg_parent_result_behavior],
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.ash.settings.mojom.SearchHandlerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.SearchHandler_Observe_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

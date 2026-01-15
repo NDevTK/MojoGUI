@@ -211,7 +211,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec,
-      { arg_nv12_image: arg_nv12_image },
+      [arg_nv12_image],
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec,
-      { arg_jpeg_image: arg_jpeg_image },
+      [arg_jpeg_image],
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec,
-      { arg_jpeg_image: arg_jpeg_image, arg_corners: arg_corners, arg_rotation: arg_rotation },
+      [arg_jpeg_image, arg_corners, arg_rotation],
       false);
   }
 

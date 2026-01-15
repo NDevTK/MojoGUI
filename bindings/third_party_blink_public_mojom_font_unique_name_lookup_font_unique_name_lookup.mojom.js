@@ -183,7 +183,7 @@ mojo.internal.bindings.blink.mojom.FontUniqueNameLookupRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.blink.mojom.FontUniqueNameLookupRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

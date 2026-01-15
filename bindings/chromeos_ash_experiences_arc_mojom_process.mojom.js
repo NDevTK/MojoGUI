@@ -266,7 +266,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ProcessInstance_KillProcess_ParamsSpec,
       null,
-      { arg_pid: arg_pid, arg_reason: arg_reason },
+      [arg_pid, arg_reason],
       false);
   }
 
@@ -275,7 +275,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -284,7 +284,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -293,7 +293,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec,
-      { arg_nspids: arg_nspids },
+      [arg_nspids],
       false);
   }
 
@@ -302,7 +302,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec,
-      { arg_level: arg_level, arg_reclaim_target: arg_reclaim_target },
+      [arg_level, arg_reclaim_target],
       false);
   }
 
@@ -311,7 +311,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec,
-      { arg_level: arg_level, arg_reclaim_target: arg_reclaim_target },
+      [arg_level, arg_reclaim_target],
       false);
   }
 
@@ -320,7 +320,7 @@ mojo.internal.bindings.arc.mojom.ProcessInstanceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

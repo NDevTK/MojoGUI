@@ -179,7 +179,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.JsChannel_PostMessage_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -313,7 +313,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelClientRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec,
       null,
-      { arg_channel: arg_channel, arg_pipe: arg_pipe },
+      [arg_channel, arg_pipe],
       false);
   }
 
@@ -322,7 +322,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelClientRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec,
       null,
-      { arg_channel: arg_channel },
+      [arg_channel],
       false);
   }
 
@@ -460,7 +460,7 @@ mojo.internal.bindings.chromecast.mojom.JsChannelBindingProviderRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec,
       null,
-      { arg_routing_id: arg_routing_id, arg_client: arg_client },
+      [arg_routing_id, arg_client],
       false);
   }
 

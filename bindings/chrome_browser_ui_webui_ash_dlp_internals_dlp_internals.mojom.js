@@ -270,7 +270,7 @@ mojo.internal.bindings.dlp_internals.mojom.ReportingObserverRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -416,7 +416,7 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec,
       mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -425,7 +425,7 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec,
       mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -434,7 +434,7 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -443,7 +443,7 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec,
       mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -452,7 +452,7 @@ mojo.internal.bindings.dlp_internals.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec,
       mojo.internal.bindings.dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec,
-      { arg_file_name: arg_file_name },
+      [arg_file_name],
       false);
   }
 

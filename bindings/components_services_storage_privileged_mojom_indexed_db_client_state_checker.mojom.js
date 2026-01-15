@@ -188,7 +188,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBClientStateCheckerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec,
-      { arg_connection_id: arg_connection_id, arg_reason: arg_reason, arg_keep_active: arg_keep_active },
+      [arg_connection_id, arg_reason, arg_keep_active],
       false);
   }
 
@@ -197,7 +197,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBClientStateCheckerRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

@@ -263,7 +263,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      { arg_page: arg_page },
+      [arg_page],
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_QueryHistory_ParamsSpec,
       mojo.internal.bindings.history.mojom.PageHandler_QueryHistory_ResponseParamsSpec,
-      { arg_query: arg_query, arg_max_results: arg_max_results, arg_begin_time: arg_begin_time },
+      [arg_query, arg_max_results, arg_begin_time],
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_QueryHistoryContinuation_ParamsSpec,
       mojo.internal.bindings.history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -290,7 +290,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_RemoveVisits_ParamsSpec,
       mojo.internal.bindings.history.mojom.PageHandler_RemoveVisits_ResponseParamsSpec,
-      { arg_items: arg_items },
+      [arg_items],
       false);
   }
 
@@ -299,7 +299,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_OpenClearBrowsingDataDialog_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_RemoveBookmark_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_SetLastSelectedTab_ParamsSpec,
       null,
-      { arg_last_tab: arg_last_tab },
+      [arg_last_tab],
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_ShowSidePanelUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ParamsSpec,
       mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ParamsSpec,
       mojo.internal.bindings.history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -649,7 +649,7 @@ mojo.internal.bindings.history.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history.mojom.Page_OnHistoryDeleted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -658,7 +658,7 @@ mojo.internal.bindings.history.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.history.mojom.Page_OnHasOtherFormsChanged_ParamsSpec,
       null,
-      { arg_has_other_forms: arg_has_other_forms },
+      [arg_has_other_forms],
       false);
   }
 
@@ -667,7 +667,7 @@ mojo.internal.bindings.history.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.history.mojom.Page_SendAccountInfo_ParamsSpec,
       null,
-      { arg_account_info: arg_account_info },
+      [arg_account_info],
       false);
   }
 

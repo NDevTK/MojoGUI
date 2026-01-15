@@ -177,7 +177,7 @@ mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec,
       mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec,
-      { arg_device_path: arg_device_path },
+      [arg_device_path],
       false);
   }
 

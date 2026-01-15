@@ -177,7 +177,7 @@ mojo.internal.bindings.blink.mojom.UnhandledTapNotifierRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec,
       null,
-      { arg_unhandled_tap_info: arg_unhandled_tap_info },
+      [arg_unhandled_tap_info],
       false);
   }
 

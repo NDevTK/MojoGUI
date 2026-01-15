@@ -179,7 +179,7 @@ mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitializationRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec,
       mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec,
-      { arg_uffd_error: arg_uffd_error, arg_uffd_handle: arg_uffd_handle, arg_mmap_error: arg_mmap_error, arg_swap_area: arg_swap_area },
+      [arg_uffd_error, arg_uffd_handle, arg_mmap_error, arg_swap_area],
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec,
       null,
-      { arg_src: arg_src, arg_dest: arg_dest },
+      [arg_src, arg_dest],
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec,
       null,
-      { arg_area: arg_area },
+      [arg_area],
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec,
       mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec,
-      { arg_max_superpages: arg_max_superpages },
+      [arg_max_superpages],
       false);
   }
 

@@ -217,7 +217,7 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec,
       null,
-      { arg_redirect_info: arg_redirect_info, arg_redirect_response: arg_redirect_response },
+      [arg_redirect_info, arg_redirect_response],
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec,
       null,
-      { arg_request_id: arg_request_id, arg_final_response_url: arg_final_response_url, arg_head: arg_head, arg_request_destination: arg_request_destination, arg_is_ad_resource: arg_is_ad_resource },
+      [arg_request_id, arg_final_response_url, arg_head, arg_request_destination, arg_is_ad_resource],
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec,
       null,
-      { arg_request_id: arg_request_id, arg_transfer_size_diff: arg_transfer_size_diff },
+      [arg_request_id, arg_transfer_size_diff],
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec,
       null,
-      { arg_resource_load_info: arg_resource_load_info, arg_status: arg_status },
+      [arg_resource_load_info, arg_status],
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec,
       null,
-      { arg_request_id: arg_request_id },
+      [arg_request_id],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = c
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec,
       null,
-      { arg_pending_resource_load_info_notifier: arg_pending_resource_load_info_notifier },
+      [arg_pending_resource_load_info_notifier],
       false);
   }
 

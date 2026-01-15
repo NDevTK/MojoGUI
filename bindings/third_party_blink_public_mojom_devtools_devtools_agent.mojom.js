@@ -227,7 +227,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec,
       null,
-      { arg_host: arg_host, arg_session: arg_session, arg_io_session: arg_io_session, arg_reattach_session_state: arg_reattach_session_state, arg_script_to_evaluate_on_load: arg_script_to_evaluate_on_load, arg_client_expects_binary_responses: arg_client_expects_binary_responses, arg_client_is_trusted: arg_client_is_trusted, arg_session_id: arg_session_id, arg_session_waits_for_debugger: arg_session_waits_for_debugger },
+      [arg_host, arg_session, arg_io_session, arg_reattach_session_state, arg_script_to_evaluate_on_load, arg_client_expects_binary_responses, arg_client_is_trusted, arg_session_id, arg_session_waits_for_debugger],
       false);
   }
 
@@ -236,7 +236,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DevToolsAgent_InspectElement_ParamsSpec,
       null,
-      { arg_point: arg_point },
+      [arg_point],
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DevToolsAgent_ReportChildTargets_ResponseParamsSpec,
-      { arg_report: arg_report, arg_wait_for_debugger: arg_wait_for_debugger },
+      [arg_report, arg_wait_for_debugger],
       false);
   }
 
@@ -411,7 +411,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec,
       null,
-      { arg_worker_devtools_agent: arg_worker_devtools_agent, arg_worker_devtools_agent_host: arg_worker_devtools_agent_host, arg_url: arg_url, arg_name: arg_name, arg_devtools_worker_token: arg_devtools_worker_token, arg_waiting_for_debugger: arg_waiting_for_debugger, arg_context_type: arg_context_type },
+      [arg_worker_devtools_agent, arg_worker_devtools_agent_host, arg_url, arg_name, arg_devtools_worker_token, arg_waiting_for_debugger, arg_context_type],
       false);
   }
 
@@ -420,7 +420,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -429,7 +429,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -438,7 +438,7 @@ mojo.internal.bindings.blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -596,7 +596,7 @@ mojo.internal.bindings.blink.mojom.DevToolsSessionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec,
       null,
-      { arg_call_id: arg_call_id, arg_method: arg_method, arg_message: arg_message },
+      [arg_call_id, arg_method, arg_message],
       false);
   }
 
@@ -605,7 +605,7 @@ mojo.internal.bindings.blink.mojom.DevToolsSessionRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -747,7 +747,7 @@ mojo.internal.bindings.blink.mojom.DevToolsSessionHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec,
       null,
-      { arg_message: arg_message, arg_call_id: arg_call_id, arg_updates: arg_updates },
+      [arg_message, arg_call_id, arg_updates],
       false);
   }
 
@@ -756,7 +756,7 @@ mojo.internal.bindings.blink.mojom.DevToolsSessionHostRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec,
       null,
-      { arg_message: arg_message, arg_updates: arg_updates },
+      [arg_message, arg_updates],
       false);
   }
 

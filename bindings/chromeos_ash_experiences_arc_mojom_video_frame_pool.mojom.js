@@ -199,7 +199,7 @@ mojo.internal.bindings.arc.mojom.VideoFramePoolRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoFramePool_Initialize_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.arc.mojom.VideoFramePoolRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VideoFramePool_AddVideoFrame_ResponseParamsSpec,
-      { arg_video_frame: arg_video_frame },
+      [arg_video_frame],
       false);
   }
 
@@ -355,7 +355,7 @@ mojo.internal.bindings.arc.mojom.VideoFramePoolClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VideoFramePoolClient_RequestVideoFrames_ResponseParamsSpec,
-      { arg_format: arg_format, arg_coded_size: arg_coded_size, arg_visible_rect: arg_visible_rect, arg_num_frames: arg_num_frames },
+      [arg_format, arg_coded_size, arg_visible_rect, arg_num_frames],
       false);
   }
 

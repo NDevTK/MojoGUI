@@ -202,7 +202,7 @@ mojo.internal.bindings.blink.mojom.PolicyContainerHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec,
       null,
-      { arg_referrer_policy: arg_referrer_policy },
+      [arg_referrer_policy],
       false);
   }
 
@@ -211,7 +211,7 @@ mojo.internal.bindings.blink.mojom.PolicyContainerHostRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec,
       null,
-      { arg_content_security_policies: arg_content_security_policies },
+      [arg_content_security_policies],
       false);
   }
 

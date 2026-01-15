@@ -191,7 +191,7 @@ mojo.internal.bindings.blink.mojom.IdleMonitorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.IdleMonitor_Update_ParamsSpec,
       null,
-      { arg_state: arg_state, arg_is_overridden_by_devtools: arg_is_overridden_by_devtools },
+      [arg_state, arg_is_overridden_by_devtools],
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.blink.mojom.IdleManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec,
-      { arg_monitor: arg_monitor },
+      [arg_monitor],
       false);
   }
 

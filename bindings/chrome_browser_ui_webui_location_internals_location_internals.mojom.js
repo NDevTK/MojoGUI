@@ -176,7 +176,7 @@ mojo.internal.bindings.mojom.LocationInternalsHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

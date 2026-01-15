@@ -213,7 +213,7 @@ mojo.internal.bindings.media.mojom.CdmContextEventCallbackRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -367,7 +367,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec,
-      { arg_decrypt_config: arg_decrypt_config, arg_hw_identifier: arg_hw_identifier },
+      [arg_decrypt_config, arg_hw_identifier],
       false);
   }
 
@@ -376,7 +376,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec,
       null,
-      { arg_callback: arg_callback },
+      [arg_callback],
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec,
-      { arg_size: arg_size },
+      [arg_size],
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec,
-      { arg_secure_handle: arg_secure_handle, arg_offset: arg_offset, arg_stream_data: arg_stream_data },
+      [arg_secure_handle, arg_offset, arg_stream_data],
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec,
-      { arg_buffer: arg_buffer, arg_bytes: arg_bytes },
+      [arg_buffer, arg_bytes],
       false);
   }
 

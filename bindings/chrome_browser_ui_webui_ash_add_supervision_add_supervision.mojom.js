@@ -205,7 +205,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec,
       mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec,
       mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec,
       mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -241,7 +241,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -250,7 +250,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerRemoteCallHand
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 

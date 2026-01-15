@@ -216,7 +216,7 @@ mojo.internal.bindings.chromeos.tts.mojom.TtsServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_stream_factory: arg_stream_factory },
+      [arg_receiver, arg_stream_factory],
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.chromeos.tts.mojom.TtsServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec,
       mojo.internal.bindings.chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec,
-      { arg_receiver: arg_receiver, arg_stream_factory: arg_stream_factory, arg_desired_audio_parameters: arg_desired_audio_parameters },
+      [arg_receiver, arg_stream_factory, arg_desired_audio_parameters],
       false);
   }
 
@@ -396,7 +396,7 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec,
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec,
-      { arg_voice_name: arg_voice_name, arg_voice_bytes: arg_voice_bytes },
+      [arg_voice_name, arg_voice_bytes],
       false);
   }
 
@@ -405,7 +405,7 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec,
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec,
-      { arg_voice_name: arg_voice_name },
+      [arg_voice_name],
       false);
   }
 
@@ -414,7 +414,7 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec,
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec,
-      { arg_text_jspb: arg_text_jspb, arg_speaker_params_jspb: arg_speaker_params_jspb },
+      [arg_text_jspb, arg_speaker_params_jspb],
       false);
   }
 
@@ -423,7 +423,7 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -432,7 +432,7 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec,
       null,
-      { arg_volume: arg_volume },
+      [arg_volume],
       false);
   }
 
@@ -441,7 +441,7 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStreamRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -675,7 +675,7 @@ mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec,
       mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -684,7 +684,7 @@ mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec,
       null,
-      { arg_frames_buffer: arg_frames_buffer, arg_char_index: arg_char_index, arg_last_buffer: arg_last_buffer },
+      [arg_frames_buffer, arg_char_index, arg_last_buffer],
       false);
   }
 
@@ -693,7 +693,7 @@ mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -702,7 +702,7 @@ mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec,
       null,
-      { arg_volume: arg_volume },
+      [arg_volume],
       false);
   }
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -720,7 +720,7 @@ mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStreamRemoteCallHandler = c
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -911,7 +911,7 @@ mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -920,7 +920,7 @@ mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec,
       null,
-      { arg_char_index: arg_char_index },
+      [arg_char_index],
       false);
   }
 
@@ -929,7 +929,7 @@ mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -938,7 +938,7 @@ mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserverRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

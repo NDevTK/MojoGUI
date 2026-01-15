@@ -234,7 +234,7 @@ mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegateRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec,
-      { arg_token: arg_token, arg_params: arg_params },
+      [arg_token, arg_params],
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegateRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec,
-      { arg_token: arg_token },
+      [arg_token],
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClientRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec,
-      { arg_token: arg_token, arg_settings: arg_settings },
+      [arg_token, arg_settings],
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClientRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec,
-      { arg_token: arg_token },
+      [arg_token],
       false);
   }
 

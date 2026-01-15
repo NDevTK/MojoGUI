@@ -244,7 +244,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec,
       null,
-      { arg_event_listener: arg_event_listener },
+      [arg_event_listener],
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec,
       null,
-      { arg_event_listener: arg_event_listener },
+      [arg_event_listener],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id, arg_event_name: arg_event_name },
+      [arg_extension_id, arg_event_name],
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id, arg_worker_scope_url: arg_worker_scope_url, arg_event_name: arg_event_name },
+      [arg_extension_id, arg_worker_scope_url, arg_event_name],
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec,
       null,
-      { arg_listener_owner: arg_listener_owner, arg_event_name: arg_event_name, arg_filter: arg_filter, arg_add_lazy_listener: arg_add_lazy_listener },
+      [arg_listener_owner, arg_event_name, arg_filter, arg_add_lazy_listener],
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id, arg_event_name: arg_event_name, arg_service_worker_context: arg_service_worker_context, arg_filter: arg_filter, arg_add_lazy_listener: arg_add_lazy_listener },
+      [arg_extension_id, arg_event_name, arg_service_worker_context, arg_filter, arg_add_lazy_listener],
       false);
   }
 
@@ -298,7 +298,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec,
       null,
-      { arg_event_listener: arg_event_listener },
+      [arg_event_listener],
       false);
   }
 
@@ -307,7 +307,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec,
       null,
-      { arg_event_listener: arg_event_listener },
+      [arg_event_listener],
       false);
   }
 
@@ -316,7 +316,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id, arg_event_name: arg_event_name },
+      [arg_extension_id, arg_event_name],
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id, arg_worker_scope_url: arg_worker_scope_url, arg_event_name: arg_event_name },
+      [arg_extension_id, arg_worker_scope_url, arg_event_name],
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec,
       null,
-      { arg_listener_owner: arg_listener_owner, arg_event_name: arg_event_name, arg_filter: arg_filter, arg_remove_lazy_listener: arg_remove_lazy_listener },
+      [arg_listener_owner, arg_event_name, arg_filter, arg_remove_lazy_listener],
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.extensions.mojom.EventRouterRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id, arg_event_name: arg_event_name, arg_service_worker_context: arg_service_worker_context, arg_filter: arg_filter, arg_remove_lazy_listener: arg_remove_lazy_listener },
+      [arg_extension_id, arg_event_name, arg_service_worker_context, arg_filter, arg_remove_lazy_listener],
       false);
   }
 

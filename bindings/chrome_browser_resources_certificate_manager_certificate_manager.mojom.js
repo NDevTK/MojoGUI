@@ -227,7 +227,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec,
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec,
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec,
       null,
-      { arg_source: arg_source, arg_sha256_hash_hex: arg_sha256_hash_hex },
+      [arg_source, arg_sha256_hash_hex],
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec,
       null,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec,
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec,
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec,
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec,
-      { arg_source: arg_source, arg_display_name: arg_display_name, arg_sha256_hash_hex: arg_sha256_hash_hex },
+      [arg_source, arg_display_name, arg_sha256_hash_hex],
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandlerRe
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec,
       null,
-      { arg_include: arg_include },
+      [arg_include],
       false);
   }
 
@@ -691,7 +691,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec,
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -700,7 +700,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec,
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec,
-      { arg_title: arg_title, arg_message: arg_message },
+      [arg_title, arg_message],
       false);
   }
 
@@ -709,7 +709,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageRemoteCal
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec,
       null,
-      { arg_sources: arg_sources },
+      [arg_sources],
       false);
   }
 
@@ -718,7 +718,7 @@ mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPageRemoteCal
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

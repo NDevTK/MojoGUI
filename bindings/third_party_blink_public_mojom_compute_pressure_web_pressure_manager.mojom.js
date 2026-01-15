@@ -187,7 +187,7 @@ mojo.internal.bindings.blink.mojom.WebPressureManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec,
-      { arg_source: arg_source, arg_client: arg_client },
+      [arg_source, arg_client],
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.blink.mojom.WebPressureClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec,
       null,
-      { arg_update: arg_update },
+      [arg_update],
       false);
   }
 

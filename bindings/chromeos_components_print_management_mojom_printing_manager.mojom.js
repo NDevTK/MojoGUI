@@ -253,7 +253,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserve
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnAllPrintJobsDeleted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserve
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec,
       null,
-      { arg_print_job: arg_print_job },
+      [arg_print_job],
       false);
   }
 
@@ -420,7 +420,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec,
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ResponseParamsSpec,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -429,7 +429,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ParamsSpec,
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -438,7 +438,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ParamsSpec,
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -447,7 +447,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ParamsSpec,
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -456,7 +456,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ParamsSpec,
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -465,7 +465,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadata
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ParamsSpec,
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -691,7 +691,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec,
       null,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -700,7 +700,7 @@ mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.printing.printing_manager.mojom.PrintManagementHandler_RecordGetPrintJobsRequestDuration_ParamsSpec,
       null,
-      { arg_duration: arg_duration },
+      [arg_duration],
       false);
   }
 

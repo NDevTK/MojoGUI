@@ -180,7 +180,7 @@ mojo.internal.bindings.gfx.mojom.DelegatedInkPointRendererRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec,
       null,
-      { arg_point: arg_point },
+      [arg_point],
       false);
   }
 
@@ -189,7 +189,7 @@ mojo.internal.bindings.gfx.mojom.DelegatedInkPointRendererRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

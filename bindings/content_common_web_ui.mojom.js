@@ -180,7 +180,7 @@ mojo.internal.bindings.content.mojom.WebUIHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.WebUIHost_Send_ParamsSpec,
       null,
-      { arg_message: arg_message, arg_args: arg_args },
+      [arg_message, arg_args],
       false);
   }
 
@@ -310,7 +310,7 @@ mojo.internal.bindings.content.mojom.WebUIRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.WebUI_SetProperty_ParamsSpec,
       null,
-      { arg_property_name: arg_property_name, arg_property_value_json: arg_property_value_json },
+      [arg_property_name, arg_property_value_json],
       false);
   }
 

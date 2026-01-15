@@ -224,7 +224,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec,
-      { arg_outside_fetch_client_settings_object: arg_outside_fetch_client_settings_object },
+      [arg_outside_fetch_client_settings_object],
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec,
-      { arg_enable: arg_enable },
+      [arg_enable],
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCall
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -470,7 +470,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec,
       null,
-      { arg_changed_mask: arg_changed_mask, arg_installing: arg_installing, arg_waiting: arg_waiting, arg_active: arg_active },
+      [arg_changed_mask, arg_installing, arg_waiting, arg_active],
       false);
   }
 
@@ -479,7 +479,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec,
       null,
-      { arg_update_via_cache: arg_update_via_cache },
+      [arg_update_via_cache],
       false);
   }
 
@@ -488,7 +488,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObjectRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationObject_UpdateFound_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

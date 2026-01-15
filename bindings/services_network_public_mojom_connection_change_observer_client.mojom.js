@@ -190,7 +190,7 @@ mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -199,7 +199,7 @@ mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

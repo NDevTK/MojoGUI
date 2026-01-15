@@ -217,7 +217,7 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec,
-      { arg_zip_file: arg_zip_file, arg_password: arg_password, arg_temp_file_getter: arg_temp_file_getter },
+      [arg_zip_file, arg_password, arg_temp_file_getter],
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec,
-      { arg_dmg_file: arg_dmg_file, arg_temp_file_getter: arg_temp_file_getter },
+      [arg_dmg_file, arg_temp_file_getter],
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec,
-      { arg_rar_file: arg_rar_file, arg_password: arg_password, arg_temp_file_getter: arg_temp_file_getter },
+      [arg_rar_file, arg_password, arg_temp_file_getter],
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec,
-      { arg_seven_zip_file: arg_seven_zip_file, arg_temp_file_getter: arg_temp_file_getter },
+      [arg_seven_zip_file, arg_temp_file_getter],
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec,
-      { arg_zip_file: arg_zip_file, arg_password: arg_password, arg_header_data: arg_header_data, arg_temp_file_getter: arg_temp_file_getter },
+      [arg_zip_file, arg_password, arg_header_data, arg_temp_file_getter],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec,
-      { arg_rar_file: arg_rar_file, arg_password: arg_password, arg_header_data: arg_header_data, arg_temp_file_getter: arg_temp_file_getter },
+      [arg_rar_file, arg_password, arg_header_data, arg_temp_file_getter],
       false);
   }
 
@@ -486,7 +486,7 @@ mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

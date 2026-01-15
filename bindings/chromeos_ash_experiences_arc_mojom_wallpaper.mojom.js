@@ -187,7 +187,7 @@ mojo.internal.bindings.arc.mojom.WallpaperHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec,
       mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.arc.mojom.WallpaperHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec,
       null,
-      { arg_data: arg_data, arg_wallpaper_id: arg_wallpaper_id },
+      [arg_data, arg_wallpaper_id],
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.arc.mojom.WallpaperHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -364,7 +364,7 @@ mojo.internal.bindings.arc.mojom.WallpaperInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.arc.mojom.WallpaperInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec,
       null,
-      { arg_wallpaper_id: arg_wallpaper_id },
+      [arg_wallpaper_id],
       false);
   }
 

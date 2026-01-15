@@ -213,7 +213,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevices_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevice_ParamsSpec,
       null,
-      { arg_guid: arg_guid, arg_blocked_interface_classes: arg_blocked_interface_classes, arg_device_receiver: arg_device_receiver, arg_device_client: arg_device_client },
+      [arg_guid, arg_blocked_interface_classes, arg_device_receiver, arg_device_client],
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec,
       null,
-      { arg_guid: arg_guid, arg_device_receiver: arg_device_receiver, arg_device_client: arg_device_client },
+      [arg_guid, arg_device_receiver, arg_device_client],
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceManager_SetClient_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 

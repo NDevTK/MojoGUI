@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHostRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec,
-      { arg_capacity_delta: arg_capacity_delta },
+      [arg_capacity_delta],
       false);
   }
 
@@ -185,7 +185,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHostRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

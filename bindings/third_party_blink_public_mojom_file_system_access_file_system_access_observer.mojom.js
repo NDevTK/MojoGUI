@@ -187,7 +187,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec,
       null,
-      { arg_changes: arg_changes },
+      [arg_changes],
       false);
   }
 

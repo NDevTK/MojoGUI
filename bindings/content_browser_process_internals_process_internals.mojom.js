@@ -225,7 +225,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec,
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec,
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec,
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec,
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -261,7 +261,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec,
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -270,7 +270,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec,
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -279,7 +279,7 @@ mojo.internal.bindings.mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec,
       mojo.internal.bindings.mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

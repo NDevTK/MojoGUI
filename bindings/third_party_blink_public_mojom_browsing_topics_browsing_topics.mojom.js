@@ -171,7 +171,7 @@ mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentServiceRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec,
       null,
-      { arg_observe: arg_observe },
+      [arg_observe],
       false);
   }
 

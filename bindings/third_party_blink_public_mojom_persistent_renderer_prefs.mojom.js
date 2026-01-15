@@ -170,7 +170,7 @@ mojo.internal.bindings.blink.mojom.PersistentRendererPrefsServiceRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec,
       null,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 

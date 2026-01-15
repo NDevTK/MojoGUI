@@ -195,7 +195,7 @@ mojo.internal.bindings.extensions.mojom.GuestViewRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec,
       null,
-      { arg_success: arg_success },
+      [arg_success],
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.extensions.mojom.GuestViewRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec,
-      { arg_script_id: arg_script_id },
+      [arg_script_id],
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec,
       null,
-      { arg_token_id: arg_token_id },
+      [arg_token_id],
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerRemoteCal
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec,
       null,
-      { arg_element_instance_id: arg_element_instance_id },
+      [arg_element_instance_id],
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManagerRemoteCal
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec,
       null,
-      { arg_mime_handler_view_guest_element_instance_id: arg_mime_handler_view_guest_element_instance_id, arg_resource_url: arg_resource_url },
+      [arg_mime_handler_view_guest_element_instance_id, arg_resource_url],
       false);
   }
 

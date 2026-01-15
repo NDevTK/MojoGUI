@@ -209,7 +209,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec,
       null,
-      { arg_size: arg_size },
+      [arg_size],
       false);
   }
 
@@ -218,7 +218,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserverRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -364,7 +364,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PictureInPictureSession_Update_ParamsSpec,
       null,
-      { arg_player_id: arg_player_id, arg_player_remote: arg_player_remote, arg_surface_id: arg_surface_id, arg_natural_size: arg_natural_size, arg_show_play_pause_button: arg_show_play_pause_button },
+      [arg_player_id, arg_player_remote, arg_surface_id, arg_natural_size, arg_show_play_pause_button],
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PictureInPictureSession_Stop_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PictureInPictureSession_Stop_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec,
       null,
-      { arg_media_position: arg_media_position },
+      [arg_media_position],
       false);
   }
 
@@ -536,7 +536,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureServiceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PictureInPictureService_StartSession_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec,
-      { arg_player_id: arg_player_id, arg_player_remote: arg_player_remote, arg_surface_id: arg_surface_id, arg_natural_size: arg_natural_size, arg_show_play_pause_button: arg_show_play_pause_button, arg_observer: arg_observer, arg_source_bounds: arg_source_bounds },
+      [arg_player_id, arg_player_remote, arg_surface_id, arg_natural_size, arg_show_play_pause_button, arg_observer, arg_source_bounds],
       false);
   }
 

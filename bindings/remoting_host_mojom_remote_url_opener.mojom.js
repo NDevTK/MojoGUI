@@ -186,7 +186,7 @@ mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 

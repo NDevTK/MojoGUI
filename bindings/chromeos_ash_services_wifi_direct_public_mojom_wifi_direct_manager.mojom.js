@@ -214,7 +214,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec,
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec,
-      { arg_credentials: arg_credentials },
+      [arg_credentials],
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec,
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec,
-      { arg_credentials: arg_credentials, arg_frequency: arg_frequency },
+      [arg_credentials, arg_frequency],
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec,
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec,
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -416,7 +416,7 @@ mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnectionRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec,
       mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec,
-      { arg_socket: arg_socket },
+      [arg_socket],
       false);
   }
 

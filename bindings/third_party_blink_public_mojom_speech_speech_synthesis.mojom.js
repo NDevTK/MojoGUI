@@ -207,7 +207,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserverRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec,
       null,
-      { arg_voice_list: arg_voice_list },
+      [arg_voice_list],
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisClientRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisClientRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec,
       null,
-      { arg_error_code: arg_error_code },
+      [arg_error_code],
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisClientRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisClientRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisClientRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec,
       null,
-      { arg_char_index: arg_char_index, arg_char_length: arg_char_length },
+      [arg_char_index, arg_char_length],
       false);
   }
 
@@ -406,7 +406,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisClientRemoteCallHandler = clas
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec,
       null,
-      { arg_char_index: arg_char_index, arg_char_length: arg_char_length },
+      [arg_char_index, arg_char_length],
       false);
   }
 
@@ -415,7 +415,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisClientRemoteCallHandler = clas
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -609,7 +609,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -618,7 +618,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SpeechSynthesis_Speak_ParamsSpec,
       null,
-      { arg_utterance: arg_utterance, arg_client: arg_client },
+      [arg_utterance, arg_client],
       false);
   }
 
@@ -627,7 +627,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.SpeechSynthesis_Pause_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -636,7 +636,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.SpeechSynthesis_Resume_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -645,7 +645,7 @@ mojo.internal.bindings.blink.mojom.SpeechSynthesisRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.SpeechSynthesis_Cancel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

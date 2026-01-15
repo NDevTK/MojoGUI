@@ -227,7 +227,7 @@ mojo.internal.bindings.global_media_controls.mojom.DeviceListHostRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id },
+      [arg_device_id],
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.global_media_controls.mojom.DeviceListClientRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec,
       null,
-      { arg_devices: arg_devices },
+      [arg_devices],
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.global_media_controls.mojom.DeviceListClientRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -516,7 +516,7 @@ mojo.internal.bindings.global_media_controls.mojom.DeviceServiceRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec,
       null,
-      { arg_session_id: arg_session_id, arg_host_receiver: arg_host_receiver, arg_client_remote: arg_client_remote },
+      [arg_session_id, arg_host_receiver, arg_client_remote],
       false);
   }
 
@@ -525,7 +525,7 @@ mojo.internal.bindings.global_media_controls.mojom.DeviceServiceRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec,
       null,
-      { arg_host_receiver: arg_host_receiver, arg_client_remote: arg_client_remote },
+      [arg_host_receiver, arg_client_remote],
       false);
   }
 
@@ -534,7 +534,7 @@ mojo.internal.bindings.global_media_controls.mojom.DeviceServiceRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec,
       null,
-      { arg_provider_remote: arg_provider_remote },
+      [arg_provider_remote],
       false);
   }
 
@@ -712,7 +712,7 @@ mojo.internal.bindings.global_media_controls.mojom.DevicePickerProviderRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec,
       null,
-      { arg_source_id: arg_source_id },
+      [arg_source_id],
       false);
   }
 
@@ -721,7 +721,7 @@ mojo.internal.bindings.global_media_controls.mojom.DevicePickerProviderRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -730,7 +730,7 @@ mojo.internal.bindings.global_media_controls.mojom.DevicePickerProviderRemoteCal
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -739,7 +739,7 @@ mojo.internal.bindings.global_media_controls.mojom.DevicePickerProviderRemoteCal
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -748,7 +748,7 @@ mojo.internal.bindings.global_media_controls.mojom.DevicePickerProviderRemoteCal
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec,
       null,
-      { arg_metadata: arg_metadata },
+      [arg_metadata],
       false);
   }
 
@@ -757,7 +757,7 @@ mojo.internal.bindings.global_media_controls.mojom.DevicePickerProviderRemoteCal
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec,
       null,
-      { arg_artwork_image: arg_artwork_image },
+      [arg_artwork_image],
       false);
   }
 
@@ -766,7 +766,7 @@ mojo.internal.bindings.global_media_controls.mojom.DevicePickerProviderRemoteCal
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec,
       null,
-      { arg_favicon_image: arg_favicon_image },
+      [arg_favicon_image],
       false);
   }
 
@@ -775,7 +775,7 @@ mojo.internal.bindings.global_media_controls.mojom.DevicePickerProviderRemoteCal
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -784,7 +784,7 @@ mojo.internal.bindings.global_media_controls.mojom.DevicePickerProviderRemoteCal
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -990,7 +990,7 @@ mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserverRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -999,7 +999,7 @@ mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserverRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1008,7 +1008,7 @@ mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserverRemoteCal
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1017,7 +1017,7 @@ mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserverRemoteCal
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

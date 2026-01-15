@@ -213,7 +213,7 @@ mojo.internal.bindings.storage.mojom.StorageServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.storage.mojom.StorageServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.StorageService_SetDataDirectory_ParamsSpec,
       null,
-      { arg_path: arg_path, arg_directory: arg_directory },
+      [arg_path, arg_directory],
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.storage.mojom.StorageServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec,
       null,
-      { arg_path: arg_path, arg_receiver: arg_receiver },
+      [arg_path, arg_receiver],
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.storage.mojom.StorageServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec,
       null,
-      { arg_path: arg_path, arg_receiver: arg_receiver },
+      [arg_path, arg_receiver],
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.storage.mojom.StorageServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.storage.mojom.StorageService_BindTestApi_ParamsSpec,
       null,
-      { arg_test_api_receiver: arg_test_api_receiver },
+      [arg_test_api_receiver],
       false);
   }
 

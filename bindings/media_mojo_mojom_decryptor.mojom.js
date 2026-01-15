@@ -245,7 +245,7 @@ mojo.internal.bindings.media.mojom.DecryptorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.Decryptor_Initialize_ParamsSpec,
       null,
-      { arg_audio_pipe: arg_audio_pipe, arg_video_pipe: arg_video_pipe, arg_decrypt_pipe: arg_decrypt_pipe, arg_decrypted_pipe: arg_decrypted_pipe },
+      [arg_audio_pipe, arg_video_pipe, arg_decrypt_pipe, arg_decrypted_pipe],
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.media.mojom.DecryptorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ParamsSpec,
       mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ResponseParamsSpec,
-      { arg_stream_type: arg_stream_type, arg_encrypted: arg_encrypted },
+      [arg_stream_type, arg_encrypted],
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.media.mojom.DecryptorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.Decryptor_CancelDecrypt_ParamsSpec,
       null,
-      { arg_stream_type: arg_stream_type },
+      [arg_stream_type],
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.media.mojom.DecryptorRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec,
       mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.media.mojom.DecryptorRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec,
       mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -290,7 +290,7 @@ mojo.internal.bindings.media.mojom.DecryptorRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec,
       mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec,
-      { arg_encrypted: arg_encrypted },
+      [arg_encrypted],
       false);
   }
 
@@ -299,7 +299,7 @@ mojo.internal.bindings.media.mojom.DecryptorRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec,
       mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec,
-      { arg_encrypted: arg_encrypted },
+      [arg_encrypted],
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.media.mojom.DecryptorRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media.mojom.Decryptor_ResetDecoder_ParamsSpec,
       null,
-      { arg_stream_type: arg_stream_type },
+      [arg_stream_type],
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.media.mojom.DecryptorRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec,
       null,
-      { arg_stream_type: arg_stream_type },
+      [arg_stream_type],
       false);
   }
 

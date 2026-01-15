@@ -223,7 +223,7 @@ mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClientRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec,
       null,
-      { arg_stream: arg_stream, arg_client_receiver: arg_client_receiver, arg_data_pipe: arg_data_pipe },
+      [arg_stream, arg_client_receiver, arg_data_pipe],
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -391,7 +391,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -400,7 +400,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -409,7 +409,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_param: arg_param, arg_shared_memory_count: arg_shared_memory_count },
+      [arg_client, arg_param, arg_shared_memory_count],
       false);
   }
 
@@ -418,7 +418,7 @@ mojo.internal.bindings.mirroring.mojom.ResourceProviderRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec,
       null,
-      { arg_remoter: arg_remoter, arg_receiver: arg_receiver },
+      [arg_remoter, arg_receiver],
       false);
   }
 

@@ -198,7 +198,7 @@ mojo.internal.bindings.mojom.DebugLogsChangeHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec,
       null,
-      { arg_should_debug_logs_be_enabled: arg_should_debug_logs_be_enabled },
+      [arg_should_debug_logs_be_enabled],
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec,
       mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec,
       mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec,
       mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec,
       mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec,
       mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec,
       mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -406,7 +406,7 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec,
       mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -643,7 +643,7 @@ mojo.internal.bindings.mojom.BluetoothBtsnoopRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ParamsSpec,
       mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

@@ -189,7 +189,7 @@ mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.StateRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -198,7 +198,7 @@ mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.StateRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -207,7 +207,7 @@ mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.StateRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProvi
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec,
       null,
-      { arg_remote: arg_remote, arg_receiver: arg_receiver },
+      [arg_remote, arg_receiver],
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProvi
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec,
       null,
-      { arg_interface_name: arg_interface_name, arg_receiver: arg_receiver },
+      [arg_interface_name, arg_receiver],
       false);
   }
 

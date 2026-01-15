@@ -187,7 +187,7 @@ mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec,
       null,
-      { arg_image: arg_image, arg_page_index: arg_page_index },
+      [arg_image, arg_page_index],
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec,
       null,
-      { arg_page_index: arg_page_index },
+      [arg_page_index],
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec,
       mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

@@ -302,7 +302,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.SystemPropertiesObserverRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.SystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec,
       null,
-      { arg_properties: arg_properties },
+      [arg_properties],
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverR
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDevicePaired_ParamsSpec,
       null,
-      { arg_device: arg_device },
+      [arg_device],
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverR
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceConnected_ParamsSpec,
       null,
-      { arg_device: arg_device },
+      [arg_device],
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverR
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceDisconnected_ParamsSpec,
       null,
-      { arg_device: arg_device },
+      [arg_device],
       false);
   }
 
@@ -604,7 +604,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DiscoverySessionStatusObserver
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.DiscoverySessionStatusObserver_OnHasAtLeastOneDiscoverySessionChanged_ParamsSpec,
       null,
-      { arg_has_at_least_one_discovery_session: arg_has_at_least_one_discovery_session },
+      [arg_has_at_least_one_discovery_session],
       false);
   }
 
@@ -734,7 +734,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandlerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.KeyEnteredHandler_HandleKeyEntered_ParamsSpec,
       null,
-      { arg_num_keys_entered: arg_num_keys_entered },
+      [arg_num_keys_entered],
       false);
   }
 
@@ -884,7 +884,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ParamsSpec,
       mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -893,7 +893,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ParamsSpec,
       mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -902,7 +902,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCal
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_ParamsSpec,
       null,
-      { arg_pin_code: arg_pin_code, arg_handler: arg_handler },
+      [arg_pin_code, arg_handler],
       false);
   }
 
@@ -911,7 +911,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCal
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_ParamsSpec,
       null,
-      { arg_passkey: arg_passkey, arg_handler: arg_handler },
+      [arg_passkey, arg_handler],
       false);
   }
 
@@ -920,7 +920,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCal
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ParamsSpec,
       mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ResponseParamsSpec,
-      { arg_passkey: arg_passkey },
+      [arg_passkey],
       false);
   }
 
@@ -929,7 +929,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCal
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ParamsSpec,
       mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1139,7 +1139,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandlerRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ParamsSpec,
       mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ResponseParamsSpec,
-      { arg_device_id: arg_device_id, arg_delegate: arg_delegate },
+      [arg_device_id, arg_delegate],
       false);
   }
 
@@ -1148,7 +1148,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandlerRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ParamsSpec,
       mojo.internal.bindings.ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ResponseParamsSpec,
-      { arg_device_address: arg_device_address },
+      [arg_device_address],
       false);
   }
 
@@ -1312,7 +1312,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemo
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStarted_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -1321,7 +1321,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemo
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStopped_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1330,7 +1330,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemo
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnDiscoveredDevicesListChanged_ParamsSpec,
       null,
-      { arg_discovered_devices: arg_discovered_devices },
+      [arg_discovered_devices],
       false);
   }
 
@@ -1516,7 +1516,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveSystemProperties_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -1525,7 +1525,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDeviceStatusChanges_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -1534,7 +1534,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDiscoverySessionStatusChanges_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -1543,7 +1543,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledState_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -1552,7 +1552,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallH
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledWithoutPersistence_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1561,7 +1561,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallH
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothHidDetectionInactive_ParamsSpec,
       null,
-      { arg_is_using_bluetooth: arg_is_using_bluetooth },
+      [arg_is_using_bluetooth],
       false);
   }
 
@@ -1570,7 +1570,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallH
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_StartDiscovery_ParamsSpec,
       null,
-      { arg_delegate: arg_delegate },
+      [arg_delegate],
       false);
   }
 
@@ -1579,7 +1579,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallH
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ParamsSpec,
       mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ResponseParamsSpec,
-      { arg_device_id: arg_device_id },
+      [arg_device_id],
       false);
   }
 
@@ -1588,7 +1588,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallH
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ParamsSpec,
       mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ResponseParamsSpec,
-      { arg_device_id: arg_device_id },
+      [arg_device_id],
       false);
   }
 
@@ -1597,7 +1597,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallH
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ParamsSpec,
       mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ResponseParamsSpec,
-      { arg_device_id: arg_device_id },
+      [arg_device_id],
       false);
   }
 
@@ -1606,7 +1606,7 @@ mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallH
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.bluetooth_config.mojom.CrosBluetoothConfig_SetDeviceNickname_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id, arg_nickname: arg_nickname },
+      [arg_device_id, arg_nickname],
       false);
   }
 

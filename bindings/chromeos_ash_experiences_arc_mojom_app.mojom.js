@@ -417,7 +417,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec,
       null,
-      { arg_app: arg_app },
+      [arg_app],
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec,
       null,
-      { arg_apps: arg_apps },
+      [arg_apps],
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnPackageAdded_ParamsSpec,
       null,
-      { arg_arcPackageInfo: arg_arcPackageInfo },
+      [arg_arcPackageInfo],
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name, arg_apps: arg_apps },
+      [arg_package_name, arg_apps],
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec,
       null,
-      { arg_packages: arg_packages },
+      [arg_packages],
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnPackageModified_ParamsSpec,
       null,
-      { arg_arcPackageInfo: arg_arcPackageInfo },
+      [arg_arcPackageInfo],
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnPackageRemoved_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name },
+      [arg_package_name],
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnTaskCreated_ParamsSpec,
       null,
-      { arg_task_id: arg_task_id, arg_package_name: arg_package_name, arg_activity: arg_activity, arg_name: arg_name, arg_intent: arg_intent, arg_session_id: arg_session_id },
+      [arg_task_id, arg_package_name, arg_activity, arg_name, arg_intent, arg_session_id],
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec,
       null,
-      { arg_task_id: arg_task_id, arg_label: arg_label, arg_icon_png_data: arg_icon_png_data },
+      [arg_task_id, arg_label, arg_icon_png_data],
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec,
       null,
-      { arg_task_id: arg_task_id, arg_label: arg_label, arg_icon: arg_icon, arg_primary_color: arg_primary_color, arg_status_bar_color: arg_status_bar_color },
+      [arg_task_id, arg_label, arg_icon, arg_primary_color, arg_status_bar_color],
       false);
   }
 
@@ -507,7 +507,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec,
       null,
-      { arg_task_id: arg_task_id },
+      [arg_task_id],
       false);
   }
 
@@ -516,7 +516,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnTaskSetActive_ParamsSpec,
       null,
-      { arg_task_id: arg_task_id },
+      [arg_task_id],
       false);
   }
 
@@ -525,7 +525,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name, arg_enabled: arg_enabled },
+      [arg_package_name, arg_enabled],
       false);
   }
 
@@ -534,7 +534,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnInstallShortcut_ParamsSpec,
       null,
-      { arg_shortcut: arg_shortcut },
+      [arg_shortcut],
       false);
   }
 
@@ -543,7 +543,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnInstallationStarted_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name },
+      [arg_package_name],
       false);
   }
 
@@ -552,7 +552,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnInstallationFinished_ParamsSpec,
       null,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 
@@ -561,7 +561,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name, arg_intent_uri: arg_intent_uri },
+      [arg_package_name, arg_intent_uri],
       false);
   }
 
@@ -570,7 +570,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name, arg_progress: arg_progress },
+      [arg_package_name, arg_progress],
       false);
   }
 
@@ -579,7 +579,7 @@ mojo.internal.bindings.arc.mojom.AppHostRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name, arg_active: arg_active },
+      [arg_package_name, arg_active],
       false);
   }
 
@@ -969,7 +969,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -978,7 +978,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_CloseTask_ParamsSpec,
       null,
-      { arg_task_id: arg_task_id },
+      [arg_task_id],
       false);
   }
 
@@ -987,7 +987,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_InstallPackage_ParamsSpec,
       null,
-      { arg_arcPackageInfo: arg_arcPackageInfo },
+      [arg_arcPackageInfo],
       false);
   }
 
@@ -996,7 +996,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name, arg_activity: arg_activity, arg_window_info: arg_window_info },
+      [arg_package_name, arg_activity, arg_window_info],
       false);
   }
 
@@ -1005,7 +1005,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name, arg_shortcut_id: arg_shortcut_id, arg_display_id: arg_display_id },
+      [arg_package_name, arg_shortcut_id, arg_display_id],
       false);
   }
 
@@ -1014,7 +1014,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec,
       null,
-      { arg_intent_uri: arg_intent_uri, arg_window_info: arg_window_info },
+      [arg_intent_uri, arg_window_info],
       false);
   }
 
@@ -1023,7 +1023,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec,
       null,
-      { arg_window_info: arg_window_info },
+      [arg_window_info],
       false);
   }
 
@@ -1032,7 +1032,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_RequestAppIcon_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec,
-      { arg_package_name: arg_package_name, arg_activity: arg_activity, arg_pixel_size: arg_pixel_size },
+      [arg_package_name, arg_activity, arg_pixel_size],
       false);
   }
 
@@ -1041,7 +1041,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppIcon_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec,
-      { arg_package_name: arg_package_name, arg_activity: arg_activity, arg_pixel_size: arg_pixel_size },
+      [arg_package_name, arg_activity, arg_pixel_size],
       false);
   }
 
@@ -1050,7 +1050,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec,
-      { arg_icon_resource_id: arg_icon_resource_id, arg_pixel_size: arg_pixel_size },
+      [arg_icon_resource_id, arg_pixel_size],
       false);
   }
 
@@ -1059,7 +1059,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec,
-      { arg_icon_resource_id: arg_icon_resource_id, arg_pixel_size: arg_pixel_size },
+      [arg_icon_resource_id, arg_pixel_size],
       false);
   }
 
@@ -1068,7 +1068,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec,
-      { arg_package_name: arg_package_name, arg_pixel_size: arg_pixel_size, arg_normalize: arg_normalize },
+      [arg_package_name, arg_pixel_size, arg_normalize],
       false);
   }
 
@@ -1077,7 +1077,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_GetPackageIcon_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec,
-      { arg_package_name: arg_package_name, arg_pixel_size: arg_pixel_size, arg_normalize: arg_normalize },
+      [arg_package_name, arg_pixel_size, arg_normalize],
       false);
   }
 
@@ -1086,7 +1086,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec,
       null,
-      { arg_icon_resource_id: arg_icon_resource_id },
+      [arg_icon_resource_id],
       false);
   }
 
@@ -1095,7 +1095,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_SetTaskActive_ParamsSpec,
       null,
-      { arg_task_id: arg_task_id },
+      [arg_task_id],
       false);
   }
 
@@ -1104,7 +1104,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name, arg_dimension_on_screen: arg_dimension_on_screen },
+      [arg_package_name, arg_dimension_on_screen],
       false);
   }
 
@@ -1113,7 +1113,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name, arg_page: arg_page, arg_dimension_on_screen: arg_dimension_on_screen },
+      [arg_package_name, arg_page, arg_dimension_on_screen],
       false);
   }
 
@@ -1122,7 +1122,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name, arg_page: arg_page, arg_display_id: arg_display_id },
+      [arg_package_name, arg_page, arg_display_id],
       false);
   }
 
@@ -1131,7 +1131,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name, arg_enabled: arg_enabled },
+      [arg_package_name, arg_enabled],
       false);
   }
 
@@ -1140,7 +1140,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_StartPaiFlow_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1149,7 +1149,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec,
       null,
-      { arg_arc_package_names: arg_arc_package_names },
+      [arg_arc_package_names],
       false);
   }
 
@@ -1158,7 +1158,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_UninstallPackage_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name },
+      [arg_package_name],
       false);
   }
 
@@ -1167,7 +1167,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name },
+      [arg_package_name],
       false);
   }
 
@@ -1176,7 +1176,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_GetAndroidId_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1185,7 +1185,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec,
-      { arg_query: arg_query, arg_max_results: arg_max_results },
+      [arg_query, arg_max_results],
       false);
   }
 
@@ -1194,7 +1194,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec,
-      { arg_package_name: arg_package_name },
+      [arg_package_name],
       false);
   }
 
@@ -1203,7 +1203,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec,
-      { arg_query: arg_query, arg_max_results: arg_max_results },
+      [arg_query, arg_max_results],
       false);
   }
 
@@ -1212,7 +1212,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_IsInstallable_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec,
-      { arg_package_name: arg_package_name },
+      [arg_package_name],
       false);
   }
 
@@ -1221,7 +1221,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppCategory_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec,
-      { arg_package_name: arg_package_name },
+      [arg_package_name],
       false);
   }
 
@@ -1230,7 +1230,7 @@ mojo.internal.bindings.arc.mojom.AppInstanceRemoteCallHandler = class {
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.arc.mojom.AppInstance_SetAppLocale_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name, arg_locale_tag: arg_locale_tag },
+      [arg_package_name, arg_locale_tag],
       false);
   }
 

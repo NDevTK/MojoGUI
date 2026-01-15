@@ -172,7 +172,7 @@ mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandlerR
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ParamsSpec,
       mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

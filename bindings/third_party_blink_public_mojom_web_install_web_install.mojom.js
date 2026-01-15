@@ -192,7 +192,7 @@ mojo.internal.bindings.blink.mojom.WebInstallServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebInstallService_Install_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebInstallService_Install_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -201,7 +201,7 @@ mojo.internal.bindings.blink.mojom.WebInstallServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 

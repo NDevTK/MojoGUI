@@ -191,7 +191,7 @@ mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

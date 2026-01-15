@@ -188,7 +188,7 @@ mojo.internal.bindings.arc.mojom.AppfuseHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ResponseParamsSpec,
-      { arg_uid: arg_uid, arg_mount_id: arg_mount_id },
+      [arg_uid, arg_mount_id],
       false);
   }
 
@@ -197,7 +197,7 @@ mojo.internal.bindings.arc.mojom.AppfuseHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec,
-      { arg_uid: arg_uid, arg_mount_id: arg_mount_id },
+      [arg_uid, arg_mount_id],
       false);
   }
 
@@ -206,7 +206,7 @@ mojo.internal.bindings.arc.mojom.AppfuseHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec,
-      { arg_uid: arg_uid, arg_mount_id: arg_mount_id, arg_file_id: arg_file_id, arg_flags: arg_flags },
+      [arg_uid, arg_mount_id, arg_file_id, arg_flags],
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.arc.mojom.AppfuseInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 

@@ -463,7 +463,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -472,7 +472,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -481,7 +481,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -490,7 +490,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -499,7 +499,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -508,7 +508,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderRemoteCallHandler = clas
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -517,7 +517,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderRemoteCallHandler = clas
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -526,7 +526,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderRemoteCallHandler = clas
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -535,7 +535,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderRemoteCallHandler = clas
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -544,7 +544,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderRemoteCallHandler = clas
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -553,7 +553,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderRemoteCallHandler = clas
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -562,7 +562,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderRemoteCallHandler = clas
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -571,7 +571,7 @@ mojo.internal.bindings.ash.camera_app.mojom.EventsSenderRemoteCallHandler = clas
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 

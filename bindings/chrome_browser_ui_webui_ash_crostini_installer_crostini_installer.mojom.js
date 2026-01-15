@@ -199,7 +199,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactoryRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec,
       null,
-      { arg_disk_size: arg_disk_size, arg_username: arg_username },
+      [arg_disk_size, arg_username],
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageHandlerRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec,
       mojo.internal.bindings.ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -563,7 +563,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec,
       null,
-      { arg_install_state: arg_install_state, arg_progress_fraction: arg_progress_fraction },
+      [arg_install_state, arg_progress_fraction],
       false);
   }
 
@@ -572,7 +572,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 
@@ -581,7 +581,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -590,7 +590,7 @@ mojo.internal.bindings.ash.crostini_installer.mojom.PageRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

@@ -194,7 +194,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactoryRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -328,7 +328,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -337,7 +337,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -487,7 +487,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec,
       null,
-      { arg_context: arg_context },
+      [arg_context],
       false);
   }
 
@@ -496,7 +496,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec,
       null,
-      { arg_context: arg_context },
+      [arg_context],
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec,
       mojo.internal.bindings.omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -514,7 +514,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec,
       null,
-      { arg_preserve_context_on_close: arg_preserve_context_on_close },
+      [arg_preserve_context_on_close],
       false);
   }
 

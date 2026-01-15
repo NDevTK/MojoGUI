@@ -195,7 +195,7 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -588,7 +588,7 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec,
-      { arg_keys: arg_keys },
+      [arg_keys],
       false);
   }
 
@@ -597,7 +597,7 @@ mojo.internal.bindings.blink.mojom.ManagedConfigurationServiceRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

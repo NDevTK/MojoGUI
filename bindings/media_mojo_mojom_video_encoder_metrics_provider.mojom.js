@@ -209,7 +209,7 @@ mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec,
       null,
-      { arg_encoder_id: arg_encoder_id, arg_encoder_use_case: arg_encoder_use_case, arg_profile: arg_profile, arg_encode_size: arg_encode_size, arg_is_hardware_encoder: arg_is_hardware_encoder, arg_svc_mode: arg_svc_mode },
+      [arg_encoder_id, arg_encoder_use_case, arg_profile, arg_encode_size, arg_is_hardware_encoder, arg_svc_mode],
       false);
   }
 
@@ -218,7 +218,7 @@ mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec,
       null,
-      { arg_encoder_id: arg_encoder_id, arg_num_encoded_frames: arg_num_encoded_frames },
+      [arg_encoder_id, arg_num_encoded_frames],
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec,
       null,
-      { arg_encoder_id: arg_encoder_id, arg_status: arg_status },
+      [arg_encoder_id, arg_status],
       false);
   }
 
@@ -236,7 +236,7 @@ mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec,
       null,
-      { arg_encoder_id: arg_encoder_id },
+      [arg_encoder_id],
       false);
   }
 

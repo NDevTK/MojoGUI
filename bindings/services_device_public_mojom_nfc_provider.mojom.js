@@ -186,7 +186,7 @@ mojo.internal.bindings.device.mojom.NFCProviderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.NFCProvider_GetNFCForHost_ParamsSpec,
       null,
-      { arg_host_id: arg_host_id, arg_receiver: arg_receiver },
+      [arg_host_id, arg_receiver],
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.device.mojom.NFCProviderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.device.mojom.NFCProviderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

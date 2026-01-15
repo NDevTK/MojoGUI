@@ -201,7 +201,7 @@ mojo.internal.bindings.arc.mojom.ProtectedBufferManagerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec,
-      { arg_dummy_handle: arg_dummy_handle },
+      [arg_dummy_handle],
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.arc.mojom.ProtectedBufferManagerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec,
-      { arg_dummy_handle: arg_dummy_handle },
+      [arg_dummy_handle],
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.arc.mojom.ProtectedBufferManagerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec,
-      { arg_dummy_handle: arg_dummy_handle },
+      [arg_dummy_handle],
       false);
   }
 
@@ -228,7 +228,7 @@ mojo.internal.bindings.arc.mojom.ProtectedBufferManagerRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec,
-      { arg_dummy_handle: arg_dummy_handle },
+      [arg_dummy_handle],
       false);
   }
 

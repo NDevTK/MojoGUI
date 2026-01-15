@@ -185,7 +185,7 @@ mojo.internal.bindings.blink.mojom.AecDumpAgentRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AecDumpAgent_Start_ParamsSpec,
       null,
-      { arg_file: arg_file },
+      [arg_file],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.AecDumpAgentRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AecDumpAgent_Stop_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -332,7 +332,7 @@ mojo.internal.bindings.blink.mojom.AecDumpManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AecDumpManager_Add_ParamsSpec,
       null,
-      { arg_agent: arg_agent },
+      [arg_agent],
       false);
   }
 

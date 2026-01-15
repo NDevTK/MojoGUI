@@ -170,7 +170,7 @@ mojo.internal.bindings.chrome.mojom.SandboxStatusExtensionRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

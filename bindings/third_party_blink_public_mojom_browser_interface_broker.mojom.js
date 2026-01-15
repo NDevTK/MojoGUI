@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

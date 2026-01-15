@@ -182,7 +182,7 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec,
       mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommandsRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec,
       mojo.internal.bindings.supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

@@ -179,7 +179,7 @@ mojo.internal.bindings.blink.mojom.ContactsManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ContactsManager_Select_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ContactsManager_Select_ResponseParamsSpec,
-      { arg_multiple: arg_multiple, arg_include_names: arg_include_names, arg_include_emails: arg_include_emails, arg_include_tel: arg_include_tel, arg_include_addresses: arg_include_addresses, arg_include_icons: arg_include_icons },
+      [arg_multiple, arg_include_names, arg_include_emails, arg_include_tel, arg_include_addresses, arg_include_icons],
       false);
   }
 

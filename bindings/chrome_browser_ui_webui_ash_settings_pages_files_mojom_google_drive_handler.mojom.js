@@ -194,7 +194,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactoryRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -336,7 +336,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec,
       mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec,
       mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -538,7 +538,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -547,7 +547,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 

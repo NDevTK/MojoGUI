@@ -197,7 +197,7 @@ mojo.internal.bindings.blink.mojom.DomStorageProviderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_client: arg_client },
+      [arg_receiver, arg_client],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.blink.mojom.DomStorageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec,
       null,
-      { arg_storage_key: arg_storage_key, arg_local_frame_token: arg_local_frame_token, arg_area: arg_area },
+      [arg_storage_key, arg_local_frame_token, arg_area],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.blink.mojom.DomStorageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec,
       null,
-      { arg_namespace_id: arg_namespace_id, arg_receiver: arg_receiver },
+      [arg_namespace_id, arg_receiver],
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.blink.mojom.DomStorageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec,
       null,
-      { arg_storage_key: arg_storage_key, arg_local_frame_token: arg_local_frame_token, arg_namespace_id: arg_namespace_id, arg_session_namespace: arg_session_namespace },
+      [arg_storage_key, arg_local_frame_token, arg_namespace_id, arg_session_namespace],
       false);
   }
 
@@ -503,7 +503,7 @@ mojo.internal.bindings.blink.mojom.DomStorageClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -512,7 +512,7 @@ mojo.internal.bindings.blink.mojom.DomStorageClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

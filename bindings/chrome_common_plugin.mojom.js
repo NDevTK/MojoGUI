@@ -209,7 +209,7 @@ mojo.internal.bindings.chrome.mojom.PluginHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.PluginHost_OpenPDF_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.chrome.mojom.PluginAuthHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec,
       null,
-      { arg_name: arg_name, arg_group_id: arg_group_id },
+      [arg_name, arg_group_id],
       false);
   }
 
@@ -469,7 +469,7 @@ mojo.internal.bindings.chrome.mojom.PluginInfoHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec,
-      { arg_url: arg_url, arg_origin: arg_origin, arg_mime_type: arg_mime_type },
+      [arg_url, arg_origin, arg_mime_type],
       false);
   }
 

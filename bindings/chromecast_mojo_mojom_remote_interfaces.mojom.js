@@ -175,7 +175,7 @@ mojo.internal.bindings.chromecast.mojom.RemoteInterfacesRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec,
       null,
-      { arg_interface_name: arg_interface_name, arg_pipe: arg_pipe },
+      [arg_interface_name, arg_pipe],
       false);
   }
 
@@ -184,7 +184,7 @@ mojo.internal.bindings.chromecast.mojom.RemoteInterfacesRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

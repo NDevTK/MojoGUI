@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.CallStackGeneratorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

@@ -229,7 +229,7 @@ mojo.internal.bindings.device.mojom.GeolocationInternalsObserverRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec,
       null,
-      { arg_diagnostics: arg_diagnostics },
+      [arg_diagnostics],
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.device.mojom.GeolocationInternalsObserverRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec,
       null,
-      { arg_access_point_data: arg_access_point_data },
+      [arg_access_point_data],
       false);
   }
 
@@ -247,7 +247,7 @@ mojo.internal.bindings.device.mojom.GeolocationInternalsObserverRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec,
       null,
-      { arg_response: arg_response },
+      [arg_response],
       false);
   }
 
@@ -393,7 +393,7 @@ mojo.internal.bindings.device.mojom.GeolocationInternalsRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec,
       mojo.internal.bindings.device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

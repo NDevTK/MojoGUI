@@ -309,7 +309,7 @@ mojo.internal.bindings.blink.mojom.LockRequestRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.LockRequest_Granted_ParamsSpec,
       null,
-      { arg_lock_handle: arg_lock_handle },
+      [arg_lock_handle],
       false);
   }
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.blink.mojom.LockRequestRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.LockRequest_Failed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -460,7 +460,7 @@ mojo.internal.bindings.blink.mojom.LockManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.LockManager_RequestLock_ParamsSpec,
       null,
-      { arg_name: arg_name, arg_mode: arg_mode, arg_wait: arg_wait, arg_request: arg_request },
+      [arg_name, arg_mode, arg_wait, arg_request],
       false);
   }
 
@@ -469,7 +469,7 @@ mojo.internal.bindings.blink.mojom.LockManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.LockManager_QueryState_ParamsSpec,
       mojo.internal.bindings.blink.mojom.LockManager_QueryState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

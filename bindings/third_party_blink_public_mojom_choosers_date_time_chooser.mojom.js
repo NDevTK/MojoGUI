@@ -188,7 +188,7 @@ mojo.internal.bindings.blink.mojom.DateTimeChooserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -197,7 +197,7 @@ mojo.internal.bindings.blink.mojom.DateTimeChooserRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

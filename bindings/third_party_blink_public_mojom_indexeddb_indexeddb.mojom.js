@@ -425,7 +425,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBFactoryClient_Error_ParamsSpec,
       null,
-      { arg_code: arg_code, arg_message: arg_message },
+      [arg_code, arg_message],
       false);
   }
 
@@ -434,7 +434,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBFactoryClient_Blocked_ParamsSpec,
       null,
-      { arg_existing_version: arg_existing_version },
+      [arg_existing_version],
       false);
   }
 
@@ -443,7 +443,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBFactoryClient_UpgradeNeeded_ParamsSpec,
       null,
-      { arg_pending_database: arg_pending_database, arg_old_version: arg_old_version, arg_data_loss: arg_data_loss, arg_data_loss_message: arg_data_loss_message, arg_db_metadata: arg_db_metadata },
+      [arg_pending_database, arg_old_version, arg_data_loss, arg_data_loss_message, arg_db_metadata],
       false);
   }
 
@@ -452,7 +452,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBFactoryClient_OpenSuccess_ParamsSpec,
       null,
-      { arg_pending_database: arg_pending_database, arg_metadata: arg_metadata },
+      [arg_pending_database, arg_metadata],
       false);
   }
 
@@ -461,7 +461,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryClientRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBFactoryClient_DeleteSuccess_ParamsSpec,
       null,
-      { arg_old_version: arg_old_version },
+      [arg_old_version],
       false);
   }
 
@@ -635,7 +635,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_ForcedClose_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -644,7 +644,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_VersionChange_ParamsSpec,
       null,
-      { arg_old_version: arg_old_version, arg_new_version: arg_new_version },
+      [arg_old_version, arg_new_version],
       false);
   }
 
@@ -653,7 +653,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_Abort_ParamsSpec,
       null,
-      { arg_transaction_id: arg_transaction_id, arg_code: arg_code, arg_message: arg_message },
+      [arg_transaction_id, arg_code, arg_message],
       false);
   }
 
@@ -662,7 +662,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacksRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabaseCallbacks_Complete_ParamsSpec,
       null,
-      { arg_transaction_id: arg_transaction_id },
+      [arg_transaction_id],
       false);
   }
 
@@ -828,7 +828,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBCursor_Advance_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBCursor_Advance_ResponseParamsSpec,
-      { arg_count: arg_count },
+      [arg_count],
       false);
   }
 
@@ -837,7 +837,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBCursor_Continue_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBCursor_Continue_ResponseParamsSpec,
-      { arg_key: arg_key, arg_primary_key: arg_primary_key },
+      [arg_key, arg_primary_key],
       false);
   }
 
@@ -846,7 +846,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBCursor_Prefetch_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBCursor_Prefetch_ResponseParamsSpec,
-      { arg_count: arg_count },
+      [arg_count],
       false);
   }
 
@@ -855,7 +855,7 @@ mojo.internal.bindings.blink.mojom.IDBCursorRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBCursor_PrefetchReset_ParamsSpec,
       null,
-      { arg_used_prefetches: arg_used_prefetches },
+      [arg_used_prefetches],
       false);
   }
 
@@ -1056,7 +1056,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBTransaction_CreateObjectStore_ParamsSpec,
       null,
-      { arg_object_store_id: arg_object_store_id, arg_name: arg_name, arg_key_path: arg_key_path, arg_auto_increment: arg_auto_increment },
+      [arg_object_store_id, arg_name, arg_key_path, arg_auto_increment],
       false);
   }
 
@@ -1065,7 +1065,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBTransaction_DeleteObjectStore_ParamsSpec,
       null,
-      { arg_object_store_id: arg_object_store_id },
+      [arg_object_store_id],
       false);
   }
 
@@ -1074,7 +1074,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBTransaction_Put_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBTransaction_Put_ResponseParamsSpec,
-      { arg_object_store_id: arg_object_store_id, arg_value: arg_value, arg_key: arg_key, arg_mode: arg_mode, arg_index_keys: arg_index_keys },
+      [arg_object_store_id, arg_value, arg_key, arg_mode, arg_index_keys],
       false);
   }
 
@@ -1083,7 +1083,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBTransaction_SetIndexKeys_ParamsSpec,
       null,
-      { arg_object_store_id: arg_object_store_id, arg_primary_key: arg_primary_key, arg_index_keys: arg_index_keys },
+      [arg_object_store_id, arg_primary_key, arg_index_keys],
       false);
   }
 
@@ -1092,7 +1092,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBTransaction_SetIndexKeysDone_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1101,7 +1101,7 @@ mojo.internal.bindings.blink.mojom.IDBTransactionRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBTransaction_Commit_ParamsSpec,
       null,
-      { arg_num_errors_handled: arg_num_errors_handled },
+      [arg_num_errors_handled],
       false);
   }
 
@@ -1284,7 +1284,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSinkRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSink_ReceiveResults_ParamsSpec,
       null,
-      { arg_records: arg_records, arg_done: arg_done },
+      [arg_records, arg_done],
       false);
   }
 
@@ -1293,7 +1293,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSinkRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabaseGetAllResultSink_OnError_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 
@@ -1491,7 +1491,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_RenameObjectStore_ParamsSpec,
       null,
-      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id, arg_new_name: arg_new_name },
+      [arg_transaction_id, arg_object_store_id, arg_new_name],
       false);
   }
 
@@ -1500,7 +1500,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_CreateTransaction_ParamsSpec,
       null,
-      { arg_transaction_receiver: arg_transaction_receiver, arg_transaction_id: arg_transaction_id, arg_object_store_ids: arg_object_store_ids, arg_mode: arg_mode, arg_durability: arg_durability },
+      [arg_transaction_receiver, arg_transaction_id, arg_object_store_ids, arg_mode, arg_durability],
       false);
   }
 
@@ -1509,7 +1509,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_VersionChangeIgnored_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1518,7 +1518,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_Get_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBDatabase_Get_ResponseParamsSpec,
-      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id, arg_index_id: arg_index_id, arg_key_range: arg_key_range, arg_key_only: arg_key_only },
+      [arg_transaction_id, arg_object_store_id, arg_index_id, arg_key_range, arg_key_only],
       false);
   }
 
@@ -1527,7 +1527,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_GetAll_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec,
-      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id, arg_index_id: arg_index_id, arg_key_range: arg_key_range, arg_result_type: arg_result_type, arg_max_count: arg_max_count, arg_direction: arg_direction },
+      [arg_transaction_id, arg_object_store_id, arg_index_id, arg_key_range, arg_result_type, arg_max_count, arg_direction],
       false);
   }
 
@@ -1536,7 +1536,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_OpenCursor_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBDatabase_OpenCursor_ResponseParamsSpec,
-      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id, arg_index_id: arg_index_id, arg_key_range: arg_key_range, arg_direction: arg_direction, arg_key_only: arg_key_only, arg_task_type: arg_task_type },
+      [arg_transaction_id, arg_object_store_id, arg_index_id, arg_key_range, arg_direction, arg_key_only, arg_task_type],
       false);
   }
 
@@ -1545,7 +1545,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_Count_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBDatabase_Count_ResponseParamsSpec,
-      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id, arg_index_id: arg_index_id, arg_key_range: arg_key_range },
+      [arg_transaction_id, arg_object_store_id, arg_index_id, arg_key_range],
       false);
   }
 
@@ -1554,7 +1554,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_DeleteRange_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBDatabase_DeleteRange_ResponseParamsSpec,
-      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id, arg_key_range: arg_key_range },
+      [arg_transaction_id, arg_object_store_id, arg_key_range],
       false);
   }
 
@@ -1563,7 +1563,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ResponseParamsSpec,
-      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id },
+      [arg_transaction_id, arg_object_store_id],
       false);
   }
 
@@ -1572,7 +1572,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_Clear_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBDatabase_Clear_ResponseParamsSpec,
-      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id },
+      [arg_transaction_id, arg_object_store_id],
       false);
   }
 
@@ -1581,7 +1581,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_CreateIndex_ParamsSpec,
       null,
-      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id, arg_index: arg_index },
+      [arg_transaction_id, arg_object_store_id, arg_index],
       false);
   }
 
@@ -1590,7 +1590,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_DeleteIndex_ParamsSpec,
       null,
-      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id, arg_index_id: arg_index_id },
+      [arg_transaction_id, arg_object_store_id, arg_index_id],
       false);
   }
 
@@ -1599,7 +1599,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_RenameIndex_ParamsSpec,
       null,
-      { arg_transaction_id: arg_transaction_id, arg_object_store_id: arg_object_store_id, arg_index_id: arg_index_id, arg_new_name: arg_new_name },
+      [arg_transaction_id, arg_object_store_id, arg_index_id, arg_new_name],
       false);
   }
 
@@ -1608,7 +1608,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_Abort_ParamsSpec,
       null,
-      { arg_transaction_id: arg_transaction_id },
+      [arg_transaction_id],
       false);
   }
 
@@ -1617,7 +1617,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_DidBecomeInactive_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1626,7 +1626,7 @@ mojo.internal.bindings.blink.mojom.IDBDatabaseRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBDatabase_UpdatePriority_ParamsSpec,
       null,
-      { arg_new_priority: arg_new_priority },
+      [arg_new_priority],
       false);
   }
 
@@ -1945,7 +1945,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBFactory_GetDatabaseInfo_ParamsSpec,
       mojo.internal.bindings.blink.mojom.IDBFactory_GetDatabaseInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1954,7 +1954,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBFactory_Open_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_database_callbacks: arg_database_callbacks, arg_name: arg_name, arg_version: arg_version, arg_version_change_transaction_receiver: arg_version_change_transaction_receiver, arg_transaction_id: arg_transaction_id, arg_priority: arg_priority },
+      [arg_client, arg_database_callbacks, arg_name, arg_version, arg_version_change_transaction_receiver, arg_transaction_id, arg_priority],
       false);
   }
 
@@ -1963,7 +1963,7 @@ mojo.internal.bindings.blink.mojom.IDBFactoryRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.IDBFactory_DeleteDatabase_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_name: arg_name, arg_force_close: arg_force_close },
+      [arg_client, arg_name, arg_force_close],
       false);
   }
 

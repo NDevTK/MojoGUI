@@ -177,7 +177,7 @@ mojo.internal.bindings.ai.mojom.TabOrganizationServiceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec,
       mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 

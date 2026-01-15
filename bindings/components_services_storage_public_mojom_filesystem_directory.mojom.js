@@ -242,7 +242,7 @@ mojo.internal.bindings.storage.mojom.FileLockRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.FileLock_Release_ParamsSpec,
       mojo.internal.bindings.storage.mojom.FileLock_Release_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -417,7 +417,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_Clone_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_PathExists_ParamsSpec,
       mojo.internal.bindings.storage.mojom.Directory_PathExists_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_GetEntries_ParamsSpec,
       mojo.internal.bindings.storage.mojom.Directory_GetEntries_ResponseParamsSpec,
-      { arg_path: arg_path, arg_mode: arg_mode },
+      [arg_path, arg_mode],
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_OpenFile_ParamsSpec,
       mojo.internal.bindings.storage.mojom.Directory_OpenFile_ResponseParamsSpec,
-      { arg_path: arg_path, arg_mode: arg_mode, arg_read_access: arg_read_access, arg_write_access: arg_write_access },
+      [arg_path, arg_mode, arg_read_access, arg_write_access],
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ParamsSpec,
       mojo.internal.bindings.storage.mojom.Directory_CreateDirectory_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ParamsSpec,
       mojo.internal.bindings.storage.mojom.Directory_DeleteFile_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ParamsSpec,
       mojo.internal.bindings.storage.mojom.Directory_GetFileInfo_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ParamsSpec,
       mojo.internal.bindings.storage.mojom.Directory_GetPathAccess_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_RenameFile_ParamsSpec,
       mojo.internal.bindings.storage.mojom.Directory_RenameFile_ResponseParamsSpec,
-      { arg_old_path: arg_old_path, arg_new_path: arg_new_path },
+      [arg_old_path, arg_new_path],
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.storage.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.storage.mojom.Directory_LockFile_ParamsSpec,
       mojo.internal.bindings.storage.mojom.Directory_LockFile_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 

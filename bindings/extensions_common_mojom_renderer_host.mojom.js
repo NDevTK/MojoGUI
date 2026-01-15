@@ -202,7 +202,7 @@ mojo.internal.bindings.extensions.mojom.RendererHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id, arg_call_name: arg_call_name, arg_args: arg_args, arg_extra: arg_extra },
+      [arg_extension_id, arg_call_name, arg_args, arg_extra],
       false);
   }
 
@@ -211,7 +211,7 @@ mojo.internal.bindings.extensions.mojom.RendererHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id, arg_call_name: arg_call_name, arg_args: arg_args, arg_extra: arg_extra },
+      [arg_extension_id, arg_call_name, arg_args, arg_extra],
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.extensions.mojom.RendererHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id, arg_call_name: arg_call_name, arg_args: arg_args, arg_url: arg_url, arg_url_title: arg_url_title, arg_call_type: arg_call_type },
+      [arg_extension_id, arg_call_name, arg_args, arg_url, arg_url_title, arg_call_type],
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.extensions.mojom.RendererHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec,
-      { arg_extension_id: arg_extension_id },
+      [arg_extension_id],
       false);
   }
 

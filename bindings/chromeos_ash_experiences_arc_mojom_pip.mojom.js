@@ -183,7 +183,7 @@ mojo.internal.bindings.arc.mojom.PipHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PipHost_OnPipEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.arc.mojom.PipInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PipInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PipInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.arc.mojom.PipInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.PipInstance_ClosePip_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.arc.mojom.PipInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec,
       null,
-      { arg_suppressed: arg_suppressed },
+      [arg_suppressed],
       false);
   }
 

@@ -199,7 +199,7 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec,
       null,
-      { arg_jpeg: arg_jpeg, arg_page_index: arg_page_index },
+      [arg_jpeg, arg_page_index],
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec,
       null,
-      { arg_jpeg: arg_jpeg, arg_page_index: arg_page_index },
+      [arg_jpeg, arg_page_index],
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec,
       null,
-      { arg_page_index: arg_page_index },
+      [arg_page_index],
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

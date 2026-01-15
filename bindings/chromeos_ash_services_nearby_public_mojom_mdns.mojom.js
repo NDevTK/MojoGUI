@@ -184,7 +184,7 @@ mojo.internal.bindings.sharing.mojom.MdnsObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec,
       null,
-      { arg_service_info: arg_service_info },
+      [arg_service_info],
       false);
   }
 
@@ -193,7 +193,7 @@ mojo.internal.bindings.sharing.mojom.MdnsObserverRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec,
       null,
-      { arg_service_info: arg_service_info },
+      [arg_service_info],
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.sharing.mojom.MdnsManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.MdnsManager_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.sharing.mojom.MdnsManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec,
-      { arg_service_type: arg_service_type },
+      [arg_service_type],
       false);
   }
 
@@ -357,7 +357,7 @@ mojo.internal.bindings.sharing.mojom.MdnsManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec,
-      { arg_service_type: arg_service_type },
+      [arg_service_type],
       false);
   }
 

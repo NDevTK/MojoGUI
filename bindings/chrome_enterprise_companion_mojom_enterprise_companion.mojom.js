@@ -183,7 +183,7 @@ mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec,
       mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec,
       mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec,
-      { arg_reason: arg_reason },
+      [arg_reason],
       false);
   }
 

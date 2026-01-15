@@ -176,7 +176,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -310,7 +310,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -319,7 +319,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id },
+      [arg_app_id],
       false);
   }
 

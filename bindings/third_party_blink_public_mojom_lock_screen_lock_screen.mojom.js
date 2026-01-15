@@ -185,7 +185,7 @@ mojo.internal.bindings.blink.mojom.LockScreenServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.LockScreenService_GetKeys_ParamsSpec,
       mojo.internal.bindings.blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.LockScreenServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.LockScreenService_SetData_ParamsSpec,
       mojo.internal.bindings.blink.mojom.LockScreenService_SetData_ResponseParamsSpec,
-      { arg_key: arg_key, arg_data: arg_data },
+      [arg_key, arg_data],
       false);
   }
 

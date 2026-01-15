@@ -184,7 +184,7 @@ mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec,
       mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec,
-      { arg_url: arg_url, arg_api_key: arg_api_key },
+      [arg_url, arg_api_key],
       false);
   }
 
@@ -193,7 +193,7 @@ mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerRemoteCa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec,
       mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -202,7 +202,7 @@ mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandlerRemoteCa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec,
       mojo.internal.bindings.legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec,
-      { arg_feature_name: arg_feature_name, arg_request: arg_request },
+      [arg_feature_name, arg_request],
       false);
   }
 

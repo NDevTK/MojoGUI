@@ -222,7 +222,7 @@ mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClientRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec,
       null,
-      { arg_result: arg_result, arg_source_lang: arg_source_lang, arg_target_lang: arg_target_lang },
+      [arg_result, arg_source_lang, arg_target_lang],
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.blink.mojom.TranslationManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.TranslationManager_CreateTranslator_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_options: arg_options },
+      [arg_client, arg_options],
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.blink.mojom.TranslationManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec,
       mojo.internal.bindings.blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec,
-      { arg_source_lang: arg_source_lang, arg_target_lang: arg_target_lang },
+      [arg_source_lang, arg_target_lang],
       false);
   }
 

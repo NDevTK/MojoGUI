@@ -379,7 +379,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -406,7 +406,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -415,7 +415,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.Authenticator_Report_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Authenticator_Report_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -424,7 +424,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.Authenticator_Cancel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

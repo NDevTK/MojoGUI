@@ -193,7 +193,7 @@ mojo.internal.bindings.ui.ozone.mojom.DeviceCursorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec,
       null,
-      { arg_window: arg_window, arg_bitmaps: arg_bitmaps, arg_point: arg_point, arg_frame_delay: arg_frame_delay },
+      [arg_window, arg_bitmaps, arg_point, arg_frame_delay],
       false);
   }
 
@@ -202,7 +202,7 @@ mojo.internal.bindings.ui.ozone.mojom.DeviceCursorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec,
       null,
-      { arg_window: arg_window, arg_point: arg_point },
+      [arg_window, arg_point],
       false);
   }
 

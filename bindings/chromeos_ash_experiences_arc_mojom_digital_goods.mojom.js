@@ -226,7 +226,7 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec,
-      { arg_package_name: arg_package_name, arg_scope: arg_scope, arg_item_ids: arg_item_ids },
+      [arg_package_name, arg_scope, arg_item_ids],
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec,
-      { arg_package_name: arg_package_name, arg_scope: arg_scope, arg_purchase_token: arg_purchase_token, arg_make_available_again: arg_make_available_again },
+      [arg_package_name, arg_scope, arg_purchase_token, arg_make_available_again],
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec,
-      { arg_package_name: arg_package_name, arg_scope: arg_scope },
+      [arg_package_name, arg_scope],
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec,
-      { arg_package_name: arg_package_name, arg_scope: arg_scope },
+      [arg_package_name, arg_scope],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec,
-      { arg_package_name: arg_package_name, arg_scope: arg_scope },
+      [arg_package_name, arg_scope],
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec,
       mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec,
-      { arg_package_name: arg_package_name, arg_scope: arg_scope, arg_purchase_token: arg_purchase_token },
+      [arg_package_name, arg_scope, arg_purchase_token],
       false);
   }
 

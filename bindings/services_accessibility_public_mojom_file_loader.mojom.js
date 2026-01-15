@@ -180,7 +180,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ParamsSpec,
       mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 

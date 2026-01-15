@@ -171,7 +171,7 @@ mojo.internal.bindings.content.mojom.MainFrameCounterTestRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec,
       mojo.internal.bindings.content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

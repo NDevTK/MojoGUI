@@ -213,7 +213,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec,
-      { arg_family_name: arg_family_name },
+      [arg_family_name],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec,
-      { arg_family_index: arg_family_index },
+      [arg_family_index],
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec,
-      { arg_family_index: arg_family_index },
+      [arg_family_index],
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec,
-      { arg_font_unique_name: arg_font_unique_name },
+      [arg_font_unique_name],
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.blink.mojom.DWriteFontProxyRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec,
-      { arg_text: arg_text, arg_font_style: arg_font_style, arg_locale_name: arg_locale_name, arg_reading_direction: arg_reading_direction, arg_base_family_name: arg_base_family_name },
+      [arg_text, arg_font_style, arg_locale_name, arg_reading_direction, arg_base_family_name],
       false);
   }
 

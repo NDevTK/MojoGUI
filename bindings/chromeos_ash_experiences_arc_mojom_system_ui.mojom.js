@@ -186,7 +186,7 @@ mojo.internal.bindings.arc.mojom.SystemUiInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec,
       null,
-      { arg_active: arg_active },
+      [arg_active],
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.arc.mojom.SystemUiInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec,
       null,
-      { arg_source_color: arg_source_color, arg_theme_style: arg_theme_style },
+      [arg_source_color, arg_theme_style],
       false);
   }
 

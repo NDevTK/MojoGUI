@@ -175,7 +175,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec,
       null,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 

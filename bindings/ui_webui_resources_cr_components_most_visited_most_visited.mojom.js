@@ -218,7 +218,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactoryRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -408,7 +408,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec,
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec,
-      { arg_url: arg_url, arg_title: arg_title },
+      [arg_url, arg_title],
       false);
   }
 
@@ -417,7 +417,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec,
       null,
-      { arg_tile: arg_tile },
+      [arg_tile],
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec,
       null,
-      { arg_tile: arg_tile, arg_new_pos: arg_new_pos },
+      [arg_tile, arg_new_pos],
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec,
       null,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec,
       null,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec,
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec,
-      { arg_tile: arg_tile, arg_new_url: arg_new_url, arg_new_title: arg_new_title },
+      [arg_tile, arg_new_url, arg_new_title],
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec,
       null,
-      { arg_tile: arg_tile },
+      [arg_tile],
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec,
       null,
-      { arg_tile: arg_tile },
+      [arg_tile],
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec,
       null,
-      { arg_tile: arg_tile },
+      [arg_tile],
       false);
   }
 
@@ -507,7 +507,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -516,7 +516,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec,
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -525,7 +525,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec,
       null,
-      { arg_is_expanded: arg_is_expanded },
+      [arg_is_expanded],
       false);
   }
 
@@ -534,7 +534,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec,
       null,
-      { arg_tiles: arg_tiles, arg_time: arg_time },
+      [arg_tiles, arg_time],
       false);
   }
 
@@ -543,7 +543,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemoteCallHandle
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec,
       null,
-      { arg_tile: arg_tile, arg_index: arg_index, arg_mouse_button: arg_mouse_button, arg_alt_key: arg_alt_key, arg_ctrl_key: arg_ctrl_key, arg_meta_key: arg_meta_key, arg_shift_key: arg_shift_key },
+      [arg_tile, arg_index, arg_mouse_button, arg_alt_key, arg_ctrl_key, arg_meta_key, arg_shift_key],
       false);
   }
 
@@ -824,7 +824,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 
@@ -833,7 +833,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

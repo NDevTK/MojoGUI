@@ -174,7 +174,7 @@ mojo.internal.bindings.device.mojom.TimeZoneMonitorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.TimeZoneMonitor_AddClient_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.device.mojom.TimeZoneMonitorClientRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec,
       null,
-      { arg_tz_info: arg_tz_info },
+      [arg_tz_info],
       false);
   }
 

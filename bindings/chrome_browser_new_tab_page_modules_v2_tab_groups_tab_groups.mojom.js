@@ -203,7 +203,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec,
       mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

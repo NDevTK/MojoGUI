@@ -185,7 +185,7 @@ mojo.internal.bindings.gl.mojom.TraitsTestServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec,
       mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec,
-      { arg_g: arg_g },
+      [arg_g],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.gl.mojom.TraitsTestServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec,
       mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec,
-      { arg_impl: arg_impl },
+      [arg_impl],
       false);
   }
 

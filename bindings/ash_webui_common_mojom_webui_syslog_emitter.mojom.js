@@ -171,7 +171,7 @@ mojo.internal.bindings.ash.common.mojom.WebUiSyslogEmitterRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec,
       null,
-      { arg_prefix: arg_prefix, arg_message: arg_message },
+      [arg_prefix, arg_message],
       false);
   }
 

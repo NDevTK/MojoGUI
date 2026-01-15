@@ -198,7 +198,7 @@ mojo.internal.bindings.content.mojom.MhtmlFileWriterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec,
       mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 

@@ -184,7 +184,7 @@ mojo.internal.bindings.drivefs.mojom.NativeMessagingPortRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.drivefs.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -314,7 +314,7 @@ mojo.internal.bindings.drivefs.mojom.NativeMessagingHostRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 

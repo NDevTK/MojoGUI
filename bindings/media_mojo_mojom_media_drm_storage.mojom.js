@@ -207,7 +207,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -216,7 +216,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec,
-      { arg_session_id: arg_session_id, arg_session_data: arg_session_data },
+      [arg_session_id, arg_session_data],
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec,
-      { arg_session_id: arg_session_id },
+      [arg_session_id],
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.media.mojom.MediaDrmStorageRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec,
-      { arg_session_id: arg_session_id },
+      [arg_session_id],
       false);
   }
 

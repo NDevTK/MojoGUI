@@ -205,7 +205,7 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec,
       mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec,
-      { arg_reason: arg_reason, arg_prompt: arg_prompt },
+      [arg_reason, arg_prompt],
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec,
       mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec,
-      { arg_reason: arg_reason, arg_token: arg_token },
+      [arg_reason, arg_token],
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec,
       null,
-      { arg_token: arg_token },
+      [arg_token],
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.chromeos.auth.mojom.InSessionAuthRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec,
       mojo.internal.bindings.chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec,
-      { arg_rp_id: arg_rp_id, arg_window_id: arg_window_id },
+      [arg_rp_id, arg_window_id],
       false);
   }
 

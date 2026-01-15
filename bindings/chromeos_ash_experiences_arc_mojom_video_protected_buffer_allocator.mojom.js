@@ -191,7 +191,7 @@ mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocatorRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ResponseParamsSpec,
-      { arg_handle_fd: arg_handle_fd, arg_size: arg_size },
+      [arg_handle_fd, arg_size],
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocatorRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ResponseParamsSpec,
-      { arg_handle_fd: arg_handle_fd, arg_pixel_format: arg_pixel_format, arg_picture_size: arg_picture_size },
+      [arg_handle_fd, arg_pixel_format, arg_picture_size],
       false);
   }
 
@@ -209,7 +209,7 @@ mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocatorRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocator_ReleaseProtectedBuffer_ParamsSpec,
       null,
-      { arg_handle_fd: arg_handle_fd },
+      [arg_handle_fd],
       false);
   }
 

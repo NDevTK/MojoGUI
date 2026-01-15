@@ -179,7 +179,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.QuickPairServiceRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec,
       null,
-      { arg_fast_pair_data_parser: arg_fast_pair_data_parser },
+      [arg_fast_pair_data_parser],
       false);
   }
 

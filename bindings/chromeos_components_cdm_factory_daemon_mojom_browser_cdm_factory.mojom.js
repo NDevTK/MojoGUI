@@ -228,7 +228,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec,
-      { arg_key_system: arg_key_system },
+      [arg_key_system],
       false);
   }
 
@@ -237,7 +237,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec,
       null,
-      { arg_output_protection: arg_output_protection },
+      [arg_output_protection],
       false);
   }
 
@@ -246,7 +246,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -255,7 +255,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -264,7 +264,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec,
-      { arg_key_id: arg_key_id, arg_hw_identifier: arg_hw_identifier },
+      [arg_key_id, arg_hw_identifier],
       false);
   }
 
@@ -273,7 +273,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = c
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParamsSpec,
-      { arg_size: arg_size },
+      [arg_size],
       false);
   }
 
@@ -282,7 +282,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = c
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParamsSpec,
-      { arg_secure_handle: arg_secure_handle, arg_offset: arg_offset, arg_stream_data: arg_stream_data },
+      [arg_secure_handle, arg_offset, arg_stream_data],
       false);
   }
 

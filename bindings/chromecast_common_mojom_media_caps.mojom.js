@@ -176,7 +176,7 @@ mojo.internal.bindings.chromecast.media.mojom.MediaCapsRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -306,7 +306,7 @@ mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec,
       null,
-      { arg_codec_profile_level: arg_codec_profile_level },
+      [arg_codec_profile_level],
       false);
   }
 

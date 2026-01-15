@@ -177,7 +177,7 @@ mojo.internal.bindings.network.mojom.DhcpWpadUrlClientRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec,
       mojo.internal.bindings.network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

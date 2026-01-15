@@ -179,7 +179,7 @@ mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstanceRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec,
       null,
-      { arg_flags: arg_flags },
+      [arg_flags],
       false);
   }
 

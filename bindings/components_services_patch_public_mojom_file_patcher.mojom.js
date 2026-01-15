@@ -203,7 +203,7 @@ mojo.internal.bindings.patch.mojom.FilePatcherRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec,
       mojo.internal.bindings.patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec,
-      { arg_input_file: arg_input_file, arg_patch_file: arg_patch_file, arg_output_file: arg_output_file },
+      [arg_input_file, arg_patch_file, arg_output_file],
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.patch.mojom.FilePatcherRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec,
       mojo.internal.bindings.patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec,
-      { arg_input_file: arg_input_file, arg_patch_file: arg_patch_file, arg_output_file: arg_output_file },
+      [arg_input_file, arg_patch_file, arg_output_file],
       false);
   }
 

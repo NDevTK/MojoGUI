@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.DiskAllocatorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec,
       null,
-      { arg_file: arg_file },
+      [arg_file],
       false);
   }
 

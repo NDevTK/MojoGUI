@@ -218,7 +218,7 @@ mojo.internal.bindings.on_device_translation.mojom.FileOperationProxyRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec,
       mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec,
-      { arg_package_index: arg_package_index, arg_relative_path: arg_relative_path },
+      [arg_package_index, arg_relative_path],
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.on_device_translation.mojom.FileOperationProxyRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec,
       mojo.internal.bindings.on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec,
-      { arg_package_index: arg_package_index, arg_relative_path: arg_relative_path },
+      [arg_package_index, arg_relative_path],
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationServiceRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec,
       null,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationServiceRem
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec,
       mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec,
-      { arg_source_lang: arg_source_lang, arg_target_lang: arg_target_lang, arg_receiver: arg_receiver },
+      [arg_source_lang, arg_target_lang, arg_receiver],
       false);
   }
 
@@ -408,7 +408,7 @@ mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationServiceRem
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec,
       mojo.internal.bindings.on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec,
-      { arg_source_lang: arg_source_lang, arg_target_lang: arg_target_lang },
+      [arg_source_lang, arg_target_lang],
       false);
   }
 

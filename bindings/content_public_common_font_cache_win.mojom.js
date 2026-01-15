@@ -182,7 +182,7 @@ mojo.internal.bindings.content.mojom.FontCacheWinRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.FontCacheWin_PreCacheFont_ParamsSpec,
       mojo.internal.bindings.content.mojom.FontCacheWin_PreCacheFont_ResponseParamsSpec,
-      { arg_log_font: arg_log_font },
+      [arg_log_font],
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.content.mojom.FontCacheWinRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

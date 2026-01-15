@@ -217,7 +217,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec,
       mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec,
-      { arg_locale: arg_locale, arg_default_language: arg_default_language, arg_defaults: arg_defaults },
+      [arg_locale, arg_default_language, arg_defaults],
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec,
       mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec,
-      { arg_lcid: arg_lcid, arg_defaults: arg_defaults },
+      [arg_lcid, arg_defaults],
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ParamsSpec,
       mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec,
-      { arg_lcid: arg_lcid, arg_defaults: arg_defaults, arg_type: arg_type },
+      [arg_lcid, arg_defaults, arg_type],
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.content.mojom.SandboxSupportRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ParamsSpec,
       mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec,
-      { arg_lcid: arg_lcid, arg_defaults: arg_defaults, arg_collection: arg_collection },
+      [arg_lcid, arg_defaults, arg_collection],
       false);
   }
 

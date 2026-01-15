@@ -191,7 +191,7 @@ mojo.internal.bindings.legion.mojom.OakSessionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ParamsSpec,
       mojo.internal.bindings.legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.legion.mojom.OakSessionRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ParamsSpec,
       mojo.internal.bindings.legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec,
-      { arg_response: arg_response },
+      [arg_response],
       false);
   }
 
@@ -209,7 +209,7 @@ mojo.internal.bindings.legion.mojom.OakSessionRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ParamsSpec,
       mojo.internal.bindings.legion.mojom.OakSession_Encrypt_ResponseParamsSpec,
-      { arg_input: arg_input },
+      [arg_input],
       false);
   }
 
@@ -218,7 +218,7 @@ mojo.internal.bindings.legion.mojom.OakSessionRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ParamsSpec,
       mojo.internal.bindings.legion.mojom.OakSession_Decrypt_ResponseParamsSpec,
-      { arg_input: arg_input },
+      [arg_input],
       false);
   }
 

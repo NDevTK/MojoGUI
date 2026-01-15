@@ -301,7 +301,7 @@ mojo.internal.bindings.on_device_model.mojom.StreamingResponderRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.StreamingResponder_OnResponse_ParamsSpec,
       null,
-      { arg_chunk: arg_chunk },
+      [arg_chunk],
       false);
   }
 
@@ -310,7 +310,7 @@ mojo.internal.bindings.on_device_model.mojom.StreamingResponderRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.StreamingResponder_OnComplete_ParamsSpec,
       null,
-      { arg_summary: arg_summary },
+      [arg_summary],
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.on_device_model.mojom.ContextClientRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.ContextClient_OnComplete_ParamsSpec,
       null,
-      { arg_tokens_processed: arg_tokens_processed },
+      [arg_tokens_processed],
       false);
   }
 
@@ -606,7 +606,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.Session_Append_ParamsSpec,
       null,
-      { arg_options: arg_options, arg_client: arg_client },
+      [arg_options, arg_client],
       false);
   }
 
@@ -615,7 +615,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.Session_Generate_ParamsSpec,
       null,
-      { arg_options: arg_options, arg_responder: arg_responder },
+      [arg_options, arg_responder],
       false);
   }
 
@@ -624,7 +624,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.Session_GetSizeInTokens_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.Session_GetSizeInTokens_ResponseParamsSpec,
-      { arg_input: arg_input },
+      [arg_input],
       false);
   }
 
@@ -633,7 +633,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.Session_Score_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.Session_Score_ResponseParamsSpec,
-      { arg_text: arg_text },
+      [arg_text],
       false);
   }
 
@@ -642,7 +642,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.Session_Clone_ParamsSpec,
       null,
-      { arg_session: arg_session },
+      [arg_session],
       false);
   }
 
@@ -651,7 +651,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.Session_GetProbabilitiesBlocking_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.Session_GetProbabilitiesBlocking_ResponseParamsSpec,
-      { arg_text: arg_text },
+      [arg_text],
       false);
   }
 
@@ -660,7 +660,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.Session_SetPriority_ParamsSpec,
       null,
-      { arg_priority: arg_priority },
+      [arg_priority],
       false);
   }
 
@@ -669,7 +669,7 @@ mojo.internal.bindings.on_device_model.mojom.SessionRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.Session_AsrStream_ParamsSpec,
       null,
-      { arg_options: arg_options, arg_stream: arg_stream, arg_responder: arg_responder },
+      [arg_options, arg_stream, arg_responder],
       false);
   }
 
@@ -894,7 +894,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_StartSession_ParamsSpec,
       null,
-      { arg_session: arg_session, arg_params: arg_params },
+      [arg_session, arg_params],
       false);
   }
 
@@ -903,7 +903,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ResponseParamsSpec,
-      { arg_text: arg_text },
+      [arg_text],
       false);
   }
 
@@ -912,7 +912,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_DetectLanguage_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_DetectLanguage_ResponseParamsSpec,
-      { arg_text: arg_text },
+      [arg_text],
       false);
   }
 
@@ -921,7 +921,7 @@ mojo.internal.bindings.on_device_model.mojom.OnDeviceModelRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_LoadAdaptation_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_LoadAdaptation_ResponseParamsSpec,
-      { arg_params: arg_params, arg_model: arg_model },
+      [arg_params, arg_model],
       false);
   }
 
@@ -1110,7 +1110,7 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetySessionRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ResponseParamsSpec,
-      { arg_text: arg_text },
+      [arg_text],
       false);
   }
 
@@ -1119,7 +1119,7 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetySessionRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.TextSafetySession_DetectLanguage_ParamsSpec,
       mojo.internal.bindings.on_device_model.mojom.TextSafetySession_DetectLanguage_ResponseParamsSpec,
-      { arg_text: arg_text },
+      [arg_text],
       false);
   }
 
@@ -1128,7 +1128,7 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetySessionRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.TextSafetySession_Clone_ParamsSpec,
       null,
-      { arg_session: arg_session },
+      [arg_session],
       false);
   }
 
@@ -1292,7 +1292,7 @@ mojo.internal.bindings.on_device_model.mojom.TextSafetyModelRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.TextSafetyModel_StartSession_ParamsSpec,
       null,
-      { arg_session: arg_session },
+      [arg_session],
       false);
   }
 
@@ -1422,7 +1422,7 @@ mojo.internal.bindings.on_device_model.mojom.AsrStreamResponderRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.AsrStreamResponder_OnResponse_ParamsSpec,
       null,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 
@@ -1552,7 +1552,7 @@ mojo.internal.bindings.on_device_model.mojom.AsrStreamInputRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_model.mojom.AsrStreamInput_AddAudioChunk_ParamsSpec,
       null,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 

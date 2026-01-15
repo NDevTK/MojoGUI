@@ -205,7 +205,7 @@ mojo.internal.bindings.data_decoder.mojom.ImageDecoderRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec,
-      { arg_encoded_data: arg_encoded_data, arg_codec: arg_codec, arg_shrink_to_fit: arg_shrink_to_fit, arg_max_size_in_bytes: arg_max_size_in_bytes, arg_desired_image_frame_size: arg_desired_image_frame_size },
+      [arg_encoded_data, arg_codec, arg_shrink_to_fit, arg_max_size_in_bytes, arg_desired_image_frame_size],
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.data_decoder.mojom.ImageDecoderRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec,
-      { arg_encoded_data: arg_encoded_data, arg_shrink_to_fit: arg_shrink_to_fit, arg_max_size_in_bytes: arg_max_size_in_bytes },
+      [arg_encoded_data, arg_shrink_to_fit, arg_max_size_in_bytes],
       false);
   }
 

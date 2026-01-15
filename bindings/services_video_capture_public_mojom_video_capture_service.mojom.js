@@ -202,7 +202,7 @@ mojo.internal.bindings.video_capture.mojom.AcceleratorFactoryRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec,
       null,
-      { arg_jda: arg_jda },
+      [arg_jda],
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.video_capture.mojom.VideoCaptureServiceRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.video_capture.mojom.VideoCaptureServiceRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -358,7 +358,7 @@ mojo.internal.bindings.video_capture.mojom.VideoCaptureServiceRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec,
       null,
-      { arg_luid: arg_luid },
+      [arg_luid],
       false);
   }
 

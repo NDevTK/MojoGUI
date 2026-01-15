@@ -176,7 +176,7 @@ mojo.internal.bindings.network.mojom.DataPipeGetterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ParamsSpec,
       mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ResponseParamsSpec,
-      { arg_pipe: arg_pipe },
+      [arg_pipe],
       false);
   }
 
@@ -185,7 +185,7 @@ mojo.internal.bindings.network.mojom.DataPipeGetterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.DataPipeGetter_Clone_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

@@ -183,7 +183,7 @@ mojo.internal.bindings.storage.mojom.QuotaManagerObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec,
       null,
-      { arg_bucket_info: arg_bucket_info },
+      [arg_bucket_info],
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.storage.mojom.QuotaManagerObserverRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec,
       null,
-      { arg_bucket_locator: arg_bucket_locator },
+      [arg_bucket_locator],
       false);
   }
 

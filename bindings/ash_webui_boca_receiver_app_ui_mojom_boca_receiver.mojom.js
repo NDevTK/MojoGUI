@@ -218,7 +218,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec,
       null,
-      { arg_receiver_info: arg_receiver_info },
+      [arg_receiver_info],
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -236,7 +236,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec,
       null,
-      { arg_frame_data: arg_frame_data },
+      [arg_frame_data],
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec,
       null,
-      { arg_audio_packet: arg_audio_packet },
+      [arg_audio_packet],
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec,
       null,
-      { arg_initiator: arg_initiator, arg_presenter: arg_presenter },
+      [arg_initiator, arg_presenter],
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec,
       null,
-      { arg_reason: arg_reason },
+      [arg_reason],
       false);
   }
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactoryRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page },
+      [arg_page],
       false);
   }
 

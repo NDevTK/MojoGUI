@@ -234,7 +234,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSolutionRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec,
       null,
-      { arg_session: arg_session, arg_params: arg_params },
+      [arg_session, arg_params],
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSolutionRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec,
       null,
-      { arg_session: arg_session },
+      [arg_session],
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSolutionRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -402,7 +402,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec,
       null,
-      { arg_reason: arg_reason },
+      [arg_reason],
       false);
   }
 
@@ -411,7 +411,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSubscriberRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec,
       null,
-      { arg_config: arg_config, arg_solution: arg_solution },
+      [arg_config, arg_solution],
       false);
   }
 
@@ -549,7 +549,7 @@ mojo.internal.bindings.optimization_guide.mojom.ModelBrokerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec,
       null,
-      { arg_options: arg_options, arg_subcriber: arg_subcriber },
+      [arg_options, arg_subcriber],
       false);
   }
 

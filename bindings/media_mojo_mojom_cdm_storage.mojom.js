@@ -193,7 +193,7 @@ mojo.internal.bindings.media.mojom.CdmStorageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CdmStorage_Open_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmStorage_Open_ResponseParamsSpec,
-      { arg_file_name: arg_file_name },
+      [arg_file_name],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.media.mojom.CdmFileRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CdmFile_Read_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmFile_Read_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.media.mojom.CdmFileRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.CdmFile_Write_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmFile_Write_ResponseParamsSpec,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 

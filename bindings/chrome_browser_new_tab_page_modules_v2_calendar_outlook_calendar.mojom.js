@@ -188,7 +188,7 @@ mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandlerRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ParamsSpec,
       mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -197,7 +197,7 @@ mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandlerRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_DismissModule_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -206,7 +206,7 @@ mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandlerRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_RestoreModule_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

@@ -170,7 +170,7 @@ mojo.internal.bindings.test.mojom.MojoFileSystemAccessTestRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec,
       null,
-      { arg_h: arg_h },
+      [arg_h],
       false);
   }
 

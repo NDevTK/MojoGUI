@@ -215,7 +215,7 @@ mojo.internal.bindings.network.mojom.URLLoaderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoader_FollowRedirect_ParamsSpec,
       null,
-      { arg_removed_headers: arg_removed_headers, arg_modified_headers: arg_modified_headers, arg_modified_cors_exempt_headers: arg_modified_cors_exempt_headers, arg_new_url: arg_new_url },
+      [arg_removed_headers, arg_modified_headers, arg_modified_cors_exempt_headers, arg_new_url],
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.network.mojom.URLLoaderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoader_SetPriority_ParamsSpec,
       null,
-      { arg_priority: arg_priority, arg_intra_priority_value: arg_intra_priority_value },
+      [arg_priority, arg_intra_priority_value],
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.network.mojom.URLLoaderClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec,
       null,
-      { arg_early_hints: arg_early_hints },
+      [arg_early_hints],
       false);
   }
 
@@ -391,7 +391,7 @@ mojo.internal.bindings.network.mojom.URLLoaderClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec,
       null,
-      { arg_head: arg_head, arg_body: arg_body, arg_cached_metadata: arg_cached_metadata },
+      [arg_head, arg_body, arg_cached_metadata],
       false);
   }
 
@@ -400,7 +400,7 @@ mojo.internal.bindings.network.mojom.URLLoaderClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec,
       null,
-      { arg_redirect_info: arg_redirect_info, arg_head: arg_head },
+      [arg_redirect_info, arg_head],
       false);
   }
 
@@ -409,7 +409,7 @@ mojo.internal.bindings.network.mojom.URLLoaderClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec,
       mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec,
-      { arg_current_position: arg_current_position, arg_total_size: arg_total_size },
+      [arg_current_position, arg_total_size],
       false);
   }
 
@@ -418,7 +418,7 @@ mojo.internal.bindings.network.mojom.URLLoaderClientRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec,
       null,
-      { arg_transfer_size_diff: arg_transfer_size_diff },
+      [arg_transfer_size_diff],
       false);
   }
 
@@ -427,7 +427,7 @@ mojo.internal.bindings.network.mojom.URLLoaderClientRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderClient_OnComplete_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 

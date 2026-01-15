@@ -176,7 +176,7 @@ mojo.internal.bindings.arc.mojom.SystemStateHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.SystemStateHost_UpdateAppRunningState_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -306,7 +306,7 @@ mojo.internal.bindings.arc.mojom.SystemStateInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.SystemStateInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.SystemStateInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 

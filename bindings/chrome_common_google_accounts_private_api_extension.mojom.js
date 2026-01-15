@@ -170,7 +170,7 @@ mojo.internal.bindings.chrome.mojom.GoogleAccountsPrivateApiExtensionRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec,
       null,
-      { arg_consent_result: arg_consent_result },
+      [arg_consent_result],
       false);
   }
 

@@ -193,7 +193,7 @@ mojo.internal.bindings.heap_profiling.mojom.TestConnectorRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec,
       mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec,
-      { arg_controller: arg_controller },
+      [arg_controller],
       false);
   }
 
@@ -202,7 +202,7 @@ mojo.internal.bindings.heap_profiling.mojom.TestConnectorRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec,
       mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec,
-      { arg_collector: arg_collector },
+      [arg_collector],
       false);
   }
 
@@ -211,7 +211,7 @@ mojo.internal.bindings.heap_profiling.mojom.TestConnectorRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

@@ -223,7 +223,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec,
       mojo.internal.bindings.audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec,
-      { arg_device_id: arg_device_id },
+      [arg_device_id],
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec,
       mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec,
-      { arg_device_id: arg_device_id },
+      [arg_device_id],
       false);
   }
 
@@ -241,7 +241,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ParamsSpec,
       mojo.internal.bindings.audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -250,7 +250,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec,
       mojo.internal.bindings.audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -259,7 +259,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec,
       mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec,
       mojo.internal.bindings.audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec,
       mojo.internal.bindings.audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec,
-      { arg_input_device_id: arg_input_device_id },
+      [arg_input_device_id],
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.audio.mojom.SystemInfoRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec,
       mojo.internal.bindings.audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec,
-      { arg_input_device_id: arg_input_device_id },
+      [arg_input_device_id],
       false);
   }
 

@@ -211,7 +211,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.VolumeMounterHost_RequestAllMountPoints_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ResponseParamsSpec,
-      { arg_media_provider_uid: arg_media_provider_uid },
+      [arg_media_provider_uid],
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.VolumeMounterHost_OnReadyToSuspend_ParamsSpec,
       null,
-      { arg_success: arg_success },
+      [arg_success],
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterInstanceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.VolumeMounterInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VolumeMounterInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterInstanceRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.VolumeMounterInstance_OnMountEvent_ParamsSpec,
       null,
-      { arg_mount_point_info: arg_mount_point_info },
+      [arg_mount_point_info],
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterInstanceRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 

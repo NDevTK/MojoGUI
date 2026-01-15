@@ -201,7 +201,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec,
       null,
-      { arg_active_permissions: arg_active_permissions, arg_withheld_permissions: arg_withheld_permissions },
+      [arg_active_permissions, arg_withheld_permissions],
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec,
-      { arg_port_id: arg_port_id, arg_channel_type: arg_channel_type, arg_channel_name: arg_channel_name, arg_tab_info: arg_tab_info, arg_external_connection_info: arg_external_connection_info, arg_port: arg_port, arg_port_host: arg_port_host },
+      [arg_port_id, arg_channel_type, arg_channel_name, arg_tab_info, arg_external_connection_info, arg_port, arg_port_host],
       false);
   }
 

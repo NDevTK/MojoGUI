@@ -208,7 +208,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ParamsSpec,
       mojo.internal.bindings.payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec,
-      { arg_item_ids: arg_item_ids },
+      [arg_item_ids],
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ParamsSpec,
       mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec,
       mojo.internal.bindings.payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ParamsSpec,
       mojo.internal.bindings.payments.mojom.DigitalGoods_Consume_ResponseParamsSpec,
-      { arg_purchase_token: arg_purchase_token },
+      [arg_purchase_token],
       false);
   }
 
@@ -422,7 +422,7 @@ mojo.internal.bindings.payments.mojom.DigitalGoodsFactoryRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec,
       mojo.internal.bindings.payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec,
-      { arg_payment_method: arg_payment_method },
+      [arg_payment_method],
       false);
   }
 

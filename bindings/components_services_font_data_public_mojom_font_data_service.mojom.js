@@ -215,7 +215,7 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec,
       mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec,
-      { arg_family_name: arg_family_name, arg_style: arg_style },
+      [arg_family_name, arg_style],
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec,
       mojo.internal.bindings.font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec,
-      { arg_family_name: arg_family_name, arg_style: arg_style, arg_bcp47s: arg_bcp47s, arg_character: arg_character },
+      [arg_family_name, arg_style, arg_bcp47s, arg_character],
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec,
       mojo.internal.bindings.font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.font_data_service.mojom.FontDataServiceRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec,
       mojo.internal.bindings.font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec,
-      { arg_family_name: arg_family_name, arg_style: arg_style },
+      [arg_family_name, arg_style],
       false);
   }
 

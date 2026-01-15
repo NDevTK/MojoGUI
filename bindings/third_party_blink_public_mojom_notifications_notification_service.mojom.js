@@ -213,7 +213,7 @@ mojo.internal.bindings.blink.mojom.NonPersistentNotificationListenerRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.blink.mojom.NonPersistentNotificationListenerRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec,
       mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.blink.mojom.NonPersistentNotificationListenerRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec,
       mojo.internal.bindings.blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -413,7 +413,7 @@ mojo.internal.bindings.blink.mojom.NotificationServiceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec,
       mojo.internal.bindings.blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -422,7 +422,7 @@ mojo.internal.bindings.blink.mojom.NotificationServiceRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec,
       null,
-      { arg_token: arg_token, arg_notification_data: arg_notification_data, arg_notification_resources: arg_notification_resources, arg_event_listener: arg_event_listener },
+      [arg_token, arg_notification_data, arg_notification_resources, arg_event_listener],
       false);
   }
 
@@ -431,7 +431,7 @@ mojo.internal.bindings.blink.mojom.NotificationServiceRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec,
       null,
-      { arg_token: arg_token },
+      [arg_token],
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.blink.mojom.NotificationServiceRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec,
       mojo.internal.bindings.blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec,
-      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_notification_data: arg_notification_data, arg_notification_resources: arg_notification_resources },
+      [arg_service_worker_registration_id, arg_notification_data, arg_notification_resources],
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.blink.mojom.NotificationServiceRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec,
       null,
-      { arg_notification_id: arg_notification_id },
+      [arg_notification_id],
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.blink.mojom.NotificationServiceRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ParamsSpec,
       mojo.internal.bindings.blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec,
-      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_filter_tag: arg_filter_tag, arg_include_triggered: arg_include_triggered },
+      [arg_service_worker_registration_id, arg_filter_tag, arg_include_triggered],
       false);
   }
 

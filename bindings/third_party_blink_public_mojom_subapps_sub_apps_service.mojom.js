@@ -195,7 +195,7 @@ mojo.internal.bindings.blink.mojom.SubAppsServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SubAppsService_Add_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SubAppsService_Add_ResponseParamsSpec,
-      { arg_sub_apps_to_add: arg_sub_apps_to_add },
+      [arg_sub_apps_to_add],
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.blink.mojom.SubAppsServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SubAppsService_List_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SubAppsService_List_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -213,7 +213,7 @@ mojo.internal.bindings.blink.mojom.SubAppsServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ResponseParamsSpec,
-      { arg_manifest_id_paths: arg_manifest_id_paths },
+      [arg_manifest_id_paths],
       false);
   }
 

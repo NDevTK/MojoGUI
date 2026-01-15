@@ -174,7 +174,7 @@ mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactoryRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec,
       null,
-      { arg_page: arg_page },
+      [arg_page],
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.lens.mojom.LensGhostLoaderPageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

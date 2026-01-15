@@ -293,7 +293,7 @@ mojo.internal.bindings.auction_worklet.mojom.GenerateBidClientRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ParamsSpec,
       mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ResponseParamsSpec,
-      { arg_priority_vector: arg_priority_vector, arg_trusted_signals_fetch_latency: arg_trusted_signals_fetch_latency, arg_update_if_older_than: arg_update_if_older_than },
+      [arg_priority_vector, arg_trusted_signals_fetch_latency, arg_update_if_older_than],
       false);
   }
 
@@ -302,7 +302,7 @@ mojo.internal.bindings.auction_worklet.mojom.GenerateBidClientRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_ParamsSpec,
       null,
-      { arg_bids: arg_bids, arg_bidding_signals_data_version: arg_bidding_signals_data_version, arg_debug_loss_report_url: arg_debug_loss_report_url, arg_debug_win_report_url: arg_debug_win_report_url, arg_set_priority: arg_set_priority, arg_update_priority_signals_overrides: arg_update_priority_signals_overrides, arg_pa_requests: arg_pa_requests, arg_non_kanon_pa_requests: arg_non_kanon_pa_requests, arg_real_time_contributions: arg_real_time_contributions, arg_generate_bid_timing_metrics: arg_generate_bid_timing_metrics, arg_generate_bid_dependency_latencies: arg_generate_bid_dependency_latencies, arg_reject_reason: arg_reject_reason, arg_errors: arg_errors },
+      [arg_bids, arg_bidding_signals_data_version, arg_debug_loss_report_url, arg_debug_win_report_url, arg_set_priority, arg_update_priority_signals_overrides, arg_pa_requests, arg_non_kanon_pa_requests, arg_real_time_contributions, arg_generate_bid_timing_metrics, arg_generate_bid_dependency_latencies, arg_reject_reason, arg_errors],
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizerRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.GenerateBidFinalizer_FinishGenerateBid_ParamsSpec,
       null,
-      { arg_auction_signals_json: arg_auction_signals_json, arg_per_buyer_signals_json: arg_per_buyer_signals_json, arg_per_buyer_timeout: arg_per_buyer_timeout, arg_expected_buyer_currency: arg_expected_buyer_currency, arg_direct_from_seller_per_buyer_signals: arg_direct_from_seller_per_buyer_signals, arg_direct_from_seller_per_buyer_signals_header_ad_slot: arg_direct_from_seller_per_buyer_signals_header_ad_slot, arg_direct_from_seller_auction_signals: arg_direct_from_seller_auction_signals, arg_direct_from_seller_auction_signals_header_ad_slot: arg_direct_from_seller_auction_signals_header_ad_slot },
+      [arg_auction_signals_json, arg_per_buyer_signals_json, arg_per_buyer_timeout, arg_expected_buyer_currency, arg_direct_from_seller_per_buyer_signals, arg_direct_from_seller_per_buyer_signals_header_ad_slot, arg_direct_from_seller_auction_signals, arg_direct_from_seller_auction_signals_header_ad_slot],
       false);
   }
 
@@ -590,7 +590,7 @@ mojo.internal.bindings.auction_worklet.mojom.BidderWorkletRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec,
       null,
-      { arg_bidder_worklet_non_shared_params: arg_bidder_worklet_non_shared_params, arg_key_value_signals_cache_key: arg_key_value_signals_cache_key, arg_kanon_mode: arg_kanon_mode, arg_interest_group_join_origin: arg_interest_group_join_origin, arg_direct_from_seller_per_buyer_signals: arg_direct_from_seller_per_buyer_signals, arg_direct_from_seller_auction_signals: arg_direct_from_seller_auction_signals, arg_browser_signal_seller_origin: arg_browser_signal_seller_origin, arg_browser_signal_top_level_seller_origin: arg_browser_signal_top_level_seller_origin, arg_browser_signal_recency: arg_browser_signal_recency, arg_browser_signal_for_debugging_only_sampling: arg_browser_signal_for_debugging_only_sampling, arg_bidding_browser_signals: arg_bidding_browser_signals, arg_auction_start_time: arg_auction_start_time, arg_requested_ad_size: arg_requested_ad_size, arg_multi_bid_limit: arg_multi_bid_limit, arg_group_by_origin_id: arg_group_by_origin_id, arg_trace_id: arg_trace_id, arg_generate_bid_client: arg_generate_bid_client, arg_bid_finalizer: arg_bid_finalizer },
+      [arg_bidder_worklet_non_shared_params, arg_key_value_signals_cache_key, arg_kanon_mode, arg_interest_group_join_origin, arg_direct_from_seller_per_buyer_signals, arg_direct_from_seller_auction_signals, arg_browser_signal_seller_origin, arg_browser_signal_top_level_seller_origin, arg_browser_signal_recency, arg_browser_signal_for_debugging_only_sampling, arg_bidding_browser_signals, arg_auction_start_time, arg_requested_ad_size, arg_multi_bid_limit, arg_group_by_origin_id, arg_trace_id, arg_generate_bid_client, arg_bid_finalizer],
       false);
   }
 
@@ -599,7 +599,7 @@ mojo.internal.bindings.auction_worklet.mojom.BidderWorkletRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_SendPendingSignalsRequests_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -608,7 +608,7 @@ mojo.internal.bindings.auction_worklet.mojom.BidderWorkletRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ReportWin_ParamsSpec,
       mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ReportWin_ResponseParamsSpec,
-      { arg_is_for_additional_bid: arg_is_for_additional_bid, arg_interest_group_name_reporting_id: arg_interest_group_name_reporting_id, arg_buyer_reporting_id: arg_buyer_reporting_id, arg_buyer_and_seller_reporting_id: arg_buyer_and_seller_reporting_id, arg_selected_buyer_and_seller_reporting_id: arg_selected_buyer_and_seller_reporting_id, arg_auction_signals_json: arg_auction_signals_json, arg_per_buyer_signals_json: arg_per_buyer_signals_json, arg_direct_from_seller_per_buyer_signals: arg_direct_from_seller_per_buyer_signals, arg_direct_from_seller_per_buyer_signals_header_ad_slot: arg_direct_from_seller_per_buyer_signals_header_ad_slot, arg_direct_from_seller_auction_signals: arg_direct_from_seller_auction_signals, arg_direct_from_seller_auction_signals_header_ad_slot: arg_direct_from_seller_auction_signals_header_ad_slot, arg_seller_signals_json: arg_seller_signals_json, arg_kanon_status: arg_kanon_status, arg_browser_signal_render_url: arg_browser_signal_render_url, arg_browser_signal_bid: arg_browser_signal_bid, arg_browser_signal_bid_currency: arg_browser_signal_bid_currency, arg_browser_signal_highest_scoring_other_bid: arg_browser_signal_highest_scoring_other_bid, arg_browser_signal_highest_scoring_other_bid_currency: arg_browser_signal_highest_scoring_other_bid_currency, arg_browser_signal_made_highest_scoring_other_bid: arg_browser_signal_made_highest_scoring_other_bid, arg_browser_signal_ad_cost: arg_browser_signal_ad_cost, arg_browser_signal_modeling_signals: arg_browser_signal_modeling_signals, arg_browser_signal_join_count: arg_browser_signal_join_count, arg_browser_signal_recency: arg_browser_signal_recency, arg_browser_signal_seller_origin: arg_browser_signal_seller_origin, arg_browser_signal_top_level_seller_origin: arg_browser_signal_top_level_seller_origin, arg_browser_signal_reporting_timeout: arg_browser_signal_reporting_timeout, arg_bidding_signals_data_version: arg_bidding_signals_data_version, arg_aggregate_win_signals: arg_aggregate_win_signals, arg_trace_id: arg_trace_id },
+      [arg_is_for_additional_bid, arg_interest_group_name_reporting_id, arg_buyer_reporting_id, arg_buyer_and_seller_reporting_id, arg_selected_buyer_and_seller_reporting_id, arg_auction_signals_json, arg_per_buyer_signals_json, arg_direct_from_seller_per_buyer_signals, arg_direct_from_seller_per_buyer_signals_header_ad_slot, arg_direct_from_seller_auction_signals, arg_direct_from_seller_auction_signals_header_ad_slot, arg_seller_signals_json, arg_kanon_status, arg_browser_signal_render_url, arg_browser_signal_bid, arg_browser_signal_bid_currency, arg_browser_signal_highest_scoring_other_bid, arg_browser_signal_highest_scoring_other_bid_currency, arg_browser_signal_made_highest_scoring_other_bid, arg_browser_signal_ad_cost, arg_browser_signal_modeling_signals, arg_browser_signal_join_count, arg_browser_signal_recency, arg_browser_signal_seller_origin, arg_browser_signal_top_level_seller_origin, arg_browser_signal_reporting_timeout, arg_bidding_signals_data_version, arg_aggregate_win_signals, arg_trace_id],
       false);
   }
 
@@ -617,7 +617,7 @@ mojo.internal.bindings.auction_worklet.mojom.BidderWorkletRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.BidderWorklet_ConnectDevToolsAgent_ParamsSpec,
       null,
-      { arg_agent: arg_agent, arg_thread_index: arg_thread_index },
+      [arg_agent, arg_thread_index],
       false);
   }
 

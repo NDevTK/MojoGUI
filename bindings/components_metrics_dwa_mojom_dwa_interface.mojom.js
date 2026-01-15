@@ -288,7 +288,7 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec,
       null,
-      { arg_entry: arg_entry },
+      [arg_entry],
       false);
   }
 
@@ -418,7 +418,7 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactoryRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_client_remote: arg_client_remote },
+      [arg_receiver, arg_client_remote],
       false);
   }
 

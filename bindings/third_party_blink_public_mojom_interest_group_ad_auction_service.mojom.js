@@ -308,7 +308,7 @@ mojo.internal.bindings.blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec,
       null,
-      { arg_auction: arg_auction, arg_field: arg_field, arg_json_value: arg_json_value },
+      [arg_auction, arg_field, arg_json_value],
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec,
       null,
-      { arg_auction: arg_auction, arg_per_buyer_signals: arg_per_buyer_signals },
+      [arg_auction, arg_per_buyer_signals],
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec,
       null,
-      { arg_auction: arg_auction, arg_buyer: arg_buyer, arg_json_value: arg_json_value },
+      [arg_auction, arg_buyer, arg_json_value],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec,
       null,
-      { arg_auction: arg_auction, arg_field: arg_field, arg_buyer_timeouts: arg_buyer_timeouts },
+      [arg_auction, arg_field, arg_buyer_timeouts],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec,
       null,
-      { arg_auction: arg_auction, arg_per_buyer_currencies: arg_per_buyer_currencies },
+      [arg_auction, arg_per_buyer_currencies],
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec,
       null,
-      { arg_auction: arg_auction, arg_direct_from_seller_signals: arg_direct_from_seller_signals },
+      [arg_auction, arg_direct_from_seller_signals],
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_ParamsSpec,
       null,
-      { arg_auction: arg_auction, arg_direct_from_seller_signals_header_ad_slot: arg_direct_from_seller_signals_header_ad_slot },
+      [arg_auction, arg_direct_from_seller_signals_header_ad_slot],
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_ParamsSpec,
       null,
-      { arg_auction: arg_auction, arg_deprecated_render_url_replacements: arg_deprecated_render_url_replacements },
+      [arg_auction, arg_deprecated_render_url_replacements],
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec,
       null,
-      { arg_auction: arg_auction, arg_result: arg_result },
+      [arg_auction, arg_result],
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec,
       null,
-      { arg_auction: arg_auction },
+      [arg_auction],
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.AbortableAdAuction_Abort_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -648,7 +648,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec,
-      { arg_ads_guid: arg_ads_guid, arg_config: arg_config },
+      [arg_ads_guid, arg_config],
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec,
-      { arg_config: arg_config, arg_abort_receiver: arg_abort_receiver },
+      [arg_config, arg_abort_receiver],
       false);
   }
 
@@ -675,7 +675,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec,
-      { arg_group: arg_group },
+      [arg_group],
       false);
   }
 
@@ -684,7 +684,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec,
-      { arg_owner: arg_owner, arg_name: arg_name },
+      [arg_owner, arg_name],
       false);
   }
 
@@ -693,7 +693,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -702,7 +702,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec,
-      { arg_owner: arg_owner, arg_interest_groups_to_keep: arg_interest_groups_to_keep },
+      [arg_owner, arg_interest_groups_to_keep],
       false);
   }
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -720,7 +720,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec,
-      { arg_uuid_url: arg_uuid_url, arg_send_reports: arg_send_reports },
+      [arg_uuid_url, arg_send_reports],
       false);
   }
 
@@ -729,7 +729,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ResponseParamsSpec,
-      { arg_uuid_url: arg_uuid_url, arg_replacements: arg_replacements },
+      [arg_uuid_url, arg_replacements],
       false);
   }
 
@@ -738,7 +738,7 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec,
-      { arg_sellers: arg_sellers, arg_config: arg_config },
+      [arg_sellers, arg_config],
       false);
   }
 

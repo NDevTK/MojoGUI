@@ -298,7 +298,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegateRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsForNewUser_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -307,7 +307,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegateRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -316,7 +316,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegateRe
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedForExistingUser_ParamsSpec,
       null,
-      { arg_new_host_device_name: arg_new_host_device_name },
+      [arg_new_host_device_name],
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegateRe
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForExistingUser_ParamsSpec,
       null,
-      { arg_new_host_device_name: arg_new_host_device_name },
+      [arg_new_host_device_name],
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegateRe
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiSync_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -496,7 +496,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.HostStatusObserverRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec,
       null,
-      { arg_host_status: arg_host_status, arg_host_device: arg_host_device },
+      [arg_host_status, arg_host_device],
       false);
   }
 
@@ -626,7 +626,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureStateObserverRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec,
       null,
-      { arg_feature_states_map: arg_feature_states_map },
+      [arg_feature_states_map],
       false);
   }
 
@@ -808,7 +808,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_ParamsSpec,
       null,
-      { arg_delegate: arg_delegate },
+      [arg_delegate],
       false);
   }
 
@@ -817,7 +817,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -826,7 +826,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -835,7 +835,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -844,7 +844,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -853,7 +853,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec,
-      { arg_instance_id_or_legacy_device_id: arg_instance_id_or_legacy_device_id, arg_auth_token: arg_auth_token },
+      [arg_instance_id_or_legacy_device_id, arg_auth_token],
       false);
   }
 
@@ -862,7 +862,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -871,7 +871,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -880,7 +880,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParamsSpec,
-      { arg_feature: arg_feature, arg_enabled: arg_enabled, arg_auth_token: arg_auth_token },
+      [arg_feature, arg_enabled, arg_auth_token],
       false);
   }
 
@@ -889,7 +889,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -898,7 +898,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -907,7 +907,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponseParamsSpec,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -916,7 +916,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_ParamsSpec,
       null,
-      { arg_qs_phone_instance_id: arg_qs_phone_instance_id },
+      [arg_qs_phone_instance_id],
       false);
   }
 
@@ -925,7 +925,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetupRemoteCallHan
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1239,7 +1239,7 @@ mojo.internal.bindings.ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec,
       mojo.internal.bindings.ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponseParamsSpec,
-      { arg_instance_id_or_legacy_device_id: arg_instance_id_or_legacy_device_id },
+      [arg_instance_id_or_legacy_device_id],
       false);
   }
 

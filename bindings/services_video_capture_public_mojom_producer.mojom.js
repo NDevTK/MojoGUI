@@ -182,7 +182,7 @@ mojo.internal.bindings.video_capture.mojom.ProducerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.Producer_OnNewBuffer_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.Producer_OnNewBuffer_ResponseParamsSpec,
-      { arg_buffer_id: arg_buffer_id, arg_buffer_handle: arg_buffer_handle },
+      [arg_buffer_id, arg_buffer_handle],
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.video_capture.mojom.ProducerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.video_capture.mojom.Producer_OnBufferRetired_ParamsSpec,
       null,
-      { arg_buffer_id: arg_buffer_id },
+      [arg_buffer_id],
       false);
   }
 

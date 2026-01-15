@@ -183,7 +183,7 @@ mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProviderRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec,
       null,
-      { arg_tag: arg_tag, arg_receiver: arg_receiver, arg_client_id: arg_client_id },
+      [arg_tag, arg_receiver, arg_client_id],
       false);
   }
 

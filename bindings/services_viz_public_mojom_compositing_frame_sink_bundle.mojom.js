@@ -213,7 +213,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec,
       null,
-      { arg_sink_id: arg_sink_id, arg_needs_begin_frame: arg_needs_begin_frame },
+      [arg_sink_id, arg_needs_begin_frame],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkBundle_Submit_ParamsSpec,
       null,
-      { arg_submissions: arg_submissions },
+      [arg_submissions],
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleClientRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec,
       null,
-      { arg_acks: arg_acks, arg_begin_frames: arg_begin_frames, arg_reclaimed_resources: arg_reclaimed_resources },
+      [arg_acks, arg_begin_frames, arg_reclaimed_resources],
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleClientRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec,
       null,
-      { arg_sink_id: arg_sink_id, arg_paused: arg_paused },
+      [arg_sink_id, arg_paused],
       false);
   }
 
@@ -386,7 +386,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkBundleClientRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
       null,
-      { arg_sink_id: arg_sink_id, arg_sequence_id: arg_sequence_id },
+      [arg_sink_id, arg_sequence_id],
       false);
   }
 

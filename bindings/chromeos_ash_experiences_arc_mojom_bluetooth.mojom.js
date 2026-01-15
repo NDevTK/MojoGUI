@@ -459,7 +459,7 @@ mojo.internal.bindings.arc.mojom.RfcommListeningSocketClientRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.RfcommListeningSocketClient_OnAccepted_ParamsSpec,
       null,
-      { arg_connection: arg_connection },
+      [arg_connection],
       false);
   }
 
@@ -593,7 +593,7 @@ mojo.internal.bindings.arc.mojom.RfcommConnectingSocketClientRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.RfcommConnectingSocketClient_OnConnected_ParamsSpec,
       null,
-      { arg_connection: arg_connection },
+      [arg_connection],
       false);
   }
 
@@ -602,7 +602,7 @@ mojo.internal.bindings.arc.mojom.RfcommConnectingSocketClientRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.RfcommConnectingSocketClient_OnConnectFailed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -740,7 +740,7 @@ mojo.internal.bindings.arc.mojom.BluetoothListenSocketClientRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothListenSocketClient_OnAccepted_ParamsSpec,
       null,
-      { arg_connection: arg_connection },
+      [arg_connection],
       false);
   }
 
@@ -874,7 +874,7 @@ mojo.internal.bindings.arc.mojom.BluetoothConnectSocketClientRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothConnectSocketClient_OnConnected_ParamsSpec,
       null,
-      { arg_connection: arg_connection },
+      [arg_connection],
       false);
   }
 
@@ -883,7 +883,7 @@ mojo.internal.bindings.arc.mojom.BluetoothConnectSocketClientRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothConnectSocketClient_OnConnectFailed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1177,7 +1177,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_EnableAdapter_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_EnableAdapter_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1186,7 +1186,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_DisableAdapter_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_DisableAdapter_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1195,7 +1195,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_GetAdapterProperty_ParamsSpec,
       null,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -1204,7 +1204,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_SetAdapterProperty_ParamsSpec,
       null,
-      { arg_property: arg_property },
+      [arg_property],
       false);
   }
 
@@ -1213,7 +1213,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_StartDiscovery_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1222,7 +1222,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_CancelDiscovery_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1231,7 +1231,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_CreateBond_ParamsSpec,
       null,
-      { arg_addr: arg_addr, arg_transport: arg_transport },
+      [arg_addr, arg_transport],
       false);
   }
 
@@ -1240,7 +1240,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_RemoveBond_ParamsSpec,
       null,
-      { arg_addr: arg_addr },
+      [arg_addr],
       false);
   }
 
@@ -1249,7 +1249,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_CancelBond_ParamsSpec,
       null,
-      { arg_addr: arg_addr },
+      [arg_addr],
       false);
   }
 
@@ -1258,7 +1258,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_GetConnectionState_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_GetConnectionState_ResponseParamsSpec,
-      { arg_addr: arg_addr },
+      [arg_addr],
       false);
   }
 
@@ -1267,7 +1267,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_StartLEScan_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1276,7 +1276,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_StopLEScan_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1285,7 +1285,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_ConnectLEDevice_ParamsSpec,
       null,
-      { arg_remote_addr: arg_remote_addr },
+      [arg_remote_addr],
       false);
   }
 
@@ -1294,7 +1294,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_DisconnectLEDevice_ParamsSpec,
       null,
-      { arg_remote_addr: arg_remote_addr },
+      [arg_remote_addr],
       false);
   }
 
@@ -1303,7 +1303,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_SearchService_ParamsSpec,
       null,
-      { arg_remote_addr: arg_remote_addr },
+      [arg_remote_addr],
       false);
   }
 
@@ -1312,7 +1312,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_GetGattDB_ParamsSpec,
       null,
-      { arg_remote_addr: arg_remote_addr },
+      [arg_remote_addr],
       false);
   }
 
@@ -1321,7 +1321,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_ReadGattCharacteristic_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_ReadGattCharacteristic_ResponseParamsSpec,
-      { arg_remote_addr: arg_remote_addr, arg_service_id: arg_service_id, arg_char_id: arg_char_id },
+      [arg_remote_addr, arg_service_id, arg_char_id],
       false);
   }
 
@@ -1330,7 +1330,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_WriteGattCharacteristic_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_WriteGattCharacteristic_ResponseParamsSpec,
-      { arg_remote_addr: arg_remote_addr, arg_service_id: arg_service_id, arg_char_id: arg_char_id, arg_value: arg_value, arg_prepare: arg_prepare },
+      [arg_remote_addr, arg_service_id, arg_char_id, arg_value, arg_prepare],
       false);
   }
 
@@ -1339,7 +1339,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_ReadGattDescriptor_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_ReadGattDescriptor_ResponseParamsSpec,
-      { arg_remote_addr: arg_remote_addr, arg_service_id: arg_service_id, arg_char_id: arg_char_id, arg_desc_id: arg_desc_id },
+      [arg_remote_addr, arg_service_id, arg_char_id, arg_desc_id],
       false);
   }
 
@@ -1348,7 +1348,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_WriteGattDescriptor_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_WriteGattDescriptor_ResponseParamsSpec,
-      { arg_remote_addr: arg_remote_addr, arg_service_id: arg_service_id, arg_char_id: arg_char_id, arg_desc_id: arg_desc_id, arg_value: arg_value },
+      [arg_remote_addr, arg_service_id, arg_char_id, arg_desc_id, arg_value],
       false);
   }
 
@@ -1357,7 +1357,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_ExecuteWrite_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_ExecuteWrite_ResponseParamsSpec,
-      { arg_remote_addr: arg_remote_addr, arg_execute: arg_execute },
+      [arg_remote_addr, arg_execute],
       false);
   }
 
@@ -1366,7 +1366,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_RegisterForGattNotification_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_RegisterForGattNotification_ResponseParamsSpec,
-      { arg_remote_addr: arg_remote_addr, arg_service_id: arg_service_id, arg_char_id: arg_char_id },
+      [arg_remote_addr, arg_service_id, arg_char_id],
       false);
   }
 
@@ -1375,7 +1375,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_DeregisterForGattNotification_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_DeregisterForGattNotification_ResponseParamsSpec,
-      { arg_remote_addr: arg_remote_addr, arg_service_id: arg_service_id, arg_char_id: arg_char_id },
+      [arg_remote_addr, arg_service_id, arg_char_id],
       false);
   }
 
@@ -1384,7 +1384,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_ReadRemoteRssi_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_ReadRemoteRssi_ResponseParamsSpec,
-      { arg_remote_addr: arg_remote_addr },
+      [arg_remote_addr],
       false);
   }
 
@@ -1393,7 +1393,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_AddService_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_AddService_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_num_handles: arg_num_handles },
+      [arg_service_id, arg_num_handles],
       false);
   }
 
@@ -1402,7 +1402,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_AddCharacteristic_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_AddCharacteristic_ResponseParamsSpec,
-      { arg_service_handle: arg_service_handle, arg_uuid: arg_uuid, arg_properties: arg_properties, arg_permissions: arg_permissions },
+      [arg_service_handle, arg_uuid, arg_properties, arg_permissions],
       false);
   }
 
@@ -1411,7 +1411,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_AddDescriptor_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_AddDescriptor_ResponseParamsSpec,
-      { arg_service_handle: arg_service_handle, arg_uuid: arg_uuid, arg_permissions: arg_permissions },
+      [arg_service_handle, arg_uuid, arg_permissions],
       false);
   }
 
@@ -1420,7 +1420,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_StartService_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_StartService_ResponseParamsSpec,
-      { arg_service_handle: arg_service_handle },
+      [arg_service_handle],
       false);
   }
 
@@ -1429,7 +1429,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_StopService_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_StopService_ResponseParamsSpec,
-      { arg_service_handle: arg_service_handle },
+      [arg_service_handle],
       false);
   }
 
@@ -1438,7 +1438,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_DeleteService_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_DeleteService_ResponseParamsSpec,
-      { arg_service_handle: arg_service_handle },
+      [arg_service_handle],
       false);
   }
 
@@ -1447,7 +1447,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_SendIndication_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_SendIndication_ResponseParamsSpec,
-      { arg_attribute_handle: arg_attribute_handle, arg_address: arg_address, arg_confirm: arg_confirm, arg_value: arg_value },
+      [arg_attribute_handle, arg_address, arg_confirm, arg_value],
       false);
   }
 
@@ -1456,7 +1456,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_GetSdpRecords_ParamsSpec,
       null,
-      { arg_remote_addr: arg_remote_addr, arg_target_uuid: arg_target_uuid },
+      [arg_remote_addr, arg_target_uuid],
       false);
   }
 
@@ -1465,7 +1465,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_CreateSdpRecord_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_CreateSdpRecord_ResponseParamsSpec,
-      { arg_record: arg_record },
+      [arg_record],
       false);
   }
 
@@ -1474,7 +1474,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_RemoveSdpRecord_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_RemoveSdpRecord_ResponseParamsSpec,
-      { arg_service_handle: arg_service_handle },
+      [arg_service_handle],
       false);
   }
 
@@ -1483,7 +1483,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_ReserveAdvertisementHandle_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_ReserveAdvertisementHandle_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1492,7 +1492,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_EnableAdvertisement_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_EnableAdvertisement_ResponseParamsSpec,
-      { arg_adv_handle: arg_adv_handle, arg_adv: arg_adv },
+      [arg_adv_handle, arg_adv],
       false);
   }
 
@@ -1501,7 +1501,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_ReleaseAdvertisementHandle_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_ReleaseAdvertisementHandle_ResponseParamsSpec,
-      { arg_adv_handle: arg_adv_handle },
+      [arg_adv_handle],
       false);
   }
 
@@ -1510,7 +1510,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_DisableAdvertisement_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_DisableAdvertisement_ResponseParamsSpec,
-      { arg_adv_handle: arg_adv_handle },
+      [arg_adv_handle],
       false);
   }
 
@@ -1519,7 +1519,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_BluetoothSocketListen_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_BluetoothSocketListen_ResponseParamsSpec,
-      { arg_sock_type: arg_sock_type, arg_sock_flags: arg_sock_flags, arg_port: arg_port },
+      [arg_sock_type, arg_sock_flags, arg_port],
       false);
   }
 
@@ -1528,7 +1528,7 @@ mojo.internal.bindings.arc.mojom.BluetoothHostRemoteCallHandler = class {
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothHost_BluetoothSocketConnect_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothHost_BluetoothSocketConnect_ResponseParamsSpec,
-      { arg_sock_type: arg_sock_type, arg_sock_flags: arg_sock_flags, arg_remote_addr: arg_remote_addr, arg_remote_port: arg_remote_port },
+      [arg_sock_type, arg_sock_flags, arg_remote_addr, arg_remote_port],
       false);
   }
 
@@ -2273,7 +2273,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -2282,7 +2282,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_OnAdapterProperties_ParamsSpec,
       null,
-      { arg_status: arg_status, arg_properties: arg_properties },
+      [arg_status, arg_properties],
       false);
   }
 
@@ -2291,7 +2291,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_OnDeviceFound_ParamsSpec,
       null,
-      { arg_properties: arg_properties },
+      [arg_properties],
       false);
   }
 
@@ -2300,7 +2300,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_OnDevicePropertiesChanged_ParamsSpec,
       null,
-      { arg_remote_addr: arg_remote_addr, arg_properties: arg_properties },
+      [arg_remote_addr, arg_properties],
       false);
   }
 
@@ -2309,7 +2309,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_OnDiscoveryStateChanged_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -2318,7 +2318,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_OnBondStateChanged_ParamsSpec,
       null,
-      { arg_status: arg_status, arg_remote_addr: arg_remote_addr, arg_state: arg_state },
+      [arg_status, arg_remote_addr, arg_state],
       false);
   }
 
@@ -2327,7 +2327,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_OnConnectionStateChanged_ParamsSpec,
       null,
-      { arg_remote_addr: arg_remote_addr, arg_device_type: arg_device_type, arg_connected: arg_connected },
+      [arg_remote_addr, arg_device_type, arg_connected],
       false);
   }
 
@@ -2336,7 +2336,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_OnLEDeviceFound_ParamsSpec,
       null,
-      { arg_addr: arg_addr, arg_rssi: arg_rssi, arg_eir: arg_eir },
+      [arg_addr, arg_rssi, arg_eir],
       false);
   }
 
@@ -2345,7 +2345,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_OnLEConnectionStateChange_ParamsSpec,
       null,
-      { arg_remote_addr: arg_remote_addr, arg_connected: arg_connected },
+      [arg_remote_addr, arg_connected],
       false);
   }
 
@@ -2354,7 +2354,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_OnLEDeviceAddressChange_ParamsSpec,
       null,
-      { arg_old_addr: arg_old_addr, arg_new_addr: arg_new_addr },
+      [arg_old_addr, arg_new_addr],
       false);
   }
 
@@ -2363,7 +2363,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_OnSearchComplete_ParamsSpec,
       null,
-      { arg_remote_addr: arg_remote_addr, arg_status: arg_status },
+      [arg_remote_addr, arg_status],
       false);
   }
 
@@ -2372,7 +2372,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_OnGetGattDB_ParamsSpec,
       null,
-      { arg_remote_addr: arg_remote_addr, arg_db: arg_db },
+      [arg_remote_addr, arg_db],
       false);
   }
 
@@ -2381,7 +2381,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_OnGattNotify_ParamsSpec,
       null,
-      { arg_remote_addr: arg_remote_addr, arg_service_id: arg_service_id, arg_char_id: arg_char_id, arg_is_notify: arg_is_notify, arg_value: arg_value },
+      [arg_remote_addr, arg_service_id, arg_char_id, arg_is_notify, arg_value],
       false);
   }
 
@@ -2390,7 +2390,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_OnServiceChanged_ParamsSpec,
       null,
-      { arg_remote_addr: arg_remote_addr },
+      [arg_remote_addr],
       false);
   }
 
@@ -2399,7 +2399,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_RequestGattRead_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothInstance_RequestGattRead_ResponseParamsSpec,
-      { arg_address: arg_address, arg_attribute_handle: arg_attribute_handle, arg_offset: arg_offset, arg_is_long: arg_is_long, arg_attribute_type: arg_attribute_type },
+      [arg_address, arg_attribute_handle, arg_offset, arg_is_long, arg_attribute_type],
       false);
   }
 
@@ -2408,7 +2408,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_RequestGattWrite_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothInstance_RequestGattWrite_ResponseParamsSpec,
-      { arg_address: arg_address, arg_attribute_handle: arg_attribute_handle, arg_offset: arg_offset, arg_value: arg_value, arg_attribute_type: arg_attribute_type, arg_is_prepare: arg_is_prepare },
+      [arg_address, arg_attribute_handle, arg_offset, arg_value, arg_attribute_type, arg_is_prepare],
       false);
   }
 
@@ -2417,7 +2417,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_RequestGattExecuteWrite_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BluetoothInstance_RequestGattExecuteWrite_ResponseParamsSpec,
-      { arg_address: arg_address, arg_execute: arg_execute },
+      [arg_address, arg_execute],
       false);
   }
 
@@ -2426,7 +2426,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_OnMTUReceived_ParamsSpec,
       null,
-      { arg_remote_addr: arg_remote_addr, arg_mtu: arg_mtu },
+      [arg_remote_addr, arg_mtu],
       false);
   }
 
@@ -2435,7 +2435,7 @@ mojo.internal.bindings.arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.arc.mojom.BluetoothInstance_OnGetSdpRecords_ParamsSpec,
       null,
-      { arg_status: arg_status, arg_remote_addr: arg_remote_addr, arg_target_uuid: arg_target_uuid, arg_records: arg_records },
+      [arg_status, arg_remote_addr, arg_target_uuid, arg_records],
       false);
   }
 

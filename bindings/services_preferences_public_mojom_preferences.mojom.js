@@ -206,7 +206,7 @@ mojo.internal.bindings.prefs.mojom.ResetOnLoadObserverRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

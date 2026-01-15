@@ -612,7 +612,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec,
       null,
-      { arg_input_field_info: arg_input_field_info, arg_settings: arg_settings },
+      [arg_input_field_info, arg_settings],
       false);
   }
 
@@ -621,7 +621,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec,
-      { arg_input_field_info: arg_input_field_info, arg_deprecated_settings: arg_deprecated_settings },
+      [arg_input_field_info, arg_deprecated_settings],
       false);
   }
 
@@ -630,7 +630,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_OnBlur_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -639,7 +639,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -648,7 +648,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec,
       null,
-      { arg_text: arg_text, arg_offset: arg_offset, arg_selection_range: arg_selection_range },
+      [arg_text, arg_offset, arg_selection_range],
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec,
       null,
-      { arg_selected_candidate_index: arg_selected_candidate_index },
+      [arg_selected_candidate_index],
       false);
   }
 
@@ -675,7 +675,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec,
       null,
-      { arg_settings: arg_settings },
+      [arg_settings],
       false);
   }
 
@@ -684,7 +684,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -693,7 +693,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec,
       null,
-      { arg_window: arg_window },
+      [arg_window],
       false);
   }
 

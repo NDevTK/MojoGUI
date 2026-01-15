@@ -187,7 +187,7 @@ mojo.internal.bindings.tracing.mojom.TracingServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracingService_Initialize_ParamsSpec,
       null,
-      { arg_clients: arg_clients },
+      [arg_clients],
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.tracing.mojom.TracingServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracingService_AddClient_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 

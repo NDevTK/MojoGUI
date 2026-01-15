@@ -226,7 +226,7 @@ mojo.internal.bindings.blink.mojom.ContentIndexServiceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec,
-      { arg_category: arg_category },
+      [arg_category],
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.blink.mojom.ContentIndexServiceRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ResponseParamsSpec,
-      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_description: arg_description, arg_icon: arg_icon, arg_launchUrl: arg_launchUrl },
+      [arg_service_worker_registration_id, arg_description, arg_icon, arg_launchUrl],
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.blink.mojom.ContentIndexServiceRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ResponseParamsSpec,
-      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_id: arg_id },
+      [arg_service_worker_registration_id, arg_id],
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.blink.mojom.ContentIndexServiceRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec,
-      { arg_service_worker_registration_id: arg_service_worker_registration_id },
+      [arg_service_worker_registration_id],
       false);
   }
 

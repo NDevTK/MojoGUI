@@ -176,7 +176,7 @@ mojo.internal.bindings.webapps.mojom.WebPageMetadataAgentRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec,
       mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

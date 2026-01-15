@@ -496,7 +496,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec,
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ResponseParamsSpec,
-      { arg_routine: arg_routine },
+      [arg_routine],
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec,
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -514,7 +514,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec,
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -523,7 +523,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec,
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -532,7 +532,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec,
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -541,7 +541,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec,
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -550,7 +550,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec,
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -559,7 +559,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec,
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -568,7 +568,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec,
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -577,7 +577,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec,
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -586,7 +586,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec,
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -595,7 +595,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec,
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -604,7 +604,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec,
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -613,7 +613,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec,
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ResponseParamsSpec,
-      { arg_stun_server_hostname: arg_stun_server_hostname, arg_source: arg_source },
+      [arg_stun_server_hostname, arg_source],
       false);
   }
 
@@ -622,7 +622,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec,
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -631,7 +631,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec,
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -640,7 +640,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec,
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -649,7 +649,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec,
       mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 

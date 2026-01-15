@@ -200,7 +200,7 @@ mojo.internal.bindings.network.mojom.ObliviousHttpClientRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec,
       null,
-      { arg_response: arg_response },
+      [arg_response],
       false);
   }
 

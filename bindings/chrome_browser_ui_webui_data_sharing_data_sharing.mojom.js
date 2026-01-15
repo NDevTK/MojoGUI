@@ -238,7 +238,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerFactoryRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -404,7 +404,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_ShowUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -413,7 +413,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_CloseUI_ParamsSpec,
       null,
-      { arg_status_code: arg_status_code },
+      [arg_status_code],
       false);
   }
 
@@ -422,7 +422,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -431,7 +431,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec,
       mojo.internal.bindings.data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec,
-      { arg_tab_group_id: arg_tab_group_id, arg_group_id: arg_group_id, arg_access_token: arg_access_token },
+      [arg_tab_group_id, arg_group_id, arg_access_token],
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec,
       mojo.internal.bindings.data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec,
-      { arg_group_id: arg_group_id, arg_access_token: arg_access_token },
+      [arg_group_id, arg_access_token],
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec,
       mojo.internal.bindings.data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec,
-      { arg_group_id: arg_group_id, arg_access_token: arg_access_token },
+      [arg_group_id, arg_access_token],
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec,
       null,
-      { arg_group_id: arg_group_id },
+      [arg_group_id],
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec,
       null,
-      { arg_tab_group_id: arg_tab_group_id },
+      [arg_tab_group_id],
       false);
   }
 
@@ -476,7 +476,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec,
       null,
-      { arg_tab_group_id: arg_tab_group_id },
+      [arg_tab_group_id],
       false);
   }
 
@@ -485,7 +485,7 @@ mojo.internal.bindings.data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec,
       null,
-      { arg_action: arg_action, arg_progress: arg_progress },
+      [arg_action, arg_progress],
       false);
   }
 
@@ -730,7 +730,7 @@ mojo.internal.bindings.data_sharing.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec,
       null,
-      { arg_access_token: arg_access_token },
+      [arg_access_token],
       false);
   }
 
@@ -739,7 +739,7 @@ mojo.internal.bindings.data_sharing.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.Page_ReadGroups_ParamsSpec,
       mojo.internal.bindings.data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec,
-      { arg_read_groups_params: arg_read_groups_params },
+      [arg_read_groups_params],
       false);
   }
 
@@ -748,7 +748,7 @@ mojo.internal.bindings.data_sharing.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec,
       mojo.internal.bindings.data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec,
-      { arg_param: arg_param },
+      [arg_param],
       false);
   }
 
@@ -757,7 +757,7 @@ mojo.internal.bindings.data_sharing.mojom.PageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.Page_DeleteGroup_ParamsSpec,
       mojo.internal.bindings.data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec,
-      { arg_group_id: arg_group_id },
+      [arg_group_id],
       false);
   }
 
@@ -766,7 +766,7 @@ mojo.internal.bindings.data_sharing.mojom.PageRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.data_sharing.mojom.Page_LeaveGroup_ParamsSpec,
       mojo.internal.bindings.data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec,
-      { arg_group_id: arg_group_id },
+      [arg_group_id],
       false);
   }
 

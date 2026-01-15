@@ -176,7 +176,7 @@ mojo.internal.bindings.ui.mojom.ScenicGpuServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ui.mojom.ScenicGpuService_Initialize_ParamsSpec,
       null,
-      { arg_scenic_gpu_host: arg_scenic_gpu_host },
+      [arg_scenic_gpu_host],
       false);
   }
 

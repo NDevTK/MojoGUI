@@ -308,7 +308,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec,
       null,
-      { arg_sources: arg_sources },
+      [arg_sources],
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec,
       null,
-      { arg_reports: arg_reports },
+      [arg_reports],
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Observer_OnSourceHandled_ParamsSpec,
       null,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Observer_OnReportHandled_ParamsSpec,
       null,
-      { arg_report: arg_report },
+      [arg_report],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Observer_OnDebugReportSent_ParamsSpec,
       null,
-      { arg_report: arg_report },
+      [arg_report],
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = c
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec,
       null,
-      { arg_report: arg_report },
+      [arg_report],
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = c
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Observer_OnTriggerHandled_ParamsSpec,
       null,
-      { arg_trigger: arg_trigger },
+      [arg_trigger],
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = c
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec,
       null,
-      { arg_registration: arg_registration },
+      [arg_registration],
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.attribution_internals.mojom.ObserverRemoteCallHandler = c
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Observer_OnDebugModeChanged_ParamsSpec,
       null,
-      { arg_debug_mode: arg_debug_mode },
+      [arg_debug_mode],
       false);
   }
 
@@ -582,7 +582,7 @@ mojo.internal.bindings.attribution_internals.mojom.HandlerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec,
       mojo.internal.bindings.attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -591,7 +591,7 @@ mojo.internal.bindings.attribution_internals.mojom.HandlerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Handler_SendReport_ParamsSpec,
       mojo.internal.bindings.attribution_internals.mojom.Handler_SendReport_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -600,7 +600,7 @@ mojo.internal.bindings.attribution_internals.mojom.HandlerRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Handler_ClearStorage_ParamsSpec,
       mojo.internal.bindings.attribution_internals.mojom.Handler_ClearStorage_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -770,7 +770,7 @@ mojo.internal.bindings.attribution_internals.mojom.FactoryRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.attribution_internals.mojom.Factory_Create_ParamsSpec,
       null,
-      { arg_observer: arg_observer, arg_handler: arg_handler },
+      [arg_observer, arg_handler],
       false);
   }
 

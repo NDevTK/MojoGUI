@@ -189,7 +189,7 @@ mojo.internal.bindings.chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.NetBenchmarking_CloseCurrentConnections_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -198,7 +198,7 @@ mojo.internal.bindings.chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearCache_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -207,7 +207,7 @@ mojo.internal.bindings.chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearHostResolverCache_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -216,7 +216,7 @@ mojo.internal.bindings.chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.NetBenchmarking_ClearPredictorCache_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

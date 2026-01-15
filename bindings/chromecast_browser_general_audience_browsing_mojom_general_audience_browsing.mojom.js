@@ -174,7 +174,7 @@ mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec,
       null,
-      { arg_api_key: arg_api_key },
+      [arg_api_key],
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRemo
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

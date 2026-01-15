@@ -189,7 +189,7 @@ mojo.internal.bindings.crosapi.mojom.RemotingRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -198,7 +198,7 @@ mojo.internal.bindings.crosapi.mojom.RemotingRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.Remoting_StartSupportSession_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 

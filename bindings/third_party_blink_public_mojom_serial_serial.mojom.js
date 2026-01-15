@@ -222,7 +222,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SerialService_SetClient_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ResponseParamsSpec,
-      { arg_filters: arg_filters, arg_allowed_bluetooth_service_class_ids: arg_allowed_bluetooth_service_class_ids },
+      [arg_filters, arg_allowed_bluetooth_service_class_ids],
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ResponseParamsSpec,
-      { arg_token: arg_token, arg_options: arg_options, arg_client: arg_client },
+      [arg_token, arg_options, arg_client],
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ResponseParamsSpec,
-      { arg_token: arg_token },
+      [arg_token],
       false);
   }
 
@@ -455,7 +455,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceClientRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec,
       null,
-      { arg_port_info: arg_port_info },
+      [arg_port_info],
       false);
   }
 

@@ -203,7 +203,7 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec,
       mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec,
-      { arg_s: arg_s },
+      [arg_s],
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec,
       mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec,
-      { arg_t: arg_t },
+      [arg_t],
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec,
       mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec,
-      { arg_g: arg_g },
+      [arg_g],
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec,
       mojo.internal.bindings.gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec,
-      { arg_t: arg_t },
+      [arg_t],
       false);
   }
 

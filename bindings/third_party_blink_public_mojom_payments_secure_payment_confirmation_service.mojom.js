@@ -215,7 +215,7 @@ mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec,
       mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec,
       mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec,
-      { arg_credential_id: arg_credential_id, arg_rp_id: arg_rp_id, arg_user_id: arg_user_id },
+      [arg_credential_id, arg_rp_id, arg_user_id],
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec,
       mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 

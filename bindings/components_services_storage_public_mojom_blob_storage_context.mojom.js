@@ -222,7 +222,7 @@ mojo.internal.bindings.storage.mojom.BlobDataItemReaderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ParamsSpec,
       mojo.internal.bindings.storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec,
-      { arg_offset: arg_offset, arg_length: arg_length, arg_pipe: arg_pipe },
+      [arg_offset, arg_length, arg_pipe],
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.storage.mojom.BlobDataItemReaderRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec,
       null,
-      { arg_blob: arg_blob, arg_uuid: arg_uuid, arg_item: arg_item },
+      [arg_blob, arg_uuid, arg_item],
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec,
       null,
-      { arg_blob: arg_blob, arg_uuid: arg_uuid, arg_data: arg_data },
+      [arg_blob, arg_uuid, arg_data],
       false);
   }
 
@@ -416,7 +416,7 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec,
       mojo.internal.bindings.storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec,
-      { arg_blob: arg_blob, arg_path: arg_path, arg_flush_on_write: arg_flush_on_write, arg_last_modified: arg_last_modified },
+      [arg_blob, arg_path, arg_flush_on_write, arg_last_modified],
       false);
   }
 
@@ -425,7 +425,7 @@ mojo.internal.bindings.storage.mojom.BlobStorageContextRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.BlobStorageContext_Clone_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

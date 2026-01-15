@@ -426,7 +426,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_CrashForTesting_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_TerminateForTesting_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_GetChannelToken_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_Flush_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_Flush_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec,
-      { arg_params: arg_params, arg_routing_id: arg_routing_id, arg_shared_state: arg_shared_state, arg_receiver: arg_receiver, arg_client: arg_client },
+      [arg_params, arg_routing_id, arg_shared_state, arg_receiver, arg_client],
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_DestroyCommandBuffer_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_DestroyCommandBuffer_ResponseParamsSpec,
-      { arg_routing_id: arg_routing_id },
+      [arg_routing_id],
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_FlushDeferredRequests_ParamsSpec,
       null,
-      { arg_requests: arg_requests, arg_flushed_deferred_message_id: arg_flushed_deferred_message_id },
+      [arg_requests, arg_flushed_deferred_message_id],
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec,
-      { arg_size: arg_size, arg_format: arg_format, arg_buffer_usage: arg_buffer_usage },
+      [arg_size, arg_format, arg_buffer_usage],
       false);
   }
 
@@ -507,7 +507,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec,
-      { arg_route_id: arg_route_id, arg_receiver: arg_receiver },
+      [arg_route_id, arg_receiver],
       false);
   }
 
@@ -516,7 +516,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ResponseParamsSpec,
-      { arg_promotion_hint_observer: arg_promotion_hint_observer, arg_mailbox: arg_mailbox },
+      [arg_promotion_hint_observer, arg_mailbox],
       false);
   }
 
@@ -525,7 +525,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec,
-      { arg_routing_id: arg_routing_id, arg_start: arg_start, arg_end: arg_end },
+      [arg_routing_id, arg_start, arg_end],
       false);
   }
 
@@ -534,7 +534,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec,
-      { arg_routing_id: arg_routing_id, arg_set_get_buffer_count: arg_set_get_buffer_count, arg_start: arg_start, arg_end: arg_end },
+      [arg_routing_id, arg_set_get_buffer_count, arg_start, arg_end],
       false);
   }
 
@@ -543,7 +543,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec,
-      { arg_mailbox: arg_mailbox, arg_sync_token_dependencies: arg_sync_token_dependencies, arg_release_count: arg_release_count },
+      [arg_mailbox, arg_sync_token_dependencies, arg_release_count],
       false);
   }
 
@@ -893,7 +893,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBuffer_SetGetBuffer_ParamsSpec,
       null,
-      { arg_shm_id: arg_shm_id },
+      [arg_shm_id],
       false);
   }
 
@@ -902,7 +902,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBuffer_RegisterTransferBuffer_ParamsSpec,
       null,
-      { arg_id: arg_id, arg_buffer: arg_buffer },
+      [arg_id, arg_buffer],
       false);
   }
 
@@ -911,7 +911,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBuffer_CreateGpuFenceFromHandle_ParamsSpec,
       null,
-      { arg_gpu_fence_id: arg_gpu_fence_id, arg_fence_handle: arg_fence_handle },
+      [arg_gpu_fence_id, arg_fence_handle],
       false);
   }
 
@@ -920,7 +920,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBuffer_GetGpuFenceHandle_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -929,7 +929,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBuffer_SignalSyncToken_ParamsSpec,
       null,
-      { arg_sync_token: arg_sync_token, arg_signal_id: arg_signal_id },
+      [arg_sync_token, arg_signal_id],
       false);
   }
 
@@ -938,7 +938,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBuffer_SignalQuery_ParamsSpec,
       null,
-      { arg_query: arg_query, arg_signal_id: arg_signal_id },
+      [arg_query, arg_signal_id],
       false);
   }
 
@@ -1133,7 +1133,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -1142,7 +1142,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1151,7 +1151,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec,
       null,
-      { arg_reason: arg_reason, arg_error: arg_error },
+      [arg_reason, arg_error],
       false);
   }
 
@@ -1160,7 +1160,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnReturnData_ParamsSpec,
       null,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -1169,7 +1169,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec,
       null,
-      { arg_signal_id: arg_signal_id, arg_state: arg_state },
+      [arg_signal_id, arg_state],
       false);
   }
 
@@ -1339,7 +1339,7 @@ mojo.internal.bindings.gpu.mojom.DCOMPTextureRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gpu.mojom.DCOMPTexture_StartListening_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -1348,7 +1348,7 @@ mojo.internal.bindings.gpu.mojom.DCOMPTextureRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gpu.mojom.DCOMPTexture_SetTextureSize_ParamsSpec,
       null,
-      { arg_size: arg_size },
+      [arg_size],
       false);
   }
 
@@ -1357,7 +1357,7 @@ mojo.internal.bindings.gpu.mojom.DCOMPTextureRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ResponseParamsSpec,
-      { arg_token: arg_token },
+      [arg_token],
       false);
   }
 
@@ -1516,7 +1516,7 @@ mojo.internal.bindings.gpu.mojom.DCOMPTextureClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gpu.mojom.DCOMPTextureClient_OnSharedImageMailboxBound_ParamsSpec,
       null,
-      { arg_mailbox: arg_mailbox },
+      [arg_mailbox],
       false);
   }
 
@@ -1525,7 +1525,7 @@ mojo.internal.bindings.gpu.mojom.DCOMPTextureClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gpu.mojom.DCOMPTextureClient_OnOutputRectChange_ParamsSpec,
       null,
-      { arg_output_rect: arg_output_rect },
+      [arg_output_rect],
       false);
   }
 
@@ -1663,7 +1663,7 @@ mojo.internal.bindings.gpu.mojom.OverlayStateObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gpu.mojom.OverlayStateObserver_OnStateChanged_ParamsSpec,
       null,
-      { arg_promoted: arg_promoted },
+      [arg_promoted],
       false);
   }
 

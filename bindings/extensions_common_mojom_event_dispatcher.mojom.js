@@ -186,7 +186,7 @@ mojo.internal.bindings.extensions.mojom.EventDispatcherRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec,
-      { arg_params: arg_params, arg_event_args: arg_event_args },
+      [arg_params, arg_event_args],
       false);
   }
 

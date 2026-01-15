@@ -226,7 +226,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactoryRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_handler: arg_handler },
+      [arg_client, arg_handler],
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_handler: arg_handler },
+      [arg_client, arg_handler],
       false);
   }
 
@@ -494,7 +494,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -503,7 +503,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec,
       null,
-      { arg_native_identifier: arg_native_identifier, arg_button_index: arg_button_index },
+      [arg_native_identifier, arg_button_index],
       false);
   }
 
@@ -512,7 +512,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec,
       null,
-      { arg_native_identifier: arg_native_identifier, arg_reason: arg_reason },
+      [arg_native_identifier, arg_reason],
       false);
   }
 
@@ -670,7 +670,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -679,7 +679,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec,
       null,
-      { arg_native_identifier: arg_native_identifier },
+      [arg_native_identifier],
       false);
   }
 
@@ -688,7 +688,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec,
       null,
-      { arg_native_identifier: arg_native_identifier },
+      [arg_native_identifier],
       false);
   }
 
@@ -697,7 +697,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec,
       null,
-      { arg_native_identifier: arg_native_identifier, arg_shown: arg_shown },
+      [arg_native_identifier, arg_shown],
       false);
   }
 

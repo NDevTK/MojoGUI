@@ -174,7 +174,7 @@ mojo.internal.bindings.viz.mojom.CompositingModeWatcherRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.viz.mojom.CompositingModeReporterRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec,
       null,
-      { arg_watcher: arg_watcher },
+      [arg_watcher],
       false);
   }
 

@@ -289,7 +289,7 @@ mojo.internal.bindings.blink.mojom.FeatureObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FeatureObserver_Register_ParamsSpec,
       null,
-      { arg_feature: arg_feature, arg_type: arg_type },
+      [arg_feature, arg_type],
       false);
   }
 

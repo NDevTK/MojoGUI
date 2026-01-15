@@ -177,7 +177,7 @@ mojo.internal.bindings.chrome.mojom.DocumentAnalysisServiceRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

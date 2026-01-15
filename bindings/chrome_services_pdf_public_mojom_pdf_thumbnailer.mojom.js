@@ -195,7 +195,7 @@ mojo.internal.bindings.pdf.mojom.PdfThumbnailerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec,
       mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec,
-      { arg_params: arg_params, arg_pdf_region: arg_pdf_region },
+      [arg_params, arg_pdf_region],
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.pdf.mojom.PdfThumbnailerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
-      { arg_use_skia: arg_use_skia },
+      [arg_use_skia],
       false);
   }
 

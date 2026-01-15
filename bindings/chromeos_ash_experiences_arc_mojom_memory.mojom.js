@@ -186,7 +186,7 @@ mojo.internal.bindings.arc.mojom.MemoryInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.MemoryInstance_DropCaches_ParamsSpec,
       mojo.internal.bindings.arc.mojom.MemoryInstance_DropCaches_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.arc.mojom.MemoryInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.MemoryInstance_Reclaim_ParamsSpec,
       mojo.internal.bindings.arc.mojom.MemoryInstance_Reclaim_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 

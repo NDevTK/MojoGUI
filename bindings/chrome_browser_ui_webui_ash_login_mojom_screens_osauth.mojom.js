@@ -186,7 +186,7 @@ mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerR
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerR
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerR
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -213,7 +213,7 @@ mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerR
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

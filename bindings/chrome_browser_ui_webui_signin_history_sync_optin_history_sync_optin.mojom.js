@@ -205,7 +205,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactoryRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -347,7 +347,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Accept_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Reject_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec,
       null,
-      { arg_height: arg_height },
+      [arg_height],
       false);
   }
 
@@ -532,7 +532,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec,
       null,
-      { arg_account_info: arg_account_info },
+      [arg_account_info],
       false);
   }
 
@@ -541,7 +541,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec,
       null,
-      { arg_screen_mode: arg_screen_mode },
+      [arg_screen_mode],
       false);
   }
 

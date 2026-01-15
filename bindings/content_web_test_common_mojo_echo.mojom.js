@@ -349,7 +349,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec,
-      { arg_test_union: arg_test_union },
+      [arg_test_union],
       false);
   }
 
@@ -358,7 +358,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec,
-      { arg_test_union: arg_test_union },
+      [arg_test_union],
       false);
   }
 
@@ -367,7 +367,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec,
-      { arg_test_union: arg_test_union },
+      [arg_test_union],
       false);
   }
 
@@ -376,7 +376,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalUnion_ResponseParamsSpec,
-      { arg_test_union: arg_test_union },
+      [arg_test_union],
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec,
-      { arg_test_union: arg_test_union },
+      [arg_test_union],
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec,
-      { arg_test_union: arg_test_union },
+      [arg_test_union],
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec,
-      { arg_test_union: arg_test_union },
+      [arg_test_union],
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -457,7 +457,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -466,7 +466,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -475,7 +475,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec,
-      { arg_test_union: arg_test_union },
+      [arg_test_union],
       false);
   }
 
@@ -484,7 +484,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec,
-      { arg_test_union: arg_test_union },
+      [arg_test_union],
       false);
   }
 
@@ -493,7 +493,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec,
-      { arg_test_union: arg_test_union },
+      [arg_test_union],
       false);
   }
 
@@ -502,7 +502,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -511,7 +511,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -520,7 +520,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -529,7 +529,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ResponseParamsSpec,
-      { arg_test_union: arg_test_union },
+      [arg_test_union],
       false);
   }
 
@@ -538,7 +538,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec,
-      { arg_test_union: arg_test_union },
+      [arg_test_union],
       false);
   }
 
@@ -547,7 +547,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec,
-      { arg_test_union: arg_test_union },
+      [arg_test_union],
       false);
   }
 
@@ -556,7 +556,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec,
-      { arg_test_union: arg_test_union },
+      [arg_test_union],
       false);
   }
 
@@ -565,7 +565,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -574,7 +574,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -583,7 +583,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -592,7 +592,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -601,7 +601,7 @@ mojo.internal.bindings.content.mojom.MojoEchoRemoteCallHandler = class {
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolArray_ParamsSpec,
       mojo.internal.bindings.content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec,
-      { arg_values: arg_values },
+      [arg_values],
       false);
   }
 

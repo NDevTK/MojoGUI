@@ -181,7 +181,7 @@ mojo.internal.bindings.ai.mojom.SmartTabGroupingServiceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec,
       mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

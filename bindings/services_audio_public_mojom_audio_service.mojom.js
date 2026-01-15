@@ -232,7 +232,7 @@ mojo.internal.bindings.audio.mojom.AudioServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.audio.mojom.AudioService_BindSystemInfo_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -241,7 +241,7 @@ mojo.internal.bindings.audio.mojom.AudioServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.audio.mojom.AudioService_BindDebugRecording_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -250,7 +250,7 @@ mojo.internal.bindings.audio.mojom.AudioServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.audio.mojom.AudioService_BindStreamFactory_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -259,7 +259,7 @@ mojo.internal.bindings.audio.mojom.AudioServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.audio.mojom.AudioServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.audio.mojom.AudioServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.audio.mojom.AudioService_BindTestingApi_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.audio.mojom.AudioServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.audio.mojom.AudioService_BindMlModelManager_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.CrashMemoryMetricsReporterRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec,
       null,
-      { arg_shared_metrics_buffer: arg_shared_metrics_buffer },
+      [arg_shared_metrics_buffer],
       false);
   }
 

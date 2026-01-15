@@ -187,7 +187,7 @@ mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHostRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec,
       null,
-      { arg_reason: arg_reason, arg_source: arg_source },
+      [arg_reason, arg_source],
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHostRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_ParamsSpec,
       null,
-      { arg_details: arg_details },
+      [arg_details],
       false);
   }
 

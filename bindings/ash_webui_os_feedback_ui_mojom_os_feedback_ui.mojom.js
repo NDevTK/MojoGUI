@@ -274,7 +274,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProviderRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec,
       mojo.internal.bindings.ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -461,7 +461,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec,
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -470,7 +470,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec,
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -479,7 +479,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec,
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec,
-      { arg_report: arg_report },
+      [arg_report],
       false);
   }
 
@@ -488,7 +488,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -506,7 +506,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -515,7 +515,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -524,7 +524,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec,
       null,
-      { arg_autofill_metadata: arg_autofill_metadata },
+      [arg_autofill_metadata],
       false);
   }
 
@@ -533,7 +533,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec,
       null,
-      { arg_action: arg_action },
+      [arg_action],
       false);
   }
 
@@ -542,7 +542,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec,
       null,
-      { arg_action: arg_action },
+      [arg_action],
       false);
   }
 
@@ -551,7 +551,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec,
       null,
-      { arg_exit_path: arg_exit_path },
+      [arg_exit_path],
       false);
   }
 
@@ -560,7 +560,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec,
       null,
-      { arg_outcome: arg_outcome },
+      [arg_outcome],
       false);
   }
 
@@ -569,7 +569,7 @@ mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProviderRemoteCal
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec,
       null,
-      { arg_count: arg_count },
+      [arg_count],
       false);
   }
 

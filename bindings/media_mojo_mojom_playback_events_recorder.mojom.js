@@ -222,7 +222,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec,
       null,
-      { arg_size: arg_size },
+      [arg_size],
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.media.mojom.PlaybackEventsRecorderRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec,
       null,
-      { arg_stats: arg_stats },
+      [arg_stats],
       false);
   }
 

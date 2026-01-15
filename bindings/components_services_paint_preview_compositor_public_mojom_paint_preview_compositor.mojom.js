@@ -259,7 +259,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec,
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec,
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec,
-      { arg_frame_guid: arg_frame_guid, arg_clip_rect: arg_clip_rect, arg_scale_factor: arg_scale_factor },
+      [arg_frame_guid, arg_clip_rect, arg_scale_factor],
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec,
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec,
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec,
-      { arg_clip_rect: arg_clip_rect, arg_scale_factor: arg_scale_factor },
+      [arg_clip_rect, arg_scale_factor],
       false);
   }
 
@@ -295,7 +295,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorRemoteCallHandl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec,
       null,
-      { arg_manager: arg_manager },
+      [arg_manager],
       false);
   }
 
@@ -506,7 +506,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionRemot
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec,
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec,
-      { arg_compositor: arg_compositor },
+      [arg_compositor],
       false);
   }
 
@@ -515,7 +515,7 @@ mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollectionRemot
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec,
       mojo.internal.bindings.paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

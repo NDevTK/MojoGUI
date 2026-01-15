@@ -458,7 +458,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec,
       null,
-      { arg_buffer_id: arg_buffer_id, arg_buffer_handle: arg_buffer_handle },
+      [arg_buffer_id, arg_buffer_handle],
       false);
   }
 
@@ -476,7 +476,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_DEPRECATED_OnFrameReadyInBuffer_ParamsSpec,
       null,
-      { arg_buffer: arg_buffer, arg_scaled_buffers: arg_scaled_buffers },
+      [arg_buffer, arg_scaled_buffers],
       false);
   }
 
@@ -485,7 +485,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec,
       null,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 
@@ -494,7 +494,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec,
       null,
-      { arg_buffer_id: arg_buffer_id },
+      [arg_buffer_id],
       false);
   }
 
@@ -503,7 +503,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnError_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 
@@ -512,7 +512,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec,
       null,
-      { arg_reason: arg_reason },
+      [arg_reason],
       false);
   }
 
@@ -521,7 +521,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_DEPRECATED_OnNewCropVersion_ParamsSpec,
       null,
-      { arg_crop_version: arg_crop_version },
+      [arg_crop_version],
       false);
   }
 
@@ -530,7 +530,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_DEPRECATED_OnNewSubCaptureTargetVersion_ParamsSpec,
       null,
-      { arg_sub_capture_target_version: arg_sub_capture_target_version },
+      [arg_sub_capture_target_version],
       false);
   }
 
@@ -539,7 +539,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec,
       null,
-      { arg_capture_version: arg_capture_version },
+      [arg_capture_version],
       false);
   }
 
@@ -548,7 +548,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -557,7 +557,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnLog_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -566,7 +566,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnStarted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -575,7 +575,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -584,7 +584,7 @@ mojo.internal.bindings.crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class 
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoFrameHandler_OnStopped_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -854,7 +854,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_Start_ParamsSpec,
       null,
-      { arg_requested_settings: arg_requested_settings, arg_handler: arg_handler },
+      [arg_requested_settings, arg_handler],
       false);
   }
 
@@ -863,7 +863,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_MaybeSuspend_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -872,7 +872,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_Resume_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -881,7 +881,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_GetPhotoState_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_GetPhotoState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -890,7 +890,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ResponseParamsSpec,
-      { arg_settings: arg_settings },
+      [arg_settings],
       false);
   }
 
@@ -899,7 +899,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_TakePhoto_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_TakePhoto_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -908,7 +908,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_ProcessFeedback_ParamsSpec,
       null,
-      { arg_feedback: arg_feedback },
+      [arg_feedback],
       false);
   }
 
@@ -917,7 +917,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDevice_RequestRefreshFrame_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1134,7 +1134,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactoryRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1143,7 +1143,7 @@ mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactoryRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ResponseParamsSpec,
-      { arg_device_id: arg_device_id, arg_device_receiver: arg_device_receiver },
+      [arg_device_id, arg_device_receiver],
       false);
   }
 

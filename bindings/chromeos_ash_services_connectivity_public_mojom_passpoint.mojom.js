@@ -187,7 +187,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec,
       null,
-      { arg_subscription: arg_subscription },
+      [arg_subscription],
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListenerRemote
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec,
       null,
-      { arg_subscription: arg_subscription },
+      [arg_subscription],
       false);
   }
 
@@ -346,7 +346,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec,
       mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -355,7 +355,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec,
       mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -364,7 +364,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec,
       mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.chromeos.connectivity.mojom.PasspointServiceRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec,
       null,
-      { arg_listener: arg_listener },
+      [arg_listener],
       false);
   }
 

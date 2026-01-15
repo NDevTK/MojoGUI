@@ -197,7 +197,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec,
       null,
-      { arg_response: arg_response, arg_timing: arg_timing },
+      [arg_response, arg_timing],
       false);
   }
 
@@ -206,7 +206,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec,
       null,
-      { arg_response: arg_response, arg_body_as_stream: arg_body_as_stream, arg_timing: arg_timing },
+      [arg_response, arg_body_as_stream, arg_timing],
       false);
   }
 
@@ -215,7 +215,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec,
       null,
-      { arg_request_body: arg_request_body, arg_timing: arg_timing },
+      [arg_request_body, arg_timing],
       false);
   }
 

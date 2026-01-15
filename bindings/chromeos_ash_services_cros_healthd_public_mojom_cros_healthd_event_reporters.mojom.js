@@ -177,7 +177,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.AshEventReporterRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 

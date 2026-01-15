@@ -177,7 +177,7 @@ mojo.internal.bindings.content.mojom.RenderFrameTestHelperRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec,
       mojo.internal.bindings.content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

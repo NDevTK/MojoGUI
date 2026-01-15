@@ -205,7 +205,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameAccessHandler_OnFinishedConsumingBuffer_ParamsSpec,
       null,
-      { arg_buffer_id: arg_buffer_id },
+      [arg_buffer_id],
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec,
       null,
-      { arg_buffer_id: arg_buffer_id, arg_buffer_handle: arg_buffer_handle },
+      [arg_buffer_id, arg_buffer_handle],
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec,
       null,
-      { arg_frame_access_handler: arg_frame_access_handler },
+      [arg_frame_access_handler],
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec,
       null,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec,
       null,
-      { arg_buffer_id: arg_buffer_id },
+      [arg_buffer_id],
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnError_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 
@@ -437,7 +437,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec,
       null,
-      { arg_reason: arg_reason },
+      [arg_reason],
       false);
   }
 
@@ -446,7 +446,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec,
       null,
-      { arg_capture_version: arg_capture_version },
+      [arg_capture_version],
       false);
   }
 
@@ -455,7 +455,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -464,7 +464,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnLog_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -473,7 +473,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStarted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -482,7 +482,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -491,7 +491,7 @@ mojo.internal.bindings.video_capture.mojom.VideoFrameHandlerRemoteCallHandler = 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoFrameHandler_OnStopped_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

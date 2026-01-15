@@ -223,7 +223,7 @@ mojo.internal.bindings.blink.mojom.CredentialManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.CredentialManager_Store_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CredentialManager_Store_ResponseParamsSpec,
-      { arg_credential: arg_credential },
+      [arg_credential],
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.blink.mojom.CredentialManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -241,7 +241,7 @@ mojo.internal.bindings.blink.mojom.CredentialManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.CredentialManager_Get_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CredentialManager_Get_ResponseParamsSpec,
-      { arg_mediation: arg_mediation, arg_include_passwords: arg_include_passwords, arg_federations: arg_federations },
+      [arg_mediation, arg_include_passwords, arg_federations],
       false);
   }
 

@@ -312,7 +312,7 @@ mojo.internal.bindings.remote_cocoa.mojom.PopupMenuRunnerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.PopupMenuRunner_Hide_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -542,7 +542,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_InitAsPopup_ParamsSpec,
       null,
-      { arg_content_rect: arg_content_rect, arg_popup_parent_ns_view_id: arg_popup_parent_ns_view_id },
+      [arg_content_rect, arg_popup_parent_ns_view_id],
       false);
   }
 
@@ -551,7 +551,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetParentWebContentsNSView_ParamsSpec,
       null,
-      { arg_parent_ns_view_id: arg_parent_ns_view_id },
+      [arg_parent_ns_view_id],
       false);
   }
 
@@ -560,7 +560,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_DisableDisplay_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -569,7 +569,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_MakeFirstResponder_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -578,7 +578,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetBounds_ParamsSpec,
       null,
-      { arg_rect: arg_rect },
+      [arg_rect],
       false);
   }
 
@@ -587,7 +587,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetCALayerParams_ParamsSpec,
       null,
-      { arg_ca_layer_params: arg_ca_layer_params },
+      [arg_ca_layer_params],
       false);
   }
 
@@ -596,7 +596,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetBackgroundColor_ParamsSpec,
       null,
-      { arg_color: arg_color },
+      [arg_color],
       false);
   }
 
@@ -605,7 +605,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetVisible_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 
@@ -614,7 +614,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetTooltipText_ParamsSpec,
       null,
-      { arg_display_text: arg_display_text },
+      [arg_display_text],
       false);
   }
 
@@ -623,7 +623,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetTextInputState_ParamsSpec,
       null,
-      { arg_text_input_type: arg_text_input_type, arg_flags: arg_flags },
+      [arg_text_input_type, arg_flags],
       false);
   }
 
@@ -632,7 +632,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetTextSelection_ParamsSpec,
       null,
-      { arg_text: arg_text, arg_offset: arg_offset, arg_range: arg_range },
+      [arg_text, arg_offset, arg_range],
       false);
   }
 
@@ -641,7 +641,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetCompositionRangeInfo_ParamsSpec,
       null,
-      { arg_range: arg_range },
+      [arg_range],
       false);
   }
 
@@ -650,7 +650,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_CancelComposition_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -659,7 +659,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetShowingContextMenu_ParamsSpec,
       null,
-      { arg_showing: arg_showing },
+      [arg_showing],
       false);
   }
 
@@ -668,7 +668,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_DisplayCursor_ParamsSpec,
       null,
-      { arg_cursor: arg_cursor },
+      [arg_cursor],
       false);
   }
 
@@ -677,7 +677,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLocked_ParamsSpec,
       null,
-      { arg_locked: arg_locked },
+      [arg_locked],
       false);
   }
 
@@ -686,7 +686,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLockedUnacceleratedMovement_ParamsSpec,
       null,
-      { arg_unaccelerated_movement: arg_unaccelerated_movement },
+      [arg_unaccelerated_movement],
       false);
   }
 
@@ -695,7 +695,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlayForSelection_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -704,7 +704,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlay_ParamsSpec,
       null,
-      { arg_attributed_string: arg_attributed_string, arg_baseline_point: arg_baseline_point },
+      [arg_attributed_string, arg_baseline_point],
       false);
   }
 
@@ -713,7 +713,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_LockKeyboard_ParamsSpec,
       null,
-      { arg_dom_codes: arg_dom_codes },
+      [arg_dom_codes],
       false);
   }
 
@@ -722,7 +722,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_UnlockKeyboard_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -731,7 +731,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ResponseParamsSpec,
-      { arg_title: arg_title, arg_text: arg_text, arg_url: arg_url, arg_file_paths: arg_file_paths },
+      [arg_title, arg_text, arg_url, arg_file_paths],
       false);
   }
 
@@ -740,7 +740,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_Destroy_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -749,7 +749,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_GestureScrollEventAck_ParamsSpec,
       null,
-      { arg_event: arg_event, arg_consumed: arg_consumed },
+      [arg_event, arg_consumed],
       false);
   }
 
@@ -758,7 +758,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_DidOverscroll_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -767,7 +767,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewRemoteCallHandle
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ResponseParamsSpec,
-      { arg_menu: arg_menu },
+      [arg_menu],
       false);
   }
 
@@ -1271,7 +1271,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1280,7 +1280,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_RequestShutdown_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1289,7 +1289,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnFirstResponderChanged_ParamsSpec,
       null,
-      { arg_is_first_responder: arg_is_first_responder },
+      [arg_is_first_responder],
       false);
   }
 
@@ -1298,7 +1298,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowIsKeyChanged_ParamsSpec,
       null,
-      { arg_is_key: arg_is_key },
+      [arg_is_key],
       false);
   }
 
@@ -1307,7 +1307,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnBoundsInWindowChanged_ParamsSpec,
       null,
-      { arg_view_bounds_in_window_dip: arg_view_bounds_in_window_dip, arg_attached_to_window: arg_attached_to_window },
+      [arg_view_bounds_in_window_dip, arg_attached_to_window],
       false);
   }
 
@@ -1316,7 +1316,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowFrameInScreenChanged_ParamsSpec,
       null,
-      { arg_window_frame_in_screen_dip: arg_window_frame_in_screen_dip },
+      [arg_window_frame_in_screen_dip],
       false);
   }
 
@@ -1325,7 +1325,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnScreenInfosChanged_ParamsSpec,
       null,
-      { arg_screen_infos: arg_screen_infos },
+      [arg_screen_infos],
       false);
   }
 
@@ -1334,7 +1334,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_BeginKeyboardEvent_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1343,7 +1343,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_EndKeyboardEvent_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1352,7 +1352,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardKeyboardEventWithCommands_ParamsSpec,
       null,
-      { arg_event: arg_event, arg_native_event_data: arg_native_event_data, arg_skip_if_unhandled: arg_skip_if_unhandled, arg_commands: arg_commands },
+      [arg_event, arg_native_event_data, arg_skip_if_unhandled, arg_commands],
       false);
   }
 
@@ -1361,7 +1361,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessMouseEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -1370,7 +1370,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessTouchEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -1379,7 +1379,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessWheelEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -1388,7 +1388,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardMouseEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -1397,7 +1397,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardWheelEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -1406,7 +1406,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_PinchEvent_ParamsSpec,
       null,
-      { arg_event: arg_event, arg_is_synthetically_injected: arg_is_synthetically_injected },
+      [arg_event, arg_is_synthetically_injected],
       false);
   }
 
@@ -1415,7 +1415,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SmartMagnifyEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -1424,7 +1424,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeSetComposition_ParamsSpec,
       null,
-      { arg_text: arg_text, arg_ime_text_spans: arg_ime_text_spans, arg_replacement_range: arg_replacement_range, arg_selection_start: arg_selection_start, arg_selection_end: arg_selection_end },
+      [arg_text, arg_ime_text_spans, arg_replacement_range, arg_selection_start, arg_selection_end],
       false);
   }
 
@@ -1433,7 +1433,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCommitText_ParamsSpec,
       null,
-      { arg_text: arg_text, arg_replacement_range: arg_replacement_range },
+      [arg_text, arg_replacement_range],
       false);
   }
 
@@ -1442,7 +1442,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeFinishComposingText_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1451,7 +1451,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCancelCompositionFromCocoa_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1460,7 +1460,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayAtPoint_ParamsSpec,
       null,
-      { arg_root_point: arg_root_point },
+      [arg_root_point],
       false);
   }
 
@@ -1469,7 +1469,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayFromRange_ParamsSpec,
       null,
-      { arg_range: arg_range },
+      [arg_range],
       false);
   }
 
@@ -1478,7 +1478,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_ResponseParamsSpec,
-      { arg_root_point: arg_root_point },
+      [arg_root_point],
       false);
   }
 
@@ -1487,7 +1487,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ResponseParamsSpec,
-      { arg_requested_range: arg_requested_range },
+      [arg_requested_range],
       false);
   }
 
@@ -1496,7 +1496,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_ExecuteEditCommand_ParamsSpec,
       null,
-      { arg_command: arg_command },
+      [arg_command],
       false);
   }
 
@@ -1505,7 +1505,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_Undo_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1514,7 +1514,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_Redo_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1523,7 +1523,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_Cut_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1532,7 +1532,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_Copy_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1541,7 +1541,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_CopyToFindPboard_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1550,7 +1550,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_CenterSelection_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1559,7 +1559,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_Paste_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1568,7 +1568,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_PasteAndMatchStyle_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1577,7 +1577,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SelectAll_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1586,7 +1586,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_StartSpeaking_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1595,7 +1595,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_StopSpeaking_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1604,7 +1604,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1613,7 +1613,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1622,7 +1622,7 @@ mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHostRemoteCallHa
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.RenderWidgetHostNSViewHost_SetRemoteAccessibilityWindowToken_ParamsSpec,
       null,
-      { arg_window_token: arg_window_token },
+      [arg_window_token],
       false);
   }
 

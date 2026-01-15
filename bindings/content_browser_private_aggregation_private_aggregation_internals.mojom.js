@@ -210,7 +210,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.ObserverRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.ObserverRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec,
       null,
-      { arg_report: arg_report },
+      [arg_report],
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec,
       mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec,
       mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec,
-      { arg_ids: arg_ids },
+      [arg_ids],
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec,
       mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -554,7 +554,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.FactoryRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.private_aggregation_internals.mojom.Factory_Create_ParamsSpec,
       null,
-      { arg_observer: arg_observer, arg_handler: arg_handler },
+      [arg_observer, arg_handler],
       false);
   }
 

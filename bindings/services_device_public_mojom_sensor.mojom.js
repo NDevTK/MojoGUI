@@ -226,7 +226,7 @@ mojo.internal.bindings.device.mojom.SensorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec,
       mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.device.mojom.SensorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ParamsSpec,
       mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ResponseParamsSpec,
-      { arg_configuration: arg_configuration },
+      [arg_configuration],
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.device.mojom.SensorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.Sensor_RemoveConfiguration_ParamsSpec,
       null,
-      { arg_configuration: arg_configuration },
+      [arg_configuration],
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.device.mojom.SensorRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.Sensor_Suspend_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.device.mojom.SensorRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.Sensor_Resume_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.device.mojom.SensorRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -463,7 +463,7 @@ mojo.internal.bindings.device.mojom.SensorClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SensorClient_RaiseError_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -472,7 +472,7 @@ mojo.internal.bindings.device.mojom.SensorClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.SensorClient_SensorReadingChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

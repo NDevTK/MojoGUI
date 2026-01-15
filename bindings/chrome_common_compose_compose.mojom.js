@@ -255,7 +255,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec,
       null,
-      { arg_client_handler: arg_client_handler, arg_handler: arg_handler, arg_dialog: arg_dialog },
+      [arg_client_handler, arg_handler, arg_dialog],
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec,
       null,
-      { arg_input: arg_input, arg_mode: arg_mode, arg_edited: arg_edited },
+      [arg_input, arg_mode, arg_edited],
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec,
       null,
-      { arg_style: arg_style },
+      [arg_style],
       false);
   }
 
@@ -476,7 +476,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -485,7 +485,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec,
       null,
-      { arg_webui_state: arg_webui_state },
+      [arg_webui_state],
       false);
   }
 
@@ -494,7 +494,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec,
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -503,7 +503,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec,
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -512,7 +512,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec,
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -521,7 +521,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec,
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -530,7 +530,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec,
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -539,7 +539,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -548,7 +548,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -557,7 +557,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -566,7 +566,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -575,7 +575,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -584,7 +584,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec,
       null,
-      { arg_feedback: arg_feedback },
+      [arg_feedback],
       false);
   }
 
@@ -593,7 +593,7 @@ mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCal
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec,
       mojo.internal.bindings.compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec,
-      { arg_new_result: arg_new_result },
+      [arg_new_result],
       false);
   }
 
@@ -917,7 +917,7 @@ mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -926,7 +926,7 @@ mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec,
       null,
-      { arg_reason: arg_reason },
+      [arg_reason],
       false);
   }
 
@@ -935,7 +935,7 @@ mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -944,7 +944,7 @@ mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandlerRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1102,7 +1102,7 @@ mojo.internal.bindings.compose.mojom.ComposeUntrustedDialogRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec,
       null,
-      { arg_response: arg_response },
+      [arg_response],
       false);
   }
 
@@ -1111,7 +1111,7 @@ mojo.internal.bindings.compose.mojom.ComposeUntrustedDialogRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec,
       null,
-      { arg_partial_response: arg_partial_response },
+      [arg_partial_response],
       false);
   }
 

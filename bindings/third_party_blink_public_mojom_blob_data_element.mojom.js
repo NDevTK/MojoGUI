@@ -204,7 +204,7 @@ mojo.internal.bindings.blink.mojom.BytesProviderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsReply_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -213,7 +213,7 @@ mojo.internal.bindings.blink.mojom.BytesProviderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsStream_ParamsSpec,
       null,
-      { arg_pipe: arg_pipe },
+      [arg_pipe],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.blink.mojom.BytesProviderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsFile_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec,
-      { arg_source_offset: arg_source_offset, arg_source_size: arg_source_size, arg_file: arg_file, arg_file_offset: arg_file_offset },
+      [arg_source_offset, arg_source_size, arg_file, arg_file_offset],
       false);
   }
 

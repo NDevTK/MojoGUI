@@ -176,7 +176,7 @@ mojo.internal.bindings.ui.mojom.IMEStructTraitsTestRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec,
       mojo.internal.bindings.ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec,
-      { arg_in: arg_in },
+      [arg_in],
       false);
   }
 

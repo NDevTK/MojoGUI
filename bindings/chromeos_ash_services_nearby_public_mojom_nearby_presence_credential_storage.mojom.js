@@ -212,7 +212,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec,
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec,
-      { arg_local_credentials: arg_local_credentials, arg_shared_credentials: arg_shared_credentials, arg_public_credential_type: arg_public_credential_type },
+      [arg_local_credentials, arg_shared_credentials, arg_public_credential_type],
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec,
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec,
-      { arg_public_credential_type: arg_public_credential_type },
+      [arg_public_credential_type],
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec,
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec,
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec,
-      { arg_local_credential: arg_local_credential },
+      [arg_local_credential],
       false);
   }
 

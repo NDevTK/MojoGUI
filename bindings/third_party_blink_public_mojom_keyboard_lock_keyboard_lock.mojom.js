@@ -201,7 +201,7 @@ mojo.internal.bindings.blink.mojom.KeyboardLockServiceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec,
       mojo.internal.bindings.blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec,
-      { arg_key_codes: arg_key_codes },
+      [arg_key_codes],
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.blink.mojom.KeyboardLockServiceRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.blink.mojom.KeyboardLockServiceRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec,
       mojo.internal.bindings.blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

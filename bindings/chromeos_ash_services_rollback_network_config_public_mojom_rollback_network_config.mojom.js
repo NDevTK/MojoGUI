@@ -178,7 +178,7 @@ mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfigRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec,
       mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -187,7 +187,7 @@ mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfigRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ParamsSpec,
       mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

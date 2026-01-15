@@ -199,7 +199,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec,
-      { arg_desired_protection: arg_desired_protection },
+      [arg_desired_protection],
       false);
   }
 

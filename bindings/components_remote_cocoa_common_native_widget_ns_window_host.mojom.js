@@ -487,7 +487,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnVisibilityChanged_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 
@@ -496,7 +496,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSpaceActivationChanged_ParamsSpec,
       null,
-      { arg_is_space_active: arg_is_space_active },
+      [arg_is_space_active],
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowNativeThemeChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -514,7 +514,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnViewSizeChanged_ParamsSpec,
       null,
-      { arg_new_size: arg_new_size },
+      [arg_new_size],
       false);
   }
 
@@ -523,7 +523,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetSheetOffsetY_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -532,7 +532,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_SetKeyboardAccessible_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -541,7 +541,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnIsFirstResponderChanged_ParamsSpec,
       null,
-      { arg_is_first_responder: arg_is_first_responder },
+      [arg_is_first_responder],
       false);
   }
 
@@ -550,7 +550,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseCaptureActiveChanged_ParamsSpec,
       null,
-      { arg_capture_is_active: arg_capture_is_active },
+      [arg_capture_is_active],
       false);
   }
 
@@ -559,7 +559,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnScrollEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -568,7 +568,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnMouseEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -577,7 +577,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnGestureEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -586,7 +586,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventRemote_ResponseParamsSpec,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -595,7 +595,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchKeyEventToMenuControllerRemote_ResponseParamsSpec,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -604,7 +604,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DispatchMonitorEvent_ResponseParamsSpec,
-      { arg_event: arg_event, arg_target_is_this_window: arg_target_is_this_window },
+      [arg_event, arg_target_is_this_window],
       false);
   }
 
@@ -613,7 +613,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHasMenuController_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -622,7 +622,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetHitTestResult_ResponseParamsSpec,
-      { arg_location_in_content: arg_location_in_content },
+      [arg_location_in_content],
       false);
   }
 
@@ -631,7 +631,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetTooltipTextAt_ResponseParamsSpec,
-      { arg_location_in_content: arg_location_in_content },
+      [arg_location_in_content],
       false);
   }
 
@@ -640,7 +640,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWidgetIsModal_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -649,7 +649,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetIsFocusedViewTextual_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -658,7 +658,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowGeometryChanged_ParamsSpec,
       null,
-      { arg_window_bounds_in_screen_dips: arg_window_bounds_in_screen_dips, arg_content_bounds_in_screen_dips: arg_content_bounds_in_screen_dips },
+      [arg_window_bounds_in_screen_dips, arg_content_bounds_in_screen_dips],
       false);
   }
 
@@ -667,7 +667,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowWillStartLiveResize_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -676,7 +676,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDidEndLiveResize_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -685,7 +685,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionStart_ParamsSpec,
       null,
-      { arg_target_fullscreen_state: arg_target_fullscreen_state },
+      [arg_target_fullscreen_state],
       false);
   }
 
@@ -694,7 +694,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowFullscreenTransitionComplete_ParamsSpec,
       null,
-      { arg_is_fullscreen: arg_is_fullscreen },
+      [arg_is_fullscreen],
       false);
   }
 
@@ -703,7 +703,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowMiniaturizedChanged_ParamsSpec,
       null,
-      { arg_miniaturized: arg_miniaturized },
+      [arg_miniaturized],
       false);
   }
 
@@ -712,7 +712,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowZoomedChanged_ParamsSpec,
       null,
-      { arg_zoomed: arg_zoomed },
+      [arg_zoomed],
       false);
   }
 
@@ -721,7 +721,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowDisplayChanged_ParamsSpec,
       null,
-      { arg_display: arg_display },
+      [arg_display],
       false);
   }
 
@@ -730,7 +730,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowWillClose_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -739,7 +739,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowHasClosed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -748,7 +748,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowKeyStatusChanged_ParamsSpec,
       null,
-      { arg_is_key: arg_is_key, arg_is_content_first_responder: arg_is_content_first_responder, arg_full_keyboard_access_enabled: arg_full_keyboard_access_enabled },
+      [arg_is_key, arg_is_content_first_responder, arg_full_keyboard_access_enabled],
       false);
   }
 
@@ -757,7 +757,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowStateRestorationDataChanged_ParamsSpec,
       null,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -766,7 +766,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSheetModalShown_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -775,7 +775,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnSheetModalClosed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -784,7 +784,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenToolbarRevealChanged_ParamsSpec,
       null,
-      { arg_is_revealed: arg_is_revealed },
+      [arg_is_revealed],
       false);
   }
 
@@ -793,7 +793,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnImmersiveFullscreenMenuBarRevealChanged_ParamsSpec,
       null,
-      { arg_reveal_amount: arg_reveal_amount },
+      [arg_reveal_amount],
       false);
   }
 
@@ -802,7 +802,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnAutohidingMenuBarHeightChanged_ParamsSpec,
       null,
-      { arg_menu_bar_height: arg_menu_bar_height },
+      [arg_menu_bar_height],
       false);
   }
 
@@ -811,7 +811,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_DoDialogButtonAction_ParamsSpec,
       null,
-      { arg_button: arg_button },
+      [arg_button],
       false);
   }
 
@@ -820,7 +820,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDialogButtonInfo_ResponseParamsSpec,
-      { arg_button: arg_button },
+      [arg_button],
       false);
   }
 
@@ -829,7 +829,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetDoDialogButtonsExist_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -838,7 +838,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetShouldShowWindowTitle_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -847,7 +847,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[40],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetCanWindowBecomeKey_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -856,7 +856,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[41],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetAlwaysRenderWindowAsKey_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -865,7 +865,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[42],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnWindowCloseRequested_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -874,7 +874,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[43],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetWindowFrameTitlebarHeight_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -883,7 +883,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[44],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_OnFocusWindowToolbar_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -892,7 +892,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[45],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_SetRemoteAccessibilityTokens_ParamsSpec,
       null,
-      { arg_window_token: arg_window_token, arg_view_token: arg_view_token },
+      [arg_window_token, arg_view_token],
       false);
   }
 
@@ -901,7 +901,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[46],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_GetRootViewAccessibilityToken_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -910,7 +910,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[47],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_ValidateUserInterfaceItem_ResponseParamsSpec,
-      { arg_command: arg_command },
+      [arg_command],
       false);
   }
 
@@ -919,7 +919,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[48],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_WillExecuteCommand_ResponseParamsSpec,
-      { arg_command: arg_command, arg_window_open_disposition: arg_window_open_disposition, arg_is_before_first_responder: arg_is_before_first_responder },
+      [arg_command, arg_window_open_disposition, arg_is_before_first_responder],
       false);
   }
 
@@ -928,7 +928,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[49],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_ExecuteCommand_ResponseParamsSpec,
-      { arg_command: arg_command, arg_window_open_disposition: arg_window_open_disposition, arg_is_before_first_responder: arg_is_before_first_responder },
+      [arg_command, arg_window_open_disposition, arg_is_before_first_responder],
       false);
   }
 
@@ -937,7 +937,7 @@ mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemoteCallHand
       this.ordinals[50],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHost_HandleAccelerator_ResponseParamsSpec,
-      { arg_accelerator: arg_accelerator, arg_require_priority_handler: arg_require_priority_handler },
+      [arg_accelerator, arg_require_priority_handler],
       false);
   }
 

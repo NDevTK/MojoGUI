@@ -238,7 +238,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactoryRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -424,7 +424,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec,
       null,
-      { arg_emoji: arg_emoji, arg_is_variant: arg_is_variant, arg_search_length: arg_search_length },
+      [arg_emoji, arg_is_variant, arg_search_length],
       false);
   }
 
@@ -442,7 +442,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec,
       null,
-      { arg_gif: arg_gif },
+      [arg_gif],
       false);
   }
 
@@ -451,7 +451,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec,
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -460,7 +460,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec,
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -469,7 +469,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec,
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -478,7 +478,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec,
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec,
-      { arg_pos: arg_pos },
+      [arg_pos],
       false);
   }
 
@@ -487,7 +487,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec,
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec,
-      { arg_query: arg_query, arg_pos: arg_pos },
+      [arg_query, arg_pos],
       false);
   }
 
@@ -496,7 +496,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec,
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec,
-      { arg_ids: arg_ids },
+      [arg_ids],
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -514,7 +514,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec,
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -523,7 +523,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec,
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -532,7 +532,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec,
       null,
-      { arg_category: arg_category, arg_history: arg_history },
+      [arg_category, arg_history],
       false);
   }
 
@@ -541,7 +541,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec,
       null,
-      { arg_preferred_variants: arg_preferred_variants },
+      [arg_preferred_variants],
       false);
   }
 
@@ -550,7 +550,7 @@ mojo.internal.bindings.emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec,
       mojo.internal.bindings.emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec,
-      { arg_category: arg_category },
+      [arg_category],
       false);
   }
 

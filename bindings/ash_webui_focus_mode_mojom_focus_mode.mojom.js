@@ -201,7 +201,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.MediaClientRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec,
       null,
-      { arg_track: arg_track },
+      [arg_track],
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec,
       mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec,
       null,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.ash.focus_mode.mojom.TrackProviderRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

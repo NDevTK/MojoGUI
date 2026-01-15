@@ -196,7 +196,7 @@ mojo.internal.bindings.sharing.mojom.IceConfigFetcherRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.sharing.mojom.MdnsResponderFactoryRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec,
       null,
-      { arg_responder_receiver: arg_responder_receiver },
+      [arg_responder_receiver],
       false);
   }
 

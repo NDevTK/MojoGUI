@@ -189,7 +189,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnosticsRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -198,7 +198,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnosticsRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec,
-      { arg_pid: arg_pid },
+      [arg_pid],
       false);
   }
 

@@ -206,7 +206,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SearchResultsObserverRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SearchHandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SearchHandler_Search_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SearchHandler_Search_ResponseParamsSpec,
-      { arg_query: arg_query, arg_max_num_results: arg_max_num_results },
+      [arg_query, arg_max_num_results],
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SearchHandlerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SearchHandler_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

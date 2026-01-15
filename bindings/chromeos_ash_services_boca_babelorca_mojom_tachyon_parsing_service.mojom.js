@@ -184,7 +184,7 @@ mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingServiceRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec,
       mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec,
-      { arg_stream_data: arg_stream_data },
+      [arg_stream_data],
       false);
   }
 

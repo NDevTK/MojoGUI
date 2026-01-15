@@ -194,7 +194,7 @@ mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec,
       null,
-      { arg_success: arg_success },
+      [arg_success],
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -475,7 +475,7 @@ mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec,
-      { arg_self_id: arg_self_id, arg_peer_id: arg_peer_id, arg_location_hint: arg_location_hint, arg_message: arg_message },
+      [arg_self_id, arg_peer_id, arg_location_hint, arg_message],
       false);
   }
 
@@ -484,7 +484,7 @@ mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec,
-      { arg_self_id: arg_self_id, arg_location_hint: arg_location_hint, arg_listener: arg_listener },
+      [arg_self_id, arg_location_hint, arg_listener],
       false);
   }
 

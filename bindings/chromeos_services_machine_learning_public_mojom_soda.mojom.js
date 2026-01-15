@@ -263,7 +263,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec,
       null,
-      { arg_audio: arg_audio },
+      [arg_audio],
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -457,7 +457,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -466,7 +466,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

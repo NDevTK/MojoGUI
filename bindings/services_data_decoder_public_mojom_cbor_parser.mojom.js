@@ -180,7 +180,7 @@ mojo.internal.bindings.data_decoder.mojom.CborParserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.CborParser_Parse_ResponseParamsSpec,
-      { arg_cbor: arg_cbor },
+      [arg_cbor],
       false);
   }
 

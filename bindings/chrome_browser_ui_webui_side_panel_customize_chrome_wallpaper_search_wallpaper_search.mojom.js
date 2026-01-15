@@ -244,7 +244,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerF
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_handler: arg_handler },
+      [arg_client, arg_handler],
       false);
   }
 
@@ -414,7 +414,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec,
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -423,7 +423,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec,
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -432,7 +432,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec,
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec,
-      { arg_result_descriptors: arg_result_descriptors },
+      [arg_result_descriptors],
       false);
   }
 
@@ -441,7 +441,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec,
       null,
-      { arg_result_ids: arg_result_ids, arg_time: arg_time },
+      [arg_result_ids, arg_time],
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec,
       null,
-      { arg_result_id: arg_result_id, arg_descriptors: arg_descriptors },
+      [arg_result_id, arg_descriptors],
       false);
   }
 
@@ -459,7 +459,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec,
       null,
-      { arg_id: arg_id, arg_background_url: arg_background_url },
+      [arg_id, arg_background_url],
       false);
   }
 
@@ -468,7 +468,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec,
       null,
-      { arg_result_id: arg_result_id, arg_time: arg_time, arg_descriptors: arg_descriptors },
+      [arg_result_id, arg_time, arg_descriptors],
       false);
   }
 
@@ -477,7 +477,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -486,7 +486,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec,
       null,
-      { arg_selected_option: arg_selected_option },
+      [arg_selected_option],
       false);
   }
 
@@ -495,7 +495,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -504,7 +504,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandlerR
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -740,7 +740,7 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClientRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec,
       null,
-      { arg_history: arg_history },
+      [arg_history],
       false);
   }
 

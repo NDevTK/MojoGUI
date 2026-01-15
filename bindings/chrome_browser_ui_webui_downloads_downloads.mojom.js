@@ -272,7 +272,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerFactoryRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -494,7 +494,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_GetDownloads_ParamsSpec,
       null,
-      { arg_search_terms: arg_search_terms },
+      [arg_search_terms],
       false);
   }
 
@@ -503,7 +503,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -512,7 +512,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_Drag_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -521,7 +521,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -530,7 +530,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -539,7 +539,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -548,7 +548,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -557,7 +557,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -566,7 +566,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_RetryDownload_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -575,7 +575,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_Show_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -584,7 +584,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_Pause_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -593,7 +593,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_Resume_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -602,7 +602,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_Remove_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -611,7 +611,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_Undo_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -620,7 +620,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_Cancel_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -629,7 +629,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_ClearAll_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -638,7 +638,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -647,7 +647,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -656,7 +656,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -665,7 +665,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_DeepScan_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -692,7 +692,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -701,7 +701,7 @@ mojo.internal.bindings.downloads.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec,
       mojo.internal.bindings.downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1036,7 +1036,7 @@ mojo.internal.bindings.downloads.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.downloads.mojom.Page_RemoveItem_ParamsSpec,
       null,
-      { arg_index: arg_index },
+      [arg_index],
       false);
   }
 
@@ -1045,7 +1045,7 @@ mojo.internal.bindings.downloads.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.downloads.mojom.Page_UpdateItem_ParamsSpec,
       null,
-      { arg_index: arg_index, arg_data: arg_data },
+      [arg_index, arg_data],
       false);
   }
 
@@ -1054,7 +1054,7 @@ mojo.internal.bindings.downloads.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.downloads.mojom.Page_InsertItems_ParamsSpec,
       null,
-      { arg_index: arg_index, arg_items: arg_items },
+      [arg_index, arg_items],
       false);
   }
 
@@ -1063,7 +1063,7 @@ mojo.internal.bindings.downloads.mojom.PageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.downloads.mojom.Page_ClearAll_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

@@ -170,7 +170,7 @@ mojo.internal.bindings.video_capture.mojom.TestingControlsRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.TestingControls_Crash_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

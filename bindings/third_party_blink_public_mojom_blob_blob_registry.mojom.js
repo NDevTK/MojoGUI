@@ -190,7 +190,7 @@ mojo.internal.bindings.blink.mojom.ProgressClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ProgressClient_OnProgress_ParamsSpec,
       null,
-      { arg_delta: arg_delta },
+      [arg_delta],
       false);
   }
 
@@ -324,7 +324,7 @@ mojo.internal.bindings.blink.mojom.BlobRegistryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ResponseParamsSpec,
-      { arg_blob: arg_blob, arg_uuid: arg_uuid, arg_content_type: arg_content_type, arg_content_disposition: arg_content_disposition, arg_elements: arg_elements },
+      [arg_blob, arg_uuid, arg_content_type, arg_content_disposition, arg_elements],
       false);
   }
 
@@ -333,7 +333,7 @@ mojo.internal.bindings.blink.mojom.BlobRegistryRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec,
-      { arg_content_type: arg_content_type, arg_content_disposition: arg_content_disposition, arg_length_hint: arg_length_hint, arg_data: arg_data, arg_progress_client: arg_progress_client },
+      [arg_content_type, arg_content_disposition, arg_length_hint, arg_data, arg_progress_client],
       false);
   }
 

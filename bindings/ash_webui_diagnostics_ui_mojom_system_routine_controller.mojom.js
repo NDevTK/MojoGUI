@@ -221,7 +221,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 
@@ -355,7 +355,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec,
       mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -364,7 +364,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec,
       null,
-      { arg_type: arg_type, arg_runner: arg_runner },
+      [arg_type, arg_runner],
       false);
   }
 

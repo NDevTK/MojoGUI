@@ -199,7 +199,7 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -329,7 +329,7 @@ mojo.internal.bindings.action_chips.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec,
       null,
-      { arg_action_chips: arg_action_chips },
+      [arg_action_chips],
       false);
   }
 
@@ -459,7 +459,7 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactoryRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler, arg_page: arg_page },
+      [arg_handler, arg_page],
       false);
   }
 

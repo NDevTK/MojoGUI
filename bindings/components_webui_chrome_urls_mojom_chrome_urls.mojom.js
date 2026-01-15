@@ -188,7 +188,7 @@ mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactoryRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -322,7 +322,7 @@ mojo.internal.bindings.chrome_urls.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec,
       mojo.internal.bindings.chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -331,7 +331,7 @@ mojo.internal.bindings.chrome_urls.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec,
       mojo.internal.bindings.chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 

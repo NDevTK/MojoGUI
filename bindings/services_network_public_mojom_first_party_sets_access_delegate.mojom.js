@@ -185,7 +185,7 @@ mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec,
       null,
-      { arg_ready_event: arg_ready_event },
+      [arg_ready_event],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 

@@ -232,7 +232,7 @@ mojo.internal.bindings.network.mojom.FileEnumeratorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ParamsSpec,
       mojo.internal.bindings.network.mojom.FileEnumerator_GetNext_ResponseParamsSpec,
-      { arg_num_entries: arg_num_entries },
+      [arg_num_entries],
       false);
   }
 
@@ -402,7 +402,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec,
       mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -411,7 +411,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec,
       mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -420,7 +420,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec,
       mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -429,7 +429,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec,
       mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec,
-      { arg_path: arg_path, arg_flags: arg_flags },
+      [arg_path, arg_flags],
       false);
   }
 
@@ -438,7 +438,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsRemoteCallHan
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec,
       mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec,
-      { arg_path: arg_path, arg_mode: arg_mode },
+      [arg_path, arg_mode],
       false);
   }
 
@@ -447,7 +447,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsRemoteCallHan
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec,
       mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec,
-      { arg_from_path: arg_from_path, arg_to_path: arg_to_path },
+      [arg_from_path, arg_to_path],
       false);
   }
 
@@ -456,7 +456,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsRemoteCallHan
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec,
       mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -465,7 +465,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsRemoteCallHan
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec,
       null,
-      { arg_path: arg_path, arg_receiver: arg_receiver },
+      [arg_path, arg_receiver],
       false);
   }
 
@@ -474,7 +474,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsRemoteCallHan
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec,
       mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -739,7 +739,7 @@ mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactoryRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

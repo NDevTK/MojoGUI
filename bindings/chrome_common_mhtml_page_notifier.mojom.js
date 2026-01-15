@@ -184,7 +184,7 @@ mojo.internal.bindings.offline_pages.mojom.MhtmlPageNotifierRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec,
       null,
-      { arg_load_result: arg_load_result, arg_url: arg_url, arg_date: arg_date },
+      [arg_load_result, arg_url, arg_date],
       false);
   }
 

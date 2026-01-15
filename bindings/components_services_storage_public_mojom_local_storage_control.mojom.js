@@ -224,7 +224,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec,
       null,
-      { arg_storage_key: arg_storage_key, arg_receiver: arg_receiver },
+      [arg_storage_key, arg_receiver],
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ParamsSpec,
       mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec,
       mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ResponseParamsSpec,
-      { arg_storage_key: arg_storage_key },
+      [arg_storage_key],
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec,
       mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.storage.mojom.LocalStorageControl_Flush_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlRemoteCallHandler = clas
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlRemoteCallHandler = clas
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec,
       null,
-      { arg_policy_updates: arg_policy_updates },
+      [arg_policy_updates],
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlRemoteCallHandler = clas
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

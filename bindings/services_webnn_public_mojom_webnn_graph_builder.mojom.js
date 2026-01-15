@@ -208,7 +208,7 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec,
       null,
-      { arg_constant_handle: arg_constant_handle, arg_data_type: arg_data_type, arg_data: arg_data },
+      [arg_constant_handle, arg_data_type, arg_data],
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec,
       null,
-      { arg_graph_info: arg_graph_info },
+      [arg_graph_info],
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec,
       mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec,
-      { arg_context_properties: arg_context_properties, arg_graph_info: arg_graph_info },
+      [arg_context_properties, arg_graph_info],
       false);
   }
 

@@ -264,7 +264,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorageCache_Match_ParamsSpec,
       null,
-      { arg_request: arg_request, arg_query_options: arg_query_options, arg_in_related_fetch_event: arg_in_related_fetch_event, arg_in_range_fetch_event: arg_in_range_fetch_event, arg_trace_id: arg_trace_id },
+      [arg_request, arg_query_options, arg_in_related_fetch_event, arg_in_range_fetch_event, arg_trace_id],
       false);
   }
 
@@ -273,7 +273,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorageCache_MatchAll_ParamsSpec,
       null,
-      { arg_request: arg_request, arg_query_options: arg_query_options, arg_trace_id: arg_trace_id },
+      [arg_request, arg_query_options, arg_trace_id],
       false);
   }
 
@@ -282,7 +282,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec,
       null,
-      { arg_request: arg_request, arg_query_options: arg_query_options, arg_trace_id: arg_trace_id },
+      [arg_request, arg_query_options, arg_trace_id],
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorageCache_Keys_ParamsSpec,
       null,
-      { arg_request: arg_request, arg_query_options: arg_query_options, arg_trace_id: arg_trace_id },
+      [arg_request, arg_query_options, arg_trace_id],
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec,
-      { arg_batch_operations: arg_batch_operations, arg_trace_id: arg_trace_id },
+      [arg_batch_operations, arg_trace_id],
       false);
   }
 
@@ -309,7 +309,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec,
-      { arg_url: arg_url, arg_expected_response_time: arg_expected_response_time, arg_data: arg_data, arg_trace_id: arg_trace_id },
+      [arg_url, arg_expected_response_time, arg_data, arg_trace_id],
       false);
   }
 
@@ -513,7 +513,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorage_Has_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CacheStorage_Has_ResponseParamsSpec,
-      { arg_cache_name: arg_cache_name, arg_trace_id: arg_trace_id },
+      [arg_cache_name, arg_trace_id],
       false);
   }
 
@@ -522,7 +522,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CacheStorage_Delete_ResponseParamsSpec,
-      { arg_cache_name: arg_cache_name, arg_trace_id: arg_trace_id },
+      [arg_cache_name, arg_trace_id],
       false);
   }
 
@@ -531,7 +531,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CacheStorage_Keys_ResponseParamsSpec,
-      { arg_trace_id: arg_trace_id },
+      [arg_trace_id],
       false);
   }
 
@@ -540,7 +540,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorage_Match_ParamsSpec,
       null,
-      { arg_request: arg_request, arg_match_options: arg_match_options, arg_in_related_fetch_event: arg_in_related_fetch_event, arg_in_range_fetch_event: arg_in_range_fetch_event, arg_trace_id: arg_trace_id },
+      [arg_request, arg_match_options, arg_in_related_fetch_event, arg_in_range_fetch_event, arg_trace_id],
       false);
   }
 
@@ -549,7 +549,7 @@ mojo.internal.bindings.blink.mojom.CacheStorageRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.CacheStorage_Open_ParamsSpec,
       null,
-      { arg_cache_name: arg_cache_name, arg_trace_id: arg_trace_id },
+      [arg_cache_name, arg_trace_id],
       false);
   }
 

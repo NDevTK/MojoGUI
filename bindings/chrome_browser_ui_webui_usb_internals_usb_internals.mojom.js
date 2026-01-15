@@ -185,7 +185,7 @@ mojo.internal.bindings.mojom.UsbInternalsPageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.mojom.UsbInternalsPageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

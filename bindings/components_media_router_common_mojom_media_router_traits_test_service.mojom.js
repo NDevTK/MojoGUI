@@ -176,7 +176,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestServiceRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec,
       mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec,
-      { arg_s: arg_s },
+      [arg_s],
       false);
   }
 

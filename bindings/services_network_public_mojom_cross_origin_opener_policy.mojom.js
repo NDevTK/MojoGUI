@@ -198,7 +198,7 @@ mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporterRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec,
       null,
-      { arg_report_type: arg_report_type, arg_property: arg_property, arg_source_location: arg_source_location, arg_reported_window_url: arg_reported_window_url },
+      [arg_report_type, arg_property, arg_source_location, arg_reported_window_url],
       false);
   }
 

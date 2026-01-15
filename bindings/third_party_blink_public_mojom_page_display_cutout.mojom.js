@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.DisplayCutoutHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec,
       null,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.blink.mojom.DisplayCutoutHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec,
       null,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.blink.mojom.DisplayCutoutClientRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec,
       null,
-      { arg_safe_area: arg_safe_area },
+      [arg_safe_area],
       false);
   }
 

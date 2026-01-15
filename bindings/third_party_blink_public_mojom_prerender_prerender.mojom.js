@@ -196,7 +196,7 @@ mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec,
       null,
-      { arg_prerender_attribute: arg_prerender_attribute },
+      [arg_prerender_attribute],
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

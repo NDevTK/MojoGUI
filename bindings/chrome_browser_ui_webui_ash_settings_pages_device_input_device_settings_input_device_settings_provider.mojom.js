@@ -306,7 +306,7 @@ mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec,
       null,
-      { arg_keyboards: arg_keyboards },
+      [arg_keyboards],
       false);
   }
 
@@ -315,7 +315,7 @@ mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserverRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec,
       null,
-      { arg_policies: arg_policies },
+      [arg_policies],
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.ash.settings.mojom.TouchpadSettingsObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec,
       null,
-      { arg_touchpads: arg_touchpads },
+      [arg_touchpads],
       false);
   }
 
@@ -583,7 +583,7 @@ mojo.internal.bindings.ash.settings.mojom.PointingStickSettingsObserverRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec,
       null,
-      { arg_pointSticks: arg_pointSticks },
+      [arg_pointSticks],
       false);
   }
 
@@ -717,7 +717,7 @@ mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec,
       null,
-      { arg_mice: arg_mice },
+      [arg_mice],
       false);
   }
 
@@ -726,7 +726,7 @@ mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserverRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec,
       null,
-      { arg_policies: arg_policies },
+      [arg_policies],
       false);
   }
 
@@ -864,7 +864,7 @@ mojo.internal.bindings.ash.settings.mojom.ButtonPressObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec,
       null,
-      { arg_button: arg_button },
+      [arg_button],
       false);
   }
 
@@ -994,7 +994,7 @@ mojo.internal.bindings.ash.settings.mojom.GraphicsTabletSettingsObserverRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec,
       null,
-      { arg_graphics_tablets: arg_graphics_tablets },
+      [arg_graphics_tablets],
       false);
   }
 
@@ -1124,7 +1124,7 @@ mojo.internal.bindings.ash.settings.mojom.KeyboardBrightnessObserverRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec,
       null,
-      { arg_brightness_percent: arg_brightness_percent },
+      [arg_brightness_percent],
       false);
   }
 
@@ -1254,7 +1254,7 @@ mojo.internal.bindings.ash.settings.mojom.KeyboardAmbientLightSensorObserverRemo
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec,
       null,
-      { arg_keyboard_ambient_light_sensor_enabled: arg_keyboard_ambient_light_sensor_enabled },
+      [arg_keyboard_ambient_light_sensor_enabled],
       false);
   }
 
@@ -1384,7 +1384,7 @@ mojo.internal.bindings.ash.settings.mojom.LidStateObserverRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec,
       null,
-      { arg_is_lid_open: arg_is_lid_open },
+      [arg_is_lid_open],
       false);
   }
 
@@ -1626,7 +1626,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -1635,7 +1635,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -1644,7 +1644,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -1653,7 +1653,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -1662,7 +1662,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -1671,7 +1671,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -1680,7 +1680,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -1689,7 +1689,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -1698,7 +1698,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec,
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ResponseParamsSpec,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -1707,7 +1707,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id },
+      [arg_device_id],
       false);
   }
 
@@ -1716,7 +1716,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id, arg_settings: arg_settings },
+      [arg_device_id, arg_settings],
       false);
   }
 
@@ -1725,7 +1725,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id, arg_settings: arg_settings },
+      [arg_device_id, arg_settings],
       false);
   }
 
@@ -1734,7 +1734,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id, arg_settings: arg_settings },
+      [arg_device_id, arg_settings],
       false);
   }
 
@@ -1743,7 +1743,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id, arg_settings: arg_settings },
+      [arg_device_id, arg_settings],
       false);
   }
 
@@ -1752,7 +1752,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id, arg_settings: arg_settings },
+      [arg_device_id, arg_settings],
       false);
   }
 
@@ -1761,7 +1761,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec,
       null,
-      { arg_percent: arg_percent },
+      [arg_percent],
       false);
   }
 
@@ -1770,7 +1770,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -1779,7 +1779,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id },
+      [arg_device_id],
       false);
   }
 
@@ -1788,7 +1788,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1797,7 +1797,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ParamsSpec,
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1806,7 +1806,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ParamsSpec,
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1815,7 +1815,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec,
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1824,7 +1824,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec,
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1833,7 +1833,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec,
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1842,7 +1842,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec,
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1851,7 +1851,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1860,7 +1860,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_ParamsSpec,
       null,
-      { arg_percent: arg_percent },
+      [arg_percent],
       false);
   }
 
@@ -1869,7 +1869,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec,
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ResponseParamsSpec,
-      { arg_device_key: arg_device_key },
+      [arg_device_key],
       false);
   }
 
@@ -1878,7 +1878,7 @@ mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProviderRemoteCallH
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec,
       null,
-      { arg_package_id: arg_package_id },
+      [arg_package_id],
       false);
   }
 

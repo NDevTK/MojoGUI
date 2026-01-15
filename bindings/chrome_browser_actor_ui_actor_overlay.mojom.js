@@ -199,7 +199,7 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactoryRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_receiver: arg_receiver },
+      [arg_page, arg_receiver],
       false);
   }
 
@@ -333,7 +333,7 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec,
       null,
-      { arg_is_hovering: arg_is_hovering },
+      [arg_is_hovering],
       false);
   }
 
@@ -342,7 +342,7 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec,
       mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec,
       null,
-      { arg_is_visible: arg_is_visible },
+      [arg_is_visible],
       false);
   }
 
@@ -514,7 +514,7 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec,
       null,
-      { arg_is_visible: arg_is_visible },
+      [arg_is_visible],
       false);
   }
 
@@ -523,7 +523,7 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec,
       null,
-      { arg_theme: arg_theme },
+      [arg_theme],
       false);
   }
 
@@ -532,7 +532,7 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec,
       mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec,
-      { arg_point: arg_point },
+      [arg_point],
       false);
   }
 
@@ -541,7 +541,7 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec,
       mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

@@ -199,7 +199,7 @@ mojo.internal.bindings.blink.mojom.PrivateAggregationHostRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec,
       null,
-      { arg_contributions: arg_contributions },
+      [arg_contributions],
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.blink.mojom.PrivateAggregationHostRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec,
       null,
-      { arg_error_event: arg_error_event, arg_contributions: arg_contributions },
+      [arg_error_event, arg_contributions],
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.blink.mojom.PrivateAggregationHostRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec,
       null,
-      { arg_debug_key: arg_debug_key },
+      [arg_debug_key],
       false);
   }
 

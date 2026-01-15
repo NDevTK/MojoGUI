@@ -226,7 +226,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id, arg_permission: arg_permission },
+      [arg_app_id, arg_permission],
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec,
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec,
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -463,7 +463,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObser
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec,
       null,
-      { arg_app: arg_app },
+      [arg_app],
       false);
   }
 
@@ -472,7 +472,7 @@ mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObser
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 

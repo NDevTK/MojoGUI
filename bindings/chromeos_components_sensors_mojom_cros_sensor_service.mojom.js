@@ -182,7 +182,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorHalServerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorHalServer_CreateChannel_ParamsSpec,
       null,
-      { arg_sensor_service_request: arg_sensor_service_request },
+      [arg_sensor_service_request],
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClient_SetUpChannel_ParamsSpec,
       null,
-      { arg_sensor_service_ptr: arg_sensor_service_ptr },
+      [arg_sensor_service_ptr],
       false);
   }
 

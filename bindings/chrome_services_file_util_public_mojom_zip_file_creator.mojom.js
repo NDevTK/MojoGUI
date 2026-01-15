@@ -193,7 +193,7 @@ mojo.internal.bindings.chrome.mojom.ZipListenerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.ZipListener_OnProgress_ParamsSpec,
       null,
-      { arg_bytes: arg_bytes, arg_files: arg_files, arg_directories: arg_directories },
+      [arg_bytes, arg_files, arg_directories],
       false);
   }
 
@@ -202,7 +202,7 @@ mojo.internal.bindings.chrome.mojom.ZipListenerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.ZipListener_OnFinished_ParamsSpec,
       null,
-      { arg_success: arg_success },
+      [arg_success],
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.chrome.mojom.ZipFileCreatorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec,
       null,
-      { arg_src_dir: arg_src_dir, arg_relative_paths: arg_relative_paths, arg_zip_file: arg_zip_file, arg_listener: arg_listener },
+      [arg_src_dir, arg_relative_paths, arg_zip_file, arg_listener],
       false);
   }
 

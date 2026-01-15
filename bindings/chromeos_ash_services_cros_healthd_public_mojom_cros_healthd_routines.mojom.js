@@ -453,7 +453,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec,
       null,
-      { arg_routine_argument: arg_routine_argument, arg_routine_receiver: arg_routine_receiver, arg_routine_observer: arg_routine_observer },
+      [arg_routine_argument, arg_routine_receiver, arg_routine_observer],
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemoteCa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec,
-      { arg_routine_argument: arg_routine_argument },
+      [arg_routine_argument],
       false);
   }
 
@@ -617,7 +617,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -626,7 +626,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -635,7 +635,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec,
       null,
-      { arg_reply: arg_reply },
+      [arg_reply],
       false);
   }
 
@@ -790,7 +790,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 

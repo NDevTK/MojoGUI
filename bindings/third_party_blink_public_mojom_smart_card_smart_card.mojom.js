@@ -177,7 +177,7 @@ mojo.internal.bindings.blink.mojom.SmartCardServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SmartCardService_CreateContext_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

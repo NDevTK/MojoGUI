@@ -395,7 +395,7 @@ mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitorRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec,
       null,
-      { arg_is_tablet_mode: arg_is_tablet_mode },
+      [arg_is_tablet_mode],
       false);
   }
 
@@ -525,7 +525,7 @@ mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitorRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -655,7 +655,7 @@ mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitorRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec,
       null,
-      { arg_is_screen_locked: arg_is_screen_locked },
+      [arg_is_screen_locked],
       false);
   }
 
@@ -785,7 +785,7 @@ mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitorRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec,
       null,
-      { arg_has_external_screen: arg_has_external_screen },
+      [arg_has_external_screen],
       false);
   }
 
@@ -915,7 +915,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitorRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ResponseParamsSpec,
-      { arg_has_usage: arg_has_usage },
+      [arg_has_usage],
       false);
   }
 
@@ -1053,7 +1053,7 @@ mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitorRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec,
       null,
-      { arg_lid_status: arg_lid_status },
+      [arg_lid_status],
       false);
   }
 
@@ -1183,7 +1183,7 @@ mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitorRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec,
       null,
-      { arg_is_sw_privacy_switch_on: arg_is_sw_privacy_switch_on },
+      [arg_is_sw_privacy_switch_on],
       false);
   }
 
@@ -1317,7 +1317,7 @@ mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitorRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec,
       null,
-      { arg_states: arg_states },
+      [arg_states],
       false);
   }
 
@@ -1326,7 +1326,7 @@ mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitorRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec,
       null,
-      { arg_is_focus: arg_is_focus },
+      [arg_is_focus],
       false);
   }
 
@@ -1464,7 +1464,7 @@ mojo.internal.bindings.ash.camera_app.mojom.StorageMonitorRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -1618,7 +1618,7 @@ mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec,
-      { arg_monitor: arg_monitor },
+      [arg_monitor],
       false);
   }
 
@@ -1627,7 +1627,7 @@ mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1636,7 +1636,7 @@ mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Minimize_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1645,7 +1645,7 @@ mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Restore_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1654,7 +1654,7 @@ mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerRemoteCallHandl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Maximize_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1663,7 +1663,7 @@ mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerRemoteCallHandl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Fullscreen_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1672,7 +1672,7 @@ mojo.internal.bindings.ash.camera_app.mojom.WindowStateControllerRemoteCallHandl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.WindowStateController_Focus_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2032,7 +2032,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec,
-      { arg_intent_id: arg_intent_id, arg_action: arg_action, arg_data: arg_data },
+      [arg_intent_id, arg_action, arg_data],
       false);
   }
 
@@ -2041,7 +2041,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2050,7 +2050,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -2059,7 +2059,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -2068,7 +2068,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec,
-      { arg_monitor: arg_monitor },
+      [arg_monitor],
       false);
   }
 
@@ -2077,7 +2077,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec,
-      { arg_monitor: arg_monitor },
+      [arg_monitor],
       false);
   }
 
@@ -2086,7 +2086,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2095,7 +2095,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec,
-      { arg_monitor: arg_monitor },
+      [arg_monitor],
       false);
   }
 
@@ -2104,7 +2104,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec,
       null,
-      { arg_name: arg_name },
+      [arg_name],
       false);
   }
 
@@ -2113,7 +2113,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec,
       null,
-      { arg_placeholder: arg_placeholder },
+      [arg_placeholder],
       false);
   }
 
@@ -2122,7 +2122,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -2131,7 +2131,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2140,7 +2140,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec,
-      { arg_file_type: arg_file_type, arg_destination: arg_destination },
+      [arg_file_type, arg_destination],
       false);
   }
 
@@ -2149,7 +2149,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec,
-      { arg_name: arg_name },
+      [arg_name],
       false);
   }
 
@@ -2158,7 +2158,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2167,7 +2167,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2176,7 +2176,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec,
-      { arg_jpeg_data: arg_jpeg_data },
+      [arg_jpeg_data],
       false);
   }
 
@@ -2185,7 +2185,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec,
-      { arg_jpeg_data: arg_jpeg_data, arg_corners: arg_corners, arg_rotation: arg_rotation },
+      [arg_jpeg_data, arg_corners, arg_rotation],
       false);
   }
 
@@ -2194,7 +2194,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2203,7 +2203,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec,
-      { arg_monitor: arg_monitor },
+      [arg_monitor],
       false);
   }
 
@@ -2212,7 +2212,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2221,7 +2221,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2230,7 +2230,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec,
       null,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -2239,7 +2239,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec,
-      { arg_monitor: arg_monitor },
+      [arg_monitor],
       false);
   }
 
@@ -2248,7 +2248,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec,
-      { arg_monitor: arg_monitor },
+      [arg_monitor],
       false);
   }
 
@@ -2257,7 +2257,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2266,7 +2266,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec,
-      { arg_monitor: arg_monitor },
+      [arg_monitor],
       false);
   }
 
@@ -2275,7 +2275,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec,
-      { arg_pdf_data: arg_pdf_data },
+      [arg_pdf_data],
       false);
   }
 
@@ -2284,7 +2284,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec,
-      { arg_jpeg_data: arg_jpeg_data },
+      [arg_jpeg_data],
       false);
   }
 
@@ -2293,7 +2293,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec,
-      { arg_jpeg_data: arg_jpeg_data },
+      [arg_jpeg_data],
       false);
   }
 
@@ -2302,7 +2302,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec,
       null,
-      { arg_builder: arg_builder },
+      [arg_builder],
       false);
   }
 
@@ -2311,7 +2311,7 @@ mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelperRemoteCallHandler = c
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec,
       mojo.internal.bindings.ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

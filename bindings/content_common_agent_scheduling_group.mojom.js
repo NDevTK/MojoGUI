@@ -200,7 +200,7 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec,
       null,
-      { arg_frame_token: arg_frame_token },
+      [arg_frame_token],
       false);
   }
 
@@ -342,7 +342,7 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec,
       null,
-      { arg_remote_host: arg_remote_host, arg_route_provider_receiver: arg_route_provider_receiver },
+      [arg_remote_host, arg_route_provider_receiver],
       false);
   }
 
@@ -351,7 +351,7 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -360,7 +360,7 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -369,7 +369,7 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_global_scope_creation_params: arg_global_scope_creation_params },
+      [arg_receiver, arg_global_scope_creation_params],
       false);
   }
 

@@ -198,7 +198,7 @@ mojo.internal.bindings.arc.mojom.WebApkInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec,
       mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec,
-      { arg_package_name: arg_package_name, arg_version: arg_version, arg_app_name: arg_app_name, arg_token: arg_token },
+      [arg_package_name, arg_version, arg_app_name, arg_token],
       false);
   }
 
@@ -207,7 +207,7 @@ mojo.internal.bindings.arc.mojom.WebApkInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec,
       mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec,
-      { arg_package_name: arg_package_name },
+      [arg_package_name],
       false);
   }
 

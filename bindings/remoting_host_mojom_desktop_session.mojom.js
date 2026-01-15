@@ -453,7 +453,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec,
       null,
-      { arg_desktop_pipe: arg_desktop_pipe },
+      [arg_desktop_pipe],
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandlerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandlerRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -625,7 +625,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionManagerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec,
       null,
-      { arg_terminal_id: arg_terminal_id, arg_screen_resolution: arg_screen_resolution, arg_is_virtual_terminal: arg_is_virtual_terminal },
+      [arg_terminal_id, arg_screen_resolution, arg_is_virtual_terminal],
       false);
   }
 
@@ -634,7 +634,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionManagerRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec,
       null,
-      { arg_terminal_id: arg_terminal_id },
+      [arg_terminal_id],
       false);
   }
 
@@ -643,7 +643,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionManagerRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec,
       null,
-      { arg_terminal_id: arg_terminal_id, arg_screen_resolution: arg_screen_resolution },
+      [arg_terminal_id, arg_screen_resolution],
       false);
   }
 
@@ -789,7 +789,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionAgentRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionAgent_Start_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec,
-      { arg_authenticated_jid: arg_authenticated_jid, arg_resolution: arg_resolution, arg_options: arg_options },
+      [arg_authenticated_jid, arg_resolution, arg_options],
       false);
   }
 
@@ -932,7 +932,7 @@ mojo.internal.bindings.remoting.mojom.FileWriterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.FileWriter_WriteChunk_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -941,7 +941,7 @@ mojo.internal.bindings.remoting.mojom.FileWriterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remoting.mojom.FileWriter_CloseFile_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1097,7 +1097,7 @@ mojo.internal.bindings.remoting.mojom.FileReaderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.FileReader_ReadChunk_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec,
-      { arg_bytes_to_read: arg_bytes_to_read },
+      [arg_bytes_to_read],
       false);
   }
 
@@ -1288,7 +1288,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec,
-      { arg_desktop_display_id: arg_desktop_display_id },
+      [arg_desktop_display_id],
       false);
   }
 
@@ -1297,7 +1297,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec,
       null,
-      { arg_new_resolution: arg_new_resolution },
+      [arg_new_resolution],
       false);
   }
 
@@ -1306,7 +1306,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1315,7 +1315,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1324,7 +1324,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -1333,7 +1333,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemoteCallHandler = c
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -1342,7 +1342,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemoteCallHandler = c
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -1351,7 +1351,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemoteCallHandler = c
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -1360,7 +1360,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemoteCallHandler = c
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -1369,7 +1369,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemoteCallHandler = c
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1378,7 +1378,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemoteCallHandler = c
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1387,7 +1387,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemoteCallHandler = c
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1396,7 +1396,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemoteCallHandler = c
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec,
-      { arg_file_path: arg_file_path },
+      [arg_file_path],
       false);
   }
 
@@ -1405,7 +1405,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionControlRemoteCallHandler = c
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1670,7 +1670,7 @@ mojo.internal.bindings.remoting.mojom.VideoCapturerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1679,7 +1679,7 @@ mojo.internal.bindings.remoting.mojom.VideoCapturerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -1825,7 +1825,7 @@ mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec,
       null,
-      { arg_id: arg_id, arg_region: arg_region, arg_size: arg_size },
+      [arg_id, arg_region, arg_size],
       false);
   }
 
@@ -1834,7 +1834,7 @@ mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -1843,7 +1843,7 @@ mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandlerRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec,
       null,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 
@@ -2021,7 +2021,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -2030,7 +2030,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -2039,7 +2039,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec,
       null,
-      { arg_audio_packet: arg_audio_packet },
+      [arg_audio_packet],
       false);
   }
 
@@ -2048,7 +2048,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerRemoteCallHandle
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec,
       null,
-      { arg_layout: arg_layout },
+      [arg_layout],
       false);
   }
 
@@ -2057,7 +2057,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerRemoteCallHandle
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec,
       null,
-      { arg_mouse_cursor: arg_mouse_cursor },
+      [arg_mouse_cursor],
       false);
   }
 
@@ -2066,7 +2066,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerRemoteCallHandle
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec,
       null,
-      { arg_position: arg_position },
+      [arg_position],
       false);
   }
 
@@ -2075,7 +2075,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerRemoteCallHandle
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec,
       null,
-      { arg_keyboard_layout: arg_keyboard_layout },
+      [arg_keyboard_layout],
       false);
   }
 
@@ -2084,7 +2084,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerRemoteCallHandle
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec,
       null,
-      { arg_new_position: arg_new_position },
+      [arg_new_position],
       false);
   }
 
@@ -2093,7 +2093,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandlerRemoteCallHandle
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec,
       null,
-      { arg_usb_keycode: arg_usb_keycode },
+      [arg_usb_keycode],
       false);
   }
 
@@ -2287,7 +2287,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionStateHandlerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec,
       null,
-      { arg_error_code: arg_error_code, arg_error_details: arg_error_details, arg_error_location: arg_error_location },
+      [arg_error_code, arg_error_details, arg_error_location],
       false);
   }
 
@@ -2417,7 +2417,7 @@ mojo.internal.bindings.remoting.mojom.WorkerProcessControlRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec,
       null,
-      { arg_function_name: arg_function_name, arg_file_name: arg_file_name, arg_line_number: arg_line_number },
+      [arg_function_name, arg_file_name, arg_line_number],
       false);
   }
 

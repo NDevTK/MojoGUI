@@ -208,7 +208,7 @@ mojo.internal.bindings.webnn.mojom.WebNNTensorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec,
       mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.webnn.mojom.WebNNTensorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec,
       null,
-      { arg_src_buffer: arg_src_buffer },
+      [arg_src_buffer],
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.webnn.mojom.WebNNTensorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.webnn.mojom.WebNNTensorRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec,
       null,
-      { arg_fence: arg_fence },
+      [arg_fence],
       false);
   }
 

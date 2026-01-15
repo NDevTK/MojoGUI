@@ -246,7 +246,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ParamsSpec,
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -255,7 +255,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_SetSmbfsEnableVerboseLogging_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -264,7 +264,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ParamsSpec,
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -273,7 +273,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_ClearOfficeFileHandlers_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -282,7 +282,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ParamsSpec,
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ParamsSpec,
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerRemoteCallHandler = 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ParamsSpec,
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -309,7 +309,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerRemoteCallHandler = 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ParamsSpec,
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerRemoteCallHandler = 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ParamsSpec,
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerRemoteCallHandler = 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ParamsSpec,
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -336,7 +336,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerRemoteCallHandler = 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec,
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerRemoteCallHandler = 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec,
       null,
-      { arg_always_move: arg_always_move },
+      [arg_always_move],
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerRemoteCallHandler = 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec,
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.ash.mojom.files_internals.PageHandlerRemoteCallHandler = 
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec,
       null,
-      { arg_always_move: arg_always_move },
+      [arg_always_move],
       false);
   }
 

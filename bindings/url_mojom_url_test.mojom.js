@@ -185,7 +185,7 @@ mojo.internal.bindings.url.mojom.UrlTestRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ParamsSpec,
       mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ResponseParamsSpec,
-      { arg_in: arg_in },
+      [arg_in],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.url.mojom.UrlTestRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ParamsSpec,
       mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec,
-      { arg_in: arg_in },
+      [arg_in],
       false);
   }
 

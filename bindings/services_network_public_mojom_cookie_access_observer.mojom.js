@@ -201,7 +201,7 @@ mojo.internal.bindings.network.mojom.CookieAccessObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec,
       null,
-      { arg_details: arg_details },
+      [arg_details],
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.network.mojom.CookieAccessObserverRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.CookieAccessObserver_Clone_ParamsSpec,
       null,
-      { arg_listener: arg_listener },
+      [arg_listener],
       false);
   }
 

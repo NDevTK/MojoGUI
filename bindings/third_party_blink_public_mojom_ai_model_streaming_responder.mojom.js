@@ -212,7 +212,7 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec,
       null,
-      { arg_context_info: arg_context_info },
+      [arg_context_info],
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec,
       null,
-      { arg_status: arg_status, arg_quota_error_info: arg_quota_error_info },
+      [arg_status, arg_quota_error_info],
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec,
       null,
-      { arg_text: arg_text },
+      [arg_text],
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

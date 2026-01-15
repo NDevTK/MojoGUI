@@ -373,7 +373,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec,
       null,
-      { arg_device: arg_device },
+      [arg_device],
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec,
       null,
-      { arg_device: arg_device },
+      [arg_device],
       false);
   }
 
@@ -391,7 +391,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec,
       null,
-      { arg_device: arg_device },
+      [arg_device],
       false);
   }
 
@@ -557,7 +557,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec,
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec,
-      { arg_scan_request: arg_scan_request },
+      [arg_scan_request],
       false);
   }
 
@@ -566,7 +566,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec,
       null,
-      { arg_scan_observer: arg_scan_observer },
+      [arg_scan_observer],
       false);
   }
 
@@ -575,7 +575,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec,
       null,
-      { arg_metadata: arg_metadata },
+      [arg_metadata],
       false);
   }
 
@@ -584,7 +584,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec,
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec,
-      { arg_metadata: arg_metadata },
+      [arg_metadata],
       false);
   }
 
@@ -593,7 +593,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec,
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec,
-      { arg_shared_credentials: arg_shared_credentials, arg_account_name: arg_account_name },
+      [arg_shared_credentials, arg_account_name],
       false);
   }
 
@@ -602,7 +602,7 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec,
       mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec,
-      { arg_account_name: arg_account_name },
+      [arg_account_name],
       false);
   }
 

@@ -361,7 +361,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec,
       null,
-      { arg_audio_decoder: arg_audio_decoder },
+      [arg_audio_decoder],
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec,
       null,
-      { arg_video_decoder: arg_video_decoder, arg_dst_video_decoder: arg_dst_video_decoder },
+      [arg_video_decoder, arg_dst_video_decoder],
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_tracker: arg_tracker },
+      [arg_receiver, arg_tracker],
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec,
       null,
-      { arg_audio_encoder: arg_audio_encoder },
+      [arg_audio_encoder],
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec,
       null,
-      { arg_audio_device_id: arg_audio_device_id, arg_renderer: arg_renderer },
+      [arg_audio_device_id, arg_renderer],
       false);
   }
 
@@ -406,7 +406,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec,
       null,
-      { arg_overlay_plane_id: arg_overlay_plane_id, arg_renderer: arg_renderer },
+      [arg_overlay_plane_id, arg_renderer],
       false);
   }
 
@@ -415,7 +415,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec,
       null,
-      { arg_media_log: arg_media_log, arg_renderer: arg_renderer, arg_renderer_extension: arg_renderer_extension },
+      [arg_media_log, arg_renderer, arg_renderer_extension],
       false);
   }
 
@@ -424,7 +424,7 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ParamsSpec,
       mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec,
-      { arg_cdm_config: arg_cdm_config },
+      [arg_cdm_config],
       false);
   }
 

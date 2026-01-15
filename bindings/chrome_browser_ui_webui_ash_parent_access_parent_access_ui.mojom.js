@@ -253,7 +253,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec,
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec,
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec,
-      { arg_encoded_parent_access_callback_proto: arg_encoded_parent_access_callback_proto },
+      [arg_encoded_parent_access_callback_proto],
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec,
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec,
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHan
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec,
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 
@@ -298,7 +298,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHan
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec,
       mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

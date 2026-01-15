@@ -179,7 +179,7 @@ mojo.internal.bindings.viz.mojom.VSyncParameterObserverRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec,
       null,
-      { arg_timebase: arg_timebase, arg_interval: arg_interval },
+      [arg_timebase, arg_interval],
       false);
   }
 

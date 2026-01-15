@@ -177,7 +177,7 @@ mojo.internal.bindings.blink.mojom.GpuDataManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ParamsSpec,
       mojo.internal.bindings.blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 

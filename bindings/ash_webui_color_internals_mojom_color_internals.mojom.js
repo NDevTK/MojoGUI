@@ -182,7 +182,7 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserverRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec,
       null,
-      { arg_colors: arg_colors },
+      [arg_colors],
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandlerRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

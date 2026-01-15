@@ -322,7 +322,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentManager_Init_ParamsSpec,
       null,
-      { arg_context_url: arg_context_url, arg_service_worker_scope: arg_service_worker_scope },
+      [arg_context_url, arg_service_worker_scope],
       false);
   }
 
@@ -331,7 +331,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec,
       mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec,
-      { arg_instrument_key: arg_instrument_key },
+      [arg_instrument_key],
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec,
       mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec,
-      { arg_instrument_key: arg_instrument_key },
+      [arg_instrument_key],
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec,
       mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -358,7 +358,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec,
       mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec,
-      { arg_instrument_key: arg_instrument_key },
+      [arg_instrument_key],
       false);
   }
 
@@ -367,7 +367,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec,
       mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec,
-      { arg_instrument_key: arg_instrument_key, arg_instrument: arg_instrument },
+      [arg_instrument_key, arg_instrument],
       false);
   }
 
@@ -376,7 +376,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec,
       mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentManager_SetUserHint_ParamsSpec,
       null,
-      { arg_user_hint: arg_user_hint },
+      [arg_user_hint],
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.payments.mojom.PaymentManagerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ParamsSpec,
       mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec,
-      { arg_delegations: arg_delegations },
+      [arg_delegations],
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallbackRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec,
       null,
-      { arg_payment_aborted: arg_payment_aborted },
+      [arg_payment_aborted],
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallbackRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec,
       null,
-      { arg_response: arg_response },
+      [arg_response],
       false);
   }
 
@@ -675,7 +675,7 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallbackRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec,
       null,
-      { arg_response: arg_response },
+      [arg_response],
       false);
   }
 

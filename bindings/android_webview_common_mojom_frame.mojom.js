@@ -229,7 +229,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec,
       null,
-      { arg_page_scale_factor: arg_page_scale_factor },
+      [arg_page_scale_factor],
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec,
       null,
-      { arg_zoom_factor: arg_zoom_factor },
+      [arg_zoom_factor],
       false);
   }
 
@@ -247,7 +247,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec,
       mojo.internal.bindings.android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -256,7 +256,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -265,7 +265,7 @@ mojo.internal.bindings.android_webview.mojom.LocalMainFrameRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec,
       null,
-      { arg_target_x: arg_target_x, arg_target_y: arg_target_y, arg_duration: arg_duration },
+      [arg_target_x, arg_target_y, arg_duration],
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.android_webview.mojom.FrameHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec,
       null,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.android_webview.mojom.FrameHostRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec,
       null,
-      { arg_contents_size: arg_contents_size },
+      [arg_contents_size],
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.android_webview.mojom.FrameHostRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec,
       mojo.internal.bindings.android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec,
-      { arg_url: arg_url, arg_has_user_gesture: arg_has_user_gesture, arg_is_redirect: arg_is_redirect, arg_is_outermost_main_frame: arg_is_outermost_main_frame },
+      [arg_url, arg_has_user_gesture, arg_is_redirect, arg_is_outermost_main_frame],
       false);
   }
 

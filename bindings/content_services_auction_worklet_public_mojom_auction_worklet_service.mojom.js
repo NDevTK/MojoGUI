@@ -218,7 +218,7 @@ mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClientRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec,
       null,
-      { arg_trusted_signals_url_allowed: arg_trusted_signals_url_allowed },
+      [arg_trusted_signals_url_allowed],
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletServiceRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec,
       null,
-      { arg_trusted_signals_cache: arg_trusted_signals_cache },
+      [arg_trusted_signals_cache],
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletServiceRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec,
       null,
-      { arg_bidder_worklet: arg_bidder_worklet, arg_shared_storage_hosts: arg_shared_storage_hosts, arg_pause_for_debugger_on_start: arg_pause_for_debugger_on_start, arg_url_loader_factory: arg_url_loader_factory, arg_auction_network_events_handler: arg_auction_network_events_handler, arg_script_source_load: arg_script_source_load, arg_wasm_helper_load: arg_wasm_helper_load, arg_trusted_bidding_signals_url: arg_trusted_bidding_signals_url, arg_trusted_bidding_signals_slot_size_param: arg_trusted_bidding_signals_slot_size_param, arg_top_window_origin: arg_top_window_origin, arg_permissions_policy_state: arg_permissions_policy_state, arg_experiment_group_id: arg_experiment_group_id, arg_public_key: arg_public_key },
+      [arg_bidder_worklet, arg_shared_storage_hosts, arg_pause_for_debugger_on_start, arg_url_loader_factory, arg_auction_network_events_handler, arg_script_source_load, arg_wasm_helper_load, arg_trusted_bidding_signals_url, arg_trusted_bidding_signals_slot_size_param, arg_top_window_origin, arg_permissions_policy_state, arg_experiment_group_id, arg_public_key],
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletServiceRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec,
       null,
-      { arg_seller_worklet: arg_seller_worklet, arg_shared_storage_hosts: arg_shared_storage_hosts, arg_pause_for_debugger_on_start: arg_pause_for_debugger_on_start, arg_url_loader_factory: arg_url_loader_factory, arg_auction_network_events_handler: arg_auction_network_events_handler, arg_script_source_load: arg_script_source_load, arg_trusted_scoring_signals_url: arg_trusted_scoring_signals_url, arg_top_window_origin: arg_top_window_origin, arg_permissions_policy_state: arg_permissions_policy_state, arg_experiment_group_id: arg_experiment_group_id, arg_send_creative_scanning_metadata: arg_send_creative_scanning_metadata, arg_public_key: arg_public_key, arg_load_seller_worklet_client: arg_load_seller_worklet_client },
+      [arg_seller_worklet, arg_shared_storage_hosts, arg_pause_for_debugger_on_start, arg_url_loader_factory, arg_auction_network_events_handler, arg_script_source_load, arg_trusted_scoring_signals_url, arg_top_window_origin, arg_permissions_policy_state, arg_experiment_group_id, arg_send_creative_scanning_metadata, arg_public_key, arg_load_seller_worklet_client],
       false);
   }
 

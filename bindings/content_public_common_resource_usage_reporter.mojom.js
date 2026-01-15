@@ -174,7 +174,7 @@ mojo.internal.bindings.content.mojom.ResourceUsageReporterRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec,
       mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

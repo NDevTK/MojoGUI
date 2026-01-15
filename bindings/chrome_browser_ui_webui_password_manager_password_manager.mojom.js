@@ -205,7 +205,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerFactoryRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec,
       mojo.internal.bindings.password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec,
       mojo.internal.bindings.password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec,
       mojo.internal.bindings.password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec,
       null,
-      { arg_site: arg_site },
+      [arg_site],
       false);
   }
 
@@ -437,7 +437,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec,
       mojo.internal.bindings.password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -446,7 +446,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -455,7 +455,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec,
       mojo.internal.bindings.password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -464,7 +464,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -473,7 +473,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec,
       mojo.internal.bindings.password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -482,7 +482,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec,
       mojo.internal.bindings.password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -491,7 +491,7 @@ mojo.internal.bindings.password_manager.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec,
       mojo.internal.bindings.password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

@@ -185,7 +185,7 @@ mojo.internal.bindings.network.mojom.AcceptCHFrameObserverRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec,
       mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec,
-      { arg_origin: arg_origin, arg_accept_ch_frame: arg_accept_ch_frame },
+      [arg_origin, arg_accept_ch_frame],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.network.mojom.AcceptCHFrameObserverRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec,
       null,
-      { arg_listener: arg_listener },
+      [arg_listener],
       false);
   }
 

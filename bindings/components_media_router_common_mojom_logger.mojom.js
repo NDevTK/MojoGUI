@@ -194,7 +194,7 @@ mojo.internal.bindings.media_router.mojom.LoggerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_router.mojom.Logger_LogInfo_ParamsSpec,
       null,
-      { arg_category: arg_category, arg_component: arg_component, arg_message: arg_message, arg_sink_id: arg_sink_id, arg_media_source: arg_media_source, arg_session_id: arg_session_id },
+      [arg_category, arg_component, arg_message, arg_sink_id, arg_media_source, arg_session_id],
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.media_router.mojom.LoggerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_router.mojom.Logger_LogWarning_ParamsSpec,
       null,
-      { arg_category: arg_category, arg_component: arg_component, arg_message: arg_message, arg_sink_id: arg_sink_id, arg_media_source: arg_media_source, arg_session_id: arg_session_id },
+      [arg_category, arg_component, arg_message, arg_sink_id, arg_media_source, arg_session_id],
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.media_router.mojom.LoggerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_router.mojom.Logger_LogError_ParamsSpec,
       null,
-      { arg_category: arg_category, arg_component: arg_component, arg_message: arg_message, arg_sink_id: arg_sink_id, arg_media_source: arg_media_source, arg_session_id: arg_session_id },
+      [arg_category, arg_component, arg_message, arg_sink_id, arg_media_source, arg_session_id],
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.media_router.mojom.LoggerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media_router.mojom.Logger_BindReceiver_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

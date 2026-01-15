@@ -256,7 +256,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageEntriesListenerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageEntriesListener_DidReadEntries_ParamsSpec,
       null,
-      { arg_success: arg_success, arg_error_message: arg_error_message, arg_entries: arg_entries, arg_has_more_entries: arg_has_more_entries, arg_total_queued_to_send: arg_total_queued_to_send },
+      [arg_success, arg_error_message, arg_entries, arg_has_more_entries, arg_total_queued_to_send],
       false);
   }
 
@@ -422,7 +422,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ResponseParamsSpec,
-      { arg_method_with_options: arg_method_with_options },
+      [arg_method_with_options],
       false);
   }
 
@@ -431,7 +431,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ResponseParamsSpec,
-      { arg_methods_with_options: arg_methods_with_options, arg_with_lock: arg_with_lock },
+      [arg_methods_with_options, arg_with_lock],
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ResponseParamsSpec,
-      { arg_key: arg_key },
+      [arg_key],
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageKeys_ParamsSpec,
       null,
-      { arg_listener: arg_listener },
+      [arg_listener],
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageEntries_ParamsSpec,
       null,
-      { arg_listener: arg_listener, arg_values_only: arg_values_only },
+      [arg_listener, arg_values_only],
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -476,7 +476,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -485,7 +485,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -494,7 +494,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_DidAddMessageToConsole_ParamsSpec,
       null,
-      { arg_log_level: arg_log_level, arg_message: arg_message },
+      [arg_log_level, arg_message],
       false);
   }
 
@@ -503,7 +503,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClientRemoteCallHa
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceClient_RecordUseCounters_ParamsSpec,
       null,
-      { arg_features: arg_features },
+      [arg_features],
       false);
   }
 
@@ -768,7 +768,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_Initialize_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_Initialize_ResponseParamsSpec,
-      { arg_client: arg_client, arg_permissions_policy_state: arg_permissions_policy_state, arg_embedder_context: arg_embedder_context },
+      [arg_client, arg_permissions_policy_state, arg_embedder_context],
       false);
   }
 
@@ -777,7 +777,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_AddModule_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_AddModule_ResponseParamsSpec,
-      { arg_url_loader_factory: arg_url_loader_factory, arg_script_source_url: arg_script_source_url },
+      [arg_url_loader_factory, arg_script_source_url],
       false);
   }
 
@@ -786,7 +786,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ResponseParamsSpec,
-      { arg_name: arg_name, arg_urls: arg_urls, arg_serialized_data: arg_serialized_data, arg_pa_operation_details: arg_pa_operation_details },
+      [arg_name, arg_urls, arg_serialized_data, arg_pa_operation_details],
       false);
   }
 
@@ -795,7 +795,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunOperation_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletService_RunOperation_ResponseParamsSpec,
-      { arg_name: arg_name, arg_serialized_data: arg_serialized_data, arg_pa_operation_details: arg_pa_operation_details },
+      [arg_name, arg_serialized_data, arg_pa_operation_details],
       false);
   }
 

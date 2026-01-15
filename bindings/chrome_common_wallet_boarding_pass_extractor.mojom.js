@@ -171,7 +171,7 @@ mojo.internal.bindings.wallet.mojom.BoardingPassExtractorRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec,
       mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

@@ -185,7 +185,7 @@ mojo.internal.bindings.ax.mojom.AutoclickRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec,
       null,
-      { arg_point: arg_point },
+      [arg_point],
       false);
   }
 
@@ -319,7 +319,7 @@ mojo.internal.bindings.ax.mojom.AutoclickClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec,
       null,
-      { arg_bounds: arg_bounds },
+      [arg_bounds],
       false);
   }
 
@@ -328,7 +328,7 @@ mojo.internal.bindings.ax.mojom.AutoclickClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec,
       mojo.internal.bindings.ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

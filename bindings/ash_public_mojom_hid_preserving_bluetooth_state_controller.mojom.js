@@ -177,7 +177,7 @@ mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateControllerRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled, arg_source: arg_source },
+      [arg_enabled, arg_source],
       false);
   }
 

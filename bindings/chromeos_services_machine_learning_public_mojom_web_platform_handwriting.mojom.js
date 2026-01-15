@@ -190,7 +190,7 @@ mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingR
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec,
-      { arg_strokes: arg_strokes, arg_hints: arg_hints },
+      [arg_strokes, arg_hints],
       false);
   }
 

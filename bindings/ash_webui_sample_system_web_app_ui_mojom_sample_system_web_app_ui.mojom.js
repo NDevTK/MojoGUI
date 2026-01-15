@@ -196,7 +196,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactoryRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler, arg_page: arg_page },
+      [arg_handler, arg_page],
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec,
       mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_Send_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -511,7 +511,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec,
       null,
-      { arg_name: arg_name },
+      [arg_name],
       false);
   }
 
@@ -520,7 +520,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec,
       null,
-      { arg_child_untrusted_page: arg_child_untrusted_page, arg_parent_trusted_page: arg_parent_trusted_page },
+      [arg_child_untrusted_page, arg_parent_trusted_page],
       false);
   }
 

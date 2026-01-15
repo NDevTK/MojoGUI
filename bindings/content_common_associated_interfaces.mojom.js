@@ -180,7 +180,7 @@ mojo.internal.bindings.content.mojom.RouteProviderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.RouteProvider_GetRoute_ParamsSpec,
       null,
-      { arg_frame_token: arg_frame_token, arg_receiver: arg_receiver },
+      [arg_frame_token, arg_receiver],
       false);
   }
 

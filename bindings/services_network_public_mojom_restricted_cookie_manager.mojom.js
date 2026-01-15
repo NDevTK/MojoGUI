@@ -253,7 +253,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetAllForUrl_ParamsSpec,
       mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetAllForUrl_ResponseParamsSpec,
-      { arg_url: arg_url, arg_site_for_cookies: arg_site_for_cookies, arg_top_frame_origin: arg_top_frame_origin, arg_storage_access_api_status: arg_storage_access_api_status, arg_options: arg_options, arg_is_ad_tagged: arg_is_ad_tagged, arg_apply_devtools_overrides: arg_apply_devtools_overrides, arg_force_disable_third_party_cookies: arg_force_disable_third_party_cookies },
+      [arg_url, arg_site_for_cookies, arg_top_frame_origin, arg_storage_access_api_status, arg_options, arg_is_ad_tagged, arg_apply_devtools_overrides, arg_force_disable_third_party_cookies],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCanonicalCookie_ParamsSpec,
       mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCanonicalCookie_ResponseParamsSpec,
-      { arg_cookie: arg_cookie, arg_url: arg_url, arg_site_for_cookies: arg_site_for_cookies, arg_top_frame_origin: arg_top_frame_origin, arg_storage_access_api_status: arg_storage_access_api_status, arg_status: arg_status, arg_is_ad_tagged: arg_is_ad_tagged, arg_apply_devtools_overrides: arg_apply_devtools_overrides },
+      [arg_cookie, arg_url, arg_site_for_cookies, arg_top_frame_origin, arg_storage_access_api_status, arg_status, arg_is_ad_tagged, arg_apply_devtools_overrides],
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ParamsSpec,
       mojo.internal.bindings.network.mojom.RestrictedCookieManager_AddChangeListener_ResponseParamsSpec,
-      { arg_url: arg_url, arg_site_for_cookies: arg_site_for_cookies, arg_top_frame_origin: arg_top_frame_origin, arg_storage_access_api_status: arg_storage_access_api_status, arg_listener: arg_listener },
+      [arg_url, arg_site_for_cookies, arg_top_frame_origin, arg_storage_access_api_status, arg_listener],
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ParamsSpec,
       mojo.internal.bindings.network.mojom.RestrictedCookieManager_SetCookieFromString_ResponseParamsSpec,
-      { arg_url: arg_url, arg_site_for_cookies: arg_site_for_cookies, arg_top_frame_origin: arg_top_frame_origin, arg_storage_access_api_status: arg_storage_access_api_status, arg_get_version_shared_memory: arg_get_version_shared_memory, arg_is_ad_tagged: arg_is_ad_tagged, arg_apply_devtools_overrides: arg_apply_devtools_overrides, arg_cookie: arg_cookie },
+      [arg_url, arg_site_for_cookies, arg_top_frame_origin, arg_storage_access_api_status, arg_get_version_shared_memory, arg_is_ad_tagged, arg_apply_devtools_overrides, arg_cookie],
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ParamsSpec,
       mojo.internal.bindings.network.mojom.RestrictedCookieManager_GetCookiesString_ResponseParamsSpec,
-      { arg_url: arg_url, arg_site_for_cookies: arg_site_for_cookies, arg_top_frame_origin: arg_top_frame_origin, arg_storage_access_api_status: arg_storage_access_api_status, arg_get_version_shared_memory: arg_get_version_shared_memory, arg_is_ad_tagged: arg_is_ad_tagged, arg_apply_devtools_overrides: arg_apply_devtools_overrides, arg_force_disable_third_party_cookies: arg_force_disable_third_party_cookies },
+      [arg_url, arg_site_for_cookies, arg_top_frame_origin, arg_storage_access_api_status, arg_get_version_shared_memory, arg_is_ad_tagged, arg_apply_devtools_overrides, arg_force_disable_third_party_cookies],
       false);
   }
 
@@ -298,7 +298,7 @@ mojo.internal.bindings.network.mojom.RestrictedCookieManagerRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.RestrictedCookieManager_CookiesEnabledFor_ParamsSpec,
       mojo.internal.bindings.network.mojom.RestrictedCookieManager_CookiesEnabledFor_ResponseParamsSpec,
-      { arg_url: arg_url, arg_site_for_cookies: arg_site_for_cookies, arg_top_frame_origin: arg_top_frame_origin, arg_storage_access_api_status: arg_storage_access_api_status, arg_apply_devtools_overrides: arg_apply_devtools_overrides },
+      [arg_url, arg_site_for_cookies, arg_top_frame_origin, arg_storage_access_api_status, arg_apply_devtools_overrides],
       false);
   }
 

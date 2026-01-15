@@ -355,7 +355,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec,
-      { arg_stream: arg_stream, arg_client: arg_client, arg_observer: arg_observer, arg_log: arg_log, arg_device_id: arg_device_id, arg_params: arg_params, arg_group_id: arg_group_id, arg_shared_memory_count: arg_shared_memory_count, arg_enable_agc: arg_enable_agc, arg_processing_config: arg_processing_config },
+      [arg_stream, arg_client, arg_observer, arg_log, arg_device_id, arg_params, arg_group_id, arg_shared_memory_count, arg_enable_agc, arg_processing_config],
       false);
   }
 
@@ -364,7 +364,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec,
       null,
-      { arg_input_stream_id: arg_input_stream_id, arg_output_device_id: arg_output_device_id },
+      [arg_input_stream_id, arg_output_device_id],
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec,
-      { arg_stream: arg_stream, arg_observer: arg_observer, arg_log: arg_log, arg_device_id: arg_device_id, arg_params: arg_params, arg_group_id: arg_group_id },
+      [arg_stream, arg_observer, arg_log, arg_device_id, arg_params, arg_group_id],
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec,
-      { arg_stream: arg_stream, arg_device_switch_receiver: arg_device_switch_receiver, arg_observer: arg_observer, arg_log: arg_log, arg_device_id: arg_device_id, arg_params: arg_params, arg_group_id: arg_group_id },
+      [arg_stream, arg_device_switch_receiver, arg_observer, arg_log, arg_device_id, arg_params, arg_group_id],
       false);
   }
 
@@ -391,7 +391,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.AudioStreamFactory_BindMuter_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_group_id: arg_group_id },
+      [arg_receiver, arg_group_id],
       false);
   }
 
@@ -400,7 +400,7 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec,
-      { arg_receiver: arg_receiver, arg_client: arg_client, arg_observer: arg_observer, arg_params: arg_params, arg_shared_memory_count: arg_shared_memory_count, arg_group_id: arg_group_id },
+      [arg_receiver, arg_client, arg_observer, arg_params, arg_shared_memory_count, arg_group_id],
       false);
   }
 

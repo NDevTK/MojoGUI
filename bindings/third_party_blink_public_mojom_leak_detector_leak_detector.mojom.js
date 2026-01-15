@@ -172,7 +172,7 @@ mojo.internal.bindings.blink.mojom.LeakDetectorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec,
       mojo.internal.bindings.blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

@@ -177,7 +177,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec,
-      { arg_node_id: arg_node_id, arg_gain: arg_gain },
+      [arg_node_id, arg_gain],
       false);
   }
 
@@ -186,7 +186,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec,
-      { arg_node_id: arg_node_id, arg_volume: arg_volume, arg_is_muted: arg_is_muted },
+      [arg_node_id, arg_volume, arg_is_muted],
       false);
   }
 

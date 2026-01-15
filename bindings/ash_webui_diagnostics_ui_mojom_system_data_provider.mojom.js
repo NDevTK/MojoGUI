@@ -224,7 +224,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec,
       null,
-      { arg_battery_charge_status: arg_battery_charge_status },
+      [arg_battery_charge_status],
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec,
       null,
-      { arg_battery_health: arg_battery_health },
+      [arg_battery_health],
       false);
   }
 
@@ -484,7 +484,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec,
       null,
-      { arg_memory_usage: arg_memory_usage },
+      [arg_memory_usage],
       false);
   }
 
@@ -614,7 +614,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec,
       null,
-      { arg_cpu_usage: arg_cpu_usage },
+      [arg_cpu_usage],
       false);
   }
 
@@ -764,7 +764,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec,
       mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -773,7 +773,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec,
       mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -782,7 +782,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -791,7 +791,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -800,7 +800,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -809,7 +809,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

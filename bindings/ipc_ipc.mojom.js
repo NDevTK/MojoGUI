@@ -186,7 +186,7 @@ mojo.internal.bindings.IPC.mojom.ChannelRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.IPC.mojom.Channel_SetPeerPid_ParamsSpec,
       null,
-      { arg_pid: arg_pid },
+      [arg_pid],
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.IPC.mojom.ChannelRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

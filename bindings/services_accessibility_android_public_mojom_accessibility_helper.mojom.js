@@ -546,7 +546,7 @@ mojo.internal.bindings.ax.android.mojom.AccessibilityHelperHostRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.android.mojom.AccessibilityHelperHost_OnAccessibilityEvent_ParamsSpec,
       null,
-      { arg_event_data: arg_event_data },
+      [arg_event_data],
       false);
   }
 
@@ -555,7 +555,7 @@ mojo.internal.bindings.ax.android.mojom.AccessibilityHelperHostRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.android.mojom.AccessibilityHelperHost_OnNotificationStateChanged_ParamsSpec,
       null,
-      { arg_notification_key: arg_notification_key, arg_state: arg_state },
+      [arg_notification_key, arg_state],
       false);
   }
 
@@ -564,7 +564,7 @@ mojo.internal.bindings.ax.android.mojom.AccessibilityHelperHostRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ax.android.mojom.AccessibilityHelperHost_OnToggleNativeChromeVoxArcSupport_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -734,7 +734,7 @@ mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstanceRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstance_Init_ParamsSpec,
       mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -743,7 +743,7 @@ mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstanceRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstance_SetFilter_ParamsSpec,
       null,
-      { arg_filter_type: arg_filter_type },
+      [arg_filter_type],
       false);
   }
 
@@ -752,7 +752,7 @@ mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstanceRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstance_PerformAction_ParamsSpec,
       mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstance_PerformAction_ResponseParamsSpec,
-      { arg_action_data: arg_action_data },
+      [arg_action_data],
       false);
   }
 
@@ -761,7 +761,7 @@ mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstanceRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstance_SetExploreByTouchEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -770,7 +770,7 @@ mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstanceRemoteCallHan
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ParamsSpec,
       mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ResponseParamsSpec,
-      { arg_refresh_data: arg_refresh_data },
+      [arg_refresh_data],
       false);
   }
 
@@ -779,7 +779,7 @@ mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstanceRemoteCallHan
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstance_RequestSendAccessibilityTree_ParamsSpec,
       null,
-      { arg_window: arg_window },
+      [arg_window],
       false);
   }
 
@@ -788,7 +788,7 @@ mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstanceRemoteCallHan
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ParamsSpec,
       mojo.internal.bindings.ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ResponseParamsSpec,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 

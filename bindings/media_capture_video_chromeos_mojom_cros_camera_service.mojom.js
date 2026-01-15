@@ -271,7 +271,7 @@ mojo.internal.bindings.cros.mojom.KioskVisionObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec,
       null,
-      { arg_detection: arg_detection },
+      [arg_detection],
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.cros.mojom.KioskVisionObserverRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec,
       null,
-      { arg_track: arg_track },
+      [arg_track],
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.cros.mojom.KioskVisionObserverRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.KioskVisionObserver_OnError_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.cros.mojom.CameraHalDispatcherRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParamsSpec,
-      { arg_client: arg_client, arg_type: arg_type, arg_auth_token: arg_auth_token },
+      [arg_client, arg_type, arg_auth_token],
       false);
   }
 
@@ -590,7 +590,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec,
       null,
-      { arg_camera_id: arg_camera_id, arg_opened: arg_opened, arg_type: arg_type },
+      [arg_camera_id, arg_opened, arg_type],
       false);
   }
 
@@ -599,7 +599,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceObserverRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec,
       null,
-      { arg_state: arg_state, arg_camera_id: arg_camera_id },
+      [arg_state, arg_camera_id],
       false);
   }
 
@@ -608,7 +608,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceObserverRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -617,7 +617,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceObserverRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec,
       null,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -626,7 +626,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceObserverRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -820,7 +820,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -829,7 +829,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -838,7 +838,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -847,7 +847,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -856,7 +856,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -865,7 +865,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -874,7 +874,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -883,7 +883,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -892,7 +892,7 @@ mojo.internal.bindings.cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.cros.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec,
       null,
-      { arg_dlc_path: arg_dlc_path, arg_observer: arg_observer },
+      [arg_dlc_path, arg_observer],
       false);
   }
 

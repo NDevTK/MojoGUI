@@ -181,7 +181,7 @@ mojo.internal.bindings.blink.mojom.GeolocationServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec,
       mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec,
-      { arg_receiver: arg_receiver, arg_user_gesture: arg_user_gesture },
+      [arg_receiver, arg_user_gesture],
       false);
   }
 

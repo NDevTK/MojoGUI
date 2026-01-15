@@ -220,7 +220,7 @@ mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec,
       null,
-      { arg_message: arg_message, arg_ports: arg_ports },
+      [arg_message, arg_ports],
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec,
       null,
-      { arg_browser_to_js_messaging: arg_browser_to_js_messaging },
+      [arg_browser_to_js_messaging],
       false);
   }
 
@@ -367,7 +367,7 @@ mojo.internal.bindings.js_injection.mojom.JsObjectsClientRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactoryRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec,
       null,
-      { arg_browser_to_js_messaging: arg_browser_to_js_messaging },
+      [arg_browser_to_js_messaging],
       false);
   }
 
@@ -627,7 +627,7 @@ mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -765,7 +765,7 @@ mojo.internal.bindings.js_injection.mojom.JsCommunicationRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec,
       null,
-      { arg_js_objects: arg_js_objects, arg_client: arg_client },
+      [arg_js_objects, arg_client],
       false);
   }
 
@@ -774,7 +774,7 @@ mojo.internal.bindings.js_injection.mojom.JsCommunicationRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec,
       null,
-      { arg_script: arg_script },
+      [arg_script],
       false);
   }
 
@@ -783,7 +783,7 @@ mojo.internal.bindings.js_injection.mojom.JsCommunicationRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec,
       null,
-      { arg_script_id: arg_script_id },
+      [arg_script_id],
       false);
   }
 

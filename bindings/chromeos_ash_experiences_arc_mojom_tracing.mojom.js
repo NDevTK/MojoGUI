@@ -183,7 +183,7 @@ mojo.internal.bindings.arc.mojom.TracingInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.TracingInstance_QueryAvailableCategories_ParamsSpec,
       mojo.internal.bindings.arc.mojom.TracingInstance_QueryAvailableCategories_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.arc.mojom.TracingInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.TracingInstance_StartTracing_ParamsSpec,
       mojo.internal.bindings.arc.mojom.TracingInstance_StartTracing_ResponseParamsSpec,
-      { arg_categories: arg_categories, arg_socket: arg_socket },
+      [arg_categories, arg_socket],
       false);
   }
 
@@ -201,7 +201,7 @@ mojo.internal.bindings.arc.mojom.TracingInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.TracingInstance_StopTracing_ParamsSpec,
       mojo.internal.bindings.arc.mojom.TracingInstance_StopTracing_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

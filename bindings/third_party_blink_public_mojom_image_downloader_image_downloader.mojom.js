@@ -191,7 +191,7 @@ mojo.internal.bindings.blink.mojom.ImageDownloaderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImage_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec,
-      { arg_url: arg_url, arg_is_favicon: arg_is_favicon, arg_preferred_size: arg_preferred_size, arg_max_bitmap_size: arg_max_bitmap_size, arg_bypass_cache: arg_bypass_cache },
+      [arg_url, arg_is_favicon, arg_preferred_size, arg_max_bitmap_size, arg_bypass_cache],
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.blink.mojom.ImageDownloaderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec,
-      { arg_ax_node_id: arg_ax_node_id, arg_preferred_size: arg_preferred_size, arg_max_bitmap_size: arg_max_bitmap_size, arg_bypass_cache: arg_bypass_cache },
+      [arg_ax_node_id, arg_preferred_size, arg_max_bitmap_size, arg_bypass_cache],
       false);
   }
 

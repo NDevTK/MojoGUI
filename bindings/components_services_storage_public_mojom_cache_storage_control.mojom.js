@@ -216,7 +216,7 @@ mojo.internal.bindings.storage.mojom.CacheStorageObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec,
       null,
-      { arg_bucket_locator: arg_bucket_locator },
+      [arg_bucket_locator],
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.storage.mojom.CacheStorageObserverRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec,
       null,
-      { arg_bucket_locator: arg_bucket_locator, arg_cache_name: arg_cache_name },
+      [arg_bucket_locator, arg_cache_name],
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.storage.mojom.CacheStorageControlRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec,
       null,
-      { arg_cross_origin_embedder_policy: arg_cross_origin_embedder_policy, arg_coep_reporter: arg_coep_reporter, arg_document_isolation_policy: arg_document_isolation_policy, arg_dip_reporter: arg_dip_reporter, arg_bucket_locator: arg_bucket_locator, arg_owner: arg_owner, arg_receiver: arg_receiver },
+      [arg_cross_origin_embedder_policy, arg_coep_reporter, arg_document_isolation_policy, arg_dip_reporter, arg_bucket_locator, arg_owner, arg_receiver],
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.storage.mojom.CacheStorageControlRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.CacheStorageControl_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.storage.mojom.CacheStorageControlRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec,
       null,
-      { arg_policy_updates: arg_policy_updates },
+      [arg_policy_updates],
       false);
   }
 

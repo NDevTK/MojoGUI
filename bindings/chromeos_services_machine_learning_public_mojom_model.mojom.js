@@ -227,7 +227,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.ModelRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -236,7 +236,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.ModelRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec,
-      { arg_options: arg_options, arg_receiver: arg_receiver },
+      [arg_options, arg_receiver],
       false);
   }
 

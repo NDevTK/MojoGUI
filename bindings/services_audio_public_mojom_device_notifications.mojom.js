@@ -174,7 +174,7 @@ mojo.internal.bindings.audio.mojom.DeviceListenerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.audio.mojom.DeviceListener_DevicesChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.audio.mojom.DeviceNotifierRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec,
       null,
-      { arg_listener: arg_listener },
+      [arg_listener],
       false);
   }
 

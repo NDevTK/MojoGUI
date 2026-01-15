@@ -301,7 +301,7 @@ mojo.internal.bindings.printing.mojom.PrintRendererRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderer_CreatePreviewDocument_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec,
-      { arg_job_settings: arg_job_settings },
+      [arg_job_settings],
       false);
   }
 
@@ -472,7 +472,7 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintPreviewUI_SetOptionsFromDocument_ParamsSpec,
       null,
-      { arg_params: arg_params, arg_request_id: arg_request_id },
+      [arg_params, arg_request_id],
       false);
   }
 
@@ -481,7 +481,7 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidPrepareDocumentForPreview_ParamsSpec,
       null,
-      { arg_document_cookie: arg_document_cookie, arg_request_id: arg_request_id },
+      [arg_document_cookie, arg_request_id],
       false);
   }
 
@@ -490,7 +490,7 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidPreviewPage_ParamsSpec,
       null,
-      { arg_params: arg_params, arg_request_id: arg_request_id },
+      [arg_params, arg_request_id],
       false);
   }
 
@@ -499,7 +499,7 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintPreviewUI_MetafileReadyForPrinting_ParamsSpec,
       null,
-      { arg_params: arg_params, arg_request_id: arg_request_id },
+      [arg_params, arg_request_id],
       false);
   }
 
@@ -508,7 +508,7 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintPreviewUI_PrintPreviewFailed_ParamsSpec,
       null,
-      { arg_document_cookie: arg_document_cookie, arg_request_id: arg_request_id },
+      [arg_document_cookie, arg_request_id],
       false);
   }
 
@@ -517,7 +517,7 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintPreviewUI_PrintPreviewCancelled_ParamsSpec,
       null,
-      { arg_document_cookie: arg_document_cookie, arg_request_id: arg_request_id },
+      [arg_document_cookie, arg_request_id],
       false);
   }
 
@@ -526,7 +526,7 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintPreviewUI_PrinterSettingsInvalid_ParamsSpec,
       null,
-      { arg_document_cookie: arg_document_cookie, arg_request_id: arg_request_id },
+      [arg_document_cookie, arg_request_id],
       false);
   }
 
@@ -535,7 +535,7 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidGetDefaultPageLayout_ParamsSpec,
       null,
-      { arg_page_layout_in_points: arg_page_layout_in_points, arg_printable_area_in_points: arg_printable_area_in_points, arg_all_pages_have_custom_size: arg_all_pages_have_custom_size, arg_all_pages_have_custom_orientation: arg_all_pages_have_custom_orientation, arg_request_id: arg_request_id },
+      [arg_page_layout_in_points, arg_printable_area_in_points, arg_all_pages_have_custom_size, arg_all_pages_have_custom_orientation, arg_request_id],
       false);
   }
 
@@ -544,7 +544,7 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidStartPreview_ParamsSpec,
       null,
-      { arg_params: arg_params, arg_request_id: arg_request_id },
+      [arg_params, arg_request_id],
       false);
   }
 
@@ -778,7 +778,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintRequestedPages_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -787,7 +787,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintWithParams_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -796,7 +796,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintForSystemDialog_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -805,7 +805,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec,
       null,
-      { arg_print_renderer: arg_print_renderer, arg_has_selection: arg_has_selection },
+      [arg_print_renderer, arg_has_selection],
       false);
   }
 
@@ -814,7 +814,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_SetPrintPreviewUI_ParamsSpec,
       null,
-      { arg_preview: arg_preview },
+      [arg_preview],
       false);
   }
 
@@ -823,7 +823,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintPreview_ParamsSpec,
       null,
-      { arg_settings: arg_settings },
+      [arg_settings],
       false);
   }
 
@@ -832,7 +832,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_OnPrintPreviewDialogClosed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -841,7 +841,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -850,7 +850,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_ConnectToPdfRenderer_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -859,7 +859,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintingDone_ParamsSpec,
       null,
-      { arg_success: arg_success },
+      [arg_success],
       false);
   }
 
@@ -868,7 +868,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintNodeUnderContextMenu_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1134,7 +1134,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_DidGetPrintedPagesCount_ParamsSpec,
       null,
-      { arg_cookie: arg_cookie, arg_number_pages: arg_number_pages },
+      [arg_cookie, arg_number_pages],
       false);
   }
 
@@ -1143,7 +1143,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1152,7 +1152,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_DidShowPrintDialog_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1161,7 +1161,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_DidPrintDocument_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -1170,7 +1170,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_IsPrintingEnabled_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1179,7 +1179,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -1188,7 +1188,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_PrintingFailed_ParamsSpec,
       null,
-      { arg_cookie: arg_cookie, arg_reason: arg_reason },
+      [arg_cookie, arg_reason],
       false);
   }
 
@@ -1197,7 +1197,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_UpdatePrintSettings_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec,
-      { arg_job_settings: arg_job_settings },
+      [arg_job_settings],
       false);
   }
 
@@ -1206,7 +1206,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1215,7 +1215,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_ShowScriptedPrintPreview_ParamsSpec,
       null,
-      { arg_is_modifiable: arg_is_modifiable },
+      [arg_is_modifiable],
       false);
   }
 
@@ -1224,7 +1224,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_RequestPrintPreview_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -1233,7 +1233,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_CheckForCancel_ParamsSpec,
       mojo.internal.bindings.printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec,
-      { arg_preview_ui_id: arg_preview_ui_id, arg_request_id: arg_request_id },
+      [arg_preview_ui_id, arg_request_id],
       false);
   }
 
@@ -1242,7 +1242,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostRemoteCallHandler = class 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintManagerHost_SetAccessibilityTree_ParamsSpec,
       null,
-      { arg_cookie: arg_cookie, arg_accessibility_tree: arg_accessibility_tree },
+      [arg_cookie, arg_accessibility_tree],
       false);
   }
 

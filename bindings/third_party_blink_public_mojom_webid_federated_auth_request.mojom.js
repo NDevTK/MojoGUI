@@ -314,7 +314,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec,
-      { arg_idp_get_params: arg_idp_get_params, arg_requirement: arg_requirement },
+      [arg_idp_get_params, arg_requirement],
       false);
   }
 
@@ -323,7 +323,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec,
-      { arg_provider: arg_provider },
+      [arg_provider],
       false);
   }
 
@@ -332,7 +332,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec,
-      { arg_account_id: arg_account_id, arg_token: arg_token },
+      [arg_account_id, arg_token],
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ResponseParamsSpec,
-      { arg_origin: arg_origin, arg_status: arg_status, arg_options: arg_options },
+      [arg_origin, arg_status, arg_options],
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -386,7 +386,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_PreventSilentAccess_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -395,7 +395,7 @@ mojo.internal.bindings.blink.mojom.FederatedAuthRequestRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 

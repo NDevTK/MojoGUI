@@ -398,7 +398,7 @@ mojo.internal.bindings.network.mojom.CookieChangeListenerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.CookieChangeListener_OnCookieChange_ParamsSpec,
       null,
-      { arg_change: arg_change },
+      [arg_change],
       false);
   }
 
@@ -600,7 +600,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_GetAllCookies_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_GetAllCookies_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -609,7 +609,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -618,7 +618,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_GetCookieList_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_GetCookieList_ResponseParamsSpec,
-      { arg_url: arg_url, arg_cookie_options: arg_cookie_options, arg_cookie_partition_key_collection: arg_cookie_partition_key_collection },
+      [arg_url, arg_cookie_options, arg_cookie_partition_key_collection],
       false);
   }
 
@@ -627,7 +627,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_SetCanonicalCookie_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_SetCanonicalCookie_ResponseParamsSpec,
-      { arg_cookie: arg_cookie, arg_source_url: arg_source_url, arg_cookie_options: arg_cookie_options },
+      [arg_cookie, arg_source_url, arg_cookie_options],
       false);
   }
 
@@ -636,7 +636,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_DeleteCanonicalCookie_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_DeleteCanonicalCookie_ResponseParamsSpec,
-      { arg_cookie: arg_cookie },
+      [arg_cookie],
       false);
   }
 
@@ -645,7 +645,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_DeleteCookies_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_DeleteCookies_ResponseParamsSpec,
-      { arg_filter: arg_filter },
+      [arg_filter],
       false);
   }
 
@@ -654,7 +654,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_DeleteSessionOnlyCookies_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_DeleteSessionOnlyCookies_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -663,7 +663,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -672,7 +672,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_AddCookieChangeListener_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_name: arg_name, arg_listener: arg_listener },
+      [arg_url, arg_name, arg_listener],
       false);
   }
 
@@ -681,7 +681,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_AddGlobalChangeListener_ParamsSpec,
       null,
-      { arg_notification_pointer: arg_notification_pointer },
+      [arg_notification_pointer],
       false);
   }
 
@@ -690,7 +690,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_CloneInterface_ParamsSpec,
       null,
-      { arg_new_interface: arg_new_interface },
+      [arg_new_interface],
       false);
   }
 
@@ -699,7 +699,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_FlushCookieStore_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_FlushCookieStore_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -708,7 +708,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_AllowFileSchemeCookies_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_AllowFileSchemeCookies_ResponseParamsSpec,
-      { arg_allow: arg_allow },
+      [arg_allow],
       false);
   }
 
@@ -717,7 +717,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_SetContentSettings_ParamsSpec,
       mojo.internal.bindings.network.mojom.CookieManager_SetContentSettings_ResponseParamsSpec,
-      { arg_content_settings_type: arg_content_settings_type, arg_settings: arg_settings },
+      [arg_content_settings_type, arg_settings],
       false);
   }
 
@@ -726,7 +726,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_SetForceKeepSessionState_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -735,7 +735,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_BlockThirdPartyCookies_ParamsSpec,
       null,
-      { arg_block: arg_block },
+      [arg_block],
       false);
   }
 
@@ -744,7 +744,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec,
       null,
-      { arg_enable: arg_enable },
+      [arg_enable],
       false);
   }
 
@@ -753,7 +753,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec,
       null,
-      { arg_enable: arg_enable },
+      [arg_enable],
       false);
   }
 
@@ -762,7 +762,7 @@ mojo.internal.bindings.network.mojom.CookieManagerRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec,
       null,
-      { arg_delay: arg_delay },
+      [arg_delay],
       false);
   }
 

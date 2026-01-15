@@ -216,7 +216,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactoryRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler, arg_page: arg_page },
+      [arg_handler, arg_page],
       false);
   }
 
@@ -366,7 +366,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -375,7 +375,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec,
       mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -384,7 +384,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec,
       null,
-      { arg_text_fragments: arg_text_fragments, arg_pdf_page_number: arg_pdf_page_number },
+      [arg_text_fragments, arg_pdf_page_number],
       false);
   }
 
@@ -393,7 +393,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -402,7 +402,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -411,7 +411,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageHandlerRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -642,7 +642,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec,
       null,
-      { arg_results_url: arg_results_url },
+      [arg_results_url],
       false);
   }
 
@@ -651,7 +651,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec,
       null,
-      { arg_is_loading: arg_is_loading },
+      [arg_is_loading],
       false);
   }
 
@@ -660,7 +660,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec,
       null,
-      { arg_progress: arg_progress },
+      [arg_progress],
       false);
   }
 
@@ -669,7 +669,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 
@@ -678,7 +678,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec,
       null,
-      { arg_should_show_error_page: arg_should_show_error_page, arg_status: arg_status },
+      [arg_should_show_error_page, arg_status],
       false);
   }
 
@@ -687,7 +687,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -696,7 +696,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec,
       null,
-      { arg_new_page_content_type: arg_new_page_content_type },
+      [arg_new_page_content_type],
       false);
   }
 
@@ -705,7 +705,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -714,7 +714,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec,
       null,
-      { arg_serialized_message: arg_serialized_message },
+      [arg_serialized_message],
       false);
   }
 
@@ -723,7 +723,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -732,7 +732,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec,
       null,
-      { arg_on_aim: arg_on_aim },
+      [arg_on_aim],
       false);
   }
 
@@ -741,7 +741,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -750,7 +750,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec,
       null,
-      { arg_is_showing: arg_is_showing },
+      [arg_is_showing],
       false);
   }
 
@@ -759,7 +759,7 @@ mojo.internal.bindings.lens.mojom.LensSidePanelPageRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

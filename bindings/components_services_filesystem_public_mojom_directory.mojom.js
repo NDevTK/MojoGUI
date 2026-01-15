@@ -265,7 +265,7 @@ mojo.internal.bindings.filesystem.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.filesystem.mojom.Directory_Read_ParamsSpec,
       mojo.internal.bindings.filesystem.mojom.Directory_Read_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -274,7 +274,7 @@ mojo.internal.bindings.filesystem.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.filesystem.mojom.Directory_OpenFileHandle_ParamsSpec,
       mojo.internal.bindings.filesystem.mojom.Directory_OpenFileHandle_ResponseParamsSpec,
-      { arg_path: arg_path, arg_open_flags: arg_open_flags },
+      [arg_path, arg_open_flags],
       false);
   }
 
@@ -283,7 +283,7 @@ mojo.internal.bindings.filesystem.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.filesystem.mojom.Directory_OpenFileHandles_ParamsSpec,
       mojo.internal.bindings.filesystem.mojom.Directory_OpenFileHandles_ResponseParamsSpec,
-      { arg_files: arg_files },
+      [arg_files],
       false);
   }
 
@@ -292,7 +292,7 @@ mojo.internal.bindings.filesystem.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.filesystem.mojom.Directory_OpenDirectory_ParamsSpec,
       mojo.internal.bindings.filesystem.mojom.Directory_OpenDirectory_ResponseParamsSpec,
-      { arg_path: arg_path, arg_directory: arg_directory, arg_open_flags: arg_open_flags },
+      [arg_path, arg_directory, arg_open_flags],
       false);
   }
 
@@ -301,7 +301,7 @@ mojo.internal.bindings.filesystem.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.filesystem.mojom.Directory_Rename_ParamsSpec,
       mojo.internal.bindings.filesystem.mojom.Directory_Rename_ResponseParamsSpec,
-      { arg_path: arg_path, arg_new_path: arg_new_path },
+      [arg_path, arg_new_path],
       false);
   }
 
@@ -310,7 +310,7 @@ mojo.internal.bindings.filesystem.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.filesystem.mojom.Directory_Replace_ParamsSpec,
       mojo.internal.bindings.filesystem.mojom.Directory_Replace_ResponseParamsSpec,
-      { arg_path: arg_path, arg_new_path: arg_new_path },
+      [arg_path, arg_new_path],
       false);
   }
 
@@ -319,7 +319,7 @@ mojo.internal.bindings.filesystem.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.filesystem.mojom.Directory_Delete_ParamsSpec,
       mojo.internal.bindings.filesystem.mojom.Directory_Delete_ResponseParamsSpec,
-      { arg_path: arg_path, arg_delete_flags: arg_delete_flags },
+      [arg_path, arg_delete_flags],
       false);
   }
 
@@ -328,7 +328,7 @@ mojo.internal.bindings.filesystem.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.filesystem.mojom.Directory_Exists_ParamsSpec,
       mojo.internal.bindings.filesystem.mojom.Directory_Exists_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -337,7 +337,7 @@ mojo.internal.bindings.filesystem.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.filesystem.mojom.Directory_IsWritable_ParamsSpec,
       mojo.internal.bindings.filesystem.mojom.Directory_IsWritable_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -346,7 +346,7 @@ mojo.internal.bindings.filesystem.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.filesystem.mojom.Directory_Flush_ParamsSpec,
       mojo.internal.bindings.filesystem.mojom.Directory_Flush_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -355,7 +355,7 @@ mojo.internal.bindings.filesystem.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.filesystem.mojom.Directory_StatFile_ParamsSpec,
       mojo.internal.bindings.filesystem.mojom.Directory_StatFile_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -364,7 +364,7 @@ mojo.internal.bindings.filesystem.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.filesystem.mojom.Directory_Clone_ParamsSpec,
       null,
-      { arg_directory: arg_directory },
+      [arg_directory],
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.filesystem.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.filesystem.mojom.Directory_ReadEntireFile_ParamsSpec,
       mojo.internal.bindings.filesystem.mojom.Directory_ReadEntireFile_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.filesystem.mojom.DirectoryRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.filesystem.mojom.Directory_WriteFile_ParamsSpec,
       mojo.internal.bindings.filesystem.mojom.Directory_WriteFile_ResponseParamsSpec,
-      { arg_path: arg_path, arg_data: arg_data },
+      [arg_path, arg_data],
       false);
   }
 

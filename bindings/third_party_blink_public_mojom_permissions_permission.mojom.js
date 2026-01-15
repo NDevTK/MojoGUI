@@ -269,7 +269,7 @@ mojo.internal.bindings.blink.mojom.PermissionObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClientRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec,
       null,
-      { arg_allow: arg_allow, arg_statuses: arg_statuses },
+      [arg_allow, arg_statuses],
       false);
   }
 
@@ -561,7 +561,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PermissionService_HasPermission_ResponseParamsSpec,
-      { arg_permission: arg_permission },
+      [arg_permission],
       false);
   }
 
@@ -570,7 +570,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec,
       null,
-      { arg_permissions: arg_permissions, arg_descriptor: arg_descriptor, arg_client: arg_client },
+      [arg_permissions, arg_descriptor, arg_client],
       false);
   }
 
@@ -579,7 +579,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec,
-      { arg_permissions: arg_permissions, arg_descriptor: arg_descriptor },
+      [arg_permissions, arg_descriptor],
       false);
   }
 
@@ -588,7 +588,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec,
-      { arg_permission: arg_permission, arg_user_gesture: arg_user_gesture },
+      [arg_permission, arg_user_gesture],
       false);
   }
 
@@ -597,7 +597,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec,
-      { arg_permission: arg_permission, arg_user_gesture: arg_user_gesture },
+      [arg_permission, arg_user_gesture],
       false);
   }
 
@@ -606,7 +606,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec,
-      { arg_permission: arg_permission },
+      [arg_permission],
       false);
   }
 
@@ -615,7 +615,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec,
       null,
-      { arg_permission: arg_permission, arg_last_known_status: arg_last_known_status, arg_observer: arg_observer },
+      [arg_permission, arg_last_known_status, arg_observer],
       false);
   }
 
@@ -624,7 +624,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec,
       null,
-      { arg_permission: arg_permission, arg_last_known_status: arg_last_known_status, arg_observer: arg_observer },
+      [arg_permission, arg_last_known_status, arg_observer],
       false);
   }
 
@@ -633,7 +633,7 @@ mojo.internal.bindings.blink.mojom.PermissionServiceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.PermissionService_NotifyEventListener_ParamsSpec,
       null,
-      { arg_permission: arg_permission, arg_event_type: arg_event_type, arg_is_added: arg_is_added },
+      [arg_permission, arg_event_type, arg_is_added],
       false);
   }
 

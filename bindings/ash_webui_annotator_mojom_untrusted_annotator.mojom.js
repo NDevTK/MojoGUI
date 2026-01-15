@@ -201,7 +201,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -228,7 +228,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec,
       null,
-      { arg_tool: arg_tool },
+      [arg_tool],
       false);
   }
 
@@ -386,7 +386,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec,
       null,
-      { arg_undo_available: arg_undo_available, arg_redo_available: arg_redo_available },
+      [arg_undo_available, arg_redo_available],
       false);
   }
 
@@ -395,7 +395,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemoteCa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec,
       null,
-      { arg_success: arg_success },
+      [arg_success],
       false);
   }
 
@@ -533,7 +533,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryR
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec,
       null,
-      { arg_handler: arg_handler, arg_annotator: arg_annotator },
+      [arg_handler, arg_annotator],
       false);
   }
 

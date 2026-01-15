@@ -233,7 +233,7 @@ mojo.internal.bindings.blink.mojom.ContextMenuClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec,
       null,
-      { arg_action: arg_action },
+      [arg_action],
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.blink.mojom.ContextMenuClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec,
       null,
-      { arg_link_followed: arg_link_followed, arg_impression: arg_impression },
+      [arg_link_followed, arg_impression],
       false);
   }
 

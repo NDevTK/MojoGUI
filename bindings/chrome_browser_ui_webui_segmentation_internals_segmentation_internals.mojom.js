@@ -191,7 +191,7 @@ mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactoryRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -333,7 +333,7 @@ mojo.internal.bindings.segmentation_internals.mojom.PageHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -342,7 +342,7 @@ mojo.internal.bindings.segmentation_internals.mojom.PageHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec,
       null,
-      { arg_segment_id: arg_segment_id },
+      [arg_segment_id],
       false);
   }
 
@@ -351,7 +351,7 @@ mojo.internal.bindings.segmentation_internals.mojom.PageHandlerRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec,
       null,
-      { arg_segment_id: arg_segment_id, arg_result: arg_result },
+      [arg_segment_id, arg_result],
       false);
   }
 
@@ -360,7 +360,7 @@ mojo.internal.bindings.segmentation_internals.mojom.PageHandlerRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec,
       null,
-      { arg_segmentation_key: arg_segmentation_key, arg_optimization_target: arg_optimization_target },
+      [arg_segmentation_key, arg_optimization_target],
       false);
   }
 
@@ -518,7 +518,7 @@ mojo.internal.bindings.segmentation_internals.mojom.PageRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec,
       null,
-      { arg_is_initialized: arg_is_initialized, arg_status_flag: arg_status_flag },
+      [arg_is_initialized, arg_status_flag],
       false);
   }
 
@@ -527,7 +527,7 @@ mojo.internal.bindings.segmentation_internals.mojom.PageRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec,
       null,
-      { arg_client_info: arg_client_info },
+      [arg_client_info],
       false);
   }
 

@@ -356,7 +356,7 @@ mojo.internal.bindings.network.mojom.GssapiLibraryLoadObserverRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.GssapiLibraryLoadObserver_OnBeforeGssapiLibraryLoad_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -614,7 +614,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetParams_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -623,7 +623,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_StartNetLog_ParamsSpec,
       null,
-      { arg_file: arg_file, arg_max_total_size: arg_max_total_size, arg_capture_mode: arg_capture_mode, arg_constants: arg_constants, arg_duration: arg_duration },
+      [arg_file, arg_max_total_size, arg_capture_mode, arg_constants, arg_duration],
       false);
   }
 
@@ -632,7 +632,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_AttachNetLogProxy_ParamsSpec,
       null,
-      { arg_proxy_source: arg_proxy_source, arg_proxy_sink: arg_proxy_sink },
+      [arg_proxy_source, arg_proxy_sink],
       false);
   }
 
@@ -641,7 +641,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetSSLKeyLogFile_ParamsSpec,
       null,
-      { arg_file: arg_file },
+      [arg_file],
       false);
   }
 
@@ -650,7 +650,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_CreateNetworkContext_ParamsSpec,
       null,
-      { arg_context: arg_context, arg_params: arg_params },
+      [arg_context, arg_params],
       false);
   }
 
@@ -659,7 +659,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec,
       null,
-      { arg_insecure_dns_client_enabled: arg_insecure_dns_client_enabled, arg_happy_eyeballs_v3_enabled: arg_happy_eyeballs_v3_enabled, arg_secure_dns_mode: arg_secure_dns_mode, arg_dns_over_https_config: arg_dns_over_https_config, arg_additional_dns_types_enabled: arg_additional_dns_types_enabled, arg_fallback_doh_nameservers: arg_fallback_doh_nameservers },
+      [arg_insecure_dns_client_enabled, arg_happy_eyeballs_v3_enabled, arg_secure_dns_mode, arg_dns_over_https_config, arg_additional_dns_types_enabled, arg_fallback_doh_nameservers],
       false);
   }
 
@@ -668,7 +668,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_DisableQuic_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -677,7 +677,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetUpHttpAuth_ParamsSpec,
       null,
-      { arg_http_auth_static_params: arg_http_auth_static_params },
+      [arg_http_auth_static_params],
       false);
   }
 
@@ -686,7 +686,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_ConfigureHttpAuthPrefs_ParamsSpec,
       null,
-      { arg_http_auth_dynamic_params: arg_http_auth_dynamic_params },
+      [arg_http_auth_dynamic_params],
       false);
   }
 
@@ -695,7 +695,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetRawHeadersAccess_ParamsSpec,
       null,
-      { arg_process_id: arg_process_id, arg_origins: arg_origins },
+      [arg_process_id, arg_origins],
       false);
   }
 
@@ -704,7 +704,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetMaxConnectionsPerProxyChain_ParamsSpec,
       null,
-      { arg_max_connections: arg_max_connections },
+      [arg_max_connections],
       false);
   }
 
@@ -713,7 +713,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_GetNetworkChangeManager_ParamsSpec,
       null,
-      { arg_network_change_manager: arg_network_change_manager },
+      [arg_network_change_manager],
       false);
   }
 
@@ -722,7 +722,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_GetNetworkQualityEstimatorManager_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -731,7 +731,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_GetDnsConfigChangeManager_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -740,7 +740,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_GetNetworkList_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkService_GetNetworkList_ResponseParamsSpec,
-      { arg_policy: arg_policy },
+      [arg_policy],
       false);
   }
 
@@ -749,7 +749,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_OnTrustStoreChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -758,7 +758,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -767,7 +767,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetEncryptionKey_ParamsSpec,
       null,
-      { arg_encryption_key: arg_encryption_key },
+      [arg_encryption_key],
       false);
   }
 
@@ -776,7 +776,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec,
       null,
-      { arg_count: arg_count },
+      [arg_count],
       false);
   }
 
@@ -785,7 +785,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkService_SetTrustTokenKeyCommitments_ResponseParamsSpec,
-      { arg_raw_commitments: arg_raw_commitments },
+      [arg_raw_commitments],
       false);
   }
 
@@ -794,7 +794,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec,
       null,
-      { arg_pin_list: arg_pin_list, arg_update_time: arg_update_time },
+      [arg_pin_list, arg_update_time],
       false);
   }
 
@@ -803,7 +803,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -812,7 +812,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetFirstPartySets_ParamsSpec,
       null,
-      { arg_sets: arg_sets },
+      [arg_sets],
       false);
   }
 
@@ -821,7 +821,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec,
       null,
-      { arg_ports: arg_ports },
+      [arg_ports],
       false);
   }
 
@@ -830,7 +830,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_ParseHeaders_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkService_ParseHeaders_ResponseParamsSpec,
-      { arg_url: arg_url, arg_headers: arg_headers },
+      [arg_url, arg_headers],
       false);
   }
 
@@ -839,7 +839,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec,
       null,
-      { arg_enable: arg_enable },
+      [arg_enable],
       false);
   }
 
@@ -848,7 +848,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec,
       null,
-      { arg_reachability_override: arg_reachability_override },
+      [arg_reachability_override],
       false);
   }
 
@@ -857,7 +857,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec,
       null,
-      { arg_remote: arg_remote },
+      [arg_remote],
       false);
   }
 
@@ -866,7 +866,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetTpcdMetadataGrants_ParamsSpec,
       null,
-      { arg_settings: arg_settings },
+      [arg_settings],
       false);
   }
 
@@ -875,7 +875,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec,
       null,
-      { arg_content_encoding_types: arg_content_encoding_types, arg_source_body: arg_source_body, arg_dest_body: arg_dest_body, arg_source_url_loader: arg_source_url_loader, arg_source_url_loader_client: arg_source_url_loader_client, arg_dest_url_loader: arg_dest_url_loader, arg_dest_url_loader_client: arg_dest_url_loader_client },
+      [arg_content_encoding_types, arg_source_body, arg_dest_body, arg_source_url_loader, arg_source_url_loader_client, arg_dest_url_loader, arg_dest_url_loader_client],
       false);
   }
 
@@ -884,7 +884,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkService_DecodeContentEncoding_ResponseParamsSpec,
-      { arg_content_encoding_types: arg_content_encoding_types, arg_source_body: arg_source_body, arg_dest_body: arg_dest_body },
+      [arg_content_encoding_types, arg_source_body, arg_dest_body],
       false);
   }
 
@@ -893,7 +893,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -902,7 +902,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -1335,7 +1335,7 @@ mojo.internal.bindings.network.mojom.DurableMessageCollectorRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.DurableMessageCollector_Configure_ParamsSpec,
       mojo.internal.bindings.network.mojom.DurableMessageCollector_Configure_ResponseParamsSpec,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -1344,7 +1344,7 @@ mojo.internal.bindings.network.mojom.DurableMessageCollectorRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.DurableMessageCollector_EnableForProfile_ParamsSpec,
       mojo.internal.bindings.network.mojom.DurableMessageCollector_EnableForProfile_ResponseParamsSpec,
-      { arg_throttling_profile_id: arg_throttling_profile_id },
+      [arg_throttling_profile_id],
       false);
   }
 
@@ -1353,7 +1353,7 @@ mojo.internal.bindings.network.mojom.DurableMessageCollectorRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.DurableMessageCollector_DisableForProfile_ParamsSpec,
       mojo.internal.bindings.network.mojom.DurableMessageCollector_DisableForProfile_ResponseParamsSpec,
-      { arg_throttling_profile_id: arg_throttling_profile_id },
+      [arg_throttling_profile_id],
       false);
   }
 
@@ -1362,7 +1362,7 @@ mojo.internal.bindings.network.mojom.DurableMessageCollectorRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.DurableMessageCollector_Retrieve_ParamsSpec,
       mojo.internal.bindings.network.mojom.DurableMessageCollector_Retrieve_ResponseParamsSpec,
-      { arg_devtools_request_id: arg_devtools_request_id },
+      [arg_devtools_request_id],
       false);
   }
 

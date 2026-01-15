@@ -175,7 +175,7 @@ mojo.internal.bindings.chrome.mojom.FontPrewarmerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec,
       null,
-      { arg_font_names: arg_font_names },
+      [arg_font_names],
       false);
   }
 
@@ -305,7 +305,7 @@ mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

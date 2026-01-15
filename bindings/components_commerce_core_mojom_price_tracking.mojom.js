@@ -231,7 +231,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec,
       null,
-      { arg_bookmark_id: arg_bookmark_id },
+      [arg_bookmark_id],
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec,
       null,
-      { arg_bookmark_id: arg_bookmark_id },
+      [arg_bookmark_id],
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerRemoteC
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec,
       null,
-      { arg_track: arg_track },
+      [arg_track],
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerRemoteC
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec,
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerRemoteC
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec,
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerRemoteC
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec,
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerRemoteC
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec,
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerRemoteC
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -528,7 +528,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PageRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec,
       null,
-      { arg_bookmark_product: arg_bookmark_product },
+      [arg_bookmark_product],
       false);
   }
 
@@ -537,7 +537,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PageRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec,
       null,
-      { arg_bookmark_product: arg_bookmark_product },
+      [arg_bookmark_product],
       false);
   }
 
@@ -546,7 +546,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PageRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec,
       null,
-      { arg_bookmark_product: arg_bookmark_product, arg_attempted_track: arg_attempted_track },
+      [arg_bookmark_product, arg_attempted_track],
       false);
   }
 
@@ -555,7 +555,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PageRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec,
       null,
-      { arg_bookmark_product: arg_bookmark_product },
+      [arg_bookmark_product],
       false);
   }
 
@@ -709,7 +709,7 @@ mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactory
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 

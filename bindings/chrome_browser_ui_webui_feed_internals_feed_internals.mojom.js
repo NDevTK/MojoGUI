@@ -254,7 +254,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec,
       mojo.internal.bindings.feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec,
       mojo.internal.bindings.feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -290,7 +290,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -299,7 +299,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec,
       mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec,
       mojo.internal.bindings.feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec,
       null,
-      { arg_host: arg_host },
+      [arg_host],
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec,
       null,
-      { arg_endpoint_url: arg_endpoint_url },
+      [arg_endpoint_url],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec,
       null,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec,
       null,
-      { arg_use_legacy: arg_use_legacy },
+      [arg_use_legacy],
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.feed_internals.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec,
       null,
-      { arg_order: arg_order },
+      [arg_order],
       false);
   }
 

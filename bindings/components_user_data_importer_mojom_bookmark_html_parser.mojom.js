@@ -189,7 +189,7 @@ mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParserRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec,
       mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec,
-      { arg_raw_html: arg_raw_html },
+      [arg_raw_html],
       false);
   }
 

@@ -210,7 +210,7 @@ mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec,
       null,
-      { arg_progress: arg_progress },
+      [arg_progress],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.mantis.mojom.MantisServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec,
       mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.mantis.mojom.MantisServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec,
       mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec,
-      { arg_progress_observer: arg_progress_observer, arg_processor: arg_processor, arg_dlc_uuid: arg_dlc_uuid, arg_text_classifier: arg_text_classifier },
+      [arg_progress_observer, arg_processor, arg_dlc_uuid, arg_text_classifier],
       false);
   }
 

@@ -185,7 +185,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec,
       null,
-      { arg_rule: arg_rule, arg_histogram_value: arg_histogram_value, arg_flow_id: arg_flow_id },
+      [arg_rule, arg_histogram_value, arg_flow_id],
       false);
   }
 
@@ -336,7 +336,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec,
       null,
-      { arg_rule: arg_rule, arg_histogram_name: arg_histogram_name, arg_histogram_lower_value: arg_histogram_lower_value, arg_histogram_upper_value: arg_histogram_upper_value },
+      [arg_rule, arg_histogram_name, arg_histogram_lower_value, arg_histogram_upper_value],
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec,
       null,
-      { arg_rule: arg_rule },
+      [arg_rule],
       false);
   }
 
@@ -483,7 +483,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec,
       null,
-      { arg_tracing_process_id: arg_tracing_process_id, arg_client: arg_client, arg_agent: arg_agent },
+      [arg_tracing_process_id, arg_client, arg_agent],
       false);
   }
 

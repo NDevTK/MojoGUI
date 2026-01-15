@@ -187,7 +187,7 @@ mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandlerR
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ParamsSpec,
       mojo.internal.bindings.related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

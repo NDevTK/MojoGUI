@@ -180,7 +180,7 @@ mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec,
       null,
-      { arg_features: arg_features },
+      [arg_features],
       false);
   }
 
@@ -310,7 +310,7 @@ mojo.internal.bindings.chromecast.mojom.FeatureUpdateServiceRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

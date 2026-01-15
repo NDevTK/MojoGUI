@@ -175,7 +175,7 @@ mojo.internal.bindings.arc.mojom.BootPhaseMonitorHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -305,7 +305,7 @@ mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstanceRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.BootPhaseMonitorInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 

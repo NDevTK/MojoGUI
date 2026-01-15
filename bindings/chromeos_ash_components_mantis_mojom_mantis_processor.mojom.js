@@ -239,7 +239,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ParamsSpec,
       mojo.internal.bindings.mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec,
-      { arg_image: arg_image, arg_mask: arg_mask, arg_seed: arg_seed },
+      [arg_image, arg_mask, arg_seed],
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec,
       mojo.internal.bindings.mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec,
-      { arg_image: arg_image, arg_mask: arg_mask, arg_seed: arg_seed, arg_prompt: arg_prompt },
+      [arg_image, arg_mask, arg_seed, arg_prompt],
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ParamsSpec,
       mojo.internal.bindings.mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec,
-      { arg_image: arg_image, arg_prior: arg_prior },
+      [arg_image, arg_prior],
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec,
       mojo.internal.bindings.mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec,
-      { arg_image: arg_image },
+      [arg_image],
       false);
   }
 
@@ -275,7 +275,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ParamsSpec,
       mojo.internal.bindings.mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec,
-      { arg_image: arg_image, arg_mask: arg_mask, arg_seed: arg_seed },
+      [arg_image, arg_mask, arg_seed],
       false);
   }
 
@@ -284,7 +284,7 @@ mojo.internal.bindings.mantis.mojom.MantisProcessorRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec,
       mojo.internal.bindings.mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec,
-      { arg_gesture: arg_gesture },
+      [arg_gesture],
       false);
   }
 

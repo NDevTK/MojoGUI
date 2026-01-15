@@ -204,7 +204,7 @@ mojo.internal.bindings.webnn.mojom.WebNNContextProviderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec,
       mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 

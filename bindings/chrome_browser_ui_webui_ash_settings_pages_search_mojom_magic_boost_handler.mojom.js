@@ -176,7 +176,7 @@ mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerFactory
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -306,7 +306,7 @@ mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandlerRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.magic_boost_handler.mojom.PageHandler_ShowNotice_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

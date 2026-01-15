@@ -201,7 +201,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcWifiHost_StartScan_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -228,7 +228,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -417,7 +417,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.arc.mojom.ArcWifiInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

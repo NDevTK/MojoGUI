@@ -172,7 +172,7 @@ mojo.internal.bindings.foo.mojom.FooHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.foo.mojom.FooHandler_GetData_ParamsSpec,
       mojo.internal.bindings.foo.mojom.FooHandler_GetData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

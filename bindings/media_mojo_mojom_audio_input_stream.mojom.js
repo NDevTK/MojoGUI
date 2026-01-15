@@ -201,7 +201,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioInputStream_Record_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioInputStream_SetVolume_ParamsSpec,
       null,
-      { arg_volume: arg_volume },
+      [arg_volume],
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamClientRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioInputStreamClient_OnError_ParamsSpec,
       null,
-      { arg_code: arg_code },
+      [arg_code],
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamClientRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioInputStreamClient_OnMutedStateChanged_ParamsSpec,
       null,
-      { arg_is_muted: arg_is_muted },
+      [arg_is_muted],
       false);
   }
 
@@ -499,7 +499,7 @@ mojo.internal.bindings.media.mojom.AudioInputStreamObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

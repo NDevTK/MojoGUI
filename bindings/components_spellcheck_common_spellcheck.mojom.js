@@ -215,7 +215,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellChecker_Initialize_ParamsSpec,
       null,
-      { arg_dictionaries: arg_dictionaries, arg_custom_words: arg_custom_words, arg_enable: arg_enable },
+      [arg_dictionaries, arg_custom_words, arg_enable],
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec,
       null,
-      { arg_words_added: arg_words_added, arg_words_removed: arg_words_removed },
+      [arg_words_added, arg_words_removed],
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHostRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -512,7 +512,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec,
       null,
-      { arg_word: arg_word, arg_misspelled: arg_misspelled },
+      [arg_word, arg_misspelled],
       false);
   }
 
@@ -521,7 +521,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec,
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec,
-      { arg_text: arg_text },
+      [arg_text],
       false);
   }
 
@@ -530,7 +530,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec,
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec,
-      { arg_text: arg_text, arg_spelling_markers: arg_spelling_markers },
+      [arg_text, arg_spelling_markers],
       false);
   }
 
@@ -539,7 +539,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec,
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec,
-      { arg_word: arg_word },
+      [arg_word],
       false);
   }
 
@@ -548,7 +548,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec,
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec,
-      { arg_word: arg_word },
+      [arg_word],
       false);
   }
 
@@ -557,7 +557,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHostRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec,
       mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

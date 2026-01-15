@@ -239,7 +239,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec,
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec,
-      { arg_service_data: arg_service_data },
+      [arg_service_data],
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec,
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec,
-      { arg_aes_key: arg_aes_key, arg_encrypted_response_bytes: arg_encrypted_response_bytes },
+      [arg_aes_key, arg_encrypted_response_bytes],
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec,
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec,
-      { arg_aes_key: arg_aes_key, arg_encrypted_passkey_bytes: arg_encrypted_passkey_bytes },
+      [arg_aes_key, arg_encrypted_passkey_bytes],
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec,
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec,
-      { arg_service_data: arg_service_data, arg_address: arg_address },
+      [arg_service_data, arg_address],
       false);
   }
 
@@ -275,7 +275,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec,
       mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec,
-      { arg_message_bytes: arg_message_bytes },
+      [arg_message_bytes],
       false);
   }
 

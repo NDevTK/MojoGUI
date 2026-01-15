@@ -342,7 +342,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.Application_CreateAlert_ParamsSpec,
       null,
-      { arg_alert_bridge_receiver: arg_alert_bridge_receiver },
+      [arg_alert_bridge_receiver],
       false);
   }
 
@@ -351,7 +351,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec,
       null,
-      { arg_bridge_id: arg_bridge_id, arg_window_receiver: arg_window_receiver, arg_host: arg_host, arg_text_input_host: arg_text_input_host },
+      [arg_bridge_id, arg_window_receiver, arg_host, arg_text_input_host],
       false);
   }
 
@@ -360,7 +360,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec,
       null,
-      { arg_view_id: arg_view_id, arg_host: arg_host, arg_view_receiver: arg_view_receiver },
+      [arg_view_id, arg_host, arg_view_receiver],
       false);
   }
 
@@ -369,7 +369,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_host: arg_host },
+      [arg_receiver, arg_host],
       false);
   }
 
@@ -378,7 +378,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec,
       null,
-      { arg_view_id: arg_view_id, arg_host: arg_host, arg_view_receiver: arg_view_receiver },
+      [arg_view_id, arg_host, arg_view_receiver],
       false);
   }
 
@@ -387,7 +387,7 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec,
       null,
-      { arg_command: arg_command },
+      [arg_command],
       false);
   }
 

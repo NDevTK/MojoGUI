@@ -181,7 +181,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

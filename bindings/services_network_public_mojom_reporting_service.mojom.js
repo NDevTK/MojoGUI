@@ -213,7 +213,7 @@ mojo.internal.bindings.network.mojom.ReportingApiObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec,
       null,
-      { arg_report: arg_report },
+      [arg_report],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.network.mojom.ReportingApiObserverRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec,
       null,
-      { arg_report: arg_report },
+      [arg_report],
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.network.mojom.ReportingApiObserverRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec,
       null,
-      { arg_endpoints: arg_endpoints },
+      [arg_endpoints],
       false);
   }
 

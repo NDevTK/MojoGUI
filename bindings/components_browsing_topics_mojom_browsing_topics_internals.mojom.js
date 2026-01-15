@@ -214,7 +214,7 @@ mojo.internal.bindings.browsing_topics.mojom.PageHandlerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec,
       mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.browsing_topics.mojom.PageHandlerRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec,
       mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec,
-      { arg_calculate_now: arg_calculate_now },
+      [arg_calculate_now],
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.browsing_topics.mojom.PageHandlerRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec,
       mojo.internal.bindings.browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -241,7 +241,7 @@ mojo.internal.bindings.browsing_topics.mojom.PageHandlerRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec,
       mojo.internal.bindings.browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec,
-      { arg_hosts: arg_hosts },
+      [arg_hosts],
       false);
   }
 

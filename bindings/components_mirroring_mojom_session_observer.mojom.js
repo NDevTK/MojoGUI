@@ -219,7 +219,7 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mirroring.mojom.SessionObserver_OnError_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 
@@ -228,7 +228,7 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mirroring.mojom.SessionObserver_DidStart_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -237,7 +237,7 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mirroring.mojom.SessionObserver_DidStop_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -246,7 +246,7 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -255,7 +255,7 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -264,7 +264,7 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -273,7 +273,7 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec,
       null,
-      { arg_is_remoting: arg_is_remoting },
+      [arg_is_remoting],
       false);
   }
 

@@ -349,7 +349,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec,
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec,
-      { arg_media_source: arg_media_source, arg_sink_id: arg_sink_id, arg_original_presentation_id: arg_original_presentation_id, arg_origin: arg_origin, arg_frame_tree_node_id: arg_frame_tree_node_id, arg_timeout: arg_timeout },
+      [arg_media_source, arg_sink_id, arg_original_presentation_id, arg_origin, arg_frame_tree_node_id, arg_timeout],
       false);
   }
 
@@ -358,7 +358,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec,
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec,
-      { arg_media_source: arg_media_source, arg_presentation_id: arg_presentation_id, arg_origin: arg_origin, arg_frame_tree_node_id: arg_frame_tree_node_id, arg_timeout: arg_timeout },
+      [arg_media_source, arg_presentation_id, arg_origin, arg_frame_tree_node_id, arg_timeout],
       false);
   }
 
@@ -367,7 +367,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec,
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec,
-      { arg_route_id: arg_route_id },
+      [arg_route_id],
       false);
   }
 
@@ -376,7 +376,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec,
       null,
-      { arg_media_route_id: arg_media_route_id, arg_message: arg_message },
+      [arg_media_route_id, arg_message],
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec,
       null,
-      { arg_media_route_id: arg_media_route_id, arg_data: arg_data },
+      [arg_media_route_id, arg_data],
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec,
       null,
-      { arg_media_source: arg_media_source },
+      [arg_media_source],
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec,
       null,
-      { arg_media_source: arg_media_source },
+      [arg_media_source],
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec,
       null,
-      { arg_route_id: arg_route_id },
+      [arg_route_id],
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec,
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec,
-      { arg_route_id: arg_route_id, arg_media_controller: arg_media_controller, arg_observer: arg_observer },
+      [arg_route_id, arg_media_controller, arg_observer],
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderRemoteCallHandler = 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_GetState_ParamsSpec,
       mojo.internal.bindings.media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -752,7 +752,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec,
       null,
-      { arg_provider_id: arg_provider_id, arg_media_router_provider: arg_media_router_provider },
+      [arg_provider_id, arg_media_router_provider],
       false);
   }
 
@@ -761,7 +761,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec,
       null,
-      { arg_provider_id: arg_provider_id, arg_media_source: arg_media_source, arg_sinks: arg_sinks, arg_origins: arg_origins },
+      [arg_provider_id, arg_media_source, arg_sinks, arg_origins],
       false);
   }
 
@@ -770,7 +770,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_OnIssue_ParamsSpec,
       null,
-      { arg_issue: arg_issue },
+      [arg_issue],
       false);
   }
 
@@ -779,7 +779,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec,
       null,
-      { arg_sink_id: arg_sink_id },
+      [arg_sink_id],
       false);
   }
 
@@ -788,7 +788,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec,
       null,
-      { arg_provider_id: arg_provider_id, arg_routes: arg_routes },
+      [arg_provider_id, arg_routes],
       false);
   }
 
@@ -797,7 +797,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec,
       null,
-      { arg_route_id: arg_route_id, arg_state: arg_state },
+      [arg_route_id, arg_state],
       false);
   }
 
@@ -806,7 +806,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec,
       null,
-      { arg_route_id: arg_route_id, arg_reason: arg_reason, arg_message: arg_message },
+      [arg_route_id, arg_reason, arg_message],
       false);
   }
 
@@ -815,7 +815,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec,
       null,
-      { arg_route_id: arg_route_id, arg_messages: arg_messages },
+      [arg_route_id, arg_messages],
       false);
   }
 
@@ -824,7 +824,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec,
       mojo.internal.bindings.media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -833,7 +833,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_GetLogger_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -842,7 +842,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_GetDebugger_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -851,7 +851,7 @@ mojo.internal.bindings.media_router.mojom.MediaRouterRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec,
       mojo.internal.bindings.media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

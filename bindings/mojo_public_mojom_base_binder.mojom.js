@@ -175,7 +175,7 @@ mojo.internal.bindings.mojo_base.mojom.BinderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojo_base.mojom.Binder_Bind_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

@@ -197,7 +197,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec,
       null,
-      { arg_target: arg_target },
+      [arg_target],
       false);
   }
 
@@ -206,7 +206,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec,
       null,
-      { arg_target: arg_target, arg_mouse_data: arg_mouse_data },
+      [arg_target, arg_mouse_data],
       false);
   }
 
@@ -215,7 +215,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec,
       null,
-      { arg_target: arg_target, arg_mouse_data: arg_mouse_data },
+      [arg_target, arg_mouse_data],
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec,
       null,
-      { arg_target: arg_target },
+      [arg_target],
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec,
       null,
-      { arg_targets: arg_targets },
+      [arg_targets],
       false);
   }
 

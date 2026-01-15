@@ -298,7 +298,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -307,7 +307,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -316,7 +316,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec,
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec,
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec,
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigRemoteCallHandl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec,
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -549,7 +549,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserverRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -692,7 +692,7 @@ mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserverRemot
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec,
       null,
-      { arg_reason: arg_reason },
+      [arg_reason],
       false);
   }
 

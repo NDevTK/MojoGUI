@@ -185,7 +185,7 @@ mojo.internal.bindings.blink.mojom.DevToolsFrontendRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec,
       null,
-      { arg_api_script: arg_api_script, arg_host: arg_host },
+      [arg_api_script, arg_host],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.DevToolsFrontendRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec,
       null,
-      { arg_extension_api: arg_extension_api },
+      [arg_extension_api],
       false);
   }
 
@@ -332,7 +332,7 @@ mojo.internal.bindings.blink.mojom.DevToolsFrontendHostRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 

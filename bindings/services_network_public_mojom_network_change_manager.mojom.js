@@ -250,7 +250,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerClientRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec,
       null,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -259,7 +259,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerClientRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec,
       null,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -405,7 +405,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec,
       null,
-      { arg_client_remote: arg_client_remote },
+      [arg_client_remote],
       false);
   }
 
@@ -414,7 +414,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec,
       null,
-      { arg_dns_changed: arg_dns_changed, arg_ip_address_change_type: arg_ip_address_change_type, arg_connection_type_changed: arg_connection_type_changed, arg_new_connection_type: arg_new_connection_type, arg_connection_subtype_changed: arg_connection_subtype_changed, arg_new_connection_subtype: arg_new_connection_subtype },
+      [arg_dns_changed, arg_ip_address_change_type, arg_connection_type_changed, arg_new_connection_type, arg_connection_subtype_changed, arg_new_connection_subtype],
       false);
   }
 
@@ -423,7 +423,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeManagerRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec,
       null,
-      { arg_notifier: arg_notifier },
+      [arg_notifier],
       false);
   }
 

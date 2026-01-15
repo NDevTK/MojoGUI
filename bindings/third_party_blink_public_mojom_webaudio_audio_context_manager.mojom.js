@@ -185,7 +185,7 @@ mojo.internal.bindings.blink.mojom.AudioContextManagerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.AudioContextManagerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.blink.mojom.AudioContextManagerRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.blink.mojom.AudioContextManagerRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 

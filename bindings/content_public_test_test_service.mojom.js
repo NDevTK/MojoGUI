@@ -259,7 +259,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_DoSomething_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_DoSomething_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_DoTerminateProcess_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_DoCrashImmediately_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_CreateFolder_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_CreateFolder_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -295,7 +295,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_GetRequestorName_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -313,7 +313,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -322,7 +322,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -331,7 +331,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec,
-      { arg_region: arg_region },
+      [arg_region],
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_PseudonymizeString_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -358,7 +358,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ResponseParamsSpec,
-      { arg_file: arg_file },
+      [arg_file],
       false);
   }
 
@@ -367,7 +367,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

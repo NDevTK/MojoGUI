@@ -275,7 +275,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_Persist_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketHost_Persist_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -284,7 +284,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketHost_Persisted_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -293,7 +293,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketHost_Estimate_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -302,7 +302,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_Durability_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketHost_Durability_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -311,7 +311,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketHost_SetExpires_ResponseParamsSpec,
-      { arg_expires: arg_expires },
+      [arg_expires],
       false);
   }
 
@@ -320,7 +320,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_Expires_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketHost_Expires_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -329,7 +329,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_GetIdbFactory_ParamsSpec,
       null,
-      { arg_idb_factory: arg_idb_factory },
+      [arg_idb_factory],
       false);
   }
 
@@ -338,7 +338,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_GetLockManager_ParamsSpec,
       null,
-      { arg_lock_manager: arg_lock_manager },
+      [arg_lock_manager],
       false);
   }
 
@@ -347,7 +347,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_GetCaches_ParamsSpec,
       null,
-      { arg_cache_storage: arg_cache_storage },
+      [arg_cache_storage],
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.blink.mojom.BucketHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec,
-      { arg_directory_path_components: arg_directory_path_components },
+      [arg_directory_path_components],
       false);
   }
 
@@ -652,7 +652,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec,
-      { arg_name: arg_name, arg_policy: arg_policy },
+      [arg_name, arg_policy],
       false);
   }
 
@@ -661,7 +661,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec,
       null,
-      { arg_name: arg_name, arg_receiver: arg_receiver },
+      [arg_name, arg_receiver],
       false);
   }
 
@@ -670,7 +670,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -679,7 +679,7 @@ mojo.internal.bindings.blink.mojom.BucketManagerHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec,
-      { arg_name: arg_name },
+      [arg_name],
       false);
   }
 

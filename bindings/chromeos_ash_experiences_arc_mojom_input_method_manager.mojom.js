@@ -242,7 +242,7 @@ mojo.internal.bindings.arc.mojom.InputConnectionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.InputConnection_CommitText_ParamsSpec,
       null,
-      { arg_text: arg_text, arg_new_cursor_pos: arg_new_cursor_pos },
+      [arg_text, arg_new_cursor_pos],
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.arc.mojom.InputConnectionRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.InputConnection_DeleteSurroundingText_ParamsSpec,
       null,
-      { arg_before: arg_before, arg_after: arg_after },
+      [arg_before, arg_after],
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.arc.mojom.InputConnectionRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.InputConnection_FinishComposingText_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.arc.mojom.InputConnectionRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.InputConnection_RequestTextInputState_ParamsSpec,
       mojo.internal.bindings.arc.mojom.InputConnection_RequestTextInputState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.arc.mojom.InputConnectionRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.InputConnection_SetComposingText_ParamsSpec,
       null,
-      { arg_text: arg_text, arg_new_cursor_pos: arg_new_cursor_pos, arg_new_selection_range: arg_new_selection_range },
+      [arg_text, arg_new_cursor_pos, arg_new_selection_range],
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.arc.mojom.InputConnectionRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.InputConnection_SetSelection_ParamsSpec,
       null,
-      { arg_new_selection_range: arg_new_selection_range },
+      [arg_new_selection_range],
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.arc.mojom.InputConnectionRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.InputConnection_SendKeyEvent_ParamsSpec,
       null,
-      { arg_key_event_data: arg_key_event_data },
+      [arg_key_event_data],
       false);
   }
 
@@ -305,7 +305,7 @@ mojo.internal.bindings.arc.mojom.InputConnectionRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.InputConnection_SetCompositionRange_ParamsSpec,
       null,
-      { arg_new_range: arg_new_range },
+      [arg_new_range],
       false);
   }
 
@@ -508,7 +508,7 @@ mojo.internal.bindings.arc.mojom.InputMethodManagerHostRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.InputMethodManagerHost_OnActiveImeChanged_ParamsSpec,
       null,
-      { arg_ime_id: arg_ime_id },
+      [arg_ime_id],
       false);
   }
 
@@ -517,7 +517,7 @@ mojo.internal.bindings.arc.mojom.InputMethodManagerHostRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.InputMethodManagerHost_OnImeDisabled_ParamsSpec,
       null,
-      { arg_ime_id: arg_ime_id },
+      [arg_ime_id],
       false);
   }
 
@@ -526,7 +526,7 @@ mojo.internal.bindings.arc.mojom.InputMethodManagerHostRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.InputMethodManagerHost_OnImeInfoChanged_ParamsSpec,
       null,
-      { arg_ime_infos: arg_ime_infos },
+      [arg_ime_infos],
       false);
   }
 
@@ -696,7 +696,7 @@ mojo.internal.bindings.arc.mojom.InputMethodManagerInstanceRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.InputMethodManagerInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.InputMethodManagerInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -705,7 +705,7 @@ mojo.internal.bindings.arc.mojom.InputMethodManagerInstanceRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.InputMethodManagerInstance_EnableIme_ParamsSpec,
       mojo.internal.bindings.arc.mojom.InputMethodManagerInstance_EnableIme_ResponseParamsSpec,
-      { arg_ime_id: arg_ime_id, arg_enable: arg_enable },
+      [arg_ime_id, arg_enable],
       false);
   }
 
@@ -714,7 +714,7 @@ mojo.internal.bindings.arc.mojom.InputMethodManagerInstanceRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.InputMethodManagerInstance_SwitchImeTo_ParamsSpec,
       mojo.internal.bindings.arc.mojom.InputMethodManagerInstance_SwitchImeTo_ResponseParamsSpec,
-      { arg_ime_id: arg_ime_id },
+      [arg_ime_id],
       false);
   }
 
@@ -723,7 +723,7 @@ mojo.internal.bindings.arc.mojom.InputMethodManagerInstanceRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.InputMethodManagerInstance_Focus_ParamsSpec,
       null,
-      { arg_connection: arg_connection, arg_initial_state: arg_initial_state },
+      [arg_connection, arg_initial_state],
       false);
   }
 
@@ -732,7 +732,7 @@ mojo.internal.bindings.arc.mojom.InputMethodManagerInstanceRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.InputMethodManagerInstance_UpdateTextInputState_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -741,7 +741,7 @@ mojo.internal.bindings.arc.mojom.InputMethodManagerInstanceRemoteCallHandler = c
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.InputMethodManagerInstance_ShowVirtualKeyboard_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -750,7 +750,7 @@ mojo.internal.bindings.arc.mojom.InputMethodManagerInstanceRemoteCallHandler = c
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.InputMethodManagerInstance_HideVirtualKeyboard_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

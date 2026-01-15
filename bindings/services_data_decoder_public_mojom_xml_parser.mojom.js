@@ -202,7 +202,7 @@ mojo.internal.bindings.data_decoder.mojom.XmlParserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.XmlParser_Parse_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec,
-      { arg_xml: arg_xml, arg_whitespace_behavior: arg_whitespace_behavior },
+      [arg_xml, arg_whitespace_behavior],
       false);
   }
 

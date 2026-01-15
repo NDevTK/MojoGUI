@@ -302,7 +302,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec,
       mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -311,7 +311,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec,
       mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactoryRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 

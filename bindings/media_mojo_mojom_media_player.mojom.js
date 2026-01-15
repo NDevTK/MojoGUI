@@ -292,7 +292,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayer_RequestPlay_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -301,7 +301,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayer_RequestPause_ParamsSpec,
       null,
-      { arg_triggered_by_user: arg_triggered_by_user },
+      [arg_triggered_by_user],
       false);
   }
 
@@ -310,7 +310,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayer_RequestSeekForward_ParamsSpec,
       null,
-      { arg_seek_time: arg_seek_time },
+      [arg_seek_time],
       false);
   }
 
@@ -319,7 +319,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayer_RequestSeekBackward_ParamsSpec,
       null,
-      { arg_seek_time: arg_seek_time },
+      [arg_seek_time],
       false);
   }
 
@@ -328,7 +328,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayer_RequestSeekTo_ParamsSpec,
       null,
-      { arg_seek_time: arg_seek_time },
+      [arg_seek_time],
       false);
   }
 
@@ -337,7 +337,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayer_RequestEnterPictureInPicture_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -346,7 +346,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayer_RequestMute_ParamsSpec,
       null,
-      { arg_mute: arg_mute },
+      [arg_mute],
       false);
   }
 
@@ -355,7 +355,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayer_SetVolumeMultiplier_ParamsSpec,
       null,
-      { arg_multiplier: arg_multiplier },
+      [arg_multiplier],
       false);
   }
 
@@ -364,7 +364,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayer_SetPersistentState_ParamsSpec,
       null,
-      { arg_persistent: arg_persistent },
+      [arg_persistent],
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayer_SetPowerExperimentState_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayer_SetAudioSinkId_ParamsSpec,
       null,
-      { arg_sink_id: arg_sink_id },
+      [arg_sink_id],
       false);
   }
 
@@ -391,7 +391,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayer_SuspendForFrameClosed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -400,7 +400,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayer_RequestMediaRemoting_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -409,7 +409,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayer_RequestVisibility_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -418,7 +418,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec,
       null,
-      { arg_auto_picture_in_picture_info: arg_auto_picture_in_picture_info },
+      [arg_auto_picture_in_picture_info],
       false);
   }
 
@@ -669,7 +669,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverClientRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -856,7 +856,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaPlaying_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -865,7 +865,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaPaused_ParamsSpec,
       null,
-      { arg_stream_ended: arg_stream_ended },
+      [arg_stream_ended],
       false);
   }
 
@@ -874,7 +874,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMutedStatusChanged_ParamsSpec,
       null,
-      { arg_muted: arg_muted },
+      [arg_muted],
       false);
   }
 
@@ -883,7 +883,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaMetadataChanged_ParamsSpec,
       null,
-      { arg_has_audio: arg_has_audio, arg_has_video: arg_has_video, arg_content_type: arg_content_type },
+      [arg_has_audio, arg_has_video, arg_content_type],
       false);
   }
 
@@ -892,7 +892,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaPositionStateChanged_ParamsSpec,
       null,
-      { arg_media_position: arg_media_position },
+      [arg_media_position],
       false);
   }
 
@@ -901,7 +901,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaEffectivelyFullscreenChanged_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -910,7 +910,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnMediaSizeChanged_ParamsSpec,
       null,
-      { arg_size: arg_size },
+      [arg_size],
       false);
   }
 
@@ -919,7 +919,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnPictureInPictureAvailabilityChanged_ParamsSpec,
       null,
-      { arg_available: arg_available },
+      [arg_available],
       false);
   }
 
@@ -928,7 +928,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnAudioOutputSinkChanged_ParamsSpec,
       null,
-      { arg_hashed_device_id: arg_hashed_device_id },
+      [arg_hashed_device_id],
       false);
   }
 
@@ -937,7 +937,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverRemoteCallHandler = class 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnUseAudioServiceChanged_ParamsSpec,
       null,
-      { arg_uses_audio_service: arg_uses_audio_service },
+      [arg_uses_audio_service],
       false);
   }
 
@@ -946,7 +946,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverRemoteCallHandler = class 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnAudioOutputSinkChangingDisabled_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -955,7 +955,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverRemoteCallHandler = class 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec,
       null,
-      { arg_remote_playback_metadata: arg_remote_playback_metadata },
+      [arg_remote_playback_metadata],
       false);
   }
 
@@ -964,7 +964,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverRemoteCallHandler = class 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec,
       null,
-      { arg_meets_visibility_threshold: arg_meets_visibility_threshold },
+      [arg_meets_visibility_threshold],
       false);
   }
 
@@ -1190,7 +1190,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaPlayerHost_OnMediaPlayerAdded_ParamsSpec,
       null,
-      { arg_player_remote: arg_player_remote, arg_observer: arg_observer, arg_player_id: arg_player_id },
+      [arg_player_remote, arg_observer, arg_player_id],
       false);
   }
 

@@ -300,7 +300,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec,
-      { arg_task_id: arg_task_id, arg_info: arg_info, arg_instance: arg_instance },
+      [arg_task_id, arg_info, arg_instance],
       false);
   }
 
@@ -569,7 +569,7 @@ mojo.internal.bindings.arc.mojom.NearbyShareInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 

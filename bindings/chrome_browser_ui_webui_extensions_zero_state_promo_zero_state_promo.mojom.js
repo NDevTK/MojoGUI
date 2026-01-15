@@ -195,7 +195,7 @@ mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactoryRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.zero_state_promo.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec,
       null,
-      { arg_link: arg_link },
+      [arg_link],
       false);
   }
 

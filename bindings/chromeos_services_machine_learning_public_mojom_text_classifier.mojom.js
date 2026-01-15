@@ -208,7 +208,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec,
-      { arg_text: arg_text },
+      [arg_text],
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 

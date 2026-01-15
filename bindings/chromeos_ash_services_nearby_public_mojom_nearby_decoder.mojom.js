@@ -185,7 +185,7 @@ mojo.internal.bindings.sharing.mojom.NearbySharingDecoderRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.sharing.mojom.NearbySharingDecoderRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 

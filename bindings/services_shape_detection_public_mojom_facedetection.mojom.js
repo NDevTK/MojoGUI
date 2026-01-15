@@ -195,7 +195,7 @@ mojo.internal.bindings.shape_detection.mojom.FaceDetectionRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ParamsSpec,
       mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec,
-      { arg_bitmap_data: arg_bitmap_data },
+      [arg_bitmap_data],
       false);
   }
 

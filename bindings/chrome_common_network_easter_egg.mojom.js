@@ -181,7 +181,7 @@ mojo.internal.bindings.chrome.mojom.NetworkEasterEggRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.chrome.mojom.NetworkEasterEggRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec,
       null,
-      { arg_high_score: arg_high_score },
+      [arg_high_score],
       false);
   }
 
@@ -199,7 +199,7 @@ mojo.internal.bindings.chrome.mojom.NetworkEasterEggRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

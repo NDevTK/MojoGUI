@@ -300,7 +300,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ResponseParamsSpec,
-      { arg_mode: arg_mode },
+      [arg_mode],
       false);
   }
 
@@ -309,7 +309,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_RequestPermission_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_RequestPermission_ResponseParamsSpec,
-      { arg_mode: arg_mode },
+      [arg_mode],
       false);
   }
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_AsBlob_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_AsBlob_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ResponseParamsSpec,
-      { arg_keep_existing_data: arg_keep_existing_data, arg_auto_close: arg_auto_close, arg_mode: arg_mode },
+      [arg_keep_existing_data, arg_auto_close, arg_mode],
       false);
   }
 
@@ -336,7 +336,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleRemoteCallHandler =
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_Rename_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_Rename_ResponseParamsSpec,
-      { arg_new_entry_name: arg_new_entry_name },
+      [arg_new_entry_name],
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleRemoteCallHandler =
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_Move_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_Move_ResponseParamsSpec,
-      { arg_destination_directory: arg_destination_directory, arg_new_entry_name: arg_new_entry_name },
+      [arg_destination_directory, arg_new_entry_name],
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleRemoteCallHandler =
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_Remove_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_Remove_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleRemoteCallHandler =
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ResponseParamsSpec,
-      { arg_mode: arg_mode },
+      [arg_mode],
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleRemoteCallHandler =
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ResponseParamsSpec,
-      { arg_other: arg_other },
+      [arg_other],
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleRemoteCallHandler =
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_Transfer_ParamsSpec,
       null,
-      { arg_token: arg_token },
+      [arg_token],
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleRemoteCallHandler =
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleRemoteCallHandler =
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

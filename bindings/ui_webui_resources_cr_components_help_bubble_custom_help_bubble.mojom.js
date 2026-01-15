@@ -183,7 +183,7 @@ mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -313,7 +313,7 @@ mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec,
       null,
-      { arg_action: arg_action },
+      [arg_action],
       false);
   }
 

@@ -182,7 +182,7 @@ mojo.internal.bindings.audio.mojom.MlModelManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec,
       null,
-      { arg_tflite_file: arg_tflite_file },
+      [arg_tflite_file],
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.audio.mojom.MlModelManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

@@ -306,7 +306,7 @@ mojo.internal.bindings.content.mojom.NavigationClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ParamsSpec,
       mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec,
-      { arg_common_params: arg_common_params, arg_request_params: arg_request_params, arg_response_head: arg_response_head, arg_response_body: arg_response_body, arg_url_loader_client_endpoints: arg_url_loader_client_endpoints, arg_subresource_loader_factories: arg_subresource_loader_factories, arg_subresource_overrides: arg_subresource_overrides, arg_controller_service_worker_info: arg_controller_service_worker_info, arg_container_info: arg_container_info, arg_subresource_proxying_loader_factory: arg_subresource_proxying_loader_factory, arg_keep_alive_loader_factory: arg_keep_alive_loader_factory, arg_fetch_later_loader_factory: arg_fetch_later_loader_factory, arg_document_token: arg_document_token, arg_devtools_navigation_token: arg_devtools_navigation_token, arg_base_auction_nonce: arg_base_auction_nonce, arg_permissions_policy: arg_permissions_policy, arg_policy_container: arg_policy_container, arg_code_cache_host: arg_code_cache_host, arg_code_cache_host_for_background: arg_code_cache_host_for_background, arg_cookie_manager_info: arg_cookie_manager_info, arg_storage_info: arg_storage_info },
+      [arg_common_params, arg_request_params, arg_response_head, arg_response_body, arg_url_loader_client_endpoints, arg_subresource_loader_factories, arg_subresource_overrides, arg_controller_service_worker_info, arg_container_info, arg_subresource_proxying_loader_factory, arg_keep_alive_loader_factory, arg_fetch_later_loader_factory, arg_document_token, arg_devtools_navigation_token, arg_base_auction_nonce, arg_permissions_policy, arg_policy_container, arg_code_cache_host, arg_code_cache_host_for_background, arg_cookie_manager_info, arg_storage_info],
       false);
   }
 
@@ -315,7 +315,7 @@ mojo.internal.bindings.content.mojom.NavigationClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec,
       mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec,
-      { arg_common_params: arg_common_params, arg_request_params: arg_request_params, arg_has_stale_copy_in_cache: arg_has_stale_copy_in_cache, arg_error_code: arg_error_code, arg_extended_error_code: arg_extended_error_code, arg_resolve_error_info: arg_resolve_error_info, arg_error_page_content: arg_error_page_content, arg_subresource_loader_factories: arg_subresource_loader_factories, arg_document_token: arg_document_token, arg_devtools_navigation_token: arg_devtools_navigation_token, arg_policy_container: arg_policy_container, arg_alternative_error_page_info: arg_alternative_error_page_info },
+      [arg_common_params, arg_request_params, arg_has_stale_copy_in_cache, arg_error_code, arg_extended_error_code, arg_resolve_error_info, arg_error_page_content, arg_subresource_loader_factories, arg_document_token, arg_devtools_navigation_token, arg_policy_container, arg_alternative_error_page_info],
       false);
   }
 

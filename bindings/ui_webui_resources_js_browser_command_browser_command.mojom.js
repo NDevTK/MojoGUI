@@ -203,7 +203,7 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerFactoryRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -337,7 +337,7 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec,
       mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec,
-      { arg_command_id: arg_command_id },
+      [arg_command_id],
       false);
   }
 
@@ -346,7 +346,7 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec,
       mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec,
-      { arg_command_id: arg_command_id, arg_click_info: arg_click_info },
+      [arg_command_id, arg_click_info],
       false);
   }
 

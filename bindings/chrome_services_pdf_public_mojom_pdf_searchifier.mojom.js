@@ -171,7 +171,7 @@ mojo.internal.bindings.pdf.mojom.PdfSearchifierRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.pdf.mojom.PdfSearchifier_Searchify_ParamsSpec,
       mojo.internal.bindings.pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec,
-      { arg_pdf: arg_pdf },
+      [arg_pdf],
       false);
   }
 

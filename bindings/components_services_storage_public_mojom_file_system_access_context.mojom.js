@@ -191,7 +191,7 @@ mojo.internal.bindings.storage.mojom.FileSystemAccessContextRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec,
       mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec,
-      { arg_token: arg_token },
+      [arg_token],
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.storage.mojom.FileSystemAccessContextRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec,
       null,
-      { arg_storage_key: arg_storage_key, arg_bits: arg_bits, arg_token: arg_token },
+      [arg_storage_key, arg_bits, arg_token],
       false);
   }
 
@@ -209,7 +209,7 @@ mojo.internal.bindings.storage.mojom.FileSystemAccessContextRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.FileSystemAccessContext_Clone_ParamsSpec,
       null,
-      { arg_receiever: arg_receiever },
+      [arg_receiever],
       false);
   }
 

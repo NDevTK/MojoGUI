@@ -196,7 +196,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec,
-      { arg_file_name: arg_file_name },
+      [arg_file_name],
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec,
-      { arg_file_name: arg_file_name, arg_data: arg_data },
+      [arg_file_name, arg_data],
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec,
-      { arg_file_name: arg_file_name },
+      [arg_file_name],
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec,
-      { arg_file_name: arg_file_name },
+      [arg_file_name],
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec,
-      { arg_file_name: arg_file_name },
+      [arg_file_name],
       false);
   }
 

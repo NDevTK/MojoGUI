@@ -171,7 +171,7 @@ mojo.internal.bindings.web.mojom.WebUsageControllerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec,
       mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 

@@ -257,7 +257,7 @@ mojo.internal.bindings.network.mojom.WebTransportRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ParamsSpec,
       mojo.internal.bindings.network.mojom.WebTransport_SendDatagram_ResponseParamsSpec,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.network.mojom.WebTransportRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ParamsSpec,
       mojo.internal.bindings.network.mojom.WebTransport_CreateStream_ResponseParamsSpec,
-      { arg_readable: arg_readable, arg_writable: arg_writable },
+      [arg_readable, arg_writable],
       false);
   }
 
@@ -275,7 +275,7 @@ mojo.internal.bindings.network.mojom.WebTransportRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec,
       mojo.internal.bindings.network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -284,7 +284,7 @@ mojo.internal.bindings.network.mojom.WebTransportRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec,
       mojo.internal.bindings.network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -293,7 +293,7 @@ mojo.internal.bindings.network.mojom.WebTransportRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransport_SendFin_ParamsSpec,
       null,
-      { arg_stream_id: arg_stream_id },
+      [arg_stream_id],
       false);
   }
 
@@ -302,7 +302,7 @@ mojo.internal.bindings.network.mojom.WebTransportRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransport_AbortStream_ParamsSpec,
       null,
-      { arg_stream_id: arg_stream_id, arg_code: arg_code },
+      [arg_stream_id, arg_code],
       false);
   }
 
@@ -311,7 +311,7 @@ mojo.internal.bindings.network.mojom.WebTransportRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransport_StopSending_ParamsSpec,
       null,
-      { arg_stream_id: arg_stream_id, arg_code: arg_code },
+      [arg_stream_id, arg_code],
       false);
   }
 
@@ -320,7 +320,7 @@ mojo.internal.bindings.network.mojom.WebTransportRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec,
       null,
-      { arg_duration: arg_duration },
+      [arg_duration],
       false);
   }
 
@@ -329,7 +329,7 @@ mojo.internal.bindings.network.mojom.WebTransportRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransport_GetStats_ParamsSpec,
       mojo.internal.bindings.network.mojom.WebTransport_GetStats_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -338,7 +338,7 @@ mojo.internal.bindings.network.mojom.WebTransportRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec,
       null,
-      { arg_close_info: arg_close_info },
+      [arg_close_info],
       false);
   }
 
@@ -602,7 +602,7 @@ mojo.internal.bindings.network.mojom.WebTransportClientRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec,
       null,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -611,7 +611,7 @@ mojo.internal.bindings.network.mojom.WebTransportClientRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec,
       null,
-      { arg_stream_id: arg_stream_id, arg_fin_received: arg_fin_received },
+      [arg_stream_id, arg_fin_received],
       false);
   }
 
@@ -620,7 +620,7 @@ mojo.internal.bindings.network.mojom.WebTransportClientRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec,
       null,
-      { arg_stream_id: arg_stream_id },
+      [arg_stream_id],
       false);
   }
 
@@ -629,7 +629,7 @@ mojo.internal.bindings.network.mojom.WebTransportClientRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec,
       null,
-      { arg_stream_id: arg_stream_id, arg_stream_error_code: arg_stream_error_code },
+      [arg_stream_id, arg_stream_error_code],
       false);
   }
 
@@ -638,7 +638,7 @@ mojo.internal.bindings.network.mojom.WebTransportClientRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec,
       null,
-      { arg_stream_id: arg_stream_id, arg_stream_error_code: arg_stream_error_code },
+      [arg_stream_id, arg_stream_error_code],
       false);
   }
 
@@ -647,7 +647,7 @@ mojo.internal.bindings.network.mojom.WebTransportClientRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransportClient_OnClosed_ParamsSpec,
       null,
-      { arg_close_info: arg_close_info, arg_final_stats: arg_final_stats },
+      [arg_close_info, arg_final_stats],
       false);
   }
 
@@ -825,7 +825,7 @@ mojo.internal.bindings.network.mojom.WebTransportHandshakeClientRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec,
       null,
-      { arg_server_address: arg_server_address },
+      [arg_server_address],
       false);
   }
 
@@ -834,7 +834,7 @@ mojo.internal.bindings.network.mojom.WebTransportHandshakeClientRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec,
       null,
-      { arg_transport: arg_transport, arg_client: arg_client, arg_response_headers: arg_response_headers, arg_selected_application_protocol: arg_selected_application_protocol, arg_initial_stats: arg_initial_stats },
+      [arg_transport, arg_client, arg_response_headers, arg_selected_application_protocol, arg_initial_stats],
       false);
   }
 
@@ -843,7 +843,7 @@ mojo.internal.bindings.network.mojom.WebTransportHandshakeClientRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 

@@ -216,7 +216,7 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec,
-      { arg_cache_type: arg_cache_type },
+      [arg_cache_type],
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec,
       null,
-      { arg_cache_type: arg_cache_type, arg_url: arg_url, arg_expected_response_time: arg_expected_response_time, arg_data: arg_data },
+      [arg_cache_type, arg_url, arg_expected_response_time, arg_data],
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec,
-      { arg_cache_type: arg_cache_type, arg_url: arg_url },
+      [arg_cache_type, arg_url],
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec,
       null,
-      { arg_cache_type: arg_cache_type, arg_url: arg_url },
+      [arg_cache_type, arg_url],
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_expected_response_time: arg_expected_response_time, arg_data: arg_data, arg_cache_storage_cache_name: arg_cache_storage_cache_name },
+      [arg_url, arg_expected_response_time, arg_data, arg_cache_storage_cache_name],
       false);
   }
 

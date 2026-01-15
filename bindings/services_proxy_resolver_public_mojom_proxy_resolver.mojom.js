@@ -244,7 +244,7 @@ mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClientRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec,
       null,
-      { arg_error: arg_error, arg_result: arg_result },
+      [arg_error, arg_result],
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_network_anonymization_key: arg_network_anonymization_key, arg_client: arg_client },
+      [arg_url, arg_network_anonymization_key, arg_client],
       false);
   }
 
@@ -516,7 +516,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec,
       null,
-      { arg_error: arg_error, arg_proxy_info: arg_proxy_info },
+      [arg_error, arg_proxy_info],
       false);
   }
 
@@ -525,7 +525,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 
@@ -534,7 +534,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec,
       null,
-      { arg_line_number: arg_line_number, arg_error: arg_error },
+      [arg_line_number, arg_error],
       false);
   }
 
@@ -543,7 +543,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec,
       null,
-      { arg_host: arg_host, arg_operation: arg_operation, arg_network_anonymization_key: arg_network_anonymization_key, arg_client: arg_client },
+      [arg_host, arg_operation, arg_network_anonymization_key, arg_client],
       false);
   }
 
@@ -697,7 +697,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec,
       null,
-      { arg_pac_script: arg_pac_script, arg_receiver: arg_receiver, arg_client: arg_client },
+      [arg_pac_script, arg_receiver, arg_client],
       false);
   }
 
@@ -839,7 +839,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 
@@ -848,7 +848,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientRem
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 
@@ -857,7 +857,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientRem
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec,
       null,
-      { arg_line_number: arg_line_number, arg_error: arg_error },
+      [arg_line_number, arg_error],
       false);
   }
 
@@ -866,7 +866,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientRem
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec,
       null,
-      { arg_host: arg_host, arg_operation: arg_operation, arg_network_anonymization_key: arg_network_anonymization_key, arg_client: arg_client },
+      [arg_host, arg_operation, arg_network_anonymization_key, arg_client],
       false);
   }
 
@@ -1020,7 +1020,7 @@ mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec,
       mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 

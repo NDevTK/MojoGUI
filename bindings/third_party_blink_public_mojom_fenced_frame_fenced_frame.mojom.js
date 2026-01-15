@@ -191,7 +191,7 @@ mojo.internal.bindings.blink.mojom.FencedFrameOwnerHostRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_navigation_start_time: arg_navigation_start_time, arg_embedder_shared_storage_context: arg_embedder_shared_storage_context },
+      [arg_url, arg_navigation_start_time, arg_embedder_shared_storage_context],
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.blink.mojom.FencedFrameOwnerHostRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec,
       null,
-      { arg_frame_policy: arg_frame_policy },
+      [arg_frame_policy],
       false);
   }
 

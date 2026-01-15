@@ -176,7 +176,7 @@ mojo.internal.bindings.content.mojom.ThreadTypeSwitcherRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec,
       null,
-      { arg_platform_thread_id: arg_platform_thread_id, arg_thread_type: arg_thread_type },
+      [arg_platform_thread_id, arg_thread_type],
       false);
   }
 

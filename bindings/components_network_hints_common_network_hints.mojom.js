@@ -181,7 +181,7 @@ mojo.internal.bindings.network_hints.mojom.NetworkHintsHandlerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec,
       null,
-      { arg_url_list: arg_url_list },
+      [arg_url_list],
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.network_hints.mojom.NetworkHintsHandlerRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_allow_credentials: arg_allow_credentials },
+      [arg_url, arg_allow_credentials],
       false);
   }
 

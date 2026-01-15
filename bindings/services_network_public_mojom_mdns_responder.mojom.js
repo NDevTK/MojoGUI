@@ -182,7 +182,7 @@ mojo.internal.bindings.network.mojom.MdnsResponderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec,
       mojo.internal.bindings.network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec,
-      { arg_address: arg_address },
+      [arg_address],
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.network.mojom.MdnsResponderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec,
       mojo.internal.bindings.network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec,
-      { arg_address: arg_address },
+      [arg_address],
       false);
   }
 

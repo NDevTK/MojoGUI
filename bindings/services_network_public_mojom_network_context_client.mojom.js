@@ -199,7 +199,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec,
-      { arg_process_id: arg_process_id, arg_async: arg_async, arg_file_paths: arg_file_paths, arg_destination_url: arg_destination_url },
+      [arg_process_id, arg_async, arg_file_paths, arg_destination_url],
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec,
-      { arg_origins: arg_origins },
+      [arg_origins],
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.network.mojom.NetworkContextClientRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec,
-      { arg_origin: arg_origin },
+      [arg_origin],
       false);
   }
 

@@ -225,7 +225,7 @@ mojo.internal.bindings.blink.mojom.HidServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.HidService_RegisterClient_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.blink.mojom.HidServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.HidService_GetDevices_ParamsSpec,
       mojo.internal.bindings.blink.mojom.HidService_GetDevices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.blink.mojom.HidServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ParamsSpec,
       mojo.internal.bindings.blink.mojom.HidService_RequestDevice_ResponseParamsSpec,
-      { arg_filters: arg_filters, arg_exclusion_filters: arg_exclusion_filters },
+      [arg_filters, arg_exclusion_filters],
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.blink.mojom.HidServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.HidService_Connect_ParamsSpec,
       mojo.internal.bindings.blink.mojom.HidService_Connect_ResponseParamsSpec,
-      { arg_device_guid: arg_device_guid, arg_client: arg_client },
+      [arg_device_guid, arg_client],
       false);
   }
 
@@ -261,7 +261,7 @@ mojo.internal.bindings.blink.mojom.HidServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.HidService_Forget_ParamsSpec,
       mojo.internal.bindings.blink.mojom.HidService_Forget_ResponseParamsSpec,
-      { arg_device_info: arg_device_info },
+      [arg_device_info],
       false);
   }
 

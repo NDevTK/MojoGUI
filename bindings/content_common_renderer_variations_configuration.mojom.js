@@ -181,7 +181,7 @@ mojo.internal.bindings.content.mojom.RendererVariationsConfigurationRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec,
       null,
-      { arg_variations_headers: arg_variations_headers },
+      [arg_variations_headers],
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.content.mojom.RendererVariationsConfigurationRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec,
       null,
-      { arg_trial_name: arg_trial_name, arg_group_name: arg_group_name },
+      [arg_trial_name, arg_group_name],
       false);
   }
 

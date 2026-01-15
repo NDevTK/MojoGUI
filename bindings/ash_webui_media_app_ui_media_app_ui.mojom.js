@@ -199,7 +199,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactoryRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec,
-      { arg_token: arg_token },
+      [arg_token],
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec,
-      { arg_token: arg_token },
+      [arg_token],
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec,
-      { arg_token: arg_token, arg_mime_type: arg_mime_type },
+      [arg_token, arg_mime_type],
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec,
-      { arg_url: arg_url, arg_payload: arg_payload, arg_header: arg_header },
+      [arg_url, arg_payload, arg_header],
       false);
   }
 

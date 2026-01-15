@@ -170,7 +170,7 @@ mojo.internal.bindings.content.mojom.FieldTrialRecorderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec,
       null,
-      { arg_trial_name: arg_trial_name },
+      [arg_trial_name],
       false);
   }
 

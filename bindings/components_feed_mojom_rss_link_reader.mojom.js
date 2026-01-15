@@ -178,7 +178,7 @@ mojo.internal.bindings.feed.mojom.RssLinkReaderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec,
       mojo.internal.bindings.feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

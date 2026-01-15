@@ -198,7 +198,7 @@ mojo.internal.bindings.autofill_ml_internals.mojom.PageRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec,
       null,
-      { arg_log: arg_log },
+      [arg_log],
       false);
   }
 
@@ -328,7 +328,7 @@ mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      { arg_page: arg_page },
+      [arg_page],
       false);
   }
 

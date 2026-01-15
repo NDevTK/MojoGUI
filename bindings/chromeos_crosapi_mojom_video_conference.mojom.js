@@ -241,7 +241,7 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -250,7 +250,7 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -259,7 +259,7 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec,
-      { arg_device: arg_device, arg_enabled: arg_enabled },
+      [arg_device, arg_enabled],
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClientRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

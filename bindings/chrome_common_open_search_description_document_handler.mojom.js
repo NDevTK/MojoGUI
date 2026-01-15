@@ -176,7 +176,7 @@ mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec,
       null,
-      { arg_page_url: arg_page_url, arg_osdd_url: arg_osdd_url },
+      [arg_page_url, arg_osdd_url],
       false);
   }
 

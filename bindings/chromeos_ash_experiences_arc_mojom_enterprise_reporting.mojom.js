@@ -197,7 +197,7 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingHostRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec,
       null,
-      { arg_time_ms: arg_time_ms, arg_op: arg_op, arg_success: arg_success },
+      [arg_time_ms, arg_op, arg_success],
       false);
   }
 
@@ -331,7 +331,7 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec,
       mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

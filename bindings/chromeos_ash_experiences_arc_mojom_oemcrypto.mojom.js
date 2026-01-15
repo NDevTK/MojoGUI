@@ -784,7 +784,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_InitializeDeprecated_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_InitializeDeprecated_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -793,7 +793,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_Initialize_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_Initialize_ResponseParamsSpec,
-      { arg_oemcrypto_version: arg_oemcrypto_version },
+      [arg_oemcrypto_version],
       false);
   }
 
@@ -802,7 +802,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_Terminate_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_Terminate_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -811,7 +811,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_OpenSession_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_OpenSession_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -820,7 +820,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_CloseSession_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_CloseSession_ResponseParamsSpec,
-      { arg_session: arg_session },
+      [arg_session],
       false);
   }
 
@@ -829,7 +829,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateDerivedKeys_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateDerivedKeys_ResponseParamsSpec,
-      { arg_session: arg_session, arg_mac_key_context: arg_mac_key_context, arg_enc_key_context: arg_enc_key_context },
+      [arg_session, arg_mac_key_context, arg_enc_key_context],
       false);
   }
 
@@ -838,7 +838,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateNonce_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateNonce_ResponseParamsSpec,
-      { arg_session: arg_session },
+      [arg_session],
       false);
   }
 
@@ -847,7 +847,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateSignature_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateSignature_ResponseParamsSpec,
-      { arg_session: arg_session, arg_message: arg_message },
+      [arg_session, arg_message],
       false);
   }
 
@@ -856,7 +856,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadKeysV11OrV12_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadKeysV11OrV12_ResponseParamsSpec,
-      { arg_session: arg_session, arg_message: arg_message, arg_signature: arg_signature, arg_has_enc_mac_keys: arg_has_enc_mac_keys, arg_enc_mac_keys_iv_offset: arg_enc_mac_keys_iv_offset, arg_enc_mac_keys_offset: arg_enc_mac_keys_offset, arg_key_array: arg_key_array, arg_pst_offset: arg_pst_offset, arg_pst_length: arg_pst_length },
+      [arg_session, arg_message, arg_signature, arg_has_enc_mac_keys, arg_enc_mac_keys_iv_offset, arg_enc_mac_keys_offset, arg_key_array, arg_pst_offset, arg_pst_length],
       false);
   }
 
@@ -865,7 +865,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_RefreshKeysV14_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_RefreshKeysV14_ResponseParamsSpec,
-      { arg_session: arg_session, arg_message: arg_message, arg_signature: arg_signature, arg_key_array: arg_key_array },
+      [arg_session, arg_message, arg_signature, arg_key_array],
       false);
   }
 
@@ -874,7 +874,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_QueryKeyControl_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_QueryKeyControl_ResponseParamsSpec,
-      { arg_session: arg_session, arg_key_id: arg_key_id },
+      [arg_session, arg_key_id],
       false);
   }
 
@@ -883,7 +883,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_SelectKeyV13_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_SelectKeyV13_ResponseParamsSpec,
-      { arg_session: arg_session, arg_key_id: arg_key_id },
+      [arg_session, arg_key_id],
       false);
   }
 
@@ -892,7 +892,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_DecryptCencV15_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_DecryptCencV15_ResponseParamsSpec,
-      { arg_session: arg_session, arg_data: arg_data, arg_is_encrypted: arg_is_encrypted, arg_iv: arg_iv, arg_block_offset: arg_block_offset, arg_secure_buffer: arg_secure_buffer, arg_pattern: arg_pattern },
+      [arg_session, arg_data, arg_is_encrypted, arg_iv, arg_block_offset, arg_secure_buffer, arg_pattern],
       false);
   }
 
@@ -901,7 +901,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_GenericEncrypt_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_GenericEncrypt_ResponseParamsSpec,
-      { arg_session: arg_session, arg_data: arg_data, arg_iv: arg_iv, arg_algorithm: arg_algorithm },
+      [arg_session, arg_data, arg_iv, arg_algorithm],
       false);
   }
 
@@ -910,7 +910,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_GenericDecrypt_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_GenericDecrypt_ResponseParamsSpec,
-      { arg_session: arg_session, arg_data: arg_data, arg_iv: arg_iv, arg_algorithm: arg_algorithm },
+      [arg_session, arg_data, arg_iv, arg_algorithm],
       false);
   }
 
@@ -919,7 +919,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_GenericSign_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_GenericSign_ResponseParamsSpec,
-      { arg_session: arg_session, arg_data: arg_data, arg_algorithm: arg_algorithm },
+      [arg_session, arg_data, arg_algorithm],
       false);
   }
 
@@ -928,7 +928,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_GenericVerify_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_GenericVerify_ResponseParamsSpec,
-      { arg_session: arg_session, arg_data: arg_data, arg_algorithm: arg_algorithm, arg_signature: arg_signature },
+      [arg_session, arg_data, arg_algorithm, arg_signature],
       false);
   }
 
@@ -937,7 +937,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_CopyBufferV14_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_CopyBufferV14_ResponseParamsSpec,
-      { arg_data: arg_data, arg_out_buffer: arg_out_buffer },
+      [arg_data, arg_out_buffer],
       false);
   }
 
@@ -946,7 +946,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadTestKeyboxV13_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadTestKeyboxV13_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -955,7 +955,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -964,7 +964,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetDeviceId_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetDeviceId_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -973,7 +973,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetKeyData_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetKeyData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -982,7 +982,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetRandom_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetRandom_ResponseParamsSpec,
-      { arg_length: arg_length },
+      [arg_length],
       false);
   }
 
@@ -991,7 +991,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1000,7 +1000,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1009,7 +1009,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ResponseParamsSpec,
-      { arg_session: arg_session, arg_message: arg_message, arg_signature: arg_signature, arg_nonce_offset: arg_nonce_offset, arg_enc_rsa_key_offset: arg_enc_rsa_key_offset, arg_enc_rsa_key_length: arg_enc_rsa_key_length, arg_enc_rsa_key_iv_offset: arg_enc_rsa_key_iv_offset },
+      [arg_session, arg_message, arg_signature, arg_nonce_offset, arg_enc_rsa_key_offset, arg_enc_rsa_key_length, arg_enc_rsa_key_iv_offset],
       false);
   }
 
@@ -1018,7 +1018,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadDeviceRsaKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadDeviceRsaKey_ResponseParamsSpec,
-      { arg_session: arg_session, arg_wrapped_rsa_key: arg_wrapped_rsa_key },
+      [arg_session, arg_wrapped_rsa_key],
       false);
   }
 
@@ -1027,7 +1027,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateRsaSignature_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_GenerateRsaSignature_ResponseParamsSpec,
-      { arg_session: arg_session, arg_message: arg_message, arg_padding_scheme: arg_padding_scheme },
+      [arg_session, arg_message, arg_padding_scheme],
       false);
   }
 
@@ -1036,7 +1036,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ResponseParamsSpec,
-      { arg_session: arg_session, arg_enc_session_key: arg_enc_session_key, arg_mac_key_context: arg_mac_key_context, arg_enc_key_context: arg_enc_key_context },
+      [arg_session, arg_enc_session_key, arg_mac_key_context, arg_enc_key_context],
       false);
   }
 
@@ -1045,7 +1045,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_SecurityPatchLevel_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_SecurityPatchLevel_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1054,7 +1054,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetHdcpCapability_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetHdcpCapability_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1063,7 +1063,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_UpdateUsageTable_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_UpdateUsageTable_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1072,7 +1072,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ResponseParamsSpec,
-      { arg_pst: arg_pst },
+      [arg_pst],
       false);
   }
 
@@ -1081,7 +1081,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_ReportUsage_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_ReportUsage_ResponseParamsSpec,
-      { arg_session: arg_session, arg_pst: arg_pst },
+      [arg_session, arg_pst],
       false);
   }
 
@@ -1090,7 +1090,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_DeleteUsageEntry_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_DeleteUsageEntry_ResponseParamsSpec,
-      { arg_session: arg_session, arg_pst_offset: arg_pst_offset, arg_pst_length: arg_pst_length, arg_message: arg_message, arg_signature: arg_signature },
+      [arg_session, arg_pst_offset, arg_pst_length, arg_message, arg_signature],
       false);
   }
 
@@ -1099,7 +1099,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ResponseParamsSpec,
-      { arg_pst: arg_pst },
+      [arg_pst],
       false);
   }
 
@@ -1108,7 +1108,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_DeleteOldUsageTable_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_DeleteOldUsageTable_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1117,7 +1117,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetProvisioningMethod_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetProvisioningMethod_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1126,7 +1126,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_SupportedCertificates_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_SupportedCertificates_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1135,7 +1135,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_IsSrmUpdateSupported_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_IsSrmUpdateSupported_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1144,7 +1144,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[40],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetCurrentSrmVersion_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetCurrentSrmVersion_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1153,7 +1153,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[41],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadSrm_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadSrm_ResponseParamsSpec,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 
@@ -1162,7 +1162,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[42],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_RemoveSrm_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_RemoveSrm_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1171,7 +1171,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[43],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_CreateUsageTableHeader_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_CreateUsageTableHeader_ResponseParamsSpec,
-      { arg_avail_header_length: arg_avail_header_length },
+      [arg_avail_header_length],
       false);
   }
 
@@ -1180,7 +1180,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[44],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadUsageTableHeader_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadUsageTableHeader_ResponseParamsSpec,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 
@@ -1189,7 +1189,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[45],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_CreateNewUsageEntry_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_CreateNewUsageEntry_ResponseParamsSpec,
-      { arg_session: arg_session },
+      [arg_session],
       false);
   }
 
@@ -1198,7 +1198,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[46],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadUsageEntry_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadUsageEntry_ResponseParamsSpec,
-      { arg_session: arg_session, arg_index: arg_index, arg_buffer: arg_buffer },
+      [arg_session, arg_index, arg_buffer],
       false);
   }
 
@@ -1207,7 +1207,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[47],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_UpdateUsageEntry_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_UpdateUsageEntry_ResponseParamsSpec,
-      { arg_session: arg_session, arg_avail_header_length: arg_avail_header_length, arg_avail_entry_length: arg_avail_entry_length },
+      [arg_session, arg_avail_header_length, arg_avail_entry_length],
       false);
   }
 
@@ -1216,7 +1216,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[48],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_DeactivateUsageEntry_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_DeactivateUsageEntry_ResponseParamsSpec,
-      { arg_session: arg_session, arg_pst: arg_pst },
+      [arg_session, arg_pst],
       false);
   }
 
@@ -1225,7 +1225,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[49],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ResponseParamsSpec,
-      { arg_new_entry_count: arg_new_entry_count, arg_avail_header_length: arg_avail_header_length },
+      [arg_new_entry_count, arg_avail_header_length],
       false);
   }
 
@@ -1234,7 +1234,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[50],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_MoveEntry_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_MoveEntry_ResponseParamsSpec,
-      { arg_session: arg_session, arg_new_index: arg_new_index },
+      [arg_session, arg_new_index],
       false);
   }
 
@@ -1243,7 +1243,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[51],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_CopyOldUsageEntry_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_CopyOldUsageEntry_ResponseParamsSpec,
-      { arg_session: arg_session, arg_pst: arg_pst },
+      [arg_session, arg_pst],
       false);
   }
 
@@ -1252,7 +1252,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[52],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_CreateOldUsageEntry_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_CreateOldUsageEntry_ResponseParamsSpec,
-      { arg_time_since_license_received: arg_time_since_license_received, arg_time_since_first_decrypt: arg_time_since_first_decrypt, arg_time_since_last_decrypt: arg_time_since_last_decrypt, arg_status: arg_status, arg_server_mac_key: arg_server_mac_key, arg_client_mac_key: arg_client_mac_key, arg_pst: arg_pst },
+      [arg_time_since_license_received, arg_time_since_first_decrypt, arg_time_since_last_decrypt, arg_status, arg_server_mac_key, arg_client_mac_key, arg_pst],
       false);
   }
 
@@ -1261,7 +1261,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[53],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetAnalogOutputFlags_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetAnalogOutputFlags_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1270,7 +1270,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[54],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadTestKeybox_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadTestKeybox_ResponseParamsSpec,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 
@@ -1279,7 +1279,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[55],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ResponseParamsSpec,
-      { arg_session: arg_session, arg_key_array: arg_key_array },
+      [arg_session, arg_key_array],
       false);
   }
 
@@ -1288,7 +1288,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[56],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_SelectKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_SelectKey_ResponseParamsSpec,
-      { arg_session: arg_session, arg_content_key_id: arg_content_key_id, arg_cipher_mode: arg_cipher_mode },
+      [arg_session, arg_content_key_id, arg_cipher_mode],
       false);
   }
 
@@ -1297,7 +1297,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[57],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadKeysV14_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadKeysV14_ResponseParamsSpec,
-      { arg_session: arg_session, arg_message: arg_message, arg_signature: arg_signature, arg_has_enc_mac_keys: arg_has_enc_mac_keys, arg_enc_mac_keys_iv_offset: arg_enc_mac_keys_iv_offset, arg_enc_mac_keys_offset: arg_enc_mac_keys_offset, arg_key_array: arg_key_array, arg_pst_offset: arg_pst_offset, arg_pst_length: arg_pst_length, arg_srm_requirement: arg_srm_requirement, arg_license_type: arg_license_type },
+      [arg_session, arg_message, arg_signature, arg_has_enc_mac_keys, arg_enc_mac_keys_iv_offset, arg_enc_mac_keys_offset, arg_key_array, arg_pst_offset, arg_pst_length, arg_srm_requirement, arg_license_type],
       false);
   }
 
@@ -1306,7 +1306,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[58],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadKeys_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadKeys_ResponseParamsSpec,
-      { arg_session: arg_session, arg_message: arg_message, arg_signature: arg_signature, arg_enc_mac_keys_iv: arg_enc_mac_keys_iv, arg_enc_mac_keys: arg_enc_mac_keys, arg_key_array: arg_key_array, arg_pst: arg_pst, arg_srm_restriction_data: arg_srm_restriction_data, arg_license_type: arg_license_type },
+      [arg_session, arg_message, arg_signature, arg_enc_mac_keys_iv, arg_enc_mac_keys, arg_key_array, arg_pst, arg_srm_restriction_data, arg_license_type],
       false);
   }
 
@@ -1315,7 +1315,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[59],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_ResourceRatingTier_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_ResourceRatingTier_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1324,7 +1324,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[60],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_BuildInformation_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_BuildInformation_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1333,7 +1333,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[61],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_RefreshKeys_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_RefreshKeys_ResponseParamsSpec,
-      { arg_session: arg_session, arg_message: arg_message, arg_signature: arg_signature, arg_key_array: arg_key_array },
+      [arg_session, arg_message, arg_signature, arg_key_array],
       false);
   }
 
@@ -1342,7 +1342,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[62],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadEntitledContentKeys_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadEntitledContentKeys_ResponseParamsSpec,
-      { arg_session: arg_session, arg_message: arg_message, arg_key_array: arg_key_array },
+      [arg_session, arg_message, arg_key_array],
       false);
   }
 
@@ -1351,7 +1351,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[63],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetOemPublicCertificate_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_GetOemPublicCertificate_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1360,7 +1360,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[64],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1369,7 +1369,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[65],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1378,7 +1378,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[66],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_MinorApiVersion_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_MinorApiVersion_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1387,7 +1387,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[67],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ResponseParamsSpec,
-      { arg_session: arg_session, arg_message: arg_message, arg_core_message_size: arg_core_message_size, arg_avail_signature_size: arg_avail_signature_size },
+      [arg_session, arg_message, arg_core_message_size, arg_avail_signature_size],
       false);
   }
 
@@ -1396,7 +1396,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[68],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ResponseParamsSpec,
-      { arg_session: arg_session, arg_message: arg_message, arg_core_message_size: arg_core_message_size, arg_avail_signature_size: arg_avail_signature_size },
+      [arg_session, arg_message, arg_core_message_size, arg_avail_signature_size],
       false);
   }
 
@@ -1405,7 +1405,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[69],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ResponseParamsSpec,
-      { arg_session: arg_session, arg_message: arg_message, arg_core_message_size: arg_core_message_size, arg_avail_signature_size: arg_avail_signature_size },
+      [arg_session, arg_message, arg_core_message_size, arg_avail_signature_size],
       false);
   }
 
@@ -1414,7 +1414,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[70],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadLicense_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadLicense_ResponseParamsSpec,
-      { arg_session: arg_session, arg_message: arg_message, arg_core_message_length: arg_core_message_length, arg_signature: arg_signature },
+      [arg_session, arg_message, arg_core_message_length, arg_signature],
       false);
   }
 
@@ -1423,7 +1423,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[71],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadRenewal_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadRenewal_ResponseParamsSpec,
-      { arg_session: arg_session, arg_message: arg_message, arg_core_message_length: arg_core_message_length, arg_signature: arg_signature },
+      [arg_session, arg_message, arg_core_message_length, arg_signature],
       false);
   }
 
@@ -1432,7 +1432,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[72],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadProvisioning_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadProvisioning_ResponseParamsSpec,
-      { arg_session: arg_session, arg_message: arg_message, arg_core_message_length: arg_core_message_length, arg_signature: arg_signature, arg_avail_wrapped_private_key_size: arg_avail_wrapped_private_key_size },
+      [arg_session, arg_message, arg_core_message_length, arg_signature, arg_avail_wrapped_private_key_size],
       false);
   }
 
@@ -1441,7 +1441,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[73],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadOemPrivateKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadOemPrivateKey_ResponseParamsSpec,
-      { arg_session: arg_session },
+      [arg_session],
       false);
   }
 
@@ -1450,7 +1450,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[74],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadDrmPrivateKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_LoadDrmPrivateKey_ResponseParamsSpec,
-      { arg_session: arg_session, arg_key_type: arg_key_type, arg_wrapped_private_key: arg_wrapped_private_key },
+      [arg_session, arg_key_type, arg_wrapped_private_key],
       false);
   }
 
@@ -1459,7 +1459,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[75],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_DecryptCenc_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_DecryptCenc_ResponseParamsSpec,
-      { arg_session: arg_session, arg_data: arg_data, arg_iv: arg_iv, arg_sub_samples: arg_sub_samples, arg_pattern: arg_pattern, arg_secure_buffer: arg_secure_buffer },
+      [arg_session, arg_data, arg_iv, arg_sub_samples, arg_pattern, arg_secure_buffer],
       false);
   }
 
@@ -1468,7 +1468,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       this.ordinals[76],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoService_CopyBuffer_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoService_CopyBuffer_ResponseParamsSpec,
-      { arg_session: arg_session, arg_data: arg_data, arg_out_buffer: arg_out_buffer, arg_subsample_flags: arg_subsample_flags },
+      [arg_session, arg_data, arg_out_buffer, arg_subsample_flags],
       false);
   }
 
@@ -2871,7 +2871,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoHost_Connect_ParamsSpec,
       null,
-      { arg_oemcryptor: arg_oemcryptor },
+      [arg_oemcryptor],
       false);
   }
 
@@ -3001,7 +3001,7 @@ mojo.internal.bindings.arc.mojom.OemCryptoInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.OemCryptoInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.OemCryptoInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 

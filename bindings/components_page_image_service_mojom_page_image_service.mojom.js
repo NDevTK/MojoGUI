@@ -191,7 +191,7 @@ mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec,
       mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec,
-      { arg_client_id: arg_client_id, arg_page_url: arg_page_url, arg_options: arg_options },
+      [arg_client_id, arg_page_url, arg_options],
       false);
   }
 

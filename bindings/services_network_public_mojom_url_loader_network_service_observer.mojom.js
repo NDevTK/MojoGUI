@@ -282,7 +282,7 @@ mojo.internal.bindings.network.mojom.ClientCertificateResponderRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec,
       null,
-      { arg_x509_certificate: arg_x509_certificate, arg_provider_name: arg_provider_name, arg_algorithm_preferences: arg_algorithm_preferences, arg_ssl_private_key: arg_ssl_private_key },
+      [arg_x509_certificate, arg_provider_name, arg_algorithm_preferences, arg_ssl_private_key],
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.network.mojom.ClientCertificateResponderRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.network.mojom.ClientCertificateResponderRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -446,7 +446,7 @@ mojo.internal.bindings.network.mojom.SSLPrivateKeyRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ParamsSpec,
       mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec,
-      { arg_algorithm: arg_algorithm, arg_input: arg_input },
+      [arg_algorithm, arg_input],
       false);
   }
 
@@ -584,7 +584,7 @@ mojo.internal.bindings.network.mojom.AuthChallengeResponderRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec,
       null,
-      { arg_credentials: arg_credentials },
+      [arg_credentials],
       false);
   }
 
@@ -758,7 +758,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec,
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec,
-      { arg_url: arg_url, arg_net_error: arg_net_error, arg_ssl_info: arg_ssl_info, arg_fatal: arg_fatal },
+      [arg_url, arg_net_error, arg_ssl_info, arg_fatal],
       false);
   }
 
@@ -767,7 +767,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec,
       null,
-      { arg_window_id: arg_window_id, arg_cert_info: arg_cert_info, arg_cert_responder: arg_cert_responder },
+      [arg_window_id, arg_cert_info, arg_cert_responder],
       false);
   }
 
@@ -776,7 +776,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec,
       null,
-      { arg_window_id: arg_window_id, arg_request_id: arg_request_id, arg_url: arg_url, arg_first_auth_attempt: arg_first_auth_attempt, arg_auth_info: arg_auth_info, arg_head_headers: arg_head_headers, arg_auth_challenge_responder: arg_auth_challenge_responder },
+      [arg_window_id, arg_request_id, arg_url, arg_first_auth_attempt, arg_auth_info, arg_head_headers, arg_auth_challenge_responder],
       false);
   }
 
@@ -785,7 +785,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec,
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec,
-      { arg_transport_type: arg_transport_type, arg_ip_address_space: arg_ip_address_space },
+      [arg_transport_type, arg_ip_address_space],
       false);
   }
 
@@ -794,7 +794,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec,
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec,
-      { arg_url: arg_url, arg_header_value: arg_header_value, arg_load_flags: arg_load_flags, arg_cookie_partition_key: arg_cookie_partition_key, arg_partitioned_state_allowed_only: arg_partitioned_state_allowed_only },
+      [arg_url, arg_header_value, arg_load_flags, arg_cookie_partition_key, arg_partitioned_state_allowed_only],
       false);
   }
 
@@ -803,7 +803,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec,
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 
@@ -812,7 +812,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec,
       null,
-      { arg_network_traffic_annotation_id_hash: arg_network_traffic_annotation_id_hash, arg_recv_bytes: arg_recv_bytes, arg_sent_bytes: arg_sent_bytes },
+      [arg_network_traffic_annotation_id_hash, arg_recv_bytes, arg_sent_bytes],
       false);
   }
 
@@ -821,7 +821,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec,
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec,
-      { arg_request_origin: arg_request_origin, arg_methods_with_options: arg_methods_with_options, arg_with_lock: arg_with_lock },
+      [arg_request_origin, arg_methods_with_options, arg_with_lock],
       false);
   }
 
@@ -830,7 +830,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec,
       null,
-      { arg_ad_auction_event_record: arg_ad_auction_event_record, arg_top_frame_origin: arg_top_frame_origin },
+      [arg_ad_auction_event_record, arg_top_frame_origin],
       false);
   }
 
@@ -839,7 +839,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec,
       null,
-      { arg_listener: arg_listener },
+      [arg_listener],
       false);
   }
 
@@ -848,7 +848,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec,
       null,
-      { arg_request_url: arg_request_url, arg_ip_address_space: arg_ip_address_space },
+      [arg_request_url, arg_ip_address_space],
       false);
   }
 
@@ -857,7 +857,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec,
       null,
-      { arg_request_url: arg_request_url, arg_response_address_space: arg_response_address_space, arg_client_address_space: arg_client_address_space, arg_target_address_space: arg_target_address_space },
+      [arg_request_url, arg_response_address_space, arg_client_address_space, arg_target_address_space],
       false);
   }
 

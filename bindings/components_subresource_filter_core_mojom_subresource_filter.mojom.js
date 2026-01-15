@@ -212,7 +212,7 @@ mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserver
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec,
       null,
-      { arg_ruleset_file: arg_ruleset_file },
+      [arg_ruleset_file],
       false);
   }
 

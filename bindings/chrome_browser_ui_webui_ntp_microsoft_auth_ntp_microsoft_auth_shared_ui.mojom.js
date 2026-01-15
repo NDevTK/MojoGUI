@@ -187,7 +187,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemoteCa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemoteCa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

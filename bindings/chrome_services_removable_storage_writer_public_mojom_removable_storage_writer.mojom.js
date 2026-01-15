@@ -199,7 +199,7 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Write_ParamsSpec,
       null,
-      { arg_source: arg_source, arg_target: arg_target, arg_client: arg_client },
+      [arg_source, arg_target, arg_client],
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec,
       null,
-      { arg_source: arg_source, arg_target: arg_target, arg_client: arg_client },
+      [arg_source, arg_target, arg_client],
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec,
       null,
-      { arg_progress: arg_progress },
+      [arg_progress],
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClientRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 

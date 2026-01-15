@@ -255,7 +255,7 @@ mojo.internal.bindings.blink.mojom.PresentationConnectionRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PresentationConnection_OnMessage_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -264,7 +264,7 @@ mojo.internal.bindings.blink.mojom.PresentationConnectionRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PresentationConnection_DidChangeState_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -273,7 +273,7 @@ mojo.internal.bindings.blink.mojom.PresentationConnectionRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PresentationConnection_DidClose_ParamsSpec,
       null,
-      { arg_reason: arg_reason },
+      [arg_reason],
       false);
   }
 
@@ -451,7 +451,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PresentationService_SetController_ParamsSpec,
       null,
-      { arg_controller: arg_controller },
+      [arg_controller],
       false);
   }
 
@@ -460,7 +460,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PresentationService_SetReceiver_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -469,7 +469,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec,
       null,
-      { arg_presentation_urls: arg_presentation_urls },
+      [arg_presentation_urls],
       false);
   }
 
@@ -478,7 +478,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec,
       null,
-      { arg_availability_url: arg_availability_url },
+      [arg_availability_url],
       false);
   }
 
@@ -487,7 +487,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec,
       null,
-      { arg_availability_url: arg_availability_url },
+      [arg_availability_url],
       false);
   }
 
@@ -496,7 +496,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.PresentationService_StartPresentation_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec,
-      { arg_presentation_urls: arg_presentation_urls },
+      [arg_presentation_urls],
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec,
-      { arg_presentation_urls: arg_presentation_urls, arg_presentation_id: arg_presentation_id },
+      [arg_presentation_urls, arg_presentation_id],
       false);
   }
 
@@ -514,7 +514,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.PresentationService_CloseConnection_ParamsSpec,
       null,
-      { arg_presentation_url: arg_presentation_url, arg_presentation_id: arg_presentation_id },
+      [arg_presentation_url, arg_presentation_id],
       false);
   }
 
@@ -523,7 +523,7 @@ mojo.internal.bindings.blink.mojom.PresentationServiceRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.PresentationService_Terminate_ParamsSpec,
       null,
-      { arg_presentation_url: arg_presentation_url, arg_presentation_id: arg_presentation_id },
+      [arg_presentation_url, arg_presentation_id],
       false);
   }
 
@@ -745,7 +745,7 @@ mojo.internal.bindings.blink.mojom.PresentationControllerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_availability: arg_availability },
+      [arg_url, arg_availability],
       false);
   }
 
@@ -754,7 +754,7 @@ mojo.internal.bindings.blink.mojom.PresentationControllerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec,
       null,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 
@@ -763,7 +763,7 @@ mojo.internal.bindings.blink.mojom.PresentationControllerRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec,
       null,
-      { arg_presentation_info: arg_presentation_info, arg_newState: arg_newState },
+      [arg_presentation_info, arg_newState],
       false);
   }
 
@@ -772,7 +772,7 @@ mojo.internal.bindings.blink.mojom.PresentationControllerRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec,
       null,
-      { arg_presentation_info: arg_presentation_info, arg_reason: arg_reason, arg_message: arg_message },
+      [arg_presentation_info, arg_reason, arg_message],
       false);
   }
 
@@ -926,7 +926,7 @@ mojo.internal.bindings.blink.mojom.PresentationReceiverRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec,
       null,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 

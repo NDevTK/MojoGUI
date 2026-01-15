@@ -208,7 +208,7 @@ mojo.internal.bindings.remote_cocoa.mojom.MenuHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec,
       null,
-      { arg_command_id: arg_command_id, arg_event_flags: arg_event_flags },
+      [arg_command_id, arg_event_flags],
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.remote_cocoa.mojom.MenuHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.remote_cocoa.mojom.MenuRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.Menu_Cancel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.remote_cocoa.mojom.MenuRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec,
       null,
-      { arg_command_id: arg_command_id, arg_enabled: arg_enabled, arg_visible: arg_visible, arg_label: arg_label },
+      [arg_command_id, arg_enabled, arg_visible, arg_label],
       false);
   }
 

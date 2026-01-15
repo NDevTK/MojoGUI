@@ -178,7 +178,7 @@ mojo.internal.bindings.sandbox.mac.mojom.TraitsTestServiceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec,
       mojo.internal.bindings.sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec,
-      { arg_in: arg_in },
+      [arg_in],
       false);
   }
 

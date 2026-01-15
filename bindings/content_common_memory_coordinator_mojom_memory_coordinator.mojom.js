@@ -180,7 +180,7 @@ mojo.internal.bindings.content.mojom.ChildMemoryConsumerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -189,7 +189,7 @@ mojo.internal.bindings.content.mojom.ChildMemoryConsumerRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec,
       null,
-      { arg_percentage: arg_percentage },
+      [arg_percentage],
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec,
       null,
-      { arg_consumer_id: arg_consumer_id, arg_traits: arg_traits, arg_child_consumer: arg_child_consumer },
+      [arg_consumer_id, arg_traits, arg_child_consumer],
       false);
   }
 

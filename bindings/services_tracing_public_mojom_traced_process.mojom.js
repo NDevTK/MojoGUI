@@ -178,7 +178,7 @@ mojo.internal.bindings.tracing.mojom.TracedProcessRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 

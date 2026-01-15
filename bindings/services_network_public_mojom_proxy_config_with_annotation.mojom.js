@@ -194,7 +194,7 @@ mojo.internal.bindings.network.mojom.ProxyConfigClientRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec,
       null,
-      { arg_proxy_config: arg_proxy_config },
+      [arg_proxy_config],
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.network.mojom.ProxyConfigClientRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec,
       mojo.internal.bindings.network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.network.mojom.ProxyConfigPollerClientRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -483,7 +483,7 @@ mojo.internal.bindings.network.mojom.ProxyErrorClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec,
       null,
-      { arg_line_number: arg_line_number, arg_details: arg_details },
+      [arg_line_number, arg_details],
       false);
   }
 
@@ -492,7 +492,7 @@ mojo.internal.bindings.network.mojom.ProxyErrorClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec,
       null,
-      { arg_net_error: arg_net_error },
+      [arg_net_error],
       false);
   }
 

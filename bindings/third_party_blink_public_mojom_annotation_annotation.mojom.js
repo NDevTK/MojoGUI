@@ -219,7 +219,7 @@ mojo.internal.bindings.blink.mojom.AnnotationAgentRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec,
       null,
-      { arg_applies_focus: arg_applies_focus },
+      [arg_applies_focus],
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.blink.mojom.AnnotationAgentHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec,
       null,
-      { arg_document_relative_rect: arg_document_relative_rect, arg_attachment_result: arg_attachment_result },
+      [arg_document_relative_rect, arg_attachment_result],
       false);
   }
 
@@ -487,7 +487,7 @@ mojo.internal.bindings.blink.mojom.AnnotationAgentContainerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec,
       null,
-      { arg_host_remote: arg_host_remote, arg_agent_receiver: arg_agent_receiver, arg_type: arg_type, arg_selector: arg_selector, arg_search_range_start_node_id: arg_search_range_start_node_id },
+      [arg_host_remote, arg_agent_receiver, arg_type, arg_selector, arg_search_range_start_node_id],
       false);
   }
 
@@ -496,7 +496,7 @@ mojo.internal.bindings.blink.mojom.AnnotationAgentContainerRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.blink.mojom.AnnotationAgentContainerRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec,
       null,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 

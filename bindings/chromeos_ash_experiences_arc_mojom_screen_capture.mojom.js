@@ -207,7 +207,7 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ScreenCaptureHost_RequestPermission_ResponseParamsSpec,
-      { arg_display_name: arg_display_name, arg_package_name: arg_package_name },
+      [arg_display_name, arg_package_name],
       false);
   }
 
@@ -216,7 +216,7 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name },
+      [arg_package_name],
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec,
-      { arg_notifier: arg_notifier, arg_package_name: arg_package_name, arg_size: arg_size },
+      [arg_notifier, arg_package_name, arg_size],
       false);
   }
 
@@ -393,7 +393,7 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureSessionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ResponseParamsSpec,
-      { arg_graphics_buffer: arg_graphics_buffer, arg_stride: arg_stride },
+      [arg_graphics_buffer, arg_stride],
       false);
   }
 
@@ -402,7 +402,7 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureSessionRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParamsSpec,
-      { arg_graphics_buffer: arg_graphics_buffer, arg_buffer_format: arg_buffer_format, arg_buffer_format_modifier: arg_buffer_format_modifier, arg_stride: arg_stride },
+      [arg_graphics_buffer, arg_buffer_format, arg_buffer_format_modifier, arg_stride],
       false);
   }
 
@@ -556,7 +556,7 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureInstanceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ScreenCaptureInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ScreenCaptureInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -694,7 +694,7 @@ mojo.internal.bindings.arc.mojom.ScreenCaptureSessionNotifierRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

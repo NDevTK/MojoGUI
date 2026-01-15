@@ -181,7 +181,7 @@ mojo.internal.bindings.blink.mojom.BadgeServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BadgeService_SetBadge_ParamsSpec,
       null,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.blink.mojom.BadgeServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BadgeService_ClearBadge_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

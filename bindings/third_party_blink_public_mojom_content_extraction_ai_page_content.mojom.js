@@ -351,7 +351,7 @@ mojo.internal.bindings.blink.mojom.AIPageContentAgentRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 

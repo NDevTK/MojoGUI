@@ -176,7 +176,7 @@ mojo.internal.bindings.content.mojom.MediaInternalLogRecordsRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.MediaInternalLogRecords_Log_ParamsSpec,
       null,
-      { arg_events: arg_events },
+      [arg_events],
       false);
   }
 

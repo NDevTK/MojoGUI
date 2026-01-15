@@ -177,7 +177,7 @@ mojo.internal.bindings.crosapi.mojom.StructuredMetricsServiceRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.StructuredMetricsService_Record_ParamsSpec,
       null,
-      { arg_events: arg_events },
+      [arg_events],
       false);
   }
 

@@ -180,7 +180,7 @@ mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec,
       mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec,
-      { arg_input_text: arg_input_text },
+      [arg_input_text],
       false);
   }
 

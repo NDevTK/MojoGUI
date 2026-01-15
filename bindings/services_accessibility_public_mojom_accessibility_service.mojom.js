@@ -230,7 +230,7 @@ mojo.internal.bindings.ax.mojom.AssistiveTechnologyControllerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec,
       null,
-      { arg_enabled_features: arg_enabled_features },
+      [arg_enabled_features],
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec,
       null,
-      { arg_accessibility_service_client: arg_accessibility_service_client },
+      [arg_accessibility_service_client],
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec,
       null,
-      { arg_at_controller: arg_at_controller, arg_enabled_features: arg_enabled_features },
+      [arg_at_controller, arg_enabled_features],
       false);
   }
 
@@ -386,7 +386,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec,
       null,
-      { arg_agent: arg_agent, arg_type: arg_type },
+      [arg_agent, arg_type],
       false);
   }
 
@@ -560,7 +560,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec,
       null,
-      { arg_automation: arg_automation },
+      [arg_automation],
       false);
   }
 
@@ -569,7 +569,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec,
       null,
-      { arg_automation_client: arg_automation_client },
+      [arg_automation_client],
       false);
   }
 
@@ -578,7 +578,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec,
       null,
-      { arg_autoclick_client: arg_autoclick_client },
+      [arg_autoclick_client],
       false);
   }
 
@@ -587,7 +587,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec,
       null,
-      { arg_sr_receiver: arg_sr_receiver },
+      [arg_sr_receiver],
       false);
   }
 
@@ -596,7 +596,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec,
       null,
-      { arg_tts_receiver: arg_tts_receiver },
+      [arg_tts_receiver],
       false);
   }
 
@@ -605,7 +605,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec,
       null,
-      { arg_user_input_receiver: arg_user_input_receiver },
+      [arg_user_input_receiver],
       false);
   }
 
@@ -614,7 +614,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemoteCallHandler = cl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec,
       null,
-      { arg_user_interface_receiver: arg_user_interface_receiver },
+      [arg_user_interface_receiver],
       false);
   }
 
@@ -623,7 +623,7 @@ mojo.internal.bindings.ax.mojom.AccessibilityServiceClientRemoteCallHandler = cl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec,
       null,
-      { arg_file_loader_receiver: arg_file_loader_receiver },
+      [arg_file_loader_receiver],
       false);
   }
 

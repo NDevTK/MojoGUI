@@ -192,7 +192,7 @@ mojo.internal.bindings.blink.mojom.DevicePostureProviderRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -201,7 +201,7 @@ mojo.internal.bindings.blink.mojom.DevicePostureProviderRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec,
       null,
-      { arg_posture: arg_posture },
+      [arg_posture],
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.blink.mojom.DevicePostureProviderRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.blink.mojom.DevicePostureClientRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec,
       null,
-      { arg_posture: arg_posture },
+      [arg_posture],
       false);
   }
 

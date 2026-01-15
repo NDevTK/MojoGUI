@@ -172,7 +172,7 @@ mojo.internal.bindings.ash.cfm.mojom.MeetBrowserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec,
       mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec,
-      { arg_hashed_device_id: arg_hashed_device_id },
+      [arg_hashed_device_id],
       false);
   }
 

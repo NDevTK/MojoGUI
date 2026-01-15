@@ -175,7 +175,7 @@ mojo.internal.bindings.blink.mojom.RendererPreferenceWatcherRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec,
       null,
-      { arg_new_prefs: arg_new_prefs },
+      [arg_new_prefs],
       false);
   }
 

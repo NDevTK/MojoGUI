@@ -185,7 +185,7 @@ mojo.internal.bindings.pdf.mojom.OcrRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ParamsSpec,
       mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec,
-      { arg_image: arg_image },
+      [arg_image],
       false);
   }
 

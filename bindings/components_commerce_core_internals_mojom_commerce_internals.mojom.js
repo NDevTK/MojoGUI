@@ -211,7 +211,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactoryRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec,
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec,
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec,
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerRemoteCallHandler 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec,
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerRemoteCallHandler 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsHandlerRemoteCallHandler 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec,
       mojo.internal.bindings.commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -642,7 +642,7 @@ mojo.internal.bindings.commerce.mojom.CommerceInternalsPageRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec,
       null,
-      { arg_eligible: arg_eligible },
+      [arg_eligible],
       false);
   }
 

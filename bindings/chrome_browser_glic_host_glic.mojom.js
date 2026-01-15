@@ -804,7 +804,7 @@ mojo.internal.bindings.glic.mojom.PreloadPageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec,
       null,
-      { arg_ready_state: arg_ready_state },
+      [arg_ready_state],
       false);
   }
 
@@ -942,7 +942,7 @@ mojo.internal.bindings.glic.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.glic.mojom.Page_IntentToShow_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -951,7 +951,7 @@ mojo.internal.bindings.glic.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.glic.mojom.Page_SetProfileReadyState_ParamsSpec,
       null,
-      { arg_ready_state: arg_ready_state },
+      [arg_ready_state],
       false);
   }
 
@@ -960,7 +960,7 @@ mojo.internal.bindings.glic.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.glic.mojom.Page_UpdatePageState_ParamsSpec,
       null,
-      { arg_panelStateKind: arg_panelStateKind },
+      [arg_panelStateKind],
       false);
   }
 
@@ -1106,7 +1106,7 @@ mojo.internal.bindings.glic.mojom.GlicPreloadHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec,
       mojo.internal.bindings.glic.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1245,7 +1245,7 @@ mojo.internal.bindings.glic.mojom.GlicPreloadHandlerFactoryRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_page: arg_page },
+      [arg_receiver, arg_page],
       false);
   }
 
@@ -1375,7 +1375,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerFactoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_page: arg_page },
+      [arg_receiver, arg_page],
       false);
   }
 
@@ -1545,7 +1545,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.glic.mojom.PageHandler_CreateWebClient_ParamsSpec,
       null,
-      { arg_web_client_receiver: arg_web_client_receiver },
+      [arg_web_client_receiver],
       false);
   }
 
@@ -1554,7 +1554,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.glic.mojom.PageHandler_PrepareForClient_ParamsSpec,
       mojo.internal.bindings.glic.mojom.PageHandler_PrepareForClient_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1563,7 +1563,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.glic.mojom.PageHandler_WebviewCommitted_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -1572,7 +1572,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.glic.mojom.PageHandler_ClosePanel_ParamsSpec,
       mojo.internal.bindings.glic.mojom.PageHandler_ClosePanel_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1581,7 +1581,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1590,7 +1590,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1599,7 +1599,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.glic.mojom.PageHandler_SignInAndClosePanel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1608,7 +1608,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.glic.mojom.PageHandler_ResizeWidget_ParamsSpec,
       mojo.internal.bindings.glic.mojom.PageHandler_ResizeWidget_ResponseParamsSpec,
-      { arg_size: arg_size, arg_duration: arg_duration },
+      [arg_size, arg_duration],
       false);
   }
 
@@ -1617,7 +1617,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.glic.mojom.PageHandler_EnableDragResize_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -1626,7 +1626,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec,
       null,
-      { arg_new_state: arg_new_state },
+      [arg_new_state],
       false);
   }
 
@@ -1635,7 +1635,7 @@ mojo.internal.bindings.glic.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec,
       mojo.internal.bindings.glic.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1879,7 +1879,7 @@ mojo.internal.bindings.glic.mojom.PinCandidatesObserverRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec,
       null,
-      { arg_candidates: arg_candidates },
+      [arg_candidates],
       false);
   }
 
@@ -2349,7 +2349,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec,
-      { arg_web_client: arg_web_client },
+      [arg_web_client],
       false);
   }
 
@@ -2358,7 +2358,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_WebClientInitialized_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2367,7 +2367,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2376,7 +2376,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_CreateTab_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_CreateTab_ResponseParamsSpec,
-      { arg_url: arg_url, arg_open_in_background: arg_open_in_background, arg_window_id: arg_window_id },
+      [arg_url, arg_open_in_background, arg_window_id],
       false);
   }
 
@@ -2385,7 +2385,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_popup_width: arg_popup_width, arg_popup_height: arg_popup_height },
+      [arg_url, arg_popup_width, arg_popup_height],
       false);
   }
 
@@ -2394,7 +2394,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec,
       null,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -2403,7 +2403,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2412,7 +2412,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_ClosePanel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2421,7 +2421,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2430,7 +2430,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_AttachPanel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2439,7 +2439,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_DetachPanel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2448,7 +2448,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnModeChange_ParamsSpec,
       null,
-      { arg_new_mode: arg_new_mode },
+      [arg_new_mode],
       false);
   }
 
@@ -2457,7 +2457,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2466,7 +2466,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetModelQualityClientId_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2475,7 +2475,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -2484,7 +2484,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec,
-      { arg_tab_id: arg_tab_id, arg_options: arg_options },
+      [arg_tab_id, arg_options],
       false);
   }
 
@@ -2493,7 +2493,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec,
-      { arg_tab_id: arg_tab_id, arg_options: arg_options },
+      [arg_tab_id, arg_options],
       false);
   }
 
@@ -2502,7 +2502,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ResponseParamsSpec,
-      { arg_requested_max: arg_requested_max },
+      [arg_requested_max],
       false);
   }
 
@@ -2511,7 +2511,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_PinTabs_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_PinTabs_ResponseParamsSpec,
-      { arg_tab_ids: arg_tab_ids, arg_options: arg_options },
+      [arg_tab_ids, arg_options],
       false);
   }
 
@@ -2520,7 +2520,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_UnpinTabs_ResponseParamsSpec,
-      { arg_tab_ids: arg_tab_ids, arg_options: arg_options },
+      [arg_tab_ids, arg_options],
       false);
   }
 
@@ -2529,7 +2529,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec,
       null,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -2538,7 +2538,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_CreateSkill_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_CreateSkill_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -2547,7 +2547,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_UpdateSkill_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -2556,7 +2556,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetSkill_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetSkill_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -2565,7 +2565,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec,
       null,
-      { arg_options: arg_options, arg_observer: arg_observer },
+      [arg_options, arg_observer],
       false);
   }
 
@@ -2574,7 +2574,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_CreateTask_ParamsSpec,
       null,
-      { arg_task_options: arg_task_options },
+      [arg_task_options],
       false);
   }
 
@@ -2583,7 +2583,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_PerformActions_ParamsSpec,
       null,
-      { arg_actions_proto: arg_actions_proto },
+      [arg_actions_proto],
       false);
   }
 
@@ -2592,7 +2592,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_CancelActions_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_CancelActions_ResponseParamsSpec,
-      { arg_task_id: arg_task_id },
+      [arg_task_id],
       false);
   }
 
@@ -2601,7 +2601,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_StopActorTask_ParamsSpec,
       null,
-      { arg_task_id: arg_task_id, arg_stop_reason: arg_stop_reason },
+      [arg_task_id, arg_stop_reason],
       false);
   }
 
@@ -2610,7 +2610,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec,
       null,
-      { arg_task_id: arg_task_id, arg_pause_reason: arg_pause_reason, arg_tab_id: arg_tab_id },
+      [arg_task_id, arg_pause_reason, arg_tab_id],
       false);
   }
 
@@ -2619,7 +2619,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec,
-      { arg_task_id: arg_task_id, arg_context_options: arg_context_options },
+      [arg_task_id, arg_context_options],
       false);
   }
 
@@ -2628,7 +2628,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_InterruptActorTask_ParamsSpec,
       null,
-      { arg_task_id: arg_task_id },
+      [arg_task_id],
       false);
   }
 
@@ -2637,7 +2637,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec,
       null,
-      { arg_task_id: arg_task_id },
+      [arg_task_id],
       false);
   }
 
@@ -2646,7 +2646,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec,
-      { arg_task_id: arg_task_id, arg_open_in_background: arg_open_in_background, arg_initiator_tab_id: arg_initiator_tab_id, arg_initiator_window_id: arg_initiator_window_id },
+      [arg_task_id, arg_open_in_background, arg_initiator_tab_id, arg_initiator_window_id],
       false);
   }
 
@@ -2655,7 +2655,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_ActivateTab_ParamsSpec,
       null,
-      { arg_task_id: arg_task_id },
+      [arg_task_id],
       false);
   }
 
@@ -2664,7 +2664,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_ResizeWidget_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_ResizeWidget_ResponseParamsSpec,
-      { arg_size: arg_size, arg_duration: arg_duration },
+      [arg_size, arg_duration],
       false);
   }
 
@@ -2673,7 +2673,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2682,7 +2682,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2691,7 +2691,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetAudioDucking_ResponseParamsSpec,
-      { arg_enable: arg_enable },
+      [arg_enable],
       false);
   }
 
@@ -2700,7 +2700,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetPanelDraggableAreas_ResponseParamsSpec,
-      { arg_draggable_areas: arg_draggable_areas },
+      [arg_draggable_areas],
       false);
   }
 
@@ -2709,7 +2709,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[40],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec,
       null,
-      { arg_size: arg_size },
+      [arg_size],
       false);
   }
 
@@ -2718,7 +2718,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[41],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetMicrophonePermissionState_ResponseParamsSpec,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -2727,7 +2727,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[42],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetLocationPermissionState_ResponseParamsSpec,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -2736,7 +2736,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[43],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetTabContextPermissionState_ResponseParamsSpec,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -2745,7 +2745,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[44],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ResponseParamsSpec,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -2754,7 +2754,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[45],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetActuationOnWebSetting_ResponseParamsSpec,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -2763,7 +2763,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[46],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2772,7 +2772,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[47],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2781,7 +2781,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[48],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -2790,7 +2790,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[49],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2799,7 +2799,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[50],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SyncCookies_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2808,7 +2808,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[51],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec,
       null,
-      { arg_event_async_id: arg_event_async_id, arg_task_id: arg_task_id, arg_event: arg_event, arg_details: arg_details },
+      [arg_event_async_id, arg_task_id, arg_event, arg_details],
       false);
   }
 
@@ -2817,7 +2817,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[52],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec,
       null,
-      { arg_event_async_id: arg_event_async_id, arg_details: arg_details },
+      [arg_event_async_id, arg_details],
       false);
   }
 
@@ -2826,7 +2826,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[53],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec,
       null,
-      { arg_task_id: arg_task_id, arg_event: arg_event, arg_details: arg_details },
+      [arg_task_id, arg_event, arg_details],
       false);
   }
 
@@ -2835,7 +2835,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[54],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_JournalClear_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2844,7 +2844,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[55],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec,
-      { arg_clear_journal: arg_clear_journal },
+      [arg_clear_journal],
       false);
   }
 
@@ -2853,7 +2853,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[56],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_JournalStart_ParamsSpec,
       null,
-      { arg_max_bytes: arg_max_bytes, arg_capture_screenshots: arg_capture_screenshots },
+      [arg_max_bytes, arg_capture_screenshots],
       false);
   }
 
@@ -2862,7 +2862,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[57],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_JournalStop_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2871,7 +2871,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[58],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec,
       null,
-      { arg_positive: arg_positive, arg_reason: arg_reason },
+      [arg_positive, arg_reason],
       false);
   }
 
@@ -2880,7 +2880,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[59],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec,
       null,
-      { arg_mode: arg_mode },
+      [arg_mode],
       false);
   }
 
@@ -2889,7 +2889,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[60],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2898,7 +2898,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[61],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2907,7 +2907,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[62],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnReaction_ParamsSpec,
       null,
-      { arg_reactionType: arg_reactionType },
+      [arg_reactionType],
       false);
   }
 
@@ -2916,7 +2916,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[63],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2925,7 +2925,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[64],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec,
       null,
-      { arg_details: arg_details },
+      [arg_details],
       false);
   }
 
@@ -2934,7 +2934,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[65],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2943,7 +2943,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[66],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec,
       null,
-      { arg_model: arg_model, arg_duration: arg_duration },
+      [arg_model, arg_duration],
       false);
   }
 
@@ -2952,7 +2952,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[67],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec,
       null,
-      { arg_model: arg_model },
+      [arg_model],
       false);
   }
 
@@ -2961,7 +2961,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[68],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec,
       null,
-      { arg_counter: arg_counter },
+      [arg_counter],
       false);
   }
 
@@ -2970,7 +2970,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[69],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec,
       null,
-      { arg_positive: arg_positive },
+      [arg_positive],
       false);
   }
 
@@ -2979,7 +2979,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[70],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2988,7 +2988,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[71],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_ScrollTo_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -2997,7 +2997,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[72],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -3006,7 +3006,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[73],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec,
       null,
-      { arg_trial_name: arg_trial_name, arg_group_name: arg_group_name },
+      [arg_trial_name, arg_group_name],
       false);
   }
 
@@ -3015,7 +3015,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[74],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec,
       null,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -3024,7 +3024,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[75],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -3033,7 +3033,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[76],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec,
-      { arg_is_live: arg_is_live, arg_options: arg_options },
+      [arg_is_live, arg_options],
       false);
   }
 
@@ -3042,7 +3042,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[77],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec,
-      { arg_is_first_run: arg_is_first_run },
+      [arg_is_first_run],
       false);
   }
 
@@ -3051,7 +3051,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[78],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -3060,7 +3060,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[79],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -3069,7 +3069,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[80],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec,
       null,
-      { arg_notification: arg_notification },
+      [arg_notification],
       false);
   }
 
@@ -3078,7 +3078,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[81],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec,
-      { arg_tab_id: arg_tab_id, arg_names: arg_names },
+      [arg_tab_id, arg_names],
       false);
   }
 
@@ -3087,7 +3087,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[82],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 
@@ -3096,7 +3096,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[83],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 
@@ -3105,7 +3105,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[84],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -3114,7 +3114,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       this.ordinals[85],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec,
       null,
-      { arg_tab_id: arg_tab_id, arg_receiver: arg_receiver },
+      [arg_tab_id, arg_receiver],
       false);
   }
 
@@ -4250,7 +4250,7 @@ mojo.internal.bindings.glic.mojom.TabDataHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec,
       null,
-      { arg_tab_data: arg_tab_data },
+      [arg_tab_data],
       false);
   }
 
@@ -4512,7 +4512,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec,
-      { arg_panel_opening_data: arg_panel_opening_data },
+      [arg_panel_opening_data],
       false);
   }
 
@@ -4521,7 +4521,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelWasClosed_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -4530,7 +4530,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec,
       null,
-      { arg_panel_state: arg_panel_state },
+      [arg_panel_state],
       false);
   }
 
@@ -4539,7 +4539,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec,
       null,
-      { arg_panel_active: arg_panel_active },
+      [arg_panel_active],
       false);
   }
 
@@ -4548,7 +4548,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec,
       null,
-      { arg_can_attach: arg_can_attach },
+      [arg_can_attach],
       false);
   }
 
@@ -4557,7 +4557,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -4566,7 +4566,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -4575,7 +4575,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -4584,7 +4584,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -4593,7 +4593,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec,
       null,
-      { arg_focused_tab_data: arg_focused_tab_data },
+      [arg_focused_tab_data],
       false);
   }
 
@@ -4602,7 +4602,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec,
       null,
-      { arg_resizing: arg_resizing },
+      [arg_resizing],
       false);
   }
 
@@ -4611,7 +4611,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec,
       null,
-      { arg_hotkey: arg_hotkey },
+      [arg_hotkey],
       false);
   }
 
@@ -4620,7 +4620,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec,
       null,
-      { arg_browser_is_open: arg_browser_is_open },
+      [arg_browser_is_open],
       false);
   }
 
@@ -4629,7 +4629,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec,
       null,
-      { arg_instance_active: arg_instance_active },
+      [arg_instance_active],
       false);
   }
 
@@ -4638,7 +4638,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -4647,7 +4647,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec,
       null,
-      { arg_tab_data: arg_tab_data },
+      [arg_tab_data],
       false);
   }
 
@@ -4656,7 +4656,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec,
       null,
-      { arg_tab_data: arg_tab_data },
+      [arg_tab_data],
       false);
   }
 
@@ -4665,7 +4665,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec,
       null,
-      { arg_skill_previews: arg_skill_previews },
+      [arg_skill_previews],
       false);
   }
 
@@ -4674,7 +4674,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec,
       null,
-      { arg_skill_preview: arg_skill_preview },
+      [arg_skill_preview],
       false);
   }
 
@@ -4683,7 +4683,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec,
       null,
-      { arg_skill: arg_skill },
+      [arg_skill],
       false);
   }
 
@@ -4692,7 +4692,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec,
       null,
-      { arg_suggestions: arg_suggestions, arg_options: arg_options },
+      [arg_suggestions, arg_options],
       false);
   }
 
@@ -4701,7 +4701,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec,
       null,
-      { arg_task_id: arg_task_id, arg_state: arg_state },
+      [arg_task_id, arg_state],
       false);
   }
 
@@ -4710,7 +4710,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_RequestViewChange_ParamsSpec,
       null,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -4719,7 +4719,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec,
       null,
-      { arg_tab_id: arg_tab_id, arg_metadata: arg_metadata },
+      [arg_tab_id, arg_metadata],
       false);
   }
 
@@ -4728,7 +4728,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -4737,7 +4737,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -4746,7 +4746,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -4755,7 +4755,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -4764,7 +4764,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClient_RequestToConfirmNavigation_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -4773,7 +4773,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec,
       null,
-      { arg_context: arg_context },
+      [arg_context],
       false);
   }
 
@@ -4782,7 +4782,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -4791,7 +4791,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec,
       null,
-      { arg_can_act_on_web: arg_can_act_on_web },
+      [arg_can_act_on_web],
       false);
   }
 
@@ -4800,7 +4800,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec,
       null,
-      { arg_completed: arg_completed },
+      [arg_completed],
       false);
   }
 
@@ -4809,7 +4809,7 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClient_NotifyActorTaskListRowClicked_ParamsSpec,
       null,
-      { arg_task_id: arg_task_id },
+      [arg_task_id],
       false);
   }
 
@@ -5256,7 +5256,7 @@ mojo.internal.bindings.glic.mojom.CaptureRegionObserverRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec,
       null,
-      { arg_result: arg_result, arg_reason: arg_reason },
+      [arg_result, arg_reason],
       false);
   }
 

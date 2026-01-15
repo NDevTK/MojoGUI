@@ -185,7 +185,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactoryRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -323,7 +323,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -332,7 +332,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec,
       mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec,
       mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec,
       null,
-      { arg_history_data: arg_history_data },
+      [arg_history_data],
       false);
   }
 

@@ -183,7 +183,7 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckServiceRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec,
       mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec,
-      { arg_dictionary_file: arg_dictionary_file },
+      [arg_dictionary_file],
       false);
   }
 
@@ -322,7 +322,7 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionaryRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec,
       mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec,
-      { arg_word: arg_word },
+      [arg_word],
       false);
   }
 

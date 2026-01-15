@@ -192,7 +192,7 @@ mojo.internal.bindings.blink.mojom.PopupMenuClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec,
       null,
-      { arg_indices: arg_indices },
+      [arg_indices],
       false);
   }
 
@@ -201,7 +201,7 @@ mojo.internal.bindings.blink.mojom.PopupMenuClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PopupMenuClient_DidCancel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

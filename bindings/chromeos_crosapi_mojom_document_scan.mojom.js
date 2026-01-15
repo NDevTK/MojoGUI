@@ -320,7 +320,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec,
-      { arg_client_id: arg_client_id, arg_scanner_id: arg_scanner_id },
+      [arg_client_id, arg_scanner_id],
       false);
   }
 
@@ -329,7 +329,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DocumentScan_CloseScanner_ResponseParamsSpec,
-      { arg_scanner_handle: arg_scanner_handle },
+      [arg_scanner_handle],
       false);
   }
 
@@ -338,7 +338,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec,
-      { arg_scanner_handle: arg_scanner_handle, arg_options: arg_options },
+      [arg_scanner_handle, arg_options],
       false);
   }
 
@@ -347,7 +347,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DocumentScan_ReadScanData_ResponseParamsSpec,
-      { arg_job_handle: arg_job_handle },
+      [arg_job_handle],
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec,
-      { arg_scanner_handle: arg_scanner_handle, arg_options: arg_options },
+      [arg_scanner_handle, arg_options],
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec,
-      { arg_scanner_handle: arg_scanner_handle },
+      [arg_scanner_handle],
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.crosapi.mojom.DocumentScanRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.DocumentScan_CancelScan_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec,
-      { arg_job_handle: arg_job_handle },
+      [arg_job_handle],
       false);
   }
 

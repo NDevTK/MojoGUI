@@ -216,7 +216,7 @@ mojo.internal.bindings.video_capture.mojom.SharedMemoryVirtualDeviceRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ResponseParamsSpec,
-      { arg_dimension: arg_dimension, arg_pixel_format: arg_pixel_format, arg_strides: arg_strides },
+      [arg_dimension, arg_pixel_format, arg_strides],
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.video_capture.mojom.SharedMemoryVirtualDeviceRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.video_capture.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsSpec,
       null,
-      { arg_buffer_id: arg_buffer_id, arg_frame_info: arg_frame_info },
+      [arg_buffer_id, arg_frame_info],
       false);
   }
 
@@ -384,7 +384,7 @@ mojo.internal.bindings.video_capture.mojom.TextureVirtualDeviceRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_ParamsSpec,
       null,
-      { arg_buffer_id: arg_buffer_id, arg_shared_image_handle: arg_shared_image_handle },
+      [arg_buffer_id, arg_shared_image_handle],
       false);
   }
 
@@ -393,7 +393,7 @@ mojo.internal.bindings.video_capture.mojom.TextureVirtualDeviceRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.video_capture.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec,
       null,
-      { arg_frame_access_handler: arg_frame_access_handler },
+      [arg_frame_access_handler],
       false);
   }
 
@@ -402,7 +402,7 @@ mojo.internal.bindings.video_capture.mojom.TextureVirtualDeviceRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.video_capture.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec,
       null,
-      { arg_buffer_id: arg_buffer_id, arg_frame_info: arg_frame_info },
+      [arg_buffer_id, arg_frame_info],
       false);
   }
 
@@ -411,7 +411,7 @@ mojo.internal.bindings.video_capture.mojom.TextureVirtualDeviceRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.video_capture.mojom.TextureVirtualDevice_OnBufferRetired_ParamsSpec,
       null,
-      { arg_buffer_id: arg_buffer_id },
+      [arg_buffer_id],
       false);
   }
 
@@ -577,7 +577,7 @@ mojo.internal.bindings.video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_ParamsSpec,
       null,
-      { arg_buffer_id: arg_buffer_id, arg_gmb_handle: arg_gmb_handle },
+      [arg_buffer_id, arg_gmb_handle],
       false);
   }
 
@@ -586,7 +586,7 @@ mojo.internal.bindings.video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec,
       null,
-      { arg_frame_access_handler: arg_frame_access_handler },
+      [arg_frame_access_handler],
       false);
   }
 
@@ -595,7 +595,7 @@ mojo.internal.bindings.video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCal
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_ParamsSpec,
       null,
-      { arg_buffer_id: arg_buffer_id, arg_frame_info: arg_frame_info },
+      [arg_buffer_id, arg_frame_info],
       false);
   }
 
@@ -604,7 +604,7 @@ mojo.internal.bindings.video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCal
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.video_capture.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpec,
       null,
-      { arg_buffer_id: arg_buffer_id },
+      [arg_buffer_id],
       false);
   }
 

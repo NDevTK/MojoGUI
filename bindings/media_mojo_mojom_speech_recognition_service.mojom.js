@@ -209,7 +209,7 @@ mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContextRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ResponseParamsSpec,
-      { arg_fetcher_receiver: arg_fetcher_receiver, arg_client: arg_client, arg_options: arg_options },
+      [arg_fetcher_receiver, arg_client, arg_options],
       false);
   }
 
@@ -364,7 +364,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionServiceRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionService_BindSpeechRecognitionContext_ParamsSpec,
       null,
-      { arg_context: arg_context },
+      [arg_context],
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionServiceRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_ParamsSpec,
       null,
-      { arg_context: arg_context },
+      [arg_context],
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionServiceRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsSpec,
       null,
-      { arg_binary_path: arg_binary_path, arg_config_paths: arg_config_paths, arg_primary_language_name: arg_primary_language_name },
+      [arg_binary_path, arg_config_paths, arg_primary_language_name],
       false);
   }
 
@@ -391,7 +391,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionServiceRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionService_SetSodaParams_ParamsSpec,
       null,
-      { arg_mask_offensive_words: arg_mask_offensive_words },
+      [arg_mask_offensive_words],
       false);
   }
 
@@ -400,7 +400,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionServiceRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionService_SetSodaConfigPaths_ParamsSpec,
       null,
-      { arg_config_paths: arg_config_paths },
+      [arg_config_paths],
       false);
   }
 
@@ -566,7 +566,7 @@ mojo.internal.bindings.media.mojom.AudioSourceFetcherRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioSourceFetcher_Start_ParamsSpec,
       null,
-      { arg_factory: arg_factory, arg_device_id: arg_device_id, arg_audio_parameters: arg_audio_parameters },
+      [arg_factory, arg_device_id, arg_audio_parameters],
       false);
   }
 
@@ -575,7 +575,7 @@ mojo.internal.bindings.media.mojom.AudioSourceFetcherRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioSourceFetcher_Stop_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

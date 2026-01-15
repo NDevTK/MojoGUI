@@ -186,7 +186,7 @@ mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec,
       null,
-      { arg_cursor_anchor_info: arg_cursor_anchor_info },
+      [arg_cursor_anchor_info],
       false);
   }
 

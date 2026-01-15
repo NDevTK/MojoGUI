@@ -184,7 +184,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -314,7 +314,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessageClientRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessageServiceRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec,
       null,
-      { arg_client_id: arg_client_id, arg_client: arg_client, arg_pipe: arg_pipe },
+      [arg_client_id, arg_client, arg_pipe],
       false);
   }
 

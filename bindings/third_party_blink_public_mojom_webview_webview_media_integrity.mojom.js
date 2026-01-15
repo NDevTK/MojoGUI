@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityServiceRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec,
-      { arg_provider_receiver: arg_provider_receiver, arg_cloud_project_number: arg_cloud_project_number },
+      [arg_provider_receiver, arg_cloud_project_number],
       false);
   }
 
@@ -333,7 +333,7 @@ mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProviderRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec,
-      { arg_content_binding: arg_content_binding },
+      [arg_content_binding],
       false);
   }
 

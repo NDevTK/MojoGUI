@@ -194,7 +194,7 @@ mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactoryRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -332,7 +332,7 @@ mojo.internal.bindings.extensions_bar.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.extensions_bar.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec,
       null,
-      { arg_source: arg_source, arg_id: arg_id },
+      [arg_source, arg_id],
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.extensions_bar.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -504,7 +504,7 @@ mojo.internal.bindings.extensions_bar.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec,
       null,
-      { arg_actions: arg_actions },
+      [arg_actions],
       false);
   }
 
@@ -513,7 +513,7 @@ mojo.internal.bindings.extensions_bar.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions_bar.mojom.Page_ActionRemoved_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -522,7 +522,7 @@ mojo.internal.bindings.extensions_bar.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec,
       mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

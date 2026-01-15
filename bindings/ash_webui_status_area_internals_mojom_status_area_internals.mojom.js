@@ -236,7 +236,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerRemoteCallHand
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 
@@ -290,7 +290,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerRemoteCallHand
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 
@@ -299,7 +299,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerRemoteCallHand
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec,
       null,
-      { arg_in_child_session: arg_in_child_session },
+      [arg_in_child_session],
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerRemoteCallHand
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id, arg_app_name: arg_app_name, arg_is_camera_used: arg_is_camera_used, arg_is_microphone_used: arg_is_microphone_used },
+      [arg_app_id, arg_app_name, arg_is_camera_used, arg_is_microphone_used],
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerRemoteCallHand
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerRemoteCallHand
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec,
       null,
-      { arg_icon: arg_icon },
+      [arg_icon],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerRemoteCallHand
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec,
       null,
-      { arg_percent: arg_percent },
+      [arg_percent],
       false);
   }
 

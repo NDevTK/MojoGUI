@@ -234,7 +234,7 @@ mojo.internal.bindings.coral.mojom.TitleObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.coral.mojom.TitleObserver_TitleUpdated_ParamsSpec,
       null,
-      { arg_group_id: arg_group_id, arg_title: arg_title },
+      [arg_group_id, arg_title],
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.coral.mojom.CoralProcessorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ParamsSpec,
       mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ResponseParamsSpec,
-      { arg_request: arg_request, arg_observer: arg_observer },
+      [arg_request, arg_observer],
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.coral.mojom.CoralProcessorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec,
       mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -545,7 +545,7 @@ mojo.internal.bindings.coral.mojom.CoralServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ParamsSpec,
       mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec,
-      { arg_request: arg_request, arg_observer: arg_observer },
+      [arg_request, arg_observer],
       false);
   }
 
@@ -554,7 +554,7 @@ mojo.internal.bindings.coral.mojom.CoralServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec,
       mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -563,7 +563,7 @@ mojo.internal.bindings.coral.mojom.CoralServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.coral.mojom.CoralService_PrepareResource_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -572,7 +572,7 @@ mojo.internal.bindings.coral.mojom.CoralServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.coral.mojom.CoralService_Initialize_ParamsSpec,
       null,
-      { arg_ml_service: arg_ml_service, arg_processor: arg_processor, arg_language_code: arg_language_code },
+      [arg_ml_service, arg_processor, arg_language_code],
       false);
   }
 

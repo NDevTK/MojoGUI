@@ -177,7 +177,7 @@ mojo.internal.bindings.on_device_translation.mojom.TranslatorRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ParamsSpec,
       mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ResponseParamsSpec,
-      { arg_input: arg_input },
+      [arg_input],
       false);
   }
 
@@ -186,7 +186,7 @@ mojo.internal.bindings.on_device_translation.mojom.TranslatorRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ParamsSpec,
       mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec,
-      { arg_input: arg_input },
+      [arg_input],
       false);
   }
 

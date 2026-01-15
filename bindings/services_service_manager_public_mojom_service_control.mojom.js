@@ -170,7 +170,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceControlRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

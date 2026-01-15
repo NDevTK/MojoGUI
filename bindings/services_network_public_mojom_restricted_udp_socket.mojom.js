@@ -224,7 +224,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec,
       mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec,
-      { arg_group_address: arg_group_address },
+      [arg_group_address],
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec,
       mojo.internal.bindings.network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec,
-      { arg_group_address: arg_group_address },
+      [arg_group_address],
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec,
       null,
-      { arg_num_additional_datagrams: arg_num_additional_datagrams },
+      [arg_num_additional_datagrams],
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ParamsSpec,
       mojo.internal.bindings.network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec,
       mojo.internal.bindings.network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec,
-      { arg_data: arg_data, arg_dest_addr: arg_dest_addr, arg_dns_query_type: arg_dns_query_type },
+      [arg_data, arg_dest_addr, arg_dns_query_type],
       false);
   }
 

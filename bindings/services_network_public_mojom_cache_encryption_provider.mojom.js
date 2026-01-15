@@ -177,7 +177,7 @@ mojo.internal.bindings.network.mojom.CacheEncryptionProviderRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec,
       mojo.internal.bindings.network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

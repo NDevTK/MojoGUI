@@ -191,7 +191,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -338,7 +338,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -347,7 +347,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec,
-      { arg_request_data: arg_request_data, arg_request_canceller: arg_request_canceller },
+      [arg_request_data, arg_request_canceller],
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ParamsSpec,
       mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec,
-      { arg_request_data: arg_request_data, arg_request_canceller: arg_request_canceller },
+      [arg_request_data, arg_request_canceller],
       false);
   }
 

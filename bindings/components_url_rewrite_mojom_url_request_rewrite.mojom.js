@@ -195,7 +195,7 @@ mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiverRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec,
       null,
-      { arg_rules: arg_rules },
+      [arg_rules],
       false);
   }
 

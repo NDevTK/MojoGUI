@@ -217,7 +217,7 @@ mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ParamsSpec,
       mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec,
       mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParamsSpec,
-      { arg_input_buffer: arg_input_buffer, arg_coded_size: arg_coded_size, arg_output_handle: arg_output_handle, arg_output_buffer_size: arg_output_buffer_size },
+      [arg_input_buffer, arg_coded_size, arg_output_handle, arg_output_buffer_size],
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec,
       mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec,
-      { arg_task_id: arg_task_id, arg_src_dmabuf_fd: arg_src_dmabuf_fd, arg_src_size: arg_src_size, arg_src_offset: arg_src_offset, arg_dst_frame: arg_dst_frame },
+      [arg_task_id, arg_src_dmabuf_fd, arg_src_size, arg_src_offset, arg_dst_frame],
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

@@ -233,7 +233,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec,
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec,
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec,
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.blink.mojom.TextFragmentReceiverRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec,
       mojo.internal.bindings.blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

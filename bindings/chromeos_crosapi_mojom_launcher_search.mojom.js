@@ -282,7 +282,7 @@ mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec,
       null,
-      { arg_status: arg_status, arg_result: arg_result },
+      [arg_status, arg_result],
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.crosapi.mojom.SearchControllerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.SearchController_Search_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec,
-      { arg_query: arg_query },
+      [arg_query],
       false);
   }
 
@@ -551,7 +551,7 @@ mojo.internal.bindings.crosapi.mojom.SearchResultConsumerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec,
       null,
-      { arg_favicon: arg_favicon },
+      [arg_favicon],
       false);
   }
 

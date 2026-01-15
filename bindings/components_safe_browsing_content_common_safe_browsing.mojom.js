@@ -301,7 +301,7 @@ mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec,
       mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec,
-      { arg_frame_token: arg_frame_token, arg_receiver: arg_receiver, arg_url: arg_url, arg_method: arg_method, arg_headers: arg_headers, arg_load_flags: arg_load_flags, arg_has_user_gesture: arg_has_user_gesture, arg_originated_from_service_worker: arg_originated_from_service_worker },
+      [arg_frame_token, arg_receiver, arg_url, arg_method, arg_headers, arg_load_flags, arg_has_user_gesture, arg_originated_from_service_worker],
       false);
   }
 
@@ -310,7 +310,7 @@ mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -456,7 +456,7 @@ mojo.internal.bindings.safe_browsing.mojom.ThreatReporterRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec,
       mojo.internal.bindings.safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -595,7 +595,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingDetectorRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec,
       mojo.internal.bindings.safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec,
-      { arg_url: arg_url, arg_request_type: arg_request_type },
+      [arg_url, arg_request_type],
       false);
   }
 
@@ -761,7 +761,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec,
       null,
-      { arg_region: arg_region, arg_tflite_model: arg_tflite_model, arg_image_embedding_model: arg_image_embedding_model },
+      [arg_region, arg_tflite_model, arg_image_embedding_model],
       false);
   }
 
@@ -770,7 +770,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingTfLiteModel_ParamsSpec,
       null,
-      { arg_classification_input_width: arg_classification_input_width, arg_classification_input_height: arg_classification_input_height, arg_classification_model: arg_classification_model, arg_image_embedding_input_width: arg_image_embedding_input_width, arg_image_embedding_input_height: arg_image_embedding_input_height, arg_image_embedding_model: arg_image_embedding_model },
+      [arg_classification_input_width, arg_classification_input_height, arg_classification_model, arg_image_embedding_input_width, arg_image_embedding_input_height, arg_image_embedding_model],
       false);
   }
 
@@ -779,7 +779,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec,
       null,
-      { arg_image_embedding_model: arg_image_embedding_model },
+      [arg_image_embedding_model],
       false);
   }
 
@@ -788,7 +788,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModelAndDimensions_ParamsSpec,
       null,
-      { arg_image_embedding_input_width: arg_image_embedding_input_width, arg_image_embedding_input_height: arg_image_embedding_input_height, arg_image_embedding_model: arg_image_embedding_model },
+      [arg_image_embedding_input_width, arg_image_embedding_input_height, arg_image_embedding_model],
       false);
   }
 
@@ -797,7 +797,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemoteCallHandler 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec,
       null,
-      { arg_region: arg_region, arg_tflite_model: arg_tflite_model },
+      [arg_region, arg_tflite_model],
       false);
   }
 
@@ -806,7 +806,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemoteCallHandler 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetPhishingTfLiteModel_ParamsSpec,
       null,
-      { arg_classification_input_width: arg_classification_input_width, arg_classification_input_height: arg_classification_input_height, arg_classification_model: arg_classification_model },
+      [arg_classification_input_width, arg_classification_input_height, arg_classification_model],
       false);
   }
 
@@ -815,7 +815,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemoteCallHandler 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -824,7 +824,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterRemoteCallHandler 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec,
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -1018,7 +1018,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserverRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1148,7 +1148,7 @@ mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetectorRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec,
       mojo.internal.bindings.safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -1290,7 +1290,7 @@ mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec,
       null,
-      { arg_origin_extension_id: arg_origin_extension_id, arg_telemetry_url: arg_telemetry_url, arg_protocol_type: arg_protocol_type, arg_contact_initiator_type: arg_contact_initiator_type },
+      [arg_origin_extension_id, arg_telemetry_url, arg_protocol_type, arg_contact_initiator_type],
       false);
   }
 
@@ -1299,7 +1299,7 @@ mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporterRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

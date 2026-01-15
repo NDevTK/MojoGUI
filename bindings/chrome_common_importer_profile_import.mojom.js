@@ -280,7 +280,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec,
       null,
-      { arg_succeeded: arg_succeeded, arg_error_msg: arg_error_msg },
+      [arg_succeeded, arg_error_msg],
       false);
   }
 
@@ -298,7 +298,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec,
       null,
-      { arg_item: arg_item },
+      [arg_item],
       false);
   }
 
@@ -307,7 +307,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec,
       null,
-      { arg_item: arg_item },
+      [arg_item],
       false);
   }
 
@@ -316,7 +316,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec,
       null,
-      { arg_total_history_rows_count: arg_total_history_rows_count },
+      [arg_total_history_rows_count],
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec,
       null,
-      { arg_history_rows_group: arg_history_rows_group, arg_visit_source: arg_visit_source },
+      [arg_history_rows_group, arg_visit_source],
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec,
       null,
-      { arg_home_page: arg_home_page },
+      [arg_home_page],
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec,
       null,
-      { arg_first_folder_name: arg_first_folder_name, arg_total_bookmarks_count: arg_total_bookmarks_count },
+      [arg_first_folder_name, arg_total_bookmarks_count],
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec,
       null,
-      { arg_bookmarks_group: arg_bookmarks_group },
+      [arg_bookmarks_group],
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec,
       null,
-      { arg_total_favicons_count: arg_total_favicons_count },
+      [arg_total_favicons_count],
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec,
       null,
-      { arg_favicons_group: arg_favicons_group },
+      [arg_favicons_group],
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec,
       null,
-      { arg_form: arg_form },
+      [arg_form],
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec,
       null,
-      { arg_search_engines: arg_search_engines, arg_unique_on_host_and_path: arg_unique_on_host_and_path },
+      [arg_search_engines, arg_unique_on_host_and_path],
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec,
       null,
-      { arg_total_autofill_form_data_entry_count: arg_total_autofill_form_data_entry_count },
+      [arg_total_autofill_form_data_entry_count],
       false);
   }
 
@@ -406,7 +406,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportObserverRemoteCallHandler = cla
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec,
       null,
-      { arg_autofill_form_data_entry_group: arg_autofill_form_data_entry_group },
+      [arg_autofill_form_data_entry_group],
       false);
   }
 
@@ -656,7 +656,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImport_StartImport_ParamsSpec,
       null,
-      { arg_source_profile: arg_source_profile, arg_items: arg_items, arg_localized_strings: arg_localized_strings, arg_observer: arg_observer },
+      [arg_source_profile, arg_items, arg_localized_strings, arg_observer],
       false);
   }
 
@@ -665,7 +665,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImport_CancelImport_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.chrome.mojom.ProfileImportRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec,
       null,
-      { arg_item: arg_item },
+      [arg_item],
       false);
   }
 

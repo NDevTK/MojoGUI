@@ -184,7 +184,7 @@ mojo.internal.bindings.content.mojom.TestInterfaceForDeferRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -649,7 +649,7 @@ mojo.internal.bindings.content.mojom.MojoContextProviderRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.MojoContextProvider_GrantAll_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

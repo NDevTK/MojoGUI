@@ -191,7 +191,7 @@ mojo.internal.bindings.blink.mojom.WebSocketConnectorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebSocketConnector_Connect_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_requested_protocols: arg_requested_protocols, arg_site_for_cookies: arg_site_for_cookies, arg_user_agent: arg_user_agent, arg_storage_access_api_status: arg_storage_access_api_status, arg_handshake_client: arg_handshake_client, arg_throttling_profile_id: arg_throttling_profile_id },
+      [arg_url, arg_requested_protocols, arg_site_for_cookies, arg_user_agent, arg_storage_access_api_status, arg_handshake_client, arg_throttling_profile_id],
       false);
   }
 

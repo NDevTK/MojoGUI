@@ -174,7 +174,7 @@ mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec,
       null,
-      { arg_camera_id: arg_camera_id, arg_device_id: arg_device_id },
+      [arg_camera_id, arg_device_id],
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

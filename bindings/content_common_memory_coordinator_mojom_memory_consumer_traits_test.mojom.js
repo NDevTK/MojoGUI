@@ -176,7 +176,7 @@ mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTestRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec,
       mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec,
-      { arg_in: arg_in },
+      [arg_in],
       false);
   }
 

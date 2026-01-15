@@ -196,7 +196,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataWatchDogRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec,
       null,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataSourceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ParamsSpec,
       mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataSourceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec,
       mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec,
-      { arg_filter: arg_filter, arg_watch_dog: arg_watch_dog },
+      [arg_filter, arg_watch_dog],
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataSourceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cfm.mojom.DataSource_Flush_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -524,7 +524,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataAggregatorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec,
       mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -533,7 +533,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataAggregatorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec,
       mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec,
-      { arg_source_name: arg_source_name, arg_data_source: arg_data_source },
+      [arg_source_name, arg_data_source],
       false);
   }
 
@@ -542,7 +542,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataAggregatorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec,
       mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec,
-      { arg_source_name: arg_source_name, arg_filter: arg_filter, arg_watch_dog: arg_watch_dog },
+      [arg_source_name, arg_filter, arg_watch_dog],
       false);
   }
 

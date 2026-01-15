@@ -182,7 +182,7 @@ mojo.internal.bindings.device.mojom.WakeLockContextRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.WakeLockContext_GetWakeLock_ParamsSpec,
       null,
-      { arg_type: arg_type, arg_reason: arg_reason, arg_description: arg_description, arg_wake_lock: arg_wake_lock },
+      [arg_type, arg_reason, arg_description, arg_wake_lock],
       false);
   }
 

@@ -301,7 +301,7 @@ mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProvider_CreateVideoEncodeAccelerator_ParamsSpec,
       null,
-      { arg_command_buffer_id: arg_command_buffer_id, arg_receiver: arg_receiver },
+      [arg_command_buffer_id, arg_receiver],
       false);
   }
 
@@ -310,7 +310,7 @@ mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ParamsSpec,
       mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -457,7 +457,7 @@ mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderFactoryRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderFactory_CreateVideoEncodeAcceleratorProvider_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -611,7 +611,7 @@ mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec,
       mojo.internal.bindings.media.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec,
-      { arg_config: arg_config, arg_client: arg_client, arg_media_log: arg_media_log },
+      [arg_config, arg_client, arg_media_log],
       false);
   }
 
@@ -620,7 +620,7 @@ mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncodeAccelerator_Encode_ParamsSpec,
       mojo.internal.bindings.media.mojom.VideoEncodeAccelerator_Encode_ResponseParamsSpec,
-      { arg_frame: arg_frame, arg_options: arg_options },
+      [arg_frame, arg_options],
       false);
   }
 
@@ -629,7 +629,7 @@ mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncodeAccelerator_UseOutputBitstreamBuffer_ParamsSpec,
       null,
-      { arg_bitstream_buffer_id: arg_bitstream_buffer_id, arg_region: arg_region },
+      [arg_bitstream_buffer_id, arg_region],
       false);
   }
 
@@ -638,7 +638,7 @@ mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithLayers_ParamsSpec,
       null,
-      { arg_bitrate_allocation: arg_bitrate_allocation, arg_framerate: arg_framerate, arg_size: arg_size },
+      [arg_bitrate_allocation, arg_framerate, arg_size],
       false);
   }
 
@@ -647,7 +647,7 @@ mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithBitrate_ParamsSpec,
       null,
-      { arg_bitrate: arg_bitrate, arg_framerate: arg_framerate, arg_size: arg_size },
+      [arg_bitrate, arg_framerate, arg_size],
       false);
   }
 
@@ -656,7 +656,7 @@ mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncodeAccelerator_IsFlushSupported_ParamsSpec,
       mojo.internal.bindings.media.mojom.VideoEncodeAccelerator_IsFlushSupported_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -665,7 +665,7 @@ mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncodeAccelerator_Flush_ParamsSpec,
       mojo.internal.bindings.media.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -890,7 +890,7 @@ mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorClientRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorClient_RequireBitstreamBuffers_ParamsSpec,
       null,
-      { arg_input_count: arg_input_count, arg_input_coded_size: arg_input_coded_size, arg_output_buffer_size: arg_output_buffer_size },
+      [arg_input_count, arg_input_coded_size, arg_output_buffer_size],
       false);
   }
 
@@ -899,7 +899,7 @@ mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorClientRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorClient_BitstreamBufferReady_ParamsSpec,
       null,
-      { arg_bitstream_buffer_id: arg_bitstream_buffer_id, arg_metadata: arg_metadata },
+      [arg_bitstream_buffer_id, arg_metadata],
       false);
   }
 
@@ -908,7 +908,7 @@ mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorClientRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorClient_NotifyErrorStatus_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -917,7 +917,7 @@ mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorClientRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorClient_NotifyEncoderInfoChange_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 

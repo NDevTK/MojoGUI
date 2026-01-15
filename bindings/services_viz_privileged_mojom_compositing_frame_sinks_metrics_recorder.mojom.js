@@ -202,7 +202,7 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec,
       null,
-      { arg_start_time: arg_start_time, arg_bucket_size: arg_bucket_size },
+      [arg_start_time, arg_bucket_size],
       false);
   }
 
@@ -211,7 +211,7 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec,
       mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec,
       null,
-      { arg_root_frame_sink_id: arg_root_frame_sink_id, arg_bucket_size: arg_bucket_size },
+      [arg_root_frame_sink_id, arg_bucket_size],
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec,
       mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec,
-      { arg_root_frame_sink_id: arg_root_frame_sink_id },
+      [arg_root_frame_sink_id],
       false);
   }
 

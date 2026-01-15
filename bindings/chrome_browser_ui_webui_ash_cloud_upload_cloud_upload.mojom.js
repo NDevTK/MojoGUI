@@ -244,7 +244,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactoryRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec,
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ParamsSpec,
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ParamsSpec,
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -457,7 +457,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ParamsSpec,
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -466,7 +466,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ParamsSpec,
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -475,7 +475,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec,
       null,
-      { arg_response: arg_response },
+      [arg_response],
       false);
   }
 
@@ -484,7 +484,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_ParamsSpec,
       null,
-      { arg_task_position: arg_task_position },
+      [arg_task_position],
       false);
   }
 
@@ -493,7 +493,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -502,7 +502,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec,
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -511,7 +511,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec,
       null,
-      { arg_always_move: arg_always_move },
+      [arg_always_move],
       false);
   }
 
@@ -520,7 +520,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec,
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -529,7 +529,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec,
       null,
-      { arg_always_move: arg_always_move },
+      [arg_always_move],
       false);
   }
 
@@ -538,7 +538,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ParamsSpec,
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -547,7 +547,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ParamsSpec,
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -556,7 +556,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec,
       null,
-      { arg_page: arg_page },
+      [arg_page],
       false);
   }
 

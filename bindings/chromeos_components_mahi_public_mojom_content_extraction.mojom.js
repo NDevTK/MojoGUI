@@ -210,7 +210,7 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec,
       mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec,
-      { arg_extraction_request: arg_extraction_request },
+      [arg_extraction_request],
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec,
       mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec,
-      { arg_extraction_request: arg_extraction_request },
+      [arg_extraction_request],
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec,
       null,
-      { arg_content_extraction_service: arg_content_extraction_service },
+      [arg_content_extraction_service],
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec,
       null,
-      { arg_extractor: arg_extractor },
+      [arg_extractor],
       false);
   }
 

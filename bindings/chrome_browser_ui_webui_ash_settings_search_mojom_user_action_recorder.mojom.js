@@ -213,7 +213,7 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderRemoteCallHandler = 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec,
       null,
-      { arg_setting: arg_setting, arg_value: arg_value },
+      [arg_setting, arg_value],
       false);
   }
 

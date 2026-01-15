@@ -292,7 +292,7 @@ mojo.internal.bindings.blink.mojom.ColorChooserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec,
       null,
-      { arg_color: arg_color },
+      [arg_color],
       false);
   }
 
@@ -422,7 +422,7 @@ mojo.internal.bindings.blink.mojom.ColorChooserClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec,
       null,
-      { arg_color: arg_color },
+      [arg_color],
       false);
   }
 
@@ -552,7 +552,7 @@ mojo.internal.bindings.blink.mojom.EyeDropperChooserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ParamsSpec,
       mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

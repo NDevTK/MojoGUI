@@ -185,7 +185,7 @@ mojo.internal.bindings.ukm.mojom.SingularUkmInterfaceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ukm.mojom.SingularUkmInterface_Submit_ParamsSpec,
       null,
-      { arg_entry: arg_entry },
+      [arg_entry],
       false);
   }
 
@@ -315,7 +315,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec,
       null,
-      { arg_entry: arg_entry },
+      [arg_entry],
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec,
       null,
-      { arg_source_id: arg_source_id, arg_url: arg_url },
+      [arg_source_id, arg_url],
       false);
   }
 
@@ -596,7 +596,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderFactoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_client_remote: arg_client_remote },
+      [arg_receiver, arg_client_remote],
       false);
   }
 

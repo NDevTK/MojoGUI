@@ -208,7 +208,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -376,7 +376,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ParamsSpec,
       mojo.internal.bindings.ax.mojom.SpeechRecognition_Start_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.ax.mojom.SpeechRecognitionRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ParamsSpec,
       mojo.internal.bindings.ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 

@@ -254,7 +254,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletHostRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_SelectURL_ResponseParamsSpec,
-      { arg_name: arg_name, arg_urls_with_metadata: arg_urls_with_metadata, arg_serialized_data: arg_serialized_data, arg_keep_alive_after_operation: arg_keep_alive_after_operation, arg_private_aggregation_config: arg_private_aggregation_config, arg_resolve_to_config: arg_resolve_to_config, arg_saved_query_name: arg_saved_query_name, arg_start_time: arg_start_time },
+      [arg_name, arg_urls_with_metadata, arg_serialized_data, arg_keep_alive_after_operation, arg_private_aggregation_config, arg_resolve_to_config, arg_saved_query_name, arg_start_time],
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageWorkletHostRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageWorkletHost_Run_ResponseParamsSpec,
-      { arg_name: arg_name, arg_serialized_data: arg_serialized_data, arg_keep_alive_after_operation: arg_keep_alive_after_operation, arg_private_aggregation_config: arg_private_aggregation_config, arg_start_time: arg_start_time },
+      [arg_name, arg_serialized_data, arg_keep_alive_after_operation, arg_private_aggregation_config, arg_start_time],
       false);
   }
 
@@ -429,7 +429,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_CreateWorklet_ResponseParamsSpec,
-      { arg_script_source_url: arg_script_source_url, arg_data_origin: arg_data_origin, arg_data_origin_type: arg_data_origin_type, arg_credentials_mode: arg_credentials_mode, arg_creation_method: arg_creation_method, arg_origin_trial_features: arg_origin_trial_features, arg_worklet_host: arg_worklet_host },
+      [arg_script_source_url, arg_data_origin, arg_data_origin_type, arg_credentials_mode, arg_creation_method, arg_origin_trial_features, arg_worklet_host],
       false);
   }
 
@@ -438,7 +438,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageGet_ResponseParamsSpec,
-      { arg_key: arg_key },
+      [arg_key],
       false);
   }
 
@@ -447,7 +447,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ResponseParamsSpec,
-      { arg_method_with_options: arg_method_with_options },
+      [arg_method_with_options],
       false);
   }
 
@@ -456,7 +456,7 @@ mojo.internal.bindings.blink.mojom.SharedStorageDocumentServiceRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ResponseParamsSpec,
-      { arg_methods_with_options: arg_methods_with_options, arg_with_lock: arg_with_lock },
+      [arg_methods_with_options, arg_with_lock],
       false);
   }
 

@@ -372,7 +372,7 @@ mojo.internal.bindings.arc.mojom.CustomTabSessionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.CustomTabSession_OnOpenInChromeClicked_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -578,7 +578,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name },
+      [arg_package_name],
       false);
   }
 
@@ -587,7 +587,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec,
       null,
-      { arg_intent_filters: arg_intent_filters },
+      [arg_intent_filters],
       false);
   }
 
@@ -596,7 +596,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenDownloads_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -605,7 +605,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -614,7 +614,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec,
-      { arg_url: arg_url, arg_task_id: arg_task_id },
+      [arg_url, arg_task_id],
       false);
   }
 
@@ -623,7 +623,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OpenWallpaperPicker_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -632,7 +632,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OpenVolumeControl_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -641,7 +641,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec,
       null,
-      { arg_page: arg_page },
+      [arg_page],
       false);
   }
 
@@ -650,7 +650,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -659,7 +659,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_FactoryResetArc_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -668,7 +668,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec,
       null,
-      { arg_intent_id: arg_intent_id, arg_mode: arg_mode, arg_should_handle_result: arg_should_handle_result, arg_should_down_scale: arg_should_down_scale, arg_is_secure: arg_is_secure, arg_task_id: arg_task_id },
+      [arg_intent_id, arg_mode, arg_should_handle_result, arg_should_down_scale, arg_is_secure, arg_task_id],
       false);
   }
 
@@ -677,7 +677,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name, arg_intent_filters: arg_intent_filters },
+      [arg_package_name, arg_intent_filters],
       false);
   }
 
@@ -686,7 +686,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_CloseCameraApp_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -695,7 +695,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec,
-      { arg_app: arg_app },
+      [arg_app],
       false);
   }
 
@@ -704,7 +704,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec,
       null,
-      { arg_added_packages: arg_added_packages, arg_removed_packages: arg_removed_packages, arg_source: arg_source },
+      [arg_added_packages, arg_removed_packages, arg_source],
       false);
   }
 
@@ -713,7 +713,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec,
       null,
-      { arg_relative_path: arg_relative_path, arg_owner_package_name: arg_owner_package_name },
+      [arg_relative_path, arg_owner_package_name],
       false);
   }
 
@@ -722,7 +722,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec,
       null,
-      { arg_start_url: arg_start_url, arg_intent: arg_intent },
+      [arg_start_url, arg_intent],
       false);
   }
 
@@ -731,7 +731,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenGlobalActions_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -740,7 +740,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnCloseSystemDialogs_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -749,7 +749,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperHostRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec,
       null,
-      { arg_setting: arg_setting, arg_is_enabled: arg_is_enabled },
+      [arg_setting, arg_is_enabled],
       false);
   }
 
@@ -1109,7 +1109,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec,
       null,
-      { arg_package_name: arg_package_name },
+      [arg_package_name],
       false);
   }
 
@@ -1118,7 +1118,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec,
       null,
-      { arg_package_names: arg_package_names, arg_always_open: arg_always_open },
+      [arg_package_names, arg_always_open],
       false);
   }
 
@@ -1127,7 +1127,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleIntent_ParamsSpec,
       null,
-      { arg_intent: arg_intent, arg_activity: arg_activity },
+      [arg_intent, arg_activity],
       false);
   }
 
@@ -1136,7 +1136,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec,
       null,
-      { arg_intent: arg_intent, arg_activity: arg_activity, arg_window_info: arg_window_info },
+      [arg_intent, arg_activity, arg_window_info],
       false);
   }
 
@@ -1145,7 +1145,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleUrl_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_package_name: arg_package_name },
+      [arg_url, arg_package_name],
       false);
   }
 
@@ -1154,7 +1154,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -1163,7 +1163,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec,
-      { arg_activities: arg_activities, arg_scale_factor: arg_scale_factor },
+      [arg_activities, arg_scale_factor],
       false);
   }
 
@@ -1172,7 +1172,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec,
-      { arg_intent: arg_intent },
+      [arg_intent],
       false);
   }
 
@@ -1181,7 +1181,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -1190,7 +1190,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec,
-      { arg_urls: arg_urls },
+      [arg_urls],
       false);
   }
 
@@ -1199,7 +1199,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec,
       null,
-      { arg_action: arg_action, arg_package_name: arg_package_name, arg_cls: arg_cls, arg_extras: arg_extras },
+      [arg_action, arg_package_name, arg_cls, arg_extras],
       false);
   }
 
@@ -1208,7 +1208,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec,
-      { arg_text: arg_text, arg_scale_factor: arg_scale_factor },
+      [arg_text, arg_scale_factor],
       false);
   }
 
@@ -1217,7 +1217,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec,
-      { arg_intent_id: arg_intent_id, arg_action: arg_action, arg_data: arg_data },
+      [arg_intent_id, arg_action, arg_data],
       false);
   }
 
@@ -1226,7 +1226,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1235,7 +1235,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec,
       null,
-      { arg_style: arg_style },
+      [arg_style],
       false);
   }
 
@@ -1244,7 +1244,7 @@ mojo.internal.bindings.arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec,
       null,
-      { arg_features: arg_features },
+      [arg_features],
       false);
   }
 

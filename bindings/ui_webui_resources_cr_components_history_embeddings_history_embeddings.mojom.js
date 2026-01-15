@@ -239,7 +239,7 @@ mojo.internal.bindings.history_embeddings.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      { arg_page: arg_page },
+      [arg_page],
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.history_embeddings.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.history_embeddings.mojom.PageHandler_Search_ParamsSpec,
       null,
-      { arg_query: arg_query },
+      [arg_query],
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.history_embeddings.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec,
       null,
-      { arg_selected_indices: arg_selected_indices, arg_num_entered_chars: arg_num_entered_chars },
+      [arg_selected_indices, arg_num_entered_chars],
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.history_embeddings.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec,
       null,
-      { arg_nonEmptyResults: arg_nonEmptyResults, arg_userClickedResult: arg_userClickedResult, arg_answerShown: arg_answerShown, arg_answerCitationClicked: arg_answerCitationClicked, arg_otherHistoryResultClicked: arg_otherHistoryResultClicked, arg_queryWordCount: arg_queryWordCount },
+      [arg_nonEmptyResults, arg_userClickedResult, arg_answerShown, arg_answerCitationClicked, arg_otherHistoryResultClicked, arg_queryWordCount],
       false);
   }
 
@@ -275,7 +275,7 @@ mojo.internal.bindings.history_embeddings.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec,
       null,
-      { arg_feedback: arg_feedback },
+      [arg_feedback],
       false);
   }
 
@@ -284,7 +284,7 @@ mojo.internal.bindings.history_embeddings.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -293,7 +293,7 @@ mojo.internal.bindings.history_embeddings.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.history_embeddings.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec,
       null,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 

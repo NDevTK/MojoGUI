@@ -302,7 +302,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeBluetoothRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeBluetooth_SetLESupported_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeBluetooth_SetLESupported_ResponseParamsSpec,
-      { arg_available: arg_available },
+      [arg_available],
       false);
   }
 
@@ -311,7 +311,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeBluetoothRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeBluetooth_SimulateCentral_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeBluetooth_SimulateCentral_ResponseParamsSpec,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -320,7 +320,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeBluetoothRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -592,7 +592,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulatePreconnectedPeripheral_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulatePreconnectedPeripheral_ResponseParamsSpec,
-      { arg_address: arg_address, arg_name: arg_name, arg_manufacturer_data: arg_manufacturer_data, arg_known_service_uuids: arg_known_service_uuids },
+      [arg_address, arg_name, arg_manufacturer_data, arg_known_service_uuids],
       false);
   }
 
@@ -601,7 +601,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_ResponseParamsSpec,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 
@@ -610,7 +610,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetState_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetState_ResponseParamsSpec,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -619,7 +619,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ResponseParamsSpec,
-      { arg_address: arg_address, arg_code: arg_code },
+      [arg_address, arg_code],
       false);
   }
 
@@ -628,7 +628,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ResponseParamsSpec,
-      { arg_address: arg_address, arg_code: arg_code },
+      [arg_address, arg_code],
       false);
   }
 
@@ -637,7 +637,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ResponseParamsSpec,
-      { arg_type: arg_type, arg_address: arg_address, arg_code: arg_code },
+      [arg_type, arg_address, arg_code],
       false);
   }
 
@@ -646,7 +646,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec,
-      { arg_address: arg_address },
+      [arg_address],
       false);
   }
 
@@ -655,7 +655,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ResponseParamsSpec,
-      { arg_address: arg_address },
+      [arg_address],
       false);
   }
 
@@ -664,7 +664,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ResponseParamsSpec,
-      { arg_type: arg_type, arg_characteristic_id: arg_characteristic_id, arg_service_id: arg_service_id, arg_peripheral_address: arg_peripheral_address, arg_code: arg_code, arg_data: arg_data },
+      [arg_type, arg_characteristic_id, arg_service_id, arg_peripheral_address, arg_code, arg_data],
       false);
   }
 
@@ -673,7 +673,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ResponseParamsSpec,
-      { arg_type: arg_type, arg_descriptor_id: arg_descriptor_id, arg_characteristic_id: arg_characteristic_id, arg_service_id: arg_service_id, arg_peripheral_address: arg_peripheral_address, arg_code: arg_code, arg_data: arg_data },
+      [arg_type, arg_descriptor_id, arg_characteristic_id, arg_service_id, arg_peripheral_address, arg_code, arg_data],
       false);
   }
 
@@ -682,7 +682,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_AddFakeService_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_AddFakeService_ResponseParamsSpec,
-      { arg_peripheral_address: arg_peripheral_address, arg_service_uuid: arg_service_uuid },
+      [arg_peripheral_address, arg_service_uuid],
       false);
   }
 
@@ -691,7 +691,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_RemoveFakeService_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_RemoveFakeService_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_peripheral_address: arg_peripheral_address },
+      [arg_service_id, arg_peripheral_address],
       false);
   }
 
@@ -700,7 +700,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ResponseParamsSpec,
-      { arg_characteristic_uuid: arg_characteristic_uuid, arg_properties: arg_properties, arg_service_id: arg_service_id, arg_peripheral_address: arg_peripheral_address },
+      [arg_characteristic_uuid, arg_properties, arg_service_id, arg_peripheral_address],
       false);
   }
 
@@ -709,7 +709,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ResponseParamsSpec,
-      { arg_identifier: arg_identifier, arg_service_id: arg_service_id, arg_peripheral_address: arg_peripheral_address },
+      [arg_identifier, arg_service_id, arg_peripheral_address],
       false);
   }
 
@@ -718,7 +718,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_AddFakeDescriptor_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_AddFakeDescriptor_ResponseParamsSpec,
-      { arg_descriptor_uuid: arg_descriptor_uuid, arg_characteristic_id: arg_characteristic_id, arg_service_id: arg_service_id, arg_peripheral_address: arg_peripheral_address },
+      [arg_descriptor_uuid, arg_characteristic_id, arg_service_id, arg_peripheral_address],
       false);
   }
 
@@ -727,7 +727,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ResponseParamsSpec,
-      { arg_descriptor_id: arg_descriptor_id, arg_characteristic_id: arg_characteristic_id, arg_service_id: arg_service_id, arg_peripheral_address: arg_peripheral_address },
+      [arg_descriptor_id, arg_characteristic_id, arg_service_id, arg_peripheral_address],
       false);
   }
 
@@ -736,7 +736,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ResponseParamsSpec,
-      { arg_gatt_code: arg_gatt_code, arg_value: arg_value, arg_characteristic_id: arg_characteristic_id, arg_service_id: arg_service_id, arg_peripheral_address: arg_peripheral_address },
+      [arg_gatt_code, arg_value, arg_characteristic_id, arg_service_id, arg_peripheral_address],
       false);
   }
 
@@ -745,7 +745,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ResponseParamsSpec,
-      { arg_gatt_code: arg_gatt_code, arg_characteristic_id: arg_characteristic_id, arg_service_id: arg_service_id, arg_peripheral_address: arg_peripheral_address },
+      [arg_gatt_code, arg_characteristic_id, arg_service_id, arg_peripheral_address],
       false);
   }
 
@@ -754,7 +754,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ResponseParamsSpec,
-      { arg_gatt_code: arg_gatt_code, arg_characteristic_id: arg_characteristic_id, arg_service_id: arg_service_id, arg_peripheral_address: arg_peripheral_address },
+      [arg_gatt_code, arg_characteristic_id, arg_service_id, arg_peripheral_address],
       false);
   }
 
@@ -763,7 +763,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ResponseParamsSpec,
-      { arg_gatt_code: arg_gatt_code, arg_characteristic_id: arg_characteristic_id, arg_service_id: arg_service_id, arg_peripheral_address: arg_peripheral_address },
+      [arg_gatt_code, arg_characteristic_id, arg_service_id, arg_peripheral_address],
       false);
   }
 
@@ -772,7 +772,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_IsNotifying_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_IsNotifying_ResponseParamsSpec,
-      { arg_characteristic_id: arg_characteristic_id, arg_service_id: arg_service_id, arg_peripheral_address: arg_peripheral_address },
+      [arg_characteristic_id, arg_service_id, arg_peripheral_address],
       false);
   }
 
@@ -781,7 +781,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParamsSpec,
-      { arg_characteristic_id: arg_characteristic_id, arg_service_id: arg_service_id, arg_peripheral_address: arg_peripheral_address },
+      [arg_characteristic_id, arg_service_id, arg_peripheral_address],
       false);
   }
 
@@ -790,7 +790,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ResponseParamsSpec,
-      { arg_gatt_code: arg_gatt_code, arg_value: arg_value, arg_descriptor_id: arg_descriptor_id, arg_characteristic_id: arg_characteristic_id, arg_service_id: arg_service_id, arg_peripheral_address: arg_peripheral_address },
+      [arg_gatt_code, arg_value, arg_descriptor_id, arg_characteristic_id, arg_service_id, arg_peripheral_address],
       false);
   }
 
@@ -799,7 +799,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ResponseParamsSpec,
-      { arg_gatt_code: arg_gatt_code, arg_descriptor_id: arg_descriptor_id, arg_characteristic_id: arg_characteristic_id, arg_service_id: arg_service_id, arg_peripheral_address: arg_peripheral_address },
+      [arg_gatt_code, arg_descriptor_id, arg_characteristic_id, arg_service_id, arg_peripheral_address],
       false);
   }
 
@@ -808,7 +808,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ResponseParamsSpec,
-      { arg_descriptor_id: arg_descriptor_id, arg_characteristic_id: arg_characteristic_id, arg_service_id: arg_service_id, arg_peripheral_address: arg_peripheral_address },
+      [arg_descriptor_id, arg_characteristic_id, arg_service_id, arg_peripheral_address],
       false);
   }
 
@@ -817,7 +817,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetClient_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -1374,7 +1374,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralClientRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentralClient_DispatchGATTOperationEvent_ParamsSpec,
       null,
-      { arg_type: arg_type, arg_peripheral_address: arg_peripheral_address },
+      [arg_type, arg_peripheral_address],
       false);
   }
 
@@ -1383,7 +1383,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralClientRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_ParamsSpec,
       null,
-      { arg_type: arg_type, arg_data: arg_data, arg_write_type: arg_write_type, arg_characteristic_id: arg_characteristic_id },
+      [arg_type, arg_data, arg_write_type, arg_characteristic_id],
       false);
   }
 
@@ -1392,7 +1392,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralClientRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_ParamsSpec,
       null,
-      { arg_type: arg_type, arg_data: arg_data, arg_descriptor_id: arg_descriptor_id },
+      [arg_type, arg_data, arg_descriptor_id],
       false);
   }
 

@@ -357,7 +357,7 @@ mojo.internal.bindings.cros.mojom.Camera3CallbackOpsRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.Camera3CallbackOps_ProcessCaptureResult_ParamsSpec,
       null,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 
@@ -366,7 +366,7 @@ mojo.internal.bindings.cros.mojom.Camera3CallbackOpsRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.Camera3CallbackOps_Notify_ParamsSpec,
       null,
-      { arg_msg: arg_msg },
+      [arg_msg],
       false);
   }
 
@@ -375,7 +375,7 @@ mojo.internal.bindings.cros.mojom.Camera3CallbackOpsRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ParamsSpec,
       mojo.internal.bindings.cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ResponseParamsSpec,
-      { arg_buffer_reqs: arg_buffer_reqs },
+      [arg_buffer_reqs],
       false);
   }
 
@@ -384,7 +384,7 @@ mojo.internal.bindings.cros.mojom.Camera3CallbackOpsRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.cros.mojom.Camera3CallbackOps_ReturnStreamBuffers_ParamsSpec,
       null,
-      { arg_buffers: arg_buffers },
+      [arg_buffers],
       false);
   }
 
@@ -590,7 +590,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_Initialize_ParamsSpec,
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_Initialize_ResponseParamsSpec,
-      { arg_callback_ops: arg_callback_ops },
+      [arg_callback_ops],
       false);
   }
 
@@ -599,7 +599,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ConfigureStreams_ParamsSpec,
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ConfigureStreams_ResponseParamsSpec,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -608,7 +608,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ParamsSpec,
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ResponseParamsSpec,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -617,7 +617,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ParamsSpec,
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -626,7 +626,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_Dump_ParamsSpec,
       null,
-      { arg_fd: arg_fd },
+      [arg_fd],
       false);
   }
 
@@ -635,7 +635,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_Flush_ParamsSpec,
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_Flush_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -644,7 +644,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_RegisterBuffer_ParamsSpec,
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_RegisterBuffer_ResponseParamsSpec,
-      { arg_buffer_id: arg_buffer_id, arg_type: arg_type, arg_fds: arg_fds, arg_drm_format: arg_drm_format, arg_hal_pixel_format: arg_hal_pixel_format, arg_width: arg_width, arg_height: arg_height, arg_strides: arg_strides, arg_offsets: arg_offsets },
+      [arg_buffer_id, arg_type, arg_fds, arg_drm_format, arg_hal_pixel_format, arg_width, arg_height, arg_strides, arg_offsets],
       false);
   }
 
@@ -653,7 +653,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_Close_ParamsSpec,
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_Close_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -662,7 +662,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ParamsSpec,
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ResponseParamsSpec,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -671,7 +671,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_SignalStreamFlush_ParamsSpec,
       null,
-      { arg_stream_ids: arg_stream_ids },
+      [arg_stream_ids],
       false);
   }
 
@@ -680,7 +680,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_OnNewBuffer_ParamsSpec,
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_OnNewBuffer_ResponseParamsSpec,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 
@@ -689,7 +689,7 @@ mojo.internal.bindings.cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.cros.mojom.Camera3DeviceOps_OnBufferRetired_ParamsSpec,
       null,
-      { arg_buffer_id: arg_buffer_id },
+      [arg_buffer_id],
       false);
   }
 

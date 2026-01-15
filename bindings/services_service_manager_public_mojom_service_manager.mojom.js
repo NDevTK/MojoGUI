@@ -213,7 +213,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec,
       null,
-      { arg_running_services: arg_running_services },
+      [arg_running_services],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec,
       null,
-      { arg_service: arg_service },
+      [arg_service],
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec,
       null,
-      { arg_identity: arg_identity, arg_pid_deprecated: arg_pid_deprecated },
+      [arg_identity, arg_pid_deprecated],
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec,
       null,
-      { arg_identity: arg_identity, arg_pid: arg_pid },
+      [arg_identity, arg_pid],
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerRemoteCallHan
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec,
       null,
-      { arg_identity: arg_identity },
+      [arg_identity],
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerListenerRemoteCallHan
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec,
       null,
-      { arg_identity: arg_identity },
+      [arg_identity],
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.service_manager.mojom.ServiceManagerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.service_manager.mojom.ServiceManager_AddListener_ParamsSpec,
       null,
-      { arg_listener: arg_listener },
+      [arg_listener],
       false);
   }
 

@@ -306,7 +306,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec,
       mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec,
-      { arg_args: arg_args },
+      [arg_args],
       false);
   }
 
@@ -315,7 +315,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec,
       mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec,
-      { arg_option: arg_option, arg_flags: arg_flags, arg_pids: arg_pids },
+      [arg_option, arg_flags, arg_pids],
       false);
   }
 
@@ -469,7 +469,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec,
       mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec,
-      { arg_strip_path_from_mapped_files: arg_strip_path_from_mapped_files, arg_write_proto: arg_write_proto },
+      [arg_strip_path_from_mapped_files, arg_write_proto],
       false);
   }
 
@@ -608,7 +608,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec,
       mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec,
-      { arg_pids: arg_pids },
+      [arg_pids],
       false);
   }
 
@@ -759,7 +759,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec,
       mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec,
-      { arg_dump_type: arg_dump_type, arg_level_of_detail: arg_level_of_detail, arg_determinism: arg_determinism, arg_allocator_dump_names: arg_allocator_dump_names },
+      [arg_dump_type, arg_level_of_detail, arg_determinism, arg_allocator_dump_names],
       false);
   }
 
@@ -768,7 +768,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec,
       mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec,
-      { arg_pid: arg_pid, arg_allocator_dump_names: arg_allocator_dump_names },
+      [arg_pid, arg_allocator_dump_names],
       false);
   }
 
@@ -777,7 +777,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec,
       mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec,
-      { arg_pid: arg_pid },
+      [arg_pid],
       false);
   }
 
@@ -786,7 +786,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec,
       mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec,
-      { arg_dump_type: arg_dump_type, arg_level_of_detail: arg_level_of_detail, arg_determinism: arg_determinism },
+      [arg_dump_type, arg_level_of_detail, arg_determinism],
       false);
   }
 
@@ -972,7 +972,7 @@ mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_client_process: arg_client_process },
+      [arg_receiver, arg_client_process],
       false);
   }
 

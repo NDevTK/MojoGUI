@@ -187,7 +187,7 @@ mojo.internal.bindings.media_router.mojom.DebuggerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec,
       mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.media_router.mojom.DebuggerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_router.mojom.Debugger_OnMirroringStats_ParamsSpec,
       null,
-      { arg_json_stats: arg_json_stats },
+      [arg_json_stats],
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.media_router.mojom.DebuggerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_router.mojom.Debugger_BindReceiver_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

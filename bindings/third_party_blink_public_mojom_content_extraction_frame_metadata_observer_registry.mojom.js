@@ -185,7 +185,7 @@ mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec,
       null,
-      { arg_has_paid_content: arg_has_paid_content },
+      [arg_has_paid_content],
       false);
   }
 
@@ -315,7 +315,7 @@ mojo.internal.bindings.blink.mojom.MetaTagsObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec,
       null,
-      { arg_meta_tags: arg_meta_tags },
+      [arg_meta_tags],
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec,
       null,
-      { arg_names: arg_names, arg_observer: arg_observer },
+      [arg_names, arg_observer],
       false);
   }
 

@@ -187,7 +187,7 @@ mojo.internal.bindings.blink.mojom.AppBannerControllerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec,
-      { arg_service: arg_service, arg_event_receiver: arg_event_receiver, arg_platform: arg_platform },
+      [arg_service, arg_event_receiver, arg_platform],
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.blink.mojom.AppBannerEventRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec,
       null,
-      { arg_platform: arg_platform },
+      [arg_platform],
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.blink.mojom.AppBannerEventRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -477,7 +477,7 @@ mojo.internal.bindings.blink.mojom.AppBannerServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

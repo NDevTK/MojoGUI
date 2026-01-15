@@ -187,7 +187,7 @@ mojo.internal.bindings.media.mojom.MediaServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec,
       null,
-      { arg_factory: arg_factory, arg_frame_interfaces: arg_frame_interfaces },
+      [arg_factory, arg_frame_interfaces],
       false);
   }
 

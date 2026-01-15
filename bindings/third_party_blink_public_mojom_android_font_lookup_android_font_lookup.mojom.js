@@ -189,7 +189,7 @@ mojo.internal.bindings.blink.mojom.AndroidFontLookupRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -198,7 +198,7 @@ mojo.internal.bindings.blink.mojom.AndroidFontLookupRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec,
-      { arg_font_unique_name: arg_font_unique_name },
+      [arg_font_unique_name],
       false);
   }
 
@@ -207,7 +207,7 @@ mojo.internal.bindings.blink.mojom.AndroidFontLookupRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

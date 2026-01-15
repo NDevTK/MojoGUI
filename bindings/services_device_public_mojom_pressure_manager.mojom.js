@@ -216,7 +216,7 @@ mojo.internal.bindings.device.mojom.PressureManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec,
       mojo.internal.bindings.device.mojom.PressureManager_AddVirtualPressureSource_ResponseParamsSpec,
-      { arg_token: arg_token, arg_source: arg_source, arg_metadata: arg_metadata },
+      [arg_token, arg_source, arg_metadata],
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.device.mojom.PressureManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec,
       mojo.internal.bindings.device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec,
-      { arg_token: arg_token, arg_source: arg_source },
+      [arg_token, arg_source],
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.device.mojom.PressureManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec,
       mojo.internal.bindings.device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec,
-      { arg_token: arg_token, arg_source: arg_source, arg_state: arg_state, arg_own_contribution_estimate: arg_own_contribution_estimate },
+      [arg_token, arg_source, arg_state, arg_own_contribution_estimate],
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.device.mojom.PressureManagerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.PressureManager_AddClient_ParamsSpec,
       mojo.internal.bindings.device.mojom.PressureManager_AddClient_ResponseParamsSpec,
-      { arg_source: arg_source, arg_token: arg_token, arg_client: arg_client },
+      [arg_source, arg_token, arg_client],
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.device.mojom.PressureClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.PressureClient_OnPressureUpdated_ParamsSpec,
       null,
-      { arg_update: arg_update },
+      [arg_update],
       false);
   }
 

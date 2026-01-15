@@ -188,7 +188,7 @@ mojo.internal.bindings.blink.mojom.ShareServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ShareService_Share_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ShareService_Share_ResponseParamsSpec,
-      { arg_title: arg_title, arg_text: arg_text, arg_url: arg_url, arg_files: arg_files },
+      [arg_title, arg_text, arg_url, arg_files],
       false);
   }
 

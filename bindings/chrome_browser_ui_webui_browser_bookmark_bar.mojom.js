@@ -200,7 +200,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactoryRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec,
       mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec,
       null,
-      { arg_node_id: arg_node_id },
+      [arg_node_id],
       false);
   }
 
@@ -502,7 +502,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -511,7 +511,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec,
       null,
-      { arg_bookmark_data: arg_bookmark_data },
+      [arg_bookmark_data],
       false);
   }
 
@@ -520,7 +520,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.bookmark_bar.mojom.Page_Show_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -529,7 +529,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.bookmark_bar.mojom.Page_Hide_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

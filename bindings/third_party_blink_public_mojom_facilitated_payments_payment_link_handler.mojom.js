@@ -177,7 +177,7 @@ mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandlerRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 

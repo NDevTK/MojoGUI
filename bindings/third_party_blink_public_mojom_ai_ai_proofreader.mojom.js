@@ -185,7 +185,7 @@ mojo.internal.bindings.blink.mojom.AIProofreaderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIProofreader_Proofread_ParamsSpec,
       null,
-      { arg_input: arg_input, arg_pending_responder: arg_pending_responder },
+      [arg_input, arg_pending_responder],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.AIProofreaderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec,
       null,
-      { arg_input: arg_input, arg_corrected_input: arg_corrected_input, arg_correction_instruction: arg_correction_instruction, arg_pending_responder: arg_pending_responder },
+      [arg_input, arg_corrected_input, arg_correction_instruction, arg_pending_responder],
       false);
   }
 

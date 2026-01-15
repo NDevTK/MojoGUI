@@ -335,7 +335,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.SimpleCacheEntry_WriteData_ParamsSpec,
       mojo.internal.bindings.network.mojom.SimpleCacheEntry_WriteData_ResponseParamsSpec,
-      { arg_index: arg_index, arg_offset: arg_offset, arg_data: arg_data, arg_truncate: arg_truncate },
+      [arg_index, arg_offset, arg_data, arg_truncate],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.SimpleCacheEntry_ReadData_ParamsSpec,
       mojo.internal.bindings.network.mojom.SimpleCacheEntry_ReadData_ResponseParamsSpec,
-      { arg_index: arg_index, arg_offset: arg_offset, arg_length: arg_length },
+      [arg_index, arg_offset, arg_length],
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.SimpleCacheEntry_WriteSparseData_ParamsSpec,
       mojo.internal.bindings.network.mojom.SimpleCacheEntry_WriteSparseData_ResponseParamsSpec,
-      { arg_offset: arg_offset, arg_data: arg_data },
+      [arg_offset, arg_data],
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.SimpleCacheEntry_ReadSparseData_ParamsSpec,
       mojo.internal.bindings.network.mojom.SimpleCacheEntry_ReadSparseData_ResponseParamsSpec,
-      { arg_offset: arg_offset, arg_length: arg_length },
+      [arg_offset, arg_length],
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.SimpleCacheEntry_Close_ParamsSpec,
       mojo.internal.bindings.network.mojom.SimpleCacheEntry_Close_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -575,7 +575,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumeratorRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumerator_GetNext_ParamsSpec,
       mojo.internal.bindings.network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -734,7 +734,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.SimpleCache_CreateEntry_ParamsSpec,
       mojo.internal.bindings.network.mojom.SimpleCache_CreateEntry_ResponseParamsSpec,
-      { arg_key: arg_key },
+      [arg_key],
       false);
   }
 
@@ -743,7 +743,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.SimpleCache_OpenEntry_ParamsSpec,
       mojo.internal.bindings.network.mojom.SimpleCache_OpenEntry_ResponseParamsSpec,
-      { arg_key: arg_key },
+      [arg_key],
       false);
   }
 
@@ -752,7 +752,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.SimpleCache_DoomEntry_ParamsSpec,
       mojo.internal.bindings.network.mojom.SimpleCache_DoomEntry_ResponseParamsSpec,
-      { arg_key: arg_key },
+      [arg_key],
       false);
   }
 
@@ -761,7 +761,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.SimpleCache_DoomAllEntries_ParamsSpec,
       mojo.internal.bindings.network.mojom.SimpleCache_DoomAllEntries_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -770,7 +770,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.SimpleCache_EnumerateEntries_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -779,7 +779,7 @@ mojo.internal.bindings.network.mojom.SimpleCacheRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.SimpleCache_Detach_ParamsSpec,
       mojo.internal.bindings.network.mojom.SimpleCache_Detach_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1103,7 +1103,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_AddRules_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_AddRules_ResponseParamsSpec,
-      { arg_rules: arg_rules },
+      [arg_rules],
       false);
   }
 
@@ -1112,7 +1112,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_SimulateNetworkChange_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_SimulateNetworkChange_ResponseParamsSpec,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -1121,7 +1121,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ResponseParamsSpec,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -1130,7 +1130,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1139,7 +1139,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_SimulateCrash_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1148,7 +1148,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ResponseParamsSpec,
-      { arg_default_result: arg_default_result },
+      [arg_default_result],
       false);
   }
 
@@ -1157,7 +1157,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ResponseParamsSpec,
-      { arg_cert: arg_cert, arg_host_pattern: arg_host_pattern, arg_verify_result: arg_verify_result, arg_rv: arg_rv },
+      [arg_cert, arg_host_pattern, arg_verify_result, arg_rv],
       false);
   }
 
@@ -1166,7 +1166,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ResponseParamsSpec,
-      { arg_enable_unittest_source: arg_enable_unittest_source },
+      [arg_enable_unittest_source],
       false);
   }
 
@@ -1175,7 +1175,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1184,7 +1184,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1193,7 +1193,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_SetTestDohConfig_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_SetTestDohConfig_ResponseParamsSpec,
-      { arg_secure_dns_mode: arg_secure_dns_mode, arg_doh_config: arg_doh_config },
+      [arg_secure_dns_mode, arg_doh_config],
       false);
   }
 
@@ -1202,7 +1202,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_CrashOnResolveHost_ParamsSpec,
       null,
-      { arg_host: arg_host },
+      [arg_host],
       false);
   }
 
@@ -1211,7 +1211,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_CrashOnGetCookieList_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1220,7 +1220,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1229,7 +1229,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1238,7 +1238,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ResponseParamsSpec,
-      { arg_name: arg_name },
+      [arg_name],
       false);
   }
 
@@ -1247,7 +1247,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_Log_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_Log_ResponseParamsSpec,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -1256,7 +1256,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_ActivateFieldTrial_ParamsSpec,
       null,
-      { arg_field_trial_name: arg_field_trial_name },
+      [arg_field_trial_name],
       false);
   }
 
@@ -1265,7 +1265,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ResponseParamsSpec,
-      { arg_delay: arg_delay },
+      [arg_delay],
       false);
   }
 
@@ -1274,7 +1274,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_OpenFile_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_OpenFile_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -1283,7 +1283,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_EnumerateFiles_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_EnumerateFiles_ResponseParamsSpec,
-      { arg_path: arg_path, arg_factory: arg_factory },
+      [arg_path, arg_factory],
       false);
   }
 
@@ -1292,7 +1292,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_CreateSimpleCache_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_CreateSimpleCache_ResponseParamsSpec,
-      { arg_factory: arg_factory, arg_path: arg_path, arg_reset: arg_reset },
+      [arg_factory, arg_path, arg_reset],
       false);
   }
 
@@ -1301,7 +1301,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_MakeRequestToServer_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_MakeRequestToServer_ResponseParamsSpec,
-      { arg_s: arg_s, arg_endpoint: arg_endpoint },
+      [arg_s, arg_endpoint],
       false);
   }
 
@@ -1310,7 +1310,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1319,7 +1319,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ResponseParamsSpec,
-      { arg_success: arg_success },
+      [arg_success],
       false);
   }
 
@@ -1328,7 +1328,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1337,7 +1337,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1346,7 +1346,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1355,7 +1355,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceTestRemoteCallHandler = class
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

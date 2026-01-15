@@ -259,7 +259,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleCallbacksRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec,
       null,
-      { arg_camera_id: arg_camera_id, arg_new_status: arg_new_status },
+      [arg_camera_id, arg_new_status],
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleCallbacksRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec,
       null,
-      { arg_camera_id: arg_camera_id, arg_new_status: arg_new_status },
+      [arg_camera_id, arg_new_status],
       false);
   }
 
@@ -422,7 +422,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ParamsSpec,
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -431,7 +431,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ParamsSpec,
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetAllTags_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ParamsSpec,
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetSectionName_ResponseParamsSpec,
-      { arg_tag: arg_tag },
+      [arg_tag],
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ParamsSpec,
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec,
-      { arg_tag: arg_tag },
+      [arg_tag],
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.cros.mojom.VendorTagOpsRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ParamsSpec,
       mojo.internal.bindings.cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec,
-      { arg_tag: arg_tag },
+      [arg_tag],
       false);
   }
 
@@ -693,7 +693,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec,
-      { arg_camera_id: arg_camera_id, arg_device_ops_receiver: arg_device_ops_receiver },
+      [arg_camera_id, arg_device_ops_receiver],
       false);
   }
 
@@ -702,7 +702,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraModule_GetNumberOfCameras_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec,
-      { arg_camera_id: arg_camera_id },
+      [arg_camera_id],
       false);
   }
 
@@ -720,7 +720,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacks_ResponseParamsSpec,
-      { arg_callbacks: arg_callbacks },
+      [arg_callbacks],
       false);
   }
 
@@ -729,7 +729,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraModule_SetTorchMode_ResponseParamsSpec,
-      { arg_camera_id: arg_camera_id, arg_enabled: arg_enabled },
+      [arg_camera_id, arg_enabled],
       false);
   }
 
@@ -738,7 +738,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModule_Init_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraModule_Init_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -747,7 +747,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraModule_GetVendorTagOps_ResponseParamsSpec,
-      { arg_vendor_tag_ops_receiver: arg_vendor_tag_ops_receiver },
+      [arg_vendor_tag_ops_receiver],
       false);
   }
 
@@ -756,7 +756,7 @@ mojo.internal.bindings.cros.mojom.CameraModuleRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec,
       mojo.internal.bindings.cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec,
-      { arg_callbacks: arg_callbacks },
+      [arg_callbacks],
       false);
   }
 

@@ -416,7 +416,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryProbeServiceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec,
-      { arg_categories: arg_categories },
+      [arg_categories],
       false);
   }
 
@@ -425,7 +425,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryProbeServiceRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_GetOemData_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

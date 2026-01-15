@@ -250,7 +250,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec,
       null,
-      { arg_firmware_updates: arg_firmware_updates },
+      [arg_firmware_updates],
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserverRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec,
       null,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -510,7 +510,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserverRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec,
       null,
-      { arg_update: arg_update },
+      [arg_update],
       false);
   }
 
@@ -648,7 +648,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec,
       mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec,
-      { arg_device_id: arg_device_id },
+      [arg_device_id],
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.UpdateProviderRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec,
       mojo.internal.bindings.ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -838,7 +838,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id, arg_filepath: arg_filepath },
+      [arg_device_id, arg_filepath],
       false);
   }
 
@@ -847,7 +847,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -856,7 +856,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.InstallControllerRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -1002,7 +1002,7 @@ mojo.internal.bindings.ash.firmware_update.mojom.SystemUtilsRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

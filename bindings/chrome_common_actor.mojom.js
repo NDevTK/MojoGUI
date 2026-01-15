@@ -349,7 +349,7 @@ mojo.internal.bindings.actor.mojom.JournalClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec,
       null,
-      { arg_entries: arg_entries },
+      [arg_entries],
       false);
   }
 
@@ -479,7 +479,7 @@ mojo.internal.bindings.actor.mojom.PageStabilityMonitorRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec,
       mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec,
-      { arg_observation_delay: arg_observation_delay },
+      [arg_observation_delay],
       false);
   }
 

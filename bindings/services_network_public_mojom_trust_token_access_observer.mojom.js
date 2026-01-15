@@ -188,7 +188,7 @@ mojo.internal.bindings.network.mojom.TrustTokenAccessObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec,
       null,
-      { arg_details: arg_details },
+      [arg_details],
       false);
   }
 
@@ -197,7 +197,7 @@ mojo.internal.bindings.network.mojom.TrustTokenAccessObserverRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.TrustTokenAccessObserver_Clone_ParamsSpec,
       null,
-      { arg_listener: arg_listener },
+      [arg_listener],
       false);
   }
 

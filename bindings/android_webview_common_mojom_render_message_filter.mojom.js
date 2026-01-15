@@ -176,7 +176,7 @@ mojo.internal.bindings.android_webview.mojom.RenderMessageFilterRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec,
       null,
-      { arg_parent_frame_token: arg_parent_frame_token, arg_child_frame_token: arg_child_frame_token },
+      [arg_parent_frame_token, arg_child_frame_token],
       false);
   }
 

@@ -175,7 +175,7 @@ mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -309,7 +309,7 @@ mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec,
       null,
-      { arg_address: arg_address },
+      [arg_address],
       false);
   }
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientRemot
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

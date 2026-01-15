@@ -392,7 +392,7 @@ mojo.internal.bindings.crosapi.mojom.PrintServerObserverRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PrintServerObserver_OnPrintServersChanged_ParamsSpec,
       null,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.crosapi.mojom.PrintServerObserverRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PrintServerObserver_OnServerPrintersChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -543,7 +543,7 @@ mojo.internal.bindings.crosapi.mojom.PrintJobObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PrintJobObserver_OnPrintJobUpdateDeprecated_ParamsSpec,
       null,
-      { arg_printer_id: arg_printer_id, arg_job_id: arg_job_id, arg_status: arg_status },
+      [arg_printer_id, arg_job_id, arg_status],
       false);
   }
 
@@ -552,7 +552,7 @@ mojo.internal.bindings.crosapi.mojom.PrintJobObserverRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PrintJobObserver_OnPrintJobUpdate_ParamsSpec,
       null,
-      { arg_printer_id: arg_printer_id, arg_job_id: arg_job_id, arg_update: arg_update },
+      [arg_printer_id, arg_job_id, arg_update],
       false);
   }
 
@@ -690,7 +690,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrintersObserverRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrintersObserver_OnLocalPrintersUpdated_ParamsSpec,
       null,
-      { arg_printers: arg_printers },
+      [arg_printers],
       false);
   }
 
@@ -884,7 +884,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinters_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinters_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -893,7 +893,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetCapability_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetCapability_ResponseParamsSpec,
-      { arg_printer_id: arg_printer_id },
+      [arg_printer_id],
       false);
   }
 
@@ -902,7 +902,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec,
-      { arg_printer_id: arg_printer_id },
+      [arg_printer_id],
       false);
   }
 
@@ -911,7 +911,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetStatus_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetStatus_ResponseParamsSpec,
-      { arg_printer_id: arg_printer_id },
+      [arg_printer_id],
       false);
   }
 
@@ -920,7 +920,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -929,7 +929,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_CreatePrintJob_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_CreatePrintJob_ResponseParamsSpec,
-      { arg_job: arg_job },
+      [arg_job],
       false);
   }
 
@@ -938,7 +938,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_CancelPrintJob_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_CancelPrintJob_ResponseParamsSpec,
-      { arg_printer_id: arg_printer_id, arg_job_id: arg_job_id },
+      [arg_printer_id, arg_job_id],
       false);
   }
 
@@ -947,7 +947,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrintServersConfig_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrintServersConfig_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -956,7 +956,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_ChoosePrintServers_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_ChoosePrintServers_ResponseParamsSpec,
-      { arg_print_server_ids: arg_print_server_ids },
+      [arg_print_server_ids],
       false);
   }
 
@@ -965,7 +965,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintServerObserver_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintServerObserver_ResponseParamsSpec,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -974,7 +974,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -983,7 +983,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -992,7 +992,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1001,7 +1001,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParamsSpec,
-      { arg_observer: arg_observer, arg_source: arg_source },
+      [arg_observer, arg_source],
       false);
   }
 
@@ -1010,7 +1010,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec,
-      { arg_printer_id: arg_printer_id },
+      [arg_printer_id],
       false);
   }
 
@@ -1019,7 +1019,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec,
-      { arg_printer_id: arg_printer_id },
+      [arg_printer_id],
       false);
   }
 
@@ -1028,7 +1028,7 @@ mojo.internal.bindings.crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParamsSpec,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

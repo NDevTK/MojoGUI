@@ -306,7 +306,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContextRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec,
-      { arg_interface_name: arg_interface_name, arg_adaptor_remote: arg_adaptor_remote },
+      [arg_interface_name, arg_adaptor_remote],
       false);
   }
 
@@ -315,7 +315,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContextRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec,
-      { arg_interface_name: arg_interface_name, arg_receiver_pipe: arg_receiver_pipe },
+      [arg_interface_name, arg_receiver_pipe],
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptorRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec,
       null,
-      { arg_receiver_pipe: arg_receiver_pipe },
+      [arg_receiver_pipe],
       false);
   }
 

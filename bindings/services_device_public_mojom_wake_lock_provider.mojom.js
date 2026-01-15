@@ -206,7 +206,7 @@ mojo.internal.bindings.device.mojom.WakeLockProviderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec,
       null,
-      { arg_context_id: arg_context_id, arg_context: arg_context },
+      [arg_context_id, arg_context],
       false);
   }
 
@@ -215,7 +215,7 @@ mojo.internal.bindings.device.mojom.WakeLockProviderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec,
       null,
-      { arg_type: arg_type, arg_reason: arg_reason, arg_description: arg_description, arg_wake_lock: arg_wake_lock },
+      [arg_type, arg_reason, arg_description, arg_wake_lock],
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.device.mojom.WakeLockProviderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec,
       null,
-      { arg_type: arg_type, arg_observer: arg_observer },
+      [arg_type, arg_observer],
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.device.mojom.WakeLockProviderRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec,
       mojo.internal.bindings.device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -396,7 +396,7 @@ mojo.internal.bindings.device.mojom.WakeLockObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec,
       null,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 

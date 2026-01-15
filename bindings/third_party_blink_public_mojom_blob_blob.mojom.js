@@ -214,7 +214,7 @@ mojo.internal.bindings.blink.mojom.BlobReaderClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec,
       null,
-      { arg_total_size: arg_total_size, arg_expected_content_size: arg_expected_content_size },
+      [arg_total_size, arg_expected_content_size],
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.blink.mojom.BlobReaderClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobReaderClient_OnComplete_ParamsSpec,
       null,
-      { arg_status: arg_status, arg_data_length: arg_data_length },
+      [arg_status, arg_data_length],
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.blink.mojom.BlobRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.Blob_Clone_ParamsSpec,
       null,
-      { arg_blob: arg_blob },
+      [arg_blob],
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.blink.mojom.BlobRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.Blob_AsDataPipeGetter_ParamsSpec,
       null,
-      { arg_data_pipe_getter: arg_data_pipe_getter },
+      [arg_data_pipe_getter],
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.blink.mojom.BlobRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.Blob_ReadAll_ParamsSpec,
       null,
-      { arg_pipe: arg_pipe, arg_client: arg_client },
+      [arg_pipe, arg_client],
       false);
   }
 
@@ -416,7 +416,7 @@ mojo.internal.bindings.blink.mojom.BlobRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.Blob_ReadRange_ParamsSpec,
       null,
-      { arg_offset: arg_offset, arg_length: arg_length, arg_pipe: arg_pipe, arg_client: arg_client },
+      [arg_offset, arg_length, arg_pipe, arg_client],
       false);
   }
 
@@ -425,7 +425,7 @@ mojo.internal.bindings.blink.mojom.BlobRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.Blob_Load_ParamsSpec,
       null,
-      { arg_loader: arg_loader, arg_request_method: arg_request_method, arg_headers: arg_headers, arg_client: arg_client },
+      [arg_loader, arg_request_method, arg_headers, arg_client],
       false);
   }
 
@@ -434,7 +434,7 @@ mojo.internal.bindings.blink.mojom.BlobRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Blob_ReadSideData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -443,7 +443,7 @@ mojo.internal.bindings.blink.mojom.BlobRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -452,7 +452,7 @@ mojo.internal.bindings.blink.mojom.BlobRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

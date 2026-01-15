@@ -171,7 +171,7 @@ mojo.internal.bindings.math.mojom.MathServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.math.mojom.MathService_Divide_ParamsSpec,
       mojo.internal.bindings.math.mojom.MathService_Divide_ResponseParamsSpec,
-      { arg_dividend: arg_dividend, arg_divisor: arg_divisor },
+      [arg_dividend, arg_divisor],
       false);
   }
 

@@ -198,7 +198,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec,
       null,
-      { arg_page: arg_page },
+      [arg_page],
       false);
   }
 
@@ -207,7 +207,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec,
       mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec,
-      { arg_name: arg_name },
+      [arg_name],
       false);
   }
 
@@ -216,7 +216,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec,
       null,
-      { arg_name: arg_name },
+      [arg_name],
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec,
       null,
-      { arg_name: arg_name, arg_time: arg_time },
+      [arg_name, arg_time],
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec,
       mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec,
-      { arg_name: arg_name },
+      [arg_name],
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec,
       null,
-      { arg_name: arg_name },
+      [arg_name],
       false);
   }
 

@@ -221,7 +221,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec,
-      { arg_mime_type: arg_mime_type, arg_total_size: arg_total_size, arg_get_attached_images: arg_get_attached_images, arg_media_data_source: arg_media_data_source },
+      [arg_mime_type, arg_total_size, arg_get_attached_images, arg_media_data_source],
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec,
-      { arg_decode_time: arg_decode_time, arg_file: arg_file },
+      [arg_decode_time, arg_file],
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.chrome.mojom.MediaParserFactoryRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec,
-      { arg_libyuv_cpu_flags: arg_libyuv_cpu_flags, arg_libavutil_cpu_flags: arg_libavutil_cpu_flags },
+      [arg_libyuv_cpu_flags, arg_libavutil_cpu_flags],
       false);
   }
 
@@ -549,7 +549,7 @@ mojo.internal.bindings.chrome.mojom.MediaDataSourceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ResponseParamsSpec,
-      { arg_position: arg_position, arg_length: arg_length },
+      [arg_position, arg_length],
       false);
   }
 

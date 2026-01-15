@@ -170,7 +170,7 @@ mojo.internal.bindings.service_manager.mojom.InterfaceProviderRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec,
       null,
-      { arg_interface_name: arg_interface_name, arg_pipe: arg_pipe },
+      [arg_interface_name, arg_pipe],
       false);
   }
 

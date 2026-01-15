@@ -185,7 +185,7 @@ mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProviderRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProviderRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

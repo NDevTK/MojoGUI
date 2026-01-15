@@ -197,7 +197,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec,
       null,
-      { arg_compression_scheme: arg_compression_scheme, arg_compression_group_data: arg_compression_group_data },
+      [arg_compression_scheme, arg_compression_group_data],
       false);
   }
 
@@ -206,7 +206,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec,
       null,
-      { arg_error_message: arg_error_message },
+      [arg_error_message],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec,
       null,
-      { arg_compression_group_token: arg_compression_group_token, arg_client: arg_client },
+      [arg_compression_group_token, arg_client],
       false);
   }
 

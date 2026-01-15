@@ -178,7 +178,7 @@ mojo.internal.bindings.chromecast.shell.mojom.FeatureManagerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec,
       null,
-      { arg_features: arg_features },
+      [arg_features],
       false);
   }
 

@@ -299,7 +299,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec,
       null,
-      { arg_draw_params: arg_draw_params },
+      [arg_draw_params],
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec,
-      { arg_draw_params: arg_draw_params },
+      [arg_draw_params],
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec,
-      { arg_shm_region: arg_shm_region },
+      [arg_shm_region],
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec,
-      { arg_draw_params: arg_draw_params },
+      [arg_draw_params],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorRemoteCallHandler = clas
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorRemoteCallHandler = clas
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec,
       mojo.internal.bindings.blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec,
-      { arg_delta: arg_delta, arg_anchor: arg_anchor },
+      [arg_delta, arg_anchor],
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorRemoteCallHandler = clas
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec,
       null,
-      { arg_bytes_limit: arg_bytes_limit },
+      [arg_bytes_limit],
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorRemoteCallHandler = clas
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec,
       null,
-      { arg_layer_tree_frame_sink_id: arg_layer_tree_frame_sink_id, arg_resources: arg_resources },
+      [arg_layer_tree_frame_sink_id, arg_resources],
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorRemoteCallHandler = clas
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
       null,
-      { arg_layer_tree_frame_sink_id: arg_layer_tree_frame_sink_id, arg_sequence_id: arg_sequence_id },
+      [arg_layer_tree_frame_sink_id, arg_sequence_id],
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorRemoteCallHandler = clas
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec,
       null,
-      { arg_offset: arg_offset },
+      [arg_offset],
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorRemoteCallHandler = clas
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec,
       null,
-      { arg_args: arg_args, arg_timing_details: arg_timing_details },
+      [arg_args, arg_timing_details],
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorRemoteCallHandler = clas
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec,
       null,
-      { arg_paused: arg_paused },
+      [arg_paused],
       false);
   }
 
@@ -678,7 +678,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorHostRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -687,7 +687,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorHostRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -696,7 +696,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorHostRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec,
       null,
-      { arg_needs_begin_frames: arg_needs_begin_frames },
+      [arg_needs_begin_frames],
       false);
   }
 
@@ -705,7 +705,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorHostRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec,
       null,
-      { arg_threads: arg_threads },
+      [arg_threads],
       false);
   }
 
@@ -863,7 +863,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec,
       null,
-      { arg_layer_tree_frame_sink_id: arg_layer_tree_frame_sink_id, arg_metadata_version: arg_metadata_version, arg_local_surface_id: arg_local_surface_id, arg_frame: arg_frame, arg_hit_test_region_list: arg_hit_test_region_list },
+      [arg_layer_tree_frame_sink_id, arg_metadata_version, arg_local_surface_id, arg_frame, arg_hit_test_region_list],
       false);
   }
 
@@ -872,7 +872,7 @@ mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHostRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 

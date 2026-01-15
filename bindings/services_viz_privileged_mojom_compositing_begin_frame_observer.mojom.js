@@ -175,7 +175,7 @@ mojo.internal.bindings.viz.mojom.BeginFrameObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec,
       null,
-      { arg_args: arg_args },
+      [arg_args],
       false);
   }
 

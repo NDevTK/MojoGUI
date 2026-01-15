@@ -295,7 +295,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPortManager_SetClient_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ParamsSpec,
       mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -313,7 +313,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ParamsSpec,
       mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec,
-      { arg_token: arg_token, arg_use_alternate_path: arg_use_alternate_path, arg_options: arg_options, arg_client: arg_client, arg_watcher: arg_watcher },
+      [arg_token, arg_use_alternate_path, arg_options, arg_client, arg_watcher],
       false);
   }
 
@@ -485,7 +485,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerClientRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec,
       null,
-      { arg_port_info: arg_port_info },
+      [arg_port_info],
       false);
   }
 
@@ -494,7 +494,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerClientRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec,
       null,
-      { arg_port_info: arg_port_info },
+      [arg_port_info],
       false);
   }
 
@@ -503,7 +503,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerClientRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec,
       null,
-      { arg_port_info: arg_port_info },
+      [arg_port_info],
       false);
   }
 
@@ -681,7 +681,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPort_StartWriting_ParamsSpec,
       null,
-      { arg_consumer: arg_consumer },
+      [arg_consumer],
       false);
   }
 
@@ -690,7 +690,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPort_StartReading_ParamsSpec,
       null,
-      { arg_producer: arg_producer },
+      [arg_producer],
       false);
   }
 
@@ -699,7 +699,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPort_Flush_ParamsSpec,
       mojo.internal.bindings.device.mojom.SerialPort_Flush_ResponseParamsSpec,
-      { arg_mode: arg_mode },
+      [arg_mode],
       false);
   }
 
@@ -708,7 +708,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPort_Drain_ParamsSpec,
       mojo.internal.bindings.device.mojom.SerialPort_Drain_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -717,7 +717,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPort_GetControlSignals_ParamsSpec,
       mojo.internal.bindings.device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -726,7 +726,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ParamsSpec,
       mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec,
-      { arg_signals: arg_signals },
+      [arg_signals],
       false);
   }
 
@@ -735,7 +735,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ParamsSpec,
       mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -744,7 +744,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPort_GetPortInfo_ParamsSpec,
       mojo.internal.bindings.device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -753,7 +753,7 @@ mojo.internal.bindings.device.mojom.SerialPortRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPort_Close_ParamsSpec,
       mojo.internal.bindings.device.mojom.SerialPort_Close_ResponseParamsSpec,
-      { arg_flush: arg_flush },
+      [arg_flush],
       false);
   }
 
@@ -1011,7 +1011,7 @@ mojo.internal.bindings.device.mojom.SerialPortClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPortClient_OnReadError_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 
@@ -1020,7 +1020,7 @@ mojo.internal.bindings.device.mojom.SerialPortClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.SerialPortClient_OnSendError_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 

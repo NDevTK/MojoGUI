@@ -221,7 +221,7 @@ mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec,
-      { arg_account: arg_account, arg_request: arg_request },
+      [arg_account, arg_request],
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticatorRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec,
-      { arg_account: arg_account, arg_request: arg_request },
+      [arg_account, arg_request],
       false);
   }
 

@@ -224,7 +224,7 @@ mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec,
       mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec,
       mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec,
       null,
-      { arg_listener: arg_listener },
+      [arg_listener],
       false);
   }
 
@@ -434,7 +434,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec,
       null,
-      { arg_session_requested_record: arg_session_requested_record },
+      [arg_session_requested_record],
       false);
   }
 
@@ -443,7 +443,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec,
       null,
-      { arg_session_rejected_record: arg_session_rejected_record },
+      [arg_session_rejected_record],
       false);
   }
 
@@ -452,7 +452,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec,
       null,
-      { arg_session_started_record: arg_session_started_record },
+      [arg_session_started_record],
       false);
   }
 
@@ -461,7 +461,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec,
       null,
-      { arg_session_stopped_record: arg_session_stopped_record },
+      [arg_session_stopped_record],
       false);
   }
 
@@ -470,7 +470,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemoteCallHandler =
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec,
       null,
-      { arg_runtime_added_record: arg_runtime_added_record },
+      [arg_runtime_added_record],
       false);
   }
 
@@ -479,7 +479,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemoteCallHandler =
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id },
+      [arg_device_id],
       false);
   }
 
@@ -488,7 +488,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemoteCallHandler =
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec,
       null,
-      { arg_xrframe_statistics: arg_xrframe_statistics },
+      [arg_xrframe_statistics],
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.webxr.mojom.XRInternalsSessionListenerRemoteCallHandler =
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec,
       null,
-      { arg_xrlogging_statistics: arg_xrlogging_statistics },
+      [arg_xrlogging_statistics],
       false);
   }
 

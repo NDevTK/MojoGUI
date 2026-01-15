@@ -183,7 +183,7 @@ mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec,
       mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 

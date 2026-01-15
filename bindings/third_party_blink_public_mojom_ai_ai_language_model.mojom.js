@@ -240,7 +240,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClientRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec,
       null,
-      { arg_language_model_remote: arg_language_model_remote, arg_info: arg_info },
+      [arg_language_model_remote, arg_info],
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClientRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec,
       null,
-      { arg_error: arg_error, arg_quota_error_info: arg_quota_error_info },
+      [arg_error, arg_quota_error_info],
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.blink.mojom.AILanguageModelRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AILanguageModel_Prompt_ParamsSpec,
       null,
-      { arg_prompts: arg_prompts, arg_constraint: arg_constraint, arg_pending_responder: arg_pending_responder },
+      [arg_prompts, arg_constraint, arg_pending_responder],
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.blink.mojom.AILanguageModelRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AILanguageModel_Append_ParamsSpec,
       null,
-      { arg_prompts: arg_prompts, arg_client: arg_client },
+      [arg_prompts, arg_client],
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.blink.mojom.AILanguageModelRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.AILanguageModel_Fork_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.blink.mojom.AILanguageModelRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.AILanguageModel_Destroy_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.blink.mojom.AILanguageModelRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec,
-      { arg_input: arg_input },
+      [arg_input],
       false);
   }
 

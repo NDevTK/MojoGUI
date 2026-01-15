@@ -182,7 +182,7 @@ mojo.internal.bindings.blink.mojom.TextSuggestionHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.blink.mojom.TextSuggestionHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec,
       null,
-      { arg_caret_x: arg_caret_x, arg_caret_y: arg_caret_y, arg_marked_text: arg_marked_text, arg_suggestions: arg_suggestions },
+      [arg_caret_x, arg_caret_y, arg_marked_text, arg_suggestions],
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.blink.mojom.TextSuggestionHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec,
       null,
-      { arg_caret_x: arg_caret_x, arg_caret_y: arg_caret_y, arg_marked_text: arg_marked_text, arg_suggestions: arg_suggestions },
+      [arg_caret_x, arg_caret_y, arg_marked_text, arg_suggestions],
       false);
   }
 

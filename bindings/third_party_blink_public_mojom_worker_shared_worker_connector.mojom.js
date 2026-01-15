@@ -189,7 +189,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerConnectorRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerConnector_Connect_ParamsSpec,
       null,
-      { arg_info: arg_info, arg_client: arg_client, arg_creation_context_type: arg_creation_context_type, arg_message_port: arg_message_port, arg_blob_url_token: arg_blob_url_token },
+      [arg_info, arg_client, arg_creation_context_type, arg_message_port, arg_blob_url_token],
       false);
   }
 

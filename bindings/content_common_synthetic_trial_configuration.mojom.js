@@ -176,7 +176,7 @@ mojo.internal.bindings.content.mojom.SyntheticTrialConfigurationRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec,
       null,
-      { arg_groups: arg_groups },
+      [arg_groups],
       false);
   }
 
@@ -185,7 +185,7 @@ mojo.internal.bindings.content.mojom.SyntheticTrialConfigurationRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec,
       null,
-      { arg_groups: arg_groups },
+      [arg_groups],
       false);
   }
 

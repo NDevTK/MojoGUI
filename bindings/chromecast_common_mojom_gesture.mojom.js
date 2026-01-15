@@ -224,7 +224,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec,
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec,
       null,
-      { arg_touch_location: arg_touch_location },
+      [arg_touch_location],
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec,
       null,
-      { arg_touch_location: arg_touch_location },
+      [arg_touch_location],
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec,
       null,
-      { arg_touch_location: arg_touch_location },
+      [arg_touch_location],
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.chromecast.mojom.GestureHandlerRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -511,7 +511,7 @@ mojo.internal.bindings.chromecast.mojom.GestureSourceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureSource_Subscribe_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -520,7 +520,7 @@ mojo.internal.bindings.chromecast.mojom.GestureSourceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec,
       null,
-      { arg_can_go_back: arg_can_go_back },
+      [arg_can_go_back],
       false);
   }
 
@@ -529,7 +529,7 @@ mojo.internal.bindings.chromecast.mojom.GestureSourceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec,
       null,
-      { arg_can_top_drag: arg_can_top_drag },
+      [arg_can_top_drag],
       false);
   }
 
@@ -538,7 +538,7 @@ mojo.internal.bindings.chromecast.mojom.GestureSourceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec,
       null,
-      { arg_can_top_drag: arg_can_top_drag },
+      [arg_can_top_drag],
       false);
   }
 

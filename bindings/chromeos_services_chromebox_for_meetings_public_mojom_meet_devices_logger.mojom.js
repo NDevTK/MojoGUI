@@ -216,7 +216,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLoggerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec,
-      { arg_record: arg_record, arg_priority: arg_priority },
+      [arg_record, arg_priority],
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLoggerRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec,
       null,
-      { arg_pending_observer: arg_pending_observer },
+      [arg_pending_observer],
       false);
   }
 

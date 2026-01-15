@@ -305,7 +305,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ResponseParamsSpec,
-      { arg_data_request: arg_data_request },
+      [arg_data_request],
       false);
   }
 
@@ -314,7 +314,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec,
       null,
-      { arg_registration_info: arg_registration_info },
+      [arg_registration_info],
       false);
   }
 
@@ -323,7 +323,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec,
       null,
-      { arg_registration_info: arg_registration_info },
+      [arg_registration_info],
       false);
   }
 
@@ -332,7 +332,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec,
       null,
-      { arg_writer_id: arg_writer_id, arg_target_buffer: arg_target_buffer },
+      [arg_writer_id, arg_target_buffer],
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.tracing.mojom.ProducerHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec,
       null,
-      { arg_writer_id: arg_writer_id },
+      [arg_writer_id],
       false);
   }
 
@@ -527,7 +527,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -536,7 +536,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec,
-      { arg_id: arg_id, arg_data_source_config: arg_data_source_config },
+      [arg_id, arg_data_source_config],
       false);
   }
 
@@ -545,7 +545,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -554,7 +554,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerClient_Flush_ParamsSpec,
       null,
-      { arg_flush_request_id: arg_flush_request_id, arg_data_source_ids: arg_data_source_ids },
+      [arg_flush_request_id, arg_data_source_ids],
       false);
   }
 
@@ -563,7 +563,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -741,7 +741,7 @@ mojo.internal.bindings.tracing.mojom.PerfettoServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec,
       null,
-      { arg_producer_client: arg_producer_client, arg_producer_host_receiver: arg_producer_host_receiver, arg_shared_memory: arg_shared_memory, arg_shared_memory_buffer_page_size_bytes: arg_shared_memory_buffer_page_size_bytes },
+      [arg_producer_client, arg_producer_host_receiver, arg_shared_memory, arg_shared_memory_buffer_page_size_bytes],
       false);
   }
 
@@ -875,7 +875,7 @@ mojo.internal.bindings.tracing.mojom.ConsumerHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec,
       null,
-      { arg_tracing_session_host: arg_tracing_session_host, arg_tracing_session_client: arg_tracing_session_client, arg_config: arg_config, arg_output_file: arg_output_file },
+      [arg_tracing_session_host, arg_tracing_session_client, arg_config, arg_output_file],
       false);
   }
 
@@ -884,7 +884,7 @@ mojo.internal.bindings.tracing.mojom.ConsumerHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec,
-      { arg_tracing_session_host: arg_tracing_session_host, arg_tracing_session_client: arg_tracing_session_client, arg_unguessable_name: arg_unguessable_name, arg_privacy_filtering_enabled: arg_privacy_filtering_enabled },
+      [arg_tracing_session_host, arg_tracing_session_client, arg_unguessable_name, arg_privacy_filtering_enabled],
       false);
   }
 
@@ -1046,7 +1046,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec,
       null,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -1055,7 +1055,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1064,7 +1064,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParamsSpec,
-      { arg_stream: arg_stream },
+      [arg_stream],
       false);
   }
 
@@ -1073,7 +1073,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1082,7 +1082,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParamsSpec,
-      { arg_agent_label_filter: arg_agent_label_filter, arg_stream: arg_stream, arg_privacy_filtering_enabled: arg_privacy_filtering_enabled },
+      [arg_agent_label_filter, arg_stream, arg_privacy_filtering_enabled],
       false);
   }
 
@@ -1272,7 +1272,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionClientRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1281,7 +1281,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionClientRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec,
       null,
-      { arg_tracing_succeeded: arg_tracing_succeeded },
+      [arg_tracing_succeeded],
       false);
   }
 

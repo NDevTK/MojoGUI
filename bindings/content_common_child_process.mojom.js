@@ -210,7 +210,7 @@ mojo.internal.bindings.content.mojom.ChildProcessHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ParamsSpec,
       mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.content.mojom.ChildProcessHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -405,7 +405,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_ProcessShutdown_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -414,7 +414,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec,
       null,
-      { arg_on: arg_on },
+      [arg_on],
       false);
   }
 
@@ -423,7 +423,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -432,7 +432,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_CrashHungProcess_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -441,7 +441,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_BindServiceInterface_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_BindReceiver_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -459,7 +459,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_SetProfilingFile_ParamsSpec,
       null,
-      { arg_file: arg_file },
+      [arg_file],
       false);
   }
 
@@ -468,7 +468,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec,
       mojo.internal.bindings.content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -477,7 +477,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec,
       null,
-      { arg_salt: arg_salt },
+      [arg_salt],
       false);
   }
 
@@ -486,7 +486,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec,
       null,
-      { arg_memory_pressure_level: arg_memory_pressure_level },
+      [arg_memory_pressure_level],
       false);
   }
 
@@ -495,7 +495,7 @@ mojo.internal.bindings.content.mojom.ChildProcessRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec,
       null,
-      { arg_battery_saver_mode_enabled: arg_battery_saver_mode_enabled },
+      [arg_battery_saver_mode_enabled],
       false);
   }
 

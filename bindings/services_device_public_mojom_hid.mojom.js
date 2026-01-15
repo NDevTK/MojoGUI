@@ -441,7 +441,7 @@ mojo.internal.bindings.device.mojom.HidManagerClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.HidManagerClient_DeviceAdded_ParamsSpec,
       null,
-      { arg_device_info: arg_device_info },
+      [arg_device_info],
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.device.mojom.HidManagerClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec,
       null,
-      { arg_device_info: arg_device_info },
+      [arg_device_info],
       false);
   }
 
@@ -459,7 +459,7 @@ mojo.internal.bindings.device.mojom.HidManagerClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.HidManagerClient_DeviceChanged_ParamsSpec,
       null,
-      { arg_device_info: arg_device_info },
+      [arg_device_info],
       false);
   }
 
@@ -617,7 +617,7 @@ mojo.internal.bindings.device.mojom.HidManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec,
       mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -626,7 +626,7 @@ mojo.internal.bindings.device.mojom.HidManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.HidManager_GetDevices_ParamsSpec,
       mojo.internal.bindings.device.mojom.HidManager_GetDevices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -635,7 +635,7 @@ mojo.internal.bindings.device.mojom.HidManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.HidManager_Connect_ParamsSpec,
       mojo.internal.bindings.device.mojom.HidManager_Connect_ResponseParamsSpec,
-      { arg_device_guid: arg_device_guid, arg_connection_client: arg_connection_client, arg_watcher: arg_watcher, arg_allow_protected_reports: arg_allow_protected_reports, arg_allow_fido_reports: arg_allow_fido_reports },
+      [arg_device_guid, arg_connection_client, arg_watcher, arg_allow_protected_reports, arg_allow_fido_reports],
       false);
   }
 
@@ -644,7 +644,7 @@ mojo.internal.bindings.device.mojom.HidManagerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.HidManager_AddReceiver_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -837,7 +837,7 @@ mojo.internal.bindings.device.mojom.HidConnectionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.HidConnection_Read_ParamsSpec,
       mojo.internal.bindings.device.mojom.HidConnection_Read_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -846,7 +846,7 @@ mojo.internal.bindings.device.mojom.HidConnectionRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.HidConnection_Write_ParamsSpec,
       mojo.internal.bindings.device.mojom.HidConnection_Write_ResponseParamsSpec,
-      { arg_report_id: arg_report_id, arg_buffer: arg_buffer },
+      [arg_report_id, arg_buffer],
       false);
   }
 
@@ -855,7 +855,7 @@ mojo.internal.bindings.device.mojom.HidConnectionRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ParamsSpec,
       mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec,
-      { arg_report_id: arg_report_id },
+      [arg_report_id],
       false);
   }
 
@@ -864,7 +864,7 @@ mojo.internal.bindings.device.mojom.HidConnectionRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ParamsSpec,
       mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec,
-      { arg_report_id: arg_report_id, arg_buffer: arg_buffer },
+      [arg_report_id, arg_buffer],
       false);
   }
 
@@ -1052,7 +1052,7 @@ mojo.internal.bindings.device.mojom.HidConnectionClientRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.HidConnectionClient_OnInputReport_ParamsSpec,
       null,
-      { arg_report_id: arg_report_id, arg_buffer: arg_buffer },
+      [arg_report_id, arg_buffer],
       false);
   }
 

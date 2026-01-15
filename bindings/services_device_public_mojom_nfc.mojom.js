@@ -250,7 +250,7 @@ mojo.internal.bindings.device.mojom.NFCRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.NFC_SetClient_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -259,7 +259,7 @@ mojo.internal.bindings.device.mojom.NFCRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.NFC_Push_ParamsSpec,
       mojo.internal.bindings.device.mojom.NFC_Push_ResponseParamsSpec,
-      { arg_message: arg_message, arg_options: arg_options },
+      [arg_message, arg_options],
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.device.mojom.NFCRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.NFC_CancelPush_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.device.mojom.NFCRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ParamsSpec,
       mojo.internal.bindings.device.mojom.NFC_MakeReadOnly_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.device.mojom.NFCRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.NFC_CancelMakeReadOnly_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -295,7 +295,7 @@ mojo.internal.bindings.device.mojom.NFCRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.device.mojom.NFC_Watch_ParamsSpec,
       mojo.internal.bindings.device.mojom.NFC_Watch_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.device.mojom.NFCRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.device.mojom.NFC_CancelWatch_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -513,7 +513,7 @@ mojo.internal.bindings.device.mojom.NFCClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.NFCClient_OnWatch_ParamsSpec,
       null,
-      { arg_watch_ids: arg_watch_ids, arg_serial_number: arg_serial_number, arg_message: arg_message },
+      [arg_watch_ids, arg_serial_number, arg_message],
       false);
   }
 
@@ -522,7 +522,7 @@ mojo.internal.bindings.device.mojom.NFCClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.NFCClient_OnError_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 
@@ -664,7 +664,7 @@ mojo.internal.bindings.device.mojom.RawNFCClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.RawNFCClient_OnWatch_ParamsSpec,
       null,
-      { arg_watch_ids: arg_watch_ids, arg_message: arg_message },
+      [arg_watch_ids, arg_message],
       false);
   }
 
@@ -673,7 +673,7 @@ mojo.internal.bindings.device.mojom.RawNFCClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.RawNFCClient_OnError_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 

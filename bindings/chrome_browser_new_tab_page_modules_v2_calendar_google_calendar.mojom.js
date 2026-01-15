@@ -188,7 +188,7 @@ mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandlerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec,
       mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -197,7 +197,7 @@ mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandlerRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -206,7 +206,7 @@ mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandlerRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

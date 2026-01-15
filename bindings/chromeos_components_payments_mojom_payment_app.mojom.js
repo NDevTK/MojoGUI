@@ -208,7 +208,7 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec,
       mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec,
-      { arg_package_name: arg_package_name },
+      [arg_package_name],
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec,
       mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec,
-      { arg_parameters: arg_parameters },
+      [arg_parameters],
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec,
       mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec,
-      { arg_parameters: arg_parameters },
+      [arg_parameters],
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstanceRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec,
       mojo.internal.bindings.chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec,
-      { arg_request_token: arg_request_token },
+      [arg_request_token],
       false);
   }
 

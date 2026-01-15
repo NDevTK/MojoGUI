@@ -691,7 +691,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -700,7 +700,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -709,7 +709,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -718,7 +718,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -727,7 +727,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -736,7 +736,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -745,7 +745,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -754,7 +754,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -763,7 +763,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -772,7 +772,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -781,7 +781,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -790,7 +790,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -799,7 +799,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -808,7 +808,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -817,7 +817,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -826,7 +826,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -835,7 +835,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -844,7 +844,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -853,7 +853,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -862,7 +862,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -871,7 +871,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -880,7 +880,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -889,7 +889,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -898,7 +898,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -907,7 +907,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -916,7 +916,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -925,7 +925,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -934,7 +934,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -943,7 +943,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -952,7 +952,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -961,7 +961,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -970,7 +970,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -979,7 +979,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -988,7 +988,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -997,7 +997,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1006,7 +1006,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1015,7 +1015,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1024,7 +1024,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1033,7 +1033,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1042,7 +1042,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1051,7 +1051,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[40],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1060,7 +1060,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[41],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1069,7 +1069,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[42],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1078,7 +1078,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[43],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1087,7 +1087,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[44],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1096,7 +1096,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[45],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1105,7 +1105,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[46],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1114,7 +1114,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[47],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1123,7 +1123,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[48],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1132,7 +1132,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[49],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1141,7 +1141,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[50],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1150,7 +1150,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[51],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1159,7 +1159,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[52],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1168,7 +1168,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[53],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1177,7 +1177,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[54],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1186,7 +1186,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[55],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1195,7 +1195,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[56],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec,
       null,
-      { arg_instance_remote: arg_instance_remote },
+      [arg_instance_remote],
       false);
   }
 
@@ -1204,7 +1204,7 @@ mojo.internal.bindings.arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       this.ordinals[57],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec,
       null,
-      { arg_instance_ptr: arg_instance_ptr },
+      [arg_instance_ptr],
       false);
   }
 

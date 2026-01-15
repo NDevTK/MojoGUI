@@ -217,7 +217,7 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec,
       null,
-      { arg_name: arg_name, arg_object_id: arg_object_id, arg_origin_matcher: arg_origin_matcher },
+      [arg_name, arg_object_id, arg_origin_matcher],
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec,
       null,
-      { arg_name: arg_name },
+      [arg_name],
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.GinJavaBridge_SetHost_ParamsSpec,
       null,
-      { arg_host: arg_host },
+      [arg_host],
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec,
       mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec,
       mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec,
-      { arg_method_name: arg_method_name },
+      [arg_method_name],
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec,
       mojo.internal.bindings.content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec,
-      { arg_method_name: arg_method_name, arg_arguments: arg_arguments },
+      [arg_method_name, arg_arguments],
       false);
   }
 
@@ -583,7 +583,7 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec,
       null,
-      { arg_object_id: arg_object_id, arg_receiver: arg_receiver },
+      [arg_object_id, arg_receiver],
       false);
   }
 
@@ -592,7 +592,7 @@ mojo.internal.bindings.content.mojom.GinJavaBridgeHostRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec,
       null,
-      { arg_object_id: arg_object_id },
+      [arg_object_id],
       false);
   }
 

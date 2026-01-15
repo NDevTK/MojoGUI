@@ -203,7 +203,7 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec,
       mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec,
-      { arg_host_port_pair: arg_host_port_pair, arg_traffic_annotation: arg_traffic_annotation, arg_receiver: arg_receiver, arg_observer: arg_observer },
+      [arg_host_port_pair, arg_traffic_annotation, arg_receiver, arg_observer],
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactoryRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec,
       mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec,
-      { arg_url: arg_url, arg_network_anonymization_key: arg_network_anonymization_key, arg_options: arg_options, arg_traffic_annotation: arg_traffic_annotation, arg_socket: arg_socket, arg_observer: arg_observer },
+      [arg_url, arg_network_anonymization_key, arg_options, arg_traffic_annotation, arg_socket, arg_observer],
       false);
   }
 

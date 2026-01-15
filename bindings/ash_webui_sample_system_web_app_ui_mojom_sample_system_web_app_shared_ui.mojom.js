@@ -176,7 +176,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec,
       null,
-      { arg_task: arg_task },
+      [arg_task],
       false);
   }
 
@@ -306,7 +306,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec,
       mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec,
-      { arg_task: arg_task },
+      [arg_task],
       false);
   }
 

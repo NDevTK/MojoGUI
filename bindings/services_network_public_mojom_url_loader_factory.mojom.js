@@ -213,7 +213,7 @@ mojo.internal.bindings.network.mojom.URLLoaderFactoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec,
       null,
-      { arg_loader: arg_loader, arg_request_id: arg_request_id, arg_options: arg_options, arg_request: arg_request, arg_client: arg_client, arg_traffic_annotation: arg_traffic_annotation },
+      [arg_loader, arg_request_id, arg_options, arg_request, arg_client, arg_traffic_annotation],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.network.mojom.URLLoaderFactoryRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderFactory_Clone_ParamsSpec,
       null,
-      { arg_factory: arg_factory },
+      [arg_factory],
       false);
   }
 

@@ -317,7 +317,7 @@ mojo.internal.bindings.chrome.mojom.AppShimRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec,
       null,
-      { arg_application: arg_application },
+      [arg_application],
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.chrome.mojom.AppShimRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec,
       null,
-      { arg_widget_id: arg_widget_id },
+      [arg_widget_id],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.chrome.mojom.AppShimRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShim_SetUserAttention_ParamsSpec,
       null,
-      { arg_attention_type: arg_attention_type },
+      [arg_attention_type],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.chrome.mojom.AppShimRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec,
       null,
-      { arg_badge_label: arg_badge_label },
+      [arg_badge_label],
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.chrome.mojom.AppShimRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec,
       null,
-      { arg_profile_menu_items: arg_profile_menu_items },
+      [arg_profile_menu_items],
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.chrome.mojom.AppShimRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec,
       null,
-      { arg_dock_menu_items: arg_dock_menu_items },
+      [arg_dock_menu_items],
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.chrome.mojom.AppShimRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec,
       null,
-      { arg_provider: arg_provider },
+      [arg_provider],
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.chrome.mojom.AppShimRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.chrome.mojom.AppShimRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -628,7 +628,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShimHost_FocusApp_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -637,7 +637,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShimHost_ReopenApp_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -646,7 +646,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShimHost_FilesOpened_ParamsSpec,
       null,
-      { arg_files: arg_files },
+      [arg_files],
       false);
   }
 
@@ -655,7 +655,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec,
       null,
-      { arg_profile_path: arg_profile_path },
+      [arg_profile_path],
       false);
   }
 
@@ -664,7 +664,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -673,7 +673,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec,
       null,
-      { arg_urls: arg_urls },
+      [arg_urls],
       false);
   }
 
@@ -682,7 +682,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec,
       null,
-      { arg_override_url: arg_override_url },
+      [arg_override_url],
       false);
   }
 
@@ -691,7 +691,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec,
       null,
-      { arg_mode: arg_mode },
+      [arg_mode],
       false);
   }
 
@@ -700,7 +700,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -709,7 +709,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -911,7 +911,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec,
-      { arg_host_receiver: arg_host_receiver, arg_app_shim_info: arg_app_shim_info },
+      [arg_host_receiver, arg_app_shim_info],
       false);
   }
 

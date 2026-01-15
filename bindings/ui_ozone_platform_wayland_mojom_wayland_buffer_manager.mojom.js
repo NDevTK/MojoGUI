@@ -242,7 +242,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec,
       null,
-      { arg_buffer_manager_gpu_associated: arg_buffer_manager_gpu_associated },
+      [arg_buffer_manager_gpu_associated],
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec,
       null,
-      { arg_dmabuf_fd: arg_dmabuf_fd, arg_size: arg_size, arg_strides: arg_strides, arg_offsets: arg_offsets, arg_modifiers: arg_modifiers, arg_format: arg_format, arg_planes_count: arg_planes_count, arg_color_space: arg_color_space, arg_hdr_metadata: arg_hdr_metadata, arg_buffer_id: arg_buffer_id },
+      [arg_dmabuf_fd, arg_size, arg_strides, arg_offsets, arg_modifiers, arg_format, arg_planes_count, arg_color_space, arg_hdr_metadata, arg_buffer_id],
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec,
       null,
-      { arg_shm_fd: arg_shm_fd, arg_length: arg_length, arg_size: arg_size, arg_buffer_id: arg_buffer_id },
+      [arg_shm_fd, arg_length, arg_size, arg_buffer_id],
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec,
       null,
-      { arg_color: arg_color, arg_buffer_id: arg_buffer_id },
+      [arg_color, arg_buffer_id],
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec,
       null,
-      { arg_buffer_id: arg_buffer_id },
+      [arg_buffer_id],
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec,
       null,
-      { arg_widget: arg_widget, arg_frame_id: arg_frame_id, arg_data: arg_data, arg_overlays: arg_overlays },
+      [arg_widget, arg_frame_id, arg_data, arg_overlays],
       false);
   }
 
@@ -465,7 +465,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec,
       null,
-      { arg_remote_host: arg_remote_host, arg_shared_image_formats_with_modifiers: arg_shared_image_formats_with_modifiers, arg_supports_dma_buf: arg_supports_dma_buf, arg_supports_viewporter: arg_supports_viewporter, arg_supports_acquire_fence: arg_supports_acquire_fence, arg_supports_overlays: arg_supports_overlays, arg_supports_single_pixel_buffer: arg_supports_single_pixel_buffer },
+      [arg_remote_host, arg_shared_image_formats_with_modifiers, arg_supports_dma_buf, arg_supports_viewporter, arg_supports_acquire_fence, arg_supports_overlays, arg_supports_single_pixel_buffer],
       false);
   }
 
@@ -474,7 +474,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec,
       null,
-      { arg_widget: arg_widget, arg_frame_id: arg_frame_id, arg_swap_result: arg_swap_result, arg_release_fence_handle: arg_release_fence_handle, arg_presentation_infos: arg_presentation_infos },
+      [arg_widget, arg_frame_id, arg_swap_result, arg_release_fence_handle, arg_presentation_infos],
       false);
   }
 
@@ -483,7 +483,7 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec,
       null,
-      { arg_widget: arg_widget, arg_presentation_infos: arg_presentation_infos },
+      [arg_widget, arg_presentation_infos],
       false);
   }
 

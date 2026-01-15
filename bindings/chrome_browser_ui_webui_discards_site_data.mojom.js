@@ -183,7 +183,7 @@ mojo.internal.bindings.discards.mojom.SiteDataProviderRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec,
       mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec,
-      { arg_explicitly_requested_origins: arg_explicitly_requested_origins },
+      [arg_explicitly_requested_origins],
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.discards.mojom.SiteDataProviderRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec,
       mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

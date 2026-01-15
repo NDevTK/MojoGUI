@@ -267,7 +267,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec,
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec,
-      { arg_query: arg_query, arg_num_candidates: arg_num_candidates },
+      [arg_query, arg_num_candidates],
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec,
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec,
-      { arg_candidate_id: arg_candidate_id },
+      [arg_candidate_id],
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec,
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec,
-      { arg_candidate_id: arg_candidate_id },
+      [arg_candidate_id],
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec,
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec,
-      { arg_candidate_id: arg_candidate_id },
+      [arg_candidate_id],
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec,
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec,
-      { arg_candidate_id: arg_candidate_id },
+      [arg_candidate_id],
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec,
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec,
-      { arg_candidate_id: arg_candidate_id, arg_description: arg_description },
+      [arg_candidate_id, arg_description],
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec,
       null,
-      { arg_metric_event: arg_metric_event },
+      [arg_metric_event],
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandle
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 

@@ -385,7 +385,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_Open_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_Open_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_Close_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_Close_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_SetConfiguration_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_ClaimInterface_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec,
-      { arg_interface_number: arg_interface_number },
+      [arg_interface_number],
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_ReleaseInterface_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec,
-      { arg_interface_number: arg_interface_number },
+      [arg_interface_number],
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_SetInterfaceAlternateSetting_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec,
-      { arg_interface_number: arg_interface_number, arg_alternate_setting: arg_alternate_setting },
+      [arg_interface_number, arg_alternate_setting],
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_Reset_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_Reset_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_ClearHalt_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec,
-      { arg_direction: arg_direction, arg_endpoint_number: arg_endpoint_number },
+      [arg_direction, arg_endpoint_number],
       false);
   }
 
@@ -457,7 +457,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferIn_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec,
-      { arg_params: arg_params, arg_length: arg_length, arg_timeout: arg_timeout },
+      [arg_params, arg_length, arg_timeout],
       false);
   }
 
@@ -466,7 +466,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferOut_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec,
-      { arg_params: arg_params, arg_data: arg_data, arg_timeout: arg_timeout },
+      [arg_params, arg_data, arg_timeout],
       false);
   }
 
@@ -475,7 +475,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferIn_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec,
-      { arg_endpoint_number: arg_endpoint_number, arg_length: arg_length, arg_timeout: arg_timeout },
+      [arg_endpoint_number, arg_length, arg_timeout],
       false);
   }
 
@@ -484,7 +484,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferOut_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec,
-      { arg_endpoint_number: arg_endpoint_number, arg_data: arg_data, arg_timeout: arg_timeout },
+      [arg_endpoint_number, arg_data, arg_timeout],
       false);
   }
 
@@ -493,7 +493,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferIn_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec,
-      { arg_endpoint_number: arg_endpoint_number, arg_packet_lengths: arg_packet_lengths, arg_timeout: arg_timeout },
+      [arg_endpoint_number, arg_packet_lengths, arg_timeout],
       false);
   }
 
@@ -502,7 +502,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferOut_ParamsSpec,
       mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec,
-      { arg_endpoint_number: arg_endpoint_number, arg_data: arg_data, arg_packet_lengths: arg_packet_lengths, arg_timeout: arg_timeout },
+      [arg_endpoint_number, arg_data, arg_packet_lengths, arg_timeout],
       false);
   }
 
@@ -862,7 +862,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceClient_OnDeviceOpened_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -871,7 +871,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceClient_OnDeviceClosed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

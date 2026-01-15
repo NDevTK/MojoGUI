@@ -314,7 +314,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec,
       null,
-      { arg_widget: arg_widget, arg_initial_bounds: arg_initial_bounds },
+      [arg_widget, arg_initial_bounds],
       false);
   }
 
@@ -323,7 +323,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec,
       null,
-      { arg_widget: arg_widget },
+      [arg_widget],
       false);
   }
 
@@ -332,7 +332,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec,
       null,
-      { arg_widget: arg_widget, arg_bounds: arg_bounds },
+      [arg_widget, arg_bounds],
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec,
       null,
-      { arg_path: arg_path, arg_fd_mojo_handle: arg_fd_mojo_handle },
+      [arg_path, arg_fd_mojo_handle],
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec,
       null,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -386,7 +386,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec,
-      { arg_event_props: arg_event_props },
+      [arg_event_props],
       false);
   }
 
@@ -395,7 +395,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec,
-      { arg_config_requests: arg_config_requests, arg_modeset_flags: arg_modeset_flags },
+      [arg_config_requests, arg_modeset_flags],
       false);
   }
 
@@ -404,7 +404,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec,
-      { arg_display_id: arg_display_id, arg_key: arg_key },
+      [arg_display_id, arg_key],
       false);
   }
 
@@ -413,7 +413,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec,
-      { arg_display_id: arg_display_id },
+      [arg_display_id],
       false);
   }
 
@@ -422,7 +422,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec,
-      { arg_display_id: arg_display_id, arg_state: arg_state, arg_protection_method: arg_protection_method },
+      [arg_display_id, arg_state, arg_protection_method],
       false);
   }
 
@@ -431,7 +431,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec,
       null,
-      { arg_display_id: arg_display_id, arg_cta: arg_cta },
+      [arg_display_id, arg_cta],
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec,
       null,
-      { arg_display_id: arg_display_id, arg_calibration: arg_calibration },
+      [arg_display_id, arg_calibration],
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec,
       null,
-      { arg_display_id: arg_display_id, arg_adjustment: arg_adjustment },
+      [arg_display_id, arg_adjustment],
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec,
-      { arg_display_id: arg_display_id, arg_enabled: arg_enabled },
+      [arg_display_id, arg_enabled],
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec,
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec,
-      { arg_display_id: arg_display_id },
+      [arg_display_id],
       false);
   }
 
@@ -476,7 +476,7 @@ mojo.internal.bindings.ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec,
       null,
-      { arg_cursor: arg_cursor },
+      [arg_cursor],
       false);
   }
 

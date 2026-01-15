@@ -214,7 +214,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec,
       null,
-      { arg_visibility_type: arg_visibility_type },
+      [arg_visibility_type],
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec,
       null,
-      { arg_z_order: arg_z_order, arg_priority: arg_priority },
+      [arg_z_order, arg_priority],
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -408,7 +408,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -417,7 +417,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec,
       null,
-      { arg_priority: arg_priority },
+      [arg_priority],
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 

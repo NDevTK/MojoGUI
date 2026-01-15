@@ -241,7 +241,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBObserverRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec,
       null,
-      { arg_bucket_locator: arg_bucket_locator },
+      [arg_bucket_locator],
       false);
   }
 
@@ -250,7 +250,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBObserverRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec,
       null,
-      { arg_bucket_locator: arg_bucket_locator, arg_database_name: arg_database_name, arg_object_store_name: arg_object_store_name },
+      [arg_bucket_locator, arg_database_name, arg_object_store_name],
       false);
   }
 
@@ -424,7 +424,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec,
       null,
-      { arg_bucket_locator: arg_bucket_locator, arg_client_info: arg_client_info, arg_client_state_checker_remote: arg_client_state_checker_remote, arg_receiver: arg_receiver },
+      [arg_bucket_locator, arg_client_info, arg_client_state_checker_remote, arg_receiver],
       false);
   }
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec,
-      { arg_bucket_id: arg_bucket_id, arg_reason: arg_reason },
+      [arg_bucket_id, arg_reason],
       false);
   }
 
@@ -442,7 +442,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec,
-      { arg_bucket_id: arg_bucket_id },
+      [arg_bucket_id],
       false);
   }
 
@@ -451,7 +451,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -460,7 +460,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParamsSpec,
-      { arg_bucket_id: arg_bucket_id },
+      [arg_bucket_id],
       false);
   }
 
@@ -469,7 +469,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec,
-      { arg_bucket_id: arg_bucket_id },
+      [arg_bucket_id],
       false);
   }
 
@@ -478,7 +478,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -487,7 +487,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -496,7 +496,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec,
       null,
-      { arg_policy_updates: arg_policy_updates },
+      [arg_policy_updates],
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

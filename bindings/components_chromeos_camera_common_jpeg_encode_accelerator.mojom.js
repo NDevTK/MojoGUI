@@ -201,7 +201,7 @@ mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ParamsSpec,
       mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ParamsSpec,
       mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec,
-      { arg_task_id: arg_task_id, arg_input_fd: arg_input_fd, arg_input_buffer_size: arg_input_buffer_size, arg_coded_size_width: arg_coded_size_width, arg_coded_size_height: arg_coded_size_height, arg_exif_fd: arg_exif_fd, arg_exif_buffer_size: arg_exif_buffer_size, arg_output_fd: arg_output_fd, arg_output_buffer_size: arg_output_buffer_size },
+      [arg_task_id, arg_input_fd, arg_input_buffer_size, arg_coded_size_width, arg_coded_size_height, arg_exif_fd, arg_exif_buffer_size, arg_output_fd, arg_output_buffer_size],
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec,
       mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec,
-      { arg_task_id: arg_task_id, arg_input_format: arg_input_format, arg_input_planes: arg_input_planes, arg_output_planes: arg_output_planes, arg_exif_handle: arg_exif_handle, arg_exif_buffer_size: arg_exif_buffer_size, arg_coded_size_width: arg_coded_size_width, arg_coded_size_height: arg_coded_size_height, arg_quality: arg_quality, arg_has_input_modifier: arg_has_input_modifier, arg_input_modifier: arg_input_modifier },
+      [arg_task_id, arg_input_format, arg_input_planes, arg_output_planes, arg_exif_handle, arg_exif_buffer_size, arg_coded_size_width, arg_coded_size_height, arg_quality, arg_has_input_modifier, arg_input_modifier],
       false);
   }
 

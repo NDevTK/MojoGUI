@@ -189,7 +189,7 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactoryRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec,
       null,
-      { arg_loader: arg_loader, arg_request_id: arg_request_id, arg_options: arg_options, arg_request: arg_request, arg_traffic_annotation: arg_traffic_annotation },
+      [arg_loader, arg_request_id, arg_options, arg_request, arg_traffic_annotation],
       false);
   }
 
@@ -198,7 +198,7 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactoryRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec,
       null,
-      { arg_factory: arg_factory },
+      [arg_factory],
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoaderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FetchLaterLoader_SendNow_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.blink.mojom.FetchLaterLoaderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FetchLaterLoader_Cancel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

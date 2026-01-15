@@ -258,7 +258,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec,
       null,
-      { arg_key: arg_key, arg_watch_time: arg_watch_time },
+      [arg_key, arg_watch_time],
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec,
       null,
-      { arg_watch_time_keys: arg_watch_time_keys },
+      [arg_watch_time_keys],
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnError_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec,
       null,
-      { arg_secondary_properties: arg_secondary_properties },
+      [arg_secondary_properties],
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec,
       null,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec,
       null,
-      { arg_duration: arg_duration },
+      [arg_duration],
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec,
       null,
-      { arg_frames_decoded: arg_frames_decoded, arg_frames_dropped: arg_frames_dropped },
+      [arg_frames_decoded, arg_frames_dropped],
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec,
       null,
-      { arg_total_count: arg_total_count },
+      [arg_total_count],
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec,
       null,
-      { arg_total_completed_count: arg_total_completed_count, arg_total_duration: arg_total_duration },
+      [arg_total_completed_count, arg_total_duration],
       false);
   }
 

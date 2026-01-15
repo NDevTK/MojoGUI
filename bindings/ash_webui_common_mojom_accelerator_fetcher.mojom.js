@@ -189,7 +189,7 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec,
       null,
-      { arg_actionId: arg_actionId, arg_accelerators: arg_accelerators },
+      [arg_actionId, arg_accelerators],
       false);
   }
 
@@ -323,7 +323,7 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec,
       null,
-      { arg_actionIds: arg_actionIds, arg_observer: arg_observer },
+      [arg_actionIds, arg_observer],
       false);
   }
 
@@ -332,7 +332,7 @@ mojo.internal.bindings.ash.common.mojom.AcceleratorFetcherRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec,
       mojo.internal.bindings.ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

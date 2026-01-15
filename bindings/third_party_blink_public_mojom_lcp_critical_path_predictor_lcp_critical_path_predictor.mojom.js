@@ -222,7 +222,7 @@ mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec,
       null,
-      { arg_lcp_element: arg_lcp_element },
+      [arg_lcp_element],
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec,
       null,
-      { arg_element_locator: arg_element_locator },
+      [arg_element_locator],
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec,
       null,
-      { arg_lcp_influencer_scripts: arg_lcp_influencer_scripts },
+      [arg_lcp_influencer_scripts],
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec,
       null,
-      { arg_origin: arg_origin },
+      [arg_origin],
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec,
       null,
-      { arg_font_url: arg_font_url, arg_hit: arg_hit },
+      [arg_font_url, arg_hit],
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec,
       null,
-      { arg_subresource_url: arg_subresource_url, arg_subresource_load_start: arg_subresource_load_start, arg_request_destination: arg_request_destination },
+      [arg_subresource_url, arg_subresource_load_start, arg_request_destination],
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec,
       null,
-      { arg_unused_preloads: arg_unused_preloads },
+      [arg_unused_preloads],
       false);
   }
 

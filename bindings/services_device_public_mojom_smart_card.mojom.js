@@ -332,7 +332,7 @@ mojo.internal.bindings.device.mojom.SmartCardTransactionRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec,
-      { arg_disposition: arg_disposition },
+      [arg_disposition],
       false);
   }
 
@@ -495,7 +495,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec,
-      { arg_disposition: arg_disposition },
+      [arg_disposition],
       false);
   }
 
@@ -504,7 +504,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec,
-      { arg_protocol: arg_protocol, arg_data: arg_data },
+      [arg_protocol, arg_data],
       false);
   }
 
@@ -513,7 +513,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardConnection_Control_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardConnection_Control_ResponseParamsSpec,
-      { arg_control_code: arg_control_code, arg_data: arg_data },
+      [arg_control_code, arg_data],
       false);
   }
 
@@ -522,7 +522,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardConnection_GetAttrib_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -531,7 +531,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardConnection_SetAttrib_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec,
-      { arg_id: arg_id, arg_data: arg_data },
+      [arg_id, arg_data],
       false);
   }
 
@@ -540,7 +540,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardConnection_Status_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardConnection_Status_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -549,7 +549,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -790,7 +790,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionWatcherRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -932,7 +932,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardContext_ListReaders_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -941,7 +941,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec,
-      { arg_timeout: arg_timeout, arg_reader_states: arg_reader_states },
+      [arg_timeout, arg_reader_states],
       false);
   }
 
@@ -950,7 +950,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardContext_Cancel_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardContext_Cancel_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -959,7 +959,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ResponseParamsSpec,
-      { arg_reader: arg_reader, arg_share_mode: arg_share_mode, arg_preferred_protocols: arg_preferred_protocols, arg_connection_watcher: arg_connection_watcher },
+      [arg_reader, arg_share_mode, arg_preferred_protocols, arg_connection_watcher],
       false);
   }
 
@@ -1149,7 +1149,7 @@ mojo.internal.bindings.device.mojom.SmartCardContextFactoryRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec,
       mojo.internal.bindings.device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

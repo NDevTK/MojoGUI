@@ -191,7 +191,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_client: arg_client },
+      [arg_receiver, arg_client],
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -451,7 +451,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

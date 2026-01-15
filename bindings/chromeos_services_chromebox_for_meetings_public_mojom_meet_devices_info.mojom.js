@@ -196,7 +196,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -404,7 +404,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 

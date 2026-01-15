@@ -175,7 +175,7 @@ mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactoryRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec,
       null,
-      { arg_remote: arg_remote },
+      [arg_remote],
       false);
   }
 
@@ -305,7 +305,7 @@ mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 

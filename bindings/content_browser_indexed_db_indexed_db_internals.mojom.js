@@ -220,7 +220,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec,
-      { arg_bucketId: arg_bucketId },
+      [arg_bucketId],
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec,
-      { arg_bucketId: arg_bucketId },
+      [arg_bucketId],
       false);
   }
 
@@ -247,7 +247,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec,
-      { arg_bucket_id: arg_bucket_id },
+      [arg_bucket_id],
       false);
   }
 
@@ -256,7 +256,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec,
-      { arg_bucket_id: arg_bucket_id },
+      [arg_bucket_id],
       false);
   }
 
@@ -265,7 +265,7 @@ mojo.internal.bindings.storage.mojom.IdbInternalsHandlerRemoteCallHandler = clas
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec,
-      { arg_client_info: arg_client_info },
+      [arg_client_info],
       false);
   }
 

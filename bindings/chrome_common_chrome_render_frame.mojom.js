@@ -299,7 +299,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec,
       null,
-      { arg_window_features: arg_window_features },
+      [arg_window_features],
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec,
-      { arg_image_min_area_pixels: arg_image_min_area_pixels, arg_image_max_size_pixels: arg_image_max_size_pixels, arg_image_format: arg_image_format, arg_quality: arg_quality },
+      [arg_image_min_area_pixels, arg_image_max_size_pixels, arg_image_format, arg_quality],
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec,
       null,
-      { arg_javascript: arg_javascript },
+      [arg_javascript],
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec,
       null,
-      { arg_identifier: arg_identifier },
+      [arg_identifier],
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec,
       null,
-      { arg_should_defer: arg_should_defer },
+      [arg_should_defer],
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec,
       null,
-      { arg_task_id: arg_task_id },
+      [arg_task_id],
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -416,7 +416,7 @@ mojo.internal.bindings.chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec,
       null,
-      { arg_monitor: arg_monitor, arg_task_id: arg_task_id, arg_supports_paint_stability: arg_supports_paint_stability },
+      [arg_monitor, arg_task_id, arg_supports_paint_stability],
       false);
   }
 

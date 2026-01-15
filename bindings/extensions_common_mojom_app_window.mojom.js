@@ -170,7 +170,7 @@ mojo.internal.bindings.extensions.mojom.AppWindowRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec,
       null,
-      { arg_deemphasized: arg_deemphasized },
+      [arg_deemphasized],
       false);
   }
 

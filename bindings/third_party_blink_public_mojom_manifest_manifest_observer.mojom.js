@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.ManifestUrlChangeObserverRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec,
       null,
-      { arg_manifest_url: arg_manifest_url },
+      [arg_manifest_url],
       false);
   }
 

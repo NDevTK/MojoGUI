@@ -181,7 +181,7 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -328,7 +328,7 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec,
       null,
-      { arg_is_app_enabled: arg_is_app_enabled },
+      [arg_is_app_enabled],
       false);
   }
 

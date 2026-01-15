@@ -175,7 +175,7 @@ mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdaterRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec,
       null,
-      { arg_subresource_loader_factories: arg_subresource_loader_factories },
+      [arg_subresource_loader_factories],
       false);
   }
 

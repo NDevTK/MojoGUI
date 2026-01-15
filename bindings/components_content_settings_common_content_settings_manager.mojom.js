@@ -209,7 +209,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec,
       null,
-      { arg_clone: arg_clone },
+      [arg_clone],
       false);
   }
 
@@ -218,7 +218,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec,
       mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec,
-      { arg_frame_token: arg_frame_token, arg_storage_type: arg_storage_type, arg_origin: arg_origin, arg_site_for_cookies: arg_site_for_cookies, arg_top_frame_origin: arg_top_frame_origin },
+      [arg_frame_token, arg_storage_type, arg_origin, arg_site_for_cookies, arg_top_frame_origin],
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec,
       null,
-      { arg_frame_token: arg_frame_token, arg_type: arg_type },
+      [arg_frame_token, arg_type],
       false);
   }
 

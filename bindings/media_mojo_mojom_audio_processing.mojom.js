@@ -179,7 +179,7 @@ mojo.internal.bindings.media.mojom.AudioProcessorControlsRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ParamsSpec,
       mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -188,7 +188,7 @@ mojo.internal.bindings.media.mojom.AudioProcessorControlsRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec,
       null,
-      { arg_num_preferred_channels: arg_num_preferred_channels },
+      [arg_num_preferred_channels],
       false);
   }
 

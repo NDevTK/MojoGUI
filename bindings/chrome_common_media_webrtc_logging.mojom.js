@@ -187,7 +187,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec,
       null,
-      { arg_messages: arg_messages },
+      [arg_messages],
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -338,7 +338,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -347,7 +347,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

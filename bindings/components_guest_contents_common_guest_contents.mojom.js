@@ -178,7 +178,7 @@ mojo.internal.bindings.guest_contents.mojom.GuestContentsHostRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec,
       mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec,
-      { arg_frame_to_swap: arg_frame_to_swap, arg_guest_contents_id: arg_guest_contents_id },
+      [arg_frame_to_swap, arg_guest_contents_id],
       false);
   }
 

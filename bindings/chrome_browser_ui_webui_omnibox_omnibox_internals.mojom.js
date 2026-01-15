@@ -212,7 +212,7 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.OmniboxPageHandler_SetClientPage_ParamsSpec,
       null,
-      { arg_page: arg_page },
+      [arg_page],
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec,
       null,
-      { arg_input_string: arg_input_string, arg_reset_autocomplete_controller: arg_reset_autocomplete_controller, arg_cursor_position: arg_cursor_position, arg_zero_suggest: arg_zero_suggest, arg_prevent_inline_autocomplete: arg_prevent_inline_autocomplete, arg_prefer_keyword: arg_prefer_keyword, arg_current_url: arg_current_url, arg_page_classification: arg_page_classification },
+      [arg_input_string, arg_reset_autocomplete_controller, arg_cursor_position, arg_zero_suggest, arg_prevent_inline_autocomplete, arg_prefer_keyword, arg_current_url, arg_page_classification],
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec,
       mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ParamsSpec,
       mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec,
-      { arg_signals: arg_signals },
+      [arg_signals],
       false);
   }
 
@@ -423,7 +423,7 @@ mojo.internal.bindings.mojom.OmniboxPageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec,
       null,
-      { arg_autocomplete_controller_type: arg_autocomplete_controller_type, arg_input_text: arg_input_text },
+      [arg_autocomplete_controller_type, arg_input_text],
       false);
   }
 
@@ -432,7 +432,7 @@ mojo.internal.bindings.mojom.OmniboxPageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec,
       null,
-      { arg_autocomplete_controller_type: arg_autocomplete_controller_type, arg_response: arg_response },
+      [arg_autocomplete_controller_type, arg_response],
       false);
   }
 
@@ -441,7 +441,7 @@ mojo.internal.bindings.mojom.OmniboxPageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec,
       null,
-      { arg_autocomplete_controller_type: arg_autocomplete_controller_type, arg_input_text: arg_input_text, arg_matches: arg_matches },
+      [arg_autocomplete_controller_type, arg_input_text, arg_matches],
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.mojom.OmniboxPageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec,
       null,
-      { arg_autocomplete_controller_type: arg_autocomplete_controller_type, arg_image_url: arg_image_url, arg_image_data: arg_image_data },
+      [arg_autocomplete_controller_type, arg_image_url, arg_image_data],
       false);
   }
 

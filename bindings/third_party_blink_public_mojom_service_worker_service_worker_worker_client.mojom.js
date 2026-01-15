@@ -175,7 +175,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec,
       null,
-      { arg_mode: arg_mode },
+      [arg_mode],
       false);
   }
 

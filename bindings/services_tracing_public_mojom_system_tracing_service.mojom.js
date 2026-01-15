@@ -177,7 +177,7 @@ mojo.internal.bindings.tracing.mojom.SystemTracingServiceRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

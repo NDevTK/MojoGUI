@@ -203,7 +203,7 @@ mojo.internal.bindings.blink.mojom.WorkletDevToolsHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec,
       null,
-      { arg_agent: arg_agent, arg_agent_host: arg_agent_host },
+      [arg_agent, arg_agent_host],
       false);
   }
 

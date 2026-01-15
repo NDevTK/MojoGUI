@@ -202,7 +202,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec,
       mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec,
-      { arg_index_id: arg_index_id },
+      [arg_index_id],
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec,
       mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec,
-      { arg_index_id: arg_index_id, arg_backend: arg_backend, arg_index_receiver: arg_index_receiver, arg_reporter_remote: arg_reporter_remote },
+      [arg_index_id, arg_backend, arg_index_receiver, arg_reporter_remote],
       false);
   }
 

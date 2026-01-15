@@ -186,7 +186,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactoryRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -332,7 +332,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -341,7 +341,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec,
       null,
-      { arg_prepopulate_id: arg_prepopulate_id, arg_save_guest_mode_selection: arg_save_guest_mode_selection },
+      [arg_prepopulate_id, arg_save_guest_mode_selection],
       false);
   }
 
@@ -350,7 +350,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec,
       null,
-      { arg_scroll_state: arg_scroll_state },
+      [arg_scroll_state],
       false);
   }
 

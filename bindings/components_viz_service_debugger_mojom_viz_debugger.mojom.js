@@ -176,7 +176,7 @@ mojo.internal.bindings.viz.mojom.VizDebugOutputRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.VizDebugOutput_LogFrame_ParamsSpec,
       null,
-      { arg_frameData: arg_frameData },
+      [arg_frameData],
       false);
   }
 

@@ -232,7 +232,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 
@@ -241,7 +241,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 
@@ -250,7 +250,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec,
       null,
-      { arg_port: arg_port, arg_state: arg_state },
+      [arg_port, arg_state],
       false);
   }
 
@@ -259,7 +259,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec,
       null,
-      { arg_port: arg_port, arg_state: arg_state },
+      [arg_port, arg_state],
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec,
       null,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec,
       null,
-      { arg_bytes: arg_bytes },
+      [arg_bytes],
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionClientRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.midi.mojom.MidiSessionClient_DataReceived_ParamsSpec,
       null,
-      { arg_port: arg_port, arg_data: arg_data, arg_timestamp: arg_timestamp },
+      [arg_port, arg_data, arg_timestamp],
       false);
   }
 
@@ -464,7 +464,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionProviderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.midi.mojom.MidiSessionProvider_StartSession_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_client: arg_client },
+      [arg_receiver, arg_client],
       false);
   }
 
@@ -594,7 +594,7 @@ mojo.internal.bindings.midi.mojom.MidiSessionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.midi.mojom.MidiSession_SendData_ParamsSpec,
       null,
-      { arg_port: arg_port, arg_data: arg_data, arg_timestamp: arg_timestamp },
+      [arg_port, arg_data, arg_timestamp],
       false);
   }
 

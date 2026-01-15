@@ -403,7 +403,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_data: arg_data },
+      [arg_url, arg_data],
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -430,7 +430,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec,
-      { arg_client_uuid: arg_client_uuid },
+      [arg_client_uuid],
       false);
   }
 
@@ -439,7 +439,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -448,7 +448,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -457,7 +457,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec,
       null,
-      { arg_client_uuid: arg_client_uuid, arg_message: arg_message },
+      [arg_client_uuid, arg_message],
       false);
   }
 
@@ -466,7 +466,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec,
-      { arg_client_uuid: arg_client_uuid },
+      [arg_client_uuid],
       false);
   }
 
@@ -475,7 +475,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec,
-      { arg_client_uuid: arg_client_uuid, arg_url: arg_url },
+      [arg_client_uuid, arg_url],
       false);
   }
 
@@ -484,7 +484,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -493,7 +493,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -502,7 +502,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec,
-      { arg_rules: arg_rules },
+      [arg_rules],
       false);
   }
 
@@ -901,7 +901,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec,
       null,
-      { arg_service_worker_host: arg_service_worker_host, arg_associated_interfaces_to_browser: arg_associated_interfaces_to_browser, arg_associated_interfaces_from_browser: arg_associated_interfaces_from_browser, arg_registration_info: arg_registration_info, arg_service_worker_info: arg_service_worker_info, arg_fetch_handler_existence: arg_fetch_handler_existence, arg_ancestor_frame_type: arg_ancestor_frame_type, arg_storage_key: arg_storage_key },
+      [arg_service_worker_host, arg_associated_interfaces_to_browser, arg_associated_interfaces_from_browser, arg_registration_info, arg_service_worker_info, arg_fetch_handler_existence, arg_ancestor_frame_type, arg_storage_key],
       false);
   }
 
@@ -910,7 +910,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -919,7 +919,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -928,7 +928,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec,
-      { arg_registration: arg_registration },
+      [arg_registration],
       false);
   }
 
@@ -937,7 +937,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec,
-      { arg_registration: arg_registration },
+      [arg_registration],
       false);
   }
 
@@ -946,7 +946,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec,
-      { arg_registration: arg_registration },
+      [arg_registration],
       false);
   }
 
@@ -955,7 +955,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec,
-      { arg_registration: arg_registration },
+      [arg_registration],
       false);
   }
 
@@ -964,7 +964,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec,
-      { arg_change: arg_change },
+      [arg_change],
       false);
   }
 
@@ -973,7 +973,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec,
-      { arg_params: arg_params, arg_response_callback: arg_response_callback },
+      [arg_params, arg_response_callback],
       false);
   }
 
@@ -982,7 +982,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec,
-      { arg_notification_id: arg_notification_id, arg_notification_data: arg_notification_data, arg_action_index: arg_action_index, arg_reply: arg_reply },
+      [arg_notification_id, arg_notification_data, arg_action_index, arg_reply],
       false);
   }
 
@@ -991,7 +991,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec,
-      { arg_notification_id: arg_notification_id, arg_notification_data: arg_notification_data },
+      [arg_notification_id, arg_notification_data],
       false);
   }
 
@@ -1000,7 +1000,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec,
-      { arg_payload: arg_payload },
+      [arg_payload],
       false);
   }
 
@@ -1009,7 +1009,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec,
-      { arg_payload: arg_payload },
+      [arg_payload],
       false);
   }
 
@@ -1018,7 +1018,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec,
-      { arg_old_subscription: arg_old_subscription, arg_new_subscription: arg_new_subscription },
+      [arg_old_subscription, arg_new_subscription],
       false);
   }
 
@@ -1027,7 +1027,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec,
-      { arg_tag: arg_tag, arg_last_chance: arg_last_chance, arg_timeout: arg_timeout },
+      [arg_tag, arg_last_chance, arg_timeout],
       false);
   }
 
@@ -1036,7 +1036,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec,
-      { arg_tag: arg_tag, arg_timeout: arg_timeout },
+      [arg_tag, arg_timeout],
       false);
   }
 
@@ -1045,7 +1045,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec,
-      { arg_result_of_abort_payment: arg_result_of_abort_payment },
+      [arg_result_of_abort_payment],
       false);
   }
 
@@ -1054,7 +1054,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec,
-      { arg_event_data: arg_event_data, arg_result_of_can_make_payment: arg_result_of_can_make_payment },
+      [arg_event_data, arg_result_of_can_make_payment],
       false);
   }
 
@@ -1063,7 +1063,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec,
-      { arg_request_data: arg_request_data, arg_response_callback: arg_response_callback },
+      [arg_request_data, arg_response_callback],
       false);
   }
 
@@ -1072,7 +1072,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -1081,7 +1081,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -1090,7 +1090,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_Ping_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_Ping_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1099,7 +1099,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec,
       null,
-      { arg_delay: arg_delay },
+      [arg_delay],
       false);
   }
 
@@ -1108,7 +1108,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1117,7 +1117,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1126,7 +1126,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec,
       null,
-      { arg_level: arg_level, arg_message: arg_message },
+      [arg_level, arg_message],
       false);
   }
 
@@ -1135,7 +1135,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec,
-      { arg_javascript: arg_javascript, arg_wants_result: arg_wants_result },
+      [arg_javascript, arg_wants_result],
       false);
   }
 

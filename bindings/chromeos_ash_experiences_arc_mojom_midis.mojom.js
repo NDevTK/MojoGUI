@@ -194,7 +194,7 @@ mojo.internal.bindings.arc.mojom.MidisClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec,
       null,
-      { arg_device: arg_device },
+      [arg_device],
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.arc.mojom.MidisClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec,
       null,
-      { arg_device: arg_device },
+      [arg_device],
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.arc.mojom.MidisServerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ParamsSpec,
       mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -358,7 +358,7 @@ mojo.internal.bindings.arc.mojom.MidisServerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ParamsSpec,
       mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -367,7 +367,7 @@ mojo.internal.bindings.arc.mojom.MidisServerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.MidisServer_CloseDevice_ParamsSpec,
       null,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -531,7 +531,7 @@ mojo.internal.bindings.arc.mojom.MidisHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.MidisHost_Connect_ParamsSpec,
       null,
-      { arg_server: arg_server, arg_client: arg_client },
+      [arg_server, arg_client],
       false);
   }
 
@@ -661,7 +661,7 @@ mojo.internal.bindings.arc.mojom.MidisInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.MidisInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.MidisInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 

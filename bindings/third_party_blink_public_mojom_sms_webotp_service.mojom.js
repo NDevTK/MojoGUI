@@ -187,7 +187,7 @@ mojo.internal.bindings.blink.mojom.WebOTPServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.blink.mojom.WebOTPServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.WebOTPService_Abort_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

@@ -197,7 +197,7 @@ mojo.internal.bindings.quarantine.mojom.QuarantineRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec,
       mojo.internal.bindings.quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec,
-      { arg_full_path: arg_full_path, arg_source_url: arg_source_url, arg_referrer_url: arg_referrer_url, arg_request_initiator: arg_request_initiator, arg_client_guid: arg_client_guid },
+      [arg_full_path, arg_source_url, arg_referrer_url, arg_request_initiator, arg_client_guid],
       false);
   }
 

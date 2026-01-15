@@ -177,7 +177,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceInternalRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Run_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Run_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -186,7 +186,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceInternalRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Hello_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Hello_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

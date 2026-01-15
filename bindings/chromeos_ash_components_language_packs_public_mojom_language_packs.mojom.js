@@ -215,7 +215,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec,
       mojo.internal.bindings.ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec,
-      { arg_feature_id: arg_feature_id, arg_language: arg_language },
+      [arg_feature_id, arg_language],
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec,
       mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec,
-      { arg_feature_id: arg_feature_id, arg_language: arg_language },
+      [arg_feature_id, arg_language],
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec,
       mojo.internal.bindings.ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec,
-      { arg_feature_id: arg_feature_id },
+      [arg_feature_id],
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec,
       mojo.internal.bindings.ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec,
-      { arg_feature_id: arg_feature_id, arg_language: arg_language },
+      [arg_feature_id, arg_language],
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

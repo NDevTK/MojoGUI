@@ -196,7 +196,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec,
       null,
-      { arg_method_with_options: arg_method_with_options, arg_source_auction_worklet_function: arg_source_auction_worklet_function },
+      [arg_method_with_options, arg_source_auction_worklet_function],
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec,
       null,
-      { arg_methods_with_options: arg_methods_with_options, arg_with_lock: arg_with_lock, arg_source_auction_worklet_function: arg_source_auction_worklet_function },
+      [arg_methods_with_options, arg_with_lock, arg_source_auction_worklet_function],
       false);
   }
 

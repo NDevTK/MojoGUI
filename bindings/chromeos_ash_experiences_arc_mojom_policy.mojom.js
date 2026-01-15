@@ -225,7 +225,7 @@ mojo.internal.bindings.arc.mojom.PolicyHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.arc.mojom.PolicyHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -243,7 +243,7 @@ mojo.internal.bindings.arc.mojom.PolicyHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec,
       null,
-      { arg_version: arg_version },
+      [arg_version],
       false);
   }
 
@@ -252,7 +252,7 @@ mojo.internal.bindings.arc.mojom.PolicyHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec,
       null,
-      { arg_time: arg_time, arg_package_names: arg_package_names },
+      [arg_time, arg_package_names],
       false);
   }
 
@@ -432,7 +432,7 @@ mojo.internal.bindings.arc.mojom.PolicyInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PolicyInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -441,7 +441,7 @@ mojo.internal.bindings.arc.mojom.PolicyInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.arc.mojom.PolicyInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec,
-      { arg_command: arg_command },
+      [arg_command],
       false);
   }
 

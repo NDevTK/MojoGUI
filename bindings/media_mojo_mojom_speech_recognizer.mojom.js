@@ -222,7 +222,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognizerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognizer_Start_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognitionRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec,
       mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec,
-      { arg_languages: arg_languages },
+      [arg_languages],
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognitionRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec,
       mojo.internal.bindings.media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec,
-      { arg_languages: arg_languages },
+      [arg_languages],
       false);
   }
 
@@ -529,7 +529,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSession_Abort_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -538,7 +538,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSession_StopCapture_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -547,7 +547,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSession_UpdateRecognitionContext_ParamsSpec,
       null,
-      { arg_recognition_context: arg_recognition_context },
+      [arg_recognition_context],
       false);
   }
 
@@ -721,7 +721,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ResultRetrieved_ParamsSpec,
       null,
-      { arg_results: arg_results },
+      [arg_results],
       false);
   }
 
@@ -730,7 +730,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_ErrorOccurred_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 
@@ -739,7 +739,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_Started_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -748,7 +748,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_AudioStarted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -757,7 +757,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemoteCallHandl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_SoundStarted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -766,7 +766,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemoteCallHandl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_SoundEnded_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -775,7 +775,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemoteCallHandl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_AudioEnded_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -784,7 +784,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClientRemoteCallHandl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media.mojom.SpeechRecognitionSessionClient_Ended_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

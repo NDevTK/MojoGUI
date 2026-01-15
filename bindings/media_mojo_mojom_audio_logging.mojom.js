@@ -222,7 +222,7 @@ mojo.internal.bindings.media.mojom.AudioLogRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioLog_OnCreated_ParamsSpec,
       null,
-      { arg_params: arg_params, arg_device_id: arg_device_id },
+      [arg_params, arg_device_id],
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.media.mojom.AudioLogRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioLog_OnStarted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -240,7 +240,7 @@ mojo.internal.bindings.media.mojom.AudioLogRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.AudioLog_OnStopped_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.media.mojom.AudioLogRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.AudioLog_OnClosed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.media.mojom.AudioLogRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.AudioLog_OnError_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.media.mojom.AudioLogRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.AudioLog_OnSetVolume_ParamsSpec,
       null,
-      { arg_volume: arg_volume },
+      [arg_volume],
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.media.mojom.AudioLogRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.media.mojom.AudioLogRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media.mojom.AudioLog_OnLogMessage_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.media.mojom.AudioLogFactoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec,
       null,
-      { arg_component: arg_component, arg_component_id: arg_component_id, arg_audio_log_receiver: arg_audio_log_receiver },
+      [arg_component, arg_component_id, arg_audio_log_receiver],
       false);
   }
 

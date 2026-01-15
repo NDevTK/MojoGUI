@@ -180,7 +180,7 @@ mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactoryRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -314,7 +314,7 @@ mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec,
       mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -323,7 +323,7 @@ mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -470,7 +470,7 @@ mojo.internal.bindings.batch_upload_promo.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec,
       null,
-      { arg_local_data_count: arg_local_data_count },
+      [arg_local_data_count],
       false);
   }
 

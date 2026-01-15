@@ -221,7 +221,7 @@ mojo.internal.bindings.ash.heartd.mojom.HeartdControlRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.ash.heartd.mojom.HeartdControlRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.ash.heartd.mojom.HeartdControlRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec,
       mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec,
-      { arg_action: arg_action },
+      [arg_action],
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec,
       mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec,
-      { arg_name: arg_name, arg_argument: arg_argument, arg_receiver: arg_receiver },
+      [arg_name, arg_argument, arg_receiver],
       false);
   }
 
@@ -537,7 +537,7 @@ mojo.internal.bindings.ash.heartd.mojom.PacemakerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec,
       mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -546,7 +546,7 @@ mojo.internal.bindings.ash.heartd.mojom.PacemakerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec,
       mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

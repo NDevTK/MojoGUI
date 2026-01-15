@@ -219,7 +219,7 @@ mojo.internal.bindings.network.mojom.NetLogExporterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetLogExporter_Start_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetLogExporter_Start_ResponseParamsSpec,
-      { arg_destination: arg_destination, arg_extra_constants: arg_extra_constants, arg_capture_mode: arg_capture_mode, arg_max_file_size: arg_max_file_size },
+      [arg_destination, arg_extra_constants, arg_capture_mode, arg_max_file_size],
       false);
   }
 
@@ -228,7 +228,7 @@ mojo.internal.bindings.network.mojom.NetLogExporterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ResponseParamsSpec,
-      { arg_polled_values: arg_polled_values },
+      [arg_polled_values],
       false);
   }
 
@@ -384,7 +384,7 @@ mojo.internal.bindings.network.mojom.NetLogProxySourceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec,
       null,
-      { arg_modes: arg_modes },
+      [arg_modes],
       false);
   }
 
@@ -514,7 +514,7 @@ mojo.internal.bindings.network.mojom.NetLogProxySinkRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetLogProxySink_AddEntry_ParamsSpec,
       null,
-      { arg_type: arg_type, arg_net_log_source: arg_net_log_source, arg_phase: arg_phase, arg_time: arg_time, arg_params: arg_params },
+      [arg_type, arg_net_log_source, arg_phase, arg_time, arg_params],
       false);
   }
 

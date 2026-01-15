@@ -287,7 +287,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec,
       null,
-      { arg_writer: arg_writer },
+      [arg_writer],
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec,
       null,
-      { arg_error: arg_error, arg_quota_error_info: arg_quota_error_info },
+      [arg_error, arg_quota_error_info],
       false);
   }
 
@@ -438,7 +438,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec,
       null,
-      { arg_rewriter: arg_rewriter },
+      [arg_rewriter],
       false);
   }
 
@@ -447,7 +447,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec,
       null,
-      { arg_error: arg_error, arg_quota_error_info: arg_quota_error_info },
+      [arg_error, arg_quota_error_info],
       false);
   }
 
@@ -589,7 +589,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec,
       null,
-      { arg_summarizer: arg_summarizer },
+      [arg_summarizer],
       false);
   }
 
@@ -598,7 +598,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec,
       null,
-      { arg_error: arg_error, arg_quota_error_info: arg_quota_error_info },
+      [arg_error, arg_quota_error_info],
       false);
   }
 
@@ -740,7 +740,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec,
       null,
-      { arg_proofreader: arg_proofreader },
+      [arg_proofreader],
       false);
   }
 
@@ -749,7 +749,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec,
       null,
-      { arg_error: arg_error, arg_quota_error_info: arg_quota_error_info },
+      [arg_error, arg_quota_error_info],
       false);
   }
 
@@ -931,7 +931,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -940,7 +940,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CreateLanguageModel_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_options: arg_options },
+      [arg_client, arg_options],
       false);
   }
 
@@ -949,7 +949,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -958,7 +958,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CreateSummarizer_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_options: arg_options },
+      [arg_client, arg_options],
       false);
   }
 
@@ -967,7 +967,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -976,7 +976,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -985,7 +985,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CreateWriter_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_options: arg_options },
+      [arg_client, arg_options],
       false);
   }
 
@@ -994,7 +994,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -1003,7 +1003,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CreateRewriter_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_options: arg_options },
+      [arg_client, arg_options],
       false);
   }
 
@@ -1012,7 +1012,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -1021,7 +1021,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CreateProofreader_ParamsSpec,
       null,
-      { arg_client: arg_client, arg_options: arg_options },
+      [arg_client, arg_options],
       false);
   }
 
@@ -1030,7 +1030,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec,
       null,
-      { arg_observer_remote: arg_observer_remote },
+      [arg_observer_remote],
       false);
   }
 

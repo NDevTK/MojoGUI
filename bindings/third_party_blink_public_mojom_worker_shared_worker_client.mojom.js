@@ -201,7 +201,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec,
       null,
-      { arg_creation_context_type: arg_creation_context_type },
+      [arg_creation_context_type],
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec,
       null,
-      { arg_features_used: arg_features_used },
+      [arg_features_used],
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnScriptLoadFailed_ParamsSpec,
       null,
-      { arg_error_message: arg_error_message },
+      [arg_error_message],
       false);
   }
 
@@ -228,7 +228,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnReportException_ParamsSpec,
       null,
-      { arg_details: arg_details },
+      [arg_details],
       false);
   }
 
@@ -237,7 +237,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec,
       null,
-      { arg_feature: arg_feature },
+      [arg_feature],
       false);
   }
 

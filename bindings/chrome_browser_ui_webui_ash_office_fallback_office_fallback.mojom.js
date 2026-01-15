@@ -184,7 +184,7 @@ mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactoryRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -314,7 +314,7 @@ mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.office_fallback.mojom.PageHandler_Close_ParamsSpec,
       null,
-      { arg_choice: arg_choice },
+      [arg_choice],
       false);
   }
 

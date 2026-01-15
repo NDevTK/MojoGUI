@@ -199,7 +199,7 @@ mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec,
       null,
-      { arg_pref_path: arg_pref_path, arg_value: arg_value, arg_value_state: arg_value_state, arg_external_validation_value_state: arg_external_validation_value_state, arg_is_personal: arg_is_personal },
+      [arg_pref_path, arg_value, arg_value_state, arg_external_validation_value_state, arg_is_personal],
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec,
       null,
-      { arg_pref_path: arg_pref_path, arg_invalid_keys: arg_invalid_keys, arg_external_validation_invalid_keys: arg_external_validation_invalid_keys, arg_value_state: arg_value_state, arg_external_validation_value_state: arg_external_validation_value_state, arg_is_personal: arg_is_personal },
+      [arg_pref_path, arg_invalid_keys, arg_external_validation_invalid_keys, arg_value_state, arg_external_validation_value_state, arg_is_personal],
       false);
   }
 

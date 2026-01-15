@@ -176,7 +176,7 @@ mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserv
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 
@@ -306,7 +306,7 @@ mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

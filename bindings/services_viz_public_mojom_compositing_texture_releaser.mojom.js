@@ -176,7 +176,7 @@ mojo.internal.bindings.viz.mojom.TextureReleaserRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.TextureReleaser_Release_ParamsSpec,
       null,
-      { arg_sync_token: arg_sync_token, arg_is_lost: arg_is_lost },
+      [arg_sync_token, arg_is_lost],
       false);
   }
 

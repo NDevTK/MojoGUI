@@ -287,7 +287,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObser
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_ParamsSpec,
       null,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -417,7 +417,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.PolicyUpdatedObserverRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -623,7 +623,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ResponseParamsSpec,
-      { arg_source: arg_source },
+      [arg_source],
       false);
   }
 
@@ -632,7 +632,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -641,7 +641,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -650,7 +650,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ResponseParamsSpec,
-      { arg_source: arg_source, arg_action_id: arg_action_id, arg_accelerator: arg_accelerator },
+      [arg_source, arg_action_id, arg_accelerator],
       false);
   }
 
@@ -659,7 +659,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ResponseParamsSpec,
-      { arg_action_id: arg_action_id },
+      [arg_action_id],
       false);
   }
 
@@ -668,7 +668,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -677,7 +677,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -686,7 +686,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -695,7 +695,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -704,7 +704,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ResponseParamsSpec,
-      { arg_prevent_processing_accelerators: arg_prevent_processing_accelerators },
+      [arg_prevent_processing_accelerators],
       false);
   }
 
@@ -713,7 +713,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ResponseParamsSpec,
-      { arg_source: arg_source, arg_action_id: arg_action_id, arg_accelerator: arg_accelerator },
+      [arg_source, arg_action_id, arg_accelerator],
       false);
   }
 
@@ -722,7 +722,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ResponseParamsSpec,
-      { arg_source: arg_source, arg_action_id: arg_action_id, arg_accelerator: arg_accelerator },
+      [arg_source, arg_action_id, arg_accelerator],
       false);
   }
 
@@ -731,7 +731,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ResponseParamsSpec,
-      { arg_source: arg_source, arg_action_id: arg_action_id, arg_old_accelerator: arg_old_accelerator, arg_new_accelerator: arg_new_accelerator },
+      [arg_source, arg_action_id, arg_old_accelerator, arg_new_accelerator],
       false);
   }
 
@@ -740,7 +740,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ResponseParamsSpec,
-      { arg_source: arg_source, arg_action_id: arg_action_id },
+      [arg_source, arg_action_id],
       false);
   }
 
@@ -749,7 +749,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -758,7 +758,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_ParamsSpec,
       null,
-      { arg_user_action: arg_user_action },
+      [arg_user_action],
       false);
   }
 
@@ -767,7 +767,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_ParamsSpec,
       null,
-      { arg_category: arg_category },
+      [arg_category],
       false);
   }
 
@@ -776,7 +776,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_ParamsSpec,
       null,
-      { arg_completed_actions: arg_completed_actions },
+      [arg_completed_actions],
       false);
   }
 
@@ -785,7 +785,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_ParamsSpec,
       null,
-      { arg_is_add: arg_is_add, arg_subactions: arg_subactions },
+      [arg_is_add, arg_subactions],
       false);
   }
 
@@ -794,7 +794,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfiguration
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ParamsSpec,
       mojo.internal.bindings.ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

@@ -222,7 +222,7 @@ mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandlerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec,
       mojo.internal.bindings.network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec,
-      { arg_info: arg_info, arg_headers: arg_headers, arg_remote_endpoint: arg_remote_endpoint },
+      [arg_info, arg_headers, arg_remote_endpoint],
       false);
   }
 
@@ -369,7 +369,7 @@ mojo.internal.bindings.network.mojom.WebSocketHandshakeClientRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec,
       null,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -378,7 +378,7 @@ mojo.internal.bindings.network.mojom.WebSocketHandshakeClientRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec,
       null,
-      { arg_message: arg_message, arg_net_error: arg_net_error, arg_response_code: arg_response_code },
+      [arg_message, arg_net_error, arg_response_code],
       false);
   }
 
@@ -387,7 +387,7 @@ mojo.internal.bindings.network.mojom.WebSocketHandshakeClientRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec,
       null,
-      { arg_socket: arg_socket, arg_client_receiver: arg_client_receiver, arg_response: arg_response, arg_readable: arg_readable, arg_writable: arg_writable },
+      [arg_socket, arg_client_receiver, arg_response, arg_readable, arg_writable],
       false);
   }
 
@@ -541,7 +541,7 @@ mojo.internal.bindings.network.mojom.WebSocketClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocketClient_OnDataFrame_ParamsSpec,
       null,
-      { arg_fin: arg_fin, arg_type: arg_type, arg_data_length: arg_data_length },
+      [arg_fin, arg_type, arg_data_length],
       false);
   }
 
@@ -550,7 +550,7 @@ mojo.internal.bindings.network.mojom.WebSocketClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocketClient_OnDropChannel_ParamsSpec,
       null,
-      { arg_was_clean: arg_was_clean, arg_code: arg_code, arg_reason: arg_reason },
+      [arg_was_clean, arg_code, arg_reason],
       false);
   }
 
@@ -559,7 +559,7 @@ mojo.internal.bindings.network.mojom.WebSocketClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -713,7 +713,7 @@ mojo.internal.bindings.network.mojom.WebSocketRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocket_SendMessage_ParamsSpec,
       null,
-      { arg_type: arg_type, arg_data_length: arg_data_length },
+      [arg_type, arg_data_length],
       false);
   }
 
@@ -722,7 +722,7 @@ mojo.internal.bindings.network.mojom.WebSocketRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocket_StartReceiving_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -731,7 +731,7 @@ mojo.internal.bindings.network.mojom.WebSocketRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.WebSocket_StartClosingHandshake_ParamsSpec,
       null,
-      { arg_code: arg_code, arg_reason: arg_reason },
+      [arg_code, arg_reason],
       false);
   }
 

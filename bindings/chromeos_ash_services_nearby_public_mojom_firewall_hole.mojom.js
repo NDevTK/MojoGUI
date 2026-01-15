@@ -288,7 +288,7 @@ mojo.internal.bindings.sharing.mojom.FirewallHoleFactoryRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec,
       mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec,
-      { arg_port: arg_port },
+      [arg_port],
       false);
   }
 

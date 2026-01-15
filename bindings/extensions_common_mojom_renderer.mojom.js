@@ -321,7 +321,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_ActivateExtension_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id },
+      [arg_extension_id],
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_LoadExtensions_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_UnloadExtension_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id },
+      [arg_extension_id],
       false);
   }
 
@@ -357,7 +357,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.Renderer_SuspendExtension_ResponseParamsSpec,
-      { arg_extension_id: arg_extension_id },
+      [arg_extension_id],
       false);
   }
 
@@ -366,7 +366,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id },
+      [arg_extension_id],
       false);
   }
 
@@ -375,7 +375,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec,
       null,
-      { arg_developer_mode_only: arg_developer_mode_only },
+      [arg_developer_mode_only],
       false);
   }
 
@@ -384,7 +384,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id, arg_allowed: arg_allowed },
+      [arg_extension_id, arg_allowed],
       false);
   }
 
@@ -393,7 +393,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_SetSessionInfo_ParamsSpec,
       null,
-      { arg_channel: arg_channel, arg_session: arg_session },
+      [arg_channel, arg_session],
       false);
   }
 
@@ -402,7 +402,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_SetSystemFont_ParamsSpec,
       null,
-      { arg_font_family: arg_font_family, arg_font_size: arg_font_size },
+      [arg_font_family, arg_font_size],
       false);
   }
 
@@ -411,7 +411,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec,
       null,
-      { arg_partition_id: arg_partition_id },
+      [arg_partition_id],
       false);
   }
 
@@ -420,7 +420,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec,
       null,
-      { arg_extension_ids: arg_extension_ids },
+      [arg_extension_ids],
       false);
   }
 
@@ -429,7 +429,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec,
       null,
-      { arg_infos: arg_infos },
+      [arg_infos],
       false);
   }
 
@@ -438,7 +438,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id, arg_world_id: arg_world_id },
+      [arg_extension_id, arg_world_id],
       false);
   }
 
@@ -447,7 +447,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.Renderer_ShouldSuspend_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -456,7 +456,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.Renderer_TransferBlobs_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -465,7 +465,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_UpdatePermissions_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id, arg_active_permissions: arg_active_permissions, arg_withheld_permissions: arg_withheld_permissions, arg_policy_blocked_hosts: arg_policy_blocked_hosts, arg_policy_allowed_hosts: arg_policy_allowed_hosts, arg_uses_default_policy_host_restrictions: arg_uses_default_policy_host_restrictions },
+      [arg_extension_id, arg_active_permissions, arg_withheld_permissions, arg_policy_blocked_hosts, arg_policy_allowed_hosts, arg_uses_default_policy_host_restrictions],
       false);
   }
 
@@ -474,7 +474,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec,
       null,
-      { arg_default_policy_blocked_hosts: arg_default_policy_blocked_hosts, arg_default_policy_allowed_hosts: arg_default_policy_allowed_hosts },
+      [arg_default_policy_blocked_hosts, arg_default_policy_allowed_hosts],
       false);
   }
 
@@ -483,7 +483,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec,
       null,
-      { arg_user_blocked_hosts: arg_user_blocked_hosts, arg_user_allowed_hosts: arg_user_allowed_hosts },
+      [arg_user_blocked_hosts, arg_user_allowed_hosts],
       false);
   }
 
@@ -492,7 +492,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id, arg_new_hosts: arg_new_hosts, arg_tab_id: arg_tab_id, arg_update_origin_allowlist: arg_update_origin_allowlist },
+      [arg_extension_id, arg_new_hosts, arg_tab_id, arg_update_origin_allowlist],
       false);
   }
 
@@ -501,7 +501,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec,
       null,
-      { arg_region: arg_region, arg_owner: arg_owner },
+      [arg_region, arg_owner],
       false);
   }
 
@@ -510,7 +510,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec,
       null,
-      { arg_extension_ids: arg_extension_ids, arg_tab_id: arg_tab_id, arg_update_origin_allowlist: arg_update_origin_allowlist },
+      [arg_extension_ids, arg_tab_id, arg_update_origin_allowlist],
       false);
   }
 
@@ -519,7 +519,7 @@ mojo.internal.bindings.extensions.mojom.RendererRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.extensions.mojom.Renderer_WatchPages_ParamsSpec,
       null,
-      { arg_css_selectors: arg_css_selectors },
+      [arg_css_selectors],
       false);
   }
 

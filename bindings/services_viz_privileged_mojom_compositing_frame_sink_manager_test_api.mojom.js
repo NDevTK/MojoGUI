@@ -198,7 +198,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ParamsSpec,
       mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -207,7 +207,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec,
       mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ResponseParamsSpec,
-      { arg_result_size: arg_result_size },
+      [arg_result_size],
       false);
   }
 
@@ -216,7 +216,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec,
       mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec,
-      { arg_frame_sink_id: arg_frame_sink_id },
+      [arg_frame_sink_id],
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec,
       mojo.internal.bindings.viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ResponseParamsSpec,
-      { arg_frame_sink_id: arg_frame_sink_id },
+      [arg_frame_sink_id],
       false);
   }
 

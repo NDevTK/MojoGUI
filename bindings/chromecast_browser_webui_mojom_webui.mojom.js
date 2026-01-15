@@ -194,7 +194,7 @@ mojo.internal.bindings.chromecast.mojom.MessageCallbackRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.MessageCallback_OnMessage_ParamsSpec,
       null,
-      { arg_list: arg_list },
+      [arg_list],
       false);
   }
 
@@ -328,7 +328,7 @@ mojo.internal.bindings.chromecast.mojom.WebUiRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec,
       null,
-      { arg_message: arg_message, arg_cb: arg_cb },
+      [arg_message, arg_cb],
       false);
   }
 
@@ -337,7 +337,7 @@ mojo.internal.bindings.chromecast.mojom.WebUiRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec,
       null,
-      { arg_function: arg_function, arg_args: arg_args },
+      [arg_function, arg_args],
       false);
   }
 
@@ -475,7 +475,7 @@ mojo.internal.bindings.chromecast.mojom.ResourcesRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec,
       mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 
@@ -618,7 +618,7 @@ mojo.internal.bindings.chromecast.mojom.WebUiClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateController_ParamsSpec,
       null,
-      { arg_host: arg_host, arg_web_ui: arg_web_ui, arg_resources: arg_resources },
+      [arg_host, arg_web_ui, arg_resources],
       false);
   }
 
@@ -627,7 +627,7 @@ mojo.internal.bindings.chromecast.mojom.WebUiClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateResources_ParamsSpec,
       null,
-      { arg_host: arg_host, arg_resources: arg_resources },
+      [arg_host, arg_resources],
       false);
   }
 

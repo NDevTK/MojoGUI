@@ -178,7 +178,7 @@ mojo.internal.bindings.ash.mall.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec,
       mojo.internal.bindings.ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec,
-      { arg_path: arg_path },
+      [arg_path],
       false);
   }
 

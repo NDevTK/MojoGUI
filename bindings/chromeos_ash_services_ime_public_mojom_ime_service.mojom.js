@@ -215,7 +215,7 @@ mojo.internal.bindings.ash.ime.mojom.InputEngineManagerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec,
-      { arg_ime_spec: arg_ime_spec, arg_to_engine_request: arg_to_engine_request, arg_from_engine: arg_from_engine, arg_extra: arg_extra },
+      [arg_ime_spec, arg_to_engine_request, arg_from_engine, arg_extra],
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.ash.ime.mojom.InputEngineManagerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec,
-      { arg_connection_factory: arg_connection_factory },
+      [arg_connection_factory],
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec,
-      { arg_url: arg_url, arg_file_path: arg_file_path },
+      [arg_url, arg_file_path],
       false);
   }
 
@@ -527,7 +527,7 @@ mojo.internal.bindings.ash.ime.mojom.ImeServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec,
       null,
-      { arg_provider: arg_provider },
+      [arg_provider],
       false);
   }
 
@@ -536,7 +536,7 @@ mojo.internal.bindings.ash.ime.mojom.ImeServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -545,7 +545,7 @@ mojo.internal.bindings.ash.ime.mojom.ImeServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

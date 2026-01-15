@@ -190,7 +190,7 @@ mojo.internal.bindings.chrome.mojom.UtilReadIconRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec,
-      { arg_file: arg_file, arg_size: arg_size, arg_scale: arg_scale },
+      [arg_file, arg_size, arg_scale],
       false);
   }
 

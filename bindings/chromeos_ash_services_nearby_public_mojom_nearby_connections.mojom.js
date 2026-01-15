@@ -300,7 +300,7 @@ mojo.internal.bindings.nearby.connections.mojom.EndpointDiscoveryListenerRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec,
       null,
-      { arg_endpoint_id: arg_endpoint_id, arg_info: arg_info },
+      [arg_endpoint_id, arg_info],
       false);
   }
 
@@ -309,7 +309,7 @@ mojo.internal.bindings.nearby.connections.mojom.EndpointDiscoveryListenerRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_ParamsSpec,
       null,
-      { arg_endpoint_id: arg_endpoint_id },
+      [arg_endpoint_id],
       false);
   }
 
@@ -463,7 +463,7 @@ mojo.internal.bindings.nearby.connections.mojom.ConnectionLifecycleListenerRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_ParamsSpec,
       null,
-      { arg_endpoint_id: arg_endpoint_id, arg_info: arg_info },
+      [arg_endpoint_id, arg_info],
       false);
   }
 
@@ -472,7 +472,7 @@ mojo.internal.bindings.nearby.connections.mojom.ConnectionLifecycleListenerRemot
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_ParamsSpec,
       null,
-      { arg_endpoint_id: arg_endpoint_id },
+      [arg_endpoint_id],
       false);
   }
 
@@ -481,7 +481,7 @@ mojo.internal.bindings.nearby.connections.mojom.ConnectionLifecycleListenerRemot
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_ParamsSpec,
       null,
-      { arg_endpoint_id: arg_endpoint_id, arg_status: arg_status },
+      [arg_endpoint_id, arg_status],
       false);
   }
 
@@ -490,7 +490,7 @@ mojo.internal.bindings.nearby.connections.mojom.ConnectionLifecycleListenerRemot
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_ParamsSpec,
       null,
-      { arg_endpoint_id: arg_endpoint_id },
+      [arg_endpoint_id],
       false);
   }
 
@@ -499,7 +499,7 @@ mojo.internal.bindings.nearby.connections.mojom.ConnectionLifecycleListenerRemot
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSpec,
       null,
-      { arg_endpoint_id: arg_endpoint_id, arg_medium: arg_medium },
+      [arg_endpoint_id, arg_medium],
       false);
   }
 
@@ -665,7 +665,7 @@ mojo.internal.bindings.nearby.connections.mojom.PayloadListenerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec,
       null,
-      { arg_endpoint_id: arg_endpoint_id, arg_payload: arg_payload },
+      [arg_endpoint_id, arg_payload],
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.nearby.connections.mojom.PayloadListenerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec,
       null,
-      { arg_endpoint_id: arg_endpoint_id, arg_update: arg_update },
+      [arg_endpoint_id, arg_update],
       false);
   }
 
@@ -824,7 +824,7 @@ mojo.internal.bindings.nearby.connections.mojom.ConnectionListenerV3RemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec,
       null,
-      { arg_endpoint_id: arg_endpoint_id, arg_info: arg_info },
+      [arg_endpoint_id, arg_info],
       false);
   }
 
@@ -833,7 +833,7 @@ mojo.internal.bindings.nearby.connections.mojom.ConnectionListenerV3RemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec,
       null,
-      { arg_endpoint_id: arg_endpoint_id, arg_resolution: arg_resolution },
+      [arg_endpoint_id, arg_resolution],
       false);
   }
 
@@ -842,7 +842,7 @@ mojo.internal.bindings.nearby.connections.mojom.ConnectionListenerV3RemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_ParamsSpec,
       null,
-      { arg_endpoint_id: arg_endpoint_id },
+      [arg_endpoint_id],
       false);
   }
 
@@ -851,7 +851,7 @@ mojo.internal.bindings.nearby.connections.mojom.ConnectionListenerV3RemoteCallHa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec,
       null,
-      { arg_endpoint_id: arg_endpoint_id, arg_bandwidth_info: arg_bandwidth_info },
+      [arg_endpoint_id, arg_bandwidth_info],
       false);
   }
 
@@ -1009,7 +1009,7 @@ mojo.internal.bindings.nearby.connections.mojom.PayloadListenerV3RemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec,
       null,
-      { arg_endpoint_id: arg_endpoint_id, arg_payload: arg_payload },
+      [arg_endpoint_id, arg_payload],
       false);
   }
 
@@ -1018,7 +1018,7 @@ mojo.internal.bindings.nearby.connections.mojom.PayloadListenerV3RemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec,
       null,
-      { arg_endpoint_id: arg_endpoint_id, arg_update: arg_update },
+      [arg_endpoint_id, arg_update],
       false);
   }
 
@@ -1228,7 +1228,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec,
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_endpoint_info: arg_endpoint_info, arg_options: arg_options, arg_listener: arg_listener },
+      [arg_service_id, arg_endpoint_info, arg_options, arg_listener],
       false);
   }
 
@@ -1237,7 +1237,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec,
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec,
-      { arg_service_id: arg_service_id },
+      [arg_service_id],
       false);
   }
 
@@ -1246,7 +1246,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec,
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_options: arg_options, arg_listener: arg_listener },
+      [arg_service_id, arg_options, arg_listener],
       false);
   }
 
@@ -1255,7 +1255,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec,
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec,
-      { arg_service_id: arg_service_id },
+      [arg_service_id],
       false);
   }
 
@@ -1264,7 +1264,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec,
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_endpoint_id: arg_endpoint_id, arg_endpoint_info: arg_endpoint_info, arg_remote_bluetooth_mac_address: arg_remote_bluetooth_mac_address },
+      [arg_service_id, arg_endpoint_id, arg_endpoint_info, arg_remote_bluetooth_mac_address],
       false);
   }
 
@@ -1273,7 +1273,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec,
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_endpoint_info: arg_endpoint_info, arg_endpoint_id: arg_endpoint_id, arg_options: arg_options, arg_listener: arg_listener },
+      [arg_service_id, arg_endpoint_info, arg_endpoint_id, arg_options, arg_listener],
       false);
   }
 
@@ -1282,7 +1282,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec,
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_endpoint_id: arg_endpoint_id, arg_listener: arg_listener },
+      [arg_service_id, arg_endpoint_id, arg_listener],
       false);
   }
 
@@ -1291,7 +1291,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec,
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_endpoint_id: arg_endpoint_id },
+      [arg_service_id, arg_endpoint_id],
       false);
   }
 
@@ -1300,7 +1300,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec,
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_endpoint_id: arg_endpoint_id },
+      [arg_service_id, arg_endpoint_id],
       false);
   }
 
@@ -1309,7 +1309,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec,
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_endpoint_ids: arg_endpoint_ids, arg_payload: arg_payload },
+      [arg_service_id, arg_endpoint_ids, arg_payload],
       false);
   }
 
@@ -1318,7 +1318,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec,
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_payload_id: arg_payload_id },
+      [arg_service_id, arg_payload_id],
       false);
   }
 
@@ -1327,7 +1327,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec,
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec,
-      { arg_service_id: arg_service_id },
+      [arg_service_id],
       false);
   }
 
@@ -1336,7 +1336,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec,
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_endpoint_id: arg_endpoint_id },
+      [arg_service_id, arg_endpoint_id],
       false);
   }
 
@@ -1345,7 +1345,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec,
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_payload_id: arg_payload_id, arg_input_file: arg_input_file, arg_output_file: arg_output_file },
+      [arg_service_id, arg_payload_id, arg_input_file, arg_output_file],
       false);
   }
 
@@ -1354,7 +1354,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec,
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_remote_device: arg_remote_device, arg_connection_options: arg_connection_options, arg_listener: arg_listener },
+      [arg_service_id, arg_remote_device, arg_connection_options, arg_listener],
       false);
   }
 
@@ -1363,7 +1363,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec,
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_remote_device: arg_remote_device, arg_listener: arg_listener },
+      [arg_service_id, arg_remote_device, arg_listener],
       false);
   }
 
@@ -1372,7 +1372,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec,
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_remote_device: arg_remote_device },
+      [arg_service_id, arg_remote_device],
       false);
   }
 
@@ -1381,7 +1381,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec,
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_remote_device: arg_remote_device },
+      [arg_service_id, arg_remote_device],
       false);
   }
 
@@ -1390,7 +1390,7 @@ mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemoteCallHandl
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProvider_ParamsSpec,
       null,
-      { arg_service_id: arg_service_id },
+      [arg_service_id],
       false);
   }
 

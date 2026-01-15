@@ -239,7 +239,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec,
       null,
-      { arg_force_enable_zoom: arg_force_enable_zoom, arg_frame_sink_id: arg_frame_sink_id },
+      [arg_force_enable_zoom, arg_frame_sink_id],
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec,
       null,
-      { arg_frame_sink_id: arg_frame_sink_id },
+      [arg_frame_sink_id],
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec,
       null,
-      { arg_frame_sink_id: arg_frame_sink_id },
+      [arg_frame_sink_id],
       false);
   }
 
@@ -275,7 +275,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec,
       null,
-      { arg_frame_sink_id: arg_frame_sink_id, arg_is_hidden: arg_is_hidden },
+      [arg_frame_sink_id, arg_is_hidden],
       false);
   }
 
@@ -284,7 +284,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec,
       null,
-      { arg_root_widget_frame_sink_id: arg_root_widget_frame_sink_id },
+      [arg_root_widget_frame_sink_id],
       false);
   }
 
@@ -470,7 +470,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec,
       null,
-      { arg_event: arg_event, arg_dispatched_to_renderer: arg_dispatched_to_renderer },
+      [arg_event, arg_dispatched_to_renderer],
       false);
   }
 
@@ -479,7 +479,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec,
       null,
-      { arg_ack_source: arg_ack_source, arg_ack_result: arg_ack_result, arg_event: arg_event },
+      [arg_ack_source, arg_ack_result, arg_event],
       false);
   }
 
@@ -488,7 +488,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec,
       null,
-      { arg_overscroll: arg_overscroll },
+      [arg_overscroll],
       false);
   }
 
@@ -506,7 +506,7 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec,
       null,
-      { arg_is_responsive: arg_is_responsive, arg_ack_timeout_ts: arg_ack_timeout_ts },
+      [arg_is_responsive, arg_ack_timeout_ts],
       false);
   }
 

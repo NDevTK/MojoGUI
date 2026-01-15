@@ -191,7 +191,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec,
       null,
-      { arg_update: arg_update },
+      [arg_update],
       false);
   }
 

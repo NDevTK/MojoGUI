@@ -655,7 +655,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -664,7 +664,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParamsSpec,
-      { arg_guid: arg_guid },
+      [arg_guid],
       false);
   }
 
@@ -673,7 +673,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponseParamsSpec,
-      { arg_filter: arg_filter },
+      [arg_filter],
       false);
   }
 
@@ -682,7 +682,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -691,7 +691,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponseParamsSpec,
-      { arg_guid: arg_guid },
+      [arg_guid],
       false);
   }
 
@@ -700,7 +700,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec,
-      { arg_guid: arg_guid, arg_properties: arg_properties },
+      [arg_guid, arg_properties],
       false);
   }
 
@@ -709,7 +709,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParamsSpec,
-      { arg_properties: arg_properties, arg_shared: arg_shared },
+      [arg_properties, arg_shared],
       false);
   }
 
@@ -718,7 +718,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParamsSpec,
-      { arg_guid: arg_guid },
+      [arg_guid],
       false);
   }
 
@@ -727,7 +727,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ResponseParamsSpec,
-      { arg_type: arg_type, arg_enabled: arg_enabled },
+      [arg_type, arg_enabled],
       false);
   }
 
@@ -736,7 +736,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponseParamsSpec,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -745,7 +745,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ResponseParamsSpec,
-      { arg_guid: arg_guid, arg_network_id: arg_network_id },
+      [arg_guid, arg_network_id],
       false);
   }
 
@@ -754,7 +754,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_RequestNetworkScan_ParamsSpec,
       null,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -763,7 +763,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -772,7 +772,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParamsSpec,
-      { arg_guid: arg_guid },
+      [arg_guid],
       false);
   }
 
@@ -781,7 +781,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParamsSpec,
-      { arg_guid: arg_guid },
+      [arg_guid],
       false);
   }
 
@@ -790,7 +790,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetVpnProviders_ParamsSpec,
       null,
-      { arg_providers: arg_providers },
+      [arg_providers],
       false);
   }
 
@@ -799,7 +799,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -808,7 +808,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -817,7 +817,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -826,7 +826,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetAlwaysOnVpn_ParamsSpec,
       null,
-      { arg_properties: arg_properties },
+      [arg_properties],
       false);
   }
 
@@ -835,7 +835,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -844,7 +844,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseParamsSpec,
-      { arg_guid: arg_guid },
+      [arg_guid],
       false);
   }
 
@@ -853,7 +853,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_ResetTrafficCounters_ParamsSpec,
       null,
-      { arg_guid: arg_guid },
+      [arg_guid],
       false);
   }
 
@@ -862,7 +862,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ResponseParamsSpec,
-      { arg_guid: arg_guid, arg_day: arg_day },
+      [arg_guid, arg_day],
       false);
   }
 
@@ -871,7 +871,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParamsSpec,
-      { arg_network_guid: arg_network_guid, arg_apn: arg_apn },
+      [arg_network_guid, arg_apn],
       false);
   }
 
@@ -880,7 +880,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ParamsSpec,
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ResponseParamsSpec,
-      { arg_network_guid: arg_network_guid, arg_apn: arg_apn },
+      [arg_network_guid, arg_apn],
       false);
   }
 
@@ -889,7 +889,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_RemoveCustomApn_ParamsSpec,
       null,
-      { arg_network_guid: arg_network_guid, arg_apn_id: arg_apn_id },
+      [arg_network_guid, arg_apn_id],
       false);
   }
 
@@ -898,7 +898,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemoteCall
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfig_ModifyCustomApn_ParamsSpec,
       null,
-      { arg_network_guid: arg_network_guid, arg_apn: arg_apn },
+      [arg_network_guid, arg_apn],
       false);
   }
 
@@ -1453,7 +1453,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigObserverRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigObserver_OnActiveNetworksChanged_ParamsSpec,
       null,
-      { arg_networks: arg_networks },
+      [arg_networks],
       false);
   }
 
@@ -1462,7 +1462,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigObserverRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateChanged_ParamsSpec,
       null,
-      { arg_network: arg_network },
+      [arg_network],
       false);
   }
 
@@ -1471,7 +1471,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigObserverRe
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateListChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1480,7 +1480,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigObserverRe
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigObserver_OnDeviceStateListChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1489,7 +1489,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigObserverRe
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigObserver_OnVpnProvidersChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1498,7 +1498,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigObserverRe
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkCertificatesChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1507,7 +1507,7 @@ mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigObserverRe
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigObserver_OnPoliciesApplied_ParamsSpec,
       null,
-      { arg_userhash: arg_userhash },
+      [arg_userhash],
       false);
   }
 

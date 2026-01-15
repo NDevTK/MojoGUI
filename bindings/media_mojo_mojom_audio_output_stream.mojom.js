@@ -221,7 +221,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioOutputStream_Play_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioOutputStream_Pause_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.AudioOutputStream_Flush_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.AudioOutputStream_SetVolume_ParamsSpec,
       null,
-      { arg_volume: arg_volume },
+      [arg_volume],
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamObserverRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamObserverRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamObserverRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec,
       null,
-      { arg_is_audible: arg_is_audible },
+      [arg_is_audible],
       false);
   }
 
@@ -574,7 +574,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamProviderRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec,
       null,
-      { arg_params: arg_params, arg_client: arg_client },
+      [arg_params, arg_client],
       false);
   }
 
@@ -704,7 +704,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClientRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec,
       null,
-      { arg_stream: arg_stream, arg_data_pipe: arg_data_pipe },
+      [arg_stream, arg_data_pipe],
       false);
   }
 
@@ -834,7 +834,7 @@ mojo.internal.bindings.media.mojom.DeviceSwitchInterfaceRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec,
       null,
-      { arg_output_device_id: arg_output_device_id },
+      [arg_output_device_id],
       false);
   }
 

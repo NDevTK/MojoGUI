@@ -170,7 +170,7 @@ mojo.internal.bindings.web_cache.mojom.WebCacheRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.web_cache.mojom.WebCache_ClearCache_ParamsSpec,
       null,
-      { arg_on_navigation: arg_on_navigation },
+      [arg_on_navigation],
       false);
   }
 

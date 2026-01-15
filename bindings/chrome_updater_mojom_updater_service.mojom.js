@@ -346,7 +346,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_GetVersion_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_GetVersion_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -355,7 +355,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_FetchPolicies_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_FetchPolicies_ResponseParamsSpec,
-      { arg_reason: arg_reason },
+      [arg_reason],
       false);
   }
 
@@ -364,7 +364,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_RegisterApp_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_RegisterApp_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_GetAppStates_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_RunPeriodicTasks_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_RunPeriodicTasks_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -391,7 +391,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_UpdateAll_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -400,7 +400,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_Update_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_Update_ResponseParamsSpec,
-      { arg_app_id: arg_app_id, arg_install_data_index: arg_install_data_index, arg_priority: arg_priority, arg_policy_same_version_update: arg_policy_same_version_update, arg_do_update_check_only: arg_do_update_check_only, arg_language: arg_language },
+      [arg_app_id, arg_install_data_index, arg_priority, arg_policy_same_version_update, arg_do_update_check_only, arg_language],
       false);
   }
 
@@ -409,7 +409,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_Install_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_Install_ResponseParamsSpec,
-      { arg_registration: arg_registration, arg_client_install_data: arg_client_install_data, arg_install_data_index: arg_install_data_index, arg_priority: arg_priority, arg_language: arg_language },
+      [arg_registration, arg_client_install_data, arg_install_data_index, arg_priority, arg_language],
       false);
   }
 
@@ -418,7 +418,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_CancelInstalls_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id },
+      [arg_app_id],
       false);
   }
 
@@ -427,7 +427,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_RunInstaller_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec,
-      { arg_app_id: arg_app_id, arg_installer_path: arg_installer_path, arg_install_args: arg_install_args, arg_install_data: arg_install_data, arg_install_settings: arg_install_settings, arg_language: arg_language },
+      [arg_app_id, arg_installer_path, arg_install_args, arg_install_data, arg_install_settings, arg_language],
       false);
   }
 
@@ -436,7 +436,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec,
-      { arg_app_id: arg_app_id, arg_priority: arg_priority, arg_policy_same_version_update: arg_policy_same_version_update, arg_language: arg_language },
+      [arg_app_id, arg_priority, arg_policy_same_version_update, arg_language],
       false);
   }
 
@@ -445,7 +445,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterState_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -454,7 +454,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -463,7 +463,7 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -817,7 +817,7 @@ mojo.internal.bindings.updater.mojom.StateChangeObserverRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -826,7 +826,7 @@ mojo.internal.bindings.updater.mojom.StateChangeObserverRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.updater.mojom.StateChangeObserver_OnComplete_ParamsSpec,
       null,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 

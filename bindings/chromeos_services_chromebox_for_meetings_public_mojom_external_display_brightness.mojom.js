@@ -188,7 +188,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightnessRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -197,7 +197,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightnessRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -206,7 +206,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightnessRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_ParamsSpec,
       null,
-      { arg_percent: arg_percent },
+      [arg_percent],
       false);
   }
 
@@ -215,7 +215,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightnessRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ParamsSpec,
       mojo.internal.bindings.chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

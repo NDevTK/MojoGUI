@@ -261,7 +261,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -270,7 +270,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -279,7 +279,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -288,7 +288,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -297,7 +297,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -306,7 +306,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -315,7 +315,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec,
       null,
-      { arg_title: arg_title },
+      [arg_title],
       false);
   }
 
@@ -324,7 +324,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec,
       null,
-      { arg_artist: arg_artist },
+      [arg_artist],
       false);
   }
 
@@ -333,7 +333,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec,
       null,
-      { arg_album: arg_album },
+      [arg_album],
       false);
   }
 
@@ -342,7 +342,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec,
       null,
-      { arg_thumbnail: arg_thumbnail },
+      [arg_thumbnail],
       false);
   }
 
@@ -351,7 +351,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec,
       null,
-      { arg_position: arg_position },
+      [arg_position],
       false);
   }
 
@@ -360,7 +360,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemoteCall
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -610,7 +610,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -619,7 +619,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -628,7 +628,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -637,7 +637,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -646,7 +646,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -655,7 +655,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -664,7 +664,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec,
       null,
-      { arg_seek_time: arg_seek_time },
+      [arg_seek_time],
       false);
   }
 
@@ -673,7 +673,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -682,7 +682,7 @@ mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRe
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

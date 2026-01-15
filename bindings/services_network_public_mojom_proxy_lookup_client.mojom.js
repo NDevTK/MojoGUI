@@ -176,7 +176,7 @@ mojo.internal.bindings.network.mojom.ProxyLookupClientRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec,
       null,
-      { arg_net_error: arg_net_error, arg_proxy_info: arg_proxy_info },
+      [arg_net_error, arg_proxy_info],
       false);
   }
 

@@ -178,7 +178,7 @@ mojo.internal.bindings.content.mojom.PowerMonitorTestRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec,
       mojo.internal.bindings.content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

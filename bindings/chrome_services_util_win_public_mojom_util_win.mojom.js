@@ -268,7 +268,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec,
-      { arg_shortcut_paths: arg_shortcut_paths },
+      [arg_shortcut_paths],
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec,
-      { arg_shortcut_paths: arg_shortcut_paths, arg_properties: arg_properties, arg_operation: arg_operation },
+      [arg_shortcut_paths, arg_properties, arg_operation],
       false);
   }
 
@@ -295,7 +295,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec,
-      { arg_type: arg_type, arg_owner: arg_owner, arg_title: arg_title, arg_default_path: arg_default_path, arg_filter: arg_filter, arg_file_type_index: arg_file_type_index, arg_default_extension: arg_default_extension },
+      [arg_type, arg_owner, arg_title, arg_default_path, arg_filter, arg_file_type_index, arg_default_extension],
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec,
-      { arg_module_path: arg_module_path },
+      [arg_module_path],
       false);
   }
 
@@ -313,7 +313,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec,
-      { arg_report_full_names: arg_report_full_names },
+      [arg_report_full_names],
       false);
   }
 
@@ -322,7 +322,7 @@ mojo.internal.bindings.chrome.mojom.UtilWinRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -560,7 +560,7 @@ mojo.internal.bindings.chrome.mojom.ProcessorMetricsRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

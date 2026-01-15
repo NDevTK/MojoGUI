@@ -209,7 +209,7 @@ mojo.internal.bindings.blink.mojom.AIWriterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIWriter_Write_ParamsSpec,
       null,
-      { arg_input: arg_input, arg_context: arg_context, arg_pending_responder: arg_pending_responder },
+      [arg_input, arg_context, arg_pending_responder],
       false);
   }
 
@@ -218,7 +218,7 @@ mojo.internal.bindings.blink.mojom.AIWriterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AIWriter_MeasureUsage_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AIWriter_MeasureUsage_ResponseParamsSpec,
-      { arg_input: arg_input, arg_context: arg_context },
+      [arg_input, arg_context],
       false);
   }
 

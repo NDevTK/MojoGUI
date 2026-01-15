@@ -245,7 +245,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec,
       null,
-      { arg_namespace_id: arg_namespace_id, arg_receiver: arg_receiver },
+      [arg_namespace_id, arg_receiver],
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec,
       null,
-      { arg_storage_key: arg_storage_key, arg_namespace_id: arg_namespace_id, arg_receiver: arg_receiver },
+      [arg_storage_key, arg_namespace_id, arg_receiver],
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ParamsSpec,
       mojo.internal.bindings.storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec,
       mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteStorage_ResponseParamsSpec,
-      { arg_storage_key: arg_storage_key, arg_namespace_id: arg_namespace_id },
+      [arg_storage_key, arg_namespace_id],
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec,
       mojo.internal.bindings.storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -290,7 +290,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -299,7 +299,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_Flush_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec,
       null,
-      { arg_namespace_id: arg_namespace_id },
+      [arg_namespace_id],
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec,
       null,
-      { arg_namespace_id_to_clone: arg_namespace_id_to_clone, arg_clone_namespace_id: arg_clone_namespace_id, arg_clone_type: arg_clone_type },
+      [arg_namespace_id_to_clone, arg_clone_namespace_id, arg_clone_type],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.storage.mojom.SessionStorageControlRemoteCallHandler = cl
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec,
       null,
-      { arg_namespace_id: arg_namespace_id, arg_should_persist: arg_should_persist },
+      [arg_namespace_id, arg_should_persist],
       false);
   }
 

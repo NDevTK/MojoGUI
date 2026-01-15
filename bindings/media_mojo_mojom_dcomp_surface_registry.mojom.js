@@ -182,7 +182,7 @@ mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistryRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ParamsSpec,
       mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ResponseParamsSpec,
-      { arg_surface_handle: arg_surface_handle },
+      [arg_surface_handle],
       false);
   }
 
@@ -191,7 +191,7 @@ mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistryRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistry_UnregisterDCOMPSurfaceHandle_ParamsSpec,
       null,
-      { arg_token: arg_token },
+      [arg_token],
       false);
   }
 

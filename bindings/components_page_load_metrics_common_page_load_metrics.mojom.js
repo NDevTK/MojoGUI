@@ -245,7 +245,7 @@ mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec,
       null,
-      { arg_page_load_timing: arg_page_load_timing, arg_frame_metadata: arg_frame_metadata, arg_new_features: arg_new_features, arg_resources: arg_resources, arg_render_data: arg_render_data, arg_cpu_load_timing: arg_cpu_load_timing, arg_input_timing_delta: arg_input_timing_delta, arg_subresource_load_metrics: arg_subresource_load_metrics, arg_soft_navigation_metrics: arg_soft_navigation_metrics },
+      [arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_input_timing_delta, arg_subresource_load_metrics, arg_soft_navigation_metrics],
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec,
       null,
-      { arg_dropped_frames_memory: arg_dropped_frames_memory },
+      [arg_dropped_frames_memory],
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec,
       null,
-      { arg_custom_user_timing: arg_custom_user_timing },
+      [arg_custom_user_timing],
       false);
   }
 

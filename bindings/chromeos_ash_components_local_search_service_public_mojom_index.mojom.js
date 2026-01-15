@@ -230,7 +230,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ParamsSpec,
       mojo.internal.bindings.ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec,
       mojo.internal.bindings.ash.local_search_service.mojom.Index_AddOrUpdate_ResponseParamsSpec,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -248,7 +248,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ParamsSpec,
       mojo.internal.bindings.ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec,
-      { arg_ids: arg_ids },
+      [arg_ids],
       false);
   }
 
@@ -257,7 +257,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec,
       mojo.internal.bindings.ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexRemoteCallHandler = c
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ParamsSpec,
       mojo.internal.bindings.ash.local_search_service.mojom.Index_Find_ResponseParamsSpec,
-      { arg_query: arg_query, arg_max_results: arg_max_results },
+      [arg_query, arg_max_results],
       false);
   }
 
@@ -275,7 +275,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexRemoteCallHandler = c
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec,
       mojo.internal.bindings.ash.local_search_service.mojom.Index_ClearIndex_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -284,7 +284,7 @@ mojo.internal.bindings.ash.local_search_service.mojom.IndexRemoteCallHandler = c
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec,
       mojo.internal.bindings.ash.local_search_service.mojom.Index_SetSearchParams_ResponseParamsSpec,
-      { arg_search_params: arg_search_params },
+      [arg_search_params],
       false);
   }
 

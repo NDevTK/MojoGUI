@@ -250,7 +250,7 @@ mojo.internal.bindings.device.mojom.GamepadObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.GamepadObserver_GamepadConnected_ParamsSpec,
       null,
-      { arg_index: arg_index, arg_gamepad: arg_gamepad },
+      [arg_index, arg_gamepad],
       false);
   }
 
@@ -259,7 +259,7 @@ mojo.internal.bindings.device.mojom.GamepadObserverRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec,
       null,
-      { arg_index: arg_index, arg_gamepad: arg_gamepad },
+      [arg_index, arg_gamepad],
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.device.mojom.GamepadObserverRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec,
       null,
-      { arg_index: arg_index, arg_gamepad: arg_gamepad },
+      [arg_index, arg_gamepad],
       false);
   }
 
@@ -422,7 +422,7 @@ mojo.internal.bindings.device.mojom.GamepadMonitorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec,
       mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -431,7 +431,7 @@ mojo.internal.bindings.device.mojom.GamepadMonitorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec,
       mojo.internal.bindings.device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.device.mojom.GamepadMonitorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.GamepadMonitor_SetObserver_ParamsSpec,
       null,
-      { arg_gamepad_observer: arg_gamepad_observer },
+      [arg_gamepad_observer],
       false);
   }
 
@@ -607,7 +607,7 @@ mojo.internal.bindings.device.mojom.GamepadHapticsManagerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec,
       mojo.internal.bindings.device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec,
-      { arg_pad_index: arg_pad_index, arg_type: arg_type, arg_params: arg_params },
+      [arg_pad_index, arg_type, arg_params],
       false);
   }
 
@@ -616,7 +616,7 @@ mojo.internal.bindings.device.mojom.GamepadHapticsManagerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec,
       mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec,
-      { arg_pad_index: arg_pad_index },
+      [arg_pad_index],
       false);
   }
 

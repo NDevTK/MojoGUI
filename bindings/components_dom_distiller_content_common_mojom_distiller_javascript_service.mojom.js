@@ -193,7 +193,7 @@ mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -202,7 +202,7 @@ mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec,
       null,
-      { arg_theme: arg_theme },
+      [arg_theme],
       false);
   }
 
@@ -211,7 +211,7 @@ mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec,
       null,
-      { arg_font_family: arg_font_family },
+      [arg_font_family],
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec,
       null,
-      { arg_font_scale: arg_font_scale },
+      [arg_font_scale],
       false);
   }
 

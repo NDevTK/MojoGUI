@@ -212,7 +212,7 @@ mojo.internal.bindings.device.mojom.GeolocationContextRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.GeolocationContext_BindGeolocation_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_requesting_url: arg_requesting_url, arg_client_id: arg_client_id, arg_has_precise_permission: arg_has_precise_permission },
+      [arg_receiver, arg_requesting_url, arg_client_id, arg_has_precise_permission],
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.device.mojom.GeolocationContextRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec,
       null,
-      { arg_origin: arg_origin, arg_permission_level: arg_permission_level },
+      [arg_origin, arg_permission_level],
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.device.mojom.GeolocationContextRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.GeolocationContext_SetOverride_ParamsSpec,
       null,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 
@@ -239,7 +239,7 @@ mojo.internal.bindings.device.mojom.GeolocationContextRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.GeolocationContext_ClearOverride_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

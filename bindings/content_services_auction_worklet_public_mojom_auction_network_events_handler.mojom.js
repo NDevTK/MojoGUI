@@ -205,7 +205,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec,
       null,
-      { arg_request: arg_request, arg_timestamp: arg_timestamp },
+      [arg_request, arg_timestamp],
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec,
       null,
-      { arg_request_id: arg_request_id, arg_loader_id: arg_loader_id, arg_request_url: arg_request_url, arg_headers: arg_headers },
+      [arg_request_id, arg_loader_id, arg_request_url, arg_headers],
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec,
       null,
-      { arg_request_id: arg_request_id, arg_status: arg_status },
+      [arg_request_id, arg_status],
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

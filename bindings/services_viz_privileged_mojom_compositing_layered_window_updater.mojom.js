@@ -186,7 +186,7 @@ mojo.internal.bindings.viz.mojom.LayeredWindowUpdaterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec,
       null,
-      { arg_pixel_size: arg_pixel_size, arg_region: arg_region },
+      [arg_pixel_size, arg_region],
       false);
   }
 
@@ -195,7 +195,7 @@ mojo.internal.bindings.viz.mojom.LayeredWindowUpdaterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec,
       mojo.internal.bindings.viz.mojom.LayeredWindowUpdater_Draw_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

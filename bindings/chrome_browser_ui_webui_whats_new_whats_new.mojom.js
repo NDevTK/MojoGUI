@@ -238,7 +238,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerFactoryRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -452,7 +452,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec,
       mojo.internal.bindings.whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec,
-      { arg_is_staging: arg_is_staging },
+      [arg_is_staging],
       false);
   }
 
@@ -461,7 +461,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec,
       null,
-      { arg_time: arg_time },
+      [arg_time],
       false);
   }
 
@@ -470,7 +470,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec,
       null,
-      { arg_is_auto_open: arg_is_auto_open },
+      [arg_is_auto_open],
       false);
   }
 
@@ -479,7 +479,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec,
       null,
-      { arg_page_uid: arg_page_uid, arg_is_auto_open: arg_is_auto_open },
+      [arg_page_uid, arg_is_auto_open],
       false);
   }
 
@@ -488,7 +488,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec,
       null,
-      { arg_module_name: arg_module_name, arg_position: arg_position },
+      [arg_module_name, arg_position],
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec,
       null,
-      { arg_expanded: arg_expanded },
+      [arg_expanded],
       false);
   }
 
@@ -506,7 +506,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec,
       null,
-      { arg_depth: arg_depth },
+      [arg_depth],
       false);
   }
 
@@ -515,7 +515,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec,
       null,
-      { arg_time: arg_time },
+      [arg_time],
       false);
   }
 
@@ -524,7 +524,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec,
       null,
-      { arg_module_name: arg_module_name, arg_position: arg_position },
+      [arg_module_name, arg_position],
       false);
   }
 
@@ -533,7 +533,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec,
       null,
-      { arg_module_name: arg_module_name, arg_position: arg_position },
+      [arg_module_name, arg_position],
       false);
   }
 
@@ -542,7 +542,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec,
       null,
-      { arg_module_name: arg_module_name, arg_position: arg_position },
+      [arg_module_name, arg_position],
       false);
   }
 
@@ -551,7 +551,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec,
       null,
-      { arg_module_name: arg_module_name, arg_position: arg_position },
+      [arg_module_name, arg_position],
       false);
   }
 
@@ -560,7 +560,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec,
       null,
-      { arg_module_name: arg_module_name, arg_position: arg_position },
+      [arg_module_name, arg_position],
       false);
   }
 
@@ -569,7 +569,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec,
       null,
-      { arg_module_name: arg_module_name, arg_position: arg_position },
+      [arg_module_name, arg_position],
       false);
   }
 
@@ -578,7 +578,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -587,7 +587,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec,
       null,
-      { arg_expanded: arg_expanded },
+      [arg_expanded],
       false);
   }
 
@@ -596,7 +596,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -605,7 +605,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -614,7 +614,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -623,7 +623,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec,
       null,
-      { arg_module_name: arg_module_name, arg_expanded: arg_expanded },
+      [arg_module_name, arg_expanded],
       false);
   }
 
@@ -632,7 +632,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -641,7 +641,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

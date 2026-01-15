@@ -211,7 +211,7 @@ mojo.internal.bindings.translate.mojom.TranslateAgentRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec,
       mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec,
-      { arg_translate_script: arg_translate_script, arg_source_lang: arg_source_lang, arg_target_lang: arg_target_lang },
+      [arg_translate_script, arg_source_lang, arg_target_lang],
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.translate.mojom.TranslateAgentRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -366,7 +366,7 @@ mojo.internal.bindings.translate.mojom.ContentTranslateDriverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec,
       null,
-      { arg_translate_agent: arg_translate_agent, arg_details: arg_details, arg_translation_critiera_met: arg_translation_critiera_met },
+      [arg_translate_agent, arg_details, arg_translation_critiera_met],
       false);
   }
 

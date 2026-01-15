@@ -366,7 +366,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserverRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_ParamsSpec,
       null,
-      { arg_label: arg_label, arg_device: arg_device },
+      [arg_label, arg_device],
       false);
   }
 
@@ -375,7 +375,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserverRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_ParamsSpec,
       null,
-      { arg_label: arg_label, arg_old_device: arg_old_device, arg_new_device: arg_new_device },
+      [arg_label, arg_old_device, arg_new_device],
       false);
   }
 
@@ -384,7 +384,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserverRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_ParamsSpec,
       null,
-      { arg_label: arg_label, arg_device: arg_device, arg_new_state: arg_new_state },
+      [arg_label, arg_device, arg_new_state],
       false);
   }
 
@@ -393,7 +393,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserverRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_ParamsSpec,
       null,
-      { arg_label: arg_label, arg_device: arg_device },
+      [arg_label, arg_device],
       false);
   }
 
@@ -402,7 +402,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserverRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_ParamsSpec,
       null,
-      { arg_label: arg_label, arg_device: arg_device },
+      [arg_label, arg_device],
       false);
   }
 
@@ -411,7 +411,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserverRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_ParamsSpec,
       null,
-      { arg_label: arg_label, arg_device: arg_device, arg_zoom_level: arg_zoom_level },
+      [arg_label, arg_device, arg_zoom_level],
       false);
   }
 
@@ -629,7 +629,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec,
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec,
-      { arg_request_id: arg_request_id, arg_controls: arg_controls, arg_user_gesture: arg_user_gesture, arg_audio_stream_selection_info: arg_audio_stream_selection_info },
+      [arg_request_id, arg_controls, arg_user_gesture, arg_audio_stream_selection_info],
       false);
   }
 
@@ -638,7 +638,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_ParamsSpec,
       null,
-      { arg_label: arg_label, arg_focus: arg_focus },
+      [arg_label, arg_focus],
       false);
   }
 
@@ -647,7 +647,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_CancelRequest_ParamsSpec,
       null,
-      { arg_request_id: arg_request_id },
+      [arg_request_id],
       false);
   }
 
@@ -656,7 +656,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id, arg_session_id: arg_session_id },
+      [arg_device_id, arg_session_id],
       false);
   }
 
@@ -665,7 +665,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_OpenDevice_ParamsSpec,
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec,
-      { arg_request_id: arg_request_id, arg_device_id: arg_device_id, arg_type: arg_type },
+      [arg_request_id, arg_device_id, arg_type],
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_CloseDevice_ParamsSpec,
       null,
-      { arg_label: arg_label },
+      [arg_label],
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_ParamsSpec,
       null,
-      { arg_session_id: arg_session_id, arg_type: arg_type, arg_is_secure: arg_is_secure },
+      [arg_session_id, arg_type, arg_is_secure],
       false);
   }
 
@@ -692,7 +692,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ParamsSpec,
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec,
-      { arg_session_id: arg_session_id, arg_type: arg_type, arg_sub_capture_target: arg_sub_capture_target, arg_sub_capture_target_version: arg_sub_capture_target_version },
+      [arg_session_id, arg_type, arg_sub_capture_target, arg_sub_capture_target_version],
       false);
   }
 
@@ -701,7 +701,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_SendWheel_ParamsSpec,
       null,
-      { arg_session_id: arg_session_id, arg_action: arg_action },
+      [arg_session_id, arg_action],
       false);
   }
 
@@ -710,7 +710,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ParamsSpec,
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec,
-      { arg_session_id: arg_session_id, arg_action: arg_action },
+      [arg_session_id, arg_action],
       false);
   }
 
@@ -719,7 +719,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ParamsSpec,
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec,
-      { arg_session_id: arg_session_id },
+      [arg_session_id],
       false);
   }
 
@@ -728,7 +728,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ParamsSpec,
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec,
-      { arg_request_id: arg_request_id, arg_session_id: arg_session_id, arg_transfer_id: arg_transfer_id },
+      [arg_request_id, arg_session_id, arg_transfer_id],
       false);
   }
 
@@ -737,7 +737,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostRemoteCallHandler = 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ParamsSpec,
       mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec,
-      { arg_session_id: arg_session_id, arg_transfer_id: arg_transfer_id },
+      [arg_session_id, arg_transfer_id],
       false);
   }
 
@@ -1027,7 +1027,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHostRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec,
       null,
-      { arg_id: arg_id, arg_is_audio: arg_is_audio, arg_is_remote: arg_is_remote },
+      [arg_id, arg_is_audio, arg_is_remote],
       false);
   }
 
@@ -1036,7 +1036,7 @@ mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHostRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 

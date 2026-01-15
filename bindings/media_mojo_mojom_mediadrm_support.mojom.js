@@ -179,7 +179,7 @@ mojo.internal.bindings.media.mojom.MediaDrmSupportRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec,
-      { arg_key_system: arg_key_system, arg_is_secure: arg_is_secure },
+      [arg_key_system, arg_is_secure],
       false);
   }
 

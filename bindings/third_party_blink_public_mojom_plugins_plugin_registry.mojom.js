@@ -182,7 +182,7 @@ mojo.internal.bindings.blink.mojom.PluginRegistryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PluginRegistry_GetPlugins_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

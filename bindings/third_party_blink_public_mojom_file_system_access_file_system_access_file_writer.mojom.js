@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec,
-      { arg_offset: arg_offset, arg_stream: arg_stream },
+      [arg_offset, arg_stream],
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec,
-      { arg_length: arg_length },
+      [arg_length],
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

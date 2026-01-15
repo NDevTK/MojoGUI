@@ -198,7 +198,7 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec,
       mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -337,7 +337,7 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec,
       null,
-      { arg_response: arg_response },
+      [arg_response],
       false);
   }
 

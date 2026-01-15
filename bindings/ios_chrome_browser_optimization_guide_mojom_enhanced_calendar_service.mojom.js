@@ -182,7 +182,7 @@ mojo.internal.bindings.ai.mojom.EnhancedCalendarServiceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec,
       mojo.internal.bindings.ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec,
-      { arg_request_params: arg_request_params },
+      [arg_request_params],
       false);
   }
 

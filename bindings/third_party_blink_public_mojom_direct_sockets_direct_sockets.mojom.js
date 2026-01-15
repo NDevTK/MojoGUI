@@ -229,7 +229,7 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec,
-      { arg_options: arg_options, arg_receiver: arg_receiver, arg_observer: arg_observer },
+      [arg_options, arg_receiver, arg_observer],
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec,
-      { arg_options: arg_options, arg_receiver: arg_receiver, arg_listener: arg_listener },
+      [arg_options, arg_receiver, arg_listener],
       false);
   }
 
@@ -247,7 +247,7 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec,
-      { arg_options: arg_options, arg_receiver: arg_receiver, arg_listener: arg_listener },
+      [arg_options, arg_receiver, arg_listener],
       false);
   }
 
@@ -256,7 +256,7 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec,
       mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec,
-      { arg_options: arg_options, arg_receiver: arg_receiver },
+      [arg_options, arg_receiver],
       false);
   }
 

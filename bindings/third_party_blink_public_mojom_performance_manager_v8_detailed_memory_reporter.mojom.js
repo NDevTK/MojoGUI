@@ -192,7 +192,7 @@ mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporterRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec,
       mojo.internal.bindings.blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec,
-      { arg_mode: arg_mode },
+      [arg_mode],
       false);
   }
 

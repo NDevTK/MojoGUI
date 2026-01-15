@@ -176,7 +176,7 @@ mojo.internal.bindings.drivefs.mojom.FakeDriveFsLauncherRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec,
       null,
-      { arg_datadir_path: arg_datadir_path, arg_mount_path: arg_mount_path, arg_mojo_socket_handle: arg_mojo_socket_handle },
+      [arg_datadir_path, arg_mount_path, arg_mojo_socket_handle],
       false);
   }
 

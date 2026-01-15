@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.CookieStoreRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.CookieStore_AddSubscriptions_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec,
-      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_subscription: arg_subscription },
+      [arg_service_worker_registration_id, arg_subscription],
       false);
   }
 
@@ -203,7 +203,7 @@ mojo.internal.bindings.blink.mojom.CookieStoreRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec,
-      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_subscription: arg_subscription },
+      [arg_service_worker_registration_id, arg_subscription],
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.blink.mojom.CookieStoreRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.CookieStore_GetSubscriptions_ParamsSpec,
       mojo.internal.bindings.blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec,
-      { arg_service_worker_registration_id: arg_service_worker_registration_id },
+      [arg_service_worker_registration_id],
       false);
   }
 

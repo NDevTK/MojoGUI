@@ -292,7 +292,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -301,7 +301,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec,
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec,
       null,
-      { arg_feature: arg_feature },
+      [arg_feature],
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec,
       null,
-      { arg_agent: arg_agent, arg_agent_host: arg_agent_host },
+      [arg_agent, arg_agent_host],
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -507,7 +507,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -516,7 +516,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec,
       null,
-      { arg_status: arg_status, arg_fetch_handler_type: arg_fetch_handler_type, arg_has_hid_event_handlers: arg_has_hid_event_handlers, arg_has_usb_event_handlers: arg_has_usb_event_handlers, arg_thread_id: arg_thread_id, arg_start_timing: arg_start_timing },
+      [arg_status, arg_fetch_handler_type, arg_has_hid_event_handlers, arg_has_usb_event_handlers, arg_thread_id, arg_start_timing],
       false);
   }
 
@@ -525,7 +525,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec,
       null,
-      { arg_error_message: arg_error_message, arg_line_number: arg_line_number, arg_column_number: arg_column_number, arg_source_url: arg_source_url },
+      [arg_error_message, arg_line_number, arg_column_number, arg_source_url],
       false);
   }
 
@@ -534,7 +534,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec,
       null,
-      { arg_source: arg_source, arg_message_level: arg_message_level, arg_message: arg_message, arg_line_number: arg_line_number, arg_source_url: arg_source_url },
+      [arg_source, arg_message_level, arg_message, arg_line_number, arg_source_url],
       false);
   }
 
@@ -543,7 +543,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler =
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

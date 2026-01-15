@@ -184,7 +184,7 @@ mojo.internal.bindings.arc.mojom.IioSensorHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.arc.mojom.IioSensorInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.arc.mojom.IioSensorInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec,
       null,
-      { arg_is_tablet_mode_on: arg_is_tablet_mode_on },
+      [arg_is_tablet_mode_on],
       false);
   }
 

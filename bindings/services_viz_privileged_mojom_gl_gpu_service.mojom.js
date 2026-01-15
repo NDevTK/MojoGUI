@@ -369,7 +369,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec,
       mojo.internal.bindings.viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec,
-      { arg_client_id: arg_client_id, arg_client_tracing_id: arg_client_tracing_id, arg_is_gpu_host: arg_is_gpu_host, arg_enable_extra_handles_validation: arg_enable_extra_handles_validation },
+      [arg_client_id, arg_client_tracing_id, arg_is_gpu_host, arg_enable_extra_handles_validation],
       false);
   }
 
@@ -378,7 +378,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_SetChannelClientPid_ParamsSpec,
       null,
-      { arg_client_id: arg_client_id, arg_client_pid: arg_client_pid },
+      [arg_client_id, arg_client_pid],
       false);
   }
 
@@ -387,7 +387,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_SetChannelDiskCacheHandle_ParamsSpec,
       null,
-      { arg_client_id: arg_client_id, arg_cache_handle: arg_cache_handle },
+      [arg_client_id, arg_cache_handle],
       false);
   }
 
@@ -396,7 +396,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_ParamsSpec,
       null,
-      { arg_client_id: arg_client_id, arg_cache_handle: arg_cache_handle, arg_pending_backend: arg_pending_backend },
+      [arg_client_id, arg_cache_handle, arg_pending_backend],
       false);
   }
 
@@ -405,7 +405,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_OnDiskCacheHandleDestoyed_ParamsSpec,
       null,
-      { arg_cache_handle: arg_cache_handle },
+      [arg_cache_handle],
       false);
   }
 
@@ -414,7 +414,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_CloseChannel_ParamsSpec,
       null,
-      { arg_client_id: arg_client_id },
+      [arg_client_id],
       false);
   }
 
@@ -423,7 +423,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ParamsSpec,
       mojo.internal.bindings.viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ResponseParamsSpec,
-      { arg_surface_handle: arg_surface_handle },
+      [arg_surface_handle],
       false);
   }
 
@@ -432,7 +432,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_UnregisterDCOMPSurfaceHandle_ParamsSpec,
       null,
-      { arg_token: arg_token },
+      [arg_token],
       false);
   }
 
@@ -441,7 +441,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_CreateVideoEncodeAcceleratorProvider_ParamsSpec,
       null,
-      { arg_vea_provider: arg_vea_provider },
+      [arg_vea_provider],
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_client_id: arg_client_id },
+      [arg_receiver, arg_client_id],
       false);
   }
 
@@ -459,7 +459,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_GetVideoMemoryUsageStats_ParamsSpec,
       mojo.internal.bindings.viz.mojom.GpuService_GetVideoMemoryUsageStats_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -468,7 +468,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_StartPeakMemoryMonitor_ParamsSpec,
       null,
-      { arg_sequence_num: arg_sequence_num },
+      [arg_sequence_num],
       false);
   }
 
@@ -477,7 +477,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_GetPeakMemoryUsage_ParamsSpec,
       mojo.internal.bindings.viz.mojom.GpuService_GetPeakMemoryUsage_ResponseParamsSpec,
-      { arg_sequence_num: arg_sequence_num },
+      [arg_sequence_num],
       false);
   }
 
@@ -486,7 +486,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_RequestDXGIInfo_ParamsSpec,
       mojo.internal.bindings.viz.mojom.GpuService_RequestDXGIInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -495,7 +495,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_LoadedBlob_ParamsSpec,
       null,
-      { arg_cache_handle: arg_cache_handle, arg_key: arg_key, arg_data: arg_data },
+      [arg_cache_handle, arg_key, arg_data],
       false);
   }
 
@@ -504,7 +504,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_WakeUpGpu_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -513,7 +513,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_GpuSwitched_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -522,7 +522,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_DisplayAdded_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -531,7 +531,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_DisplayRemoved_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -540,7 +540,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_DisplayMetricsChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -549,7 +549,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_DestroyAllChannels_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -558,7 +558,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_OnBackgroundCleanup_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -567,7 +567,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_OnBackgrounded_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -576,7 +576,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_OnForegrounded_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -585,7 +585,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_WriteClangProfilingProfile_ParamsSpec,
       mojo.internal.bindings.viz.mojom.GpuService_WriteClangProfilingProfile_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -594,7 +594,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_GetDawnInfo_ParamsSpec,
       mojo.internal.bindings.viz.mojom.GpuService_GetDawnInfo_ResponseParamsSpec,
-      { arg_collect_metrics: arg_collect_metrics },
+      [arg_collect_metrics],
       false);
   }
 
@@ -603,7 +603,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_Crash_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -612,7 +612,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_Hang_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -621,7 +621,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_ThrowJavaException_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

@@ -258,7 +258,7 @@ mojo.internal.bindings.device.mojom.SensorProviderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ParamsSpec,
       mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.device.mojom.SensorProviderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec,
       mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec,
-      { arg_type: arg_type, arg_metadata: arg_metadata },
+      [arg_type, arg_metadata],
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.device.mojom.SensorProviderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec,
       mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec,
-      { arg_type: arg_type, arg_reading: arg_reading },
+      [arg_type, arg_reading],
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.device.mojom.SensorProviderRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec,
       mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.device.mojom.SensorProviderRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec,
       mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 

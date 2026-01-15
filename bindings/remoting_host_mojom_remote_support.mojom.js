@@ -232,7 +232,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -241,7 +241,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -250,7 +250,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec,
       null,
-      { arg_access_code: arg_access_code, arg_lifetime: arg_lifetime },
+      [arg_access_code, arg_lifetime],
       false);
   }
 
@@ -259,7 +259,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec,
       null,
-      { arg_remote_username: arg_remote_username },
+      [arg_remote_username],
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec,
       null,
-      { arg_disconnect_reason: arg_disconnect_reason },
+      [arg_disconnect_reason],
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec,
       null,
-      { arg_nat_policy_state: arg_nat_policy_state },
+      [arg_nat_policy_state],
       false);
   }
 
@@ -295,7 +295,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec,
       null,
-      { arg_error_code: arg_error_code },
+      [arg_error_code],
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -313,7 +313,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverRemoteCallHandler = cla
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

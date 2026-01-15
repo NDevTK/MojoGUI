@@ -184,7 +184,7 @@ mojo.internal.bindings.blink.mojom.AutoplayConfigurationClientRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec,
       null,
-      { arg_origin: arg_origin, arg_flags: arg_flags },
+      [arg_origin, arg_flags],
       false);
   }
 

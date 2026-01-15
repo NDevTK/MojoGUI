@@ -199,7 +199,7 @@ mojo.internal.bindings.media.mojom.CdmServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CdmService_CreateCdmFactory_ParamsSpec,
       null,
-      { arg_factory: arg_factory, arg_frame_interfaces: arg_frame_interfaces },
+      [arg_factory, arg_frame_interfaces],
       false);
   }
 
@@ -329,7 +329,7 @@ mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec,
       mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -468,7 +468,7 @@ mojo.internal.bindings.media.mojom.CdmServiceBrokerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec,
       null,
-      { arg_cdm_path: arg_cdm_path, arg_token_provider: arg_token_provider, arg_receiver: arg_receiver },
+      [arg_cdm_path, arg_token_provider, arg_receiver],
       false);
   }
 

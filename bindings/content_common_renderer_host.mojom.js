@@ -187,7 +187,7 @@ mojo.internal.bindings.content.mojom.RendererHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec,
       mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec,
-      { arg_name: arg_name },
+      [arg_name],
       false);
   }
 
@@ -196,7 +196,7 @@ mojo.internal.bindings.content.mojom.RendererHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec,
       null,
-      { arg_allowed: arg_allowed },
+      [arg_allowed],
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.content.mojom.RendererHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec,
       null,
-      { arg_action: arg_action },
+      [arg_action],
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.content.mojom.RendererHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec,
       mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

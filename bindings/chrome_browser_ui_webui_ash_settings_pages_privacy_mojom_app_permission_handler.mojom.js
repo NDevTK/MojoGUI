@@ -223,7 +223,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -232,7 +232,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec,
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -241,7 +241,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec,
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -250,7 +250,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec,
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -259,7 +259,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec,
       null,
-      { arg_permission_type: arg_permission_type },
+      [arg_permission_type],
       false);
   }
 
@@ -268,7 +268,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id },
+      [arg_app_id],
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandlerRe
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id, arg_permission: arg_permission },
+      [arg_app_id, arg_permission],
       false);
   }
 
@@ -486,7 +486,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverR
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id },
+      [arg_app_id],
       false);
   }
 
@@ -495,7 +495,7 @@ mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserverR
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec,
       null,
-      { arg_app: arg_app },
+      [arg_app],
       false);
   }
 

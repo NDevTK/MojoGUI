@@ -181,7 +181,7 @@ mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjectorRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec,
       null,
-      { arg_script: arg_script },
+      [arg_script],
       false);
   }
 
@@ -190,7 +190,7 @@ mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjectorRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

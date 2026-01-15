@@ -189,7 +189,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec,
       mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec,
-      { arg_args: arg_args, arg_force: arg_force },
+      [arg_args, arg_force],
       false);
   }
 
@@ -336,7 +336,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec,
       null,
-      { arg_needs_begin_frames: arg_needs_begin_frames },
+      [arg_needs_begin_frames],
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec,
       null,
-      { arg_display_id: arg_display_id, arg_needs_begin_frames: arg_needs_begin_frames },
+      [arg_display_id, arg_needs_begin_frames],
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec,
       null,
-      { arg_interval: arg_interval },
+      [arg_interval],
       false);
   }
 

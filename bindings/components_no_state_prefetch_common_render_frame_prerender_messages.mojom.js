@@ -170,7 +170,7 @@ mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessagesRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec,
       null,
-      { arg_histogram_prefix: arg_histogram_prefix },
+      [arg_histogram_prefix],
       false);
   }
 

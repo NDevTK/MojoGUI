@@ -171,7 +171,7 @@ mojo.internal.bindings.blink.mojom.InnerHtmlAgentRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec,
       mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

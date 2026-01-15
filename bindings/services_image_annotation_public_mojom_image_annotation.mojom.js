@@ -204,7 +204,7 @@ mojo.internal.bindings.image_annotation.mojom.ImageProcessorRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec,
       mojo.internal.bindings.image_annotation.mojom.ImageProcessor_GetJpgImageData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -342,7 +342,7 @@ mojo.internal.bindings.image_annotation.mojom.AnnotatorRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec,
       mojo.internal.bindings.image_annotation.mojom.Annotator_AnnotateImage_ResponseParamsSpec,
-      { arg_source_id: arg_source_id, arg_description_language_tag: arg_description_language_tag, arg_image_processor: arg_image_processor },
+      [arg_source_id, arg_description_language_tag, arg_image_processor],
       false);
   }
 
@@ -481,7 +481,7 @@ mojo.internal.bindings.image_annotation.mojom.ImageAnnotationServiceRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

@@ -282,7 +282,7 @@ mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec,
       null,
-      { arg_name: arg_name, arg_receiver: arg_receiver },
+      [arg_name, arg_receiver],
       false);
   }
 

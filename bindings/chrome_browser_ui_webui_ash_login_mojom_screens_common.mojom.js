@@ -234,7 +234,7 @@ mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -364,7 +364,7 @@ mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec,
       null,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -494,7 +494,7 @@ mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandlerRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -628,7 +628,7 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec,
       null,
-      { arg_enable_drive_pinning: arg_enable_drive_pinning },
+      [arg_enable_drive_pinning],
       false);
   }
 
@@ -637,7 +637,7 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec,
       null,
-      { arg_enable_drive_pinning: arg_enable_drive_pinning },
+      [arg_enable_drive_pinning],
       false);
   }
 
@@ -775,7 +775,7 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec,
       null,
-      { arg_required_space: arg_required_space, arg_free_space: arg_free_space },
+      [arg_required_space, arg_free_space],
       false);
   }
 
@@ -905,7 +905,7 @@ mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandlerRemo
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1039,7 +1039,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1048,7 +1048,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec,
       null,
-      { arg_user_flow: arg_user_flow },
+      [arg_user_flow],
       false);
   }
 
@@ -1186,7 +1186,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1324,7 +1324,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerRemo
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec,
       null,
-      { arg_page: arg_page },
+      [arg_page],
       false);
   }
 
@@ -1333,7 +1333,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerRemo
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1342,7 +1342,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerRemo
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1492,7 +1492,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1501,7 +1501,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

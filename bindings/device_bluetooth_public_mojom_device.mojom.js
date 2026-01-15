@@ -265,7 +265,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Device_Disconnect_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -274,7 +274,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Device_GetInfo_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Device_GetInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -283,7 +283,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Device_GetServices_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Device_GetServices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -292,7 +292,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Device_GetCharacteristics_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Device_GetCharacteristics_ResponseParamsSpec,
-      { arg_service_id: arg_service_id },
+      [arg_service_id],
       false);
   }
 
@@ -301,7 +301,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForCharacteristic_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_characteristic_id: arg_characteristic_id },
+      [arg_service_id, arg_characteristic_id],
       false);
   }
 
@@ -310,7 +310,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForCharacteristic_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_characteristic_id: arg_characteristic_id, arg_value: arg_value },
+      [arg_service_id, arg_characteristic_id, arg_value],
       false);
   }
 
@@ -319,7 +319,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Device_GetDescriptors_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Device_GetDescriptors_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_characteristic_id: arg_characteristic_id },
+      [arg_service_id, arg_characteristic_id],
       false);
   }
 
@@ -328,7 +328,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Device_ReadValueForDescriptor_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_characteristic_id: arg_characteristic_id, arg_descriptor_id: arg_descriptor_id },
+      [arg_service_id, arg_characteristic_id, arg_descriptor_id],
       false);
   }
 
@@ -337,7 +337,7 @@ mojo.internal.bindings.bluetooth.mojom.DeviceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Device_WriteValueForDescriptor_ResponseParamsSpec,
-      { arg_service_id: arg_service_id, arg_characteristic_id: arg_characteristic_id, arg_descriptor_id: arg_descriptor_id, arg_value: arg_value },
+      [arg_service_id, arg_characteristic_id, arg_descriptor_id, arg_value],
       false);
   }
 

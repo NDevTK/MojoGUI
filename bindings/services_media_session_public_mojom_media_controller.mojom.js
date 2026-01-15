@@ -245,7 +245,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerManagerRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerManager_CreateMediaControllerForSession_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_request_id: arg_request_id },
+      [arg_receiver, arg_request_id],
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerManagerRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerManager_CreateActiveMediaController_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerManagerRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerManager_SuspendAllSessions_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -493,7 +493,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_Suspend_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -502,7 +502,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_Resume_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -511,7 +511,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_Stop_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -520,7 +520,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_ToggleSuspendResume_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -529,7 +529,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -538,7 +538,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_PreviousTrack_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -547,7 +547,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_NextTrack_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -556,7 +556,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_Seek_ParamsSpec,
       null,
-      { arg_seek_time: arg_seek_time },
+      [arg_seek_time],
       false);
   }
 
@@ -565,7 +565,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_ObserveImages_ParamsSpec,
       null,
-      { arg_type: arg_type, arg_minimum_size_px: arg_minimum_size_px, arg_desired_size_px: arg_desired_size_px, arg_observer: arg_observer },
+      [arg_type, arg_minimum_size_px, arg_desired_size_px, arg_observer],
       false);
   }
 
@@ -574,7 +574,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_SeekTo_ParamsSpec,
       null,
-      { arg_seek_time: arg_seek_time },
+      [arg_seek_time],
       false);
   }
 
@@ -583,7 +583,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_ScrubTo_ParamsSpec,
       null,
-      { arg_seek_time: arg_seek_time },
+      [arg_seek_time],
       false);
   }
 
@@ -592,7 +592,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_EnterPictureInPicture_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -601,7 +601,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_ExitPictureInPicture_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -610,7 +610,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_SetAudioSinkId_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -619,7 +619,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_ToggleMicrophone_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -628,7 +628,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_ToggleCamera_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -637,7 +637,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_HangUp_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -646,7 +646,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_Raise_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -655,7 +655,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_SetMute_ParamsSpec,
       null,
-      { arg_mute: arg_mute },
+      [arg_mute],
       false);
   }
 
@@ -664,7 +664,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_RequestMediaRemoting_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -673,7 +673,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_EnterAutoPictureInPicture_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -682,7 +682,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaController_SkipAd_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -996,7 +996,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionInfoChanged_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 
@@ -1005,7 +1005,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerObserverRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionMetadataChanged_ParamsSpec,
       null,
-      { arg_metadata: arg_metadata },
+      [arg_metadata],
       false);
   }
 
@@ -1014,7 +1014,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerObserverRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionActionsChanged_ParamsSpec,
       null,
-      { arg_action: arg_action },
+      [arg_action],
       false);
   }
 
@@ -1023,7 +1023,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerObserverRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionChanged_ParamsSpec,
       null,
-      { arg_request_id: arg_request_id },
+      [arg_request_id],
       false);
   }
 
@@ -1032,7 +1032,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerObserverRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerObserver_MediaSessionPositionChanged_ParamsSpec,
       null,
-      { arg_position: arg_position },
+      [arg_position],
       false);
   }
 
@@ -1198,7 +1198,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerImageObserverRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerImageObserver_MediaControllerImageChanged_ParamsSpec,
       null,
-      { arg_type: arg_type, arg_bitmap: arg_bitmap },
+      [arg_type, arg_bitmap],
       false);
   }
 
@@ -1207,7 +1207,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerImageObserverRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaControllerImageObserver_MediaControllerChapterImageChanged_ParamsSpec,
       null,
-      { arg_index: arg_index, arg_bitmap: arg_bitmap },
+      [arg_index, arg_bitmap],
       false);
   }
 

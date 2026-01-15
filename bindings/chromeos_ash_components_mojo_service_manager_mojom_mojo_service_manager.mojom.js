@@ -235,7 +235,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec,
       null,
-      { arg_service_name: arg_service_name, arg_service_provider: arg_service_provider },
+      [arg_service_name, arg_service_provider],
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec,
       null,
-      { arg_service_name: arg_service_name, arg_timeout: arg_timeout, arg_receiver: arg_receiver },
+      [arg_service_name, arg_timeout, arg_receiver],
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerRemoteC
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec,
       mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParamsSpec,
-      { arg_service_name: arg_service_name },
+      [arg_service_name],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManagerRemoteC
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -425,7 +425,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProviderRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec,
       null,
-      { arg_client_identity: arg_client_identity, arg_receiver: arg_receiver },
+      [arg_client_identity, arg_receiver],
       false);
   }
 
@@ -555,7 +555,7 @@ mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserverRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 

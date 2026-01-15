@@ -205,7 +205,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandlerRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegateRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec,
       null,
-      { arg_metadata: arg_metadata },
+      [arg_metadata],
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegateRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec,
       null,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 
@@ -486,7 +486,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetupRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec,
-      { arg_delegate: arg_delegate },
+      [arg_delegate],
       false);
   }
 

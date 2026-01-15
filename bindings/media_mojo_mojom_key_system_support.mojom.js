@@ -216,7 +216,7 @@ mojo.internal.bindings.media.mojom.KeySystemSupportObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec,
       null,
-      { arg_key_systems: arg_key_systems },
+      [arg_key_systems],
       false);
   }
 
@@ -346,7 +346,7 @@ mojo.internal.bindings.media.mojom.KeySystemSupportRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.KeySystemSupport_SetObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

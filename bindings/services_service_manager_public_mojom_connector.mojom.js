@@ -211,7 +211,7 @@ mojo.internal.bindings.service_manager.mojom.ProcessMetadataRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec,
       null,
-      { arg_pid: arg_pid },
+      [arg_pid],
       false);
   }
 
@@ -357,7 +357,7 @@ mojo.internal.bindings.service_manager.mojom.ConnectorRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.service_manager.mojom.Connector_BindInterface_ParamsSpec,
       mojo.internal.bindings.service_manager.mojom.Connector_BindInterface_ResponseParamsSpec,
-      { arg_filter: arg_filter, arg_interface_name: arg_interface_name, arg_interface_pipe: arg_interface_pipe, arg_priority: arg_priority },
+      [arg_filter, arg_interface_name, arg_interface_pipe, arg_priority],
       false);
   }
 
@@ -366,7 +366,7 @@ mojo.internal.bindings.service_manager.mojom.ConnectorRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.service_manager.mojom.Connector_QueryService_ParamsSpec,
       mojo.internal.bindings.service_manager.mojom.Connector_QueryService_ResponseParamsSpec,
-      { arg_service_name: arg_service_name },
+      [arg_service_name],
       false);
   }
 
@@ -375,7 +375,7 @@ mojo.internal.bindings.service_manager.mojom.ConnectorRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.service_manager.mojom.Connector_WarmService_ParamsSpec,
       mojo.internal.bindings.service_manager.mojom.Connector_WarmService_ResponseParamsSpec,
-      { arg_filter: arg_filter },
+      [arg_filter],
       false);
   }
 
@@ -384,7 +384,7 @@ mojo.internal.bindings.service_manager.mojom.ConnectorRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec,
       mojo.internal.bindings.service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec,
-      { arg_identity: arg_identity, arg_service: arg_service, arg_metadata_receiver: arg_metadata_receiver },
+      [arg_identity, arg_service, arg_metadata_receiver],
       false);
   }
 
@@ -393,7 +393,7 @@ mojo.internal.bindings.service_manager.mojom.ConnectorRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.service_manager.mojom.Connector_Clone_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

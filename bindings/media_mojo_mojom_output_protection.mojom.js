@@ -197,7 +197,7 @@ mojo.internal.bindings.media.mojom.OutputProtectionRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.OutputProtection_QueryStatus_ParamsSpec,
       mojo.internal.bindings.media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -206,7 +206,7 @@ mojo.internal.bindings.media.mojom.OutputProtectionRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.OutputProtection_EnableProtection_ParamsSpec,
       mojo.internal.bindings.media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec,
-      { arg_desired_protection_mask: arg_desired_protection_mask },
+      [arg_desired_protection_mask],
       false);
   }
 

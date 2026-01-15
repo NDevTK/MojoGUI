@@ -183,7 +183,7 @@ mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClientRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec,
       null,
-      { arg_type: arg_type, arg_http_rtt: arg_http_rtt, arg_transport_rtt: arg_transport_rtt, arg_downlink_bandwidth_kbps: arg_downlink_bandwidth_kbps },
+      [arg_type, arg_http_rtt, arg_transport_rtt, arg_downlink_bandwidth_kbps],
       false);
   }
 
@@ -313,7 +313,7 @@ mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 

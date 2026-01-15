@@ -290,7 +290,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec,
       mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -299,7 +299,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec,
       mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec,
       null,
-      { arg_iio_device_id: arg_iio_device_id, arg_device_request: arg_device_request },
+      [arg_iio_device_id, arg_device_request],
       false);
   }
 
@@ -500,7 +500,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec,
       null,
-      { arg_timeout: arg_timeout },
+      [arg_timeout],
       false);
   }
 
@@ -509,7 +509,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec,
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec,
-      { arg_attr_names: arg_attr_names },
+      [arg_attr_names],
       false);
   }
 
@@ -518,7 +518,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec,
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec,
-      { arg_frequency: arg_frequency },
+      [arg_frequency],
       false);
   }
 
@@ -527,7 +527,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -536,7 +536,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -545,7 +545,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec,
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -554,7 +554,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = cl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec,
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec,
-      { arg_iio_chn_indices: arg_iio_chn_indices },
+      [arg_iio_chn_indices],
       false);
   }
 
@@ -563,7 +563,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = cl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec,
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec,
-      { arg_iio_chn_indices: arg_iio_chn_indices, arg_attr_name: arg_attr_name },
+      [arg_iio_chn_indices, arg_attr_name],
       false);
   }
 
@@ -798,7 +798,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec,
       null,
-      { arg_sample: arg_sample },
+      [arg_sample],
       false);
   }
 
@@ -807,7 +807,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserverRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec,
       null,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -945,7 +945,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserverRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec,
       null,
-      { arg_iio_device_id: arg_iio_device_id, arg_types: arg_types },
+      [arg_iio_device_id, arg_types],
       false);
   }
 

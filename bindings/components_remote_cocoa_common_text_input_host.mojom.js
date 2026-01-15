@@ -267,7 +267,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec,
       null,
-      { arg_text: arg_text, arg_as_character: arg_as_character },
+      [arg_text, arg_as_character],
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec,
       null,
-      { arg_range: arg_range },
+      [arg_range],
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec,
       null,
-      { arg_text: arg_text, arg_selected_range: arg_selected_range, arg_replacement_range: arg_replacement_range },
+      [arg_text, arg_selected_range, arg_replacement_range],
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -357,7 +357,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -366,7 +366,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec,
-      { arg_requested_range: arg_requested_range },
+      [arg_requested_range],
       false);
   }
 
@@ -375,7 +375,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec,
-      { arg_requested_range: arg_requested_range },
+      [arg_requested_range],
       false);
   }
 
@@ -384,7 +384,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec,
-      { arg_command: arg_command },
+      [arg_command],
       false);
   }
 
@@ -393,7 +393,7 @@ mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemoteCallHandler = class
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec,
       null,
-      { arg_command: arg_command },
+      [arg_command],
       false);
   }
 

@@ -204,7 +204,7 @@ mojo.internal.bindings.media.mojom.GpuInfoObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec,
       null,
-      { arg_gpu_info: arg_gpu_info },
+      [arg_gpu_info],
       false);
   }
 
@@ -338,7 +338,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec,
-      { arg_key_system: arg_key_system },
+      [arg_key_system],
       false);
   }
 
@@ -347,7 +347,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec,
       null,
-      { arg_factory: arg_factory, arg_frame_interfaces: arg_frame_interfaces },
+      [arg_factory, arg_frame_interfaces],
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceBrokerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec,
       mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec,
-      { arg_gpu_info: arg_gpu_info },
+      [arg_gpu_info],
       false);
   }
 
@@ -506,7 +506,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceBrokerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec,
       null,
-      { arg_cdm_path: arg_cdm_path, arg_receiver: arg_receiver },
+      [arg_cdm_path, arg_receiver],
       false);
   }
 

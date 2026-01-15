@@ -299,7 +299,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerFactoryRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandler_GetApps_ParamsSpec,
       mojo.internal.bindings.app_management.mojom.PageHandler_GetApps_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -506,7 +506,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandler_GetApp_ParamsSpec,
       mojo.internal.bindings.app_management.mojom.PageHandler_GetApp_ResponseParamsSpec,
-      { arg_app_id: arg_app_id },
+      [arg_app_id],
       false);
   }
 
@@ -515,7 +515,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandler_GetSubAppToParentMap_ParamsSpec,
       mojo.internal.bindings.app_management.mojom.PageHandler_GetSubAppToParentMap_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -524,7 +524,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ParamsSpec,
       mojo.internal.bindings.app_management.mojom.PageHandler_GetExtensionAppPermissionMessages_ResponseParamsSpec,
-      { arg_app_id: arg_app_id },
+      [arg_app_id],
       false);
   }
 
@@ -533,7 +533,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandler_SetPinned_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id, arg_pinned: arg_pinned },
+      [arg_app_id, arg_pinned],
       false);
   }
 
@@ -542,7 +542,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandler_SetPermission_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id, arg_permission: arg_permission },
+      [arg_app_id, arg_permission],
       false);
   }
 
@@ -551,7 +551,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandler_SetResizeLocked_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id, arg_locked: arg_locked },
+      [arg_app_id, arg_locked],
       false);
   }
 
@@ -560,7 +560,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandler_Uninstall_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id },
+      [arg_app_id],
       false);
   }
 
@@ -569,7 +569,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandler_OpenNativeSettings_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id },
+      [arg_app_id],
       false);
   }
 
@@ -578,7 +578,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandler_SetPreferredApp_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id, arg_is_preferred_app: arg_is_preferred_app },
+      [arg_app_id, arg_is_preferred_app],
       false);
   }
 
@@ -587,7 +587,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandler_GetOverlappingPreferredApps_ParamsSpec,
       mojo.internal.bindings.app_management.mojom.PageHandler_GetOverlappingPreferredApps_ResponseParamsSpec,
-      { arg_app_id: arg_app_id },
+      [arg_app_id],
       false);
   }
 
@@ -596,7 +596,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandler_UpdateAppSize_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id },
+      [arg_app_id],
       false);
   }
 
@@ -605,7 +605,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandler_SetWindowMode_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id, arg_window_mode: arg_window_mode },
+      [arg_app_id, arg_window_mode],
       false);
   }
 
@@ -614,7 +614,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id, arg_run_on_os_login_mode: arg_run_on_os_login_mode },
+      [arg_app_id, arg_run_on_os_login_mode],
       false);
   }
 
@@ -623,7 +623,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandler_SetFileHandlingEnabled_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id, arg_enabled: arg_enabled },
+      [arg_app_id, arg_enabled],
       false);
   }
 
@@ -632,7 +632,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandler_ShowDefaultAppAssociationsUi_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -641,7 +641,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandler_OpenStorePage_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id },
+      [arg_app_id],
       false);
   }
 
@@ -650,7 +650,7 @@ mojo.internal.bindings.app_management.mojom.PageHandlerRemoteCallHandler = class
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.app_management.mojom.PageHandler_SetAppLocale_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id, arg_locale_tag: arg_locale_tag },
+      [arg_app_id, arg_locale_tag],
       false);
   }
 
@@ -969,7 +969,7 @@ mojo.internal.bindings.app_management.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.app_management.mojom.Page_OnAppAdded_ParamsSpec,
       null,
-      { arg_app: arg_app },
+      [arg_app],
       false);
   }
 
@@ -978,7 +978,7 @@ mojo.internal.bindings.app_management.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.app_management.mojom.Page_OnAppChanged_ParamsSpec,
       null,
-      { arg_update: arg_update },
+      [arg_update],
       false);
   }
 
@@ -987,7 +987,7 @@ mojo.internal.bindings.app_management.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.app_management.mojom.Page_OnAppRemoved_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id },
+      [arg_app_id],
       false);
   }
 

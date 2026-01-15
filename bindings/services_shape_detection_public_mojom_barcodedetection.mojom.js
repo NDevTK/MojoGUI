@@ -204,7 +204,7 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.shape_detection.mojom.BarcodeDetection_Detect_ParamsSpec,
       mojo.internal.bindings.shape_detection.mojom.BarcodeDetection_Detect_ResponseParamsSpec,
-      { arg_bitmap_data: arg_bitmap_data },
+      [arg_bitmap_data],
       false);
   }
 

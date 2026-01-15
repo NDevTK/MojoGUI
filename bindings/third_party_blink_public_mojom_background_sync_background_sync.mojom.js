@@ -227,7 +227,7 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec,
       mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec,
-      { arg_options: arg_options, arg_service_worker_registration_id: arg_service_worker_registration_id },
+      [arg_options, arg_service_worker_registration_id],
       false);
   }
 
@@ -236,7 +236,7 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec,
       null,
-      { arg_registration_info: arg_registration_info },
+      [arg_registration_info],
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec,
       mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec,
-      { arg_service_worker_registration_id: arg_service_worker_registration_id },
+      [arg_service_worker_registration_id],
       false);
   }
 
@@ -415,7 +415,7 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec,
-      { arg_options: arg_options, arg_service_worker_registration_id: arg_service_worker_registration_id },
+      [arg_options, arg_service_worker_registration_id],
       false);
   }
 
@@ -424,7 +424,7 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec,
-      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_tag: arg_tag },
+      [arg_service_worker_registration_id, arg_tag],
       false);
   }
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec,
-      { arg_service_worker_registration_id: arg_service_worker_registration_id },
+      [arg_service_worker_registration_id],
       false);
   }
 

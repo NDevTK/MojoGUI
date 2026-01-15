@@ -181,7 +181,7 @@ mojo.internal.bindings.test.mojom.FooRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.test.mojom.Foo_GetFoo_ParamsSpec,
       mojo.internal.bindings.test.mojom.Foo_GetFoo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -320,7 +320,7 @@ mojo.internal.bindings.test.mojom.BarRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.test.mojom.Bar_GetBar_ParamsSpec,
       mojo.internal.bindings.test.mojom.Bar_GetBar_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -459,7 +459,7 @@ mojo.internal.bindings.test.mojom.BazRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.test.mojom.Baz_GetBaz_ParamsSpec,
       mojo.internal.bindings.test.mojom.Baz_GetBaz_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

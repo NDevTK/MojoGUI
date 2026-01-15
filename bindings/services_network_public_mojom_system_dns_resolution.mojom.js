@@ -179,7 +179,7 @@ mojo.internal.bindings.network.mojom.SystemDnsResolverRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ParamsSpec,
       mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec,
-      { arg_hostname: arg_hostname, arg_addr_family: arg_addr_family, arg_flags: arg_flags, arg_network: arg_network },
+      [arg_hostname, arg_addr_family, arg_flags, arg_network],
       false);
   }
 

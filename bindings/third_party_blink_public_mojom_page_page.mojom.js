@@ -290,7 +290,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec,
-      { arg_state: arg_state, arg_page_restore_params: arg_page_restore_params },
+      [arg_state, arg_page_restore_params],
       false);
   }
 
@@ -299,7 +299,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec,
       null,
-      { arg_is_audio_playing: arg_is_audio_playing },
+      [arg_is_audio_playing],
       false);
   }
 
@@ -308,7 +308,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec,
-      { arg_prerender_page_activation_params: arg_prerender_page_activation_params },
+      [arg_prerender_page_activation_params],
       false);
   }
 
@@ -317,7 +317,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec,
       null,
-      { arg_preferences: arg_preferences },
+      [arg_preferences],
       false);
   }
 
@@ -326,7 +326,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec,
       null,
-      { arg_preferences: arg_preferences },
+      [arg_preferences],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec,
       null,
-      { arg_index: arg_index, arg_length: arg_length },
+      [arg_index, arg_length],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec,
       null,
-      { arg_color: arg_color },
+      [arg_color],
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec,
       null,
-      { arg_token: arg_token, arg_opener_frame_token: arg_opener_frame_token, arg_replication_state: arg_replication_state, arg_is_loading: arg_is_loading, arg_devtools_frame_token: arg_devtools_frame_token, arg_navigation_metrics_token: arg_navigation_metrics_token, arg_remote_frame_interfaces: arg_remote_frame_interfaces, arg_remote_main_frame_interfaces: arg_remote_main_frame_interfaces },
+      [arg_token, arg_opener_frame_token, arg_replication_state, arg_is_loading, arg_devtools_frame_token, arg_navigation_metrics_token, arg_remote_frame_interfaces, arg_remote_main_frame_interfaces],
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec,
       null,
-      { arg_browsing_context_group_token: arg_browsing_context_group_token },
+      [arg_browsing_context_group_token],
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec,
       null,
-      { arg_support: arg_support },
+      [arg_support],
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec,
       null,
-      { arg_color_provider_colors: arg_color_provider_colors },
+      [arg_color_provider_colors],
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.blink.mojom.PageBroadcastRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec,
       null,
-      { arg_supports_draggable_regions: arg_supports_draggable_regions },
+      [arg_supports_draggable_regions],
       false);
   }
 

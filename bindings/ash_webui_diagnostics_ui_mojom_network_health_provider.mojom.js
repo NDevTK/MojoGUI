@@ -246,7 +246,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserverRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec,
       null,
-      { arg_network_guids: arg_network_guids, arg_active_guid: arg_active_guid },
+      [arg_network_guids, arg_active_guid],
       false);
   }
 
@@ -376,7 +376,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserverRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec,
       null,
-      { arg_network: arg_network },
+      [arg_network],
       false);
   }
 
@@ -510,7 +510,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProviderRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -519,7 +519,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProviderRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec,
       null,
-      { arg_observer: arg_observer, arg_guid: arg_guid },
+      [arg_observer, arg_guid],
       false);
   }
 

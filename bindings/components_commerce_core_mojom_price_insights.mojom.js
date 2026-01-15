@@ -180,7 +180,7 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerRemoteC
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -189,7 +189,7 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerRemoteC
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 

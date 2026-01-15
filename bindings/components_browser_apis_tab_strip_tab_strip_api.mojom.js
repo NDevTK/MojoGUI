@@ -240,7 +240,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTabs_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tabs_api.mojom.TabStripService_GetTab_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec,
       null,
-      { arg_pos: arg_pos, arg_url: arg_url },
+      [arg_pos, arg_url],
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec,
       null,
-      { arg_selection: arg_selection, arg_tab_to_activate: arg_tab_to_activate },
+      [arg_selection, arg_tab_to_activate],
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.tabs_api.mojom.TabStripService_MoveNode_ParamsSpec,
       null,
-      { arg_id: arg_id, arg_position: arg_position },
+      [arg_id, arg_position],
       false);
   }
 
@@ -472,7 +472,7 @@ mojo.internal.bindings.tabs_api.mojom.TabsObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec,
       null,
-      { arg_events: arg_events },
+      [arg_events],
       false);
   }
 

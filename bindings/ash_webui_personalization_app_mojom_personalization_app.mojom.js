@@ -509,7 +509,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserverRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -518,7 +518,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserverRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec,
       null,
-      { arg_attribution: arg_attribution },
+      [arg_attribution],
       false);
   }
 
@@ -527,7 +527,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserverRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec,
       null,
-      { arg_image: arg_image },
+      [arg_image],
       false);
   }
 
@@ -773,7 +773,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_MakeTransparent_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -782,7 +782,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_MakeOpaque_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -791,7 +791,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -800,7 +800,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec,
-      { arg_collection_id: arg_collection_id },
+      [arg_collection_id],
       false);
   }
 
@@ -809,7 +809,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec,
-      { arg_resume_token: arg_resume_token },
+      [arg_resume_token],
       false);
   }
 
@@ -818,7 +818,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec,
-      { arg_resume_token: arg_resume_token },
+      [arg_resume_token],
       false);
   }
 
@@ -827,7 +827,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -836,7 +836,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec,
-      { arg_item_id: arg_item_id, arg_album_id: arg_album_id, arg_resume_token: arg_resume_token },
+      [arg_item_id, arg_album_id, arg_resume_token],
       false);
   }
 
@@ -845,7 +845,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -854,7 +854,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -863,7 +863,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec,
-      { arg_file_path: arg_file_path },
+      [arg_file_path],
       false);
   }
 
@@ -872,7 +872,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -881,7 +881,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec,
-      { arg_unit_id: arg_unit_id, arg_preview_mode: arg_preview_mode },
+      [arg_unit_id, arg_preview_mode],
       false);
   }
 
@@ -890,7 +890,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -899,7 +899,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec,
-      { arg_path: arg_path, arg_layout: arg_layout, arg_preview_mode: arg_preview_mode },
+      [arg_path, arg_layout, arg_preview_mode],
       false);
   }
 
@@ -908,7 +908,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec,
-      { arg_id: arg_id, arg_layout: arg_layout, arg_preview_mode: arg_preview_mode },
+      [arg_id, arg_layout, arg_preview_mode],
       false);
   }
 
@@ -917,7 +917,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -926,7 +926,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -935,7 +935,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_ParamsSpec,
       null,
-      { arg_layout: arg_layout },
+      [arg_layout],
       false);
   }
 
@@ -944,7 +944,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec,
-      { arg_collection_id: arg_collection_id },
+      [arg_collection_id],
       false);
   }
 
@@ -953,7 +953,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -962,7 +962,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -971,7 +971,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -980,7 +980,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_ConfirmPreviewWallpaper_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -989,7 +989,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_CancelPreviewWallpaper_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -998,7 +998,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProviderRemoteCall
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1532,7 +1532,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec,
       null,
-      { arg_dark_mode_enabled: arg_dark_mode_enabled },
+      [arg_dark_mode_enabled],
       false);
   }
 
@@ -1541,7 +1541,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -1550,7 +1550,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec,
       null,
-      { arg_color_scheme: arg_color_scheme },
+      [arg_color_scheme],
       false);
   }
 
@@ -1559,7 +1559,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSpec,
       null,
-      { arg_sample_color_schemes: arg_sample_color_schemes },
+      [arg_sample_color_schemes],
       false);
   }
 
@@ -1568,7 +1568,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec,
       null,
-      { arg_color: arg_color },
+      [arg_color],
       false);
   }
 
@@ -1577,7 +1577,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverRemoteCallHand
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled, arg_is_user_modifiable: arg_is_user_modifiable },
+      [arg_enabled, arg_is_user_modifiable],
       false);
   }
 
@@ -1586,7 +1586,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserverRemoteCallHand
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec,
       null,
-      { arg_sunrise_time: arg_sunrise_time, arg_sunset_time: arg_sunset_time },
+      [arg_sunrise_time, arg_sunset_time],
       false);
   }
 
@@ -1812,7 +1812,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -1821,7 +1821,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec,
       null,
-      { arg_dark_mode_enabled: arg_dark_mode_enabled },
+      [arg_dark_mode_enabled],
       false);
   }
 
@@ -1830,7 +1830,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -1839,7 +1839,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec,
       null,
-      { arg_colorScheme: arg_colorScheme },
+      [arg_colorScheme],
       false);
   }
 
@@ -1848,7 +1848,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec,
       null,
-      { arg_static_color: arg_static_color },
+      [arg_static_color],
       false);
   }
 
@@ -1857,7 +1857,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_EnableGeolocationForSystemServices_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1866,7 +1866,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1875,7 +1875,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1884,7 +1884,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1893,7 +1893,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1902,7 +1902,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1911,7 +1911,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1920,7 +1920,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.ThemeProviderRemoteCallHand
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2221,7 +2221,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec,
       null,
-      { arg_user_image: arg_user_image },
+      [arg_user_image],
       false);
   }
 
@@ -2230,7 +2230,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec,
       null,
-      { arg_profile_image: arg_profile_image },
+      [arg_profile_image],
       false);
   }
 
@@ -2239,7 +2239,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_ParamsSpec,
       null,
-      { arg_is_camera_present: arg_is_camera_present },
+      [arg_is_camera_present],
       false);
   }
 
@@ -2248,7 +2248,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserverRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_ParamsSpec,
       null,
-      { arg_is_enterprise_managed: arg_is_enterprise_managed },
+      [arg_is_enterprise_managed],
       false);
   }
 
@@ -2430,7 +2430,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2439,7 +2439,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetUserInfo_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2448,7 +2448,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2457,7 +2457,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectDefaultImage_ParamsSpec,
       null,
-      { arg_index: arg_index },
+      [arg_index],
       false);
   }
 
@@ -2466,7 +2466,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderRemoteCallHandl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectProfileImage_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2475,7 +2475,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderRemoteCallHandl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec,
       null,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -2484,7 +2484,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderRemoteCallHandl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2493,7 +2493,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.UserProviderRemoteCallHandl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -2733,7 +2733,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_ParamsSpec,
       null,
-      { arg_ambient_mode_enabled: arg_ambient_mode_enabled },
+      [arg_ambient_mode_enabled],
       false);
   }
 
@@ -2742,7 +2742,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec,
       null,
-      { arg_ambient_theme: arg_ambient_theme },
+      [arg_ambient_theme],
       false);
   }
 
@@ -2751,7 +2751,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec,
       null,
-      { arg_topic_source: arg_topic_source },
+      [arg_topic_source],
       false);
   }
 
@@ -2760,7 +2760,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnScreenSaverDurationChanged_ParamsSpec,
       null,
-      { arg_minutes: arg_minutes },
+      [arg_minutes],
       false);
   }
 
@@ -2769,7 +2769,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpec,
       null,
-      { arg_temperature_unit: arg_temperature_unit },
+      [arg_temperature_unit],
       false);
   }
 
@@ -2778,7 +2778,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec,
       null,
-      { arg_albums: arg_albums },
+      [arg_albums],
       false);
   }
 
@@ -2787,7 +2787,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec,
       null,
-      { arg_previews: arg_previews },
+      [arg_previews],
       false);
   }
 
@@ -2796,7 +2796,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_ParamsSpec,
       null,
-      { arg_visibility: arg_visibility },
+      [arg_visibility],
       false);
   }
 
@@ -2805,7 +2805,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled, arg_is_user_modifiable: arg_is_user_modifiable },
+      [arg_enabled, arg_is_user_modifiable],
       false);
   }
 
@@ -2814,7 +2814,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserverRemoteCallHa
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_ParamsSpec,
       null,
-      { arg_previews: arg_previews },
+      [arg_previews],
       false);
   }
 
@@ -3076,7 +3076,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -3085,7 +3085,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -3094,7 +3094,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -3103,7 +3103,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec,
       null,
-      { arg_ambient_theme: arg_ambient_theme },
+      [arg_ambient_theme],
       false);
   }
 
@@ -3112,7 +3112,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec,
       null,
-      { arg_minutes: arg_minutes },
+      [arg_minutes],
       false);
   }
 
@@ -3121,7 +3121,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec,
       null,
-      { arg_topic_source: arg_topic_source },
+      [arg_topic_source],
       false);
   }
 
@@ -3130,7 +3130,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec,
       null,
-      { arg_temperature_unit: arg_temperature_unit },
+      [arg_temperature_unit],
       false);
   }
 
@@ -3139,7 +3139,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec,
       null,
-      { arg_id: arg_id, arg_topic_source: arg_topic_source, arg_selected: arg_selected },
+      [arg_id, arg_topic_source, arg_selected],
       false);
   }
 
@@ -3148,7 +3148,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_SetPageViewed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -3157,7 +3157,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_FetchSettingsAndAlbums_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -3166,7 +3166,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_StartScreenSaverPreview_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -3175,7 +3175,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -3184,7 +3184,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_HandleTimeOfDayBannerDismissed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -3193,7 +3193,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -3202,7 +3202,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -3211,7 +3211,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.AmbientProviderRemoteCallHa
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.AmbientProvider_EnableGeolocationForSystemServices_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -3501,7 +3501,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserverRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec,
       null,
-      { arg_currentBacklightState: arg_currentBacklightState },
+      [arg_currentBacklightState],
       false);
   }
 
@@ -3510,7 +3510,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserverRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec,
       null,
-      { arg_wallpaper_color: arg_wallpaper_color },
+      [arg_wallpaper_color],
       false);
   }
 
@@ -3664,7 +3664,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -3673,7 +3673,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_ParamsSpec,
       null,
-      { arg_backlight_color: arg_backlight_color },
+      [arg_backlight_color],
       false);
   }
 
@@ -3682,7 +3682,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_ParamsSpec,
       null,
-      { arg_zone: arg_zone, arg_backlight_color: arg_backlight_color },
+      [arg_zone, arg_backlight_color],
       false);
   }
 
@@ -3691,7 +3691,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -3700,7 +3700,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProviderRe
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

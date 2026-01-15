@@ -190,7 +190,7 @@ mojo.internal.bindings.arc.keymint.mojom.CertStoreInstanceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec,
       mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec,
-      { arg_keys: arg_keys },
+      [arg_keys],
       false);
   }
 
@@ -199,7 +199,7 @@ mojo.internal.bindings.arc.keymint.mojom.CertStoreInstanceRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.keymint.mojom.CertStoreInstance_SetSerialNumber_ParamsSpec,
       null,
-      { arg_serial_number: arg_serial_number },
+      [arg_serial_number],
       false);
   }
 

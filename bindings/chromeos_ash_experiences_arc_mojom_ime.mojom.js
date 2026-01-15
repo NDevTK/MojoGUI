@@ -261,7 +261,7 @@ mojo.internal.bindings.arc.mojom.ImeHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec,
       null,
-      { arg_type: arg_type, arg_is_personalized_learning_allowed: arg_is_personalized_learning_allowed, arg_flags: arg_flags },
+      [arg_type, arg_is_personalized_learning_allowed, arg_flags],
       false);
   }
 
@@ -270,7 +270,7 @@ mojo.internal.bindings.arc.mojom.ImeHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec,
       null,
-      { arg_rect: arg_rect, arg_coordinateSpace: arg_coordinateSpace },
+      [arg_rect, arg_coordinateSpace],
       false);
   }
 
@@ -279,7 +279,7 @@ mojo.internal.bindings.arc.mojom.ImeHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.ImeHost_OnCancelComposition_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -288,7 +288,7 @@ mojo.internal.bindings.arc.mojom.ImeHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -297,7 +297,7 @@ mojo.internal.bindings.arc.mojom.ImeHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec,
       null,
-      { arg_rect: arg_rect, arg_text_range: arg_text_range, arg_text_in_range: arg_text_in_range, arg_selection_range: arg_selection_range, arg_coordinateSpace: arg_coordinateSpace },
+      [arg_rect, arg_text_range, arg_text_in_range, arg_selection_range, arg_coordinateSpace],
       false);
   }
 
@@ -306,7 +306,7 @@ mojo.internal.bindings.arc.mojom.ImeHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec,
-      { arg_key_event_data: arg_key_event_data },
+      [arg_key_event_data],
       false);
   }
 
@@ -513,7 +513,7 @@ mojo.internal.bindings.arc.mojom.ImeInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ImeInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ImeInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -522,7 +522,7 @@ mojo.internal.bindings.arc.mojom.ImeInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.ImeInstance_SetCompositionText_ParamsSpec,
       null,
-      { arg_text: arg_text, arg_segments: arg_segments, arg_selection_range: arg_selection_range },
+      [arg_text, arg_segments, arg_selection_range],
       false);
   }
 
@@ -531,7 +531,7 @@ mojo.internal.bindings.arc.mojom.ImeInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.ImeInstance_SetSelectionText_ParamsSpec,
       null,
-      { arg_selection: arg_selection },
+      [arg_selection],
       false);
   }
 
@@ -540,7 +540,7 @@ mojo.internal.bindings.arc.mojom.ImeInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -549,7 +549,7 @@ mojo.internal.bindings.arc.mojom.ImeInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.ImeInstance_InsertText_ParamsSpec,
       null,
-      { arg_text: arg_text, arg_new_cursor_position: arg_new_cursor_position },
+      [arg_text, arg_new_cursor_position],
       false);
   }
 
@@ -558,7 +558,7 @@ mojo.internal.bindings.arc.mojom.ImeInstanceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec,
       null,
-      { arg_new_bounds: arg_new_bounds, arg_is_available: arg_is_available },
+      [arg_new_bounds, arg_is_available],
       false);
   }
 
@@ -567,7 +567,7 @@ mojo.internal.bindings.arc.mojom.ImeInstanceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec,
       null,
-      { arg_before: arg_before, arg_after: arg_after },
+      [arg_before, arg_after],
       false);
   }
 
@@ -576,7 +576,7 @@ mojo.internal.bindings.arc.mojom.ImeInstanceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec,
       null,
-      { arg_range: arg_range },
+      [arg_range],
       false);
   }
 

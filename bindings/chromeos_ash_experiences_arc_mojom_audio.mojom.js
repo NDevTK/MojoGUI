@@ -213,7 +213,7 @@ mojo.internal.bindings.arc.mojom.AudioHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.arc.mojom.AudioHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec,
       null,
-      { arg_percent: arg_percent },
+      [arg_percent],
       false);
   }
 
@@ -376,7 +376,7 @@ mojo.internal.bindings.arc.mojom.AudioInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AudioInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AudioInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.arc.mojom.AudioInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.arc.mojom.AudioInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec,
       null,
-      { arg_volume: arg_volume, arg_muted: arg_muted },
+      [arg_volume, arg_muted],
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.arc.mojom.AudioInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.arc.mojom.AudioInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec,
       null,
-      { arg_device_type: arg_device_type },
+      [arg_device_type],
       false);
   }
 

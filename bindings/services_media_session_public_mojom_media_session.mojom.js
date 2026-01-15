@@ -350,7 +350,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 
@@ -359,7 +359,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionObserverRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec,
       null,
-      { arg_metadata: arg_metadata },
+      [arg_metadata],
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionObserverRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec,
       null,
-      { arg_action: arg_action },
+      [arg_action],
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionObserverRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec,
       null,
-      { arg_images: arg_images },
+      [arg_images],
       false);
   }
 
@@ -386,7 +386,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionObserverRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec,
       null,
-      { arg_position: arg_position },
+      [arg_position],
       false);
   }
 
@@ -656,7 +656,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec,
       mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -665,7 +665,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_GetDebugInfo_ParamsSpec,
       mojo.internal.bindings.media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_StartDucking_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_StopDucking_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -692,7 +692,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_Suspend_ParamsSpec,
       null,
-      { arg_suspend_type: arg_suspend_type },
+      [arg_suspend_type],
       false);
   }
 
@@ -701,7 +701,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_Resume_ParamsSpec,
       null,
-      { arg_suspend_type: arg_suspend_type },
+      [arg_suspend_type],
       false);
   }
 
@@ -710,7 +710,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -719,7 +719,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_PreviousTrack_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -728,7 +728,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_NextTrack_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -737,7 +737,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_Seek_ParamsSpec,
       null,
-      { arg_seek_time: arg_seek_time },
+      [arg_seek_time],
       false);
   }
 
@@ -746,7 +746,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_Stop_ParamsSpec,
       null,
-      { arg_suspend_type: arg_suspend_type },
+      [arg_suspend_type],
       false);
   }
 
@@ -755,7 +755,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_SkipAd_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -764,7 +764,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec,
       mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec,
-      { arg_image: arg_image, arg_minimum_size_px: arg_minimum_size_px, arg_desired_size_px: arg_desired_size_px },
+      [arg_image, arg_minimum_size_px, arg_desired_size_px],
       false);
   }
 
@@ -773,7 +773,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_SeekTo_ParamsSpec,
       null,
-      { arg_seek_time: arg_seek_time },
+      [arg_seek_time],
       false);
   }
 
@@ -782,7 +782,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_ScrubTo_ParamsSpec,
       null,
-      { arg_seek_time: arg_seek_time },
+      [arg_seek_time],
       false);
   }
 
@@ -791,7 +791,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_EnterPictureInPicture_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -800,7 +800,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_ExitPictureInPicture_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -809,7 +809,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_SetAudioSinkId_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -818,7 +818,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_ToggleMicrophone_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -827,7 +827,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_ToggleCamera_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -836,7 +836,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_HangUp_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -845,7 +845,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_Raise_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -854,7 +854,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_SetMute_ParamsSpec,
       null,
-      { arg_mute: arg_mute },
+      [arg_mute],
       false);
   }
 
@@ -863,7 +863,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_RequestMediaRemoting_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -872,7 +872,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_PreviousSlide_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -881,7 +881,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_NextSlide_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -890,7 +890,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_EnterAutoPictureInPicture_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -899,7 +899,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ParamsSpec,
       mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

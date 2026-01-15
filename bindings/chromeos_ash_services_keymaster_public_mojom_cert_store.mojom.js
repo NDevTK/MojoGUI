@@ -185,7 +185,7 @@ mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstanceRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec,
       mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec,
-      { arg_keys: arg_keys },
+      [arg_keys],
       false);
   }
 

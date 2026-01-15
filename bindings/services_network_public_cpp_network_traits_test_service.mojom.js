@@ -176,7 +176,7 @@ mojo.internal.bindings.network.mojom.TraitsTestServiceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec,
       mojo.internal.bindings.network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec,
-      { arg_headers: arg_headers },
+      [arg_headers],
       false);
   }
 

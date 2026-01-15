@@ -272,7 +272,7 @@ mojo.internal.bindings.viz.mojom.LayerContextRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.LayerContext_SetVisible_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.viz.mojom.LayerContextRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec,
       null,
-      { arg_update: arg_update },
+      [arg_update],
       false);
   }
 
@@ -290,7 +290,7 @@ mojo.internal.bindings.viz.mojom.LayerContextRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec,
       null,
-      { arg_tiling: arg_tiling },
+      [arg_tiling],
       false);
   }
 
@@ -440,7 +440,7 @@ mojo.internal.bindings.viz.mojom.LayerContextClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec,
       null,
-      { arg_args: arg_args },
+      [arg_args],
       false);
   }
 
@@ -449,7 +449,7 @@ mojo.internal.bindings.viz.mojom.LayerContextClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec,
       null,
-      { arg_layer_id: arg_layer_id, arg_tiling_scales_to_clean_up: arg_tiling_scales_to_clean_up },
+      [arg_layer_id, arg_tiling_scales_to_clean_up],
       false);
   }
 

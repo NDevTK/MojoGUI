@@ -187,7 +187,7 @@ mojo.internal.bindings.arc.mojom.ArcShellExecutionInstanceRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec,
       mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 

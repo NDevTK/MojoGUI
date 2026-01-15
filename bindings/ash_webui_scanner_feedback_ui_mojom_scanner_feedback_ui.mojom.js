@@ -189,7 +189,7 @@ mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec,
       mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -198,7 +198,7 @@ mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -207,7 +207,7 @@ mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec,
       null,
-      { arg_user_description: arg_user_description },
+      [arg_user_description],
       false);
   }
 

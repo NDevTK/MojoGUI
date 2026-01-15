@@ -201,7 +201,7 @@ mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServiceRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -210,7 +210,7 @@ mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServiceRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServiceRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

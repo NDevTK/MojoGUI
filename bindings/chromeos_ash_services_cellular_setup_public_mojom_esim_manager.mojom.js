@@ -262,7 +262,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec,
       null,
-      { arg_euicc: arg_euicc },
+      [arg_euicc],
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec,
       null,
-      { arg_euicc: arg_euicc },
+      [arg_euicc],
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec,
       null,
-      { arg_profile: arg_profile },
+      [arg_profile],
       false);
   }
 
@@ -447,7 +447,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -456,7 +456,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimManagerRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -623,7 +623,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProperties_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -632,7 +632,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProfileList_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -641,7 +641,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -650,7 +650,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -659,7 +659,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec,
-      { arg_activation_code: arg_activation_code, arg_confirmation_code: arg_confirmation_code, arg_install_method: arg_install_method },
+      [arg_activation_code, arg_confirmation_code, arg_install_method],
       false);
   }
 
@@ -668,7 +668,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetEidQRCode_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -902,7 +902,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_GetProperties_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -911,7 +911,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec,
-      { arg_confirmation_code: arg_confirmation_code },
+      [arg_confirmation_code],
       false);
   }
 
@@ -920,7 +920,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileRemoteCallHandler = c
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -929,7 +929,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfileRemoteCallHandler = c
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec,
       mojo.internal.bindings.ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec,
-      { arg_nickname: arg_nickname },
+      [arg_nickname],
       false);
   }
 

@@ -183,7 +183,7 @@ mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorderRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec,
       null,
-      { arg_features: arg_features },
+      [arg_features],
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorderRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec,
       null,
-      { arg_targets: arg_targets },
+      [arg_targets],
       false);
   }
 

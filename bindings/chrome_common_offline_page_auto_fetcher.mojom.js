@@ -185,7 +185,7 @@ mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec,
-      { arg_user_requested: arg_user_requested },
+      [arg_user_requested],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

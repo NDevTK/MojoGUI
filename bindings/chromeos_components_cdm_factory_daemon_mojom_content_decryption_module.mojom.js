@@ -315,7 +315,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec,
-      { arg_certificate_data: arg_certificate_data },
+      [arg_certificate_data],
       false);
   }
 
@@ -324,7 +324,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec,
-      { arg_min_hdcp_version: arg_min_hdcp_version },
+      [arg_min_hdcp_version],
       false);
   }
 
@@ -333,7 +333,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec,
-      { arg_session_type: arg_session_type, arg_init_data_type: arg_init_data_type, arg_init_data: arg_init_data },
+      [arg_session_type, arg_init_data_type, arg_init_data],
       false);
   }
 
@@ -342,7 +342,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec,
-      { arg_session_type: arg_session_type, arg_session_id: arg_session_id },
+      [arg_session_type, arg_session_id],
       false);
   }
 
@@ -351,7 +351,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec,
-      { arg_session_id: arg_session_id, arg_response: arg_response },
+      [arg_session_id, arg_response],
       false);
   }
 
@@ -360,7 +360,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec,
-      { arg_session_id: arg_session_id },
+      [arg_session_id],
       false);
   }
 
@@ -369,7 +369,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec,
-      { arg_session_id: arg_session_id },
+      [arg_session_id],
       false);
   }
 
@@ -378,7 +378,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec,
-      { arg_encrypted_data: arg_encrypted_data, arg_decrypt_config: arg_decrypt_config },
+      [arg_encrypted_data, arg_decrypt_config],
       false);
   }
 
@@ -387,7 +387,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandl
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec,
-      { arg_decrypt_config: arg_decrypt_config, arg_hw_identifier: arg_hw_identifier },
+      [arg_decrypt_config, arg_hw_identifier],
       false);
   }
 
@@ -396,7 +396,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandl
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ParamsSpec,
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec,
-      { arg_encrypted_data: arg_encrypted_data, arg_decrypt_config_in: arg_decrypt_config_in, arg_is_video: arg_is_video, arg_secure_handle: arg_secure_handle },
+      [arg_encrypted_data, arg_decrypt_config_in, arg_is_video, arg_secure_handle],
       false);
   }
 
@@ -694,7 +694,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec,
       null,
-      { arg_session_id: arg_session_id, arg_message_type: arg_message_type, arg_message: arg_message },
+      [arg_session_id, arg_message_type, arg_message],
       false);
   }
 
@@ -703,7 +703,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec,
       null,
-      { arg_session_id: arg_session_id },
+      [arg_session_id],
       false);
   }
 
@@ -712,7 +712,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientRemoteCal
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec,
       null,
-      { arg_session_id: arg_session_id, arg_has_additional_usable_key: arg_has_additional_usable_key, arg_keys_info: arg_keys_info },
+      [arg_session_id, arg_has_additional_usable_key, arg_keys_info],
       false);
   }
 
@@ -721,7 +721,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientRemoteCal
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec,
       null,
-      { arg_session_id: arg_session_id, arg_new_expiry_time_sec: arg_new_expiry_time_sec },
+      [arg_session_id, arg_new_expiry_time_sec],
       false);
   }
 

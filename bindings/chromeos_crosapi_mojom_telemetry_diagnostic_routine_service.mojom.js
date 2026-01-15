@@ -367,7 +367,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -376,7 +376,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_Start_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControlRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_ParamsSpec,
       null,
-      { arg_reply: arg_reply },
+      [arg_reply],
       false);
   }
 
@@ -540,7 +540,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserverRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineObserver_OnRoutineStateChange_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec,
       null,
-      { arg_routine_argument: arg_routine_argument, arg_routine_receiver: arg_routine_receiver, arg_routine_observer: arg_routine_observer },
+      [arg_routine_argument, arg_routine_receiver, arg_routine_observer],
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ParamsSpec,
       mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec,
-      { arg_routine_argument: arg_routine_argument },
+      [arg_routine_argument],
       false);
   }
 

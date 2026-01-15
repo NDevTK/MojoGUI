@@ -359,7 +359,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactoryRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -368,7 +368,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactoryRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerFactory_ShouldShowUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -630,7 +630,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ParamsSpec,
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -639,7 +639,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_GetPresentationState_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -648,7 +648,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_GetVoicePackInfo_ParamsSpec,
       null,
-      { arg_language: arg_language },
+      [arg_language],
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_InstallVoicePack_ParamsSpec,
       null,
-      { arg_language: arg_language },
+      [arg_language],
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_UninstallVoice_ParamsSpec,
       null,
-      { arg_language: arg_language },
+      [arg_language],
       false);
   }
 
@@ -675,7 +675,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCopy_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -684,7 +684,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnLineSpaceChange_ParamsSpec,
       null,
-      { arg_line_spacing: arg_line_spacing },
+      [arg_line_spacing],
       false);
   }
 
@@ -693,7 +693,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnLetterSpaceChange_ParamsSpec,
       null,
-      { arg_letter_spacing: arg_letter_spacing },
+      [arg_letter_spacing],
       false);
   }
 
@@ -702,7 +702,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnFontChange_ParamsSpec,
       null,
-      { arg_font: arg_font },
+      [arg_font],
       false);
   }
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnFontSizeChange_ParamsSpec,
       null,
-      { arg_font_size: arg_font_size },
+      [arg_font_size],
       false);
   }
 
@@ -720,7 +720,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnLinksEnabledChanged_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -729,7 +729,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnImagesEnabledChanged_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -738,7 +738,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnColorChange_ParamsSpec,
       null,
-      { arg_color: arg_color },
+      [arg_color],
       false);
   }
 
@@ -747,7 +747,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSpeechRateChange_ParamsSpec,
       null,
-      { arg_rate: arg_rate },
+      [arg_rate],
       false);
   }
 
@@ -756,7 +756,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnVoiceChange_ParamsSpec,
       null,
-      { arg_voice: arg_voice, arg_lang: arg_lang },
+      [arg_voice, arg_lang],
       false);
   }
 
@@ -765,7 +765,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnLanguagePrefChange_ParamsSpec,
       null,
-      { arg_lang: arg_lang, arg_enabled: arg_enabled },
+      [arg_lang, arg_enabled],
       false);
   }
 
@@ -774,7 +774,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_LogExtensionState_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -783,7 +783,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnHighlightGranularityChanged_ParamsSpec,
       null,
-      { arg_granularity: arg_granularity },
+      [arg_granularity],
       false);
   }
 
@@ -792,7 +792,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnLineFocusChanged_ParamsSpec,
       null,
-      { arg_granularity: arg_granularity },
+      [arg_granularity],
       false);
   }
 
@@ -801,7 +801,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnReadAloudAudioStateChange_ParamsSpec,
       null,
-      { arg_playing: arg_playing },
+      [arg_playing],
       false);
   }
 
@@ -810,7 +810,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnLinkClicked_ParamsSpec,
       null,
-      { arg_target_tree_id: arg_target_tree_id, arg_target_node_id: arg_target_node_id },
+      [arg_target_tree_id, arg_target_node_id],
       false);
   }
 
@@ -819,7 +819,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_ParamsSpec,
       null,
-      { arg_target_tree_id: arg_target_tree_id, arg_target_node_id: arg_target_node_id },
+      [arg_target_tree_id, arg_target_node_id],
       false);
   }
 
@@ -828,7 +828,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec,
       null,
-      { arg_target_tree_id: arg_target_tree_id, arg_anchor_node_id: arg_anchor_node_id, arg_anchor_offset: arg_anchor_offset, arg_focus_node_id: arg_focus_node_id, arg_focus_offset: arg_focus_offset },
+      [arg_target_tree_id, arg_anchor_node_id, arg_anchor_offset, arg_focus_node_id, arg_focus_offset],
       false);
   }
 
@@ -837,7 +837,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -846,7 +846,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnScreenshotRequested_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -855,7 +855,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec,
       null,
-      { arg_status: arg_status, arg_word_count: arg_word_count },
+      [arg_status, arg_word_count],
       false);
   }
 
@@ -864,7 +864,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_ScrollToTargetNode_ParamsSpec,
       null,
-      { arg_target_tree_id: arg_target_tree_id, arg_target_node_id: arg_target_node_id },
+      [arg_target_tree_id, arg_target_node_id],
       false);
   }
 
@@ -873,7 +873,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_CloseUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -882,7 +882,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_TogglePinState_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -891,7 +891,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_SendPinStateRequest_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -900,7 +900,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_TogglePresentation_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -909,7 +909,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_AckReadingModeHidden_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1356,7 +1356,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_AccessibilityEventReceived_ParamsSpec,
       null,
-      { arg_tree_id: arg_tree_id, arg_updates: arg_updates, arg_events: arg_events },
+      [arg_tree_id, arg_updates, arg_events],
       false);
   }
 
@@ -1365,7 +1365,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec,
       null,
-      { arg_presentation_state: arg_presentation_state },
+      [arg_presentation_state],
       false);
   }
 
@@ -1374,7 +1374,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec,
       null,
-      { arg_voice_pack_info: arg_voice_pack_info },
+      [arg_voice_pack_info],
       false);
   }
 
@@ -1383,7 +1383,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec,
       null,
-      { arg_tree_id: arg_tree_id, arg_details: arg_details },
+      [arg_tree_id, arg_details],
       false);
   }
 
@@ -1392,7 +1392,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec,
       null,
-      { arg_tree_id: arg_tree_id, arg_ukm_source_id: arg_ukm_source_id, arg_is_pdf: arg_is_pdf },
+      [arg_tree_id, arg_ukm_source_id, arg_is_pdf],
       false);
   }
 
@@ -1401,7 +1401,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec,
       null,
-      { arg_tree_id: arg_tree_id },
+      [arg_tree_id],
       false);
   }
 
@@ -1410,7 +1410,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_SetLanguageCode_ParamsSpec,
       null,
-      { arg_code: arg_code },
+      [arg_code],
       false);
   }
 
@@ -1419,7 +1419,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1428,7 +1428,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec,
       null,
-      { arg_code: arg_code },
+      [arg_code],
       false);
   }
 
@@ -1437,7 +1437,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec,
       null,
-      { arg_line_spacing: arg_line_spacing, arg_letter_spacing: arg_letter_spacing, arg_font: arg_font, arg_font_size: arg_font_size, arg_links_enabled: arg_links_enabled, arg_images_enabled: arg_images_enabled, arg_color: arg_color, arg_speech_rate: arg_speech_rate, arg_voices: arg_voices, arg_languages_enabled_in_pref: arg_languages_enabled_in_pref, arg_granularity: arg_granularity, arg_line_focus: arg_line_focus },
+      [arg_line_spacing, arg_letter_spacing, arg_font, arg_font_size, arg_links_enabled, arg_images_enabled, arg_color, arg_speech_rate, arg_voices, arg_languages_enabled_in_pref, arg_granularity, arg_line_focus],
       false);
   }
 
@@ -1446,7 +1446,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1455,7 +1455,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec,
       null,
-      { arg_tab_active: arg_tab_active },
+      [arg_tab_active],
       false);
   }
 
@@ -1464,7 +1464,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1473,7 +1473,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec,
       null,
-      { arg_muted: arg_muted },
+      [arg_muted],
       false);
   }
 
@@ -1482,7 +1482,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec,
       null,
-      { arg_tree_id: arg_tree_id, arg_node_id: arg_node_id, arg_image: arg_image },
+      [arg_tree_id, arg_node_id, arg_image],
       false);
   }
 
@@ -1491,7 +1491,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec,
       null,
-      { arg_new_pin_state: arg_new_pin_state },
+      [arg_new_pin_state],
       false);
   }
 

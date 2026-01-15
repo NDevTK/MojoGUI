@@ -211,7 +211,7 @@ mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec,
       mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec,
-      { arg_untrusted_request_url: arg_untrusted_request_url },
+      [arg_untrusted_request_url],
       false);
   }
 
@@ -467,7 +467,7 @@ mojo.internal.bindings.chrome.mojom.RendererConfigurationRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec,
       null,
-      { arg_is_incognito_process: arg_is_incognito_process, arg_chromeos_listener: arg_chromeos_listener, arg_content_settings_manager: arg_content_settings_manager, arg_bound_session_request_throttled_handler: arg_bound_session_request_throttled_handler },
+      [arg_is_incognito_process, arg_chromeos_listener, arg_content_settings_manager, arg_bound_session_request_throttled_handler],
       false);
   }
 
@@ -476,7 +476,7 @@ mojo.internal.bindings.chrome.mojom.RendererConfigurationRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -485,7 +485,7 @@ mojo.internal.bindings.chrome.mojom.RendererConfigurationRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 

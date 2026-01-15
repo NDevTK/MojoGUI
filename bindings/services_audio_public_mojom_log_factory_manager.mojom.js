@@ -178,7 +178,7 @@ mojo.internal.bindings.audio.mojom.LogFactoryManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec,
       null,
-      { arg_factory: arg_factory },
+      [arg_factory],
       false);
   }
 

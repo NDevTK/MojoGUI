@@ -176,7 +176,7 @@ mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTestRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec,
       mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec,
-      { arg_in: arg_in },
+      [arg_in],
       false);
   }
 

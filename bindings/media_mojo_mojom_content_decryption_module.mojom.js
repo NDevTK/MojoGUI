@@ -282,7 +282,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetClient_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec,
       mojo.internal.bindings.media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec,
-      { arg_certificate_data: arg_certificate_data },
+      [arg_certificate_data],
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec,
       mojo.internal.bindings.media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec,
-      { arg_min_hdcp_version: arg_min_hdcp_version },
+      [arg_min_hdcp_version],
       false);
   }
 
@@ -309,7 +309,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec,
       mojo.internal.bindings.media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec,
-      { arg_session_type: arg_session_type, arg_init_data_type: arg_init_data_type, arg_init_data: arg_init_data },
+      [arg_session_type, arg_init_data_type, arg_init_data],
       false);
   }
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec,
       mojo.internal.bindings.media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec,
-      { arg_session_type: arg_session_type, arg_session_id: arg_session_id },
+      [arg_session_type, arg_session_id],
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec,
       mojo.internal.bindings.media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec,
-      { arg_session_id: arg_session_id, arg_response: arg_response },
+      [arg_session_id, arg_response],
       false);
   }
 
@@ -336,7 +336,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleRemoteCallHandler = cl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec,
       mojo.internal.bindings.media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec,
-      { arg_session_id: arg_session_id },
+      [arg_session_id],
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleRemoteCallHandler = cl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec,
       mojo.internal.bindings.media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec,
-      { arg_session_id: arg_session_id },
+      [arg_session_id],
       false);
   }
 
@@ -603,7 +603,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec,
       null,
-      { arg_session_id: arg_session_id, arg_message_type: arg_message_type, arg_message: arg_message },
+      [arg_session_id, arg_message_type, arg_message],
       false);
   }
 
@@ -612,7 +612,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec,
       null,
-      { arg_session_id: arg_session_id, arg_reason: arg_reason },
+      [arg_session_id, arg_reason],
       false);
   }
 
@@ -621,7 +621,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec,
       null,
-      { arg_session_id: arg_session_id, arg_has_additional_usable_key: arg_has_additional_usable_key, arg_keys_info: arg_keys_info },
+      [arg_session_id, arg_has_additional_usable_key, arg_keys_info],
       false);
   }
 
@@ -630,7 +630,7 @@ mojo.internal.bindings.media.mojom.ContentDecryptionModuleClientRemoteCallHandle
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec,
       null,
-      { arg_session_id: arg_session_id, arg_new_expiry_time_sec: arg_new_expiry_time_sec },
+      [arg_session_id, arg_new_expiry_time_sec],
       false);
   }
 
@@ -784,7 +784,7 @@ mojo.internal.bindings.media.mojom.CdmFactoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec,
-      { arg_cdm_config: arg_cdm_config },
+      [arg_cdm_config],
       false);
   }
 

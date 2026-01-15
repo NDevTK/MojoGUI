@@ -193,7 +193,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactoryRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -331,7 +331,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec,
       null,
-      { arg_visible: arg_visible, arg_section: arg_section, arg_trigger: arg_trigger },
+      [arg_visible, arg_section, arg_trigger],
       false);
   }
 
@@ -495,7 +495,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 

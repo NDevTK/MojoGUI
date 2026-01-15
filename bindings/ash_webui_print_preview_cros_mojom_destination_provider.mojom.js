@@ -184,7 +184,7 @@ mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProviderRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec,
       mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec,
-      { arg_destination_id: arg_destination_id, arg_printer_type: arg_printer_type },
+      [arg_destination_id, arg_printer_type],
       false);
   }
 

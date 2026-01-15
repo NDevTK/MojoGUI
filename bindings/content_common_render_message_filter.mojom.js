@@ -191,7 +191,7 @@ mojo.internal.bindings.content.mojom.RenderMessageFilterRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec,
       mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -200,7 +200,7 @@ mojo.internal.bindings.content.mojom.RenderMessageFilterRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec,
       mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

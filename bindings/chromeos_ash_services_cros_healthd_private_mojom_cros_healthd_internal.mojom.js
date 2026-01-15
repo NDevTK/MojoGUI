@@ -203,7 +203,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemo
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -212,7 +212,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemo
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -221,7 +221,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemo
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -230,7 +230,7 @@ mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemo
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec,
-      { arg_mute_on: arg_mute_on },
+      [arg_mute_on],
       false);
   }
 

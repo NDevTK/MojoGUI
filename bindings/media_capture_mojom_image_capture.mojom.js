@@ -228,7 +228,7 @@ mojo.internal.bindings.media.mojom.ImageCaptureRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ParamsSpec,
       mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec,
-      { arg_source_id: arg_source_id },
+      [arg_source_id],
       false);
   }
 
@@ -237,7 +237,7 @@ mojo.internal.bindings.media.mojom.ImageCaptureRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec,
       mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec,
-      { arg_source_id: arg_source_id, arg_settings: arg_settings },
+      [arg_source_id, arg_settings],
       false);
   }
 
@@ -246,7 +246,7 @@ mojo.internal.bindings.media.mojom.ImageCaptureRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ParamsSpec,
       mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec,
-      { arg_source_id: arg_source_id },
+      [arg_source_id],
       false);
   }
 

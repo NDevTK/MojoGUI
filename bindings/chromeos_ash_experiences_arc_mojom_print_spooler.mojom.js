@@ -303,7 +303,7 @@ mojo.internal.bindings.arc.mojom.PrintSessionInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.arc.mojom.PrintSessionInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -458,7 +458,7 @@ mojo.internal.bindings.arc.mojom.PrintSpoolerHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec,
-      { arg_scoped_handle: arg_scoped_handle, arg_task_id: arg_task_id, arg_instance: arg_instance },
+      [arg_scoped_handle, arg_task_id, arg_instance],
       false);
   }
 
@@ -597,7 +597,7 @@ mojo.internal.bindings.arc.mojom.PrintSpoolerInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 

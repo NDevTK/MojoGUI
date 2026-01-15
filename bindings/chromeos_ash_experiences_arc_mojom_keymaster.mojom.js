@@ -250,7 +250,7 @@ mojo.internal.bindings.arc.mojom.KeymasterHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterHost_GetServer_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterHost_GetServer_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.arc.mojom.KeymasterInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -579,7 +579,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_SetSystemVersion_ParamsSpec,
       null,
-      { arg_os_version: arg_os_version, arg_os_patchlevel: arg_os_patchlevel },
+      [arg_os_version, arg_os_patchlevel],
       false);
   }
 
@@ -588,7 +588,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_AddRngEntropy_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_AddRngEntropy_ResponseParamsSpec,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 
@@ -597,7 +597,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -606,7 +606,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_GenerateKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_GenerateKey_ResponseParamsSpec,
-      { arg_key_params: arg_key_params },
+      [arg_key_params],
       false);
   }
 
@@ -615,7 +615,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_ImportKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_ImportKey_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -624,7 +624,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_ExportKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_ExportKey_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -633,7 +633,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_AttestKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_AttestKey_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -642,7 +642,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_UpgradeKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_UpgradeKey_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -651,7 +651,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_DeleteKey_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_DeleteKey_ResponseParamsSpec,
-      { arg_key_blob: arg_key_blob },
+      [arg_key_blob],
       false);
   }
 
@@ -660,7 +660,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_DeleteAllKeys_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_DeleteAllKeys_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -669,7 +669,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_Begin_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_Begin_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -678,7 +678,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_Update_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_Update_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -687,7 +687,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_Finish_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_Finish_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -696,7 +696,7 @@ mojo.internal.bindings.arc.mojom.KeymasterServerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.KeymasterServer_Abort_ParamsSpec,
       mojo.internal.bindings.arc.mojom.KeymasterServer_Abort_ResponseParamsSpec,
-      { arg_op_handle: arg_op_handle },
+      [arg_op_handle],
       false);
   }
 

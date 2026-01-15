@@ -218,7 +218,7 @@ mojo.internal.bindings.webnn.mojom.WebNNContextRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.webnn.mojom.WebNNContextRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ParamsSpec,
       mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec,
-      { arg_tensor_info: arg_tensor_info, arg_tensor_data: arg_tensor_data },
+      [arg_tensor_info, arg_tensor_data],
       false);
   }
 
@@ -236,7 +236,7 @@ mojo.internal.bindings.webnn.mojom.WebNNContextRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec,
       mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec,
-      { arg_tensor_info: arg_tensor_info, arg_mailbox: arg_mailbox, arg_fence: arg_fence },
+      [arg_tensor_info, arg_mailbox, arg_fence],
       false);
   }
 

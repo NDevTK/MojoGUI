@@ -213,7 +213,7 @@ mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactoryRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -347,7 +347,7 @@ mojo.internal.bindings.access_code_cast.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ParamsSpec,
       mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec,
-      { arg_access_code: arg_access_code, arg_discovery_method: arg_discovery_method },
+      [arg_access_code, arg_discovery_method],
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.access_code_cast.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec,
       mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

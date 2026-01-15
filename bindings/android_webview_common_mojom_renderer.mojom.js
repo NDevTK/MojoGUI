@@ -175,7 +175,7 @@ mojo.internal.bindings.android_webview.mojom.RendererRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.android_webview.mojom.Renderer_ClearCache_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -184,7 +184,7 @@ mojo.internal.bindings.android_webview.mojom.RendererRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec,
       null,
-      { arg_network_up: arg_network_up },
+      [arg_network_up],
       false);
   }
 

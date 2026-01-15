@@ -278,7 +278,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec,
       null,
-      { arg_page_number: arg_page_number, arg_progress_percent: arg_progress_percent },
+      [arg_page_number, arg_progress_percent],
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec,
       null,
-      { arg_page_data: arg_page_data, arg_new_page_index: arg_new_page_index },
+      [arg_page_data, arg_new_page_index],
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec,
       null,
-      { arg_result: arg_result, arg_scanned_file_paths: arg_scanned_file_paths },
+      [arg_result, arg_scanned_file_paths],
       false);
   }
 
@@ -305,7 +305,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec,
       null,
-      { arg_success: arg_success },
+      [arg_success],
       false);
   }
 
@@ -314,7 +314,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanJobObserverRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec,
       null,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 
@@ -492,7 +492,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ParamsSpec,
       mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -501,7 +501,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec,
       mojo.internal.bindings.ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec,
-      { arg_scanner_id: arg_scanner_id },
+      [arg_scanner_id],
       false);
   }
 
@@ -510,7 +510,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ParamsSpec,
       mojo.internal.bindings.ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec,
-      { arg_scanner_id: arg_scanner_id, arg_settings: arg_settings, arg_observer: arg_observer },
+      [arg_scanner_id, arg_settings, arg_observer],
       false);
   }
 
@@ -519,7 +519,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec,
       mojo.internal.bindings.ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec,
-      { arg_scanner_id: arg_scanner_id, arg_settings: arg_settings, arg_observer: arg_observer },
+      [arg_scanner_id, arg_settings, arg_observer],
       false);
   }
 
@@ -528,7 +528,7 @@ mojo.internal.bindings.ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.ScanService_CancelScan_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -738,7 +738,7 @@ mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec,
       mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec,
-      { arg_scanner_id: arg_scanner_id, arg_settings: arg_settings },
+      [arg_scanner_id, arg_settings],
       false);
   }
 
@@ -747,7 +747,7 @@ mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec,
       null,
-      { arg_page_index: arg_page_index },
+      [arg_page_index],
       false);
   }
 
@@ -756,7 +756,7 @@ mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec,
       mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec,
-      { arg_scanner_id: arg_scanner_id, arg_settings: arg_settings, arg_page_index: arg_page_index },
+      [arg_scanner_id, arg_settings, arg_page_index],
       false);
   }
 
@@ -765,7 +765,7 @@ mojo.internal.bindings.ash.scanning.mojom.MultiPageScanControllerRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

@@ -429,7 +429,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -438,7 +438,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -447,7 +447,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -456,7 +456,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -465,7 +465,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -474,7 +474,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -648,7 +648,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserverRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -807,7 +807,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -816,7 +816,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -825,7 +825,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -834,7 +834,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -992,7 +992,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1001,7 +1001,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserverRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1151,7 +1151,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemo
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1160,7 +1160,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemo
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1169,7 +1169,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemo
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1178,7 +1178,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemo
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1336,7 +1336,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 
@@ -1345,7 +1345,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserverRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 
@@ -1487,7 +1487,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1496,7 +1496,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1634,7 +1634,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.EventObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 

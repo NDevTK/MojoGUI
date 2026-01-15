@@ -277,7 +277,7 @@ mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec,
       mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec,
-      { arg_issuer: arg_issuer },
+      [arg_issuer],
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.network.mojom.TrustTokenQueryAnswererRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec,
       mojo.internal.bindings.network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec,
-      { arg_issuer: arg_issuer },
+      [arg_issuer],
       false);
   }
 

@@ -183,7 +183,7 @@ mojo.internal.bindings.ai.mojom.AIPrototypingServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec,
       mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -192,7 +192,7 @@ mojo.internal.bindings.ai.mojom.AIPrototypingServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec,
       mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 

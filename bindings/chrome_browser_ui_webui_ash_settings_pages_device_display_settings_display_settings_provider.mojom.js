@@ -235,7 +235,7 @@ mojo.internal.bindings.ash.settings.mojom.TabletModeObserverRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec,
       null,
-      { arg_is_tablet_mode: arg_is_tablet_mode },
+      [arg_is_tablet_mode],
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -495,7 +495,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec,
       null,
-      { arg_brightness_percent: arg_brightness_percent, arg_triggered_by_als: arg_triggered_by_als },
+      [arg_brightness_percent, arg_triggered_by_als],
       false);
   }
 
@@ -625,7 +625,7 @@ mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec,
       null,
-      { arg_is_ambient_light_sensor_enabled: arg_is_ambient_light_sensor_enabled },
+      [arg_is_ambient_light_sensor_enabled],
       false);
   }
 
@@ -791,7 +791,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec,
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -800,7 +800,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -809,7 +809,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec,
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -818,7 +818,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec,
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -827,7 +827,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec,
       null,
-      { arg_type: arg_type, arg_value: arg_value },
+      [arg_type, arg_value],
       false);
   }
 
@@ -836,7 +836,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -845,7 +845,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec,
       null,
-      { arg_percent: arg_percent },
+      [arg_percent],
       false);
   }
 
@@ -854,7 +854,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -863,7 +863,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -872,7 +872,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemoteCallHandl
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec,
       mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

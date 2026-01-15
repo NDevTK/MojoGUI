@@ -594,7 +594,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -603,7 +603,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ResponseParamsSpec,
-      { arg_id: arg_id, arg_command: arg_command, arg_include_output: arg_include_output },
+      [arg_id, arg_command, arg_include_output],
       false);
   }
 
@@ -612,7 +612,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ResponseParamsSpec,
-      { arg_length_seconds: arg_length_seconds },
+      [arg_length_seconds],
       false);
   }
 
@@ -621,7 +621,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -630,7 +630,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -639,7 +639,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec,
-      { arg_percentage_used_threshold: arg_percentage_used_threshold },
+      [arg_percentage_used_threshold],
       false);
   }
 
@@ -648,7 +648,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec,
-      { arg_expected_status: arg_expected_status, arg_expected_power_type: arg_expected_power_type },
+      [arg_expected_status, arg_expected_power_type],
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec,
-      { arg_length_seconds: arg_length_seconds },
+      [arg_length_seconds],
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec,
-      { arg_length_seconds: arg_length_seconds },
+      [arg_length_seconds],
       false);
   }
 
@@ -675,7 +675,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec,
-      { arg_length_seconds: arg_length_seconds },
+      [arg_length_seconds],
       false);
   }
 
@@ -684,7 +684,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ResponseParamsSpec,
-      { arg_wear_level_threshold: arg_wear_level_threshold },
+      [arg_wear_level_threshold],
       false);
   }
 
@@ -693,7 +693,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec,
-      { arg_wear_level_threshold: arg_wear_level_threshold },
+      [arg_wear_level_threshold],
       false);
   }
 
@@ -702,7 +702,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec,
-      { arg_nvme_self_test_type: arg_nvme_self_test_type },
+      [arg_nvme_self_test_type],
       false);
   }
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec,
-      { arg_type: arg_type, arg_length_seconds: arg_length_seconds, arg_file_size_mb: arg_file_size_mb },
+      [arg_type, arg_length_seconds, arg_file_size_mb],
       false);
   }
 
@@ -720,7 +720,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec,
-      { arg_length_seconds: arg_length_seconds },
+      [arg_length_seconds],
       false);
   }
 
@@ -729,7 +729,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec,
-      { arg_length_seconds: arg_length_seconds, arg_maximum_discharge_percent_allowed: arg_maximum_discharge_percent_allowed },
+      [arg_length_seconds, arg_maximum_discharge_percent_allowed],
       false);
   }
 
@@ -738,7 +738,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec,
-      { arg_length_seconds: arg_length_seconds, arg_minimum_charge_percent_required: arg_minimum_charge_percent_required },
+      [arg_length_seconds, arg_minimum_charge_percent_required],
       false);
   }
 
@@ -747,7 +747,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ResponseParamsSpec,
-      { arg_max_testing_mem_kib: arg_max_testing_mem_kib },
+      [arg_max_testing_mem_kib],
       false);
   }
 
@@ -756,7 +756,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -765,7 +765,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -774,7 +774,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -783,7 +783,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -792,7 +792,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -801,7 +801,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -810,7 +810,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -819,7 +819,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -828,7 +828,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -837,7 +837,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -846,7 +846,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -855,7 +855,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ResponseParamsSpec,
-      { arg_stun_server_hostname: arg_stun_server_hostname },
+      [arg_stun_server_hostname],
       false);
   }
 
@@ -864,7 +864,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -873,7 +873,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -882,7 +882,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -891,7 +891,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -900,7 +900,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -909,7 +909,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -918,7 +918,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ResponseParamsSpec,
-      { arg_target_state: arg_target_state },
+      [arg_target_state],
       false);
   }
 
@@ -927,7 +927,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ResponseParamsSpec,
-      { arg_name: arg_name, arg_color: arg_color, arg_replier: arg_replier },
+      [arg_name, arg_color, arg_replier],
       false);
   }
 
@@ -936,7 +936,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -945,7 +945,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ResponseParamsSpec,
-      { arg_node_id: arg_node_id, arg_volume: arg_volume, arg_mute_on: arg_mute_on },
+      [arg_node_id, arg_volume, arg_mute_on],
       false);
   }
 
@@ -954,7 +954,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[40],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ResponseParamsSpec,
-      { arg_node_id: arg_node_id, arg_gain: arg_gain, arg_deprecated_mute_on: arg_deprecated_mute_on },
+      [arg_node_id, arg_gain, arg_deprecated_mute_on],
       false);
   }
 
@@ -963,7 +963,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[41],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -972,7 +972,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[42],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -981,7 +981,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[43],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec,
-      { arg_length_seconds: arg_length_seconds },
+      [arg_length_seconds],
       false);
   }
 
@@ -990,7 +990,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[44],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec,
-      { arg_peripheral_id: arg_peripheral_id },
+      [arg_peripheral_id],
       false);
   }
 
@@ -999,7 +999,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[45],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec,
-      { arg_timeout_seconds: arg_timeout_seconds },
+      [arg_timeout_seconds],
       false);
   }
 
@@ -1008,7 +1008,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[46],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1017,7 +1017,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[47],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1026,7 +1026,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemot
       this.ordinals[48],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2013,7 +2013,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddBluetoothObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2022,7 +2022,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddLidObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2031,7 +2031,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddPowerObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2040,7 +2040,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_AddNetworkObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2049,7 +2049,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallH
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddAudioObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2058,7 +2058,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallH
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddThunderboltObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2067,7 +2067,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallH
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddUsbObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -2076,7 +2076,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallH
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_ParamsSpec,
       null,
-      { arg_category: arg_category, arg_observer: arg_observer },
+      [arg_category, arg_observer],
       false);
   }
 
@@ -2085,7 +2085,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallH
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ResponseParamsSpec,
-      { arg_category: arg_category },
+      [arg_category],
       false);
   }
 
@@ -2296,7 +2296,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeServiceRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ResponseParamsSpec,
-      { arg_process_id: arg_process_id },
+      [arg_process_id],
       false);
   }
 
@@ -2305,7 +2305,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeServiceRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ResponseParamsSpec,
-      { arg_categories: arg_categories },
+      [arg_categories],
       false);
   }
 
@@ -2314,7 +2314,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeServiceRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ParamsSpec,
       mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ResponseParamsSpec,
-      { arg_process_ids: arg_process_ids, arg_ignore_single_process_error: arg_ignore_single_process_error },
+      [arg_process_ids, arg_ignore_single_process_error],
       false);
   }
 

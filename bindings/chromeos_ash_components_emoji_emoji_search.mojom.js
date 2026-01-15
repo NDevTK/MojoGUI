@@ -177,7 +177,7 @@ mojo.internal.bindings.emoji_search.mojom.EmojiSearchRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec,
       mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec,
-      { arg_query: arg_query, arg_language_codes: arg_language_codes },
+      [arg_query, arg_language_codes],
       false);
   }
 
@@ -186,7 +186,7 @@ mojo.internal.bindings.emoji_search.mojom.EmojiSearchRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec,
       null,
-      { arg_language_codes: arg_language_codes },
+      [arg_language_codes],
       false);
   }
 

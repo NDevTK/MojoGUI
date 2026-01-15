@@ -265,7 +265,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -274,7 +274,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -283,7 +283,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -292,7 +292,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -301,7 +301,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -310,7 +310,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -319,7 +319,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -328,7 +328,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -337,7 +337,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -346,7 +346,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -355,7 +355,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -364,7 +364,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -373,7 +373,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -391,7 +391,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -400,7 +400,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -409,7 +409,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -418,7 +418,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -427,7 +427,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -436,7 +436,7 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemoteCa
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

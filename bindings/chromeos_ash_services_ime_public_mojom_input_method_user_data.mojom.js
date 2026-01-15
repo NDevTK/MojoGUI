@@ -246,7 +246,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -255,7 +255,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec,
-      { arg_dict_id: arg_dict_id, arg_entry: arg_entry },
+      [arg_dict_id, arg_entry],
       false);
   }
 
@@ -264,7 +264,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec,
-      { arg_dict_id: arg_dict_id, arg_entry_index: arg_entry_index, arg_entry: arg_entry },
+      [arg_dict_id, arg_entry_index, arg_entry],
       false);
   }
 
@@ -273,7 +273,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec,
-      { arg_dict_id: arg_dict_id, arg_entry_index: arg_entry_index },
+      [arg_dict_id, arg_entry_index],
       false);
   }
 
@@ -282,7 +282,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec,
-      { arg_dictionary_name: arg_dictionary_name },
+      [arg_dictionary_name],
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec,
-      { arg_dict_id: arg_dict_id, arg_dictionary_name: arg_dictionary_name },
+      [arg_dict_id, arg_dictionary_name],
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec,
-      { arg_dict_id: arg_dict_id },
+      [arg_dict_id],
       false);
   }
 
@@ -309,7 +309,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec,
-      { arg_dict_id: arg_dict_id },
+      [arg_dict_id],
       false);
   }
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec,
-      { arg_dict_id: arg_dict_id, arg_tsv_data: arg_tsv_data },
+      [arg_dict_id, arg_tsv_data],
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec,
-      { arg_clear_conversion_history: arg_clear_conversion_history, arg_clear_suggestion_history: arg_clear_suggestion_history },
+      [arg_clear_conversion_history, arg_clear_suggestion_history],
       false);
   }
 

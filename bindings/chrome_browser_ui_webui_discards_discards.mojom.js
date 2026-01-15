@@ -270,7 +270,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec,
       mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -279,7 +279,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec,
       mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec,
-      { arg_tab_id: arg_tab_id, arg_is_auto_discardable: arg_is_auto_discardable },
+      [arg_tab_id, arg_is_auto_discardable],
       false);
   }
 
@@ -288,7 +288,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ParamsSpec,
       mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec,
-      { arg_tab_id: arg_tab_id, arg_reason: arg_reason },
+      [arg_tab_id, arg_reason],
       false);
   }
 
@@ -297,7 +297,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.discards.mojom.DetailsProvider_FreezeById_ParamsSpec,
       null,
-      { arg_tab_id: arg_tab_id },
+      [arg_tab_id],
       false);
   }
 
@@ -306,7 +306,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.discards.mojom.DetailsProvider_LoadById_ParamsSpec,
       null,
-      { arg_tab_id: arg_tab_id },
+      [arg_tab_id],
       false);
   }
 
@@ -315,7 +315,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ParamsSpec,
       mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -324,7 +324,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -333,7 +333,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -588,7 +588,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec,
       null,
-      { arg_frame: arg_frame },
+      [arg_frame],
       false);
   }
 
@@ -597,7 +597,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_PageCreated_ParamsSpec,
       null,
-      { arg_pages: arg_pages },
+      [arg_pages],
       false);
   }
 
@@ -606,7 +606,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec,
       null,
-      { arg_process: arg_process },
+      [arg_process],
       false);
   }
 
@@ -615,7 +615,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec,
       null,
-      { arg_worker: arg_worker },
+      [arg_worker],
       false);
   }
 
@@ -624,7 +624,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec,
       null,
-      { arg_frame: arg_frame },
+      [arg_frame],
       false);
   }
 
@@ -633,7 +633,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_PageChanged_ParamsSpec,
       null,
-      { arg_page: arg_page },
+      [arg_page],
       false);
   }
 
@@ -642,7 +642,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec,
       null,
-      { arg_process: arg_process },
+      [arg_process],
       false);
   }
 
@@ -651,7 +651,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec,
       null,
-      { arg_worker: arg_worker },
+      [arg_worker],
       false);
   }
 
@@ -660,7 +660,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec,
       null,
-      { arg_favicon: arg_favicon },
+      [arg_favicon],
       false);
   }
 
@@ -669,7 +669,7 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec,
       null,
-      { arg_node_id: arg_node_id },
+      [arg_node_id],
       false);
   }
 
@@ -875,7 +875,7 @@ mojo.internal.bindings.discards.mojom.GraphDumpRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec,
       null,
-      { arg_change_subscriber: arg_change_subscriber },
+      [arg_change_subscriber],
       false);
   }
 
@@ -884,7 +884,7 @@ mojo.internal.bindings.discards.mojom.GraphDumpRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec,
       mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec,
-      { arg_node_ids: arg_node_ids },
+      [arg_node_ids],
       false);
   }
 

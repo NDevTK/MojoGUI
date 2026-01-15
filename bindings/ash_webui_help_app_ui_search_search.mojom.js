@@ -187,7 +187,7 @@ mojo.internal.bindings.ash.help_app.mojom.SearchResultsObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -325,7 +325,7 @@ mojo.internal.bindings.ash.help_app.mojom.SearchHandlerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Search_ParamsSpec,
       mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec,
-      { arg_query: arg_query, arg_max_num_results: arg_max_num_results },
+      [arg_query, arg_max_num_results],
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.ash.help_app.mojom.SearchHandlerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Update_ParamsSpec,
       mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Update_ResponseParamsSpec,
-      { arg_concepts: arg_concepts },
+      [arg_concepts],
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.ash.help_app.mojom.SearchHandlerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Observe_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

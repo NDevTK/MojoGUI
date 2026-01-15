@@ -294,7 +294,7 @@ mojo.internal.bindings.guest_view.mojom.GuestViewHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec,
       mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec,
-      { arg_element_instance_id: arg_element_instance_id, arg_guest_instance_id: arg_guest_instance_id, arg_params: arg_params },
+      [arg_element_instance_id, arg_guest_instance_id, arg_params],
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.guest_view.mojom.GuestViewHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec,
       null,
-      { arg_view_instance_id: arg_view_instance_id, arg_view_type: arg_view_type, arg_keep_alive_handle_receiver: arg_keep_alive_handle_receiver },
+      [arg_view_instance_id, arg_view_type, arg_keep_alive_handle_receiver],
       false);
   }
 

@@ -372,7 +372,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileName_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileName_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSize_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSize_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetLastModified_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetLastModified_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileType_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileType_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -408,7 +408,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_OnDocumentChanged_ParamsSpec,
       null,
-      { arg_watcher_id: arg_watcher_id, arg_type: arg_type },
+      [arg_watcher_id, arg_type],
       false);
   }
 
@@ -417,7 +417,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_OnRootsChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetVirtualFileId_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetVirtualFileId_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_HandleIdReleased_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_HandleIdReleased_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_OpenFileToRead_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_OpenFileToRead_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -453,7 +453,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_SelectFiles_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_SelectFiles_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -462,7 +462,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_OnFileSelectorEvent_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_OnFileSelectorEvent_ResponseParamsSpec,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -471,7 +471,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSelectorElements_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_GetFileSelectorElements_ResponseParamsSpec,
-      { arg_request: arg_request },
+      [arg_request],
       false);
   }
 
@@ -480,7 +480,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_OnMediaStoreUriAdded_ParamsSpec,
       null,
-      { arg_uri: arg_uri, arg_metadata: arg_metadata },
+      [arg_uri, arg_metadata],
       false);
   }
 
@@ -489,7 +489,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_CreateMoniker_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_CreateMoniker_ResponseParamsSpec,
-      { arg_content_uri: arg_content_uri, arg_read_only: arg_read_only },
+      [arg_content_uri, arg_read_only],
       false);
   }
 
@@ -498,7 +498,7 @@ mojo.internal.bindings.arc.mojom.FileSystemHostRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemHost_DestroyMoniker_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemHost_DestroyMoniker_ResponseParamsSpec,
-      { arg_moniker: arg_moniker },
+      [arg_moniker],
       false);
   }
 
@@ -935,7 +935,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_AddWatcher_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_AddWatcher_ResponseParamsSpec,
-      { arg_authority: arg_authority, arg_document_id: arg_document_id },
+      [arg_authority, arg_document_id],
       false);
   }
 
@@ -944,7 +944,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetChildDocuments_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetChildDocuments_ResponseParamsSpec,
-      { arg_authority: arg_authority, arg_parent_document_id: arg_parent_document_id },
+      [arg_authority, arg_parent_document_id],
       false);
   }
 
@@ -953,7 +953,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetDocument_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetDocument_ResponseParamsSpec,
-      { arg_authority: arg_authority, arg_document_id: arg_document_id },
+      [arg_authority, arg_document_id],
       false);
   }
 
@@ -962,7 +962,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetFileSize_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetFileSize_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -971,7 +971,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetMimeType_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetMimeType_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -980,7 +980,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRecentDocuments_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRecentDocuments_ResponseParamsSpec,
-      { arg_authority: arg_authority, arg_root_id: arg_root_id },
+      [arg_authority, arg_root_id],
       false);
   }
 
@@ -989,7 +989,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRoots_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRoots_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -998,7 +998,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRootSize_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_GetRootSize_ResponseParamsSpec,
-      { arg_authority: arg_authority, arg_root_id: arg_root_id },
+      [arg_authority, arg_root_id],
       false);
   }
 
@@ -1007,7 +1007,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_DeleteDocument_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_DeleteDocument_ResponseParamsSpec,
-      { arg_authority: arg_authority, arg_document_id: arg_document_id },
+      [arg_authority, arg_document_id],
       false);
   }
 
@@ -1016,7 +1016,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_RenameDocument_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_RenameDocument_ResponseParamsSpec,
-      { arg_authority: arg_authority, arg_document_id: arg_document_id, arg_display_name: arg_display_name },
+      [arg_authority, arg_document_id, arg_display_name],
       false);
   }
 
@@ -1025,7 +1025,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_CreateDocument_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_CreateDocument_ResponseParamsSpec,
-      { arg_authority: arg_authority, arg_parent_document_id: arg_parent_document_id, arg_mime_type: arg_mime_type, arg_display_name: arg_display_name },
+      [arg_authority, arg_parent_document_id, arg_mime_type, arg_display_name],
       false);
   }
 
@@ -1034,7 +1034,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_CopyDocument_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_CopyDocument_ResponseParamsSpec,
-      { arg_authority: arg_authority, arg_source_document_id: arg_source_document_id, arg_target_parent_document_id: arg_target_parent_document_id },
+      [arg_authority, arg_source_document_id, arg_target_parent_document_id],
       false);
   }
 
@@ -1043,7 +1043,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_MoveDocument_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_MoveDocument_ResponseParamsSpec,
-      { arg_authority: arg_authority, arg_source_document_id: arg_source_document_id, arg_source_parent_document_id: arg_source_parent_document_id, arg_target_parent_document_id: arg_target_parent_document_id },
+      [arg_authority, arg_source_document_id, arg_source_parent_document_id, arg_target_parent_document_id],
       false);
   }
 
@@ -1052,7 +1052,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -1061,7 +1061,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenThumbnail_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenThumbnail_ResponseParamsSpec,
-      { arg_url: arg_url, arg_size_hint: arg_size_hint },
+      [arg_url, arg_size_hint],
       false);
   }
 
@@ -1070,7 +1070,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_CloseFileSession_ParamsSpec,
       null,
-      { arg_url_id: arg_url_id, arg_error_message: arg_error_message },
+      [arg_url_id, arg_error_message],
       false);
   }
 
@@ -1079,7 +1079,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -1088,7 +1088,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToRead_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenFileSessionToRead_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -1097,7 +1097,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_RemoveWatcher_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_RemoveWatcher_ResponseParamsSpec,
-      { arg_watcher_id: arg_watcher_id },
+      [arg_watcher_id],
       false);
   }
 
@@ -1106,7 +1106,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_RequestMediaScan_ParamsSpec,
       null,
-      { arg_paths: arg_paths },
+      [arg_paths],
       false);
   }
 
@@ -1115,7 +1115,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_ReindexDirectory_ParamsSpec,
       null,
-      { arg_directory_path: arg_directory_path },
+      [arg_directory_path],
       false);
   }
 
@@ -1124,7 +1124,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_RequestFileRemovalScan_ParamsSpec,
       null,
-      { arg_directory_paths: arg_directory_paths },
+      [arg_directory_paths],
       false);
   }
 
@@ -1133,7 +1133,7 @@ mojo.internal.bindings.arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ParamsSpec,
       mojo.internal.bindings.arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ResponseParamsSpec,
-      { arg_request: arg_request, arg_window_info: arg_window_info },
+      [arg_request, arg_window_info],
       false);
   }
 

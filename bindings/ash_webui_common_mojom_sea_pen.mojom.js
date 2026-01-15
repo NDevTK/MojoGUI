@@ -257,7 +257,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserverRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -266,7 +266,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserverRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec,
       null,
-      { arg_entries: arg_entries },
+      [arg_entries],
       false);
   }
 
@@ -456,7 +456,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -465,7 +465,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ResponseParamsSpec,
-      { arg_query: arg_query },
+      [arg_query],
       false);
   }
 
@@ -474,7 +474,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ResponseParamsSpec,
-      { arg_id: arg_id, arg_preview_mode: arg_preview_mode },
+      [arg_id, arg_preview_mode],
       false);
   }
 
@@ -483,7 +483,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -492,7 +492,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ResponseParamsSpec,
-      { arg_id: arg_id, arg_preview_mode: arg_preview_mode },
+      [arg_id, arg_preview_mode],
       false);
   }
 
@@ -501,7 +501,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -510,7 +510,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -519,7 +519,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec,
       null,
-      { arg_metadata: arg_metadata },
+      [arg_metadata],
       false);
   }
 
@@ -528,7 +528,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -537,7 +537,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -546,7 +546,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -555,7 +555,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -564,7 +564,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ParamsSpec,
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -573,7 +573,7 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProviderRemoteCallHan
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

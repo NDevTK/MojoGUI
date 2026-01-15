@@ -179,7 +179,7 @@ mojo.internal.bindings.blink.mojom.QuotaManagerHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec,
       mojo.internal.bindings.blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

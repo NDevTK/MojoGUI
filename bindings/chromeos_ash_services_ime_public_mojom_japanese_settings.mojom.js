@@ -234,7 +234,7 @@ mojo.internal.bindings.ash.ime.mojom.JpUnusedRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

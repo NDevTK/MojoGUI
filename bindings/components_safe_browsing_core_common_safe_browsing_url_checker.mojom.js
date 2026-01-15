@@ -177,7 +177,7 @@ mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlCheckerRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec,
       mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec,
-      { arg_url: arg_url, arg_method: arg_method },
+      [arg_url, arg_method],
       false);
   }
 

@@ -195,7 +195,7 @@ mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec,
-      { arg_header: arg_header },
+      [arg_header],
       false);
   }
 
@@ -204,7 +204,7 @@ mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec,
-      { arg_header: arg_header },
+      [arg_header],
       false);
   }
 
@@ -213,7 +213,7 @@ mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec,
       mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec,
-      { arg_header: arg_header },
+      [arg_header],
       false);
   }
 

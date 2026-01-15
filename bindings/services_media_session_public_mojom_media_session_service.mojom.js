@@ -199,7 +199,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionServiceRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionServiceRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionServiceRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -226,7 +226,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionServiceRemoteCallHandler 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media_session.mojom.MediaSessionService_Bind_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 

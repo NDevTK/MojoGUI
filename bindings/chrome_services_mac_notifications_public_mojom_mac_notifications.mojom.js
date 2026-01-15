@@ -253,7 +253,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec,
       null,
-      { arg_notification: arg_notification },
+      [arg_notification],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec,
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec,
-      { arg_profile: arg_profile, arg_origin: arg_origin },
+      [arg_profile, arg_origin],
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec,
       null,
-      { arg_identifier: arg_identifier },
+      [arg_identifier],
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec,
       null,
-      { arg_profile: arg_profile },
+      [arg_profile],
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceRemoteCallH
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -298,7 +298,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationServiceRemoteCallH
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec,
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -486,7 +486,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 
@@ -616,7 +616,7 @@ mojo.internal.bindings.mac_notifications.mojom.MacNotificationProviderRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec,
       null,
-      { arg_service: arg_service, arg_handler: arg_handler },
+      [arg_service, arg_handler],
       false);
   }
 

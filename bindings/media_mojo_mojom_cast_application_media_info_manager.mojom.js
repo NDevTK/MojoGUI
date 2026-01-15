@@ -172,7 +172,7 @@ mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManagerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec,
       mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

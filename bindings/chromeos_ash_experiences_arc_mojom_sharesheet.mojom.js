@@ -283,7 +283,7 @@ mojo.internal.bindings.arc.mojom.SharesheetInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.SharesheetInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.SharesheetInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 

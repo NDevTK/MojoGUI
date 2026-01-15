@@ -211,7 +211,7 @@ mojo.internal.bindings.content.mojom.FakeBluetoothChooserRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec,
       null,
-      { arg_peripheral_address: arg_peripheral_address },
+      [arg_peripheral_address],
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.content.mojom.FakeBluetoothChooserRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.content.mojom.FakeBluetoothChooserRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -375,7 +375,7 @@ mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactoryRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec,
       mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParamsSpec,
-      { arg_fake_chooser: arg_fake_chooser, arg_client: arg_client },
+      [arg_fake_chooser, arg_client],
       false);
   }
 
@@ -513,7 +513,7 @@ mojo.internal.bindings.content.mojom.FakeBluetoothChooserClientRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 

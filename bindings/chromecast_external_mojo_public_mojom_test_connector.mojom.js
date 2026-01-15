@@ -171,7 +171,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnectorRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec,
       null,
-      { arg_service_name: arg_service_name, arg_interface_name: arg_interface_name, arg_interface_pipe: arg_interface_pipe },
+      [arg_service_name, arg_interface_name, arg_interface_pipe],
       false);
   }
 

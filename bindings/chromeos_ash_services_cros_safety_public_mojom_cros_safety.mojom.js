@@ -216,7 +216,7 @@ mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec,
       mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec,
-      { arg_rules: arg_rules, arg_text: arg_text },
+      [arg_rules, arg_text],
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec,
       mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec,
-      { arg_rules: arg_rules, arg_prompt: arg_prompt, arg_image: arg_image },
+      [arg_rules, arg_prompt, arg_image],
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec,
       mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec,
-      { arg_rules: arg_rules, arg_text: arg_text },
+      [arg_rules, arg_text],
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec,
       mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec,
-      { arg_rules: arg_rules, arg_image: arg_image },
+      [arg_rules, arg_image],
       false);
   }
 

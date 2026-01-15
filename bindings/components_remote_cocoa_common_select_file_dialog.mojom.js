@@ -192,7 +192,7 @@ mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec,
       mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec,
-      { arg_type: arg_type, arg_title: arg_title, arg_file_path: arg_file_path, arg_file_types: arg_file_types, arg_file_type_index: arg_file_type_index, arg_default_extension: arg_default_extension },
+      [arg_type, arg_title, arg_file_path, arg_file_types, arg_file_type_index, arg_default_extension],
       false);
   }
 

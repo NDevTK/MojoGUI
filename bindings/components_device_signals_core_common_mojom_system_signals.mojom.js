@@ -216,7 +216,7 @@ mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec,
       mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec,
-      { arg_requests: arg_requests },
+      [arg_requests],
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceRemoteCallHandle
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec,
       mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -234,7 +234,7 @@ mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceRemoteCallHandle
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec,
       mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

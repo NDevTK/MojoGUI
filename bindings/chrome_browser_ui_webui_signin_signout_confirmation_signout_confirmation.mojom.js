@@ -184,7 +184,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactoryRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec,
       null,
-      { arg_height: arg_height },
+      [arg_height],
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Accept_ParamsSpec,
       null,
-      { arg_uninstall_account_extensions: arg_uninstall_account_extensions },
+      [arg_uninstall_account_extensions],
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec,
       null,
-      { arg_uninstall_account_extensions: arg_uninstall_account_extensions },
+      [arg_uninstall_account_extensions],
       false);
   }
 
@@ -357,7 +357,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -366,7 +366,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Close_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -528,7 +528,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec,
       null,
-      { arg_data: arg_data },
+      [arg_data],
       false);
   }
 

@@ -170,7 +170,7 @@ mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec,
       null,
-      { arg_downloaded_bytes: arg_downloaded_bytes, arg_total_bytes: arg_total_bytes },
+      [arg_downloaded_bytes, arg_total_bytes],
       false);
   }
 

@@ -215,7 +215,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec,
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec,
-      { arg_pref_prefixes: arg_pref_prefixes },
+      [arg_pref_prefixes],
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec,
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParamsSpec,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec,
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec,
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ResponseParamsSpec,
-      { arg_pattern: arg_pattern },
+      [arg_pattern],
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandlerRemoteCallHand
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec,
       mojo.internal.bindings.privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec,
-      { arg_s: arg_s },
+      [arg_s],
       false);
   }
 

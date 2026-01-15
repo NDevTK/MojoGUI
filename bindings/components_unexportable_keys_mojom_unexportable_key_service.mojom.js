@@ -236,7 +236,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec,
       null,
-      { arg_acceptable_algorithms: arg_acceptable_algorithms, arg_priority: arg_priority },
+      [arg_acceptable_algorithms, arg_priority],
       false);
   }
 
@@ -245,7 +245,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec,
       null,
-      { arg_wrapped_key: arg_wrapped_key, arg_priority: arg_priority },
+      [arg_wrapped_key, arg_priority],
       false);
   }
 
@@ -254,7 +254,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec,
       null,
-      { arg_key_id: arg_key_id, arg_data: arg_data, arg_priority: arg_priority },
+      [arg_key_id, arg_data, arg_priority],
       false);
   }
 
@@ -263,7 +263,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec,
       null,
-      { arg_priority: arg_priority },
+      [arg_priority],
       false);
   }
 
@@ -272,7 +272,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemoteCallH
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_ParamsSpec,
       null,
-      { arg_key_ids: arg_key_ids, arg_priority: arg_priority },
+      [arg_key_ids, arg_priority],
       false);
   }
 
@@ -281,7 +281,7 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemoteCallH
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec,
       null,
-      { arg_priority: arg_priority },
+      [arg_priority],
       false);
   }
 

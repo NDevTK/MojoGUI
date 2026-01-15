@@ -183,7 +183,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactoryRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec,
       mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec,
       mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

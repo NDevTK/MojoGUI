@@ -199,7 +199,7 @@ mojo.internal.bindings.blink.mojom.AttributionHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec,
       null,
-      { arg_data_host: arg_data_host, arg_registration_eligibility: arg_registration_eligibility, arg_is_for_background_requests: arg_is_for_background_requests, arg_reporting_origins: arg_reporting_origins },
+      [arg_data_host, arg_registration_eligibility, arg_is_for_background_requests, arg_reporting_origins],
       false);
   }
 
@@ -208,7 +208,7 @@ mojo.internal.bindings.blink.mojom.AttributionHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec,
       null,
-      { arg_data_host: arg_data_host, arg_attribution_src_token: arg_attribution_src_token },
+      [arg_data_host, arg_attribution_src_token],
       false);
   }
 
@@ -217,7 +217,7 @@ mojo.internal.bindings.blink.mojom.AttributionHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec,
       null,
-      { arg_attribution_src_token: arg_attribution_src_token, arg_expected_registrations: arg_expected_registrations },
+      [arg_attribution_src_token, arg_expected_registrations],
       false);
   }
 

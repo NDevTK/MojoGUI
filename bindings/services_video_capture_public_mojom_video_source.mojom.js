@@ -251,7 +251,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemoteCall
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec,
-      { arg_settings: arg_settings },
+      [arg_settings],
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemoteCall
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -305,7 +305,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemoteCall
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -314,7 +314,7 @@ mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscriptionRemoteCall
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec,
       null,
-      { arg_feedback: arg_feedback },
+      [arg_feedback],
       false);
   }
 
@@ -543,7 +543,7 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec,
       mojo.internal.bindings.video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec,
-      { arg_subscriber: arg_subscriber, arg_requested_settings: arg_requested_settings, arg_force_reopen_with_new_settings: arg_force_reopen_with_new_settings, arg_subscription: arg_subscription },
+      [arg_subscriber, arg_requested_settings, arg_force_reopen_with_new_settings, arg_subscription],
       false);
   }
 

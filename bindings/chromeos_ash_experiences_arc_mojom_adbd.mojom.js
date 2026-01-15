@@ -180,7 +180,7 @@ mojo.internal.bindings.arc.mojom.AdbdMonitorHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -189,7 +189,7 @@ mojo.internal.bindings.arc.mojom.AdbdMonitorHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.arc.mojom.AdbdMonitorInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.AdbdMonitorInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 

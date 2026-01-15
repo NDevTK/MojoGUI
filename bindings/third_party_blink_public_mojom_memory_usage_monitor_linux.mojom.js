@@ -176,7 +176,7 @@ mojo.internal.bindings.blink.mojom.MemoryUsageMonitorLinuxRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec,
       null,
-      { arg_statm_file: arg_statm_file, arg_status_file: arg_status_file },
+      [arg_statm_file, arg_status_file],
       false);
   }
 

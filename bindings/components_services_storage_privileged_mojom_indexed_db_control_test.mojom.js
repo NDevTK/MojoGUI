@@ -221,7 +221,7 @@ mojo.internal.bindings.storage.mojom.MockFailureInjectorRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.MockFailureInjector_FailOperation_ParamsSpec,
       null,
-      { arg_failure_class: arg_failure_class, arg_failure_method: arg_failure_method, arg_instance_num: arg_instance_num, arg_call_num: arg_call_num },
+      [arg_failure_class, arg_failure_method, arg_instance_num, arg_call_num],
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec,
-      { arg_bucket_locator: arg_bucket_locator, arg_for_sqlite: arg_for_sqlite },
+      [arg_bucket_locator, arg_for_sqlite],
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec,
-      { arg_bucket_locator: arg_bucket_locator, arg_database_id: arg_database_id, arg_blob_number: arg_blob_number },
+      [arg_bucket_locator, arg_database_id, arg_blob_number],
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec,
-      { arg_bucket_locator: arg_bucket_locator },
+      [arg_bucket_locator],
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec,
-      { arg_bucket_locator: arg_bucket_locator },
+      [arg_bucket_locator],
       false);
   }
 
@@ -437,7 +437,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -446,7 +446,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -455,7 +455,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBControlTestRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec,
       mojo.internal.bindings.storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

@@ -177,7 +177,7 @@ mojo.internal.bindings.wallet.mojom.ImageExtractorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec,
       mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

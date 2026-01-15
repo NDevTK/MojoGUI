@@ -169,7 +169,7 @@ mojo.internal.bindings.mojom.ResetPasswordHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

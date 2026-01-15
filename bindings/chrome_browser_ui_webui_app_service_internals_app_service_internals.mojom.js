@@ -176,7 +176,7 @@ mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec,
       mojo.internal.bindings.mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

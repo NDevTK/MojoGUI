@@ -185,7 +185,7 @@ mojo.internal.bindings.blink.mojom.OriginTrialStateHostRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec,
       null,
-      { arg_origin_trial_features: arg_origin_trial_features },
+      [arg_origin_trial_features],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.blink.mojom.OriginTrialStateHostRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec,
       null,
-      { arg_token: arg_token, arg_script_origins: arg_script_origins },
+      [arg_token, arg_script_origins],
       false);
   }
 

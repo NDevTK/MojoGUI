@@ -356,7 +356,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_Clone_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec,
-      { arg_spec: arg_spec, arg_receiver: arg_receiver },
+      [arg_spec, arg_receiver],
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec,
-      { arg_spec: arg_spec, arg_receiver: arg_receiver },
+      [arg_spec, arg_receiver],
       false);
   }
 
@@ -383,7 +383,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -392,7 +392,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ResponseParamsSpec,
-      { arg_spec: arg_spec, arg_receiver: arg_receiver },
+      [arg_spec, arg_receiver],
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec,
-      { arg_config: arg_config, arg_soda_client: arg_soda_client, arg_soda_recognizer: arg_soda_recognizer },
+      [arg_config, arg_soda_client, arg_soda_recognizer],
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec,
-      { arg_receiver: arg_receiver, arg_spec: arg_spec },
+      [arg_receiver, arg_spec],
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ResponseParamsSpec,
-      { arg_constraint: arg_constraint, arg_receiver: arg_receiver },
+      [arg_constraint, arg_receiver],
       false);
   }
 
@@ -437,7 +437,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec,
-      { arg_receiver: arg_receiver, arg_config: arg_config },
+      [arg_receiver, arg_config],
       false);
   }
 
@@ -446,7 +446,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec,
-      { arg_config: arg_config, arg_receiver: arg_receiver },
+      [arg_config, arg_receiver],
       false);
   }
 
@@ -455,7 +455,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ResponseParamsSpec,
-      { arg_config: arg_config, arg_client: arg_client },
+      [arg_config, arg_client],
       false);
   }
 
@@ -464,7 +464,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRem
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ParamsSpec,
       mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec,
-      { arg_spec: arg_spec, arg_receiver: arg_receiver },
+      [arg_spec, arg_receiver],
       false);
   }
 

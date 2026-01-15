@@ -226,7 +226,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_updater: arg_updater, arg_client: arg_client, arg_creation_params: arg_creation_params },
+      [arg_receiver, arg_updater, arg_client, arg_creation_params],
       false);
   }
 
@@ -235,7 +235,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec,
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParamsSpec,
-      { arg_crl_set: arg_crl_set },
+      [arg_crl_set],
       false);
   }
 
@@ -244,7 +244,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec,
       null,
-      { arg_system_time: arg_system_time, arg_system_ticks: arg_system_ticks, arg_current_time: arg_current_time },
+      [arg_system_time, arg_system_ticks, arg_current_time],
       false);
   }
 

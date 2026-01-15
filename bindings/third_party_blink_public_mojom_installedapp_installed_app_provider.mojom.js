@@ -180,7 +180,7 @@ mojo.internal.bindings.blink.mojom.InstalledAppProviderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec,
       mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec,
-      { arg_related_apps: arg_related_apps, arg_manifest_url: arg_manifest_url, arg_add_saved_related_applications: arg_add_saved_related_applications },
+      [arg_related_apps, arg_manifest_url, arg_add_saved_related_applications],
       false);
   }
 

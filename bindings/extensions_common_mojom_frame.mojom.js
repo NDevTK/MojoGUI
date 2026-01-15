@@ -312,7 +312,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_SetFrameName_ParamsSpec,
       null,
-      { arg_frame_name: arg_frame_name },
+      [arg_frame_name],
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec,
       null,
-      { arg_spatial_nav_enabled: arg_spatial_nav_enabled },
+      [arg_spatial_nav_enabled],
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_SetTabId_ParamsSpec,
       null,
-      { arg_tab_id: arg_tab_id },
+      [arg_tab_id],
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec,
       null,
-      { arg_send_onclosed: arg_send_onclosed },
+      [arg_send_onclosed],
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec,
       null,
-      { arg_view_type: arg_view_type },
+      [arg_view_type],
       false);
   }
 
@@ -357,7 +357,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec,
       null,
-      { arg_extension_id: arg_extension_id, arg_module_name: arg_module_name, arg_function_name: arg_function_name, arg_args: arg_args },
+      [arg_extension_id, arg_module_name, arg_function_name, arg_args],
       false);
   }
 
@@ -366,7 +366,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec,
-      { arg_param: arg_param },
+      [arg_param],
       false);
   }
 
@@ -375,7 +375,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec,
       null,
-      { arg_tab_id: arg_tab_id, arg_extension_id: arg_extension_id, arg_script_id: arg_script_id, arg_url: arg_url },
+      [arg_tab_id, arg_extension_id, arg_script_id, arg_url],
       false);
   }
 
@@ -384,7 +384,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec,
       null,
-      { arg_window_id: arg_window_id },
+      [arg_window_id],
       false);
   }
 
@@ -393,7 +393,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec,
-      { arg_port_id: arg_port_id, arg_channel_type: arg_channel_type, arg_channel_name: arg_channel_name, arg_tab_info: arg_tab_info, arg_external_connection_info: arg_external_connection_info, arg_port: arg_port, arg_port_host: arg_port_host },
+      [arg_port_id, arg_channel_type, arg_channel_name, arg_tab_info, arg_external_connection_info, arg_port, arg_port_host],
       false);
   }
 
@@ -660,7 +660,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec,
-      { arg_extension_id: arg_extension_id, arg_script_type: arg_script_type, arg_run_location: arg_run_location },
+      [arg_extension_id, arg_script_type, arg_run_location],
       false);
   }
 
@@ -669,7 +669,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -678,7 +678,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ParamsSpec,
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -687,7 +687,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec,
       null,
-      { arg_request_uuid: arg_request_uuid },
+      [arg_request_uuid],
       false);
   }
 
@@ -696,7 +696,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec,
       null,
-      { arg_css_selectors: arg_css_selectors },
+      [arg_css_selectors],
       false);
   }
 
@@ -705,7 +705,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec,
       null,
-      { arg_message: arg_message, arg_source: arg_source, arg_stack_trace: arg_stack_trace, arg_level: arg_level },
+      [arg_message, arg_source, arg_stack_trace, arg_level],
       false);
   }
 
@@ -714,7 +714,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec,
       null,
-      { arg_extension_id_to_scripts: arg_extension_id_to_scripts, arg_frame_url: arg_frame_url },
+      [arg_extension_id_to_scripts, arg_frame_url],
       false);
   }
 
@@ -723,7 +723,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -732,7 +732,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -741,7 +741,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -750,7 +750,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec,
       null,
-      { arg_info: arg_info, arg_channel_type: arg_channel_type, arg_channel_name: arg_channel_name, arg_port_id: arg_port_id, arg_port: arg_port, arg_port_host: arg_port_host },
+      [arg_info, arg_channel_type, arg_channel_name, arg_port_id, arg_port, arg_port_host],
       false);
   }
 
@@ -759,7 +759,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec,
       null,
-      { arg_native_app_name: arg_native_app_name, arg_port_id: arg_port_id, arg_port: arg_port, arg_port_host: arg_port_host },
+      [arg_native_app_name, arg_port_id, arg_port, arg_port_host],
       false);
   }
 
@@ -768,7 +768,7 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHostRemoteCallHandler = class 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec,
       null,
-      { arg_tab_id: arg_tab_id, arg_frame_id: arg_frame_id, arg_document_id: arg_document_id, arg_channel_type: arg_channel_type, arg_channel_name: arg_channel_name, arg_port_id: arg_port_id, arg_port: arg_port, arg_port_host: arg_port_host },
+      [arg_tab_id, arg_frame_id, arg_document_id, arg_channel_type, arg_channel_name, arg_port_id, arg_port, arg_port_host],
       false);
   }
 

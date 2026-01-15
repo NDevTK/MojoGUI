@@ -326,7 +326,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec,
       null,
-      { arg_devtool_request_id: arg_devtool_request_id, arg_cookies_with_access_result: arg_cookies_with_access_result, arg_headers: arg_headers, arg_timestamp: arg_timestamp, arg_client_security_state: arg_client_security_state, arg_other_partition_info: arg_other_partition_info, arg_applied_network_conditions_id: arg_applied_network_conditions_id },
+      [arg_devtool_request_id, arg_cookies_with_access_result, arg_headers, arg_timestamp, arg_client_security_state, arg_other_partition_info, arg_applied_network_conditions_id],
       false);
   }
 
@@ -335,7 +335,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec,
       null,
-      { arg_devtool_request_id: arg_devtool_request_id, arg_cookies_with_access_result: arg_cookies_with_access_result, arg_headers: arg_headers, arg_raw_response_headers: arg_raw_response_headers, arg_resource_address_space: arg_resource_address_space, arg_http_status_code: arg_http_status_code, arg_cookie_partition_key: arg_cookie_partition_key },
+      [arg_devtool_request_id, arg_cookies_with_access_result, arg_headers, arg_raw_response_headers, arg_resource_address_space, arg_http_status_code, arg_cookie_partition_key],
       false);
   }
 
@@ -344,7 +344,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec,
       null,
-      { arg_devtool_request_id: arg_devtool_request_id, arg_headers: arg_headers },
+      [arg_devtool_request_id, arg_headers],
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec,
       null,
-      { arg_devtool_request_id: arg_devtool_request_id, arg_url: arg_url, arg_is_warning: arg_is_warning, arg_resource_address_space: arg_resource_address_space, arg_client_security_state: arg_client_security_state },
+      [arg_devtool_request_id, arg_url, arg_is_warning, arg_resource_address_space, arg_client_security_state],
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec,
       null,
-      { arg_devtool_request_id: arg_devtool_request_id, arg_request_headers: arg_request_headers, arg_request_info: arg_request_info, arg_initiator_url: arg_initiator_url, arg_initiator_devtool_request_id: arg_initiator_devtool_request_id },
+      [arg_devtool_request_id, arg_request_headers, arg_request_info, arg_initiator_url, arg_initiator_devtool_request_id],
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec,
       null,
-      { arg_devtool_request_id: arg_devtool_request_id, arg_url: arg_url, arg_head: arg_head },
+      [arg_devtool_request_id, arg_url, arg_head],
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec,
       null,
-      { arg_devtool_request_id: arg_devtool_request_id, arg_status: arg_status },
+      [arg_devtool_request_id, arg_status],
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec,
       null,
-      { arg_devtool_request_id: arg_devtool_request_id, arg_result: arg_result },
+      [arg_devtool_request_id, arg_result],
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsError_ParamsSpec,
       null,
-      { arg_devtool_request_id: arg_devtool_request_id, arg_initiator_origin: arg_initiator_origin, arg_client_security_state: arg_client_security_state, arg_url: arg_url, arg_status: arg_status, arg_is_warning: arg_is_warning },
+      [arg_devtool_request_id, arg_initiator_origin, arg_client_security_state, arg_url, arg_status, arg_is_warning],
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnOrbError_ParamsSpec,
       null,
-      { arg_devtools_request_id: arg_devtools_request_id, arg_url: arg_url },
+      [arg_devtools_request_id, arg_url],
       false);
   }
 
@@ -416,7 +416,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec,
       null,
-      { arg_devtool_request_id: arg_devtool_request_id, arg_url: arg_url, arg_error: arg_error },
+      [arg_devtool_request_id, arg_url, arg_error],
       false);
   }
 
@@ -425,7 +425,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec,
       null,
-      { arg_devtool_request_id: arg_devtool_request_id, arg_url: arg_url, arg_issues: arg_issues },
+      [arg_devtool_request_id, arg_url, arg_issues],
       false);
   }
 
@@ -434,7 +434,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec,
       null,
-      { arg_devtool_request_id: arg_devtool_request_id, arg_url: arg_url, arg_issue: arg_issue },
+      [arg_devtool_request_id, arg_url, arg_issue],
       false);
   }
 
@@ -443,7 +443,7 @@ mojo.internal.bindings.network.mojom.DevToolsObserverRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.network.mojom.DevToolsObserver_Clone_ParamsSpec,
       null,
-      { arg_listener: arg_listener },
+      [arg_listener],
       false);
   }
 

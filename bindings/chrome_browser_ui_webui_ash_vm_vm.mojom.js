@@ -178,7 +178,7 @@ mojo.internal.bindings.ash.vm.mojom.VmDiagnosticsProviderRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec,
       mojo.internal.bindings.ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

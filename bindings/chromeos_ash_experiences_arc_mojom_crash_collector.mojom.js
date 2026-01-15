@@ -196,7 +196,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec,
       null,
-      { arg_type: arg_type, arg_pipe: arg_pipe, arg_uptime: arg_uptime },
+      [arg_type, arg_pipe, arg_uptime],
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec,
       null,
-      { arg_device: arg_device, arg_board: arg_board, arg_cpu_abi: arg_cpu_abi, arg_fingerprint: arg_fingerprint },
+      [arg_device, arg_board, arg_cpu_abi, arg_fingerprint],
       false);
   }
 
@@ -214,7 +214,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec,
       null,
-      { arg_exec_name: arg_exec_name, arg_pid: arg_pid, arg_timestamp: arg_timestamp, arg_minidump_fd: arg_minidump_fd },
+      [arg_exec_name, arg_pid, arg_timestamp, arg_minidump_fd],
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec,
       null,
-      { arg_ramoops_handle: arg_ramoops_handle },
+      [arg_ramoops_handle],
       false);
   }
 
@@ -377,7 +377,7 @@ mojo.internal.bindings.arc.mojom.CrashCollectorInstanceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 

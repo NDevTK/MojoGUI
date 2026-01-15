@@ -194,7 +194,7 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProviderRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec,
       null,
-      { arg_key_system: arg_key_system, arg_cdm_request: arg_cdm_request },
+      [arg_key_system, arg_cdm_request],
       false);
   }
 
@@ -328,7 +328,7 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec,
       null,
-      { arg_codec: arg_codec, arg_secure_mode: arg_secure_mode, arg_stream_processor_request: arg_stream_processor_request },
+      [arg_codec, arg_secure_mode, arg_stream_processor_request],
       false);
   }
 
@@ -337,7 +337,7 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec,
       mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

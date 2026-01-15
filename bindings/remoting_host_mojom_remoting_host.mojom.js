@@ -210,7 +210,7 @@ mojo.internal.bindings.remoting.mojom.RemotingHostControlRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec,
       null,
-      { arg_config: arg_config },
+      [arg_config],
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.remoting.mojom.RemotingHostControlRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec,
       null,
-      { arg_privileged_handle: arg_privileged_handle, arg_unprivileged_handle: arg_unprivileged_handle },
+      [arg_privileged_handle, arg_unprivileged_handle],
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEventsRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec,
       null,
-      { arg_terminal_id: arg_terminal_id },
+      [arg_terminal_id],
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEventsRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec,
       null,
-      { arg_terminal_id: arg_terminal_id, arg_session_id: arg_session_id, arg_desktop_pipe: arg_desktop_pipe },
+      [arg_terminal_id, arg_session_id, arg_desktop_pipe],
       false);
   }
 
@@ -532,7 +532,7 @@ mojo.internal.bindings.remoting.mojom.HostStatusObserverRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec,
       null,
-      { arg_signaling_id: arg_signaling_id },
+      [arg_signaling_id],
       false);
   }
 
@@ -541,7 +541,7 @@ mojo.internal.bindings.remoting.mojom.HostStatusObserverRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec,
       null,
-      { arg_signaling_id: arg_signaling_id },
+      [arg_signaling_id],
       false);
   }
 
@@ -550,7 +550,7 @@ mojo.internal.bindings.remoting.mojom.HostStatusObserverRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec,
       null,
-      { arg_signaling_id: arg_signaling_id },
+      [arg_signaling_id],
       false);
   }
 
@@ -559,7 +559,7 @@ mojo.internal.bindings.remoting.mojom.HostStatusObserverRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec,
       null,
-      { arg_signaling_id: arg_signaling_id },
+      [arg_signaling_id],
       false);
   }
 
@@ -568,7 +568,7 @@ mojo.internal.bindings.remoting.mojom.HostStatusObserverRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec,
       null,
-      { arg_signaling_id: arg_signaling_id, arg_channel_name: arg_channel_name, arg_route: arg_route },
+      [arg_signaling_id, arg_channel_name, arg_route],
       false);
   }
 
@@ -577,7 +577,7 @@ mojo.internal.bindings.remoting.mojom.HostStatusObserverRemoteCallHandler = clas
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec,
       null,
-      { arg_owner_email: arg_owner_email },
+      [arg_owner_email],
       false);
   }
 
@@ -586,7 +586,7 @@ mojo.internal.bindings.remoting.mojom.HostStatusObserverRemoteCallHandler = clas
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

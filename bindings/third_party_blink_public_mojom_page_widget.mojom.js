@@ -344,7 +344,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragEnter_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragEnter_ResponseParamsSpec,
-      { arg_drag_data: arg_drag_data, arg_point_in_viewport: arg_point_in_viewport, arg_screen_point: arg_screen_point, arg_operations_allowed: arg_operations_allowed, arg_key_modifiers: arg_key_modifiers },
+      [arg_drag_data, arg_point_in_viewport, arg_screen_point, arg_operations_allowed, arg_key_modifiers],
       false);
   }
 
@@ -353,7 +353,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragOver_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragOver_ResponseParamsSpec,
-      { arg_point_in_viewport: arg_point_in_viewport, arg_screen_point: arg_screen_point, arg_operations_allowed: arg_operations_allowed, arg_key_modifiers: arg_key_modifiers },
+      [arg_point_in_viewport, arg_screen_point, arg_operations_allowed, arg_key_modifiers],
       false);
   }
 
@@ -362,7 +362,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragLeave_ParamsSpec,
       null,
-      { arg_point_in_viewport: arg_point_in_viewport, arg_screen_point: arg_screen_point },
+      [arg_point_in_viewport, arg_screen_point],
       false);
   }
 
@@ -371,7 +371,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDrop_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDrop_ResponseParamsSpec,
-      { arg_drag_data: arg_drag_data, arg_point_in_viewport: arg_point_in_viewport, arg_screen_point: arg_screen_point, arg_key_modifiers: arg_key_modifiers },
+      [arg_drag_data, arg_point_in_viewport, arg_screen_point, arg_key_modifiers],
       false);
   }
 
@@ -380,7 +380,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_DragSourceEndedAt_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FrameWidget_DragSourceEndedAt_ResponseParamsSpec,
-      { arg_point_in_viewport: arg_point_in_viewport, arg_screen_point: arg_screen_point, arg_drag_operation: arg_drag_operation },
+      [arg_point_in_viewport, arg_screen_point, arg_drag_operation],
       false);
   }
 
@@ -389,7 +389,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_DragSourceSystemDragEnded_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_OnStartStylusWriting_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec,
-      { arg_focus_widget_rect_in_dips: arg_focus_widget_rect_in_dips },
+      [arg_focus_widget_rect_in_dips],
       false);
   }
 
@@ -407,7 +407,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_SetBackgroundOpaque_ParamsSpec,
       null,
-      { arg_opaque: arg_opaque },
+      [arg_opaque],
       false);
   }
 
@@ -416,7 +416,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_SetTextDirection_ParamsSpec,
       null,
-      { arg_direction: arg_direction },
+      [arg_direction],
       false);
   }
 
@@ -425,7 +425,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_SetActive_ParamsSpec,
       null,
-      { arg_active: arg_active },
+      [arg_active],
       false);
   }
 
@@ -434,7 +434,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_SetInheritedEffectiveTouchActionForSubFrame_ParamsSpec,
       null,
-      { arg_touch_action: arg_touch_action },
+      [arg_touch_action],
       false);
   }
 
@@ -443,7 +443,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_UpdateRenderThrottlingStatusForSubFrame_ParamsSpec,
       null,
-      { arg_is_throttled: arg_is_throttled, arg_subtree_throttled: arg_subtree_throttled, arg_display_locked: arg_display_locked },
+      [arg_is_throttled, arg_subtree_throttled, arg_display_locked],
       false);
   }
 
@@ -452,7 +452,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_SetIsInertForSubFrame_ParamsSpec,
       null,
-      { arg_inert: arg_inert },
+      [arg_inert],
       false);
   }
 
@@ -461,7 +461,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_EnableDeviceEmulation_ParamsSpec,
       null,
-      { arg_parameters: arg_parameters, arg_cache_behavior: arg_cache_behavior },
+      [arg_parameters, arg_cache_behavior],
       false);
   }
 
@@ -470,7 +470,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_DisableDeviceEmulation_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -479,7 +479,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_BindWidgetCompositor_ParamsSpec,
       null,
-      { arg_host: arg_host },
+      [arg_host],
       false);
   }
 
@@ -488,7 +488,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_SetViewportIntersection_ParamsSpec,
       null,
-      { arg_intersection_state: arg_intersection_state, arg_visual_properties: arg_visual_properties },
+      [arg_intersection_state, arg_visual_properties],
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidget_NotifyClearedDisplayedGraphics_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -828,7 +828,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetHost_AnimateDoubleTapZoomInMainFrame_ParamsSpec,
       null,
-      { arg_tap_point: arg_tap_point, arg_rect_to_zoom: arg_rect_to_zoom },
+      [arg_tap_point, arg_rect_to_zoom],
       false);
   }
 
@@ -837,7 +837,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetHost_ZoomToFindInPageRectInMainFrame_ParamsSpec,
       null,
-      { arg_rect_to_zoom: arg_rect_to_zoom },
+      [arg_rect_to_zoom],
       false);
   }
 
@@ -846,7 +846,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetHost_SetHasTouchEventConsumers_ParamsSpec,
       null,
-      { arg_touch_event_consumers: arg_touch_event_consumers },
+      [arg_touch_event_consumers],
       false);
   }
 
@@ -855,7 +855,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetHost_IntrinsicSizingInfoChanged_ParamsSpec,
       null,
-      { arg_sizing_info: arg_sizing_info },
+      [arg_sizing_info],
       false);
   }
 
@@ -864,7 +864,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetHost_AutoscrollStart_ParamsSpec,
       null,
-      { arg_position: arg_position },
+      [arg_position],
       false);
   }
 
@@ -873,7 +873,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetHost_AutoscrollFling_ParamsSpec,
       null,
-      { arg_velocity: arg_velocity },
+      [arg_velocity],
       false);
   }
 
@@ -882,7 +882,7 @@ mojo.internal.bindings.blink.mojom.FrameWidgetHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.FrameWidgetHost_AutoscrollEnd_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1068,7 +1068,7 @@ mojo.internal.bindings.blink.mojom.PopupWidgetHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PopupWidgetHost_RequestClosePopup_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1077,7 +1077,7 @@ mojo.internal.bindings.blink.mojom.PopupWidgetHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PopupWidgetHost_ShowPopup_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PopupWidgetHost_ShowPopup_ResponseParamsSpec,
-      { arg_initial_rect: arg_initial_rect, arg_anchor_rect: arg_anchor_rect },
+      [arg_initial_rect, arg_anchor_rect],
       false);
   }
 
@@ -1086,7 +1086,7 @@ mojo.internal.bindings.blink.mojom.PopupWidgetHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PopupWidgetHost_SetPopupBounds_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PopupWidgetHost_SetPopupBounds_ResponseParamsSpec,
-      { arg_bounds: arg_bounds },
+      [arg_bounds],
       false);
   }
 

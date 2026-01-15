@@ -200,7 +200,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandlerRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -338,7 +338,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec,
       mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec,
-      { arg_library_path: arg_library_path, arg_model_files: arg_model_files, arg_ocr_service_receiver: arg_ocr_service_receiver },
+      [arg_library_path, arg_model_files, arg_ocr_service_receiver],
       false);
   }
 
@@ -347,7 +347,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec,
       mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec,
-      { arg_library_path: arg_library_path, arg_model_files: arg_model_files, arg_main_content_extractor_service: arg_main_content_extractor_service },
+      [arg_library_path, arg_model_files, arg_main_content_extractor_service],
       false);
   }
 
@@ -356,7 +356,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactoryRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec,
       null,
-      { arg_shutdown_handler: arg_shutdown_handler },
+      [arg_shutdown_handler],
       false);
   }
 

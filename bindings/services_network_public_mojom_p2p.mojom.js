@@ -243,7 +243,7 @@ mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec,
       null,
-      { arg_networks: arg_networks, arg_default_ipv4_local_address: arg_default_ipv4_local_address, arg_default_ipv6_local_address: arg_default_ipv6_local_address },
+      [arg_networks, arg_default_ipv4_local_address, arg_default_ipv6_local_address],
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.network.mojom.P2PSocketManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.network.mojom.P2PSocketManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec,
       mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec,
-      { arg_host_name: arg_host_name, arg_address_family: arg_address_family, arg_enable_mdns: arg_enable_mdns },
+      [arg_host_name, arg_address_family, arg_enable_mdns],
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.network.mojom.P2PSocketManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.P2PSocketManager_CreateSocket_ParamsSpec,
       null,
-      { arg_type: arg_type, arg_local_address: arg_local_address, arg_port_range: arg_port_range, arg_remote_address: arg_remote_address, arg_traffic_annotation: arg_traffic_annotation, arg_devtools_token: arg_devtools_token, arg_client: arg_client, arg_socket: arg_socket },
+      [arg_type, arg_local_address, arg_port_range, arg_remote_address, arg_traffic_annotation, arg_devtools_token, arg_client, arg_socket],
       false);
   }
 
@@ -562,7 +562,7 @@ mojo.internal.bindings.network.mojom.P2PSocketRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.P2PSocket_Send_ParamsSpec,
       null,
-      { arg_data: arg_data, arg_packet_info: arg_packet_info },
+      [arg_data, arg_packet_info],
       false);
   }
 
@@ -571,7 +571,7 @@ mojo.internal.bindings.network.mojom.P2PSocketRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.P2PSocket_SendBatch_ParamsSpec,
       null,
-      { arg_packet_batch: arg_packet_batch },
+      [arg_packet_batch],
       false);
   }
 
@@ -580,7 +580,7 @@ mojo.internal.bindings.network.mojom.P2PSocketRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.P2PSocket_SetOption_ParamsSpec,
       null,
-      { arg_option: arg_option, arg_value: arg_value },
+      [arg_option, arg_value],
       false);
   }
 
@@ -738,7 +738,7 @@ mojo.internal.bindings.network.mojom.P2PSocketClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.P2PSocketClient_SocketCreated_ParamsSpec,
       null,
-      { arg_local_address: arg_local_address, arg_remote_address: arg_remote_address },
+      [arg_local_address, arg_remote_address],
       false);
   }
 
@@ -747,7 +747,7 @@ mojo.internal.bindings.network.mojom.P2PSocketClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.P2PSocketClient_SendComplete_ParamsSpec,
       null,
-      { arg_send_metrics: arg_send_metrics },
+      [arg_send_metrics],
       false);
   }
 
@@ -756,7 +756,7 @@ mojo.internal.bindings.network.mojom.P2PSocketClientRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec,
       null,
-      { arg_send_metrics_batch: arg_send_metrics_batch },
+      [arg_send_metrics_batch],
       false);
   }
 
@@ -765,7 +765,7 @@ mojo.internal.bindings.network.mojom.P2PSocketClientRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.network.mojom.P2PSocketClient_DataReceived_ParamsSpec,
       null,
-      { arg_packets: arg_packets },
+      [arg_packets],
       false);
   }
 

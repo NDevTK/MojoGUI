@@ -185,7 +185,7 @@ mojo.internal.bindings.gfx.mojom.ImageTraitsTestServiceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec,
       mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec,
-      { arg_in: arg_in },
+      [arg_in],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.gfx.mojom.ImageTraitsTestServiceRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec,
       mojo.internal.bindings.gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec,
-      { arg_in: arg_in },
+      [arg_in],
       false);
   }
 

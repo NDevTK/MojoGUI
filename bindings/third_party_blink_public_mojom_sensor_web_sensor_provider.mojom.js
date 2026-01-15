@@ -183,7 +183,7 @@ mojo.internal.bindings.blink.mojom.WebSensorProviderRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebSensorProvider_GetSensor_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 

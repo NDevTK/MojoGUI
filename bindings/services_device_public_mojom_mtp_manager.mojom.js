@@ -210,7 +210,7 @@ mojo.internal.bindings.device.mojom.MtpManagerClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.MtpManagerClient_StorageAttached_ParamsSpec,
       null,
-      { arg_storage_info: arg_storage_info },
+      [arg_storage_info],
       false);
   }
 
@@ -219,7 +219,7 @@ mojo.internal.bindings.device.mojom.MtpManagerClientRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.MtpManagerClient_StorageDetached_ParamsSpec,
       null,
-      { arg_storage_name: arg_storage_name },
+      [arg_storage_name],
       false);
   }
 
@@ -401,7 +401,7 @@ mojo.internal.bindings.device.mojom.MtpManagerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec,
       mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -410,7 +410,7 @@ mojo.internal.bindings.device.mojom.MtpManagerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ParamsSpec,
       mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec,
-      { arg_storage_name: arg_storage_name },
+      [arg_storage_name],
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.device.mojom.MtpManagerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec,
       mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec,
-      { arg_storage_name: arg_storage_name },
+      [arg_storage_name],
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.device.mojom.MtpManagerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ParamsSpec,
       mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ResponseParamsSpec,
-      { arg_storage_name: arg_storage_name, arg_mode: arg_mode },
+      [arg_storage_name, arg_mode],
       false);
   }
 
@@ -437,7 +437,7 @@ mojo.internal.bindings.device.mojom.MtpManagerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ParamsSpec,
       mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ResponseParamsSpec,
-      { arg_storage_handle: arg_storage_handle },
+      [arg_storage_handle],
       false);
   }
 
@@ -446,7 +446,7 @@ mojo.internal.bindings.device.mojom.MtpManagerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ParamsSpec,
       mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec,
-      { arg_storage_handle: arg_storage_handle, arg_parent_id: arg_parent_id, arg_directory_name: arg_directory_name },
+      [arg_storage_handle, arg_parent_id, arg_directory_name],
       false);
   }
 
@@ -455,7 +455,7 @@ mojo.internal.bindings.device.mojom.MtpManagerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec,
       mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec,
-      { arg_storage_handle: arg_storage_handle, arg_file_id: arg_file_id },
+      [arg_storage_handle, arg_file_id],
       false);
   }
 
@@ -464,7 +464,7 @@ mojo.internal.bindings.device.mojom.MtpManagerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ParamsSpec,
       mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec,
-      { arg_storage_handle: arg_storage_handle, arg_file_id: arg_file_id, arg_offset: arg_offset, arg_count: arg_count },
+      [arg_storage_handle, arg_file_id, arg_offset, arg_count],
       false);
   }
 
@@ -473,7 +473,7 @@ mojo.internal.bindings.device.mojom.MtpManagerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ParamsSpec,
       mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec,
-      { arg_storage_handle: arg_storage_handle, arg_file_ids: arg_file_ids },
+      [arg_storage_handle, arg_file_ids],
       false);
   }
 
@@ -482,7 +482,7 @@ mojo.internal.bindings.device.mojom.MtpManagerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ParamsSpec,
       mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ResponseParamsSpec,
-      { arg_storage_handle: arg_storage_handle, arg_object_id: arg_object_id, arg_new_name: arg_new_name },
+      [arg_storage_handle, arg_object_id, arg_new_name],
       false);
   }
 
@@ -491,7 +491,7 @@ mojo.internal.bindings.device.mojom.MtpManagerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec,
       mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec,
-      { arg_storage_handle: arg_storage_handle, arg_source_file_descriptor: arg_source_file_descriptor, arg_parent_id: arg_parent_id, arg_file_name: arg_file_name },
+      [arg_storage_handle, arg_source_file_descriptor, arg_parent_id, arg_file_name],
       false);
   }
 
@@ -500,7 +500,7 @@ mojo.internal.bindings.device.mojom.MtpManagerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ParamsSpec,
       mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ResponseParamsSpec,
-      { arg_storage_handle: arg_storage_handle, arg_object_id: arg_object_id },
+      [arg_storage_handle, arg_object_id],
       false);
   }
 

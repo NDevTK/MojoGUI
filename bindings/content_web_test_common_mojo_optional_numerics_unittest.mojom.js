@@ -537,7 +537,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParamsSpec,
-      { arg_optional_bool: arg_optional_bool },
+      [arg_optional_bool],
       false);
   }
 
@@ -546,7 +546,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParamsSpec,
-      { arg_optional_uint8: arg_optional_uint8 },
+      [arg_optional_uint8],
       false);
   }
 
@@ -555,7 +555,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParamsSpec,
-      { arg_optional_int8: arg_optional_int8 },
+      [arg_optional_int8],
       false);
   }
 
@@ -564,7 +564,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParamsSpec,
-      { arg_optional_uint16: arg_optional_uint16 },
+      [arg_optional_uint16],
       false);
   }
 
@@ -573,7 +573,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParamsSpec,
-      { arg_optional_int16: arg_optional_int16 },
+      [arg_optional_int16],
       false);
   }
 
@@ -582,7 +582,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParamsSpec,
-      { arg_optional_uint32: arg_optional_uint32 },
+      [arg_optional_uint32],
       false);
   }
 
@@ -591,7 +591,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParamsSpec,
-      { arg_optional_int32: arg_optional_int32 },
+      [arg_optional_int32],
       false);
   }
 
@@ -600,7 +600,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParamsSpec,
-      { arg_optional_uint64: arg_optional_uint64 },
+      [arg_optional_uint64],
       false);
   }
 
@@ -609,7 +609,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParamsSpec,
-      { arg_optional_int64: arg_optional_int64 },
+      [arg_optional_int64],
       false);
   }
 
@@ -618,7 +618,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParamsSpec,
-      { arg_optional_float: arg_optional_float },
+      [arg_optional_float],
       false);
   }
 
@@ -627,7 +627,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParamsSpec,
-      { arg_optional_double: arg_optional_double },
+      [arg_optional_double],
       false);
   }
 
@@ -636,7 +636,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParamsSpec,
-      { arg_optional_enum: arg_optional_enum },
+      [arg_optional_enum],
       false);
   }
 
@@ -645,7 +645,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParamsSpec,
-      { arg_optional_bools: arg_optional_bools },
+      [arg_optional_bools],
       false);
   }
 
@@ -654,7 +654,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParamsSpec,
-      { arg_optional_int16s: arg_optional_int16s },
+      [arg_optional_int16s],
       false);
   }
 
@@ -663,7 +663,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParamsSpec,
-      { arg_optional_uint32s: arg_optional_uint32s },
+      [arg_optional_uint32s],
       false);
   }
 
@@ -672,7 +672,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParamsSpec,
-      { arg_optional_doubles: arg_optional_doubles },
+      [arg_optional_doubles],
       false);
   }
 
@@ -681,7 +681,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParamsSpec,
-      { arg_optional_enums: arg_optional_enums },
+      [arg_optional_enums],
       false);
   }
 
@@ -690,7 +690,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParamsSpec,
-      { arg_values: arg_values },
+      [arg_values],
       false);
   }
 
@@ -699,7 +699,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParamsSpec,
-      { arg_values: arg_values },
+      [arg_values],
       false);
   }
 
@@ -708,7 +708,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParamsSpec,
-      { arg_values: arg_values },
+      [arg_values],
       false);
   }
 
@@ -717,7 +717,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec,
-      { arg_optional_bool: arg_optional_bool },
+      [arg_optional_bool],
       false);
   }
 
@@ -726,7 +726,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec,
-      { arg_optional_uint8: arg_optional_uint8 },
+      [arg_optional_uint8],
       false);
   }
 
@@ -735,7 +735,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec,
-      { arg_optional_int8: arg_optional_int8 },
+      [arg_optional_int8],
       false);
   }
 
@@ -744,7 +744,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec,
-      { arg_optional_uint16: arg_optional_uint16 },
+      [arg_optional_uint16],
       false);
   }
 
@@ -753,7 +753,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec,
-      { arg_optional_int16: arg_optional_int16 },
+      [arg_optional_int16],
       false);
   }
 
@@ -762,7 +762,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec,
-      { arg_optional_uint32: arg_optional_uint32 },
+      [arg_optional_uint32],
       false);
   }
 
@@ -771,7 +771,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec,
-      { arg_optional_int32: arg_optional_int32 },
+      [arg_optional_int32],
       false);
   }
 
@@ -780,7 +780,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec,
-      { arg_optional_uint64: arg_optional_uint64 },
+      [arg_optional_uint64],
       false);
   }
 
@@ -789,7 +789,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec,
-      { arg_optional_int64: arg_optional_int64 },
+      [arg_optional_int64],
       false);
   }
 
@@ -798,7 +798,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec,
-      { arg_optional_float: arg_optional_float },
+      [arg_optional_float],
       false);
   }
 
@@ -807,7 +807,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec,
-      { arg_optional_double: arg_optional_double },
+      [arg_optional_double],
       false);
   }
 
@@ -816,7 +816,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec,
-      { arg_optional_enum: arg_optional_enum },
+      [arg_optional_enum],
       false);
   }
 
@@ -825,7 +825,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec,
-      { arg_optional_enums: arg_optional_enums },
+      [arg_optional_enums],
       false);
   }
 
@@ -834,7 +834,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec,
-      { arg_optional_int16s: arg_optional_int16s },
+      [arg_optional_int16s],
       false);
   }
 
@@ -843,7 +843,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec,
-      { arg_optional_uint32s: arg_optional_uint32s },
+      [arg_optional_uint32s],
       false);
   }
 
@@ -852,7 +852,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec,
-      { arg_optional_doubles: arg_optional_doubles },
+      [arg_optional_doubles],
       false);
   }
 
@@ -861,7 +861,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec,
-      { arg_optional_enums: arg_optional_enums },
+      [arg_optional_enums],
       false);
   }
 
@@ -870,7 +870,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec,
-      { arg_values: arg_values },
+      [arg_values],
       false);
   }
 
@@ -879,7 +879,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec,
-      { arg_values: arg_values },
+      [arg_values],
       false);
   }
 
@@ -888,7 +888,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec,
-      { arg_values: arg_values },
+      [arg_values],
       false);
   }
 
@@ -897,7 +897,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[40],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParamsSpec,
-      { arg_s: arg_s },
+      [arg_s],
       false);
   }
 
@@ -906,7 +906,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[41],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParamsSpec,
-      { arg_s: arg_s },
+      [arg_s],
       false);
   }
 
@@ -915,7 +915,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRemoteCall
       this.ordinals[42],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec,
-      { arg_s: arg_s },
+      [arg_s],
       false);
   }
 
@@ -1913,7 +1913,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1922,7 +1922,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1931,7 +1931,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1940,7 +1940,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1949,7 +1949,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1958,7 +1958,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1967,7 +1967,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1976,7 +1976,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1985,7 +1985,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1994,7 +1994,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2003,7 +2003,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2012,7 +2012,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2021,7 +2021,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2030,7 +2030,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2039,7 +2039,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2048,7 +2048,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2057,7 +2057,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2066,7 +2066,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2075,7 +2075,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2084,7 +2084,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2093,7 +2093,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -2102,7 +2102,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -2111,7 +2111,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -2120,7 +2120,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -2129,7 +2129,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -2138,7 +2138,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -2147,7 +2147,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -2156,7 +2156,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -2165,7 +2165,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -2174,7 +2174,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -2183,7 +2183,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -2192,7 +2192,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -2201,7 +2201,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -2210,7 +2210,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -2219,7 +2219,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -2228,7 +2228,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[35],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -2237,7 +2237,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[36],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec,
-      { arg_value: arg_value },
+      [arg_value],
       false);
   }
 
@@ -2246,7 +2246,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[37],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec,
-      { arg_key: arg_key, arg_value: arg_value },
+      [arg_key, arg_value],
       false);
   }
 
@@ -2255,7 +2255,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[38],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec,
-      { arg_key: arg_key, arg_value: arg_value },
+      [arg_key, arg_value],
       false);
   }
 
@@ -2264,7 +2264,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[39],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec,
-      { arg_key: arg_key, arg_value: arg_value },
+      [arg_key, arg_value],
       false);
   }
 
@@ -2273,7 +2273,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[40],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2282,7 +2282,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[41],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -2291,7 +2291,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
       this.ordinals[42],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec,
-      { arg_bool_value: arg_bool_value, arg_uint8_value: arg_uint8_value, arg_int8_value: arg_int8_value, arg_uint16_value: arg_uint16_value, arg_int16_value: arg_int16_value, arg_uint32_value: arg_uint32_value, arg_int32_value: arg_int32_value, arg_uint64_value: arg_uint64_value, arg_int64_value: arg_int64_value, arg_float_value: arg_float_value, arg_double_value: arg_double_value, arg_enum_value: arg_enum_value },
+      [arg_bool_value, arg_uint8_value, arg_int8_value, arg_uint16_value, arg_int16_value, arg_uint32_value, arg_int32_value, arg_uint64_value, arg_int64_value, arg_float_value, arg_double_value, arg_enum_value],
       false);
   }
 
@@ -3148,7 +3148,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0Remot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -3157,7 +3157,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0Remot
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec,
-      { arg_s: arg_s },
+      [arg_s],
       false);
   }
 
@@ -3316,7 +3316,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2Remot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParamsSpec,
-      { arg_bool_value: arg_bool_value, arg_uint8_value: arg_uint8_value, arg_int8_value: arg_int8_value, arg_uint16_value: arg_uint16_value, arg_int16_value: arg_int16_value, arg_uint32_value: arg_uint32_value, arg_int32_value: arg_int32_value, arg_uint64_value: arg_uint64_value, arg_int64_value: arg_int64_value, arg_float_value: arg_float_value, arg_double_value: arg_double_value, arg_enum_value: arg_enum_value },
+      [arg_bool_value, arg_uint8_value, arg_int8_value, arg_uint16_value, arg_int16_value, arg_uint32_value, arg_int32_value, arg_uint64_value, arg_int64_value, arg_float_value, arg_double_value, arg_enum_value],
       false);
   }
 
@@ -3325,7 +3325,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2Remot
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec,
       mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec,
-      { arg_s: arg_s },
+      [arg_s],
       false);
   }
 

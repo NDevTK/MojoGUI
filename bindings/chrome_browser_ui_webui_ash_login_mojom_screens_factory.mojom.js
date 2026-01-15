@@ -324,7 +324,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec,
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ResponseParamsSpec,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -333,7 +333,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -342,7 +342,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec,
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ResponseParamsSpec,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -351,7 +351,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -360,7 +360,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec,
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ResponseParamsSpec,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -369,7 +369,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -378,7 +378,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -387,7 +387,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec,
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ResponseParamsSpec,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -396,7 +396,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -405,7 +405,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec,
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ResponseParamsSpec,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -414,7 +414,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec,
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ResponseParamsSpec,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 
@@ -423,7 +423,7 @@ mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec,
       null,
-      { arg_handler: arg_handler },
+      [arg_handler],
       false);
   }
 

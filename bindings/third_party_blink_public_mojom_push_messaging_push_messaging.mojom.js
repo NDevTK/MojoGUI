@@ -213,7 +213,7 @@ mojo.internal.bindings.blink.mojom.PushMessagingRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec,
-      { arg_service_worker_registration_id: arg_service_worker_registration_id, arg_options: arg_options, arg_user_gesture: arg_user_gesture },
+      [arg_service_worker_registration_id, arg_options, arg_user_gesture],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.blink.mojom.PushMessagingRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec,
-      { arg_service_worker_registration_id: arg_service_worker_registration_id },
+      [arg_service_worker_registration_id],
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.blink.mojom.PushMessagingRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ParamsSpec,
       mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec,
-      { arg_service_worker_registration_id: arg_service_worker_registration_id },
+      [arg_service_worker_registration_id],
       false);
   }
 

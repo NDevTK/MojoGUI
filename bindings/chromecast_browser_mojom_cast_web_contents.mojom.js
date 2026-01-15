@@ -268,7 +268,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -277,7 +277,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec,
       null,
-      { arg_state: arg_state, arg_error_code: arg_error_code },
+      [arg_state, arg_error_code],
       false);
   }
 
@@ -286,7 +286,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverRemoteCallHandler
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec,
       null,
-      { arg_render_process_id: arg_render_process_id, arg_render_frame_id: arg_render_frame_id },
+      [arg_render_process_id, arg_render_frame_id],
       false);
   }
 
@@ -295,7 +295,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverRemoteCallHandler
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -304,7 +304,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverRemoteCallHandler
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec,
       null,
-      { arg_title: arg_title },
+      [arg_title],
       false);
   }
 
@@ -313,7 +313,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverRemoteCallHandler
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -322,7 +322,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverRemoteCallHandler
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -331,7 +331,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverRemoteCallHandler
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -340,7 +340,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverRemoteCallHandler
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec,
       null,
-      { arg_pid: arg_pid },
+      [arg_pid],
       false);
   }
 
@@ -349,7 +349,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverRemoteCallHandler
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec,
       null,
-      { arg_media_playing: arg_media_playing },
+      [arg_media_playing],
       false);
   }
 
@@ -358,7 +358,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsObserverRemoteCallHandler
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec,
       null,
-      { arg_web_contents: arg_web_contents },
+      [arg_web_contents],
       false);
   }
 
@@ -620,7 +620,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id, arg_session_id: arg_session_id, arg_is_audio_app: arg_is_audio_app, arg_app_web_url: arg_app_web_url, arg_enforce_feature_permissions: arg_enforce_feature_permissions, arg_feature_permissions: arg_feature_permissions, arg_additional_feature_permission_origins: arg_additional_feature_permission_origins },
+      [arg_app_id, arg_session_id, arg_is_audio_app, arg_app_web_url, arg_enforce_feature_permissions, arg_feature_permissions, arg_additional_feature_permission_origins],
       false);
   }
 
@@ -629,7 +629,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec,
       null,
-      { arg_session_id: arg_session_id, arg_is_multizone_launch: arg_is_multizone_launch },
+      [arg_session_id, arg_is_multizone_launch],
       false);
   }
 
@@ -638,7 +638,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec,
       null,
-      { arg_features: arg_features },
+      [arg_features],
       false);
   }
 
@@ -647,7 +647,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec,
       null,
-      { arg_remote_interfaces: arg_remote_interfaces },
+      [arg_remote_interfaces],
       false);
   }
 
@@ -656,7 +656,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -665,7 +665,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContents_ClosePage_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -674,7 +674,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec,
       null,
-      { arg_visible: arg_visible },
+      [arg_visible],
       false);
   }
 
@@ -683,7 +683,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec,
       null,
-      { arg_blocked: arg_blocked },
+      [arg_blocked],
       false);
   }
 
@@ -692,7 +692,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec,
       null,
-      { arg_blocked: arg_blocked },
+      [arg_blocked],
       false);
   }
 
@@ -701,7 +701,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -710,7 +710,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec,
       null,
-      { arg_api_bindings_remote: arg_api_bindings_remote },
+      [arg_api_bindings_remote],
       false);
   }
 
@@ -719,7 +719,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsRemoteCallHandler = class
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContents_AddObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -728,7 +728,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsRemoteCallHandler = class
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -737,7 +737,7 @@ mojo.internal.bindings.chromecast.mojom.CastWebContentsRemoteCallHandler = class
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec,
       mojo.internal.bindings.chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

@@ -198,7 +198,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec,
-      { arg_offset: arg_offset, arg_bytes_to_read: arg_bytes_to_read },
+      [arg_offset, arg_bytes_to_read],
       false);
   }
 
@@ -207,7 +207,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHan
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec,
-      { arg_offset: arg_offset, arg_data: arg_data },
+      [arg_offset, arg_data],
       false);
   }
 
@@ -216,7 +216,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHan
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -225,7 +225,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHan
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec,
       mojo.internal.bindings.blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec,
-      { arg_length: arg_length },
+      [arg_length],
       false);
   }
 

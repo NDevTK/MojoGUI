@@ -211,7 +211,7 @@ mojo.internal.bindings.blink.mojom.WebUsbServiceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -220,7 +220,7 @@ mojo.internal.bindings.blink.mojom.WebUsbServiceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.WebUsbService_GetDevice_ParamsSpec,
       null,
-      { arg_guid: arg_guid, arg_device_receiver: arg_device_receiver },
+      [arg_guid, arg_device_receiver],
       false);
   }
 
@@ -229,7 +229,7 @@ mojo.internal.bindings.blink.mojom.WebUsbServiceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec,
-      { arg_options: arg_options },
+      [arg_options],
       false);
   }
 
@@ -238,7 +238,7 @@ mojo.internal.bindings.blink.mojom.WebUsbServiceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ParamsSpec,
       mojo.internal.bindings.blink.mojom.WebUsbService_ForgetDevice_ResponseParamsSpec,
-      { arg_guid: arg_guid },
+      [arg_guid],
       false);
   }
 
@@ -247,7 +247,7 @@ mojo.internal.bindings.blink.mojom.WebUsbServiceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.WebUsbService_SetClient_ParamsSpec,
       null,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 

@@ -303,7 +303,7 @@ mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec,
       null,
-      { arg_share_target: arg_share_target },
+      [arg_share_target],
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec,
       null,
-      { arg_share_target: arg_share_target },
+      [arg_share_target],
       false);
   }
 
@@ -450,7 +450,7 @@ mojo.internal.bindings.nearby_share.mojom.TransferUpdateListenerRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec,
       null,
-      { arg_status: arg_status, arg_token: arg_token },
+      [arg_status, arg_token],
       false);
   }
 
@@ -584,7 +584,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -593,7 +593,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec,
       null,
-      { arg_success: arg_success },
+      [arg_success],
       false);
   }
 
@@ -747,7 +747,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -756,7 +756,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec,
-      { arg_listener: arg_listener },
+      [arg_listener],
       false);
   }
 
@@ -765,7 +765,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -774,7 +774,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec,
-      { arg_share_target_id: arg_share_target_id },
+      [arg_share_target_id],
       false);
   }
 
@@ -783,7 +783,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -987,7 +987,7 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -996,7 +996,7 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1005,7 +1005,7 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1190,7 +1190,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveObserverRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec,
       null,
-      { arg_in_high_visibility: arg_in_high_visibility },
+      [arg_in_high_visibility],
       false);
   }
 
@@ -1199,7 +1199,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveObserverRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec,
       null,
-      { arg_share_target: arg_share_target, arg_metadata: arg_metadata },
+      [arg_share_target, arg_metadata],
       false);
   }
 
@@ -1208,7 +1208,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveObserverRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1217,7 +1217,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveObserverRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1395,7 +1395,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec,
       null,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 
@@ -1404,7 +1404,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1413,7 +1413,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1422,7 +1422,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1431,7 +1431,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec,
-      { arg_share_target_id: arg_share_target_id },
+      [arg_share_target_id],
       false);
   }
 
@@ -1440,7 +1440,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerRemoteCallHandler = clas
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ParamsSpec,
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec,
-      { arg_share_target_id: arg_share_target_id },
+      [arg_share_target_id],
       false);
   }
 
@@ -1449,7 +1449,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerRemoteCallHandler = clas
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec,
       null,
-      { arg_success: arg_success },
+      [arg_success],
       false);
   }
 

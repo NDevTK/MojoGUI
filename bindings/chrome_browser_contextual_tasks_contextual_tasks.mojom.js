@@ -282,7 +282,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpec,
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec,
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec,
-      { arg_uuid: arg_uuid },
+      [arg_uuid],
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_SetTaskId_ParamsSpec,
       null,
-      { arg_uuid: arg_uuid },
+      [arg_uuid],
       false);
   }
 
@@ -309,7 +309,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsZeroState_ParamsSpec,
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsZeroState_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_SetThreadTitle_ParamsSpec,
       null,
-      { arg_title: arg_title },
+      [arg_title],
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_CloseSidePanel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -336,7 +336,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_ShowThreadHistory_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsShownInTab_ParamsSpec,
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenMyActivityUi_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OnTabClickedFromSourcesMenu_ParamsSpec,
       null,
-      { arg_tab_id: arg_tab_id, arg_url: arg_url },
+      [arg_tab_id, arg_url],
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OnWebviewMessage_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -408,7 +408,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ParamsSpec,
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ResponseParamsSpec,
-      { arg_is_dark_mode: arg_is_dark_mode, arg_is_side_panel: arg_is_side_panel },
+      [arg_is_dark_mode, arg_is_side_panel],
       false);
   }
 
@@ -417,7 +417,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OnboardingTooltipDismissed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -764,7 +764,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_SetThreadTitle_ParamsSpec,
       null,
-      { arg_title: arg_title },
+      [arg_title],
       false);
   }
 
@@ -773,7 +773,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_SetTaskDetails_ParamsSpec,
       null,
-      { arg_uuid: arg_uuid, arg_thread_id: arg_thread_id, arg_turn_id: arg_turn_id },
+      [arg_uuid, arg_thread_id, arg_turn_id],
       false);
   }
 
@@ -782,7 +782,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelStateChanged_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -791,7 +791,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -800,7 +800,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_OnHandshakeComplete_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -809,7 +809,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_SetOAuthToken_ParamsSpec,
       null,
-      { arg_oauth_token: arg_oauth_token },
+      [arg_oauth_token],
       false);
   }
 
@@ -818,7 +818,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_OnContextUpdated_ParamsSpec,
       null,
-      { arg_context_tabs: arg_context_tabs },
+      [arg_context_tabs],
       false);
   }
 
@@ -827,7 +827,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_HideInput_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -836,7 +836,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_RestoreInput_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -845,7 +845,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_OnZeroStateChange_ParamsSpec,
       null,
-      { arg_is_zero_state: arg_is_zero_state },
+      [arg_is_zero_state],
       false);
   }
 
@@ -854,7 +854,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_OnAiPageStatusChanged_ParamsSpec,
       null,
-      { arg_is_ai_page: arg_is_ai_page },
+      [arg_is_ai_page],
       false);
   }
 
@@ -863,7 +863,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_OnLensOverlayStateChanged_ParamsSpec,
       null,
-      { arg_is_showing: arg_is_showing },
+      [arg_is_showing],
       false);
   }
 
@@ -872,7 +872,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_ShowErrorPage_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -881,7 +881,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1115,7 +1115,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactoryRemoteCallHandle
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_page_handler: arg_page_handler },
+      [arg_page, arg_page_handler],
       false);
   }
 

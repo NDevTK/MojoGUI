@@ -171,7 +171,7 @@ mojo.internal.bindings.printing.mojom.PrinterXmlParserRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec,
       null,
-      { arg_capabilities_xml: arg_capabilities_xml },
+      [arg_capabilities_xml],
       false);
   }
 

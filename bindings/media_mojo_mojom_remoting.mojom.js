@@ -231,7 +231,7 @@ mojo.internal.bindings.media.mojom.RemoterFactoryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.RemoterFactory_Create_ParamsSpec,
       null,
-      { arg_source: arg_source, arg_remoter: arg_remoter },
+      [arg_source, arg_remoter],
       false);
   }
 
@@ -365,7 +365,7 @@ mojo.internal.bindings.media.mojom.RemotingDataStreamSenderRemoteCallHandler = c
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec,
       mojo.internal.bindings.media.mojom.RemotingDataStreamSender_SendFrame_ResponseParamsSpec,
-      { arg_frame: arg_frame },
+      [arg_frame],
       false);
   }
 
@@ -374,7 +374,7 @@ mojo.internal.bindings.media.mojom.RemotingDataStreamSenderRemoteCallHandler = c
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -540,7 +540,7 @@ mojo.internal.bindings.media.mojom.RemoterRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.Remoter_Start_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -549,7 +549,7 @@ mojo.internal.bindings.media.mojom.RemoterRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -558,7 +558,7 @@ mojo.internal.bindings.media.mojom.RemoterRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.Remoter_StartDataStreams_ParamsSpec,
       null,
-      { arg_audio_pipe: arg_audio_pipe, arg_video_pipe: arg_video_pipe, arg_audio_sender: arg_audio_sender, arg_video_sender: arg_video_sender },
+      [arg_audio_pipe, arg_video_pipe, arg_audio_sender, arg_video_sender],
       false);
   }
 
@@ -567,7 +567,7 @@ mojo.internal.bindings.media.mojom.RemoterRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.Remoter_Stop_ParamsSpec,
       null,
-      { arg_reason: arg_reason },
+      [arg_reason],
       false);
   }
 
@@ -576,7 +576,7 @@ mojo.internal.bindings.media.mojom.RemoterRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.Remoter_SendMessageToSink_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -585,7 +585,7 @@ mojo.internal.bindings.media.mojom.RemoterRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec,
       mojo.internal.bindings.media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -784,7 +784,7 @@ mojo.internal.bindings.media.mojom.RemotingSourceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec,
       null,
-      { arg_metadata: arg_metadata },
+      [arg_metadata],
       false);
   }
 
@@ -793,7 +793,7 @@ mojo.internal.bindings.media.mojom.RemotingSourceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingSource_OnSinkGone_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -802,7 +802,7 @@ mojo.internal.bindings.media.mojom.RemotingSourceRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingSource_OnStarted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -811,7 +811,7 @@ mojo.internal.bindings.media.mojom.RemotingSourceRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingSource_OnStartFailed_ParamsSpec,
       null,
-      { arg_reason: arg_reason },
+      [arg_reason],
       false);
   }
 
@@ -820,7 +820,7 @@ mojo.internal.bindings.media.mojom.RemotingSourceRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -829,7 +829,7 @@ mojo.internal.bindings.media.mojom.RemotingSourceRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingSource_OnStopped_ParamsSpec,
       null,
-      { arg_reason: arg_reason },
+      [arg_reason],
       false);
   }
 
@@ -1015,7 +1015,7 @@ mojo.internal.bindings.media.mojom.RemoteeRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec,
       null,
-      { arg_sink: arg_sink },
+      [arg_sink],
       false);
   }
 
@@ -1024,7 +1024,7 @@ mojo.internal.bindings.media.mojom.RemoteeRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.Remotee_SendMessageToSource_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -1033,7 +1033,7 @@ mojo.internal.bindings.media.mojom.RemoteeRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.Remotee_StartDataStreams_ParamsSpec,
       null,
-      { arg_audio_stream: arg_audio_stream, arg_video_stream: arg_video_stream },
+      [arg_audio_stream, arg_video_stream],
       false);
   }
 
@@ -1042,7 +1042,7 @@ mojo.internal.bindings.media.mojom.RemoteeRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.Remotee_OnFlushUntil_ParamsSpec,
       null,
-      { arg_audio_frame_count: arg_audio_frame_count, arg_video_frame_count: arg_video_frame_count },
+      [arg_audio_frame_count, arg_video_frame_count],
       false);
   }
 
@@ -1051,7 +1051,7 @@ mojo.internal.bindings.media.mojom.RemoteeRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec,
       null,
-      { arg_size: arg_size },
+      [arg_size],
       false);
   }
 
@@ -1213,7 +1213,7 @@ mojo.internal.bindings.media.mojom.RemotingSinkRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 
@@ -1351,7 +1351,7 @@ mojo.internal.bindings.media.mojom.RemotingDataStreamReceiverRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec,
       null,
-      { arg_data_pipe: arg_data_pipe },
+      [arg_data_pipe],
       false);
   }
 
@@ -1360,7 +1360,7 @@ mojo.internal.bindings.media.mojom.RemotingDataStreamReceiverRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec,
       null,
-      { arg_frame_count: arg_frame_count, arg_buffer: arg_buffer },
+      [arg_frame_count, arg_buffer],
       false);
   }
 
@@ -1369,7 +1369,7 @@ mojo.internal.bindings.media.mojom.RemotingDataStreamReceiverRemoteCallHandler =
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec,
       null,
-      { arg_frame_count: arg_frame_count },
+      [arg_frame_count],
       false);
   }
 

@@ -204,7 +204,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec,
       mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -213,7 +213,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec,
       mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -222,7 +222,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec,
       null,
-      { arg_screen: arg_screen },
+      [arg_screen],
       false);
   }
 
@@ -231,7 +231,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

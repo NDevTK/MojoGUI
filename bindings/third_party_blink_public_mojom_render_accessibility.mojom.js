@@ -214,7 +214,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityHostRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec,
       mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParamsSpec,
-      { arg_events_and_updates: arg_events_and_updates, arg_location_and_scroll_updates: arg_location_and_scroll_updates, arg_reset_token: arg_reset_token },
+      [arg_events_and_updates, arg_location_and_scroll_updates, arg_reset_token],
       false);
   }
 
@@ -223,7 +223,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityHostRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec,
       null,
-      { arg_changes: arg_changes, arg_reset_token: arg_reset_token },
+      [arg_changes, arg_reset_token],
       false);
   }
 
@@ -385,7 +385,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RenderAccessibility_SetMode_ParamsSpec,
       null,
-      { arg_ax_mode: arg_ax_mode, arg_reset_token: arg_reset_token },
+      [arg_ax_mode, arg_reset_token],
       false);
   }
 
@@ -394,7 +394,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.RenderAccessibility_FatalError_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -403,7 +403,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ParamsSpec,
       mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec,
-      { arg_point: arg_point, arg_event_to_fire: arg_event_to_fire, arg_request_id: arg_request_id },
+      [arg_point, arg_event_to_fire, arg_request_id],
       false);
   }
 
@@ -412,7 +412,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.RenderAccessibility_PerformAction_ParamsSpec,
       null,
-      { arg_action_data: arg_action_data },
+      [arg_action_data],
       false);
   }
 
@@ -421,7 +421,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.RenderAccessibility_Reset_ParamsSpec,
       null,
-      { arg_reset_token: arg_reset_token },
+      [arg_reset_token],
       false);
   }
 

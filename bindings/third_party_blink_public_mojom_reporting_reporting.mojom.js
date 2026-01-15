@@ -215,7 +215,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_id: arg_id, arg_message: arg_message, arg_source_file: arg_source_file, arg_line_number: arg_line_number, arg_column_number: arg_column_number },
+      [arg_url, arg_id, arg_message, arg_source_file, arg_line_number, arg_column_number],
       false);
   }
 
@@ -224,7 +224,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_id: arg_id, arg_anticipatedRemoval: arg_anticipatedRemoval, arg_message: arg_message, arg_source_file: arg_source_file, arg_line_number: arg_line_number, arg_column_number: arg_column_number },
+      [arg_url, arg_id, arg_anticipatedRemoval, arg_message, arg_source_file, arg_line_number, arg_column_number],
       false);
   }
 
@@ -233,7 +233,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_group: arg_group, arg_document_url: arg_document_url, arg_referrer: arg_referrer, arg_blocked_url: arg_blocked_url, arg_effective_directive: arg_effective_directive, arg_original_policy: arg_original_policy, arg_source_file: arg_source_file, arg_script_sample: arg_script_sample, arg_disposition: arg_disposition, arg_status_code: arg_status_code, arg_line_number: arg_line_number, arg_column_number: arg_column_number },
+      [arg_url, arg_group, arg_document_url, arg_referrer, arg_blocked_url, arg_effective_directive, arg_original_policy, arg_source_file, arg_script_sample, arg_disposition, arg_status_code, arg_line_number, arg_column_number],
       false);
   }
 
@@ -242,7 +242,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_endpoint: arg_endpoint, arg_document_url: arg_document_url, arg_blocked_url: arg_blocked_url, arg_destination: arg_destination, arg_report_only: arg_report_only },
+      [arg_url, arg_endpoint, arg_document_url, arg_blocked_url, arg_destination, arg_report_only],
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_endpoint: arg_endpoint, arg_policy_id: arg_policy_id, arg_disposition: arg_disposition, arg_message: arg_message, arg_source_file: arg_source_file, arg_line_number: arg_line_number, arg_column_number: arg_column_number },
+      [arg_url, arg_endpoint, arg_policy_id, arg_disposition, arg_message, arg_source_file, arg_line_number, arg_column_number],
       false);
   }
 
@@ -260,7 +260,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyRemoteCallHandler = clas
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_endpoint: arg_endpoint, arg_policy_id: arg_policy_id, arg_disposition: arg_disposition, arg_message: arg_message, arg_allow_attribute: arg_allow_attribute, arg_src_attribute: arg_src_attribute, arg_source_file: arg_source_file, arg_line_number: arg_line_number, arg_column_number: arg_column_number },
+      [arg_url, arg_endpoint, arg_policy_id, arg_disposition, arg_message, arg_allow_attribute, arg_src_attribute, arg_source_file, arg_line_number, arg_column_number],
       false);
   }
 
@@ -269,7 +269,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyRemoteCallHandler = clas
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_group: arg_group, arg_policy_id: arg_policy_id, arg_disposition: arg_disposition, arg_message: arg_message, arg_source_file: arg_source_file, arg_line_number: arg_line_number, arg_column_number: arg_column_number },
+      [arg_url, arg_group, arg_policy_id, arg_disposition, arg_message, arg_source_file, arg_line_number, arg_column_number],
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.blink.mojom.ReportingServiceProxyRemoteCallHandler = clas
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec,
       null,
-      { arg_url: arg_url, arg_endpoint: arg_endpoint, arg_subresource_url: arg_subresource_url, arg_integrity_hash: arg_integrity_hash, arg_type: arg_type, arg_destination: arg_destination },
+      [arg_url, arg_endpoint, arg_subresource_url, arg_integrity_hash, arg_type, arg_destination],
       false);
   }
 

@@ -247,7 +247,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerFactoryRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -256,7 +256,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerFactoryRemoteCallHandler =
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec,
       mojo.internal.bindings.webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -419,7 +419,7 @@ mojo.internal.bindings.webui_browser.mojom.PageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec,
       null,
-      { arg_is_user_initiated: arg_is_user_initiated },
+      [arg_is_user_initiated],
       false);
   }
 
@@ -428,7 +428,7 @@ mojo.internal.bindings.webui_browser.mojom.PageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.Page_SetReloadStopState_ParamsSpec,
       null,
-      { arg_is_loading: arg_is_loading },
+      [arg_is_loading],
       false);
   }
 
@@ -437,7 +437,7 @@ mojo.internal.bindings.webui_browser.mojom.PageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.Page_ShowSidePanel_ParamsSpec,
       null,
-      { arg_guest_contents_id: arg_guest_contents_id, arg_title: arg_title },
+      [arg_guest_contents_id, arg_title],
       false);
   }
 
@@ -446,7 +446,7 @@ mojo.internal.bindings.webui_browser.mojom.PageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.Page_CloseSidePanel_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -455,7 +455,7 @@ mojo.internal.bindings.webui_browser.mojom.PageRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec,
       null,
-      { arg_is_fullscreen: arg_is_fullscreen, arg_context: arg_context },
+      [arg_is_fullscreen, arg_context],
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec,
       mojo.internal.bindings.webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec,
-      { arg_tab_id: arg_tab_id, arg_handler: arg_handler },
+      [arg_tab_id, arg_handler],
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec,
       mojo.internal.bindings.webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -675,7 +675,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec,
       null,
-      { arg_anchor_name: arg_anchor_name },
+      [arg_anchor_name],
       false);
   }
 
@@ -684,7 +684,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_OpenAppMenu_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -693,7 +693,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_OpenProfileMenu_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -702,7 +702,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_OnSidePanelClosed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -720,7 +720,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_Minimize_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -729,7 +729,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_Maximize_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -738,7 +738,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_Restore_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -747,7 +747,7 @@ mojo.internal.bindings.webui_browser.mojom.PageHandlerRemoteCallHandler = class 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.PageHandler_Close_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1007,7 +1007,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_Navigate_ParamsSpec,
       null,
-      { arg_src: arg_src },
+      [arg_src],
       false);
   }
 
@@ -1016,7 +1016,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec,
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1025,7 +1025,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_GoBack_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1034,7 +1034,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec,
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1043,7 +1043,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_GoForward_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1052,7 +1052,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_Reload_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1061,7 +1061,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_StopLoading_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1070,7 +1070,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1079,7 +1079,7 @@ mojo.internal.bindings.webui_browser.mojom.GuestHandlerRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec,
       mojo.internal.bindings.webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

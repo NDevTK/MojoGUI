@@ -200,7 +200,7 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerClientRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec,
       null,
-      { arg_device_info: arg_device_info },
+      [arg_device_info],
       false);
   }
 
@@ -209,7 +209,7 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerClientRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec,
       null,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -351,7 +351,7 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerRemoteCallHandler = class 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec,
       mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec,
-      { arg_client: arg_client },
+      [arg_client],
       false);
   }
 
@@ -360,7 +360,7 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerRemoteCallHandler = class 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevices_ParamsSpec,
       mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

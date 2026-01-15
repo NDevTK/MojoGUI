@@ -193,7 +193,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayProviderRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec,
       null,
-      { arg_overlay: arg_overlay, arg_client: arg_client, arg_config: arg_config },
+      [arg_overlay, arg_client, arg_config],
       false);
   }
 
@@ -323,7 +323,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec,
       null,
-      { arg_rect: arg_rect },
+      [arg_rect],
       false);
   }
 
@@ -465,7 +465,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayClientRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec,
       null,
-      { arg_surface_key: arg_surface_key },
+      [arg_surface_key],
       false);
   }
 
@@ -474,7 +474,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayClientRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -483,7 +483,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayClientRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec,
       mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -492,7 +492,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayClientRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec,
       null,
-      { arg_is_power_efficient: arg_is_power_efficient },
+      [arg_is_power_efficient],
       false);
   }
 

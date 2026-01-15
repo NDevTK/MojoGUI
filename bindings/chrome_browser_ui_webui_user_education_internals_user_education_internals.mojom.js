@@ -282,7 +282,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ResponseParamsSpec,
-      { arg_tutorial_id: arg_tutorial_id },
+      [arg_tutorial_id],
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -309,7 +309,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -318,7 +318,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ResponseParamsSpec,
-      { arg_feature_name: arg_feature_name },
+      [arg_feature_name],
       false);
   }
 
@@ -327,7 +327,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec,
-      { arg_feature_name: arg_feature_name },
+      [arg_feature_name],
       false);
   }
 
@@ -336,7 +336,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -345,7 +345,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -354,7 +354,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -363,7 +363,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -372,7 +372,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -381,7 +381,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -390,7 +390,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -399,7 +399,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -408,7 +408,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec,
-      { arg_feature_name: arg_feature_name },
+      [arg_feature_name],
       false);
   }
 
@@ -417,7 +417,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -426,7 +426,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec,
-      { arg_id: arg_id },
+      [arg_id],
       false);
   }
 
@@ -435,7 +435,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec,
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -444,7 +444,7 @@ mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPage
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewStaging_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

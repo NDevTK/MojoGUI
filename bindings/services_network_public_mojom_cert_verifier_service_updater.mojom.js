@@ -185,7 +185,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec,
       null,
-      { arg_certificates: arg_certificates },
+      [arg_certificates],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec,
       mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

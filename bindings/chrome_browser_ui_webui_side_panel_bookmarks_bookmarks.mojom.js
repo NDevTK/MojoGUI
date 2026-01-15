@@ -245,7 +245,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerFactoryRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -463,7 +463,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec,
       null,
-      { arg_folder_id: arg_folder_id },
+      [arg_folder_id],
       false);
   }
 
@@ -472,7 +472,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec,
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec,
-      { arg_folder_id: arg_folder_id, arg_title: arg_title },
+      [arg_folder_id, arg_title],
       false);
   }
 
@@ -481,7 +481,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec,
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_DropBookmarks_ResponseParamsSpec,
-      { arg_folder_id: arg_folder_id },
+      [arg_folder_id],
       false);
   }
 
@@ -490,7 +490,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec,
       null,
-      { arg_node_ids: arg_node_ids, arg_source: arg_source },
+      [arg_node_ids, arg_source],
       false);
   }
 
@@ -499,7 +499,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec,
       null,
-      { arg_node_ids: arg_node_ids, arg_source: arg_source },
+      [arg_node_ids, arg_source],
       false);
   }
 
@@ -508,7 +508,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec,
       null,
-      { arg_side_panel_ids: arg_side_panel_ids, arg_source: arg_source },
+      [arg_side_panel_ids, arg_source],
       false);
   }
 
@@ -517,7 +517,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec,
       null,
-      { arg_side_panel_ids: arg_side_panel_ids, arg_source: arg_source },
+      [arg_side_panel_ids, arg_source],
       false);
   }
 
@@ -526,7 +526,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_ParamsSpec,
       null,
-      { arg_side_panel_ids: arg_side_panel_ids, arg_source: arg_source },
+      [arg_side_panel_ids, arg_source],
       false);
   }
 
@@ -535,7 +535,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec,
       null,
-      { arg_side_panel_ids: arg_side_panel_ids, arg_source: arg_source },
+      [arg_side_panel_ids, arg_source],
       false);
   }
 
@@ -544,7 +544,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec,
       null,
-      { arg_node_ids: arg_node_ids, arg_source: arg_source },
+      [arg_node_ids, arg_source],
       false);
   }
 
@@ -553,7 +553,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec,
       null,
-      { arg_node_id: arg_node_id, arg_source: arg_source },
+      [arg_node_id, arg_source],
       false);
   }
 
@@ -562,7 +562,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_ParamsSpec,
       null,
-      { arg_node_id: arg_node_id, arg_source: arg_source },
+      [arg_node_id, arg_source],
       false);
   }
 
@@ -571,7 +571,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec,
       null,
-      { arg_node_ids: arg_node_ids, arg_source: arg_source },
+      [arg_node_ids, arg_source],
       false);
   }
 
@@ -580,7 +580,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec,
       null,
-      { arg_node_id: arg_node_id, arg_parent_folder_depth: arg_parent_folder_depth, arg_click_modifiers: arg_click_modifiers, arg_source: arg_source },
+      [arg_node_id, arg_parent_folder_depth, arg_click_modifiers, arg_source],
       false);
   }
 
@@ -589,7 +589,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -598,7 +598,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec,
       null,
-      { arg_node_id: arg_node_id, arg_new_title: arg_new_title },
+      [arg_node_id, arg_new_title],
       false);
   }
 
@@ -607,7 +607,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec,
       null,
-      { arg_node_id: arg_node_id, arg_folder_id: arg_folder_id },
+      [arg_node_id, arg_folder_id],
       false);
   }
 
@@ -616,7 +616,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec,
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ResponseParamsSpec,
-      { arg_node_ids: arg_node_ids },
+      [arg_node_ids],
       false);
   }
 
@@ -625,7 +625,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec,
       null,
-      { arg_sort_order: arg_sort_order },
+      [arg_sort_order],
       false);
   }
 
@@ -634,7 +634,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec,
       null,
-      { arg_view_type: arg_view_type },
+      [arg_view_type],
       false);
   }
 
@@ -643,7 +643,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec,
       null,
-      { arg_id: arg_id, arg_point: arg_point, arg_source: arg_source },
+      [arg_id, arg_point, arg_source],
       false);
   }
 
@@ -652,7 +652,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -661,7 +661,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec,
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -1017,7 +1017,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec,
       null,
-      { arg_node: arg_node },
+      [arg_node],
       false);
   }
 
@@ -1026,7 +1026,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec,
       null,
-      { arg_node_ids: arg_node_ids },
+      [arg_node_ids],
       false);
   }
 
@@ -1035,7 +1035,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpec,
       null,
-      { arg_folder_id: arg_folder_id, arg_children_ordered_ids: arg_children_ordered_ids },
+      [arg_folder_id, arg_children_ordered_ids],
       false);
   }
 
@@ -1044,7 +1044,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec,
       null,
-      { arg_old_parent_index: arg_old_parent_index, arg_old_node_index: arg_old_node_index, arg_new_parent_index: arg_new_parent_index, arg_new_node_index: arg_new_node_index },
+      [arg_old_parent_index, arg_old_node_index, arg_new_parent_index, arg_new_node_index],
       false);
   }
 
@@ -1053,7 +1053,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec,
       null,
-      { arg_id: arg_id, arg_new_title: arg_new_title, arg_new_url: arg_new_url },
+      [arg_id, arg_new_title, arg_new_url],
       false);
   }
 

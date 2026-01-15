@@ -175,7 +175,7 @@ mojo.internal.bindings.mirroring.mojom.CastMessageChannelRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec,
       null,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 

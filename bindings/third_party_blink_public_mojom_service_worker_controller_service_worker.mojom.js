@@ -242,7 +242,7 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec,
-      { arg_params: arg_params, arg_response_callback: arg_response_callback },
+      [arg_params, arg_response_callback],
       false);
   }
 
@@ -251,7 +251,7 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ControllerServiceWorker_Clone_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_cross_origin_embedder_policy: arg_cross_origin_embedder_policy, arg_coep_reporter: arg_coep_reporter, arg_document_isolation_policy: arg_document_isolation_policy, arg_dip_reporter: arg_dip_reporter },
+      [arg_receiver, arg_cross_origin_embedder_policy, arg_coep_reporter, arg_document_isolation_policy, arg_dip_reporter],
       false);
   }
 
@@ -398,7 +398,7 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnectorRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec,
       null,
-      { arg_controller: arg_controller },
+      [arg_controller],
       false);
   }
 

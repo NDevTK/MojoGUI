@@ -188,7 +188,7 @@ mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactoryR
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      { arg_page: arg_page, arg_handler: arg_handler },
+      [arg_page, arg_handler],
       false);
   }
 
@@ -322,7 +322,7 @@ mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerRemoteCa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec,
       null,
-      { arg_package_index: arg_package_index },
+      [arg_package_index],
       false);
   }
 
@@ -331,7 +331,7 @@ mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerRemoteCa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec,
       null,
-      { arg_package_index: arg_package_index },
+      [arg_package_index],
       false);
   }
 
@@ -469,7 +469,7 @@ mojo.internal.bindings.on_device_translation_internals.mojom.PageRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 

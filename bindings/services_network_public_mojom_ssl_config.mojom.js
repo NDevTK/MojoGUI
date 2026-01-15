@@ -185,7 +185,7 @@ mojo.internal.bindings.network.mojom.SSLConfigClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec,
       null,
-      { arg_ssl_config: arg_ssl_config },
+      [arg_ssl_config],
       false);
   }
 

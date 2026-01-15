@@ -188,7 +188,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalServiceRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec,
       null,
-      { arg_interface_name: arg_interface_name, arg_interface_pipe: arg_interface_pipe },
+      [arg_interface_name, arg_interface_pipe],
       false);
   }
 
@@ -334,7 +334,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorRemoteCal
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec,
       null,
-      { arg_instances_info: arg_instances_info },
+      [arg_instances_info],
       false);
   }
 
@@ -343,7 +343,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorRemoteCal
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec,
       null,
-      { arg_service_name: arg_service_name, arg_interface_name: arg_interface_name, arg_interface_pipe: arg_interface_pipe },
+      [arg_service_name, arg_interface_name, arg_interface_pipe],
       false);
   }
 
@@ -352,7 +352,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorRemoteCal
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorRemoteCal
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec,
       null,
-      { arg_interface_pipe: arg_interface_pipe },
+      [arg_interface_pipe],
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnectorRemoteCal
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec,
       mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 

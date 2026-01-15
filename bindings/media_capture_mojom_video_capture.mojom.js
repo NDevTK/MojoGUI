@@ -253,7 +253,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec,
       null,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec,
       null,
-      { arg_buffer_id: arg_buffer_id, arg_buffer_handle: arg_buffer_handle },
+      [arg_buffer_id, arg_buffer_handle],
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec,
       null,
-      { arg_buffer: arg_buffer },
+      [arg_buffer],
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec,
       null,
-      { arg_buffer_id: arg_buffer_id },
+      [arg_buffer_id],
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec,
       null,
-      { arg_reason: arg_reason },
+      [arg_reason],
       false);
   }
 
@@ -298,7 +298,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureObserverRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec,
       null,
-      { arg_capture_version: arg_capture_version },
+      [arg_capture_version],
       false);
   }
 
@@ -500,7 +500,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureHost_Start_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id, arg_session_id: arg_session_id, arg_params: arg_params, arg_observer: arg_observer },
+      [arg_device_id, arg_session_id, arg_params, arg_observer],
       false);
   }
 
@@ -509,7 +509,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureHost_Stop_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id },
+      [arg_device_id],
       false);
   }
 
@@ -518,7 +518,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureHost_Pause_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id },
+      [arg_device_id],
       false);
   }
 
@@ -527,7 +527,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureHost_Resume_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id, arg_session_id: arg_session_id, arg_params: arg_params },
+      [arg_device_id, arg_session_id, arg_params],
       false);
   }
 
@@ -536,7 +536,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id },
+      [arg_device_id],
       false);
   }
 
@@ -545,7 +545,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id, arg_buffer_id: arg_buffer_id, arg_feedback: arg_feedback },
+      [arg_device_id, arg_buffer_id, arg_feedback],
       false);
   }
 
@@ -554,7 +554,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec,
       mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec,
-      { arg_device_id: arg_device_id, arg_session_id: arg_session_id },
+      [arg_device_id, arg_session_id],
       false);
   }
 
@@ -563,7 +563,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec,
       mojo.internal.bindings.media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec,
-      { arg_device_id: arg_device_id, arg_session_id: arg_session_id },
+      [arg_device_id, arg_session_id],
       false);
   }
 
@@ -572,7 +572,7 @@ mojo.internal.bindings.media.mojom.VideoCaptureHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media.mojom.VideoCaptureHost_OnLog_ParamsSpec,
       null,
-      { arg_device_id: arg_device_id, arg_message: arg_message },
+      [arg_device_id, arg_message],
       false);
   }
 

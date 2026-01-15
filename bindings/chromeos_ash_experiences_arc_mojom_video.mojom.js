@@ -218,7 +218,7 @@ mojo.internal.bindings.arc.mojom.VideoHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -227,7 +227,7 @@ mojo.internal.bindings.arc.mojom.VideoHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -382,7 +382,7 @@ mojo.internal.bindings.arc.mojom.VideoInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.VideoInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -532,7 +532,7 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec,
       null,
-      { arg_video_encoder: arg_video_encoder },
+      [arg_video_encoder],
       false);
   }
 
@@ -541,7 +541,7 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec,
       null,
-      { arg_video_decoder: arg_video_decoder, arg_protected_buffer_manager: arg_protected_buffer_manager, arg_browser_cdm_factory: arg_browser_cdm_factory },
+      [arg_video_decoder, arg_protected_buffer_manager, arg_browser_cdm_factory],
       false);
   }
 
@@ -550,7 +550,7 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec,
       null,
-      { arg_video_decoder: arg_video_decoder },
+      [arg_video_decoder],
       false);
   }
 
@@ -559,7 +559,7 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec,
       null,
-      { arg_video_protected_buffer_allocator: arg_video_protected_buffer_allocator },
+      [arg_video_protected_buffer_allocator],
       false);
   }
 

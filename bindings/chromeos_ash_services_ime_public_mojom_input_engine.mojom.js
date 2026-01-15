@@ -172,7 +172,7 @@ mojo.internal.bindings.ash.ime.mojom.InputChannelRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec,
       mojo.internal.bindings.ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec,
-      { arg_message: arg_message },
+      [arg_message],
       false);
   }
 

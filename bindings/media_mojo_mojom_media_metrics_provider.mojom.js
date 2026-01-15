@@ -352,7 +352,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_Initialize_ParamsSpec,
       null,
-      { arg_is_mse: arg_is_mse, arg_url_scheme: arg_url_scheme, arg_stream_type: arg_stream_type },
+      [arg_is_mse, arg_url_scheme, arg_stream_type],
       false);
   }
 
@@ -361,7 +361,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -370,7 +370,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnError_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -379,7 +379,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -388,7 +388,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -397,7 +397,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -406,7 +406,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -415,7 +415,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec,
       null,
-      { arg_elapsed: arg_elapsed },
+      [arg_elapsed],
       false);
   }
 
@@ -424,7 +424,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec,
       null,
-      { arg_elapsed: arg_elapsed },
+      [arg_elapsed],
       false);
   }
 
@@ -433,7 +433,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec,
       null,
-      { arg_elapsed: arg_elapsed },
+      [arg_elapsed],
       false);
   }
 
@@ -442,7 +442,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec,
       null,
-      { arg_renderer_type: arg_renderer_type },
+      [arg_renderer_type],
       false);
   }
 
@@ -451,7 +451,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec,
       null,
-      { arg_demuxer_type: arg_demuxer_type },
+      [arg_demuxer_type],
       false);
   }
 
@@ -460,7 +460,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec,
       null,
-      { arg_key_system: arg_key_system },
+      [arg_key_system],
       false);
   }
 
@@ -469,7 +469,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -478,7 +478,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -487,7 +487,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -496,7 +496,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec,
       null,
-      { arg_container_name: arg_container_name },
+      [arg_container_name],
       false);
   }
 
@@ -505,7 +505,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec,
       null,
-      { arg_properties: arg_properties, arg_recorder: arg_recorder },
+      [arg_properties, arg_recorder],
       false);
   }
 
@@ -514,7 +514,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec,
       null,
-      { arg_recorder: arg_recorder },
+      [arg_recorder],
       false);
   }
 
@@ -523,7 +523,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver },
+      [arg_receiver],
       false);
   }
 
@@ -532,7 +532,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec,
       null,
-      { arg_codec: arg_codec },
+      [arg_codec],
       false);
   }
 
@@ -541,7 +541,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec,
       null,
-      { arg_codec: arg_codec },
+      [arg_codec],
       false);
   }
 
@@ -550,7 +550,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 
@@ -559,7 +559,7 @@ mojo.internal.bindings.media.mojom.MediaMetricsProviderRemoteCallHandler = class
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 

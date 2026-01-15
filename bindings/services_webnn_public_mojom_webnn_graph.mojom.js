@@ -392,7 +392,7 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNGraph_Dispatch_ParamsSpec,
       null,
-      { arg_named_inputs: arg_named_inputs, arg_named_outputs: arg_named_outputs },
+      [arg_named_inputs, arg_named_outputs],
       false);
   }
 

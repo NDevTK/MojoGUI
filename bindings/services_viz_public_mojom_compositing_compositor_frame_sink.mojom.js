@@ -244,7 +244,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetParams_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -253,7 +253,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec,
       null,
-      { arg_needs_begin_frame: arg_needs_begin_frame },
+      [arg_needs_begin_frame],
       false);
   }
 
@@ -262,7 +262,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec,
       null,
-      { arg_local_surface_id: arg_local_surface_id, arg_frame: arg_frame, arg_hit_test_region_list: arg_hit_test_region_list, arg_submit_time: arg_submit_time },
+      [arg_local_surface_id, arg_frame, arg_hit_test_region_list, arg_submit_time],
       false);
   }
 
@@ -271,7 +271,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec,
       null,
-      { arg_ack: arg_ack },
+      [arg_ack],
       false);
   }
 
@@ -280,7 +280,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -289,7 +289,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec,
       null,
-      { arg_context: arg_context, arg_settings: arg_settings },
+      [arg_context, arg_settings],
       false);
   }
 
@@ -479,7 +479,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec,
       null,
-      { arg_resources: arg_resources },
+      [arg_resources],
       false);
   }
 
@@ -488,7 +488,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemoteCallHandler = cl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec,
       null,
-      { arg_args: arg_args, arg_details: arg_details, arg_resources: arg_resources },
+      [arg_args, arg_details, arg_resources],
       false);
   }
 
@@ -497,7 +497,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemoteCallHandler = cl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec,
       null,
-      { arg_paused: arg_paused },
+      [arg_paused],
       false);
   }
 
@@ -506,7 +506,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemoteCallHandler = cl
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec,
       null,
-      { arg_resources: arg_resources },
+      [arg_resources],
       false);
   }
 
@@ -515,7 +515,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemoteCallHandler = cl
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
       null,
-      { arg_sequence_id: arg_sequence_id },
+      [arg_sequence_id],
       false);
   }
 
@@ -524,7 +524,7 @@ mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemoteCallHandler = cl
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec,
       null,
-      { arg_local_surface_id: arg_local_surface_id },
+      [arg_local_surface_id],
       false);
   }
 

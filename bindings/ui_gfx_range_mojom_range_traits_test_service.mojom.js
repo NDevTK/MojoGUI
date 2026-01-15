@@ -185,7 +185,7 @@ mojo.internal.bindings.gfx.mojom.RangeTraitsTestServiceRemoteCallHandler = class
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec,
       mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec,
-      { arg_p: arg_p },
+      [arg_p],
       false);
   }
 
@@ -194,7 +194,7 @@ mojo.internal.bindings.gfx.mojom.RangeTraitsTestServiceRemoteCallHandler = class
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec,
       mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec,
-      { arg_p: arg_p },
+      [arg_p],
       false);
   }
 

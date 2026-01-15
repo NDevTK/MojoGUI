@@ -171,7 +171,7 @@ mojo.internal.bindings.blink.mojom.MimeRegistryRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec,
       mojo.internal.bindings.blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec,
-      { arg_extension: arg_extension },
+      [arg_extension],
       false);
   }
 

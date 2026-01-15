@@ -196,7 +196,7 @@ mojo.internal.bindings.viz.mojom.GpuRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec,
       mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -205,7 +205,7 @@ mojo.internal.bindings.viz.mojom.GpuRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec,
       null,
-      { arg_vea_provider: arg_vea_provider },
+      [arg_vea_provider],
       false);
   }
 

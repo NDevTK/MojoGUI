@@ -188,7 +188,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServiceRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec,
       null,
-      { arg_id: arg_id, arg_visual_data: arg_visual_data },
+      [arg_id, arg_visual_data],
       false);
   }
 
@@ -197,7 +197,7 @@ mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServiceRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec,
       null,
-      { arg_tab_id: arg_tab_id, arg_location: arg_location },
+      [arg_tab_id, arg_location],
       false);
   }
 

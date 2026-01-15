@@ -269,7 +269,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallH
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_page: arg_page },
+      [arg_receiver, arg_page],
       false);
   }
 
@@ -278,7 +278,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallH
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_page: arg_page, arg_file_name: arg_file_name },
+      [arg_receiver, arg_page, arg_file_name],
       false);
   }
 
@@ -287,7 +287,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallH
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -296,7 +296,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallH
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec,
-      { arg_page: arg_page, arg_dlc_uuid: arg_dlc_uuid },
+      [arg_page, arg_dlc_uuid],
       false);
   }
 
@@ -476,7 +476,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec,
       null,
-      { arg_page_metadata: arg_page_metadata },
+      [arg_page_metadata],
       false);
   }
 
@@ -485,7 +485,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandl
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_PageContentsUpdated_ParamsSpec,
       null,
-      { arg_dirty_page_id: arg_dirty_page_id },
+      [arg_dirty_page_id],
       false);
   }
 
@@ -494,7 +494,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandl
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec,
       null,
-      { arg_viewport_box: arg_viewport_box, arg_scale_factor: arg_scale_factor },
+      [arg_viewport_box, arg_scale_factor],
       false);
   }
 
@@ -648,7 +648,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageRemoteCallHandler 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec,
-      { arg_requestedPageId: arg_requestedPageId },
+      [arg_requestedPageId],
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageRemoteCallHandler 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec,
       null,
-      { arg_viewport_box: arg_viewport_box },
+      [arg_viewport_box],
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPageRemoteCallHandler 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.OcrUntrustedPage_SetPdfOcrEnabled_ParamsSpec,
       null,
-      { arg_enabled: arg_enabled },
+      [arg_enabled],
       false);
   }
 
@@ -833,7 +833,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfLoaded_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -842,7 +842,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHand
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfFileNameUpdated_ParamsSpec,
       null,
-      { arg_new_name: arg_new_name },
+      [arg_new_name],
       false);
   }
 
@@ -851,7 +851,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHand
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec,
       null,
-      { arg_anchor: arg_anchor, arg_selected_text: arg_selected_text },
+      [arg_anchor, arg_selected_text],
       false);
   }
 
@@ -860,7 +860,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHand
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuHide_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1018,7 +1018,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPageRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_HidePdfContextMenu_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1027,7 +1027,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPageRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec,
-      { arg_limit: arg_limit },
+      [arg_limit],
       false);
   }
 
@@ -1194,7 +1194,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHa
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec,
-      { arg_image: arg_image, arg_selection: arg_selection },
+      [arg_image, arg_selection],
       false);
   }
 
@@ -1203,7 +1203,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHa
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec,
-      { arg_image: arg_image, arg_mask: arg_mask, arg_text: arg_text, arg_seed: arg_seed },
+      [arg_image, arg_mask, arg_text, arg_seed],
       false);
   }
 
@@ -1212,7 +1212,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHa
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec,
-      { arg_image: arg_image, arg_mask: arg_mask, arg_seed: arg_seed },
+      [arg_image, arg_mask, arg_seed],
       false);
   }
 
@@ -1221,7 +1221,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHa
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec,
-      { arg_image: arg_image, arg_mask: arg_mask, arg_seed: arg_seed },
+      [arg_image, arg_mask, arg_seed],
       false);
   }
 
@@ -1230,7 +1230,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHa
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec,
-      { arg_image: arg_image },
+      [arg_image],
       false);
   }
 
@@ -1239,7 +1239,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHa
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec,
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec,
-      { arg_gesture: arg_gesture },
+      [arg_gesture],
       false);
   }
 
@@ -1463,7 +1463,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPageRemoteCallHandl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec,
       null,
-      { arg_progress: arg_progress },
+      [arg_progress],
       false);
   }
 

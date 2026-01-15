@@ -478,7 +478,7 @@ mojo.internal.bindings.content.mojom.FrameHTMLSerializerHandlerRemoteCallHandler
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHTMLSerializerHandler_DidReceiveData_ParamsSpec,
       null,
-      { arg_data_buffer: arg_data_buffer },
+      [arg_data_buffer],
       false);
   }
 
@@ -487,7 +487,7 @@ mojo.internal.bindings.content.mojom.FrameHTMLSerializerHandlerRemoteCallHandler
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHTMLSerializerHandler_Done_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -657,7 +657,7 @@ mojo.internal.bindings.content.mojom.FrameRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.Frame_CommitSameDocumentNavigation_ParamsSpec,
       mojo.internal.bindings.content.mojom.Frame_CommitSameDocumentNavigation_ResponseParamsSpec,
-      { arg_common_params: arg_common_params, arg_request_params: arg_request_params },
+      [arg_common_params, arg_request_params],
       false);
   }
 
@@ -666,7 +666,7 @@ mojo.internal.bindings.content.mojom.FrameRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.Frame_UpdateSubresourceLoaderFactories_ParamsSpec,
       null,
-      { arg_subresource_loader_factories: arg_subresource_loader_factories },
+      [arg_subresource_loader_factories],
       false);
   }
 
@@ -675,7 +675,7 @@ mojo.internal.bindings.content.mojom.FrameRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.Frame_SetWantErrorMessageStackTrace_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -684,7 +684,7 @@ mojo.internal.bindings.content.mojom.FrameRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.Frame_Unload_ParamsSpec,
       null,
-      { arg_is_loading: arg_is_loading, arg_new_remote_frame_replication_state: arg_new_remote_frame_replication_state, arg_new_remote_frame_token: arg_new_remote_frame_token, arg_new_remote_frame_interfaces: arg_new_remote_frame_interfaces, arg_new_remote_main_frame_interfaces: arg_new_remote_main_frame_interfaces, arg_devtools_frame_token: arg_devtools_frame_token },
+      [arg_is_loading, arg_new_remote_frame_replication_state, arg_new_remote_frame_token, arg_new_remote_frame_interfaces, arg_new_remote_main_frame_interfaces, arg_devtools_frame_token],
       false);
   }
 
@@ -693,7 +693,7 @@ mojo.internal.bindings.content.mojom.FrameRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.mojom.Frame_Delete_ParamsSpec,
       null,
-      { arg_intention: arg_intention },
+      [arg_intention],
       false);
   }
 
@@ -702,7 +702,7 @@ mojo.internal.bindings.content.mojom.FrameRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.mojom.Frame_UndoCommitNavigation_ParamsSpec,
       null,
-      { arg_is_loading: arg_is_loading, arg_new_remote_frame_replication_state: arg_new_remote_frame_replication_state, arg_new_remote_frame_token: arg_new_remote_frame_token, arg_new_remote_frame_interfaces: arg_new_remote_frame_interfaces, arg_new_remote_main_frame_interfaces: arg_new_remote_main_frame_interfaces },
+      [arg_is_loading, arg_new_remote_frame_replication_state, arg_new_remote_frame_token, arg_new_remote_frame_interfaces, arg_new_remote_main_frame_interfaces],
       false);
   }
 
@@ -711,7 +711,7 @@ mojo.internal.bindings.content.mojom.FrameRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.mojom.Frame_GetInterfaceProvider_ParamsSpec,
       null,
-      { arg_interfaces: arg_interfaces },
+      [arg_interfaces],
       false);
   }
 
@@ -720,7 +720,7 @@ mojo.internal.bindings.content.mojom.FrameRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec,
       mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -729,7 +729,7 @@ mojo.internal.bindings.content.mojom.FrameRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec,
       null,
-      { arg_url_map: arg_url_map, arg_frame_token_map: arg_frame_token_map, arg_save_with_empty_url: arg_save_with_empty_url, arg_handler_remote: arg_handler_remote },
+      [arg_url_map, arg_frame_token_map, arg_save_with_empty_url, arg_handler_remote],
       false);
   }
 
@@ -953,7 +953,7 @@ mojo.internal.bindings.content.mojom.FrameBindingsControlRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.FrameBindingsControl_AllowBindings_ParamsSpec,
       null,
-      { arg_enabled_bindings_flags: arg_enabled_bindings_flags },
+      [arg_enabled_bindings_flags],
       false);
   }
 
@@ -962,7 +962,7 @@ mojo.internal.bindings.content.mojom.FrameBindingsControlRemoteCallHandler = cla
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.FrameBindingsControl_EnableMojoJsBindings_ParamsSpec,
       null,
-      { arg_features: arg_features },
+      [arg_features],
       false);
   }
 
@@ -971,7 +971,7 @@ mojo.internal.bindings.content.mojom.FrameBindingsControlRemoteCallHandler = cla
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.FrameBindingsControl_EnableMojoJsBindingsWithBroker_ParamsSpec,
       null,
-      { arg_broker: arg_broker },
+      [arg_broker],
       false);
   }
 
@@ -980,7 +980,7 @@ mojo.internal.bindings.content.mojom.FrameBindingsControlRemoteCallHandler = cla
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.FrameBindingsControl_BindWebUI_ParamsSpec,
       null,
-      { arg_receiver: arg_receiver, arg_remote: arg_remote },
+      [arg_receiver, arg_remote],
       false);
   }
 
@@ -1134,7 +1134,7 @@ mojo.internal.bindings.content.mojom.NavigationRendererCancellationListenerRemot
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.NavigationRendererCancellationListener_RendererCancellationWindowEnded_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1316,7 +1316,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_CreateNewWindow_ParamsSpec,
       mojo.internal.bindings.content.mojom.FrameHost_CreateNewWindow_ResponseParamsSpec,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -1325,7 +1325,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_CreateChildFrame_ParamsSpec,
       null,
-      { arg_child_frame_token: arg_child_frame_token, arg_frame: arg_frame, arg_browser_interface_broker: arg_browser_interface_broker, arg_policy_container_bind_params: arg_policy_container_bind_params, arg_associated_interface_provider: arg_associated_interface_provider, arg_scope: arg_scope, arg_frame_name: arg_frame_name, arg_frame_unique_name: arg_frame_unique_name, arg_is_created_by_script: arg_is_created_by_script, arg_frame_policy: arg_frame_policy, arg_frame_owner_properties: arg_frame_owner_properties, arg_child_frame_owner_element_type: arg_child_frame_owner_element_type, arg_document_ukm_source_id: arg_document_ukm_source_id },
+      [arg_child_frame_token, arg_frame, arg_browser_interface_broker, arg_policy_container_bind_params, arg_associated_interface_provider, arg_scope, arg_frame_name, arg_frame_unique_name, arg_is_created_by_script, arg_frame_policy, arg_frame_owner_properties, arg_child_frame_owner_element_type, arg_document_ukm_source_id],
       false);
   }
 
@@ -1334,7 +1334,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec,
       null,
-      { arg_params: arg_params, arg_interface_params: arg_interface_params },
+      [arg_params, arg_interface_params],
       false);
   }
 
@@ -1343,7 +1343,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec,
       null,
-      { arg_params: arg_params, arg_same_document_params: arg_same_document_params },
+      [arg_params, arg_same_document_params],
       false);
   }
 
@@ -1352,7 +1352,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec,
       null,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -1361,7 +1361,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_BeginNavigation_ParamsSpec,
       null,
-      { arg_common_params: arg_common_params, arg_begin_params: arg_begin_params, arg_blob_url_token: arg_blob_url_token, arg_navigation_client: arg_navigation_client, arg_initiator_navigation_state_keep_alive_handle: arg_initiator_navigation_state_keep_alive_handle, arg_renderer_cancellation_listener: arg_renderer_cancellation_listener },
+      [arg_common_params, arg_begin_params, arg_blob_url_token, arg_navigation_client, arg_initiator_navigation_state_keep_alive_handle, arg_renderer_cancellation_listener],
       false);
   }
 
@@ -1370,7 +1370,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_SubresourceResponseStarted_ParamsSpec,
       null,
-      { arg_final_response_url: arg_final_response_url, arg_cert_status: arg_cert_status },
+      [arg_final_response_url, arg_cert_status],
       false);
   }
 
@@ -1379,7 +1379,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec,
       null,
-      { arg_url_load_info: arg_url_load_info },
+      [arg_url_load_info],
       false);
   }
 
@@ -1388,7 +1388,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_DidChangeName_ParamsSpec,
       null,
-      { arg_name: arg_name, arg_unique_name: arg_unique_name },
+      [arg_name, arg_unique_name],
       false);
   }
 
@@ -1397,7 +1397,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_CancelInitialHistoryLoad_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -1406,7 +1406,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_UpdateEncoding_ParamsSpec,
       null,
-      { arg_encoding_name: arg_encoding_name },
+      [arg_encoding_name],
       false);
   }
 
@@ -1415,7 +1415,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_UpdateState_ParamsSpec,
       null,
-      { arg_state: arg_state },
+      [arg_state],
       false);
   }
 
@@ -1424,7 +1424,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_OpenURL_ParamsSpec,
       null,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -1433,7 +1433,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_DidStopLoading_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

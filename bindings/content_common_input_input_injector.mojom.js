@@ -264,7 +264,7 @@ mojo.internal.bindings.content.mojom.InputInjectorRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec,
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec,
-      { arg_drag: arg_drag },
+      [arg_drag],
       false);
   }
 
@@ -273,7 +273,7 @@ mojo.internal.bindings.content.mojom.InputInjectorRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec,
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec,
-      { arg_scroll: arg_scroll },
+      [arg_scroll],
       false);
   }
 
@@ -282,7 +282,7 @@ mojo.internal.bindings.content.mojom.InputInjectorRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec,
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec,
-      { arg_pinch: arg_pinch },
+      [arg_pinch],
       false);
   }
 
@@ -291,7 +291,7 @@ mojo.internal.bindings.content.mojom.InputInjectorRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec,
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec,
-      { arg_tap: arg_tap },
+      [arg_tap],
       false);
   }
 
@@ -300,7 +300,7 @@ mojo.internal.bindings.content.mojom.InputInjectorRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec,
       mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec,
-      { arg_pointer_action: arg_pointer_action },
+      [arg_pointer_action],
       false);
   }
 

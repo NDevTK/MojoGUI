@@ -176,7 +176,7 @@ mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserverRemote
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisibleChange_ParamsSpec,
       null,
-      { arg_forceVisible: arg_forceVisible },
+      [arg_forceVisible],
       false);
   }
 
@@ -306,7 +306,7 @@ mojo.internal.bindings.ash.common.mojom.AccessibilityFeaturesRemoteCallHandler =
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsSpec,
       mojo.internal.bindings.ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec,
-      { arg_observer: arg_observer },
+      [arg_observer],
       false);
   }
 

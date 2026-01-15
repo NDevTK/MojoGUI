@@ -180,7 +180,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorker_Connect_ParamsSpec,
       null,
-      { arg_connection_id: arg_connection_id, arg_message_port: arg_message_port },
+      [arg_connection_id, arg_message_port],
       false);
   }
 
@@ -189,7 +189,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorker_Terminate_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 

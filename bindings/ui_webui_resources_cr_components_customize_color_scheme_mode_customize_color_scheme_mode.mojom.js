@@ -187,7 +187,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec,
       null,
-      { arg_pending_client: arg_pending_client, arg_pending_handler: arg_pending_handler },
+      [arg_pending_client, arg_pending_handler],
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec,
       null,
-      { arg_colorSchemeMode: arg_colorSchemeMode },
+      [arg_colorSchemeMode],
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -468,7 +468,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec,
       null,
-      { arg_colorSchemeMode: arg_colorSchemeMode },
+      [arg_colorSchemeMode],
       false);
   }
 

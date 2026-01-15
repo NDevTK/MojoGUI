@@ -182,7 +182,7 @@ mojo.internal.bindings.media.mojom.WebrtcVideoPerfRecorderRemoteCallHandler = cl
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec,
       null,
-      { arg_features: arg_features, arg_video_stats: arg_video_stats },
+      [arg_features, arg_video_stats],
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistoryRemoteCallHandler = cla
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec,
       mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec,
-      { arg_features: arg_features, arg_frames_per_second: arg_frames_per_second },
+      [arg_features, arg_frames_per_second],
       false);
   }
 

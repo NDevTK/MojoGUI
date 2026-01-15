@@ -180,7 +180,7 @@ mojo.internal.bindings.viz.mojom.InputTargetClientRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec,
       mojo.internal.bindings.viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec,
-      { arg_point: arg_point, arg_trace_id: arg_trace_id },
+      [arg_point, arg_trace_id],
       false);
   }
 

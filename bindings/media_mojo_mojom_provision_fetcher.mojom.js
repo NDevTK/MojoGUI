@@ -177,7 +177,7 @@ mojo.internal.bindings.media.mojom.ProvisionFetcherRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.ProvisionFetcher_Retrieve_ParamsSpec,
       mojo.internal.bindings.media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec,
-      { arg_default_url: arg_default_url, arg_request_data: arg_request_data },
+      [arg_default_url, arg_request_data],
       false);
   }
 

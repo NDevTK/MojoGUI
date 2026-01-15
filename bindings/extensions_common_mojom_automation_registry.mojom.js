@@ -177,7 +177,7 @@ mojo.internal.bindings.extensions.mojom.RendererAutomationRegistryRemoteCallHand
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec,
       null,
-      { arg_automation: arg_automation },
+      [arg_automation],
       false);
   }
 

@@ -653,7 +653,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportBootProgress_ParamsSpec,
       null,
-      { arg_events: arg_events, arg_boot_type: arg_boot_type },
+      [arg_events, arg_boot_type],
       false);
   }
 
@@ -662,7 +662,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportNativeBridge_ParamsSpec,
       null,
-      { arg_native_bridge_type: arg_native_bridge_type },
+      [arg_native_bridge_type],
       false);
   }
 
@@ -671,7 +671,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportCompanionLibApiUsage_ParamsSpec,
       null,
-      { arg_api_id: arg_api_id },
+      [arg_api_id],
       false);
   }
 
@@ -680,7 +680,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppKill_ParamsSpec,
       null,
-      { arg_app_kill: arg_app_kill },
+      [arg_app_kill],
       false);
   }
 
@@ -689,7 +689,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -698,7 +698,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigFailedTries_ParamsSpec,
       null,
-      { arg_failed_attempts: arg_failed_attempts },
+      [arg_failed_attempts],
       false);
   }
 
@@ -707,7 +707,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigDowngradeDelay_ParamsSpec,
       null,
-      { arg_delay: arg_delay },
+      [arg_delay],
       false);
   }
 
@@ -716,7 +716,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigBootTime_ParamsSpec,
       null,
-      { arg_duration: arg_duration },
+      [arg_duration],
       false);
   }
 
@@ -725,7 +725,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportAnr_ParamsSpec,
       null,
-      { arg_anr: arg_anr },
+      [arg_anr],
       false);
   }
 
@@ -734,7 +734,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcSystemHealthUpgrade_ParamsSpec,
       null,
-      { arg_duration: arg_duration, arg_packages_deleted: arg_packages_deleted },
+      [arg_duration, arg_packages_deleted],
       false);
   }
 
@@ -743,7 +743,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_ParamsSpec,
       null,
-      { arg_api_id: arg_api_id },
+      [arg_api_id],
       false);
   }
 
@@ -752,7 +752,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_ParamsSpec,
       null,
-      { arg_prediction_target: arg_prediction_target },
+      [arg_prediction_target],
       false);
   }
 
@@ -761,7 +761,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportDnsQueryResult_ParamsSpec,
       null,
-      { arg_query: arg_query, arg_success: arg_success },
+      [arg_query, arg_success],
       false);
   }
 
@@ -770,7 +770,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_ParamsSpec,
       null,
-      { arg_status: arg_status },
+      [arg_status],
       false);
   }
 
@@ -779,7 +779,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcNetworkEvent_ParamsSpec,
       null,
-      { arg_event: arg_event },
+      [arg_event],
       false);
   }
 
@@ -788,7 +788,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcNetworkError_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 
@@ -797,7 +797,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppPrimaryAbi_ParamsSpec,
       null,
-      { arg_abi: arg_abi },
+      [arg_abi],
       false);
   }
 
@@ -806,7 +806,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportDataRestore_ParamsSpec,
       null,
-      { arg_status: arg_status, arg_duration_ms: arg_duration_ms },
+      [arg_status, arg_duration_ms],
       false);
   }
 
@@ -815,7 +815,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[18],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportMemoryPressure_ParamsSpec,
       null,
-      { arg_psi_file_contents: arg_psi_file_contents },
+      [arg_psi_file_contents],
       false);
   }
 
@@ -824,7 +824,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[19],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportProvisioningPreSignIn_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -833,7 +833,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[20],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_ParamsSpec,
       null,
-      { arg_event: arg_event, arg_duration: arg_duration },
+      [arg_event, arg_duration],
       false);
   }
 
@@ -842,7 +842,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[21],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportWebViewProcessStarted_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -851,7 +851,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_ParamsSpec,
       null,
-      { arg_api_id: arg_api_id },
+      [arg_api_id],
       false);
   }
 
@@ -860,7 +860,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[23],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportNewQosSocketCount_ParamsSpec,
       null,
-      { arg_count: arg_count },
+      [arg_count],
       false);
   }
 
@@ -869,7 +869,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportQosSocketPercentage_ParamsSpec,
       null,
-      { arg_perc: arg_perc },
+      [arg_perc],
       false);
   }
 
@@ -878,7 +878,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcKeyMintError_ParamsSpec,
       null,
-      { arg_error: arg_error },
+      [arg_error],
       false);
   }
 
@@ -887,7 +887,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[26],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportDragResizeLatency_ParamsSpec,
       null,
-      { arg_durations: arg_durations },
+      [arg_durations],
       false);
   }
 
@@ -896,7 +896,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[27],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppErrorDialogType_ParamsSpec,
       null,
-      { arg_type: arg_type },
+      [arg_type],
       false);
   }
 
@@ -905,7 +905,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[28],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportApkCacheHit_ParamsSpec,
       null,
-      { arg_hit: arg_hit },
+      [arg_hit],
       false);
   }
 
@@ -914,7 +914,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[29],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_ParamsSpec,
       null,
-      { arg_list: arg_list },
+      [arg_list],
       false);
   }
 
@@ -923,7 +923,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[30],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportDataDirectorySizeList_ParamsSpec,
       null,
-      { arg_list: arg_list },
+      [arg_list],
       false);
   }
 
@@ -932,7 +932,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[31],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_ParamsSpec,
       null,
-      { arg_error: arg_error, arg_operation: arg_operation },
+      [arg_error, arg_operation],
       false);
   }
 
@@ -941,7 +941,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostRemoteCallHandler = class {
       this.ordinals[32],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsHost_ReportCertificateSigningResult_ParamsSpec,
       null,
-      { arg_result: arg_result },
+      [arg_result],
       false);
   }
 
@@ -1331,7 +1331,7 @@ mojo.internal.bindings.arc.mojom.MetricsInstanceRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsInstance_Init_ParamsSpec,
       mojo.internal.bindings.arc.mojom.MetricsInstance_Init_ResponseParamsSpec,
-      { arg_host_remote: arg_host_remote },
+      [arg_host_remote],
       false);
   }
 
@@ -1340,7 +1340,7 @@ mojo.internal.bindings.arc.mojom.MetricsInstanceRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.arc.mojom.MetricsInstance_GetGfxMetrics_ParamsSpec,
       mojo.internal.bindings.arc.mojom.MetricsInstance_GetGfxMetrics_ResponseParamsSpec,
-      { arg_packageName: arg_packageName },
+      [arg_packageName],
       false);
   }
 

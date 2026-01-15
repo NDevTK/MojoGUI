@@ -177,7 +177,7 @@ mojo.internal.bindings.blink.mojom.HyphenationRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ParamsSpec,
       mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec,
-      { arg_locale: arg_locale },
+      [arg_locale],
       false);
   }
 

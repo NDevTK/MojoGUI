@@ -285,7 +285,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ResponseParamsSpec,
-      { arg_url: arg_url },
+      [arg_url],
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -312,7 +312,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ResponseParamsSpec,
-      { arg_update_manifest_url: arg_update_manifest_url },
+      [arg_update_manifest_url],
       false);
   }
 
@@ -321,7 +321,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ResponseParamsSpec,
-      { arg_params: arg_params },
+      [arg_params],
       false);
   }
 
@@ -330,7 +330,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ResponseParamsSpec,
-      { arg_app_id: arg_app_id },
+      [arg_app_id],
       false);
   }
 
@@ -339,7 +339,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ResponseParamsSpec,
-      { arg_app_id: arg_app_id },
+      [arg_app_id],
       false);
   }
 
@@ -348,7 +348,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ResponseParamsSpec,
-      { arg_app_id: arg_app_id },
+      [arg_app_id],
       false);
   }
 
@@ -357,7 +357,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ResponseParamsSpec,
-      { arg_app_id: arg_app_id },
+      [arg_app_id],
       false);
   }
 
@@ -366,7 +366,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ResponseParamsSpec,
-      { arg_app_id: arg_app_id, arg_update_channel: arg_update_channel },
+      [arg_app_id, arg_update_channel],
       false);
   }
 
@@ -375,7 +375,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ResponseParamsSpec,
-      { arg_app_id: arg_app_id, arg_pinned_version: arg_pinned_version },
+      [arg_app_id, arg_pinned_version],
       false);
   }
 
@@ -384,7 +384,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_ResetPinnedVersionForIsolatedWebApp_ParamsSpec,
       null,
-      { arg_app_id: arg_app_id },
+      [arg_app_id],
       false);
   }
 
@@ -393,7 +393,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec,
       null,
-      { arg_allow_downgrades: arg_allow_downgrades, arg_app_id: arg_app_id },
+      [arg_allow_downgrades, arg_app_id],
       false);
   }
 
@@ -402,7 +402,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[13],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -411,7 +411,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[14],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ParamsSpec,
       mojo.internal.bindings.mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ResponseParamsSpec,
-      {  },
+      [],
       false);
   }
 
@@ -420,7 +420,7 @@ mojo.internal.bindings.mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.mojom.WebAppInternalsHandler_RotateKey_ParamsSpec,
       null,
-      { arg_web_bundle_id: arg_web_bundle_id, arg_rotated_key: arg_rotated_key },
+      [arg_web_bundle_id, arg_rotated_key],
       false);
   }
 

@@ -240,7 +240,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionManagerRemoteCallHandler = clas
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -249,7 +249,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionManagerRemoteCallHandler = clas
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec,
       null,
-      { arg_thermal_state: arg_thermal_state },
+      [arg_thermal_state],
       false);
   }
 
@@ -258,7 +258,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionManagerRemoteCallHandler = clas
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec,
       null,
-      { arg_peer_connection_local_id: arg_peer_connection_local_id, arg_output_period_ms: arg_output_period_ms },
+      [arg_peer_connection_local_id, arg_output_period_ms],
       false);
   }
 
@@ -267,7 +267,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionManagerRemoteCallHandler = clas
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec,
       null,
-      { arg_peer_connection_local_id: arg_peer_connection_local_id },
+      [arg_peer_connection_local_id],
       false);
   }
 
@@ -276,7 +276,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionManagerRemoteCallHandler = clas
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec,
       null,
-      { arg_peer_connection_local_id: arg_peer_connection_local_id },
+      [arg_peer_connection_local_id],
       false);
   }
 
@@ -285,7 +285,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionManagerRemoteCallHandler = clas
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec,
       null,
-      { arg_peer_connection_local_id: arg_peer_connection_local_id },
+      [arg_peer_connection_local_id],
       false);
   }
 
@@ -294,7 +294,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionManagerRemoteCallHandler = clas
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -303,7 +303,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionManagerRemoteCallHandler = clas
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec,
       null,
-      {  },
+      [],
       false);
   }
 
@@ -537,7 +537,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec,
       null,
-      { arg_info: arg_info },
+      [arg_info],
       false);
   }
 
@@ -546,7 +546,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec,
       null,
-      { arg_lid: arg_lid },
+      [arg_lid],
       false);
   }
 
@@ -555,7 +555,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec,
       null,
-      { arg_lid: arg_lid, arg_type: arg_type, arg_value: arg_value },
+      [arg_lid, arg_type, arg_value],
       false);
   }
 
@@ -564,7 +564,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec,
       null,
-      { arg_lid: arg_lid, arg_session_id: arg_session_id },
+      [arg_lid, arg_session_id],
       false);
   }
 
@@ -573,7 +573,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec,
       null,
-      { arg_request_id: arg_request_id, arg_audio: arg_audio, arg_video: arg_video, arg_audio_constraints: arg_audio_constraints, arg_video_constraints: arg_video_constraints },
+      [arg_request_id, arg_audio, arg_video, arg_audio_constraints, arg_video_constraints],
       false);
   }
 
@@ -582,7 +582,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec,
       null,
-      { arg_request_id: arg_request_id, arg_stream_id: arg_stream_id, arg_audio_track_info: arg_audio_track_info, arg_video_track_info: arg_video_track_info },
+      [arg_request_id, arg_stream_id, arg_audio_track_info, arg_video_track_info],
       false);
   }
 
@@ -591,7 +591,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec,
       null,
-      { arg_request_id: arg_request_id, arg_error: arg_error, arg_error_message: arg_error_message },
+      [arg_request_id, arg_error, arg_error_message],
       false);
   }
 
@@ -600,7 +600,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[7],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec,
       null,
-      { arg_request_id: arg_request_id, arg_audio: arg_audio, arg_video: arg_video, arg_audio_constraints: arg_audio_constraints, arg_video_constraints: arg_video_constraints },
+      [arg_request_id, arg_audio, arg_video, arg_audio_constraints, arg_video_constraints],
       false);
   }
 
@@ -609,7 +609,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec,
       null,
-      { arg_request_id: arg_request_id, arg_stream_id: arg_stream_id, arg_audio_track_info: arg_audio_track_info, arg_video_track_info: arg_video_track_info },
+      [arg_request_id, arg_stream_id, arg_audio_track_info, arg_video_track_info],
       false);
   }
 
@@ -618,7 +618,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[9],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec,
       null,
-      { arg_request_id: arg_request_id, arg_error: arg_error, arg_error_message: arg_error_message },
+      [arg_request_id, arg_error, arg_error_message],
       false);
   }
 
@@ -627,7 +627,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[10],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec,
       null,
-      { arg_lid: arg_lid, arg_output: arg_output },
+      [arg_lid, arg_output],
       false);
   }
 
@@ -636,7 +636,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec,
       null,
-      { arg_lid: arg_lid, arg_output: arg_output },
+      [arg_lid, arg_output],
       false);
   }
 
@@ -645,7 +645,7 @@ mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHostRemoteCallHandler = 
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec,
       null,
-      { arg_lid: arg_lid, arg_value: arg_value },
+      [arg_lid, arg_value],
       false);
   }
 
