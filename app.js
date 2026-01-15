@@ -1955,6 +1955,11 @@
 
     function clearActivityLog() {
         elements.interceptorTableBody.textContent = '';
+        state.trafficCount = 0;
+        if (elements.trafficBadge) {
+            elements.trafficBadge.textContent = '0';
+            elements.trafficBadge.style.display = 'none';
+        }
         elements.interceptorDetails.innerHTML = safeHTML(`
             <div class="empty-state small">
                 <p>Select a request to view details</p>
