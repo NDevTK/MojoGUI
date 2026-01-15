@@ -255,6 +255,29 @@ def analyze_interface_usage(all_parsed, global_kind_map):
                 if m.get('returns'):
                     scan_fields(m['returns'])
                     
+    # Heuristic: If "NonAssociatedX" exists, then "X" is likely implicitly associated.
+    # Collect all known interface names first
+    all_interfaces = set()
+    for item in all_parsed:
+        parsed = item['data']
+        if not parsed: continue
+        module = parsed.get('module', '')
+        for i in parsed.get('interfaces', []):
+            fqn = f"{module}.{i['name']}"
+            all_interfaces.add(fqn)
+
+    for fqn in all_interfaces:
+        name = fqn.split('.')[-1]
+        module_prefix = fqn[:-(len(name)+1)] # 'a.b' from 'a.b.Name'
+        
+        non_associated_name = f"NonAssociated{name}"
+        non_associated_fqn = f"{module_prefix}.{non_associated_name}"
+        
+        if non_associated_fqn in all_interfaces:
+            if fqn not in usage_map: usage_map[fqn] = set()
+            usage_map[fqn].add('associated')
+            print(f"[Heuristic] Marked {fqn} as associated due to existence of {non_associated_name}")
+
     return usage_map
 
 def parse_mojom(file_path):

@@ -504,6 +504,7 @@
                 <span class="name">${escapeHtml(iface.name)}</span>
                 <span class="module">${escapeHtml(iface.module)}</span>
                 <span class="method-count">${iface.methods?.length || 0} methods</span>
+                ${iface.security && Object.keys(iface.security).length > 0 ? '<span class="security-badge" title="Security Context Active">🛡️</span>' : ''}
                 ${isAssociated ? '<span class="associated-badge" title="Associated Interface">🔗</span>' : ''}
                 ${isSynced ? '<span class="sync-badge" title="Protocol Synchronized">✓</span>' : ''}
             </div>
