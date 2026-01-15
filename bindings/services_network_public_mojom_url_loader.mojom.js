@@ -124,7 +124,6 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec = { $: {} };
-mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec = { $: {} };
 mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec = { $: {} };
 mojo.internal.bindings.network.mojom.URLLoader = {};
 mojo.internal.bindings.network.mojom.URLLoaderSpec = { $ : {} };
@@ -143,13 +142,6 @@ mojo.internal.bindings.network.mojom.URLLoaderClient_OnTransferSizeUpdated_Param
 mojo.internal.bindings.network.mojom.URLLoaderClient_OnComplete_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
-mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network = mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network || {};
-mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom = mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom || {};
-mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network = mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network || {};
-mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network.mojom = mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network.mojom || {};
-mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network.mojom.HttpRequestHeaders modified_cors_exempt_headers, url = mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network.mojom.HttpRequestHeaders modified_cors_exempt_headers, url || {};
-mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network.mojom.HttpRequestHeaders modified_cors_exempt_headers, url.mojom = mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network.mojom.HttpRequestHeaders modified_cors_exempt_headers, url.mojom || {};
-mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network.mojom.HttpRequestHeaders modified_cors_exempt_headers, url.mojom.UrlSpec = mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network.mojom.HttpRequestHeaders modified_cors_exempt_headers, url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };

@@ -142,7 +142,6 @@ mojo.internal.bindings.gpu.mojom.GLESCreationAttribsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.WebGPUCreationAttribsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.CreateCommandBufferParamsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.CommandBufferStateSpec = { $: {} };
-mojo.internal.bindings.gpu.mojom.SwapBuffersCompleteParamsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.DeferredRequestSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.DeferredCommandBufferRequestSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.AsyncFlushParamsSpec = { $: {} };

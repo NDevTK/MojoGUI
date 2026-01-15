@@ -127,7 +127,6 @@ mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticLedNameSpec = { $: mojo.
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticLedColorSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.StateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.crosapi.mojom.StateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.ReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticMemtesterTestItemEnumSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticHardwarePresenceStatusSpec = { $: mojo.internal.Enum().$ };

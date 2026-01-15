@@ -146,7 +146,6 @@ mojo.internal.bindings.ash.cros_healthd.mojom.TpmGSCVersionSpec = { $: mojo.inte
 mojo.internal.bindings.ash.cros_healthd.mojom.DisplayInputTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.ThunderboltSecurityLevelSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.ash.cros_healthd.mojom.TypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.LocationSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.ThermalSensorSourceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ash.cros_healthd.mojom.ProcessResultSpec = { $: {} };
