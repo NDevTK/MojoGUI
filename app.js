@@ -860,12 +860,17 @@
         let effectiveType = param.type;
         if (effectiveType === 'struct' && param.structSpec) {
             const manualInfer = inferTypeFromMojomType(param.structSpec);
-            // 1.5 String16 and BigString16 (Prioritize over Struct)
-            let effectiveType = param.type;
-            if (effectiveType === 'struct' && param.structSpec) {
-                const manualInfer = inferTypeFromMojomType(param.structSpec);
-                if (manualInfer === 'string16' || manualInfer === 'bigstring16' || manualInfer === 'bigstring') {
-                    effectiveType = manualInfer;
+            if (manualInfer === 'string16' || manualInfer === 'bigstring16' || manualInfer === 'bigstring') {
+                effectiveType = manualInfer;
+            } else {
+                if (param.structSpec.fields && param.structSpec.fields.length === 1 && param.structSpec.fields[0].name === 'data') {
+                    if (value && value.data && typeof value.data === 'object') {
+                        if ('bytes' in value.data || 'arg_bytes' in value.data || 'shared_memory' in value.data) {
+                            effectiveType = 'bigstring16';
+                        } else if (Array.isArray(value.data) || value.data.length !== undefined) {
+                            effectiveType = 'string16';
+                        }
+                    }
                 }
             }
         }
@@ -1603,13 +1608,13 @@
             const spec = mojomType.$ || mojomType;
             const name = spec.name || (spec.structSpec && spec.structSpec.name);
 
-            if (name === 'mojo_base.mojom.String16') {
+            if (name && (name === 'mojo_base.mojom.String16' || name.endsWith('.String16'))) {
                 return 'string16';
             }
-            if (name === 'mojo_base.mojom.BigString16') {
+            if (name && (name === 'mojo_base.mojom.BigString16' || name.endsWith('.BigString16'))) {
                 return 'bigstring16';
             }
-            if (name === 'mojo_base.mojom.BigString') {
+            if (name && (name === 'mojo_base.mojom.BigString' || name.endsWith('.BigString'))) {
                 return 'bigstring';
             }
         }
