@@ -1378,8 +1378,6 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
         for idx, method in enumerate(interface.get('methods', [])):
             params_list = [p['name'] for p in method.get('params', []) if p and p.get('name')]
             params_str = ', '.join(params_list)
-            # Create object with field names as keys for Lite bindings
-            params_obj_str = ', '.join([f"{name}: {name}" for name in params_list])
             method_name_camel = to_camel_case(method['name'])
             
             js_code += f"  {method_name_camel}({params_str}) {{\n"
@@ -1390,7 +1388,7 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
                 js_code += f"      {full_name}_{method['name']}_ResponseParamsSpec,\n"
             else:
                 js_code += "      null,\n"
-            js_code += f"      {{ {params_obj_str} }},\n"
+            js_code += f"      [{params_str}],\n"
             js_code += "      false);\n"
             js_code += "  }\n\n"
         
