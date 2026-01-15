@@ -172,77 +172,18 @@ def parse_mojom(file_path):
         'constants': []
     }
 
-
-
-    # Robust comment stripping that respects string literals
-    clean_chars = []
-    i = 0
-    n = len(content)
-    in_quote = False
-    quote_char = ''
-    in_line_comment = False
-    in_block_comment = False
-
-    while i < n:
-        char = content[i]
-        
-        if in_line_comment:
-            if char == '\n':
-                in_line_comment = False
-                clean_chars.append(char)
-            i += 1
-            continue
-            
-        if in_block_comment:
-            if char == '*' and i + 1 < n and content[i+1] == '/':
-                in_block_comment = False
-                i += 2
-            else:
-                i += 1
-            continue
-            
-        if in_quote:
-            clean_chars.append(char)
-            if char == '\\':
-                if i + 1 < n:
-                    clean_chars.append(content[i+1])
-                    i += 1
-            elif char == quote_char:
-                in_quote = False
-            i += 1
-            continue
-            
-        # Not in comment or quote
-        if char == '"' or char == "'":
-            in_quote = True
-            quote_char = char
-            clean_chars.append(char)
-            i += 1
-            continue
-            
-        if char == '/' and i + 1 < n:
-            if content[i+1] == '/':
-                in_line_comment = True
-                i += 2
-                continue
-            elif content[i+1] == '*':
-                in_block_comment = True
-                i += 2
-                continue
-        
-        clean_chars.append(char)
-        i += 1
-
-    content_no_comments = "".join(clean_chars)
-
-    # Extract module name (now safe from comments)
-    module_match = re.search(r'module\s+([\w.]+)\s*;', content_no_comments)
+    # Extract module name
+    module_match = re.search(r'module\s+([\w.]+)\s*;', content)
     if module_match:
         result['module'] = module_match.group(1)
 
-    # Extract imports (now safe from comments)
-    imports = re.findall(r'import\s+"([^"]+)"', content_no_comments)
+    # Extract imports
+    imports = re.findall(r'import\s+"([^"]+)"', content)
     result['imports'] = imports
+
+    # Remove comments for cleaner parsing
+    content_no_comments = re.sub(r'//[^\n]*', '', content)
+    content_no_comments = re.sub(r'/\*.*?\*/', '', content_no_comments, flags=re.DOTALL)
 
     # Extract interfaces with their methods
     # Fix: Allow inheritance (e.g. interface A : B {) by matching usually non-brace chars until {
@@ -372,13 +313,12 @@ def parse_mojom(file_path):
     # Extract structs (regular and native ;)
     # Fix: Use manual brace counting to handle nested enums/structs correctly
     
-    # Universal Fix 4.0: Parse Native/Forward-Declared Structs (e.g. "[Native] struct Foo;")
-    native_struct_pattern = r'(?:\[[^\]]+\]\s*)?struct\s+(\w+)\s*;'
+    # Universal Fix 4.0: Parse Native/Forward-Declared Structs (e.g. "struct Foo;")
+    native_struct_pattern = r'struct\s+(\w+)\s*;'
     for match in re.finditer(native_struct_pattern, content_no_comments):
          struct_name = match.group(1)
-         # Check if already added to avoid duplicates
-         if not any(s['name'] == struct_name for s in result['structs']):
-             result['structs'].append({'name': struct_name, 'fields': []})
+         # Add as empty struct (opaque handle/native type behavior)
+         result['structs'].append({'name': struct_name, 'fields': []})
 
     struct_start_pattern = r'struct\s+(\w+)[^{]*\{'
     for match in re.finditer(struct_start_pattern, content_no_comments):
@@ -432,47 +372,31 @@ def parse_mojom(file_path):
     return result
 
 def parse_params(params_str):
-    """Parse parameter string into list of param objects, respecting quotes."""
+    """Parse parameter string into list of param objects."""
     if not params_str:
         return []
     
     params = []
-    current = []
     depth = 0
-    in_quote = False
-    quote_char = ''
-    
+    current = ""
     for char in params_str:
-        if in_quote:
-            current.append(char)
-            # Simple escape check: if char is quote, check previous
-            if char == quote_char and (not current or len(current) < 2 or current[-2] != '\\'):
-                in_quote = False
-        else:
-            if char == '"' or char == "'":
-                in_quote = True
-                quote_char = char
-                current.append(char)
-            elif char in '([{<':
-                depth += 1
-                current.append(char)
-            elif char in ')]}>':
-                depth -= 1
-                current.append(char)
-            elif (char == ',' or char == ';') and depth == 0:
-                param_text = "".join(current).strip()
-                if param_text:
-                    p = parse_single_param(param_text)
-                    if p: params.append(p)
-                current = []
-                continue
-            else:
-                current.append(char)
-                
-    final_text = "".join(current).strip()
-    if final_text:
-        p = parse_single_param(final_text)
-        if p: params.append(p)
+        if char in '<([':
+            depth += 1
+        elif char in '>)]':
+            depth -= 1
+        elif (char == ',' or char == ';') and depth == 0:
+            if current.strip():
+                p = parse_single_param(current.strip())
+                if p:
+                    params.append(p)
+            current = ""
+            continue
+        current += char
+    
+    if current.strip():
+        p = parse_single_param(current.strip())
+        if p:
+            params.append(p)
     
     return params
 
@@ -482,7 +406,7 @@ def parse_single_param(param_str):
     if not param_str:
         return None
     
-
+    param_str = re.sub(r'//.*$', '', param_str, flags=re.MULTILINE).strip()
     
     # Extract MinVersion
     min_version_match = re.search(r'\[MinVersion=(\d+)\]', param_str)
@@ -512,35 +436,24 @@ def parse_single_param(param_str):
         param_str = f"pending_receiver<{param_str[:-1].strip()}>"
     
     parts = param_str.split()
+    
     if len(parts) >= 2:
         param_type = ' '.join(parts[:-1])
         raw_name = parts[-1]
-        
         if raw_name.startswith('arg_'):
             param_name = raw_name
         else:
-            param_name = "arg_" + raw_name
-            
-        return {
-            'name': param_name,
-            'type': param_type,
-            'optional': optional,
-            'min_version': min_version,
-            'ordinal': ordinal,
-            'default_value': default_value
-        }
+            param_name = "arg_" + raw_name 
     elif len(parts) == 1:
-        # Fallback for when type/name are missing or merged incorrectly
-        return {
-            'name': 'arg_val',
-            'type': parts[0],
-            'optional': optional,
-            'min_version': min_version,
-            'ordinal': ordinal,
-            'default_value': default_value
-        }
-        
-    return None
+        param_type = parts[0]
+        param_name = "arg_val"
+    else:
+        return None
+    
+    if param_name and not re.match(r'^[a-zA-Z_][a-zA-Z0-9_]*$', param_name):
+        return None
+    
+    return {'type': param_type, 'name': param_name, 'optional': optional, 'ordinal': ordinal, 'min_version': min_version, 'default_value': default_value}
 
 def to_camel_case(name):
     """Convert PascalCase to camelCase."""
@@ -722,10 +635,8 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
             res_type = f"mojo.internal.bindings.{mod_prefix}.{iface_name}{suffix}"
             
             # Track external reference for stub generation
-            # Sanity check: clean_name shouldn't contain parentheses or angle brackets
             if mod_prefix != module or iface_name not in valid_types:
-                if '(' not in mod_prefix and '<' not in mod_prefix and '(' not in iface_name:
-                    external_type_refs.add((mod_prefix, iface_name, kind or 'struct'))
+                external_type_refs.add((mod_prefix, iface_name, kind or 'struct'))
             
             if kind == 'interface': return f"mojo.internal.InterfaceProxy({res_type})"
             return res_type
@@ -804,8 +715,7 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
             if kind == 'interface': suffix = 'Remote'
             # Track external reference
             if target_mod != module or clean_name not in valid_types:
-                if '(' not in target_mod and '<' not in target_mod and '(' not in clean_name:
-                    external_type_refs.add((target_mod, clean_name, kind or 'struct'))
+                external_type_refs.add((target_mod, clean_name, kind or 'struct'))
             return f"mojo.internal.bindings.{target_mod}.{clean_name}{suffix}"
 
         # Fallback heuristic
@@ -1231,40 +1141,21 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
     js_code += "\n"
     
     # Pre-declare all Spec objects to handle circular dependencies
-    declared_specs = set()
     for enum in parsed.get('enums', []):
-        spec_line = f"{current_ns}.{enum['name']}Spec = {{ $: mojo.internal.Enum().$ }};\n"
-        if spec_line not in declared_specs:
-            js_code += spec_line
-            declared_specs.add(spec_line)
+        js_code += f"{current_ns}.{enum['name']}Spec = {{ $: mojo.internal.Enum().$ }};\n"
     for union in parsed.get('unions', []):
-        spec_line = f"{current_ns}.{union['name']}Spec = {{ $: {{}} }};\n"
-        if spec_line not in declared_specs:
-            js_code += spec_line
-            declared_specs.add(spec_line)
+        js_code += f"{current_ns}.{union['name']}Spec = {{ $: {{}} }};\n"
     for struct in parsed.get('structs', []):
-        spec_line = f"{current_ns}.{struct['name']}Spec = {{ $: {{}} }};\n"
-        if spec_line not in declared_specs:
-            js_code += spec_line
-            declared_specs.add(spec_line)
+        js_code += f"{current_ns}.{struct['name']}Spec = {{ $: {{}} }};\n"
     for interface in parsed.get('interfaces', []):
         iface_name = interface['name']
         js_code += f"{current_ns}.{iface_name} = {{}};\n"
-        spec_line = f"{current_ns}.{iface_name}Spec = {{ $ : {{}} }};\n"
-        if spec_line not in declared_specs:
-            js_code += spec_line
-            declared_specs.add(spec_line)
+        js_code += f"{current_ns}.{iface_name}Spec = {{ $ : {{}} }};\n"
         js_code += f"{current_ns}.{iface_name}.$interfaceName = '{module}.{iface_name}';\n"
         for method in interface.get('methods', []):
-            spec_line = f"{current_ns}.{iface_name}_{method['name']}_ParamsSpec = {{ $: {{}} }};\n"
-            if spec_line not in declared_specs:
-                js_code += spec_line
-                declared_specs.add(spec_line)
+            js_code += f"{current_ns}.{iface_name}_{method['name']}_ParamsSpec = {{ $: {{}} }};\n"
             if not method.get('is_one_way'):
-                spec_line = f"{current_ns}.{iface_name}_{method['name']}_ResponseParamsSpec = {{ $: {{}} }};\n"
-                if spec_line not in declared_specs:
-                    js_code += spec_line
-                    declared_specs.add(spec_line)
+                js_code += f"{current_ns}.{iface_name}_{method['name']}_ResponseParamsSpec = {{ $: {{}} }};\n"
 
     # Pre-process structs, unions, interfaces to collect external type refs
     # We call resolve_mojo_type on all fields to populate external_type_refs
@@ -1311,6 +1202,11 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
                 js_code += f"{full_ext_name} = {full_ext_name} || {{ $: mojo.internal.Enum().$ }};\n"
             else:
                 js_code += f"{full_ext_name} = {full_ext_name} || {{ $: mojo.internal.OpaqueStruct.$ }};\n"
+                
+            # If it's an interface, we also need a Remote stub because InterfaceProxy expects a constructor
+            if ext_kind == 'interface':
+                remote_name = f"{ext_ns}.{ext_name}Remote"
+                js_code += f"{remote_name} = {remote_name} || class {{}};\n"
 
     # Generate constants
     for const in parsed.get('constants', []):

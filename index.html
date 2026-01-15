@@ -276,10 +276,9 @@
                     computeDimensions: function (value, nullable) {
                         return mojo.internal.computeUnionDimensions(unionSpec, nullable, value);
                     },
-                    arrayElementSize: nullable => 16,
-                    encodeNull: function (encoder, byteOffset) {
-                        encoder.encodeUint64(byteOffset, BigInt(0));
-                    },
+                    arrayElementSize: nullable => (nullable ? 8 : 16),
+                    encodeNull: function (encoder, byteOffset) { },
+                    isValidObjectKeyType: false,
                 };
             };
         }
