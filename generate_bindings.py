@@ -1378,6 +1378,8 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
         for idx, method in enumerate(interface.get('methods', [])):
             params_list = [p['name'] for p in method.get('params', []) if p and p.get('name')]
             params_str = ', '.join(params_list)
+            # Create object with field names as keys for Lite bindings
+            params_obj_str = ', '.join([f"{name}: {name}" for name in params_list])
             method_name_camel = to_camel_case(method['name'])
             
             js_code += f"  {method_name_camel}({params_str}) {{\n"
@@ -1388,7 +1390,7 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
                 js_code += f"      {full_name}_{method['name']}_ResponseParamsSpec,\n"
             else:
                 js_code += "      null,\n"
-            js_code += f"      [{params_str}],\n"
+            js_code += f"      {{ {params_obj_str} }},\n"
             js_code += "      false);\n"
             js_code += "  }\n\n"
         
@@ -1480,7 +1482,8 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
             
             # Call implementation
             param_names = [p['name'] for p in method.get('params', []) if p and p.get('name')]
-            params_list = [f"params.arg_{name}" for name in param_names]
+            # name is already 'arg_...', so pass 'params.arg_...' directly
+            params_list = [f"params.{name}" for name in param_names]
             params_str = ", ".join(params_list)
             
             js_code += f"          console.log('[GeneratedReceiver] Calling impl.{method_name_camel}');\n"
@@ -1493,17 +1496,16 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
                 js_code += f"          if (expectsResponse) {{\n"
                 js_code += f"            Promise.resolve(result).then(response => {{\n"
                 js_code += f"              const encoder = new mojo.internal.Encoder(header.requestId, true);\n"
-                
-                ret_list = [f"response.arg_{r['name']}" for r in (method.get('returns') or []) if r and r.get('name')]
-                # If only one return value and it's not a struct, response might be it directly?
-                # No, we assume consistent return object or array.
-                # Actually, our impl likely returns a simple value or object.
-                # Let's handle both.
-                if len(ret_list) == 1:
-                    js_code += f"              const val = (response && typeof response === 'object' && 'arg_{method['returns'][0]['name']}' in response) ? response.arg_{method['returns'][0]['name']} : response;\n"
-                    js_code += f"              encoder.encodeStructInline({current_ns}.{resp_struct_name}Spec.$.structSpec, [val]);\n"
+                # Use object for ResponseParamsSpec
+                returns = method.get('returns') or []
+                if len(returns) == 1:
+                    r_name = returns[0]['name']
+                    js_code += f"              const val = (response && typeof response === 'object' && '{r_name}' in response) ? response.{r_name} : response;\n"
+                    js_code += f"              encoder.encodeStructInline({current_ns}.{resp_struct_name}Spec.$.structSpec, {{ '{r_name}': val }});\n"
                 else:
-                    js_code += f"              encoder.encodeStructInline({current_ns}.{resp_struct_name}Spec.$.structSpec, {ret_list if ret_list else '[]'});\n"
+                    ret_obj_list = [f"'{r['name']}': response.{r['name']}" for r in returns if r and r.get('name')]
+                    ret_obj_str = ", ".join(ret_obj_list)
+                    js_code += f"              encoder.encodeStructInline({current_ns}.{resp_struct_name}Spec.$.structSpec, {{ {ret_obj_str} }});\n"
                 
                 js_code += "              this.router_.sendMessage(encoder.finish());\n"
                 js_code += f"            }}).catch(e => console.error('[GeneratedReceiver] {method_name_camel} FAILED:', e));\n"
