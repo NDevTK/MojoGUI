@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7635.0';
+        const versionStr = window.mojoVersion || '146.0.7636.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,6 +127,7 @@ mojo.internal.bindings.contextual_tasks.mojom.TabSelectionModeSpec = { $: mojo.i
 mojo.internal.bindings.contextual_tasks.mojom.TabSelectionMode = {
   kEmbeddingsMatch: 0,
   kMultiSignalScoring: 1,
+  kStaticSignalsOnly: 2,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

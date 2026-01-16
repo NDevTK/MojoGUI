@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7635.0';
+        const versionStr = window.mojoVersion || '146.0.7636.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -850,7 +850,7 @@ mojo.internal.bindings.blink.mojom.CSSSampleId = {
   kTextBox: 801,
   kTextWrapMode: 805,
   kTextWrapStyle: 806,
-  kItemTolerance: 808,
+  kFlowTolerance: 808,
   kCaretAnimation: 809,
   kInteractivity: 811,
   kGridLanesDirection: 813,
