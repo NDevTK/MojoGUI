@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-01-16T10:16:40.602065Z",
-  "version": "146.0.7636.0",
+  "generated_at": "2026-01-17T10:13:16.654470Z",
+  "version": "146.0.7639.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4429,6 +4429,20 @@
       ]
     },
     {
+      "name": "PageHandlerFactory",
+      "module": "skills.mojom",
+      "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ]
+    },
+    {
+      "name": "PageHandler",
+      "module": "skills.mojom",
+      "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
+      "methods": []
+    },
+    {
       "name": "PageHandler",
       "module": "suggest_internals.mojom",
       "file": "chrome_browser_ui_webui_suggest_internals_suggest_internals.mojom.js",
@@ -4730,7 +4744,8 @@
       "methods": [
         "Reload",
         "StopReload",
-        "ShowContextMenu"
+        "ShowContextMenu",
+        "OnPageInitialized"
       ]
     },
     {
@@ -5251,6 +5266,7 @@
         "OnCollapseSelection",
         "OnScreenshotRequested",
         "OnDistillationStatus",
+        "OnDistillationStateChanged",
         "ScrollToTargetNode",
         "CloseUI",
         "TogglePinState",
@@ -5767,7 +5783,8 @@
         "CheckForUpdate",
         "GetUpdaterState",
         "GetUpdaterPolicies",
-        "GetAppPolicies"
+        "GetAppPolicies",
+        "GetPoliciesJson"
       ]
     },
     {
@@ -11866,6 +11883,7 @@
         "SetThumbnail",
         "OnContextualInputStatusChanged",
         "OnTabStripChanged",
+        "OnInputStateChanged",
         "AddFileContext",
         "UpdateAutoSuggestedTabContext",
         "UpdateLensSearchEligibility",
@@ -17741,7 +17759,8 @@
       "module": "network.mojom",
       "file": "services_network_public_mojom_cache_encryption_provider.mojom.js",
       "methods": [
-        "GetEncryptor"
+        "GetEncryptor",
+        "GetEncryptedCacheEncryptionKey"
       ]
     },
     {
@@ -25484,8 +25503,8 @@
       "source": "chrome/browser/ui/webui/new_tab_page/action_chips/action_chips.mojom",
       "module": "action_chips.mojom",
       "imports": [
-        "url/mojom/url.mojom",
-        "mojo/public/mojom/base/time.mojom"
+        "mojo/public/mojom/base/time.mojom",
+        "url/mojom/url.mojom"
       ]
     },
     {
@@ -25711,6 +25730,12 @@
       "imports": []
     },
     {
+      "filename": "chrome_browser_ui_webui_skills_skills.mojom.js",
+      "source": "chrome/browser/ui/webui/skills/skills.mojom",
+      "module": "skills.mojom",
+      "imports": []
+    },
+    {
       "filename": "chrome_browser_ui_webui_suggest_internals_suggest_internals.mojom.js",
       "source": "chrome/browser/ui/webui/suggest_internals/suggest_internals.mojom",
       "module": "suggest_internals.mojom",
@@ -25751,6 +25776,7 @@
         "components/tab_groups/public/mojom/tab_group_types.mojom",
         "mojo/public/mojom/base/token.mojom",
         "mojo/public/mojom/base/time.mojom",
+        "mojo/public/mojom/base/string16.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -29547,8 +29573,7 @@
       "source": "components/persistent_cache/mojom/persistent_cache.mojom",
       "module": "persistent_cache.mojom",
       "imports": [
-        "mojo/public/mojom/base/file.mojom",
-        "mojo/public/mojom/base/shared_memory.mojom"
+        "components/sqlite_vfs/mojom/sqlite_vfs.mojom"
       ]
     },
     {
@@ -30060,6 +30085,15 @@
       "module": "spellcheck.mojom",
       "imports": [
         "mojo/public/mojom/base/string16.mojom"
+      ]
+    },
+    {
+      "filename": "components_sqlite_vfs_mojom_sqlite_vfs.mojom.js",
+      "source": "components/sqlite_vfs/mojom/sqlite_vfs.mojom",
+      "module": "sqlite_vfs.mojom",
+      "imports": [
+        "mojo/public/mojom/base/file.mojom",
+        "mojo/public/mojom/base/shared_memory.mojom"
       ]
     },
     {
@@ -35952,6 +35986,14 @@
       ]
     },
     {
+      "filename": "skia_public_mojom_hdr_metadata.mojom.js",
+      "source": "skia/public/mojom/hdr_metadata.mojom",
+      "module": "skia.mojom",
+      "imports": [
+        "skia/public/mojom/skcolorspace_primaries.mojom"
+      ]
+    },
+    {
       "filename": "skia_public_mojom_image_info.mojom.js",
       "source": "skia/public/mojom/image_info.mojom",
       "module": "skia.mojom",
@@ -36973,6 +37015,15 @@
       "source": "third_party/blink/public/mojom/forms/form_control_type.mojom",
       "module": "blink.mojom",
       "imports": []
+    },
+    {
+      "filename": "third_party_blink_public_mojom_frame_agent_cluster_key.mojom.js",
+      "source": "third_party/blink/public/mojom/frame/agent_cluster_key.mojom",
+      "module": "blink.mojom",
+      "imports": [
+        "url/mojom/origin.mojom",
+        "url/mojom/url.mojom"
+      ]
     },
     {
       "filename": "third_party_blink_public_mojom_frame_back_forward_cache_controller.mojom.js",
@@ -38039,6 +38090,7 @@
         "third_party/blink/public/mojom/conversions/conversions.mojom",
         "third_party/blink/public/mojom/fenced_frame/fenced_frame_config.mojom",
         "third_party/blink/public/mojom/fetch/fetch_api_request.mojom",
+        "third_party/blink/public/mojom/frame/agent_cluster_key.mojom",
         "third_party/blink/public/mojom/frame/frame_policy.mojom",
         "third_party/blink/public/mojom/frame/view_transition_state.mojom",
         "third_party/blink/public/mojom/lcp_critical_path_predictor/lcp_critical_path_predictor.mojom",
@@ -40012,6 +40064,7 @@
       "source": "ui/gfx/mojom/hdr_metadata.mojom",
       "module": "gfx.mojom",
       "imports": [
+        "skia/public/mojom/hdr_metadata.mojom",
         "skia/public/mojom/skcolorspace_primaries.mojom"
       ]
     },
