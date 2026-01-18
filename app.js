@@ -1853,8 +1853,13 @@
             let mapSpec = null;     // For maps
 
             if (type !== 'string16' && field.type && field.type.$ && field.type.$.structSpec) {
-                type = 'struct';
-                structSpec = field.type.$.structSpec;
+                const sName = field.type.$.structSpec.name;
+                if (sName && (sName === 'url.mojom.Url' || sName.endsWith('.Url'))) {
+                    type = 'Url';
+                } else {
+                    type = 'struct';
+                    structSpec = field.type.$.structSpec;
+                }
             } else if (field.type && (field.type.elementType || (field.type.$ && (field.type.$.elementType || (field.type.$.arraySpec && field.type.$.arraySpec.elementType))))) {
                 type = 'array';
                 elementSpec = field.type.elementType || (field.type.$ && (field.type.$.elementType || field.type.$.arraySpec.elementType));
