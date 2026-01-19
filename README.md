@@ -97,8 +97,6 @@ Chromium scrambles Mojo method ordinals in official builds using a version-based
 - Compute scrambled ordinals using `SHA256(salt + InterfaceName + counter)`
 - Respect per-interface `scramble_message_ids = false` settings from BUILD.gn
 
-> 💡 **Troubleshooting**: If you see "Message has invalid flags" or crashes, the version may be mismatched. Check `window.mojoVersion` in the console.
-
 ### Manual Trigger
 
 Go to **Actions** → **Update Mojo JS Bindings** → **Run workflow**
