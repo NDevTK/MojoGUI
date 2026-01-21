@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7644.0';
+        const versionStr = window.mojoVersion || '146.0.7647.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -124,7 +124,6 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.enterprise_companion = mojo.internal.bindings.enterprise_companion || {};
 
 mojo.internal.bindings.updater.mojom.StateSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.updater.mojom.PolicySourceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.updater.mojom.PolicySameVersionUpdateSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.updater.mojom.ResultSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.updater.mojom.ErrorCategorySpec = { $: mojo.internal.Enum().$ };
@@ -132,7 +131,6 @@ mojo.internal.bindings.updater.mojom.PrioritySpec = { $: mojo.internal.Enum().$ 
 mojo.internal.bindings.updater.mojom.RegistrationRequestSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.UpdateStateSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.AppStateSpec = { $: {} };
-mojo.internal.bindings.updater.mojom.PolicyValueSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.UpdaterStateSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.UpdateService = {};
 mojo.internal.bindings.updater.mojom.UpdateServiceSpec = { $ : {} };
@@ -160,10 +158,6 @@ mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ParamsSpec = {
 mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterState_ParamsSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec = { $: {} };
-mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec = { $: {} };
-mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ParamsSpec = { $: {} };
-mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.UpdateService_GetPoliciesJson_ParamsSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.UpdateService_GetPoliciesJson_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.updater.mojom.StateChangeObserver = {};
@@ -196,15 +190,6 @@ mojo.internal.bindings.updater.mojom.State = {
   kUpdateError: 8,
   MinVersion: 8,
   MinVersion: 8,
-};
-
-// Enum: PolicySource
-mojo.internal.bindings.updater.mojom.PolicySource = {
-  kSourceUnknown: 0,
-  kSourceDefault: 1,
-  kSourceExternalConstants: 2,
-  kSourcePlatform: 3,
-  kSourceCloud: 4,
 };
 
 // Enum: PolicySameVersionUpdate
@@ -314,12 +299,6 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemote = class {
   getUpdaterState() {
     return this.$.getUpdaterState();
   }
-  getUpdaterPolicies() {
-    return this.$.getUpdaterPolicies();
-  }
-  getAppPolicies() {
-    return this.$.getAppPolicies();
-  }
   getPoliciesJson() {
     return this.$.getPoliciesJson();
   }
@@ -342,8 +321,6 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       { explicit: 10 },
       { explicit: 11 },
       { explicit: 12 },
-      { explicit: 13 },
-      { explicit: 14 },
     ]);
   }
 
@@ -455,27 +432,9 @@ mojo.internal.bindings.updater.mojom.UpdateServiceRemoteCallHandler = class {
       false);
   }
 
-  getUpdaterPolicies() {
-    return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
-      mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec,
-      mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  getAppPolicies() {
-    return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
-      mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ParamsSpec,
-      mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec,
-      [],
-      false);
-  }
-
   getPoliciesJson() {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.updater.mojom.UpdateService_GetPoliciesJson_ParamsSpec,
       mojo.internal.bindings.updater.mojom.UpdateService_GetPoliciesJson_ResponseParamsSpec,
       [],
@@ -513,8 +472,6 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
       { explicit: 10 },
       { explicit: 11 },
       { explicit: 12 },
-      { explicit: 13 },
-      { explicit: 14 },
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -764,42 +721,6 @@ mojo.internal.bindings.updater.mojom.UpdateServiceReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getUpdaterPolicies');
-          const result = this.impl.getUpdaterPolicies();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_updater_policies' in response) ? response['arg_updater_policies'] : response;
-              const resp_obj = { 'arg_updater_policies': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] getUpdaterPolicies FAILED:', e));
-          }
-          break;
-        }
-        case 13: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getAppPolicies');
-          const result = this.impl.getAppPolicies();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_app_policies' in response) ? response['arg_app_policies'] : response;
-              const resp_obj = { 'arg_app_policies': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] getAppPolicies FAILED:', e));
-          }
-          break;
-        }
-        case 14: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.UpdateService_GetPoliciesJson_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPoliciesJson');
           const result = this.impl.getPoliciesJson();
@@ -1045,18 +966,6 @@ mojo.internal.Struct(
     ],
     [[0, 56], [1, 88], [2, 96]]);
 
-// Struct: PolicyValue
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.PolicyValueSpec, 'updater.mojom.PolicyValue', [
-      mojo.internal.StructField('arg_policy_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_policy_source', 8, 0, mojo.internal.bindings.updater.mojom.PolicySourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_default_value', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_external_constants_value', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_platform_value', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_cloud_value', 40, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 56]]);
-
 // Struct: UpdaterState
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdaterStateSpec, 'updater.mojom.UpdaterState', [
@@ -1212,28 +1121,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec, 'updater.mojom.UpdateService_GetUpdaterState_ResponseParams', [
       mojo.internal.StructField('arg_updater_state', 0, 0, mojo.internal.bindings.updater.mojom.UpdaterStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec, 'updater.mojom.UpdateService_GetUpdaterPolicies_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec, 'updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParams', [
-      mojo.internal.StructField('arg_updater_policies', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.updater.mojom.PolicyValueSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ParamsSpec, 'updater.mojom.UpdateService_GetAppPolicies_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec, 'updater.mojom.UpdateService_GetAppPolicies_ResponseParams', [
-      mojo.internal.StructField('arg_app_policies', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.updater.mojom.PolicyValueSpec, false), false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

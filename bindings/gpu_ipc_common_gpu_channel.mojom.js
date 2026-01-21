@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7644.0';
+        const versionStr = window.mojoVersion || '146.0.7647.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -130,8 +130,6 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.gpu.mojom.ContextTypeSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gpu.mojom.ContextColorSpaceSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gpu.mojom.SchedulingPrioritySpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.gpu.mojom.ErrorSpec = { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.gpu.mojom.ContextLostReasonSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gpu.mojom.ContextCreationAttribsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.DeferredRequestParamsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.DeferredCommandBufferRequestParamsSpec = { $: {} };
@@ -251,6 +249,9 @@ mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.ContextCreationAttribsSpec = mojo.internal.bindings.gpu.mojom.ContextCreationAttribsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
+mojo.internal.bindings.gpu.mojom.ContextLostReasonSpec = mojo.internal.bindings.gpu.mojom.ContextLostReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
+mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.ContextResultSpec = mojo.internal.bindings.gpu.mojom.ContextResultSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
@@ -261,6 +262,9 @@ mojo.internal.bindings.gpu.mojom.DeferredRequestParamsSpec = mojo.internal.bindi
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.DeferredSharedImageRequestSpec = mojo.internal.bindings.gpu.mojom.DeferredSharedImageRequestSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
+mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
+mojo.internal.bindings.gpu.mojom.ErrorSpec = mojo.internal.bindings.gpu.mojom.ErrorSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.GLCapabilitiesSpec = mojo.internal.bindings.gpu.mojom.GLCapabilitiesSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -321,14 +325,6 @@ mojo.internal.bindings.gpu.mojom.SchedulingPriority = {
   kHigh: 0,
   kNormal: 1,
   kLow: 2,
-};
-
-// Enum: Error
-mojo.internal.bindings.gpu.mojom.Error = {
-};
-
-// Enum: ContextLostReason
-mojo.internal.bindings.gpu.mojom.ContextLostReason = {
 };
 
 // Interface: GpuChannel

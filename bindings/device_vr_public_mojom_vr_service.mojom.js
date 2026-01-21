@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7644.0';
+        const versionStr = window.mojoVersion || '146.0.7647.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -404,7 +404,7 @@ mojo.internal.bindings.device.mojom.XREye = {
 mojo.internal.bindings.device.mojom.XRPresentationTransportMethod = {
   NONE: 0,
   SUBMIT_AS_TEXTURE_HANDLE: 1,
-  SUBMIT_AS_MAILBOX_HOLDER: 2,
+  SUBMIT_AS_TEST: 2,
   DRAW_INTO_TEXTURE_MAILBOX: 3,
 };
 

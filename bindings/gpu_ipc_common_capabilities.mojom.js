@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7644.0';
+        const versionStr = window.mojoVersion || '146.0.7647.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -122,6 +122,8 @@
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 
 mojo.internal.bindings.gpu.mojom.CapabilitiesSpec = { $: {} };
+mojo.internal.bindings.gpu.mojom.ShaderPrecisionSpec = { $: {} };
+mojo.internal.bindings.gpu.mojom.PerStagePrecisionsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.GLCapabilitiesSpec = { $: {} };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
@@ -129,11 +131,111 @@ mojo.internal.bindings.gpu.mojom.GLCapabilitiesSpec = { $: {} };
 // Struct: Capabilities
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.CapabilitiesSpec, 'gpu.mojom.Capabilities', [
+      mojo.internal.StructField('arg_max_texture_size', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_egl_image_external', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_texture_format_bgra8888', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_texture_format_etc1_npot', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_sync_query', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_texture_rg', 4, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_texture_norm16', 4, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_texture_half_float_linear', 4, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_image_ycbcr_420v', 4, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_image_ar30', 5, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_image_ab30', 5, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_image_ycbcr_p010', 5, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_render_buffer_format_bgra8888', 5, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_msaa_is_slow', 5, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_disable_one_component_textures', 5, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_avoid_stencil_buffers', 5, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_disable_2d_canvas_copy_on_write', 5, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_rgb_to_yuv_conversion', 6, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_yuv_readback', 6, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_chromium_gpu_fence', 6, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mesa_framebuffer_flip_y', 6, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_context_supports_distance_field_text', 6, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_using_vulkan_context', 6, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_memory_buffer_formats', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_drm_formats_and_modifiers', 16, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Array(mojo.internal.Uint64, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_drm_device_id', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 40]]);
+
+// Struct: ShaderPrecision
+mojo.internal.Struct(
+    mojo.internal.bindings.gpu.mojom.ShaderPrecisionSpec, 'gpu.mojom.ShaderPrecision', [
+      mojo.internal.StructField('arg_min_range', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_range', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_precision', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: PerStagePrecisions
+mojo.internal.Struct(
+    mojo.internal.bindings.gpu.mojom.PerStagePrecisionsSpec, 'gpu.mojom.PerStagePrecisions', [
+      mojo.internal.StructField('arg_low_int', 0, 0, mojo.internal.bindings.gpu.mojom.ShaderPrecisionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_medium_int', 8, 0, mojo.internal.bindings.gpu.mojom.ShaderPrecisionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_high_int', 16, 0, mojo.internal.bindings.gpu.mojom.ShaderPrecisionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_low_float', 24, 0, mojo.internal.bindings.gpu.mojom.ShaderPrecisionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_medium_float', 32, 0, mojo.internal.bindings.gpu.mojom.ShaderPrecisionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_high_float', 40, 0, mojo.internal.bindings.gpu.mojom.ShaderPrecisionSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: GLCapabilities
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GLCapabilitiesSpec, 'gpu.mojom.GLCapabilities', [
+      mojo.internal.StructField('arg_vertex_shader_precisions', 0, 0, mojo.internal.bindings.gpu.mojom.PerStagePrecisionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fragment_shader_precisions', 8, 0, mojo.internal.bindings.gpu.mojom.PerStagePrecisionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_major_version', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_minor_version', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_combined_texture_image_units', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_cube_map_texture_size', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_fragment_uniform_vectors', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_renderbuffer_size', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_texture_image_units', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_varying_vectors', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_vertex_attribs', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_vertex_texture_image_units', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_vertex_uniform_vectors', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_viewport_width', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_viewport_height', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_num_compressed_texture_formats', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_num_shader_binary_formats', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_3d_texture_size', 76, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_array_texture_layers', 80, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_color_attachments', 84, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_combined_fragment_uniform_components', 88, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_combined_uniform_blocks', 96, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_draw_buffers', 100, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_combined_vertex_uniform_components', 104, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_element_index', 112, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_elements_indices', 120, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_elements_vertices', 124, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_fragment_input_components', 128, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_fragment_uniform_blocks', 132, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_fragment_uniform_components', 136, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_program_texel_offset', 140, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_samples', 144, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_texture_lod_bias', 148, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_server_wait_timeout', 152, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_transform_feedback_interleaved_components', 160, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_transform_feedback_separate_attribs', 164, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_transform_feedback_separate_components', 168, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_uniform_buffer_bindings', 172, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_uniform_block_size', 176, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_atomic_counter_buffer_bindings', 184, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_shader_storage_buffer_bindings', 188, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_shader_storage_buffer_offset_alignment', 192, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_varying_components', 196, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_vertex_output_components', 200, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_vertex_uniform_blocks', 204, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_vertex_uniform_components', 208, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_min_program_texel_offset', 212, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_num_program_binary_formats', 216, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_uniform_buffer_offset_alignment', 220, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_occlusion_query_boolean', 224, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_timer_queries', 224, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_sync_query', 224, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_max_texture_size', 228, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 240]]);

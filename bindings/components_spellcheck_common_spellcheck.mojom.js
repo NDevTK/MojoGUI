@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7644.0';
+        const versionStr = window.mojoVersion || '146.0.7647.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -121,10 +121,10 @@
  mojo.internal.bindings.spellcheck = mojo.internal.bindings.spellcheck || {};
 mojo.internal.bindings.spellcheck.mojom = mojo.internal.bindings.spellcheck.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
-mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.spellcheck.mojom.DecorationSpec = { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckBDictLanguageSpec = { $: {} };
+mojo.internal.bindings.spellcheck.mojom.SpellingMarkerSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec = { $: {} };
 mojo.internal.bindings.spellcheck.mojom.SpellChecker = {};
 mojo.internal.bindings.spellcheck.mojom.SpellCheckerSpec = { $ : {} };
@@ -151,9 +151,6 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_Pa
 mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec = { $: {} };
 
 // External type stubs (from imports)
-mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
-mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
-mojo.internal.bindings.gfx.mojom.RangeSpec = mojo.internal.bindings.gfx.mojom.RangeSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -749,6 +746,15 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
+// Struct: SpellingMarker
+mojo.internal.Struct(
+    mojo.internal.bindings.spellcheck.mojom.SpellingMarkerSpec, 'spellcheck.mojom.SpellingMarker', [
+      mojo.internal.StructField('arg_start', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_end', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_marker_type', 8, 0, mojo.internal.bindings.spellcheck.mojom.DecorationSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
 // Struct: SpellCheckResult
 mojo.internal.Struct(
     mojo.internal.bindings.spellcheck.mojom.SpellCheckResultSpec, 'spellcheck.mojom.SpellCheckResult', [
@@ -802,7 +808,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec, 'spellcheck.mojom.SpellCheckHost_RequestTextCheck_Params', [
       mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_spelling_markers', 8, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RangeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_spelling_markers', 8, 0, mojo.internal.Array(mojo.internal.bindings.spellcheck.mojom.SpellingMarkerSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
 

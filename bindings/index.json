@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-01-20T10:19:40.326836Z",
-  "version": "146.0.7644.0",
+  "generated_at": "2026-01-21T10:19:40.556294Z",
+  "version": "146.0.7647.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4645,7 +4645,8 @@
       "module": "updater_ui.mojom",
       "file": "chrome_browser_ui_webui_updater_updater_ui.mojom.js",
       "methods": [
-        "GetAllUpdaterEvents"
+        "GetAllUpdaterEvents",
+        "GetUpdaterStates"
       ]
     },
     {
@@ -5782,8 +5783,6 @@
         "RunInstaller",
         "CheckForUpdate",
         "GetUpdaterState",
-        "GetUpdaterPolicies",
-        "GetAppPolicies",
         "GetPoliciesJson"
       ]
     },
@@ -25799,7 +25798,11 @@
       "filename": "chrome_browser_ui_webui_updater_updater_ui.mojom.js",
       "source": "chrome/browser/ui/webui/updater/updater_ui.mojom",
       "module": "updater_ui.mojom",
-      "imports": []
+      "imports": [
+        "chrome/updater/mojom/updater_service.mojom",
+        "mojo/public/mojom/base/file_path.mojom",
+        "mojo/public/mojom/base/time.mojom"
+      ]
     },
     {
       "filename": "chrome_browser_ui_webui_usb_internals_usb_internals.mojom.js",
@@ -30075,8 +30078,7 @@
       "module": "spellcheck.mojom",
       "imports": [
         "mojo/public/mojom/base/file.mojom",
-        "mojo/public/mojom/base/string16.mojom",
-        "ui/gfx/range/mojom/range.mojom"
+        "mojo/public/mojom/base/string16.mojom"
       ]
     },
     {
@@ -30114,12 +30116,6 @@
         "mojo/public/mojom/base/file.mojom",
         "mojo/public/mojom/base/time.mojom"
       ]
-    },
-    {
-      "filename": "components_sync_mojom_syncer.mojom.js",
-      "source": "components/sync/mojom/syncer.mojom",
-      "module": "syncer.mojom",
-      "imports": []
     },
     {
       "filename": "components_system_media_controls_mac_remote_cocoa_system_media_controls.mojom.js",
@@ -31366,6 +31362,12 @@
       "imports": []
     },
     {
+      "filename": "gpu_ipc_common_constants.mojom.js",
+      "source": "gpu/ipc/common/constants.mojom",
+      "module": "gpu.mojom",
+      "imports": []
+    },
+    {
       "filename": "gpu_ipc_common_context_result.mojom.js",
       "source": "gpu/ipc/common/context_result.mojom",
       "module": "gpu.mojom",
@@ -31394,6 +31396,7 @@
       "module": "gpu.mojom",
       "imports": [
         "gpu/ipc/common/capabilities.mojom",
+        "gpu/ipc/common/constants.mojom",
         "gpu/ipc/common/context_result.mojom",
         "gpu/ipc/common/mailbox.mojom",
         "gpu/ipc/common/shared_image_metadata.mojom",

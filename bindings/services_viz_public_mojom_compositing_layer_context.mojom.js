@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7644.0';
+        const versionStr = window.mojoVersion || '146.0.7647.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -582,6 +582,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_handling_interaction', 96, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_may_throttle_if_undrawn_frames', 96, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_viewport_mobile_optimized', 96, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_animating_hud_contents', 96, 6, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_overscroll_elasticity_transform', 100, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_target_local_surface_id', 104, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_background_color', 112, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec, null, false, 0, undefined),

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7644.0';
+        const versionStr = window.mojoVersion || '146.0.7647.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -120,7 +120,12 @@
 
  mojo.internal.bindings.updater_ui = mojo.internal.bindings.updater_ui || {};
 mojo.internal.bindings.updater_ui.mojom = mojo.internal.bindings.updater_ui.mojom || {};
+mojo.internal.bindings.updater = mojo.internal.bindings.updater || {};
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 
+mojo.internal.bindings.updater_ui.mojom.UpdaterStateSpec = { $: {} };
+mojo.internal.bindings.updater_ui.mojom.GetUpdaterStatesResponseSpec = { $: {} };
+mojo.internal.bindings.updater_ui.mojom.GetUpdaterStatesErrorSpec = { $: {} };
 mojo.internal.bindings.updater_ui.mojom.PageHandlerFactory = {};
 mojo.internal.bindings.updater_ui.mojom.PageHandlerFactorySpec = { $ : {} };
 mojo.internal.bindings.updater_ui.mojom.PageHandlerFactory.$interfaceName = 'updater_ui.mojom.PageHandlerFactory';
@@ -130,9 +135,18 @@ mojo.internal.bindings.updater_ui.mojom.PageHandlerSpec = { $ : {} };
 mojo.internal.bindings.updater_ui.mojom.PageHandler.$interfaceName = 'updater_ui.mojom.PageHandler';
 mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec = { $: {} };
 mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec = { $: {} };
+mojo.internal.bindings.updater_ui.mojom.PageHandler_GetUpdaterStates_ParamsSpec = { $: {} };
 mojo.internal.bindings.updater_ui.mojom.Page = {};
 mojo.internal.bindings.updater_ui.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.updater_ui.mojom.Page.$interfaceName = 'updater_ui.mojom.Page';
+
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.JSTimeSpec = mojo.internal.bindings.mojo_base.mojom.JSTimeSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: PageHandlerFactory
 mojo.internal.bindings.updater_ui.mojom.PageHandlerFactoryPendingReceiver = class {
@@ -294,12 +308,16 @@ mojo.internal.bindings.updater_ui.mojom.PageHandlerRemote = class {
   getAllUpdaterEvents() {
     return this.$.getAllUpdaterEvents();
   }
+  getUpdaterStates() {
+    return this.$.getUpdaterStates();
+  }
 };
 
 mojo.internal.bindings.updater_ui.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('updater_ui.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -309,6 +327,15 @@ mojo.internal.bindings.updater_ui.mojom.PageHandlerRemoteCallHandler = class {
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec,
       mojo.internal.bindings.updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  getUpdaterStates() {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.updater_ui.mojom.PageHandler_GetUpdaterStates_ParamsSpec,
+      null,
       [],
       false);
   }
@@ -331,6 +358,7 @@ mojo.internal.bindings.updater_ui.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('updater_ui.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -391,6 +419,13 @@ mojo.internal.bindings.updater_ui.mojom.PageHandlerReceiver = class {
               this.router_.send(message);
             }).catch(e => console.error('[GeneratedReceiver] getAllUpdaterEvents FAILED:', e));
           }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.updater_ui.mojom.PageHandler_GetUpdaterStates_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getUpdaterStates');
+          const result = this.impl.getUpdaterStates();
           break;
         }
       }
@@ -518,6 +553,32 @@ mojo.internal.bindings.updater_ui.mojom.PageRequest = mojo.internal.bindings.upd
 
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: UpdaterState
+mojo.internal.Struct(
+    mojo.internal.bindings.updater_ui.mojom.UpdaterStateSpec, 'updater_ui.mojom.UpdaterState', [
+      mojo.internal.StructField('arg_active_version', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_inactive_versions', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_checked', 16, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_last_started', 24, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_installation_directory', 32, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policies', 40, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+// Struct: GetUpdaterStatesResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.updater_ui.mojom.GetUpdaterStatesResponseSpec, 'updater_ui.mojom.GetUpdaterStatesResponse', [
+      mojo.internal.StructField('arg_system', 0, 0, mojo.internal.bindings.updater_ui.mojom.UpdaterStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_user', 8, 0, mojo.internal.bindings.updater_ui.mojom.UpdaterStateSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: GetUpdaterStatesError
+mojo.internal.Struct(
+    mojo.internal.bindings.updater_ui.mojom.GetUpdaterStatesErrorSpec, 'updater_ui.mojom.GetUpdaterStatesError', [
+    ],
+    [[0, 8]]);
 mojo.internal.Struct(
     mojo.internal.bindings.updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'updater_ui.mojom.PageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.updater_ui.mojom.PageRemote), null, false, 0, undefined),
@@ -535,4 +596,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.updater_ui.mojom.PageHandler_GetUpdaterStates_ParamsSpec, 'updater_ui.mojom.PageHandler_GetUpdaterStates_Params', [
+    ],
+    [[0, 8]]);
 

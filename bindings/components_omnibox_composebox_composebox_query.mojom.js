@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7644.0';
+        const versionStr = window.mojoVersion || '146.0.7647.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -182,10 +182,13 @@ mojo.internal.bindings.composebox_query.mojom.InputType = {
 // Struct: InputState
 mojo.internal.Struct(
     mojo.internal.bindings.composebox_query.mojom.InputStateSpec, 'composebox_query.mojom.InputState', [
-      mojo.internal.StructField('arg_active_model', 0, 0, mojo.internal.bindings.composebox_query.mojom.ModelModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_active_tool', 4, 0, mojo.internal.bindings.composebox_query.mojom.ToolModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_disabled_models', 8, 0, mojo.internal.Array(mojo.internal.bindings.composebox_query.mojom.ModelModeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_disabled_tools', 16, 0, mojo.internal.Array(mojo.internal.bindings.composebox_query.mojom.ToolModeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_disabled_input_types', 24, 0, mojo.internal.Array(mojo.internal.bindings.composebox_query.mojom.InputTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_models', 0, 0, mojo.internal.Array(mojo.internal.bindings.composebox_query.mojom.ModelModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_tools', 8, 0, mojo.internal.Array(mojo.internal.bindings.composebox_query.mojom.ToolModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_input_types', 16, 0, mojo.internal.Array(mojo.internal.bindings.composebox_query.mojom.InputTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_active_model', 24, 0, mojo.internal.bindings.composebox_query.mojom.ModelModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_active_tool', 28, 0, mojo.internal.bindings.composebox_query.mojom.ToolModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_disabled_models', 32, 0, mojo.internal.Array(mojo.internal.bindings.composebox_query.mojom.ModelModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_disabled_tools', 40, 0, mojo.internal.Array(mojo.internal.bindings.composebox_query.mojom.ToolModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_disabled_input_types', 48, 0, mojo.internal.Array(mojo.internal.bindings.composebox_query.mojom.InputTypeSpec, false), null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 64]]);

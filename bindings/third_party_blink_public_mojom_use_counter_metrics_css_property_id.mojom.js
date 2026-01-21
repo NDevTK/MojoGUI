@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '146.0.7644.0';
+        const versionStr = window.mojoVersion || '146.0.7647.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -888,8 +888,6 @@ mojo.internal.bindings.blink.mojom.CSSSampleId = {
   kRuleStyle: 853,
   kCaretShape: 854,
   kRowRule: 855,
-  kTextGrow: 856,
-  kTextShrink: 857,
   kRule: 858,
   kCornerTopShape: 860,
   kCornerRightShape: 861,
@@ -948,6 +946,7 @@ mojo.internal.bindings.blink.mojom.CSSSampleId = {
   kTimelineTriggerEntryRange: 921,
   kTimelineTriggerActiveRange: 922,
   kGridLanesPack: 923,
+  kTextFit: 924,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
