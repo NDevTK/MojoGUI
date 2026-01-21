@@ -655,8 +655,11 @@
             }
 
             // Fallback to parser results if dynamic resolution fails
-            const m = iface.methods.find(m => m.name === methodName || m.name.toLowerCase() === methodName.toLowerCase());
-            if (m) return m;
+            const m = iface.methods.find(m => {
+                const mName = typeof m === 'string' ? m : m?.name;
+                return mName && (mName === methodName || mName.toLowerCase() === methodName.toLowerCase());
+            });
+            if (m) return typeof m === 'string' ? { name: m } : m;
         }
 
         return null; // No definition found
@@ -3129,6 +3132,321 @@
             setTimeout(() => toast.remove(), 300);
         }, 3000);
     }
+
+    // ========================================
+    // MCP Server API
+    // ========================================
+    // Expose internal functions for scriptable MCP server access via CDP
+    window.MojoGUI_API = {
+        // ---- Interface Browsing ----
+        /**
+         * Get all loaded interfaces
+         * @returns {Array} Array of interface objects
+         */
+        getInterfaces: async () => {
+            if (!state.interfaces || state.interfaces.length === 0) {
+                await loadInterfaces();
+            }
+            return state.interfaces;
+        },
+        /**
+         * Search interfaces by name or module
+         * @param {string} query - Search query
+         * @returns {Array} Filtered interfaces
+         */
+        searchInterfaces: async (query) => {
+            const interfaces = await window.MojoGUI_API.getInterfaces();
+            const q = (query || '').toLowerCase();
+            if (!q) return interfaces;
+            return interfaces.filter(i =>
+                i.name.toLowerCase().includes(q) ||
+                i.module.toLowerCase().includes(q)
+            );
+        },
+        /**
+         * Get detailed information about an interface including methods
+         * @param {string} name - Interface name (simple or fully qualified)
+         * @returns {Object} Interface details with methods and parameters
+         */
+        getInterfaceDetails: async (name) => {
+            const interfaces = await window.MojoGUI_API.getInterfaces();
+            const isFQN = name.includes('.');
+            let iface = interfaces.find(i =>
+                (isFQN && (i.module + '.' + i.name === name)) ||
+                (!isFQN && i.name === name)
+            );
+            if (!iface) return null;
+            // Load binding if available
+            if (iface.file && typeof MojoBindings !== 'undefined') {
+                try {
+                    await MojoBindings.loadBinding(iface.file);
+                } catch (e) {
+                    console.warn('[MojoGUI_API] Failed to load binding:', e);
+                }
+            }
+            // Get method details with parameters
+            const methods = (iface.methods || []).map(m => {
+                const methodName = typeof m === 'string' ? m : m.name;
+                const params = getMethodParams(iface.name, methodName);
+                const methodDef = findMethodDefinition(iface.name, methodName);
+                return {
+                    name: methodName,
+                    parameters: params || [],
+                    responseParams: methodDef?.responseParams || null
+                };
+            });
+            return {
+                name: iface.name,
+                module: iface.module,
+                file: iface.file,
+                methods
+            };
+        },
+        // ---- Method Metadata ----
+        getMethodParams: (iface, method) => getMethodParams(iface, method),
+        findMethodDefinition: (iface, method) => findMethodDefinition(iface, method),
+        // ---- Code Generation ----
+        /**
+         * Generate MojoJS code for calling a method
+         * @param {string} ifaceName - Interface name
+         * @param {string} methodName - Method name
+         * @param {Object} params - Parameter values
+         * @returns {string} Generated code
+         */
+        generateCode: async (ifaceName, methodName, params = {}) => {
+            // Temporarily set state for code generation
+            const prevIface = state.selectedInterface;
+            const prevMethod = state.selectedMethod;
+            const prevParams = state.paramValues;
+            const iface = state.interfaces.find(i => i.name === ifaceName || (i.module + '.' + i.name === ifaceName));
+            if (!iface) return `// Interface not found: ${ifaceName}`;
+            state.selectedInterface = iface;
+            state.selectedMethod = methodName || null;
+            state.paramValues = params || {};
+            const code = generateCode(false);
+            // Restore state
+            state.selectedInterface = prevIface;
+            state.selectedMethod = prevMethod;
+            state.paramValues = prevParams;
+            return code;
+        },
+        // ---- Execution ----
+        /**
+         * Execute a Mojo method with parameters
+         * Uses existing generateCode and script execution logic
+         * @param {string} ifaceName - Interface name
+         * @param {string} methodName - Method name
+         * @param {Object} params - Object of parameter key-value pairs
+         * @returns {Object} Result or error
+         */
+        executeMethod: async (ifaceName, methodName, params = {}) => {
+            if (!state.mojoAvailable) {
+                return { error: 'MojoJS is not available' };
+            }
+            // Load binding
+            await MojoLoader.ensureBinding(ifaceName);
+            const iface = state.interfaces.find(i => i.name === ifaceName || (i.module + '.' + i.name === ifaceName));
+            if (!iface) {
+                return { error: `Interface not found: ${ifaceName}` };
+            }
+            // Temporarily set state for code generation (reuse existing logic)
+            const prevIface = state.selectedInterface;
+            const prevMethod = state.selectedMethod;
+            const prevParams = state.paramValues;
+            state.selectedInterface = iface;
+            state.selectedMethod = methodName;
+            state.paramValues = params;
+            // Generate code using existing function (isExecution=true adds arg_ prefixes)
+            const code = generateCode(true);
+            // Restore state
+            state.selectedInterface = prevIface;
+            state.selectedMethod = prevMethod;
+            state.paramValues = prevParams;
+            // Execute using existing script injection pattern
+            const execId = 'api_exec_' + Date.now();
+            const wrappedCode = `
+                (async () => {
+                    "use strict";
+                    try {
+                        ${code}
+                        window.__mojoExecuteResult_${execId} = { success: true, result: typeof result !== 'undefined' ? result : null };
+                    } catch (error) {
+                        window.__mojoExecuteResult_${execId} = { success: false, error: error.message, stack: error.stack };
+                    }
+                    window.dispatchEvent(new Event('mojoExecuteComplete_${execId}'));
+                })();
+            `;
+            try {
+                // Create promise to wait for execution
+                const resultPromise = new Promise((resolve) => {
+                    const handler = () => {
+                        window.removeEventListener(`mojoExecuteComplete_${execId}`, handler);
+                        const result = window[`__mojoExecuteResult_${execId}`];
+                        delete window[`__mojoExecuteResult_${execId}`];
+                        resolve(result);
+                    };
+                    window.addEventListener(`mojoExecuteComplete_${execId}`, handler);
+                });
+                // Create and execute script
+                const script = document.createElement('script');
+                if (trustedPolicy) {
+                    script.textContent = trustedPolicy.createScript(wrappedCode);
+                } else {
+                    script.textContent = wrappedCode;
+                }
+                document.head.appendChild(script);
+                document.head.removeChild(script);
+                // Wait for and return result
+                return await resultPromise;
+            } catch (e) {
+                return { success: false, error: e.message, stack: e.stack };
+            }
+        },
+        // ---- Interceptor Control ----
+        startInterceptor: (ifaceName, mode = 'INTERCEPT') => {
+            if (typeof InterceptorManager === 'undefined') return false;
+            return InterceptorManager.start(ifaceName, mode);
+        },
+        stopInterceptor: (ifaceName) => {
+            if (typeof InterceptorManager === 'undefined') return;
+            InterceptorManager.stop(ifaceName);
+        },
+        toggleInterceptor: (ifaceName) => {
+            if (typeof InterceptorManager === 'undefined') return false;
+            return InterceptorManager.toggle(ifaceName);
+        },
+        isInterceptorActive: (ifaceName) => {
+            if (typeof InterceptorManager === 'undefined') return false;
+            return InterceptorManager.isActive(ifaceName);
+        },
+        getInterceptorMode: (ifaceName) => {
+            if (typeof InterceptorManager === 'undefined') return null;
+            return InterceptorManager.getMode(ifaceName);
+        },
+        listActiveInterceptors: () => {
+            if (typeof InterceptorManager === 'undefined') return [];
+            return Array.from(InterceptorManager.interceptors.keys());
+        },
+        // ---- Intercepted Calls ----
+        /**
+         * Get list of intercepted calls from the activity table
+         * @returns {Array} Array of call details
+         */
+        getInterceptedCalls: () => {
+            const rows = elements.interceptorTableBody?.querySelectorAll('tr') || [];
+            return Array.from(rows).map(row => {
+                const details = row.__details || {};
+                return {
+                    id: row.dataset.id,
+                    type: row.dataset.type,
+                    proxyId: row.dataset.proxyId,
+                    interface: details.interface,
+                    method: details.method,
+                    params: details.params,
+                    status: details.status,
+                    result: details.result,
+                    error: details.error,
+                    timestamp: details.timestamp
+                };
+            });
+        },
+        /**
+         * Resume, modify, or drop an intercepted call
+         * @param {string} id - Call ID
+         * @param {Array} params - Modified parameters (null to use original)
+         * @param {boolean} drop - Whether to drop the call
+         * @param {boolean} interceptResponse - Whether to intercept the response
+         */
+        resumeCall: (id, params, drop = false, interceptResponse = false) => {
+            const row = document.getElementById(`row_${id}`);
+            if (!row) return { error: `Call not found: ${id}` };
+            const proxyId = row.dataset.proxyId;
+            const proxy = window.MojoProxyRegistry?.get(proxyId);
+            if (!proxy) return { error: `Proxy not found for call: ${id}` };
+            if (drop) {
+                proxy.resumeCall(id, null, true);
+                updateActivityRow(id, 'Dropped');
+                return { success: true, action: 'dropped' };
+            }
+            // Get original params if not provided
+            const originalParams = row.__details?.params;
+            const finalParams = params || originalParams;
+            // Restore arg_ prefixes if needed
+            const restoredParams = reconcileKeys(finalParams, originalParams, false);
+            proxy.resumeCall(id, restoredParams, false, interceptResponse);
+            if (interceptResponse) {
+                updateActivityRow(id, 'Pending Response');
+            } else {
+                updateActivityRow(id, 'Forwarded');
+            }
+            return { success: true, action: 'resumed', interceptResponse };
+        },
+        /**
+         * Replay a captured call with optional parameter modifications
+         * @param {string} id - Call ID from activity log
+         * @param {Object} params - Optional modified parameters
+         * @returns {Object} Result of the replay operation
+         */
+        replayCall: async (id, params = null) => {
+            const row = document.getElementById(`row_${id}`) ||
+                document.querySelector(`tr[data-id="${id}"]`);
+            if (!row) return { error: `Call not found: ${id}` };
+
+            const details = row.__details;
+            if (!details) return { error: `No details found for call: ${id}` };
+
+            const proxyId = row.dataset.proxyId;
+            const proxy = window.MojoProxyRegistry?.get(proxyId);
+            if (!proxy || !proxy.realRemote) {
+                return { error: `Proxy not found or invalid for call: ${id}` };
+            }
+
+            const method = details.method;
+            if (!method || typeof proxy.realRemote[method] !== 'function') {
+                return { error: `Method ${method} not found on remote` };
+            }
+
+            try {
+                // Use modified params or original
+                const originalParams = details.params;
+                let finalParams = params || originalParams;
+
+                // Restore keys if needed
+                if (params && typeof reconcileKeys === 'function') {
+                    finalParams = reconcileKeys(params, originalParams, false);
+                }
+
+                // Execute the call
+                const result = await proxy.realRemote[method](...(Array.isArray(finalParams) ? finalParams : [finalParams]));
+                return { success: true, result };
+            } catch (e) {
+                return { success: false, error: e.message, stack: e.stack };
+            }
+        },
+        // ---- State Access ----
+        getState: () => ({
+            mojoAvailable: state.mojoAvailable,
+            selectedInterface: state.selectedInterface?.name || null,
+            selectedMethod: state.selectedMethod,
+            interfaceCount: state.interfaces.length,
+            trafficCount: state.trafficCount,
+            interceptResponses: state.interceptResponses
+        }),
+        /**
+         * Set response interception mode
+         * @param {boolean} enabled - Whether to intercept responses
+         */
+        setInterceptResponses: (enabled) => {
+            state.interceptResponses = !!enabled;
+            // Update UI toggle if present
+            if (elements.interceptRespToggle) {
+                elements.interceptRespToggle.checked = state.interceptResponses;
+            }
+            return state.interceptResponses;
+        },
+        // ---- Binding Loading ----
+        ensureBinding: (ifaceName) => MojoLoader.ensureBinding(ifaceName)
+    };
 
     // Start
     init();

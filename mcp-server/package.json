@@ -1,0 +1,27 @@
+{
+    "name": "mojogui-mcp-server",
+    "version": "1.0.0",
+    "description": "MCP server for agentic usage of MojoGUI - Chromium Mojo interface security research",
+    "main": "src/index.js",
+    "type": "module",
+    "bin": {
+        "mojogui-mcp": "./src/index.js"
+    },
+    "scripts": {
+        "start": "node src/index.js"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.25.3",
+        "ws": "^8.18.0",
+        "zod": "^3.24.0"
+    },
+    "keywords": [
+        "mcp",
+        "mojo",
+        "chromium",
+        "security",
+        "fuzzing"
+    ],
+    "author": "",
+    "license": "MIT"
+}

@@ -46,7 +46,7 @@ Visit the hosted version: <https://ndevtk.github.io/MojoGUI>
 
 3. Open in Chrome with MojoJS enabled:
    ```bash
-   chrome --enable-blink-features=MojoJS,MojoJSTest http://localhost:8080
+   chrome --enable-blink-features=MojoJS,MojoJSTest http://localhost:8000
    ```
 
 ## Usage
