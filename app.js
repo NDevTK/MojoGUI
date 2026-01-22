@@ -3360,6 +3360,11 @@
         resumeCall: (id, params, drop = false, interceptResponse = false) => {
             const row = document.getElementById(`row_${id}`);
             if (!row) return { error: `Call not found: ${id}` };
+            
+            if (row.__details?.status !== 'Pending') {
+                return { error: `Call ${id} is not in Pending status (current status: ${row.__details?.status})` };
+            }
+
             const proxyId = row.dataset.proxyId;
             const proxy = window.MojoProxyRegistry?.get(proxyId);
             if (!proxy) return { error: `Proxy not found for call: ${id}` };
@@ -3380,6 +3385,30 @@
                 updateActivityRow(id, 'Forwarded');
             }
             return { success: true, action: 'resumed', interceptResponse };
+        },
+        /**
+         * Send a modified response for an intercepted call
+         * @param {string} id - Call ID
+         * @param {Object} result - Modified result
+         */
+        sendResponse: (id, result) => {
+            const row = document.getElementById(`row_${id}`);
+            if (!row) return { error: `Call not found: ${id}` };
+
+            if (row.__details?.status !== 'Response Edit') {
+                return { error: `Call ${id} is not in Response Edit status (current status: ${row.__details?.status})` };
+            }
+
+            const proxyId = row.dataset.proxyId;
+            const proxy = window.MojoProxyRegistry?.get(proxyId);
+            if (!proxy) return { error: `Proxy not found for call: ${id}` };
+
+            const originalResult = row.__details?.result;
+            const restoredResult = reconcileKeys(result, originalResult);
+
+            proxy.sendResponse(id, restoredResult);
+            updateActivityRow(id, 'Done', restoredResult);
+            return { success: true, action: 'sent_response' };
         },
         /**
          * Replay a captured call with optional parameter modifications

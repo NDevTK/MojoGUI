@@ -282,31 +282,41 @@ server.tool(
 );
 server.tool(
     'resume_call',
-    'Resume, modify, or drop an intercepted call that is pending.',
+    'Resume, modify, or drop an intercepted call that is pending. If the call is in "Response Edit" status, this tool will send the modified response.',
     {
         id: z.string().describe('The call ID from get_intercepted_calls'),
-        params: z.array(z.any()).optional().describe('Modified parameters (uses original if not provided)'),
+        params: z.array(z.any()).optional().describe('Modified parameters (uses original if not provided for request modification)'),
+        result: z.any().optional().describe('Modified result (for response modification when status is "Response Edit")'),
         drop: z.boolean().optional().default(false).describe('If true, drop the call instead of forwarding'),
         intercept_response: z.boolean().optional().default(false).describe('If true, also intercept the response')
     },
-    async ({ id, params, drop = false, intercept_response = false }) => {
+    async ({ id, params, result, drop = false, intercept_response = false }) => {
         const code = `
             (async () => {
                 const api = window.MojoGUI_API;
                 if (!api) throw new Error('MojoGUI API not available');
                 
-                const result = api.resumeCall(
+                // Check if this is a response edit or request resume
+                const calls = api.getInterceptedCalls();
+                const call = calls.find(c => c.id === ${JSON.stringify(id)});
+                
+                if (call && call.status === 'Response Edit') {
+                    return api.sendResponse(
+                        ${JSON.stringify(id)},
+                        ${result !== undefined ? JSON.stringify(result) : 'call.result'}
+                    );
+                }
+
+                return api.resumeCall(
                     ${JSON.stringify(id)},
                     ${params ? JSON.stringify(params) : 'null'},
                     ${drop},
                     ${intercept_response}
                 );
-                
-                return result;
             })()
         `;
-        const result = await executeInMojoGUI(code);
-        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
+        const mcpResult = await executeInMojoGUI(code);
+        return { content: [{ type: 'text', text: JSON.stringify(mcpResult, null, 2) }] };
     }
 );
 

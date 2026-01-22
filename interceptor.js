@@ -156,10 +156,11 @@
 
         resumeCall(callId, modifiedArgs, shouldDrop = false, interceptResponse = false) {
             const pending = this.pendingMessages.get(callId);
-            if (!pending) return;
+            if (!pending || pending.stage === 'FORWARDED' || pending.stage === 'RESPONSE') return;
 
-            // If we are definitely done with this entry (dropping or not intercepting response), delete it.
-            // If intercepting response, we MUST keep it (or re-add it).
+            // Mark as forwarded immediately to prevent duplicate calls if resumeCall is triggered again
+            pending.stage = 'FORWARDED';
+
             if (shouldDrop || !interceptResponse) {
                 this.pendingMessages.delete(callId);
             }
