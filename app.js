@@ -3348,6 +3348,9 @@
          * @returns {string} Generated code
          */
         generateCode: async (ifaceName, methodName, params = {}) => {
+            // Load binding first to ensure params can be resolved
+            await MojoLoader.ensureBinding(ifaceName);
+
             // Temporarily set state for code generation
             const prevIface = state.selectedInterface;
             const prevMethod = state.selectedMethod;
