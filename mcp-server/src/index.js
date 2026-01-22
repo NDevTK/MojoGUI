@@ -185,11 +185,17 @@ server.tool(
                 const api = window.MojoGUI_API;
                 if (!api) throw new Error('MojoGUI API not available');
                 
-                const success = api.startInterceptor(${JSON.stringify(iface)}, ${JSON.stringify(mode)});
-                const currentMode = api.getInterceptorMode(${JSON.stringify(iface)});
+                // Resolve FQN to ensure interceptor matches Mojo.bindInterface usage
+                const interfaces = await api.getInterfaces();
+                const targetIface = interfaces.find(i => i.name === ${JSON.stringify(iface)} || (i.module + '.' + i.name === ${JSON.stringify(iface)}));
+                const nameToUse = targetIface && targetIface.module ? (targetIface.module + '.' + targetIface.name) : ${JSON.stringify(iface)};
+
+                const success = api.startInterceptor(nameToUse, ${JSON.stringify(mode)});
+                const currentMode = api.getInterceptorMode(nameToUse);
                 return {
                     success,
-                    interface: ${JSON.stringify(iface)},
+                    interface: nameToUse,
+                    resolvedFrom: ${JSON.stringify(iface)},
                     mode: currentMode,
                     message: success 
                         ? (${JSON.stringify(mode)} === 'INTERCEPT' 
