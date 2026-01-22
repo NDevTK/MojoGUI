@@ -423,6 +423,7 @@ export class CDPClient {
             reject(new Error(this.lastCrashInfo.formattedError));
         }
         this.pendingMessages.clear();
+        this.reload();
     }
 
     /**
@@ -435,22 +436,6 @@ export class CDPClient {
         }
         this.pendingMessages.clear();
         this.wsConnection = null;
-    }
-    /**
-     * Check if an error indicates a renderer crash
-     */
-    _isRendererCrash(error) {
-        const crashIndicators = [
-            'Target closed',
-            'Session closed',
-            'detached',
-            'crashed',
-            'Inspected target navigated',
-            'Connection closed'
-        ];
-        return crashIndicators.some(indicator =>
-            error.message?.includes(indicator)
-        );
     }
 }
 // Singleton instance for convenience

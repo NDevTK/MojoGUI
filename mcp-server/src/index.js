@@ -479,6 +479,7 @@ async function main() {
     await server.connect(transport);
     console.error('[MojoGUI MCP] Server started');
 }
+
 main().catch((error) => {
     console.error('[MojoGUI MCP] Fatal error:', error);
     process.exit(1);
