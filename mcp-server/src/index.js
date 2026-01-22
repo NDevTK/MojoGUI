@@ -131,10 +131,9 @@ server.tool(
     {
         interface: z.string().describe('The interface name'),
         method: z.string().describe('The method name to call'),
-        params: z.record(z.any()).optional().default({}).describe('Parameter values as key-value pairs'),
-        async: z.boolean().optional().default(false).describe('If true, don\'t wait for the method to complete (useful for intercepted calls)')
+        params: z.record(z.any()).optional().default({}).describe('Parameter values as key-value pairs')
     },
-    async ({ interface: iface, method, params = {}, async: isAsync = false }) => {
+    async ({ interface: iface, method, params = {} }) => {
         const code = `
             (async () => {
                 const api = window.MojoGUI_API;
@@ -157,23 +156,14 @@ server.tool(
                         availableMethods: details.methods?.slice(0, 10).map(m => m.name)
                     };
                 }
-                
-                if (${isAsync}) {
-                    api.executeMethod(
-                        ${JSON.stringify(iface)},
-                        ${JSON.stringify(method)},
-                        ${JSON.stringify(params)}
-                    );
-                    return { success: true, message: 'Method execution started asynchronously' };
-                }
 
-                const result = await api.executeMethod(
+                api.executeMethod(
                     ${JSON.stringify(iface)},
                     ${JSON.stringify(method)},
                     ${JSON.stringify(params)}
                 );
                 
-                return { success: true };
+                return { success: true, message: 'Method execution started asynchronously' };
             })()
         `;
         const result = await executeInMojoGUI(code);

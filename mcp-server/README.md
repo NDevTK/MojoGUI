@@ -50,7 +50,7 @@ npm start
 |------|-------------|
 | `list_interfaces` | Search/list available Mojo interfaces |
 | `get_interface_details` | Get methods and parameters for an interface |
-| `call_method` | Execute a Mojo method with parameters (supports `async`) |
+| `call_method` | Execute a Mojo method with parameters |
 | `run_javascript` | Execute arbitrary JavaScript in the page (supports `async`) |
 | `generate_code` | Generate MojoJS code for a method call |
 | `set_interceptor_mode` | Set INTERCEPT (blocking) or LOG (passive) mode |
