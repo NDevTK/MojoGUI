@@ -1286,37 +1286,63 @@
         } else if (typeof value === 'object' && value !== null && typeString !== 'string16' && typeString !== 'bigstring16' && typeString !== 'bigstring') {
             // ... existing handle logic ...
             // Mojo Handle Detection for Form View
-            if ((value.$ && value.proxy && typeof value.$ === 'object') || (value.handle && value.handle.router_)) {
+            if ((value && value.__mojoType === 'Handle') || (value && value.$ && value.proxy && typeof value.$ === 'object') || (value && value.handle && value.handle.router_)) {
                 let ifaceName = 'Unknown';
                 let ifaceId = '0';
                 let typeLabel = 'Mojo Handle';
+                let currentAction = 'preserve';
 
-                if (value.$ && value.proxy) {
+                if (value.__mojoType === 'Handle') {
+                    ifaceName = value.interface;
+                    ifaceId = value.interfaceId;
+                    typeLabel = value.isReceiver ? 'Pending Receiver' : 'Mojo Remote';
+                    currentAction = value.action || 'preserve';
+                } else if (value.$ && value.proxy) {
                     const meta = value.$;
                     ifaceName = meta.interfaceName || (meta.proxy && meta.proxy.interfaceName) || 'Unknown';
                     ifaceId = meta.interfaceId || (meta.proxy && meta.proxy.interfaceId) || '0';
                 } else if (value.handle && value.handle.router_) {
                     typeLabel = 'Pending Receiver';
-                    // Try to infer interface from context or router? Hard without metadata.
-                    // But we can show ID.
                     ifaceId = value.handle.interfaceId_ || '0';
                     ifaceName = 'PendingReceiver';
                 }
 
+                const displayName = escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '');
+                
                 return `
-                    <div class="form-group" data-original-name="${escapeHtml(param.name)}">
+                    <div class="form-group handle-group" data-original-name="${escapeHtml(param.name)}">
                         <label>
-                            ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
+                            ${displayName}
                             <span class="type">${typeLabel}</span>
                         </label>
-                        <div class="mojo-handle-card">
-                            <div class="handle-icon">🔌</div>
+                        <div class="mojo-handle-card ${currentAction === 'close' ? 'closed' : (currentAction === 'new_pipe' ? 'new' : '')}">
+                            <div class="handle-icon">${currentAction === 'close' ? '❌' : (currentAction === 'new_pipe' ? '🆕' : '🔌')}</div>
                             <div class="handle-info">
                                 <div class="handle-interface">${escapeHtml(ifaceName)}</div>
                                 <div class="handle-meta">ID: ${escapeHtml(ifaceId)}</div>
                             </div>
+                            <div class="handle-actions">
+                                <select class="handle-action-select" onchange="
+                                    const card = this.closest('.mojo-handle-card');
+                                    const icon = card.querySelector('.handle-icon');
+                                    card.className = 'mojo-handle-card ' + (this.value === 'close' ? 'closed' : (this.value === 'new_pipe' ? 'new' : ''));
+                                    icon.textContent = (this.value === 'close' ? '❌' : (this.value === 'new_pipe' ? '🆕' : '🔌'));
+                                    // Trigger change to update hidden input
+                                    this.nextElementSibling.value = JSON.stringify({
+                                        __mojoType: 'Handle',
+                                        interface: '${escapeHtml(ifaceName)}',
+                                        interfaceId: '${escapeHtml(ifaceId)}',
+                                        action: this.value
+                                    });
+                                    this.dispatchEvent(new Event('change', {bubbles: true}));
+                                ">
+                                    <option value="preserve" ${currentAction === 'preserve' ? 'selected' : ''}>Keep Original</option>
+                                    <option value="close" ${currentAction === 'close' ? 'selected' : ''}>Close Handle</option>
+                                    <option value="new_pipe" ${currentAction === 'new_pipe' ? 'selected' : ''}>New Pipe</option>
+                                </select>
+                                <input type="hidden" class="param-input" name="${escapeHtml(param.name)}" data-type="mojo_handle" value='${escapeHtml(JSON.stringify(value.__mojoType === 'Handle' ? value : { __mojoType: 'Handle', interface: ifaceName, interfaceId: ifaceId, action: 'preserve' }))}'>
+                            </div>
                         </div>
-                        <input type="hidden" class="param-input" name="${escapeHtml(param.name)}" data-type="mojo_handle" value="[Mojo Handle]">
                     </div>
                 `;
             }
@@ -2740,15 +2766,34 @@
 
     function reconcileKeys(edited, original, useHeuristics = true) {
         // Mojo Handle Restoration:
-        // If the form sent back the placeholder string, and we have the original object (which contains the Proxy),
-        // we MUST restore the original object so the Mojo bindings can re-serialize it.
-        // We accept both the Handle Card value "[Mojo Handle]" and the sanitized string "[Mojo ...]" just in case.
-        if (typeof edited === 'string' && (edited === '[Mojo Handle]' || edited.startsWith('[Mojo ')) && original && typeof original === 'object') {
+        // If the form sent back the structured Handle object (as a JSON string or object),
+        // we process the requested action.
+        let handleData = edited;
+        if (typeof edited === 'string' && edited.startsWith('{"__mojoType":"Handle"')) {
+            try { handleData = JSON.parse(edited); } catch(e) {}
+        }
+
+        if (handleData && typeof handleData === 'object' && handleData.__mojoType === 'Handle') {
+            const action = handleData.action || 'preserve';
+            if (action === 'preserve') return original;
+            if (action === 'close') {
+                // Return an object that looks like a handle but is invalid/closed
+                // For most Mojo calls, returning null for a handle type is valid if it's nullable, 
+                // but if we want to "close" it we might need to actually unbind the original if we have it?
+                // For now, return null to represent a closed/invalid handle.
+                return null;
+            }
+            if (action === 'new_pipe') {
+                const { handle0, handle1 } = Mojo.createMessagePipe();
+                // We return handle0. We should probably track handle1 so the user can use it?
+                // For now, return handle0.
+                return { handle: handle0 }; 
+            }
             return original;
         }
 
-        // Handle sanitized handle objects (from Textarea view fallback)
-        if (edited && typeof edited === 'object' && edited.__mojoType === 'Handle' && original) {
+        // Backward compatibility for old simple string placeholder
+        if (typeof edited === 'string' && (edited === '[Mojo Handle]' || edited.startsWith('[Mojo ')) && original && typeof original === 'object') {
             return original;
         }
 
@@ -3396,6 +3441,53 @@
          */
         getInterceptedCalls: () => {
             const rows = elements.interceptorTableBody?.querySelectorAll('tr') || [];
+            
+            // Local serialization helper to handle BigInt and Mojo objects for CDP
+            // without stripping arg_ prefixes like sanitizeKeys does.
+            const serializeForCDP = (obj, seen = new WeakSet()) => {
+                if (obj === null || typeof obj !== 'object') {
+                    if (typeof obj === 'bigint') return obj.toString() + 'n';
+                    return obj;
+                }
+                if (seen.has(obj)) return '[Circular]';
+                seen.add(obj);
+
+                // Detect Mojo objects to avoid CDP serialization errors
+                // Use the same detection logic as sanitizeKeys but structured for MCP/GUI editing
+                if ((obj.$ && obj.proxy && typeof obj.$ === 'object') || (obj.handle && obj.handle.router_)) {
+                    if (obj.$ && obj.proxy) {
+                        const meta = obj.$;
+                        return {
+                            __mojoType: 'Handle',
+                            interface: meta.interfaceName || (meta.proxy && meta.proxy.interfaceName) || 'Unknown',
+                            interfaceId: meta.interfaceId || (meta.proxy && meta.proxy.interfaceId) || 0,
+                            namespace: meta.interfaceNameNamespace || '',
+                            isReceiver: false
+                        };
+                    } else {
+                        return {
+                            __mojoType: 'Handle',
+                            interface: 'PendingReceiver',
+                            interfaceId: obj.handle.interfaceId_ || 0,
+                            namespace: '',
+                            isReceiver: true
+                        };
+                    }
+                }
+
+                if (Array.isArray(obj)) return obj.map(v => serializeForCDP(v, seen));
+
+                const result = {};
+                for (const key in obj) {
+                    try {
+                        result[key] = serializeForCDP(obj[key], seen);
+                    } catch (e) {
+                        result[key] = "[Serialization Error]";
+                    }
+                }
+                return result;
+            };
+
             return Array.from(rows).map(row => {
                 const details = row.__details || {};
                 return {
@@ -3404,9 +3496,9 @@
                     proxyId: row.dataset.proxyId,
                     interface: details.interface,
                     method: details.method,
-                    params: details.params,
+                    params: serializeForCDP(details.params),
                     status: details.status,
-                    result: details.result,
+                    result: serializeForCDP(details.result),
                     error: details.error,
                     timestamp: details.timestamp
                 };
