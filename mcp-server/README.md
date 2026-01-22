@@ -88,8 +88,7 @@ This is useful when the method is expected to be intercepted, which would normal
   "arguments": {
     "interface": "BatteryMonitor",
     "method": "QueryNextStatus",
-    "params": {},
-    "async": true
+    "params": {}
   }
 }
 ```
@@ -117,7 +116,7 @@ This is useful when the method is expected to be intercepted, which would normal
 
 ### Chromium Result Codes
 
-Renderer crashes are detected via CDP `Inspector.targetCrashed` events and mapped to Chromium result codes:
+Renderer crashes are detected via CDP `Target.targetCrashed` events and mapped to Chromium result codes:
 
 | Code | Name | Meaning |
 |------|------|---------|
