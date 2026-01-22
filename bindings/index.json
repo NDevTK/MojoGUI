@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-01-21T10:19:40.556294Z",
-  "version": "146.0.7647.0",
+  "generated_at": "2026-01-22T10:19:38.412814Z",
+  "version": "146.0.7649.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -1698,6 +1698,7 @@
         "OpenOnboardingHelpUi",
         "MoveTaskUiToNewTab",
         "OnTabClickedFromSourcesMenu",
+        "OnFileClickedFromSourcesMenu",
         "OnWebviewMessage",
         "GetCommonSearchParams",
         "OnboardingTooltipDismissed"
@@ -1920,7 +1921,6 @@
         "OnResponseStopped",
         "OnSessionTerminated",
         "OnTurnCompleted",
-        "OnModelChanged",
         "OnRecordUseCounter",
         "OnResponseRated",
         "OnClosedCaptionsShown",
@@ -14794,7 +14794,6 @@
         "FlushDeferredRequests",
         "CreateGpuMemoryBuffer",
         "CreateDCOMPTexture",
-        "RegisterOverlayStateObserver",
         "WaitForTokenInRange",
         "WaitForGetOffsetInRange",
         "CopyToGpuMemoryBufferAsync"
@@ -14842,14 +14841,6 @@
       "methods": [
         "OnSharedImageMailboxBound",
         "OnOutputRectChange"
-      ]
-    },
-    {
-      "name": "OverlayStateObserver",
-      "module": "gpu.mojom",
-      "file": "gpu_ipc_common_gpu_channel.mojom.js",
-      "methods": [
-        "OnStateChanged"
       ]
     },
     {
@@ -31359,7 +31350,9 @@
       "filename": "gpu_ipc_common_capabilities.mojom.js",
       "source": "gpu/ipc/common/capabilities.mojom",
       "module": "gpu.mojom",
-      "imports": []
+      "imports": [
+        "services/viz/public/mojom/compositing/shared_image_format.mojom"
+      ]
     },
     {
       "filename": "gpu_ipc_common_constants.mojom.js",
