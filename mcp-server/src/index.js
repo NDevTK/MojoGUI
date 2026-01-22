@@ -458,7 +458,7 @@ server.tool(
 
 server.tool(
     'run_javascript',
-    'Execute arbitrary JavaScript in the MojoGUI context. Use the "async" parameter for code that might block (e.g., waiting for an intercepted Mojo call).',
+    'Execute arbitrary JavaScript in the MojoGUI context. Use the "async" parameter for code that might block (e.g. waiting for an intercepted Mojo call). IMPORTANT: You MUST use the "return" keyword to capture results. Data logged with console.log() will not appear in the tool output or the MojoGUI result section.',
     {
         code: z.string().describe('The JavaScript code to execute'),
         async: z.boolean().optional().default(false).describe('If true, don\'t wait for the code to complete')
