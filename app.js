@@ -999,6 +999,87 @@
                 </div>`;
         }
 
+        // 2. Mojo Handles: Special Card UI
+        const isHandleType = (typeof effectiveType === 'object' && effectiveType.type === 'mojo_handle') || effectiveType === 'mojo_handle' || typeString === 'mojo_handle';
+        const isHandleValue = (value && value.__mojoType === 'Handle') ||
+            (value && value.$ && value.proxy && typeof value.$ === 'object') ||
+            (value && value.handle && value.handle.router_);
+
+        if (isHandleType || isHandleValue) {
+            let ifaceName = 'Unknown';
+            let ifaceId = '0';
+            let typeLabel = 'Mojo Handle';
+            let currentAction = 'preserve';
+            let isReceiver = false;
+
+            if (value && value.__mojoType === 'Handle') {
+                ifaceName = value.interface;
+                ifaceId = value.interfaceId;
+                typeLabel = value.isReceiver ? 'Pending Receiver' : 'Mojo Remote';
+                currentAction = value.action || 'preserve';
+                isReceiver = !!value.isReceiver;
+            } else if (value && value.$ && value.proxy) {
+                const meta = value.$;
+                ifaceName = meta.interfaceName || (meta.proxy && meta.proxy.interfaceName) || 'Unknown';
+                ifaceId = meta.interfaceId || (meta.proxy && meta.proxy.interfaceId) || '0';
+                typeLabel = 'Mojo Remote';
+            } else if (value && value.handle && value.handle.router_) {
+                typeLabel = 'Pending Receiver';
+                ifaceId = value.handle.interfaceId_ || '0';
+                ifaceName = 'PendingReceiver';
+                isReceiver = true;
+            } else if (isHandleType) {
+                // Manual Mode, no value yet.
+                if (typeof effectiveType === 'object' && effectiveType.interface) {
+                    ifaceName = effectiveType.interface;
+                } else if (param.structSpec?.name) {
+                    ifaceName = param.structSpec.name;
+                }
+                typeLabel = 'Mojo Handle';
+                currentAction = 'new_pipe';
+            }
+
+            const displayName = escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '');
+
+            return `
+                <div class="form-group handle-group" data-original-name="${escapeHtml(param.name)}">
+                    <label>
+                        ${displayName}
+                        <span class="type">${typeLabel}</span>
+                    </label>
+                    <div class="mojo-handle-card ${currentAction === 'close' ? 'closed' : (currentAction === 'new_pipe' ? 'new' : '')}">
+                        <div class="handle-icon">${currentAction === 'close' ? '❌' : (currentAction === 'new_pipe' ? '🆕' : '🔌')}</div>
+                        <div class="handle-info">
+                            <div class="handle-interface">${escapeHtml(ifaceName)}</div>
+                            <div class="handle-meta">ID: ${escapeHtml(ifaceId)}</div>
+                        </div>
+                        <div class="handle-actions">
+                            <select class="handle-action-select" onchange="
+                                const card = this.closest('.mojo-handle-card');
+                                const icon = card.querySelector('.handle-icon');
+                                card.className = 'mojo-handle-card ' + (this.value === 'close' ? 'closed' : (this.value === 'new_pipe' ? 'new' : ''));
+                                icon.textContent = (this.value === 'close' ? '❌' : (this.value === 'new_pipe' ? '🆕' : '🔌'));
+                                // Trigger change to update hidden input
+                                this.nextElementSibling.value = JSON.stringify({
+                                    __mojoType: 'Handle',
+                                    interface: '${escapeHtml(ifaceName)}',
+                                    interfaceId: '${escapeHtml(ifaceId)}',
+                                    isReceiver: ${isReceiver},
+                                    action: this.value
+                                });
+                                this.dispatchEvent(new Event('change', {bubbles: true}));
+                            ">
+                                <option value="preserve" ${currentAction === 'preserve' ? 'selected' : ''}>Keep Original</option>
+                                <option value="close" ${currentAction === 'close' ? 'selected' : ''}>Close Handle</option>
+                                <option value="new_pipe" ${currentAction === 'new_pipe' ? 'selected' : ''}>New Pipe</option>
+                            </select>
+                            <input type="hidden" class="param-input" name="${escapeHtml(param.name)}" data-type="mojo_handle" value='${escapeHtml(JSON.stringify({ __mojoType: 'Handle', interface: ifaceName, interfaceId: ifaceId, isReceiver: isReceiver, action: currentAction }))}'>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
         // 3. Structs: Recursive Rendering
         if (param.type === 'struct' && param.structSpec) {
             const childParams = mapFieldsToUIParams(param.structSpec.fields);
@@ -1284,69 +1365,6 @@
             displayValue = value.toString() + 'n';
             if (inputType === 'number') inputType = 'text';
         } else if (typeof value === 'object' && value !== null && typeString !== 'string16' && typeString !== 'bigstring16' && typeString !== 'bigstring') {
-            // ... existing handle logic ...
-            // Mojo Handle Detection for Form View
-            if ((value && value.__mojoType === 'Handle') || (value && value.$ && value.proxy && typeof value.$ === 'object') || (value && value.handle && value.handle.router_)) {
-                let ifaceName = 'Unknown';
-                let ifaceId = '0';
-                let typeLabel = 'Mojo Handle';
-                let currentAction = 'preserve';
-
-                if (value.__mojoType === 'Handle') {
-                    ifaceName = value.interface;
-                    ifaceId = value.interfaceId;
-                    typeLabel = value.isReceiver ? 'Pending Receiver' : 'Mojo Remote';
-                    currentAction = value.action || 'preserve';
-                } else if (value.$ && value.proxy) {
-                    const meta = value.$;
-                    ifaceName = meta.interfaceName || (meta.proxy && meta.proxy.interfaceName) || 'Unknown';
-                    ifaceId = meta.interfaceId || (meta.proxy && meta.proxy.interfaceId) || '0';
-                } else if (value.handle && value.handle.router_) {
-                    typeLabel = 'Pending Receiver';
-                    ifaceId = value.handle.interfaceId_ || '0';
-                    ifaceName = 'PendingReceiver';
-                }
-
-                const displayName = escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '');
-                
-                return `
-                    <div class="form-group handle-group" data-original-name="${escapeHtml(param.name)}">
-                        <label>
-                            ${displayName}
-                            <span class="type">${typeLabel}</span>
-                        </label>
-                        <div class="mojo-handle-card ${currentAction === 'close' ? 'closed' : (currentAction === 'new_pipe' ? 'new' : '')}">
-                            <div class="handle-icon">${currentAction === 'close' ? '❌' : (currentAction === 'new_pipe' ? '🆕' : '🔌')}</div>
-                            <div class="handle-info">
-                                <div class="handle-interface">${escapeHtml(ifaceName)}</div>
-                                <div class="handle-meta">ID: ${escapeHtml(ifaceId)}</div>
-                            </div>
-                            <div class="handle-actions">
-                                <select class="handle-action-select" onchange="
-                                    const card = this.closest('.mojo-handle-card');
-                                    const icon = card.querySelector('.handle-icon');
-                                    card.className = 'mojo-handle-card ' + (this.value === 'close' ? 'closed' : (this.value === 'new_pipe' ? 'new' : ''));
-                                    icon.textContent = (this.value === 'close' ? '❌' : (this.value === 'new_pipe' ? '🆕' : '🔌'));
-                                    // Trigger change to update hidden input
-                                    this.nextElementSibling.value = JSON.stringify({
-                                        __mojoType: 'Handle',
-                                        interface: '${escapeHtml(ifaceName)}',
-                                        interfaceId: '${escapeHtml(ifaceId)}',
-                                        action: this.value
-                                    });
-                                    this.dispatchEvent(new Event('change', {bubbles: true}));
-                                ">
-                                    <option value="preserve" ${currentAction === 'preserve' ? 'selected' : ''}>Keep Original</option>
-                                    <option value="close" ${currentAction === 'close' ? 'selected' : ''}>Close Handle</option>
-                                    <option value="new_pipe" ${currentAction === 'new_pipe' ? 'selected' : ''}>New Pipe</option>
-                                </select>
-                                <input type="hidden" class="param-input" name="${escapeHtml(param.name)}" data-type="mojo_handle" value='${escapeHtml(JSON.stringify(value.__mojoType === 'Handle' ? value : { __mojoType: 'Handle', interface: ifaceName, interfaceId: ifaceId, action: 'preserve' }))}'>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }
-
             // DEEP Sanitize before stringifying to remove inner arg_
             displayValue = safeStringify(sanitizeKeys(value), 2);
         } else if (value === undefined || value === null) {
@@ -1781,8 +1799,24 @@
                     // Fallback for Enums where we can't find values - at least mark as number
                     if (isEnumSpec) return 'number';
                 }
+
+                // Handle/Interface Detection:
+                // Check the decode function to see if it's a handle or interface type
+                if (spec.decode && typeof spec.decode === 'function') {
+                    const decodeStr = spec.decode.toString();
+                    if (decodeStr.includes('decodeHandle')) return 'mojo_handle';
+                    if (decodeStr.includes('decodeInterfaceRequest') || decodeStr.includes('decodeInterfaceProxy') || decodeStr.includes('decodeAssociatedEndpoint')) {
+                        // Try to get the actual interface name from the type property
+                        if (spec.type) {
+                            const typeSpec = spec.type.$ || spec.type;
+                            const interfaceName = typeSpec.name || typeSpec.interfaceName || (typeSpec.structSpec && typeSpec.structSpec.name) || 'Mojo Interface';
+                            // We return a structured type for these
+                            return { type: 'mojo_handle', interface: interfaceName };
+                        }
+                        return 'mojo_handle';
+                    }
+                }
             }
-        }
 
         // Debug logging for description field specifically (Safe check)
         if (mojomType && mojomType.$ && mojomType.$.name && mojomType.$.name.includes('String16')) {
@@ -1797,6 +1831,7 @@
         if (typeof mojomType === 'string') return mojomType;
         return 'string'; // Default to string input for complex types so user can paste JSON/values
     }
+}
 
     function resolveMethodSpecs(ifaceMetadata, methodName) {
         // Attempts to resolve parameters from the Loaded Bindings in the page
@@ -2776,18 +2811,36 @@
         if (handleData && typeof handleData === 'object' && handleData.__mojoType === 'Handle') {
             const action = handleData.action || 'preserve';
             if (action === 'preserve') return original;
-            if (action === 'close') {
-                // Return an object that looks like a handle but is invalid/closed
-                // For most Mojo calls, returning null for a handle type is valid if it's nullable, 
-                // but if we want to "close" it we might need to actually unbind the original if we have it?
-                // For now, return null to represent a closed/invalid handle.
-                return null;
-            }
+            if (action === 'close') return null;
             if (action === 'new_pipe') {
-                const { handle0, handle1 } = Mojo.createMessagePipe();
-                // We return handle0. We should probably track handle1 so the user can use it?
-                // For now, return handle0.
-                return { handle: handle0 }; 
+                try {
+                    const { handle0, handle1 } = Mojo.createMessagePipe();
+                    // One handle is passed to the method, the other is kept.
+                    // We return a mock object that works for Remote, Receiver, and Associated types.
+                    const mockEndpoint = {
+                        handle: handle1,
+                        isPrimary: () => true,
+                        releasePipe: () => handle1,
+                        unbind: () => mockEndpoint
+                    };
+                    const mockRemote = {
+                        proxy: {
+                            endpoint: mockEndpoint,
+                            unbind: () => mockEndpoint
+                        },
+                        handle: mockEndpoint
+                    };
+                    
+                    // Log the created handle so user can find it
+                    console.log(`[MojoGUI] Created new pipe. Passing Handle ID: ${handle1.value}, Local Handle ID: ${handle0.value}`);
+                    // Maybe we should store handle0 somewhere accessible?
+                    window.__lastCreatedMojoHandle = handle0;
+                    
+                    return mockRemote;
+                } catch (e) {
+                    console.error('[MojoGUI] Failed to create message pipe:', e);
+                    return null;
+                }
             }
             return original;
         }

@@ -1930,6 +1930,7 @@ mojo.internal.Union = function (objectToBlessAsUnion, name, fields) {
 mojo.internal.InterfaceProxy = function (type) {
   return {
     $: {
+      type: type,
       encode: function (value, encoder, byteOffset, bitOffset, nullable) {
         const endpoint = value.proxy.unbind();
         console.assert(endpoint, `unexpected null ${type.name}`);
@@ -1958,6 +1959,7 @@ mojo.internal.InterfaceProxy = function (type) {
 mojo.internal.InterfaceRequest = function (type) {
   return {
     $: {
+      type: type,
       encode: function (value, encoder, byteOffset, bitOffset, nullable) {
         if (!value.handle)
           throw new Error('Unexpected null ' + type.name);
