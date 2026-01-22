@@ -27,7 +27,7 @@ const server = new McpServer({
 });
 
 // Helper to execute code in MojoGUI via worker (non-blocking)
-async function executeInMojoGUI(code, retryCount = 0) {
+async function executeInMojoGUI(code, retryCount = 0, options = {}) {
     let pool;
     try {
         pool = await getWorkerPool({ targetUrl: MOJOGUI_URL });
@@ -35,12 +35,12 @@ async function executeInMojoGUI(code, retryCount = 0) {
         // If we can't get pool, reset and retry once
         if (retryCount === 0) {
             await resetWorkerPool();
-            return executeInMojoGUI(code, 1);
+            return executeInMojoGUI(code, 1, options);
         }
         throw error;
     }
 
-    const result = await pool.evaluate(code);
+    const result = await pool.evaluate(code, options);
     return result;
 }
 
@@ -108,9 +108,10 @@ server.tool(
     {
         interface: z.string().describe('The interface name'),
         method: z.string().describe('The method name to call'),
-        params: z.record(z.any()).optional().default({}).describe('Parameter values as key-value pairs')
+        params: z.record(z.any()).optional().default({}).describe('Parameter values as key-value pairs'),
+        userGesture: z.boolean().optional().default(false).describe('If true, simulate a user gesture (activation) for the execution')
     },
-    async ({ interface: iface, method, params = {} }) => {
+    async ({ interface: iface, method, params = {}, userGesture = false }) => {
         const code = `
             (async () => {
                 const api = window.MojoGUI_API;
@@ -143,7 +144,7 @@ server.tool(
                 return { success: true, message: 'Method execution started asynchronously' };
             })()
         `;
-        const result = await executeInMojoGUI(code);
+        const result = await executeInMojoGUI(code, 0, { userGesture });
         return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
     }
 );
@@ -434,9 +435,10 @@ server.tool(
     'Execute arbitrary JavaScript in the MojoGUI context. Use the "async" parameter for code that might block (e.g. waiting for an intercepted Mojo call). IMPORTANT: You MUST use the "return" keyword to capture results. Data logged with console.log() will not appear in the tool output or the MojoGUI result section.',
     {
         code: z.string().describe('The JavaScript code to execute'),
-        async: z.boolean().optional().default(false).describe('If true, don\'t wait for the code to complete')
+        async: z.boolean().optional().default(false).describe('If true, don\'t wait for the code to complete'),
+        userGesture: z.boolean().optional().default(false).describe('If true, simulate a user gesture (activation) for the execution')
     },
-    async ({ code, async: isAsync = false }) => {
+    async ({ code, async: isAsync = false, userGesture = false }) => {
         const wrappedCode = `
             (async () => {
                 const api = window.MojoGUI_API;
@@ -474,7 +476,7 @@ server.tool(
                 }
             })()
         `;
-        const result = await executeInMojoGUI(wrappedCode);
+        const result = await executeInMojoGUI(wrappedCode, 0, { userGesture });
         return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
     }
 );

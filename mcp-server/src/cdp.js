@@ -299,6 +299,7 @@ export class CDPClient {
             expression,
             returnByValue: true,
             awaitPromise: options.awaitPromise !== false,
+            userGesture: !!options.userGesture,
             ...options
         };
 
