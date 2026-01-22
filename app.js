@@ -2344,6 +2344,9 @@
 
     // Unified function to add rows to the table
     function addActivityRow(data) {
+        // Ensure status is initialized
+        if (!data.status) data.status = 'Pending';
+        
         const { id, interface: iface, method, params, timestamp, type, status } = data;
         const rowId = `row_${id}`;
 
@@ -2366,15 +2369,15 @@
         if (type === 'MANUAL') typeIcon = '🛠️';
         if (type === 'SYSTEM') typeIcon = '⚠️';
 
-        let displayStatus = status || 'Pending';
+        let displayStatus = status;
         let statusClass = displayStatus === 'Done' ? 'active' : (displayStatus === 'Error' ? 'error' :
             (displayStatus === 'Logged' ? 'logged' : ''));
 
-        // Check mode
-        let currentMode = 'INTERCEPT';
+        // Check mode: LOG mode is effectively 'Logged' from the start
         if (data.mode === 'LOG' && type !== 'MANUAL') {
             displayStatus = 'Logged';
-            statusClass = 'logged'; // Make sure to add CSS for this
+            statusClass = 'logged';
+            data.status = 'Logged'; // Sync with details
         }
 
         row.innerHTML = safeHTML(`
@@ -2796,6 +2799,39 @@
 
         const methodDef = findMethodDefinition(iface, method);
         let paramsHtml;
+
+        // Special handling for Script interface (Job-like data)
+        if (iface === 'Script') {
+            const displayParams = typeof params === 'string' ? params : safeStringify(sanitizeKeys(params), 2);
+            paramsHtml = `<div class="result-code" style="background: var(--bg-primary); border-color: var(--accent-primary);">${escapeHtml(displayParams)}</div>`;
+            
+            let resultHtml = '';
+            if (detail.result || detail.status === 'Done' || detail.error || detail.status === 'Error') {
+                if (detail.error || detail.status === 'Error') {
+                    resultHtml = `<div class="result-section">
+                                    <div class="result-section-title">Error</div>
+                                    <div class="error-text code-block" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(typeof detail.error === 'object' ? safeStringify(detail.error, 2) : detail.error)}</div>
+                                  </div>`;
+                } else {
+                    resultHtml = `<div class="result-section">
+                                    <div class="result-section-title">Result</div>
+                                    <div class="result-code" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(safeStringify(sanitizeKeys(detail.result), 2))}</div>
+                                  </div>`;
+                }
+            }
+
+            elements.interceptorDetails.innerHTML = safeHTML(`
+                <div class="interceptor-actions">
+                    <h4>${escapeHtml(iface)}: ${escapeHtml(method)}</h4>
+                </div>
+                <div class="details-column" style="margin-top:10px; flex: 1; display: flex; flex-direction: column;">
+                    <h5>Script</h5>
+                    ${paramsHtml}
+                    ${resultHtml}
+                </div>
+            `);
+            return;
+        }
 
         if (methodDef && methodDef.parameters) {
             paramsHtml = `<div class="params-form-container">
@@ -3328,6 +3364,32 @@
             return Array.from(InterceptorManager.interceptors.keys());
         },
         // ---- Intercepted Calls ----
+        /**
+         * Log a custom activity to the traffic log
+         * @param {Object} data - Activity data (interface, method, params, etc.)
+         * @returns {string} The activity ID
+         */
+        addActivity: (data) => {
+            const id = data.id || 'act_' + Math.random().toString(36).substr(2, 9);
+            const activityData = {
+                id,
+                timestamp: Date.now(),
+                type: 'MANUAL',
+                status: 'Pending',
+                ...data
+            };
+            addActivityRow(activityData);
+            return id;
+        },
+        /**
+         * Update an existing activity in the traffic log
+         * @param {string} id - Activity ID
+         * @param {string} status - New status
+         * @param {Object} result - Result data
+         */
+        updateActivity: (id, status, result) => {
+            updateActivityRow(id, status, result);
+        },
         /**
          * Get list of intercepted calls from the activity table
          * @returns {Array} Array of call details

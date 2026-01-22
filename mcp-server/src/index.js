@@ -131,9 +131,10 @@ server.tool(
     {
         interface: z.string().describe('The interface name'),
         method: z.string().describe('The method name to call'),
-        params: z.record(z.any()).optional().default({}).describe('Parameter values as key-value pairs')
+        params: z.record(z.any()).optional().default({}).describe('Parameter values as key-value pairs'),
+        async: z.boolean().optional().default(false).describe('If true, don\'t wait for the method to complete (useful for intercepted calls)')
     },
-    async ({ interface: iface, method, params = {} }) => {
+    async ({ interface: iface, method, params = {}, async: isAsync = false }) => {
         const code = `
             (async () => {
                 const api = window.MojoGUI_API;
@@ -157,6 +158,15 @@ server.tool(
                     };
                 }
                 
+                if (${isAsync}) {
+                    api.executeMethod(
+                        ${JSON.stringify(iface)},
+                        ${JSON.stringify(method)},
+                        ${JSON.stringify(params)}
+                    );
+                    return { success: true, message: 'Method execution started asynchronously' };
+                }
+
                 const result = await api.executeMethod(
                     ${JSON.stringify(iface)},
                     ${JSON.stringify(method)},
@@ -257,7 +267,7 @@ server.tool(
     'get_intercepted_calls',
     'Get list of intercepted Mojo calls. Returns call details including interface, method, parameters, and status.',
     {
-        status: z.enum(['Pending', 'Done', 'Error', 'Logged', 'all']).optional().default('all')
+        status: z.enum(['Pending', 'Done', 'Error', 'Logged', 'Response Edit', 'Forwarded', 'Dropped', 'Pending Response', 'Running', 'all']).optional().default('all')
             .describe('Filter by status'),
         limit: z.number().optional().default(20).describe('Maximum number of calls to return')
     },
@@ -442,6 +452,56 @@ server.tool(
             })()
         `;
         const result = await executeInMojoGUI(code);
+        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
+    }
+);
+
+server.tool(
+    'run_javascript',
+    'Execute arbitrary JavaScript in the MojoGUI context. Use the "async" parameter for code that might block (e.g., waiting for an intercepted Mojo call).',
+    {
+        code: z.string().describe('The JavaScript code to execute'),
+        async: z.boolean().optional().default(false).describe('If true, don\'t wait for the code to complete')
+    },
+    async ({ code, async: isAsync = false }) => {
+        const wrappedCode = `
+            (async () => {
+                const api = window.MojoGUI_API;
+                
+                if (${isAsync}) {
+                    const id = api.addActivity({
+                        interface: 'Script',
+                        method: 'run_javascript',
+                        params: ${JSON.stringify(code)},
+                        status: 'Running'
+                    });
+
+                    // Start execution without awaiting
+                    (async () => {
+                        try {
+                            const result = await (async () => {
+                                ${code}
+                            })();
+                            api.updateActivity(id, 'Done', result);
+                        } catch (e) {
+                            console.error('Async JS execution error:', e);
+                            api.updateActivity(id, 'Error', e.message);
+                        }
+                    })();
+                    return { success: true, activityId: id, message: 'JavaScript execution started asynchronously' };
+                }
+
+                try {
+                    const result = await (async () => {
+                        ${code}
+                    })();
+                    return { success: true, result };
+                } catch (e) {
+                    return { success: false, error: e.message };
+                }
+            })()
+        `;
+        const result = await executeInMojoGUI(wrappedCode);
         return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
     }
 );
