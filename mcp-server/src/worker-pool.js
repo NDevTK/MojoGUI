@@ -7,7 +7,7 @@
 import { Worker } from 'worker_threads';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import { MOJOGUI_URL } from './cdp.js';
+import { MOJOGUI_URL, CDP_PORT } from './cdp.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -21,7 +21,7 @@ const CRASH_TIMEOUT = 5000;   // 5 second timeout when crash suspected
  */
 export class WorkerPool {
     constructor(options = {}) {
-        this.port = options.port || 9222;
+        this.port = options.port || CDP_PORT;
         this.targetUrl = options.targetUrl || MOJOGUI_URL;
         this.worker = null;
         this.messageId = 0;

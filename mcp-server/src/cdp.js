@@ -14,7 +14,9 @@
 import { formatCrashError, getResultCodeInfo } from './result_codes.js';
 
 export const MOJOGUI_URL = 'https://ndevtk.github.io/MojoGUI';
-const CDP_PORT = 9222;
+export const CDP_PORT = 9222;
+export const CDP_URL = `http://localhost:${CDP_PORT}/json`;
+
 /**
  * CDP Client class for managing Chrome DevTools Protocol connections
  */
@@ -42,7 +44,7 @@ export class CDPClient {
      * Discover available Chrome pages/targets
      */
     async discoverTargets() {
-        const response = await fetch(`http://localhost:${this.port}/json`);
+        const response = await fetch(CDP_URL);
         if (!response.ok) {
             throw new Error(`Failed to connect to Chrome DevTools on port ${this.port}. ` +
                 `Ensure Chrome is running with --remote-debugging-port=${this.port}`);
