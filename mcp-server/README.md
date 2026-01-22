@@ -88,8 +88,7 @@ This is useful when the method is expected to be intercepted, which would normal
   "arguments": {
     "interface": "BatteryMonitor",
     "method": "QueryNextStatus",
-    "params": {},
-    "async": true
+    "params": {}
   }
 }
 ```
