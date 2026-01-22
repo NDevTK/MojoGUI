@@ -50,11 +50,12 @@ npm start
 |------|-------------|
 | `list_interfaces` | Search/list available Mojo interfaces |
 | `get_interface_details` | Get methods and parameters for an interface |
-| `call_method` | Execute a Mojo method with parameters |
+| `call_method` | Execute a Mojo method with parameters (supports `async`) |
+| `run_javascript` | Execute arbitrary JavaScript in the page (supports `async`) |
 | `generate_code` | Generate MojoJS code for a method call |
 | `set_interceptor_mode` | Set INTERCEPT (blocking) or LOG (passive) mode |
 | `set_response_interception` | Enable/disable response interception |
-| `get_intercepted_calls` | Get pending/logged intercepted calls |
+| `get_intercepted_calls` | Get pending/logged intercepted calls (supports status filtering) |
 | `resume_call` | Resume, modify, or drop an intercepted call |
 | `replay_call` | Re-execute a captured call with modified params |
 | `check_mojo_status` | Check if MojoJS is enabled in browser |
@@ -79,14 +80,27 @@ npm start
 }
 ```
 
-### Call a method
+### Call a method asynchronously
+This is useful when the method is expected to be intercepted, which would normally time out the tool call.
 ```json
 {
   "name": "call_method",
   "arguments": {
     "interface": "BatteryMonitor",
     "method": "QueryNextStatus",
-    "params": {}
+    "params": {},
+    "async": true
+  }
+}
+```
+
+### Run arbitrary JavaScript
+```json
+{
+  "name": "run_javascript",
+  "arguments": {
+    "code": "const result = await mojo.internal.bindings.device.mojom.BatteryMonitor.getRemote().queryNextStatus(); return result;",
+    "async": false
   }
 }
 ```
