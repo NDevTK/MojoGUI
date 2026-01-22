@@ -68,7 +68,7 @@ parentPort.on('message', async (msg) => {
                     parentPort.postMessage({
                         id,
                         success: false,
-                        error: 'Renderer crashed during method execution',
+                        error: crashInfo?.formattedError || 'Renderer crashed during method execution',
                         crashed: true,
                         crashInfo
                     });
