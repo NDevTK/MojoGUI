@@ -40,33 +40,10 @@ async function executeInMojoGUI(code, retryCount = 0) {
         throw error;
     }
 
-    try {
-        const result = await pool.evaluate(code);
-        // Worker pool returns structured crash info instead of throwing
-        if (result?.error === 'RENDERER_CRASHED') {
-            // Auto-reset for next call
-            resetWorkerPool().catch(() => { });
-            return result;
-        }
-        return result;
-    } catch (error) {
-        // Handle renderer crashes from worker errors
-        if (error.crashed ||
-            error.message?.includes('Target closed') ||
-            error.message?.includes('Connection closed') ||
-            error.message?.includes('detached')) {
-            await resetWorkerPool();
-            return {
-                error: 'RENDERER_CRASHED',
-                codeName: error.crashInfo?.codeName || 'RESULT_CODE_KILLED_BAD_MESSAGE',
-                exitCode: error.crashInfo?.exitCode || 3,
-                message: error.crashInfo?.note || formatCrashError(3),
-                recoverable: true
-            };
-        }
-        throw error;
-    }
+    const result = await pool.evaluate(code);
+    return result;
 }
+
 // Register tools
 server.tool(
     'list_interfaces',

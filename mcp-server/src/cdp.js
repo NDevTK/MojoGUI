@@ -299,39 +299,14 @@ export class CDPClient {
             awaitPromise: options.awaitPromise !== false,
             ...options
         };
-        try {
-            const result = await this.sendToSession('Runtime.evaluate', params);
-            if (result.exceptionDetails) {
-                const exception = result.exceptionDetails;
-                const errorMessage = exception.exception?.description ||
-                    exception.text ||
-                    'Unknown error';
-                throw new Error(`JavaScript error: ${errorMessage}`);
-            }
-            return result.result?.value;
-        } catch (error) {
-            // Handle renderer crashes gracefully
-            if (this._isRendererCrash(error) || this.crashed) {
-                const crashInfo = this.lastCrashInfo || {
-                    exitCode: 3,
-                    codeName: 'RESULT_CODE_KILLED_BAD_MESSAGE',
-                    note: 'A bad IPC message caused termination.',
-                    formattedError: formatCrashError(3)
-                };
-                return {
-                    error: 'RENDERER_CRASHED',
-                    exitCode: crashInfo.exitCode,
-                    codeName: crashInfo.codeName,
-                    message: crashInfo.note,
-                    recoverable: true,
-                    suggestion: crashInfo.exitCode === 3
-                        ? 'Check that the interface binding is loaded and message format matches the expected schema.'
-                        : null,
-                    originalError: error.message
-                };
-            }
-            throw error;
+
+        const result = await this.sendToSession('Runtime.evaluate', params);
+        if (result.exceptionDetails) {
+            const exception = result.exceptionDetails;
+            const errorMessage = exception.exception?.description || exception.text || 'Unknown error';
+            throw new Error(`JavaScript error: ${errorMessage}`);
         }
+        return result.result?.value;
     }
     /**
      * Execute a function in the page context with arguments
@@ -383,17 +358,7 @@ export class CDPClient {
             // Only handle if it's our target OR if we don't have one yet
             if (targetId === this.targetId || !this.targetId) {
                 console.error(`[CDP] Target crashed: ${targetId} (status: ${status}, errorCode: ${errorCode})`);
-                this._handleCrash(errorCode || 3);
-            }
-            return;
-        }
-
-        // Handle target destroyed (page closed/crashed)
-        if (message.method === 'Target.targetDestroyed') {
-            const { targetId } = message.params;
-            if (targetId === this.targetId) {
-                console.error(`[CDP] Our target (${targetId}) was destroyed`);
-                this._handleCrash(3);
+                this._handleCrash(errorCode);
             }
             return;
         }
@@ -414,21 +379,6 @@ export class CDPClient {
             return;
         }
 
-        // Handle detached from target (session ended)
-        if (message.method === 'Target.detachedFromTarget') {
-            if (message.params?.sessionId === this.sessionId) {
-                console.error(`[CDP] Target.detachedFromTarget - reason: ${message.params?.reason}`);
-                this._handleCrash(3);
-            }
-            return;
-        }
-
-        // Also handle Inspector crash for fallback
-        if (message.method === 'Inspector.targetCrashed') {
-            this._handleCrash(3);
-            return;
-        }
-
         if (message.id && this.pendingMessages.has(message.id)) {
             const { resolve, reject, timeout } = this.pendingMessages.get(message.id);
             clearTimeout(timeout);
@@ -444,7 +394,7 @@ export class CDPClient {
     /**
      * Handle renderer crash event
      */
-    _handleCrash(exitCode = 3) {
+    _handleCrash(exitCode) {
         this.crashed = true;
         const codeInfo = getResultCodeInfo(exitCode);
         this.lastCrashInfo = {
@@ -474,6 +424,7 @@ export class CDPClient {
         }
         this.pendingMessages.clear();
     }
+
     /**
      * Handle WebSocket disconnection
      */

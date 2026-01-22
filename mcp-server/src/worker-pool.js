@@ -144,31 +144,7 @@ export class WorkerPool {
      * Evaluate JavaScript in MojoGUI page
      */
     async evaluate(code, options = {}) {
-        try {
-            return await this.send('evaluate', { code, options });
-        } catch (error) {
-            // Handle crash errors
-            if (error.crashed) {
-                const crashInfo = error.crashInfo || {
-                    exitCode: 3,
-                    codeName: 'RESULT_CODE_KILLED_BAD_MESSAGE',
-                    note: 'A bad IPC message caused termination.'
-                };
-
-                return {
-                    error: 'RENDERER_CRASHED',
-                    exitCode: crashInfo.exitCode,
-                    codeName: crashInfo.codeName,
-                    message: crashInfo.note,
-                    recoverable: true,
-                    suggestion: crashInfo.exitCode === 3
-                        ? 'Check that the interface binding is loaded and message format matches the expected schema.'
-                        : null,
-                    originalError: error.message
-                };
-            }
-            throw error;
-        }
+        return await this.send('evaluate', { code, options });
     }
 
     /**
