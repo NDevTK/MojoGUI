@@ -127,7 +127,7 @@ server.tool(
 );
 server.tool(
     'call_method',
-    'Execute a Mojo method with the given parameters. Returns the method result or error.',
+    'Execute a Mojo method with the given parameters.  Note: To retrieve the results of intercepted calls or raw message data, you must use the "get_intercepted_calls" tool.',
     {
         interface: z.string().describe('The interface name'),
         method: z.string().describe('The method name to call'),
@@ -163,7 +163,7 @@ server.tool(
                     ${JSON.stringify(params)}
                 );
                 
-                return result;
+                return { success: true };
             })()
         `;
         const result = await executeInMojoGUI(code);
