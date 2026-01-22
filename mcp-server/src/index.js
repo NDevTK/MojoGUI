@@ -18,6 +18,7 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { z } from 'zod';
 import { getWorkerPool, resetWorkerPool } from './worker-pool.js';
 import { formatCrashError } from './result_codes.js';
+import { MOJOGUI_URL } from './cdp.js';
 
 // Create the MCP server
 const server = new McpServer({
@@ -29,7 +30,7 @@ const server = new McpServer({
 async function executeInMojoGUI(code, retryCount = 0) {
     let pool;
     try {
-        pool = await getWorkerPool();
+        pool = await getWorkerPool({ targetUrl: MOJOGUI_URL });
     } catch (error) {
         // If we can't get pool, reset and retry once
         if (retryCount === 0) {

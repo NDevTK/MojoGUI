@@ -7,6 +7,7 @@
 import { Worker } from 'worker_threads';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+import { MOJOGUI_URL } from './cdp.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -21,7 +22,7 @@ const CRASH_TIMEOUT = 5000;   // 5 second timeout when crash suspected
 export class WorkerPool {
     constructor(options = {}) {
         this.port = options.port || 9222;
-        this.targetUrl = options.targetUrl || 'http://localhost:8000/';
+        this.targetUrl = options.targetUrl || MOJOGUI_URL;
         this.worker = null;
         this.messageId = 0;
         this.pendingMessages = new Map();
@@ -106,6 +107,12 @@ export class WorkerPool {
             await this.init();
         }
 
+        // Capture worker in local variable to prevent async nulling from 'exit' event
+        const worker = this.worker;
+        if (!worker) {
+            throw new Error('Worker not available (exited or failed to initialize)');
+        }
+
         const id = ++this.messageId;
 
         return new Promise((resolve, reject) => {
@@ -116,8 +123,21 @@ export class WorkerPool {
 
             this.pendingMessages.set(id, { resolve, reject, timeout: timeoutHandle });
 
-            this.worker.postMessage({ id, type, ...data });
+            try {
+                worker.postMessage({ id, type, ...data });
+            } catch (e) {
+                this.pendingMessages.delete(id);
+                clearTimeout(timeoutHandle);
+                reject(new Error(`Failed to send message to worker: ${e.message}`));
+            }
         });
+    }
+
+    /**
+     * Reload the MojoGUI page
+     */
+    async reload() {
+        return this.send('reload');
     }
 
     /**

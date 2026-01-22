@@ -13,7 +13,7 @@
  */
 import { formatCrashError, getResultCodeInfo } from './result_codes.js';
 
-const MOJOGUI_URL = 'https://ndevtk.github.io/MojoGUI';
+export const MOJOGUI_URL = 'https://ndevtk.github.io/MojoGUI';
 const CDP_PORT = 9222;
 /**
  * CDP Client class for managing Chrome DevTools Protocol connections
@@ -63,18 +63,24 @@ export class CDPClient {
     async findMojoGUIPage() {
         const targets = await this.discoverTargets();
         // Look for exact URL match first
-        let target = targets.find(t => t.url === this.targetUrl || t.url.startsWith(this.targetUrl));
-        // Fallback to localhost variants
-        if (!target) {
-            target = targets.find(t =>
-                t.url.includes('MojoGUI') ||
-                t.url.includes('localhost:8000') ||
-                t.url.includes('localhost:8080') ||
-                t.url.includes('127.0.0.1:8000') ||
-                t.url.includes('127.0.0.1:8080')
-            );
-        }
+        let target = targets.find(t => this._isMojoGUITarget(t));
         return target;
+    }
+    /**
+     * Check if a target is a MojoGUI page
+     */
+    _isMojoGUITarget(target) {
+        if (!target || !target.url) return false;
+        const url = target.url;
+        return (
+            url === this.targetUrl ||
+            url.startsWith(this.targetUrl) ||
+            url.includes('MojoGUI') ||
+            url.includes('localhost:8000') ||
+            url.includes('localhost:8080') ||
+            url.includes('127.0.0.1:8000') ||
+            url.includes('127.0.0.1:8080')
+        );
     }
     /**
      * Navigate a page to MojoGUI URL
@@ -134,6 +140,11 @@ export class CDPClient {
                     `Ensure Chrome is running with --remote-debugging-port=${this.port}`
                 );
             }
+        } else if (this.crashed) {
+            // Page exists but is in a crashed state, reload it
+            console.error('[CDP] Page exists but is crashed, reloading:', this.targetUrl);
+            await this.navigateToMojoGUI(target);
+            await new Promise(resolve => setTimeout(resolve, 2000));
         }
         return target;
     }
@@ -172,6 +183,9 @@ export class CDPClient {
 
                 this.wsConnection.on('open', async () => {
                     try {
+                        // Enable Target discovery to receive Target.targetCrashed events
+                        await this.send('Target.setDiscoverTargets', { discover: true });
+
                         // Attach to the target page with flatten:true for session-based events
                         const attachResult = await this.send('Target.attachToTarget', {
                             targetId: this.targetId,
@@ -218,9 +232,21 @@ export class CDPClient {
      * Reconnect after crash - navigates back to MojoGUI
      */
     async reconnect() {
+        console.error('[CDP] Reconnecting to MojoGUI...');
         this.disconnect();
+        // Brief delay to let browser process settle
+        await new Promise(resolve => setTimeout(resolve, 500));
         await this.connect();
         await this.waitForMojoGUI(10000);
+    }
+    /**
+     * Reload the current page
+     */
+    async reload() {
+        if (!this.sessionId) {
+            await this.connect();
+        }
+        return this.sendToSession('Page.reload');
     }
     /**
      * Send a CDP command to the browser and wait for response
@@ -353,18 +379,37 @@ export class CDPClient {
     _handleMessage(message) {
         // Handle crash events from Target domain
         if (message.method === 'Target.targetCrashed') {
-            // Target.targetCrashed provides: targetId, status, errorCode
-            const errorCode = message.params?.errorCode || 3;
-            console.error(`[CDP] Target.targetCrashed received with errorCode: ${errorCode}`);
-            this._handleCrash(errorCode);
+            const { targetId, errorCode, status } = message.params;
+            // Only handle if it's our target OR if we don't have one yet
+            if (targetId === this.targetId || !this.targetId) {
+                console.error(`[CDP] Target crashed: ${targetId} (status: ${status}, errorCode: ${errorCode})`);
+                this._handleCrash(errorCode || 3);
+            }
             return;
         }
 
         // Handle target destroyed (page closed/crashed)
         if (message.method === 'Target.targetDestroyed') {
-            if (message.params?.targetId === this.targetId) {
-                console.error(`[CDP] Target.targetDestroyed received for our target`);
+            const { targetId } = message.params;
+            if (targetId === this.targetId) {
+                console.error(`[CDP] Our target (${targetId}) was destroyed`);
                 this._handleCrash(3);
+            }
+            return;
+        }
+
+        // Handle new target creation (automatic connection support)
+        if (message.method === 'Target.targetCreated' || message.method === 'Target.targetInfoChanged') {
+            const targetInfo = message.params.targetInfo;
+            if (targetInfo.type === 'page' && this._isMojoGUITarget(targetInfo)) {
+                // If we don't have a target, or our current target crashed, adopt this one
+                if (!this.targetId || this.crashed) {
+                    console.error(`[CDP] MojoGUI target discovered: ${targetInfo.targetId} (${targetInfo.url})`);
+                    if (this.crashed) {
+                        this.targetId = targetInfo.targetId;
+                        this.crashed = false;
+                    }
+                }
             }
             return;
         }

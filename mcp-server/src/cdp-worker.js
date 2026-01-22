@@ -93,6 +93,16 @@ parentPort.on('message', async (msg) => {
                 parentPort.postMessage({ id, success: true });
                 break;
 
+            case 'reload':
+                if (!connected) {
+                    await client.connect();
+                    connected = true;
+                }
+                await client.reload();
+                await client.waitForMojoGUI(10000);
+                parentPort.postMessage({ id, success: true });
+                break;
+
             default:
                 parentPort.postMessage({ id, success: false, error: `Unknown command: ${type}` });
         }
