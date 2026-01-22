@@ -544,6 +544,9 @@
             }
         }
 
+        // Render "Associated" toggle
+        renderAssociatedToggle();
+
         renderMethods(iface);
         renderParamsForm(null);
         updateGeneratedCode();
@@ -552,6 +555,55 @@
         if (state.panelVisible) {
             showInterceptorPanel(false);
         }
+    }
+
+    function renderAssociatedToggle() {
+        const header = elements.interfacePanel.querySelector('.panel-title');
+        // Remove existing toggle if present
+        const existing = header.querySelector('.associated-toggle');
+        if (existing) existing.remove();
+
+        const toggle = document.createElement('div');
+        toggle.className = 'associated-toggle';
+        toggle.style.marginTop = '8px';
+        toggle.innerHTML = `
+            <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9em; cursor: pointer;">
+                <input type="checkbox" id="associatedInterfaceToggle">
+                Associated Interface (requires Master Handle)
+            </label>
+            <div id="associatedInputs" style="display: none; margin-top: 8px; padding: 8px; background: var(--bg-input); border-radius: 4px;">
+                <div style="margin-bottom: 8px;">
+                    <label style="display: block; font-size: 0.8em; margin-bottom: 4px;">Master Pipe Handle (e.g. from Renderer)</label>
+                    <input type="number" id="masterHandleInput" placeholder="Master Handle ID" style="width: 100%; padding: 4px;">
+                </div>
+                <div>
+                    <label style="display: block; font-size: 0.8em; margin-bottom: 4px;">Interface ID (Ordinal)</label>
+                    <input type="number" id="interfaceIdInput" placeholder="Interface ID" style="width: 100%; padding: 4px;">
+                </div>
+            </div>
+        `;
+        header.appendChild(toggle);
+
+        const checkbox = toggle.querySelector('#associatedInterfaceToggle');
+        const inputs = toggle.querySelector('#associatedInputs');
+        const masterInput = toggle.querySelector('#masterHandleInput');
+        const idInput = toggle.querySelector('#interfaceIdInput');
+
+        checkbox.addEventListener('change', (e) => {
+            inputs.style.display = e.target.checked ? 'block' : 'none';
+            state.isAssociated = e.target.checked;
+            updateGeneratedCode();
+        });
+
+        masterInput.addEventListener('input', (e) => {
+            state.masterHandleId = e.target.value;
+            updateGeneratedCode();
+        });
+
+        idInput.addEventListener('input', (e) => {
+            state.interfaceId = e.target.value;
+            updateGeneratedCode();
+        });
     }
 
     function renderMethods(iface) {
@@ -1057,23 +1109,33 @@
                             <select class="handle-action-select" onchange="
                                 const card = this.closest('.mojo-handle-card');
                                 const icon = card.querySelector('.handle-icon');
-                                card.className = 'mojo-handle-card ' + (this.value === 'close' ? 'closed' : (this.value === 'new_pipe' ? 'new' : ''));
-                                icon.textContent = (this.value === 'close' ? '❌' : (this.value === 'new_pipe' ? '🆕' : '🔌'));
-                                // Trigger change to update hidden input
-                                this.nextElementSibling.value = JSON.stringify({
-                                    __mojoType: 'Handle',
-                                    interface: '${escapeHtml(ifaceName)}',
-                                    interfaceId: '${escapeHtml(ifaceId)}',
-                                    isReceiver: ${isReceiver},
-                                    action: this.value
-                                });
-                                this.dispatchEvent(new Event('change', {bubbles: true}));
+                                const customInput = card.querySelector('.handle-custom-input');
+                                card.className = 'mojo-handle-card ' + (this.value === 'close' ? 'closed' : (this.value === 'new_pipe' ? 'new' : (this.value === 'use_handle' ? 'custom' : '')));
+                                icon.textContent = (this.value === 'close' ? '❌' : (this.value === 'new_pipe' ? '🆕' : (this.value === 'use_handle' ? '🔢' : '🔌')));
+                                customInput.style.display = this.value === 'use_handle' ? 'block' : 'none';
+                                
+                                // Update hidden input
+                                const updateHidden = () => {
+                                    this.nextElementSibling.value = JSON.stringify({
+                                        __mojoType: 'Handle',
+                                        interface: '${escapeHtml(ifaceName)}',
+                                        interfaceId: '${escapeHtml(ifaceId)}',
+                                        isReceiver: ${isReceiver},
+                                        action: this.value,
+                                        customHandle: customInput.value
+                                    });
+                                    this.dispatchEvent(new Event('change', {bubbles: true}));
+                                };
+                                updateHidden();
+                                customInput.oninput = updateHidden;
                             ">
                                 <option value="preserve" ${currentAction === 'preserve' ? 'selected' : ''}>Keep Original</option>
                                 <option value="close" ${currentAction === 'close' ? 'selected' : ''}>Close Handle</option>
                                 <option value="new_pipe" ${currentAction === 'new_pipe' ? 'selected' : ''}>New Pipe</option>
+                                <option value="use_handle" ${currentAction === 'use_handle' ? 'selected' : ''}>Use Handle ID</option>
                             </select>
                             <input type="hidden" class="param-input" name="${escapeHtml(param.name)}" data-type="mojo_handle" value='${escapeHtml(JSON.stringify({ __mojoType: 'Handle', interface: ifaceName, interfaceId: ifaceId, isReceiver: isReceiver, action: currentAction }))}'>
+                            <input type="number" class="handle-custom-input" placeholder="Handle ID" style="display:none; width: 100%; margin-top: 5px; padding: 4px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-input); color: var(--text-main);">
                         </div>
                     </div>
                 </div>
@@ -2008,16 +2070,30 @@
 
         code += `// Get remote for the interface\n`;
         code += `let ${remoteName};\n`;
-        code += `if (typeof root.${iface.name}.getRemote === 'function') {\n`;
-        code += `    ${remoteName} = root.${iface.name}.getRemote();\n`;
-        code += `} else {\n`;
-        code += `    // Manual binding for Lite bindings without getRemote()\n`;
-        code += `    ${remoteName} = new root.${iface.name}Remote();\n`;
-        code += `    const receiver = ${remoteName}.bindNewPipeAndPassReceiver();\n`;
-        code += `    const handle = receiver.handle || receiver;\n`;
-        code += `    // Default to 'context' scope for safety, can be 'process'\n`;
-        code += `    Mojo.bindInterface("${iface.module + '.' + iface.name}", handle, "context");\n`;
-        code += `}\n\n`;
+        
+        if (state.isAssociated) {
+            const masterHandleId = state.masterHandleId || '/* INSERT_MASTER_HANDLE_ID */';
+            const interfaceId = state.interfaceId || '/* INSERT_INTERFACE_ID */';
+            
+            code += `// Associated Interface Binding\n`;
+            code += `// Requires an existing Master Pipe Handle (e.g. from a parent interface interception)\n`;
+            code += `const masterHandle = { value: ${masterHandleId} }; // Wrap raw handle ID\n`;
+            code += `const router = new mojo.internal.interfaceSupport.Router(masterHandle);\n`;
+            code += `const endpoint = new mojo.internal.interfaceSupport.Endpoint(router, ${interfaceId});\n`;
+            code += `${remoteName} = new root.${iface.name}Remote(endpoint);\n`;
+        } else {
+            code += `if (typeof root.${iface.name}.getRemote === 'function') {\n`;
+            code += `    ${remoteName} = root.${iface.name}.getRemote();\n`;
+            code += `} else {\n`;
+            code += `    // Manual binding for Lite bindings without getRemote()\n`;
+            code += `    ${remoteName} = new root.${iface.name}Remote();\n`;
+            code += `    const receiver = ${remoteName}.bindNewPipeAndPassReceiver();\n`;
+            code += `    const handle = receiver.handle || receiver;\n`;
+            code += `    // Default to 'context' scope for safety, can be 'process'\n`;
+            code += `    Mojo.bindInterface("${iface.module + '.' + iface.name}", handle, "context");\n`;
+            code += `}\n`;
+        }
+        code += `\n`;
 
         // Generate method call with params
         const paramsDef = getMethodParams(state.selectedInterface.name, method);
@@ -2840,6 +2916,28 @@
                 } catch (e) {
                     console.error('[MojoGUI] Failed to create message pipe:', e);
                     return null;
+                }
+            }
+            if (action === 'use_handle') {
+                const handleId = parseInt(handleData.customHandle, 10);
+                if (!isNaN(handleId)) {
+                    // Create a mock handle wrapper for the existing handle ID
+                    const mockHandle = { value: handleId };
+                    const mockEndpoint = {
+                        handle: mockHandle,
+                        isPrimary: () => true,
+                        releasePipe: () => mockHandle,
+                        unbind: () => mockEndpoint
+                    };
+                     const mockRemote = {
+                        proxy: {
+                            endpoint: mockEndpoint,
+                            unbind: () => mockEndpoint
+                        },
+                        handle: mockEndpoint
+                    };
+                    console.log(`[MojoGUI] Using existing Handle ID: ${handleId}`);
+                    return mockRemote;
                 }
             }
             return original;
