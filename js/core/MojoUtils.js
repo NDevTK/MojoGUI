@@ -66,86 +66,86 @@
     /**
      * Restores 'arg_' prefixes and processes Handle descriptors.
      */
-        reconcileKeys(edited, original, useHeuristics = true) {
-            let handleData = edited;
-            if (typeof edited === 'string' && edited.startsWith('{"__mojoType":"Handle"')) {
-                try { handleData = JSON.parse(edited); } catch (e) { }
-            }
+    function reconcileKeys(edited, original, useHeuristics = true) {
+        let handleData = edited;
+        if (typeof edited === 'string' && edited.startsWith('{"__mojoType":"Handle"')) {
+            try { handleData = JSON.parse(edited); } catch (e) { }
+        }
 
-            // 1. Resolve Object Registry References ($ref)
-            if (handleData && typeof handleData === 'object' && handleData.$ref) {
-                const entry = window.MojoObjectRegistry.get(handleData.$ref);
-                if (entry && entry.remote) {
-                    const realHandle = window.MojoProxy.getRawHandleFromMojoObject(entry.remote);
-                    if (realHandle) {
-                        const mockEndpoint = { handle: realHandle, isPrimary: () => true, releasePipe: () => realHandle, unbind: () => mockEndpoint };
-                        return { 
-                            proxy: { endpoint: mockEndpoint, unbind: () => mockEndpoint },
-                            unbind: () => mockEndpoint,
-                            handle: realHandle,
-                            __mojoHandle: realHandle,
-                            value: realHandle.value
-                        };
-                    }
-                }
-                return original;
-            }
-
-            if (handleData && typeof handleData === 'object' && handleData.__mojoType === 'Handle') {
-                const action = handleData.action || 'preserve';
-                if (action === 'preserve') return original;
-                if (action === 'close') return null;
-                if (action === 'new_pipe') {
-                    const { handle0, handle1 } = Mojo.createMessagePipe();
-                    MojoHandleRegistry.register(handle0);
-                    MojoHandleRegistry.register(handle1);
-                    const realHandle = handle1;
+        // 1. Resolve Object Registry References ($ref)
+        if (handleData && typeof handleData === 'object' && handleData.$ref) {
+            const entry = window.MojoObjectRegistry.get(handleData.$ref);
+            if (entry && entry.remote) {
+                const realHandle = window.MojoProxy.getRawHandleFromMojoObject(entry.remote);
+                if (realHandle) {
                     const mockEndpoint = { handle: realHandle, isPrimary: () => true, releasePipe: () => realHandle, unbind: () => mockEndpoint };
-                    
-                    // Hybrid object: acts as both Remote/Receiver and Raw Handle
-                    return { 
+                    return {
                         proxy: { endpoint: mockEndpoint, unbind: () => mockEndpoint },
                         unbind: () => mockEndpoint,
                         handle: realHandle,
                         __mojoHandle: realHandle,
-                        // Delegate handle methods
-                        close: () => realHandle.close(),
-                        writeMessage: (...args) => realHandle.writeMessage(...args),
-                        readMessage: (...args) => realHandle.readMessage(...args),
-                        watch: (...args) => realHandle.watch(...args),
-                        // Native value
                         value: realHandle.value
                     };
                 }
-                if (action === 'use_handle') {
-                    const handleInput = handleData.customHandle;
-                    let realHandle = null;
-
-                    // Support both raw numeric IDs and registry IDs (obj_N)
-                    if (typeof handleInput === 'string' && handleInput.startsWith('obj_')) {
-                        const entry = window.MojoObjectRegistry.get(handleInput);
-                        if (entry) realHandle = window.MojoProxy.getRawHandleFromMojoObject(entry.remote);
-                    } else {
-                        realHandle = MojoHandleRegistry.get(parseInt(handleInput, 10));
-                    }
-
-                    if (!realHandle) return null;
-                    const mockEndpoint = { handle: realHandle, isPrimary: () => true, releasePipe: () => realHandle, unbind: () => mockEndpoint };
-                    
-                    return { 
-                        proxy: { endpoint: mockEndpoint, unbind: () => mockEndpoint },
-                        unbind: () => mockEndpoint,
-                        handle: realHandle,
-                        __mojoHandle: realHandle,
-                        close: () => realHandle.close(),
-                        writeMessage: (...args) => realHandle.writeMessage(...args),
-                        readMessage: (...args) => realHandle.readMessage(...args),
-                        watch: (...args) => realHandle.watch(...args),
-                        value: realHandle.value
-                    };
-                }
-                return original;
             }
+            return original;
+        }
+
+        if (handleData && typeof handleData === 'object' && handleData.__mojoType === 'Handle') {
+            const action = handleData.action || 'preserve';
+            if (action === 'preserve') return original;
+            if (action === 'close') return null;
+            if (action === 'new_pipe') {
+                const { handle0, handle1 } = Mojo.createMessagePipe();
+                MojoHandleRegistry.register(handle0);
+                MojoHandleRegistry.register(handle1);
+                const realHandle = handle1;
+                const mockEndpoint = { handle: realHandle, isPrimary: () => true, releasePipe: () => realHandle, unbind: () => mockEndpoint };
+
+                // Hybrid object: acts as both Remote/Receiver and Raw Handle
+                return {
+                    proxy: { endpoint: mockEndpoint, unbind: () => mockEndpoint },
+                    unbind: () => mockEndpoint,
+                    handle: realHandle,
+                    __mojoHandle: realHandle,
+                    // Delegate handle methods
+                    close: () => realHandle.close(),
+                    writeMessage: (...args) => realHandle.writeMessage(...args),
+                    readMessage: (...args) => realHandle.readMessage(...args),
+                    watch: (...args) => realHandle.watch(...args),
+                    // Native value
+                    value: realHandle.value
+                };
+            }
+            if (action === 'use_handle') {
+                const handleInput = handleData.customHandle;
+                let realHandle = null;
+
+                // Support both raw numeric IDs and registry IDs (obj_N)
+                if (typeof handleInput === 'string' && handleInput.startsWith('obj_')) {
+                    const entry = window.MojoObjectRegistry.get(handleInput);
+                    if (entry) realHandle = window.MojoProxy.getRawHandleFromMojoObject(entry.remote);
+                } else {
+                    realHandle = MojoHandleRegistry.get(parseInt(handleInput, 10));
+                }
+
+                if (!realHandle) return null;
+                const mockEndpoint = { handle: realHandle, isPrimary: () => true, releasePipe: () => realHandle, unbind: () => mockEndpoint };
+
+                return {
+                    proxy: { endpoint: mockEndpoint, unbind: () => mockEndpoint },
+                    unbind: () => mockEndpoint,
+                    handle: realHandle,
+                    __mojoHandle: realHandle,
+                    close: () => realHandle.close(),
+                    writeMessage: (...args) => realHandle.writeMessage(...args),
+                    readMessage: (...args) => realHandle.readMessage(...args),
+                    watch: (...args) => realHandle.watch(...args),
+                    value: realHandle.value
+                };
+            }
+            return original;
+        }
 
         if (edited === null || typeof edited !== 'object') return edited;
         if (Array.isArray(edited)) {
