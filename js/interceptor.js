@@ -205,7 +205,7 @@
                     const result = await this.realRemote[methodName](...bridgedArgs);
                     
                     // Auto-register any returned handles/proxies
-                    const finalResult = global.MojoUtils ? global.MojoUtils.autoRegister(result) : result;
+                    const finalResult = global.MojoObjectRegistry ? global.MojoObjectRegistry.autoRegister(result) : result;
                     
                     window.dispatchEvent(new CustomEvent('mojo-response', { detail: { id: callId, result: finalResult, timestamp: Date.now() } }));
                     return result;
