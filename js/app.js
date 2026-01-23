@@ -2627,27 +2627,21 @@
         const proxyId = detail.proxyId;
         const method = detail.method;
 
-        const proxy = MojoProxyRegistry.get(proxyId);
-        if (!proxy) {
-            showToast('Proxy connection lost. Cannot replay.', 'error');
-            return;
-        }
-
-        if (proxy.realRemote && typeof proxy.realRemote[method] === 'function') {
+        const proxy = window.MojoProxyRegistry?.get(proxyId);
+        
+        // Attempt Replay via Proxy first (maintains connection context)
+        if (proxy && proxy.realRemote && typeof proxy.realRemote[method] === 'function') {
             try {
                 const newId = 'replay_' + Date.now();
 
                 // Fix: params might be JSON strings
                 if (Array.isArray(params)) {
-                    // console.log('[Replay] Params before execution:', params);
                     params = params.map(p => {
                         if (typeof p === 'string') {
                             try { return JSON.parse(p); } catch (e) { return p; }
                         }
                         return p;
                     });
-                } else {
-                    // console.log('[Replay] Params is NOT array:', params);
                 }
 
                 // Restore Mojo handles if present
@@ -2659,14 +2653,13 @@
                     id: newId,
                     interface: detail.interface,
                     method: method,
-                    params: restoredParams, // Use restored params for display consistency? Or original?
+                    params: restoredParams,
                     timestamp: Date.now(),
                     type: 'MANUAL',
                     status: 'Replaying...',
                     proxyId: proxyId
                 });
 
-                // Show details for the new Replay row
                 showInterceptDetails({ ...detail, id: newId, params: restoredParams, status: 'Replaying...', type: 'MANUAL', result: null, error: null });
 
                 const resultPromise = proxy.realRemote[method](...restoredParams);
@@ -2680,20 +2673,60 @@
                         }
                     }).catch(err => {
                         updateActivityRow(newId, 'Error', { error: err.toString() });
-                        const activeRow = document.querySelector(`tr[data-id="${newId}"]`);
-                        if (activeRow && activeRow.classList.contains('active')) {
-                            showInterceptDetails({ ...detail, id: newId, params: params, error: err.toString(), status: 'Error', type: 'MANUAL' });
-                        }
                     });
                 } else {
                     updateActivityRow(newId, 'Done', { result: 'Sent (No Response)' });
                 }
             } catch (e) {
-                showToast('Execution failed: ' + e.message, 'error');
+                showToast('Proxy Replay Failed: ' + e.message, 'error');
             }
-        } else {
-            showToast(`Method ${method} not found on remote.`, 'error');
+            return;
         }
+
+        // Fallback: Fresh Execution via MojoExecutionService
+        console.log('[Replay] Proxy lost, falling back to fresh execution...');
+        const newId = 'replay_fresh_' + Date.now();
+        
+        // Normalize params for ExecutionService
+        // reconcileKeys returns an Array for positional args if originalParams was an array
+        // But ExecutionService expects an object if we want it to map keys? 
+        // No, ExecutionService handles Arrays or Objects.
+        // If we have an Array of params from the log, we can pass it directly.
+        // BUT we must reconcile keys first to restore handles.
+        const originalParams = (row && row.__details) ? row.__details.params : null;
+        let finalParams = params;
+        if (typeof MojoUtils !== 'undefined') {
+             finalParams = MojoUtils.reconcileKeys(params, originalParams, useHeuristic);
+        }
+
+        addActivityRow({
+            id: newId,
+            interface: detail.interface,
+            method: method,
+            params: finalParams,
+            timestamp: Date.now(),
+            type: 'MANUAL',
+            status: 'Replaying (Fresh)...'
+        });
+        
+        showInterceptDetails({ ...detail, id: newId, params: finalParams, status: 'Replaying (Fresh)...', type: 'MANUAL', result: null, error: null });
+
+        window.MojoExecutionService.call(
+            { interface: detail.interface },
+            method,
+            finalParams
+        ).then(res => {
+            updateActivityRow(newId, 'Done', res);
+            const activeRow = document.querySelector(`tr[data-id="${newId}"]`);
+            if (activeRow && activeRow.classList.contains('active')) {
+                showInterceptDetails({ ...detail, id: newId, params: params, result: res, status: 'Done', type: 'MANUAL' });
+            }
+            showToast('Replay Successful (Fresh Connection)', 'success');
+        }).catch(err => {
+            console.error(err);
+            updateActivityRow(newId, 'Error', { error: err.message });
+            showToast('Replay Failed: ' + err.message, 'error');
+        });
     }
 
     // ========================================

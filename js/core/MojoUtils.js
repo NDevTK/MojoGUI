@@ -76,15 +76,41 @@
                     const { handle0, handle1 } = Mojo.createMessagePipe();
                     MojoHandleRegistry.register(handle0);
                     MojoHandleRegistry.register(handle1);
-                    const mockEndpoint = { handle: handle1, isPrimary: () => true, releasePipe: () => handle1, unbind: () => mockEndpoint };
-                    return { proxy: { endpoint: mockEndpoint, unbind: () => mockEndpoint }, handle: mockEndpoint };
+                    const realHandle = handle1;
+                    const mockEndpoint = { handle: realHandle, isPrimary: () => true, releasePipe: () => realHandle, unbind: () => mockEndpoint };
+                    
+                    // Hybrid object: acts as both Remote/Receiver and Raw Handle
+                    return { 
+                        proxy: { endpoint: mockEndpoint, unbind: () => mockEndpoint },
+                        unbind: () => mockEndpoint,
+                        handle: realHandle,
+                        __mojoHandle: realHandle,
+                        // Delegate handle methods
+                        close: () => realHandle.close(),
+                        writeMessage: (...args) => realHandle.writeMessage(...args),
+                        readMessage: (...args) => realHandle.readMessage(...args),
+                        watch: (...args) => realHandle.watch(...args),
+                        // Native value
+                        value: realHandle.value
+                    };
                 }
                 if (action === 'use_handle') {
                     const handleId = parseInt(handleData.customHandle, 10);
                     const realHandle = MojoHandleRegistry.get(handleId);
                     if (!realHandle) return null;
                     const mockEndpoint = { handle: realHandle, isPrimary: () => true, releasePipe: () => realHandle, unbind: () => mockEndpoint };
-                    return { proxy: { endpoint: mockEndpoint, unbind: () => mockEndpoint }, handle: mockEndpoint };
+                    
+                    return { 
+                        proxy: { endpoint: mockEndpoint, unbind: () => mockEndpoint },
+                        unbind: () => mockEndpoint,
+                        handle: realHandle,
+                        __mojoHandle: realHandle,
+                        close: () => realHandle.close(),
+                        writeMessage: (...args) => realHandle.writeMessage(...args),
+                        readMessage: (...args) => realHandle.readMessage(...args),
+                        watch: (...args) => realHandle.watch(...args),
+                        value: realHandle.value
+                    };
                 }
                 return original;
             }
