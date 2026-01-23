@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-01-22T10:19:38.412814Z",
-  "version": "146.0.7649.0",
+  "generated_at": "2026-01-23T10:16:55.053017Z",
+  "version": "146.0.7651.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -1699,6 +1699,7 @@
         "MoveTaskUiToNewTab",
         "OnTabClickedFromSourcesMenu",
         "OnFileClickedFromSourcesMenu",
+        "OnImageClickedFromSourcesMenu",
         "OnWebviewMessage",
         "GetCommonSearchParams",
         "OnboardingTooltipDismissed"
@@ -1838,7 +1839,7 @@
         "ResizeWidget",
         "EnableDragResize",
         "WebUiStateChanged",
-        "GetProfileEnablement"
+        "GetInternalsDataPayload"
       ]
     },
     {
@@ -1971,8 +1972,9 @@
         "NotifyClosedCaptioningSettingChanged",
         "NotifyPinnedTabsChanged",
         "NotifyPinnedTabDataChanged",
-        "NotifySkillPreviewsChanged",
+        "NotifySkillDeleted",
         "NotifySkillPreviewChanged",
+        "NotifySkillPreviewsChanged",
         "NotifySkillToInvokeChanged",
         "NotifyZeroStateSuggestionsChanged",
         "NotifyActorTaskStateChanged",
@@ -4646,7 +4648,8 @@
       "file": "chrome_browser_ui_webui_updater_updater_ui.mojom.js",
       "methods": [
         "GetAllUpdaterEvents",
-        "GetUpdaterStates"
+        "GetUpdaterStates",
+        "ShowUpdaterDirectory"
       ]
     },
     {
@@ -4728,33 +4731,6 @@
         "SearchForIsolatedWebAppUpdates",
         "GetIsolatedWebAppDevModeAppInfo",
         "RotateKey"
-      ]
-    },
-    {
-      "name": "PageHandlerFactory",
-      "module": "webui_toolbar.mojom",
-      "file": "chrome_browser_ui_webui_webui_toolbar_webui_toolbar.mojom.js",
-      "methods": [
-        "CreatePageHandler"
-      ]
-    },
-    {
-      "name": "PageHandler",
-      "module": "webui_toolbar.mojom",
-      "file": "chrome_browser_ui_webui_webui_toolbar_webui_toolbar.mojom.js",
-      "methods": [
-        "Reload",
-        "StopReload",
-        "ShowContextMenu",
-        "OnPageInitialized"
-      ]
-    },
-    {
-      "name": "Page",
-      "module": "webui_toolbar.mojom",
-      "file": "chrome_browser_ui_webui_webui_toolbar_webui_toolbar.mojom.js",
-      "methods": [
-        "SetReloadButtonState"
       ]
     },
     {
@@ -9965,7 +9941,6 @@
         "BindDiagnosticsService",
         "BindDocumentScan",
         "BindInSessionAuth",
-        "BindKeystoreService",
         "BindLocalPrinter",
         "BindMachineLearningService",
         "BindSensorHalClient",
@@ -10047,35 +10022,6 @@
       "file": "chromeos_crosapi_mojom_guest_os_sk_forwarder.mojom.js",
       "methods": [
         "ForwardRequest"
-      ]
-    },
-    {
-      "name": "KeystoreService",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_keystore_service.mojom.js",
-      "methods": [
-        "ChallengeAttestationOnlyKeystore",
-        "GetKeyStores",
-        "SelectClientCertificates",
-        "GetCertificates",
-        "AddCertificate",
-        "RemoveCertificate",
-        "GetPublicKey",
-        "GenerateKey",
-        "RemoveKey",
-        "Sign",
-        "GetKeyTags",
-        "AddKeyTags",
-        "CanUserGrantPermissionForKey",
-        "SetAttributeForKey",
-        "DEPRECATED_ExtensionGenerateKey",
-        "DEPRECATED_ExtensionSign",
-        "DEPRECATED_GetPublicKey",
-        "DEPRECATED_GetKeyStores",
-        "DEPRECATED_GetCertificates",
-        "DEPRECATED_AddCertificate",
-        "DEPRECATED_RemoveCertificate",
-        "DEPRECATED_ChallengeAttestationOnlyKeystore"
       ]
     },
     {
@@ -10852,6 +10798,7 @@
         "FieldTypePredictionsAvailable",
         "ExposeDomNodeIds",
         "ClearPreviewedForm",
+        "FindPotentialSiwgButtons",
         "TriggerSuggestions",
         "SetSuggestionAvailability",
         "AcceptDataListSuggestion",
@@ -10978,6 +10925,34 @@
         "PassPasswordFormGenerationData",
         "PassPasswordGenerationUIData",
         "PassPasswordSuggestionRequest"
+      ]
+    },
+    {
+      "name": "BrowserControlsFactory",
+      "module": "browser_controls_api.mojom",
+      "file": "components_browser_apis_browser_controls_browser_controls_api.mojom.js",
+      "methods": [
+        "CreateBrowserControls"
+      ]
+    },
+    {
+      "name": "BrowserControlsObserver",
+      "module": "browser_controls_api.mojom",
+      "file": "components_browser_apis_browser_controls_browser_controls_api.mojom.js",
+      "methods": [
+        "OnDevToolsStatusChanged",
+        "OnNavigationStatusChanged"
+      ]
+    },
+    {
+      "name": "BrowserControlsService",
+      "module": "browser_controls_api.mojom",
+      "file": "components_browser_apis_browser_controls_browser_controls_api.mojom.js",
+      "methods": [
+        "StopLoad",
+        "ShowContextMenu",
+        "OnPageInitialized",
+        "ReloadFromClick"
       ]
     },
     {
@@ -25827,15 +25802,6 @@
       ]
     },
     {
-      "filename": "chrome_browser_ui_webui_webui_toolbar_webui_toolbar.mojom.js",
-      "source": "chrome/browser/ui/webui/webui_toolbar/webui_toolbar.mojom",
-      "module": "webui_toolbar.mojom",
-      "imports": [
-        "ui/base/mojom/menu_source_type.mojom",
-        "ui/gfx/geometry/mojom/geometry.mojom"
-      ]
-    },
-    {
       "filename": "chrome_browser_ui_webui_whats_new_whats_new.mojom.js",
       "source": "chrome/browser/ui/webui/whats_new/whats_new.mojom",
       "module": "whats_new.mojom",
@@ -28681,6 +28647,22 @@
       ]
     },
     {
+      "filename": "components_browser_apis_browser_controls_browser_controls_api.mojom.js",
+      "source": "components/browser_apis/browser_controls/browser_controls_api.mojom",
+      "module": "browser_controls_api.mojom",
+      "imports": [
+        "components/browser_apis/browser_controls/browser_controls_api_data_model.mojom",
+        "ui/base/mojom/menu_source_type.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom"
+      ]
+    },
+    {
+      "filename": "components_browser_apis_browser_controls_browser_controls_api_data_model.mojom.js",
+      "source": "components/browser_apis/browser_controls/browser_controls_api_data_model.mojom",
+      "module": "browser_controls_api.mojom",
+      "imports": []
+    },
+    {
       "filename": "components_browser_apis_tab_strip_tab_strip_api.mojom.js",
       "source": "components/browser_apis/tab_strip/tab_strip_api.mojom",
       "module": "tabs_api.mojom",
@@ -29999,6 +29981,7 @@
         "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/byte_string.mojom",
         "mojo/public/mojom/base/time.mojom",
+        "services/network/public/mojom/hash_value.mojom",
         "services/network/public/mojom/url_response_head.mojom",
         "third_party/blink/public/mojom/service_worker/service_worker_fetch_handler_type.mojom",
         "third_party/blink/public/mojom/storage_key/storage_key.mojom",
@@ -33667,6 +33650,7 @@
         "services/network/public/mojom/cookie_manager.mojom",
         "services/network/public/mojom/cookie_partition_key.mojom",
         "services/network/public/mojom/cors.mojom",
+        "services/network/public/mojom/device_bound_sessions.mojom",
         "services/network/public/mojom/fetch_api.mojom",
         "services/network/public/mojom/http_raw_headers.mojom",
         "services/network/public/mojom/http_request_headers.mojom",
@@ -33769,6 +33753,7 @@
       "module": "network.mojom",
       "imports": [
         "mojo/public/mojom/base/time.mojom",
+        "mojo/public/mojom/base/unguessable_token.mojom",
         "services/network/public/mojom/address_list.mojom",
         "services/network/public/mojom/host_resolver_endpoint_result.mojom",
         "services/network/public/mojom/ip_address.mojom",
