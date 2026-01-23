@@ -1537,7 +1537,7 @@
         } else if (type === 'json' || (type && (type.includes('array') || type.includes('map') || type.includes('object')))) {
             try { val = JSON.parse(val); } catch (e) { }
         } else if (type === 'url_wrapped') {
-            val = { url: val };
+            val = { arg_url: val };
         } else if (type === 'string16') {
             // Convert string to array of char codes (uint16)
             const data = [];
