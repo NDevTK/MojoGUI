@@ -101,6 +101,12 @@
             }
 
             const spec = mojomType.$ || mojomType;
+            
+            // Check for Enum
+            if (spec.enumSpec || (spec.isValueType && !spec.structSpec && !spec.unionSpec && !spec.arraySpec && !spec.mapSpec && !spec.elementType && !spec.keyType)) {
+                return 'enum';
+            }
+
             const name = spec.name || spec.structSpec?.name || '';
 
             if (name.includes('BigString16')) return 'bigstring16';
