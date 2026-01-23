@@ -614,6 +614,9 @@
     function findMethodDefinition(interfaceName, methodName) {
         return MojoReflectionService.findMethodDefinition(interfaceName, methodName);
     }
+
+    // Helper for Array rendering
+    window.reindexArrayItems = function (container, prefix) {
         if (!container) return;
         Array.from(container.children).forEach((item, index) => {
             // Update names in inputs
