@@ -50,6 +50,11 @@
 
         if (Array.isArray(obj)) return obj.map(v => sanitizeKeys(v, seen));
 
+        // Handle TypedArrays (Uint8Array, etc.)
+        if (ArrayBuffer.isView(obj) && !(obj instanceof DataView)) {
+            return Array.from(obj).map(v => sanitizeKeys(v, seen));
+        }
+
         const clean = {};
         for (const key in obj) {
             let cleanKey = key.startsWith('arg_') ? key.substring(4) : key;
