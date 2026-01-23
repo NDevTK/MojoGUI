@@ -832,20 +832,27 @@
         if (effectiveType === 'string16') {
             let displayValue = value;
             const arrayData = value ? (value.arg_data || value.data) : null;
-            if (arrayData && (Array.isArray(arrayData) || (arrayData.length !== undefined && typeof arrayData !== 'string'))) {
+            
+            // Handle BigBuffer union wrap if incorrectly tagged as string16
+            let realBytes = arrayData;
+            if (arrayData && typeof arrayData === 'object' && !Array.isArray(arrayData)) {
+                realBytes = arrayData.arg_bytes || arrayData.bytes;
+            }
+
+            if (realBytes && (Array.isArray(realBytes) || (realBytes.length !== undefined && typeof realBytes !== 'string'))) {
                 try {
                     let u8;
-                    if (arrayData instanceof Uint8Array) {
-                        u8 = arrayData;
-                    } else if (arrayData instanceof Uint16Array) {
-                        u8 = new Uint8Array(arrayData.buffer, arrayData.byteOffset, arrayData.byteLength);
+                    if (realBytes instanceof Uint8Array) {
+                        u8 = realBytes;
+                    } else if (realBytes instanceof Uint16Array) {
+                        u8 = new Uint8Array(realBytes.buffer, realBytes.byteOffset, realBytes.byteLength);
                     } else {
                         // Regular array
-                        u8 = new Uint8Array(new Uint16Array(arrayData).buffer);
+                        u8 = new Uint8Array(new Uint16Array(realBytes).buffer);
                     }
                     displayValue = new TextDecoder('utf-16le').decode(u8);
                 } catch (e) {
-                    displayValue = String.fromCharCode(...arrayData);
+                    displayValue = Array.isArray(realBytes) ? String.fromCharCode(...realBytes) : safeStringify(sanitizeKeys(value), 2);
                 }
             } else if (typeof value === 'object' && value !== null) {
                 displayValue = safeStringify(sanitizeKeys(value), 2);
@@ -875,14 +882,19 @@
             let arrayData = null;
 
             if (bigBuffer) {
-                if (bigBuffer.bytes) arrayData = bigBuffer.bytes;
-                else if (bigBuffer.arg_bytes) arrayData = bigBuffer.arg_bytes;
+                if (bigBuffer.arg_bytes) arrayData = bigBuffer.arg_bytes;
+                else if (bigBuffer.bytes) arrayData = bigBuffer.bytes;
+                else if (typeof bigBuffer === 'object' && !Array.isArray(bigBuffer)) {
+                    // Fallback for nested wrap
+                    arrayData = bigBuffer.arg_bytes || bigBuffer.bytes;
+                } else if (Array.isArray(bigBuffer)) {
+                    arrayData = bigBuffer;
+                }
             }
 
             if (arrayData && (Array.isArray(arrayData) || (arrayData.length !== undefined && typeof arrayData !== 'string'))) {
                 try {
                     const u8 = (arrayData instanceof Uint8Array) ? arrayData : new Uint8Array(arrayData);
-                    // Decode using TextDecoder (safe for large strings)
                     displayValue = new TextDecoder('utf-16le').decode(u8);
                 } catch (e) {
                     displayValue = safeStringify(sanitizeKeys(value), 2);
@@ -1451,12 +1463,7 @@
             for (let i = 0; i < val.length; i++) {
                 data.push(val.charCodeAt(i));
             }
-            // Mojo Lite bindings often expect 'arg_' prefix for struct fields
             val = { arg_data: data };
-        } else if (type === 'enum') {
-            // Parse Enum value as integer
-            val = parseInt(val, 10);
-            if (isNaN(val)) val = 0; // Default safety
         } else if (type === 'bigstring16') {
             // Convert to Little Endian Uint16 bytes
             const bytes = [];
@@ -1465,8 +1472,9 @@
                 bytes.push(code & 0xFF);
                 bytes.push((code >> 8) & 0xFF);
             }
-            // BigBuffer (union) -> bytes (array<uint8>)
+            // BigString16 struct wraps BigBuffer union
             val = { arg_data: { arg_bytes: bytes } };
+        } else if (type === 'enum') {
         } else if (type === 'bigstring') {
             // Convert to UTF-8 bytes
             const encoder = new TextEncoder(); // defaults to utf-8
