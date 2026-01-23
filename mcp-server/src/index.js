@@ -126,8 +126,42 @@ server.tool(
     }
 );
 server.tool(
+    'bind_interface',
+    'Bind a Mojo interface and return a persistent objectId for future calls.',
+    {
+        interface: z.string().describe('The interface name (e.g. "blink.mojom.ClipboardHost")')
+    },
+    async ({ interface: iface }) => {
+        const code = `
+            (async () => {
+                const executor = window.MojoExecutionService;
+                if (!executor) throw new Error('MojoExecutionService not available');
+                
+                // We call a dummy method or just rely on the side effect of 'call' resolving the target
+                // Actually, let's just implement a minimal bind in ExecutionService or here.
+                // ExecutionService.call handles binding if objectId is missing.
+                // We can call a non-existent method and catch, or just return the remote info.
+                
+                // Safer: Use a helper or just return the object registry ID.
+                const fqn = await window.MojoLoader.ensureBinding(${JSON.stringify(iface)});
+                const name = fqn || ${JSON.stringify(iface)};
+                const comps = window.MojoProxy.getInterfaceComponents(name);
+                const remote = new comps.Remote();
+                const receiver = remote.bindNewPipeAndPassReceiver();
+                const rawHandle = window.MojoProxy.getRawHandleFromMojoObject(receiver) || receiver.handle || receiver;
+                Mojo.bindInterface(name, rawHandle);
+                
+                const id = window.MojoObjectRegistry.register(remote, name);
+                return { objectId: id, type: name };
+            })()
+        `;
+        const result = await executeInMojoGUI(code);
+        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
+    }
+);
+server.tool(
     'call_method',
-    'Execute a Mojo method with the given parameters. Note: To retrieve the results of intercepted calls or raw message data, you must use the "get_intercepted_calls" tool.',
+    'Execute a Mojo method with the given parameters. Use "objectId" from bind_interface or previous calls to chain. Note: To retrieve the results of intercepted calls or raw message data, you must use the "get_intercepted_calls" tool.',
     {
         interface: z.string().optional().describe('The interface name (e.g. "blink.mojom.FileSystemManager")'),
         objectId: z.string().optional().describe('ID of an existing object/remote returned by a previous call (e.g. "obj_1")'),
@@ -143,9 +177,10 @@ server.tool(
             (async () => {
                 const api = window.MojoGUI_API;
                 const executor = window.MojoExecutionService;
+                const utils = window.MojoUtils;
                 if (!executor) throw new Error('MojoExecutionService not available');
                 
-                return await executor.call(
+                const res = await executor.call(
                     { 
                         interface: ${iface ? JSON.stringify(iface) : 'null'},
                         objectId: ${objectId ? JSON.stringify(objectId) : 'null'},
@@ -158,10 +193,13 @@ server.tool(
                         interfaceId: ${interfaceId}
                     }
                 );
+                // Use safeStringify to handle BigInt
+                return utils.safeStringify(res, 2);
             })()
         `;
         const result = await executeInMojoGUI(code, 0, { userGesture });
-        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
+        // result is already a JSON string from safeStringify
+        return { content: [{ type: 'text', text: result || "{}" }] };
     }
 );
 server.tool(

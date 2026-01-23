@@ -77,8 +77,20 @@
             console.log(`[ExecutionService] ${interfaceName}.${methodName}`, finalArgs);
             const result = await found.func.apply(found.ctx, finalArgs);
 
-            // 4. Auto-register result and return
-            return MojoObjectRegistry.autoRegister(result, interfaceName + 'Result');
+            // 4. Register remote if it's new, so we can chain calls
+            let remoteId = target.objectId;
+            if (!remoteId) {
+                remoteId = MojoObjectRegistry.register(remote, interfaceName);
+            }
+
+            // 5. Auto-register result and return combined status
+            const registeredResult = MojoObjectRegistry.autoRegister(result, interfaceName + 'Result');
+            
+            return {
+                result: registeredResult !== undefined ? registeredResult : null,
+                objectId: remoteId,
+                type: interfaceName
+            };
         }
     };
 
