@@ -2,7 +2,7 @@
  * MojoUtils
  * Core utility functions for object manipulation and serialization.
  */
-(function(global) {
+(function (global) {
     'use strict';
 
     function safeStringify(value, space) {
@@ -50,11 +50,6 @@
 
         if (Array.isArray(obj)) return obj.map(v => sanitizeKeys(v, seen));
 
-        // Handle TypedArrays (Uint8Array, etc.)
-        if (ArrayBuffer.isView(obj) && !(obj instanceof DataView)) {
-            return Array.from(obj).map(v => sanitizeKeys(v, seen));
-        }
-
         const clean = {};
         for (const key in obj) {
             let cleanKey = key.startsWith('arg_') ? key.substring(4) : key;
@@ -82,9 +77,9 @@
                 MojoHandleRegistry.register(handle1);
                 const realHandle = handle1;
                 const mockEndpoint = { handle: realHandle, isPrimary: () => true, releasePipe: () => realHandle, unbind: () => mockEndpoint };
-                
+
                 // Hybrid object: acts as both Remote/Receiver and Raw Handle
-                return { 
+                return {
                     proxy: { endpoint: mockEndpoint, unbind: () => mockEndpoint },
                     unbind: () => mockEndpoint,
                     handle: realHandle,
@@ -103,8 +98,8 @@
                 const realHandle = MojoHandleRegistry.get(handleId);
                 if (!realHandle) return null;
                 const mockEndpoint = { handle: realHandle, isPrimary: () => true, releasePipe: () => realHandle, unbind: () => mockEndpoint };
-                
-                return { 
+
+                return {
                     proxy: { endpoint: mockEndpoint, unbind: () => mockEndpoint },
                     unbind: () => mockEndpoint,
                     handle: realHandle,
