@@ -1126,7 +1126,8 @@
                                 
                                 // Update hidden input
                                 const updateHidden = () => {
-                                    this.nextElementSibling.value = JSON.stringify({
+                                    const hiddenInput = this.nextElementSibling;
+                                    hiddenInput.value = JSON.stringify({
                                         __mojoType: 'Handle',
                                         interface: '${escapeHtml(ifaceName)}',
                                         interfaceId: '${escapeHtml(ifaceId)}',
@@ -1134,7 +1135,8 @@
                                         action: this.value,
                                         customHandle: customInput.value
                                     });
-                                    this.dispatchEvent(new Event('change', {bubbles: true}));
+                                    // Dispatch on hidden input to avoid recursion on select
+                                    hiddenInput.dispatchEvent(new Event('change', {bubbles: true}));
                                 };
                                 updateHidden();
                                 customInput.oninput = updateHidden;
