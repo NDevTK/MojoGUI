@@ -41,12 +41,12 @@
 
             return {
                 name: methodName,
-                parameters: paramsSpec ? this.mapFieldsToParams(paramsSpec.$?.structSpec?.fields) : [],
-                responseParams: responseSpec ? this.mapFieldsToParams(responseSpec.$?.structSpec?.fields) : []
+                parameters: paramsSpec ? this.mapFieldsToParams(paramsSpec.$?.structSpec?.fields, namespace) : [],
+                responseParams: responseSpec ? this.mapFieldsToParams(responseSpec.$?.structSpec?.fields, namespace) : []
             };
         },
 
-        mapFieldsToParams(fields) {
+        mapFieldsToParams(fields, namespace = null) {
             if (!fields) return [];
             let fieldsArray = Array.isArray(fields) ? fields : Object.entries(fields).map(([k, v]) => ({ name: k, ...v })).sort((a, b) => (a.ordinal || 0) - (b.ordinal || 0));
 
@@ -55,6 +55,7 @@
                 let structSpec = null;
                 let elementSpec = null;
                 let mapSpec = null;
+                let enumOptions = null;
 
                 if (type === 'struct' || type === 'union') {
                     structSpec = f.type.$?.structSpec || f.type.$?.unionSpec;
@@ -63,15 +64,25 @@
                 } else if (type === 'map') {
                     const source = f.type.keyType ? f.type : (f.type.$?.mapSpec || f.type.$);
                     mapSpec = { key: source.keyType, value: source.valueType };
+                } else if (type === 'enum' && namespace) {
+                    // Try to find enum values
+                    // If spec is 'MyEnumSpec', the values are in 'MyEnum'
+                    for (const key in namespace) {
+                        if (namespace[key + 'Spec'] === f.type) {
+                            enumOptions = namespace[key];
+                            break;
+                        }
+                    }
                 }
 
                 return {
                     name: f.name,
-                    type: type,
+                    type: enumOptions ? { type: 'enum', options: enumOptions } : type,
                     structSpec,
                     elementSpec,
                     mapSpec,
-                    optional: !!f.nullable
+                    optional: !!f.nullable,
+                    defaultValue: f.defaultValue
                 };
             });
         },
@@ -90,6 +101,12 @@
             }
 
             const spec = mojomType.$ || mojomType;
+            
+            // Check for Enum
+            if (spec.enumSpec || (spec.isValueType && !spec.structSpec && !spec.unionSpec && !spec.arraySpec && !spec.mapSpec && !spec.elementType && !spec.keyType)) {
+                return 'enum';
+            }
+
             const name = spec.name || spec.structSpec?.name || '';
 
             if (name.includes('String16')) return 'string16';
@@ -98,7 +115,6 @@
 
             if (spec.structSpec) return 'struct';
             if (spec.unionSpec) return 'union';
-            if (spec.enumSpec || (mojomType.MIN_VALUE !== undefined && mojomType.MAX_VALUE !== undefined)) return 'enum';
             
             if (mojomType.elementType || spec.elementType || spec.arraySpec) return 'array';
             if (mojomType.keyType || spec.keyType || spec.mapSpec) return 'map';
