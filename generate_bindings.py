@@ -1335,6 +1335,9 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
         js_code += f"{full_name}PendingReceiver = class {{\n"
         js_code += "  constructor(handle) {\n"
         js_code += "    this.handle = handle;\n"
+        js_code += "    if (handle) {\n"
+        js_code += "      this.__mojoHandle = handle.router_ ? handle.router_.pipe_ : (handle.pipe_ || handle);\n"
+        js_code += "    }\n"
         js_code += "  }\n"
         js_code += "};\n\n"
         
@@ -1345,6 +1348,7 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
         js_code += "  }\n\n"
         
         js_code += "  constructor(handle = undefined) {\n"
+        js_code += "    this.__mojoHandle = handle;\n"
         js_code += f"    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(\n"
         js_code += f"      {full_name}PendingReceiver,\n"
         js_code += "      handle);\n"
