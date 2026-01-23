@@ -36,7 +36,8 @@
                 } else {
                     remote = new comps.Remote();
                     const receiver = remote.bindNewPipeAndPassReceiver();
-                    Mojo.bindInterface(interfaceName, receiver.handle || receiver.__mojoHandle || receiver);
+                    const rawHandle = MojoProxy.getRawHandleFromMojoObject(receiver) || receiver.handle || receiver;
+                    Mojo.bindInterface(interfaceName, rawHandle);
                 }
             }
 
