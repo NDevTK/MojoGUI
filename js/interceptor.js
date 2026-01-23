@@ -35,26 +35,21 @@
             this.realRemote = null;
             this.activeBridges = new Set();
             this.pendingMessages = new Map();
+
+            if (comps && comps.Remote) {
+                try {
+                    this.realRemote = new comps.Remote(handleOrEndpoint);
+                } catch (e) { console.error(`[MojoProxy] Error instantiating Remote for ${interfaceName}:`, e); }
+            }
+
             this.id = window.MojoObjectRegistry.register(this, interfaceName);
 
             return new Proxy(this, {
                 get: (target, prop, receiver) => {
                     if (prop in target) return target[prop];
                     if (typeof prop === 'string' && target.realRemote) {
-                        const tryFindMethod = (obj, name) => {
-                            if (!obj) return null;
-                            if (typeof obj[name] === 'function') return obj[name];
-                            // Try camelCase
-                            const camel = name.charAt(0).toLowerCase() + name.slice(1);
-                            if (typeof obj[camel] === 'function') return obj[camel];
-                            // Try PascalCase
-                            const pascal = name.charAt(0).toUpperCase() + name.slice(1);
-                            if (typeof obj[pascal] === 'function') return obj[pascal];
-                            return null;
-                        };
-
-                        const call = tryFindMethod(target.realRemote, prop) || tryFindMethod(target.realRemote.$, prop);
-                        if (call) return (...args) => target.interceptCall(prop, args);
+                        const call = target.realRemote[prop] || (target.realRemote.$ && target.realRemote.$[prop]);
+                        if (typeof call === 'function') return (...args) => target.interceptCall(prop, args);
                     }
                     return Reflect.get(target, prop, receiver);
                 }
