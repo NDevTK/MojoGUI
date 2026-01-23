@@ -15,29 +15,10 @@
     window.mojoNoScramble = window.mojoNoScramble || false;
 
     // ========================================
-    // MojoHandleRegistry
+    // MojoHandleRegistry (Global)
     // ========================================
-    const MojoHandleRegistry = {
-        handles: new Map(),
-        nextId: 1000, // Start high to avoid confusion with small ordinals
-        register(handle) {
-            if (!handle || typeof handle !== 'object') return null;
-            
-            // If it already has our GUI ID, just return it
-            if (handle.__mojoGuiId !== undefined) return handle.__mojoGuiId;
-
-            // Use native .value if available (including 0), otherwise assign our own
-            const id = (handle.value !== undefined && typeof handle.value === 'number') ? handle.value : this.nextId++;
-            handle.__mojoGuiId = id;
-            
-            this.handles.set(id, handle);
-            return id;
-        },
-        get(id) {
-            return this.handles.get(Number(id));
-        }
-    };
-    global.MojoHandleRegistry = MojoHandleRegistry;
+    // Now provided by js/core/HandleRegistry.js
+    const MojoHandleRegistry = global.MojoHandleRegistry;
 
     // ========================================
     // MojoProxy
@@ -222,7 +203,11 @@
                 try {
                     const bridgedArgs = this.processArgs(args);
                     const result = await this.realRemote[methodName](...bridgedArgs);
-                    window.dispatchEvent(new CustomEvent('mojo-response', { detail: { id: callId, result: result, timestamp: Date.now() } }));
+                    
+                    // Auto-register any returned handles/proxies
+                    const finalResult = global.MojoUtils ? global.MojoUtils.autoRegister(result) : result;
+                    
+                    window.dispatchEvent(new CustomEvent('mojo-response', { detail: { id: callId, result: finalResult, timestamp: Date.now() } }));
                     return result;
                 } catch (e) {
                     window.dispatchEvent(new CustomEvent('mojo-error', { detail: { id: callId, error: e.toString(), timestamp: Date.now() } }));

@@ -127,9 +127,10 @@ server.tool(
 );
 server.tool(
     'call_method',
-    'Execute a Mojo method with the given parameters.  Note: To retrieve the results of intercepted calls or raw message data, you must use the "get_intercepted_calls" tool.',
+    'Execute a Mojo method with the given parameters. Note: To retrieve the results of intercepted calls or raw message data, you must use the "get_intercepted_calls" tool.',
     {
-        interface: z.string().describe('The interface name'),
+        interface: z.string().optional().describe('The interface name (e.g. "blink.mojom.FileSystemManager")'),
+        objectId: z.string().optional().describe('ID of an existing object/remote returned by a previous call (e.g. "obj_1")'),
         method: z.string().describe('The method name to call'),
         params: z.record(z.any()).optional().default({}).describe('Parameter values as key-value pairs'),
         isAssociated: z.boolean().optional().default(false).describe('If true, bind as an associated interface to an existing master handle'),
@@ -137,42 +138,26 @@ server.tool(
         interfaceId: z.number().optional().default(0).describe('The interface ordinal ID for the associated interface'),
         userGesture: z.boolean().optional().default(false).describe('If true, simulate a user gesture (activation) for the execution')
     },
-    async ({ interface: iface, method, params = {}, isAssociated = false, masterHandleId, interfaceId = 0, userGesture = false }) => {
+    async ({ interface: iface, objectId, method, params = {}, isAssociated = false, masterHandleId, interfaceId = 0, userGesture = false }) => {
         const code = `
             (async () => {
                 const api = window.MojoGUI_API;
-                if (!api) throw new Error('MojoGUI API not available');
+                const executor = window.MojoExecutionService;
+                if (!executor) throw new Error('MojoExecutionService not available');
                 
-                // Validate interface and method exist
-                const details = await api.getInterfaceDetails(${JSON.stringify(iface)});
-                if (!details) {
-                    return { success: false, error: 'Interface not found: ${iface}' };
-                }
-                
-                const methodExists = details.methods?.some(m => 
-                    m.name === ${JSON.stringify(method)} || 
-                    m.name?.toLowerCase() === ${JSON.stringify(method.toLowerCase())}
-                );
-                if (!methodExists) {
-                    return { 
-                        success: false, 
-                        error: 'Method not found: ${method}',
-                        availableMethods: details.methods?.slice(0, 10).map(m => m.name)
-                    };
-                }
-
-                api.executeMethod(
-                    ${JSON.stringify(iface)},
+                return await executor.call(
+                    { 
+                        interface: ${iface ? JSON.stringify(iface) : 'null'},
+                        objectId: ${objectId ? JSON.stringify(objectId) : 'null'},
+                        masterHandleId: ${masterHandleId ? JSON.stringify(masterHandleId) : 'null'}
+                    },
                     ${JSON.stringify(method)},
                     ${JSON.stringify(params)},
                     {
                         isAssociated: ${isAssociated},
-                        masterHandleId: ${masterHandleId ? JSON.stringify(masterHandleId) : 'null'},
                         interfaceId: ${interfaceId}
                     }
                 );
-                
-                return { success: true, message: 'Method execution started asynchronously' };
             })()
         `;
         const result = await executeInMojoGUI(code, 0, { userGesture });
@@ -602,6 +587,16 @@ server.tool(
             })()
         `;
         const result = await executeInMojoGUI(wrappedCode, 0, { userGesture });
+        
+        // Add helpful hint for common mistake (forgotten return on IIFE)
+        if (result && result.success && result.result === undefined) {
+            const trimmed = code.trim();
+            // Check for (async () => {})() or (() => {})() or similar patterns
+            if (trimmed.startsWith('(') && (trimmed.endsWith(')') || trimmed.endsWith(');'))) {
+                result._hint = 'Result is undefined but code looks like an expression/IIFE. Did you forget to add "return"?';
+            }
+        }
+
         return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
     }
 );
