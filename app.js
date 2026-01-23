@@ -43,6 +43,7 @@
     }
 
     function safeHTML(html) {
+        // Replace this with a proper Trusted Types policy :)
         if (trustedPolicy) {
             return trustedPolicy.createHTML(html);
         }
@@ -566,7 +567,7 @@
         const toggle = document.createElement('div');
         toggle.className = 'associated-toggle';
         toggle.style.marginTop = '8px';
-        toggle.innerHTML = `
+        toggle.innerHTML = safeHTML(`
             <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9em; cursor: pointer;">
                 <input type="checkbox" id="associatedInterfaceToggle">
                 Associated Interface (requires Master Handle)
@@ -581,7 +582,7 @@
                     <input type="number" id="interfaceIdInput" placeholder="Interface ID" style="width: 100%; padding: 4px;">
                 </div>
             </div>
-        `;
+        `);
         header.appendChild(toggle);
 
         const checkbox = toggle.querySelector('#associatedInterfaceToggle');
@@ -1880,20 +1881,20 @@
                 }
             }
 
-        // Debug logging for description field specifically (Safe check)
-        if (mojomType && mojomType.$ && mojomType.$.name && mojomType.$.name.includes('String16')) {
-            console.log('[MojoGUI-Debug] Found String16-like type:', mojomType.$.name);
-        }
+            // Debug logging for description field specifically (Safe check)
+            if (mojomType && mojomType.$ && mojomType.$.name && mojomType.$.name.includes('String16')) {
+                console.log('[MojoGUI-Debug] Found String16-like type:', mojomType.$.name);
+            }
 
-        // Fallback: Check function name directly just in case (though less reliable)
-        if (typeof mojomType === 'function' && mojomType.name === 'String16') {
-            return 'string16';
-        }
+            // Fallback: Check function name directly just in case (though less reliable)
+            if (typeof mojomType === 'function' && mojomType.name === 'String16') {
+                return 'string16';
+            }
 
-        if (typeof mojomType === 'string') return mojomType;
-        return 'string'; // Default to string input for complex types so user can paste JSON/values
+            if (typeof mojomType === 'string') return mojomType;
+            return 'string'; // Default to string input for complex types so user can paste JSON/values
+        }
     }
-}
 
     function resolveMethodSpecs(ifaceMetadata, methodName) {
         // Attempts to resolve parameters from the Loaded Bindings in the page
@@ -2070,11 +2071,11 @@
 
         code += `// Get remote for the interface\n`;
         code += `let ${remoteName};\n`;
-        
+
         if (state.isAssociated) {
             const masterHandleId = state.masterHandleId || '/* INSERT_MASTER_HANDLE_ID */';
             const interfaceId = state.interfaceId || '/* INSERT_INTERFACE_ID */';
-            
+
             code += `// Associated Interface Binding\n`;
             code += `// Requires an existing Master Pipe Handle (e.g. from a parent interface interception)\n`;
             code += `const masterHandle = { value: ${masterHandleId} }; // Wrap raw handle ID\n`;
@@ -2483,7 +2484,7 @@
     function addActivityRow(data) {
         // Ensure status is initialized
         if (!data.status) data.status = 'Pending';
-        
+
         const { id, interface: iface, method, params, timestamp, type, status } = data;
         const rowId = `row_${id}`;
 
@@ -2881,7 +2882,7 @@
         // we process the requested action.
         let handleData = edited;
         if (typeof edited === 'string' && edited.startsWith('{"__mojoType":"Handle"')) {
-            try { handleData = JSON.parse(edited); } catch(e) {}
+            try { handleData = JSON.parse(edited); } catch (e) { }
         }
 
         if (handleData && typeof handleData === 'object' && handleData.__mojoType === 'Handle') {
@@ -2906,12 +2907,12 @@
                         },
                         handle: mockEndpoint
                     };
-                    
+
                     // Log the created handle so user can find it
                     console.log(`[MojoGUI] Created new pipe. Passing Handle ID: ${handle1.value}, Local Handle ID: ${handle0.value}`);
                     // Maybe we should store handle0 somewhere accessible?
                     window.__lastCreatedMojoHandle = handle0;
-                    
+
                     return mockRemote;
                 } catch (e) {
                     console.error('[MojoGUI] Failed to create message pipe:', e);
@@ -2929,7 +2930,7 @@
                         releasePipe: () => mockHandle,
                         unbind: () => mockEndpoint
                     };
-                     const mockRemote = {
+                    const mockRemote = {
                         proxy: {
                             endpoint: mockEndpoint,
                             unbind: () => mockEndpoint
@@ -3000,7 +3001,7 @@
         if (iface === 'Script') {
             const displayParams = typeof params === 'string' ? params : safeStringify(sanitizeKeys(params), 2);
             paramsHtml = `<div class="result-code" style="background: var(--bg-primary); border-color: var(--accent-primary);">${escapeHtml(displayParams)}</div>`;
-            
+
             let resultHtml = '';
             if (detail.result || detail.status === 'Done' || detail.error || detail.status === 'Error') {
                 if (detail.error || detail.status === 'Error') {
@@ -3595,7 +3596,7 @@
          */
         getInterceptedCalls: () => {
             const rows = elements.interceptorTableBody?.querySelectorAll('tr') || [];
-            
+
             // Local serialization helper to handle BigInt and Mojo objects for CDP
             // without stripping arg_ prefixes like sanitizeKeys does.
             const serializeForCDP = (obj, seen = new WeakSet()) => {
@@ -3668,7 +3669,7 @@
         resumeCall: (id, params, drop = false, interceptResponse = false) => {
             const row = document.getElementById(`row_${id}`);
             if (!row) return { error: `Call not found: ${id}` };
-            
+
             if (row.__details?.status !== 'Pending') {
                 return { error: `Call ${id} is not in Pending status (current status: ${row.__details?.status})` };
             }
