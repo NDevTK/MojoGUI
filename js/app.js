@@ -2222,7 +2222,7 @@
         const autoForwardKey = `${e.detail.interface}.${e.detail.method}`;
         if (state.autoForwardMethods.has(autoForwardKey)) {
             // Auto-Forward: Resume immediately
-            const proxy = MojoProxyRegistry.get(e.detail.proxyId);
+            const proxy = MojoObjectRegistry.get(e.detail.proxyId);
             if (proxy) {
                 proxy.resumeCall(e.detail.id, null, false); // false = don't drop, just continue
             }
@@ -2324,7 +2324,7 @@
 
         const row = document.querySelector(`tr[data-id="${id}"]`);
         const proxyId = row.dataset.proxyId;
-        const proxy = MojoProxyRegistry.get(proxyId);
+        const proxy = MojoObjectRegistry.get(proxyId);
 
         if (proxy) {
             // Fix: Use reconcileKeys to restore original field names (e.g. status -> arg_status)
@@ -2557,13 +2557,13 @@
 
         if (drop) {
             // We need to call resumeCall on the proxy
-            const proxy = MojoProxyRegistry.get(proxyId);
+            const proxy = MojoObjectRegistry.get(proxyId);
             if (proxy) {
                 proxy.resumeCall(id, null, true);
                 updateActivityRow(id, 'Dropped');
             }
         } else {
-            const proxy = MojoProxyRegistry.get(proxyId);
+            const proxy = MojoObjectRegistry.get(proxyId);
             if (proxy) {
                 // Reconcile keys with original source of truth
                 const originalParams = (row && row.__details) ? row.__details.params : null;

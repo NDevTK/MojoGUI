@@ -28,7 +28,9 @@
                     if (!masterHandle) throw new Error(`Master Handle ${target.masterHandleId} not found`);
                     const router = new mojo.internal.interfaceSupport.Router(masterHandle);
                     const endpoint = new mojo.internal.interfaceSupport.Endpoint(router, options.interfaceId || 0);
-                    remote = new comps.Remote(endpoint);
+                    
+                    // Wrap in MojoProxy to ensure calls are logged and interceptable
+                    remote = new MojoProxy(interfaceName, endpoint, comps);
                 } else if (target.handleId) {
                     const handle = MojoHandleRegistry.get(target.handleId);
                     if (!handle) throw new Error(`Handle ${target.handleId} not found in registry`);

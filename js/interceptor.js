@@ -24,24 +24,18 @@
     // MojoProxy
     // ========================================
     class MojoProxy {
-        constructor(interfaceName, realHandle, comps) {
-            MojoHandleRegistry.register(realHandle);
+        constructor(interfaceName, handleOrEndpoint, comps) {
+            // Register handle if it's a raw handle, or just assign a GUI ID if it's an endpoint
+            if (handleOrEndpoint) {
+                MojoHandleRegistry.register(handleOrEndpoint);
+            }
+            
             this.interfaceName = interfaceName;
-            this.realHandle = realHandle;
+            this.realHandle = handleOrEndpoint;
             this.realRemote = null;
             this.activeBridges = new Set();
             this.pendingMessages = new Map();
-            this.id = Math.random().toString(36).substr(2, 9);
-
-            if (comps && comps.Remote) {
-                try {
-                    this.realRemote = new comps.Remote(realHandle);
-                } catch (e) { console.error(`[MojoProxy] Error instantiating Remote for ${interfaceName}:`, e); }
-            }
-
-            const registry = global.MojoProxyRegistry || new Map();
-            global.MojoProxyRegistry = registry;
-            registry.set(this.id, this);
+            this.id = window.MojoObjectRegistry.register(this, interfaceName);
 
             return new Proxy(this, {
                 get: (target, prop, receiver) => {
