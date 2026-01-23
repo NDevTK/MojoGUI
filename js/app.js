@@ -965,7 +965,8 @@
         const isHandleType = (typeof effectiveType === 'object' && effectiveType.type === 'mojo_handle') || effectiveType === 'mojo_handle' || typeString === 'mojo_handle';
         const isHandleValue = (value && value.__mojoType === 'Handle') ||
             (value && value.$ && value.proxy && typeof value.$ === 'object') ||
-            (value && value.handle && value.handle.router_);
+            (value && value.handle && value.handle.router_) ||
+            (value && value.$ref); // Recognizes registry references
 
         if (isHandleType || isHandleValue) {
             let ifaceName = 'Unknown';
@@ -974,7 +975,11 @@
             let currentAction = 'preserve';
             let isReceiver = false;
 
-            if (value && value.__mojoType === 'Handle') {
+            if (value && value.$ref) {
+                ifaceName = value.type || 'Unknown';
+                ifaceId = value.$ref;
+                typeLabel = 'Mojo Object';
+            } else if (value && value.__mojoType === 'Handle') {
                 ifaceName = value.interface;
                 ifaceId = value.interfaceId;
                 typeLabel = value.isReceiver ? 'Pending Receiver' : 'Mojo Remote';

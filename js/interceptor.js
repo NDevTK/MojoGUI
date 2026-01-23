@@ -52,7 +52,7 @@
         static getRawHandleFromMojoObject(obj) {
             if (!obj) return null;
 
-            // 1. Check for our new explicit handle property (from generator)
+            // 1. Check for our new explicit handle property (from generator or manual wrap)
             if (obj.__mojoHandle) {
                 MojoHandleRegistry.register(obj.__mojoHandle);
                 return obj.__mojoHandle;
@@ -67,19 +67,20 @@
             const getFromRouter = (r) => {
                 if (!r) return null;
                 // Handle various router property names across versions
-                return r.pipe_ || 
+                return r.pipe_ || r.pipe ||
                        (r.connector_ ? r.connector_.handle_ : null) || 
                        (r.reader_ ? r.reader_.handle_ : null) ||
-                       r.handle_;
+                       r.handle_ || r.handle;
             };
 
             // 3. Direct router (Standard Proxy/Binding)
-            let pipe = getFromRouter(obj.router_);
+            let pipe = getFromRouter(obj.router_) || getFromRouter(obj.router);
             if (pipe) { MojoHandleRegistry.register(pipe); return pipe; }
 
             // 4. Endpoint (Lite Remotes/Receivers)
-            if (obj.endpoint_) {
-                pipe = getFromRouter(obj.endpoint_.router_);
+            if (obj.endpoint_ || obj.endpoint) {
+                const ep = obj.endpoint_ || obj.endpoint;
+                pipe = getFromRouter(ep.router_) || getFromRouter(ep.router) || ep.handle;
                 if (pipe) { MojoHandleRegistry.register(pipe); return pipe; }
             }
 
@@ -111,7 +112,11 @@
                 if (pipe) { MojoHandleRegistry.register(pipe); return pipe; }
             }
 
-            // 7. Nested Proxy
+            // 7. Unwrap if it's already one of our GUI wrappers
+            if (obj.realRemote) return MojoProxy.getRawHandleFromMojoObject(obj.realRemote);
+            if (obj.realHandle) return obj.realHandle;
+
+            // 8. Nested Proxy
             if (obj.proxy) return MojoProxy.getRawHandleFromMojoObject(obj.proxy);
             
             return null;

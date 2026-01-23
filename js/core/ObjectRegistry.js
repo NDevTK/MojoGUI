@@ -43,7 +43,7 @@
             const isRemote = (value.$ && value.proxy) || (value.bindNewPipeAndPassReceiver && typeof value.bindNewPipeAndPassReceiver === 'function');
 
             if (isProxy || isRemote) {
-                const typeName = isProxy ? value.interfaceName : (value.$.interfaceName || typeNameSuggestion);
+                const typeName = isProxy ? value.interfaceName : (value.$.interfaceName || value.interfaceName || typeNameSuggestion);
                 const id = this.register(value, typeName);
                 return { $ref: id, type: typeName };
             }
