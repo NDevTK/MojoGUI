@@ -59,22 +59,23 @@
             // 3. Execute
             const tryFindMethod = (obj, name) => {
                 if (!obj) return null;
-                if (typeof obj[name] === 'function') return obj[name];
+                if (typeof obj[name] === 'function') return { func: obj[name], ctx: obj };
                 // Try camelCase
                 const camel = name.charAt(0).toLowerCase() + name.slice(1);
-                if (typeof obj[camel] === 'function') return obj[camel];
+                if (typeof obj[camel] === 'function') return { func: obj[camel], ctx: obj };
                 // Try PascalCase
                 const pascal = name.charAt(0).toUpperCase() + name.slice(1);
-                if (typeof obj[pascal] === 'function') return obj[pascal];
+                if (typeof obj[pascal] === 'function') return { func: obj[pascal], ctx: obj };
                 return null;
             };
 
-            const callHandler = tryFindMethod(remote, methodName) || tryFindMethod(remote.$, methodName);
+            // Prefer inner implementation ($) if available, as it bypasses wrappers
+            const found = tryFindMethod(remote.$, methodName) || tryFindMethod(remote, methodName);
             
-            if (typeof callHandler !== 'function') throw new Error(`Method ${methodName} not found on ${interfaceName}`);
+            if (!found) throw new Error(`Method ${methodName} not found on ${interfaceName}`);
 
             console.log(`[ExecutionService] ${interfaceName}.${methodName}`, finalArgs);
-            const result = await callHandler.apply(remote.$ || remote, finalArgs);
+            const result = await found.func.apply(found.ctx, finalArgs);
 
             // 4. Auto-register result and return
             return MojoObjectRegistry.autoRegister(result, interfaceName + 'Result');
