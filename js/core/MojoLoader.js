@@ -22,31 +22,33 @@
          * @param {string} interfaceName - The interface name
          */
         async ensureBinding(interfaceName) {
-            if (this._loaded.has(interfaceName)) return true;
-
-            // 1. Check if already resolved via global scan
-            if (this.resolveGlobal(interfaceName)) {
-                this._loaded.add(interfaceName);
-                return true;
-            }
-
-            // 2. Find metadata
-            let iface = this._interfaces.find(i => i.name === interfaceName);
+            // 1. Resolve FQN from metadata first (most reliable)
+            let iface = this._interfaces.find(i => i.name === interfaceName || (i.module + '.' + i.name === interfaceName));
+            
+            // Fuzzy match fallback
             if (!iface) {
-                // Suffix match (e.g. 'FileSystemManager' -> 'blink.mojom.FileSystemManager')
                 iface = this._interfaces.find(i => i.name.endsWith('.' + interfaceName));
             }
             if (!iface) {
-                // Prefix match
                 iface = this._interfaces.find(i => interfaceName.endsWith('.' + i.name));
+            }
+
+            const fqn = iface ? (iface.module + '.' + iface.name) : interfaceName;
+
+            if (this._loaded.has(fqn)) return fqn;
+
+            // 2. Check global existence using FQN
+            if (this.resolveGlobal(fqn)) {
+                this._loaded.add(fqn);
+                return fqn;
             }
 
             if (iface && iface.file && typeof MojoBindings !== 'undefined') {
                 try {
                     await MojoBindings.loadBinding(iface.file);
-                    console.log(`[MojoLoader] Loaded ${iface.file} for ${interfaceName}`);
-                    this._loaded.add(interfaceName);
-                    return true;
+                    console.log(`[MojoLoader] Loaded ${iface.file} for ${fqn}`);
+                    this._loaded.add(fqn);
+                    return fqn;
                 } catch (e) {
                     console.error(`[MojoLoader] Failed to load binding file ${iface.file}:`, e);
                     throw e;
@@ -54,7 +56,7 @@
             }
 
             console.warn(`[MojoLoader] Could not find binding for ${interfaceName}`);
-            return false;
+            return null;
         },
 
         /**

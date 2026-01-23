@@ -17,8 +17,8 @@
                 remote = entry.remote;
                 interfaceName = entry.type;
             } else if (target.interface) {
-                interfaceName = target.interface;
-                await MojoLoader.ensureBinding(interfaceName);
+                const fqn = await MojoLoader.ensureBinding(target.interface);
+                interfaceName = fqn || target.interface;
 
                 const comps = MojoProxy.getInterfaceComponents(interfaceName);
                 if (!comps.Remote) throw new Error(`Remote class not found for ${interfaceName}`);
