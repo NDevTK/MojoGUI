@@ -1076,16 +1076,16 @@
                 const meta = value.$;
                 ifaceName = meta.interfaceName || (meta.proxy && meta.proxy.interfaceName) || 'Unknown';
                 // Try to get ID from registry
-                const rawHandle = MojoProxy.getRawHandleFromMojoObject(value);
+                const rawHandle = (typeof MojoProxy !== 'undefined') ? MojoProxy.getRawHandleFromMojoObject(value) : null;
                 ifaceId = (typeof MojoHandleRegistry !== 'undefined' && rawHandle) ? MojoHandleRegistry.register(rawHandle) : (meta.interfaceId || '0');
                 typeLabel = 'Mojo Remote';
-            } else if (value && value.handle && (value.handle.router_ || value.handle.__mojoGuiId !== undefined || value.handle.value !== undefined)) {
+            } else if (value && (value.handle || value.router_ || value.endpoint_)) {
                 typeLabel = 'Pending Receiver';
-                ifaceId = value.handle.interfaceId_ !== undefined ? value.handle.interfaceId_ : 
-                          ((typeof MojoHandleRegistry !== 'undefined') ? MojoHandleRegistry.register(value.handle) : (value.handle.value || '0'));
+                const rawHandle = (typeof MojoProxy !== 'undefined') ? MojoProxy.getRawHandleFromMojoObject(value) : null;
+                ifaceId = (typeof MojoHandleRegistry !== 'undefined' && rawHandle) ? MojoHandleRegistry.register(rawHandle) : '0';
                 ifaceName = 'PendingReceiver';
                 isReceiver = true;
-            } else if (value && (value.__mojoGuiId !== undefined || value.value !== undefined)) {
+            } else if (value && (value.__mojoGuiId !== undefined || value.value !== undefined || (value.writeMessage && value.readMessage))) {
                 // Raw MojoHandle object
                 ifaceId = (typeof MojoHandleRegistry !== 'undefined') ? MojoHandleRegistry.register(value) : (value.value || '0');
                 ifaceName = 'MojoHandle';
@@ -2762,23 +2762,25 @@
         seen.add(obj);
 
         // Mojo Remote/Handle Detection:
-        // These objects usually have a '$' property containing metadata and a 'proxy' property.
-        // OR they are PendingReceivers with a 'handle' and 'router_'.
-        if ((obj.$ && obj.proxy && typeof obj.$ === 'object') || (obj.handle && obj.handle.router_)) {
+        const rawHandle = (typeof MojoProxy !== 'undefined') ? MojoProxy.getRawHandleFromMojoObject(obj) : null;
+        if (rawHandle) {
+            const guiId = (typeof MojoHandleRegistry !== 'undefined') ? MojoHandleRegistry.register(rawHandle) : 0;
             if (obj.$ && obj.proxy) {
                 const meta = obj.$;
                 return {
                     __mojoType: 'Handle',
                     interface: meta.interfaceName || (meta.proxy && meta.proxy.interfaceName) || 'Unknown',
-                    interfaceId: meta.interfaceId || (meta.proxy && meta.proxy.interfaceId) || 0,
-                    namespace: meta.interfaceNameNamespace || ''
+                    interfaceId: guiId,
+                    namespace: meta.interfaceNameNamespace || '',
+                    isReceiver: false
                 };
             } else {
                 return {
                     __mojoType: 'Handle',
                     interface: 'PendingReceiver',
-                    interfaceId: obj.handle.interfaceId_ || 0,
-                    namespace: ''
+                    interfaceId: guiId,
+                    namespace: '',
+                    isReceiver: true
                 };
             }
         }
@@ -3665,13 +3667,11 @@
                 seen.add(obj);
 
                 // Detect Mojo objects to avoid CDP serialization errors
-                // Use the same detection logic as sanitizeKeys but structured for MCP/GUI editing
-                if ((obj.$ && obj.proxy && typeof obj.$ === 'object') || (obj.handle && obj.handle.router_)) {
+                const rawHandle = (typeof MojoProxy !== 'undefined') ? MojoProxy.getRawHandleFromMojoObject(obj) : null;
+                if (rawHandle) {
+                    const guiId = (typeof MojoHandleRegistry !== 'undefined') ? MojoHandleRegistry.register(rawHandle) : 0;
                     if (obj.$ && obj.proxy) {
                         const meta = obj.$;
-                        const rawHandle = (typeof MojoProxy !== 'undefined') ? MojoProxy.getRawHandleFromMojoObject(obj) : null;
-                        const guiId = (typeof MojoHandleRegistry !== 'undefined' && rawHandle) ? MojoHandleRegistry.register(rawHandle) : (meta.interfaceId || 0);
-                        
                         return {
                             __mojoType: 'Handle',
                             interface: meta.interfaceName || (meta.proxy && meta.proxy.interfaceName) || 'Unknown',
@@ -3680,7 +3680,6 @@
                             isReceiver: false
                         };
                     } else {
-                        const guiId = (typeof MojoHandleRegistry !== 'undefined') ? MojoHandleRegistry.register(obj.handle) : (obj.handle.interfaceId_ || 0);
                         return {
                             __mojoType: 'Handle',
                             interface: 'PendingReceiver',

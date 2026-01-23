@@ -76,17 +76,69 @@
 
         static getRawHandleFromMojoObject(obj) {
             if (!obj) return null;
+
+            // Check if it's already a raw MojoHandle
+            if (obj.writeMessage && typeof obj.writeMessage === 'function') {
+                MojoHandleRegistry.register(obj);
+                return obj;
+            }
+
             const getFromRouter = (r) => {
                 if (!r) return null;
-                return r.connector_ ? r.connector_.handle_ : (r.pipe_ || (r.reader_ ? r.reader_.handle_ : null));
+                // Handle various router property names across versions
+                return r.pipe_ || 
+                       (r.connector_ ? r.connector_.handle_ : null) || 
+                       (r.reader_ ? r.reader_.handle_ : null) ||
+                       r.handle_; // Some older/different versions
             };
+
+            // 1. Direct router (Standard Proxy/Binding)
             let pipe = getFromRouter(obj.router_);
             if (pipe) { MojoHandleRegistry.register(pipe); return pipe; }
-            if (obj.endpoint_) pipe = getFromRouter(obj.endpoint_.router_);
-            if (pipe) { MojoHandleRegistry.register(pipe); return pipe; }
-            if (obj.$ && obj.$.router_) pipe = getFromRouter(obj.$.router_);
-            if (pipe) { MojoHandleRegistry.register(pipe); return pipe; }
+
+            // 2. Endpoint (Lite Remotes/Receivers)
+            if (obj.endpoint_) {
+                pipe = getFromRouter(obj.endpoint_.router_);
+                if (pipe) { MojoHandleRegistry.register(pipe); return pipe; }
+            }
+
+            // 3. Receiver wrapper
+            if (obj.handle) {
+                if (obj.handle.writeMessage) {
+                    MojoHandleRegistry.register(obj.handle);
+                    return obj.handle;
+                }
+                // obj.handle might be an Endpoint
+                pipe = getFromRouter(obj.handle.router_ || obj.handle.router);
+                if (pipe) { MojoHandleRegistry.register(pipe); return pipe; }
+            }
+
+            // 4. Lite Binding Internal State ($ property)
+            if (obj.$) {
+                const meta = obj.$;
+                // Check InterfaceRemoteBaseWrapper -> InterfaceRemoteBase -> Endpoint
+                const remote = meta.remote_ || meta.proxy;
+                const endpoint = (remote ? (remote.endpoint_ || remote.endpoint) : null) || meta.endpoint || meta.endpoint_;
+                const router = (endpoint ? (endpoint.router_ || endpoint.router) : null) || meta.router_ || meta.router;
+                
+                pipe = getFromRouter(router);
+                if (pipe) { MojoHandleRegistry.register(pipe); return pipe; }
+            }
+
+            // 5. Nested Proxy
             if (obj.proxy) return MojoProxy.getRawHandleFromMojoObject(obj.proxy);
+            
+            // 6. Generic check for any property that looks like a router/endpoint/handle
+            for (const key in obj) {
+                if (key.endsWith('_') && obj[key] && typeof obj[key] === 'object') {
+                    // Avoid infinite recursion on obvious non-mojo properties
+                    if (key === 'router_' || key === 'endpoint_' || key === 'handle_') {
+                         pipe = MojoProxy.getRawHandleFromMojoObject(obj[key]);
+                         if (pipe) return pipe;
+                    }
+                }
+            }
+
             return null;
         }
 
