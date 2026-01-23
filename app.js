@@ -574,12 +574,13 @@
             </label>
             <div id="associatedInputs" style="display: none; margin-top: 8px; padding: 8px; background: var(--bg-input); border-radius: 4px;">
                 <div style="margin-bottom: 8px;">
-                    <label style="display: block; font-size: 0.8em; margin-bottom: 4px;">Master Pipe Handle (e.g. from Renderer)</label>
-                    <input type="number" id="masterHandleInput" placeholder="Master Handle ID" style="width: 100%; padding: 4px;">
+                    <label style="display: block; font-size: 0.8em; margin-bottom: 4px;">Master Pipe Handle ID (from Interceptor or card)</label>
+                    <input type="text" id="masterHandleInput" placeholder="e.g. 1001" style="width: 100%; padding: 4px; background: var(--bg-dark); color: var(--text-main); border: 1px solid var(--border-subtle); border-radius: 4px;">
+                    <div style="font-size: 0.7em; color: var(--text-muted); margin-top: 4px;">Check the Activity log or console for Handle IDs.</div>
                 </div>
                 <div>
                     <label style="display: block; font-size: 0.8em; margin-bottom: 4px;">Interface ID (Ordinal)</label>
-                    <input type="number" id="interfaceIdInput" placeholder="Interface ID" style="width: 100%; padding: 4px;">
+                    <input type="number" id="interfaceIdInput" placeholder="0" style="width: 100%; padding: 4px; background: var(--bg-dark); color: var(--text-main); border: 1px solid var(--border-subtle); border-radius: 4px;">
                 </div>
             </div>
         `);
@@ -1074,13 +1075,21 @@
             } else if (value && value.$ && value.proxy) {
                 const meta = value.$;
                 ifaceName = meta.interfaceName || (meta.proxy && meta.proxy.interfaceName) || 'Unknown';
-                ifaceId = meta.interfaceId || (meta.proxy && meta.proxy.interfaceId) || '0';
+                // Try to get ID from registry
+                const rawHandle = MojoProxy.getRawHandleFromMojoObject(value);
+                ifaceId = (typeof MojoHandleRegistry !== 'undefined' && rawHandle) ? MojoHandleRegistry.register(rawHandle) : (meta.interfaceId || '0');
                 typeLabel = 'Mojo Remote';
-            } else if (value && value.handle && value.handle.router_) {
+            } else if (value && value.handle && (value.handle.router_ || value.handle.__mojoGuiId !== undefined || value.handle.value !== undefined)) {
                 typeLabel = 'Pending Receiver';
-                ifaceId = value.handle.interfaceId_ || '0';
+                ifaceId = value.handle.interfaceId_ !== undefined ? value.handle.interfaceId_ : 
+                          ((typeof MojoHandleRegistry !== 'undefined') ? MojoHandleRegistry.register(value.handle) : (value.handle.value || '0'));
                 ifaceName = 'PendingReceiver';
                 isReceiver = true;
+            } else if (value && (value.__mojoGuiId !== undefined || value.value !== undefined)) {
+                // Raw MojoHandle object
+                ifaceId = (typeof MojoHandleRegistry !== 'undefined') ? MojoHandleRegistry.register(value) : (value.value || '0');
+                ifaceName = 'MojoHandle';
+                typeLabel = 'Handle';
             } else if (isHandleType) {
                 // Manual Mode, no value yet.
                 if (typeof effectiveType === 'object' && effectiveType.interface) {
@@ -2078,7 +2087,14 @@
 
             code += `// Associated Interface Binding\n`;
             code += `// Requires an existing Master Pipe Handle (e.g. from a parent interface interception)\n`;
-            code += `const masterHandle = { value: ${masterHandleId} }; // Wrap raw handle ID\n`;
+            if (state.masterHandleId) {
+                code += `const masterHandle = (typeof MojoHandleRegistry !== 'undefined') ? MojoHandleRegistry.get(${masterHandleId}) : null;\n`;
+                code += `if (!masterHandle) {\n`;
+                code += `    throw new Error("[MojoGUI] Master Handle ID ${masterHandleId} not found in MojoHandleRegistry. Associated interfaces require a REAL handle object.");\n`;
+                code += `}\n`;
+            } else {
+                code += `const masterHandle = { value: /* INSERT_MASTER_HANDLE_ID */ }; // ERROR: Real handle object required\n`;
+            }
             code += `const router = new mojo.internal.interfaceSupport.Router(masterHandle);\n`;
             code += `const endpoint = new mojo.internal.interfaceSupport.Endpoint(router, ${interfaceId});\n`;
             code += `${remoteName} = new root.${iface.name}Remote(endpoint);\n`;
@@ -2892,6 +2908,13 @@
             if (action === 'new_pipe') {
                 try {
                     const { handle0, handle1 } = Mojo.createMessagePipe();
+                    // Register both ends in our registry
+                    let id0 = '?', id1 = '?';
+                    if (typeof MojoHandleRegistry !== 'undefined') {
+                        id0 = MojoHandleRegistry.register(handle0);
+                        id1 = MojoHandleRegistry.register(handle1);
+                    }
+
                     // One handle is passed to the method, the other is kept.
                     // We return a mock object that works for Remote, Receiver, and Associated types.
                     const mockEndpoint = {
@@ -2909,7 +2932,7 @@
                     };
 
                     // Log the created handle so user can find it
-                    console.log(`[MojoGUI] Created new pipe. Passing Handle ID: ${handle1.value}, Local Handle ID: ${handle0.value}`);
+                    console.log(`[MojoGUI] Created new pipe. Passing Handle ID: ${id1}, Local Handle ID: ${id0}`);
                     // Maybe we should store handle0 somewhere accessible?
                     window.__lastCreatedMojoHandle = handle0;
 
@@ -2922,12 +2945,19 @@
             if (action === 'use_handle') {
                 const handleId = parseInt(handleData.customHandle, 10);
                 if (!isNaN(handleId)) {
-                    // Create a mock handle wrapper for the existing handle ID
-                    const mockHandle = { value: handleId };
+                    // Strictly require real handle from registry
+                    const realHandle = (typeof MojoHandleRegistry !== 'undefined') ? MojoHandleRegistry.get(handleId) : null;
+                    
+                    if (!realHandle) {
+                        console.error(`[MojoGUI] Cannot use Handle ID ${handleId}: Not found in MojoHandleRegistry. Mocks are not supported.`);
+                        showToast(`Handle ID ${handleId} not found in registry.`, 'error');
+                        return null;
+                    }
+
                     const mockEndpoint = {
-                        handle: mockHandle,
+                        handle: realHandle,
                         isPrimary: () => true,
-                        releasePipe: () => mockHandle,
+                        releasePipe: () => realHandle,
                         unbind: () => mockEndpoint
                     };
                     const mockRemote = {
@@ -2937,7 +2967,7 @@
                         },
                         handle: mockEndpoint
                     };
-                    console.log(`[MojoGUI] Using existing Handle ID: ${handleId}`);
+                    console.log(`[MojoGUI] Using REAL Handle ID from registry: ${handleId}`);
                     return mockRemote;
                 }
             }
@@ -3444,9 +3474,10 @@
          * @param {string} ifaceName - Interface name
          * @param {string} methodName - Method name
          * @param {Object} params - Parameter values
+         * @param {Object} options - Association options { isAssociated, masterHandleId, interfaceId }
          * @returns {string} Generated code
          */
-        generateCode: async (ifaceName, methodName, params = {}) => {
+        generateCode: async (ifaceName, methodName, params = {}, options = {}) => {
             // Load binding first to ensure params can be resolved
             await MojoLoader.ensureBinding(ifaceName);
 
@@ -3454,16 +3485,29 @@
             const prevIface = state.selectedInterface;
             const prevMethod = state.selectedMethod;
             const prevParams = state.paramValues;
+            const prevAssoc = state.isAssociated;
+            const prevMaster = state.masterHandleId;
+            const prevIfaceId = state.interfaceId;
+
             const iface = state.interfaces.find(i => i.name === ifaceName || (i.module + '.' + i.name === ifaceName));
             if (!iface) return `// Interface not found: ${ifaceName}`;
+            
             state.selectedInterface = iface;
             state.selectedMethod = methodName || null;
             state.paramValues = params || {};
+            state.isAssociated = !!options.isAssociated;
+            state.masterHandleId = options.masterHandleId || null;
+            state.interfaceId = options.interfaceId || 0;
+
             const code = generateCode(false);
+
             // Restore state
             state.selectedInterface = prevIface;
             state.selectedMethod = prevMethod;
             state.paramValues = prevParams;
+            state.isAssociated = prevAssoc;
+            state.masterHandleId = prevMaster;
+            state.interfaceId = prevIfaceId;
             return code;
         },
         // ---- Execution ----
@@ -3473,9 +3517,10 @@
          * @param {string} ifaceName - Interface name
          * @param {string} methodName - Method name
          * @param {Object} params - Object of parameter key-value pairs
+         * @param {Object} options - Association options { isAssociated, masterHandleId, interfaceId }
          * @returns {Object} Result or error
          */
-        executeMethod: async (ifaceName, methodName, params = {}) => {
+        executeMethod: async (ifaceName, methodName, params = {}, options = {}) => {
             if (!state.mojoAvailable) {
                 return { error: 'MojoJS is not available' };
             }
@@ -3489,15 +3534,27 @@
             const prevIface = state.selectedInterface;
             const prevMethod = state.selectedMethod;
             const prevParams = state.paramValues;
+            const prevAssoc = state.isAssociated;
+            const prevMaster = state.masterHandleId;
+            const prevIfaceId = state.interfaceId;
+
             state.selectedInterface = iface;
             state.selectedMethod = methodName;
             state.paramValues = params;
+            state.isAssociated = !!options.isAssociated;
+            state.masterHandleId = options.masterHandleId || null;
+            state.interfaceId = options.interfaceId || 0;
+
             // Generate code using existing function (isExecution=true adds arg_ prefixes)
             const code = generateCode(true);
+
             // Restore state
             state.selectedInterface = prevIface;
             state.selectedMethod = prevMethod;
             state.paramValues = prevParams;
+            state.isAssociated = prevAssoc;
+            state.masterHandleId = prevMaster;
+            state.interfaceId = prevIfaceId;
             // Execute using existing script injection pattern
             const execId = 'api_exec_' + Date.now();
             const wrappedCode = `
@@ -3612,18 +3669,22 @@
                 if ((obj.$ && obj.proxy && typeof obj.$ === 'object') || (obj.handle && obj.handle.router_)) {
                     if (obj.$ && obj.proxy) {
                         const meta = obj.$;
+                        const rawHandle = (typeof MojoProxy !== 'undefined') ? MojoProxy.getRawHandleFromMojoObject(obj) : null;
+                        const guiId = (typeof MojoHandleRegistry !== 'undefined' && rawHandle) ? MojoHandleRegistry.register(rawHandle) : (meta.interfaceId || 0);
+                        
                         return {
                             __mojoType: 'Handle',
                             interface: meta.interfaceName || (meta.proxy && meta.proxy.interfaceName) || 'Unknown',
-                            interfaceId: meta.interfaceId || (meta.proxy && meta.proxy.interfaceId) || 0,
+                            interfaceId: guiId,
                             namespace: meta.interfaceNameNamespace || '',
                             isReceiver: false
                         };
                     } else {
+                        const guiId = (typeof MojoHandleRegistry !== 'undefined') ? MojoHandleRegistry.register(obj.handle) : (obj.handle.interfaceId_ || 0);
                         return {
                             __mojoType: 'Handle',
                             interface: 'PendingReceiver',
-                            interfaceId: obj.handle.interfaceId_ || 0,
+                            interfaceId: guiId,
                             namespace: '',
                             isReceiver: true
                         };
@@ -3770,6 +3831,63 @@
             trafficCount: state.trafficCount,
             interceptResponses: state.interceptResponses
         }),
+        // ---- Handle Management ----
+        /**
+         * Create a new Mojo message pipe
+         * @returns {Object} Object containing IDs of handle0 and handle1
+         */
+        createMessagePipe: () => {
+            if (typeof Mojo === 'undefined') return { error: 'Mojo not available' };
+            try {
+                const { handle0, handle1 } = Mojo.createMessagePipe();
+                const id0 = MojoHandleRegistry.register(handle0);
+                const id1 = MojoHandleRegistry.register(handle1);
+                console.log(`[MojoGUI_API] Created message pipe: ${id0} <-> ${id1}`);
+                return { handle0: id0, handle1: id1 };
+            } catch (e) {
+                return { error: e.message };
+            }
+        },
+        /**
+         * Get details about a specific handle
+         * @param {string|number} id - Handle ID
+         * @returns {Object} Handle details
+         */
+        getHandleDetails: (id) => {
+            if (typeof MojoHandleRegistry === 'undefined') return { error: 'Registry not available' };
+            const handle = MojoHandleRegistry.get(id);
+            if (!handle) return { error: 'Handle not found' };
+            return {
+                id: handle.__mojoGuiId,
+                nativeValue: handle.value,
+                isClosed: !handle.value && handle.value !== 0 && !handle.watch // Heuristic check
+            };
+        },
+        /**
+         * Close a specific handle
+         * @param {string|number} id - Handle ID
+         * @returns {Object} Success or error
+         */
+        closeHandle: (id) => {
+            if (typeof MojoHandleRegistry === 'undefined') return { error: 'Registry not available' };
+            const handle = MojoHandleRegistry.get(id);
+            if (!handle) return { error: 'Handle not found' };
+            try {
+                handle.close();
+                console.log(`[MojoGUI_API] Closed handle ${id}`);
+                return { success: true };
+            } catch (e) {
+                return { error: e.message };
+            }
+        },
+        /**
+         * List all registered handles
+         * @returns {Array} Array of handle IDs
+         */
+        listHandles: () => {
+            if (typeof MojoHandleRegistry === 'undefined') return [];
+            return Array.from(MojoHandleRegistry.handles.keys());
+        },
         /**
          * Set response interception mode
          * @param {boolean} enabled - Whether to intercept responses

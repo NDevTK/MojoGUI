@@ -15,10 +15,36 @@
     window.mojoNoScramble = window.mojoNoScramble || false;
 
     // ========================================
+    // MojoHandleRegistry
+    // ========================================
+    const MojoHandleRegistry = {
+        handles: new Map(),
+        nextId: 1000, // Start high to avoid confusion with small ordinals
+        register(handle) {
+            if (!handle || typeof handle !== 'object') return null;
+            
+            // If it already has our GUI ID, just return it
+            if (handle.__mojoGuiId !== undefined) return handle.__mojoGuiId;
+
+            // Use native .value if available (including 0), otherwise assign our own
+            const id = (handle.value !== undefined && typeof handle.value === 'number') ? handle.value : this.nextId++;
+            handle.__mojoGuiId = id;
+            
+            this.handles.set(id, handle);
+            return id;
+        },
+        get(id) {
+            return this.handles.get(Number(id));
+        }
+    };
+    global.MojoHandleRegistry = MojoHandleRegistry;
+
+    // ========================================
     // MojoProxy
     // ========================================
     class MojoProxy {
         constructor(interfaceName, realHandle, comps) {
+            MojoHandleRegistry.register(realHandle);
             this.interfaceName = interfaceName;
             this.realHandle = realHandle;
             this.realRemote = null;
@@ -55,11 +81,11 @@
                 return r.connector_ ? r.connector_.handle_ : (r.pipe_ || (r.reader_ ? r.reader_.handle_ : null));
             };
             let pipe = getFromRouter(obj.router_);
-            if (pipe) return pipe;
+            if (pipe) { MojoHandleRegistry.register(pipe); return pipe; }
             if (obj.endpoint_) pipe = getFromRouter(obj.endpoint_.router_);
-            if (pipe) return pipe;
+            if (pipe) { MojoHandleRegistry.register(pipe); return pipe; }
             if (obj.$ && obj.$.router_) pipe = getFromRouter(obj.$.router_);
-            if (pipe) return pipe;
+            if (pipe) { MojoHandleRegistry.register(pipe); return pipe; }
             if (obj.proxy) return MojoProxy.getRawHandleFromMojoObject(obj.proxy);
             return null;
         }
@@ -78,7 +104,10 @@
         }
 
         bridgeHandle(rawHandle, label) {
+            MojoHandleRegistry.register(rawHandle);
             const { handle0, handle1 } = Mojo.createMessagePipe();
+            MojoHandleRegistry.register(handle0);
+            MojoHandleRegistry.register(handle1);
             const routerOriginal = new mojo.internal.interfaceSupport.Router(rawHandle);
             const routerLocal = new mojo.internal.interfaceSupport.Router(handle0);
 
@@ -217,9 +246,12 @@
         }
 
         static create(ifaceName, handle) {
+            MojoHandleRegistry.register(handle);
             const comps = MojoProxy.getInterfaceComponents(ifaceName);
             if (!comps.Interface && !comps.Remote) return null;
             const pipe = Mojo.createMessagePipe();
+            MojoHandleRegistry.register(pipe.handle0);
+            MojoHandleRegistry.register(pipe.handle1);
             const proxyImpl = new MojoProxy(ifaceName, pipe.handle0, comps);
             try {
                 if (comps.Receiver) (new comps.Receiver(proxyImpl)).bind(handle);
@@ -257,6 +289,7 @@
     const InterceptorManager = {
         interceptors: new Map(), modes: new Map(),
         async handleRequest(ifaceName, clientHandle) {
+            MojoHandleRegistry.register(clientHandle);
             if (global.MojoLoader) await global.MojoLoader.ensureBinding(ifaceName);
             try {
                 const proxyData = MojoProxy.create(ifaceName, clientHandle);

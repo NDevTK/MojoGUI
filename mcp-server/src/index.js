@@ -132,9 +132,12 @@ server.tool(
         interface: z.string().describe('The interface name'),
         method: z.string().describe('The method name to call'),
         params: z.record(z.any()).optional().default({}).describe('Parameter values as key-value pairs'),
+        isAssociated: z.boolean().optional().default(false).describe('If true, bind as an associated interface to an existing master handle'),
+        masterHandleId: z.string().optional().describe('The ID of the master handle to bind to (required if isAssociated is true)'),
+        interfaceId: z.number().optional().default(0).describe('The interface ordinal ID for the associated interface'),
         userGesture: z.boolean().optional().default(false).describe('If true, simulate a user gesture (activation) for the execution')
     },
-    async ({ interface: iface, method, params = {}, userGesture = false }) => {
+    async ({ interface: iface, method, params = {}, isAssociated = false, masterHandleId, interfaceId = 0, userGesture = false }) => {
         const code = `
             (async () => {
                 const api = window.MojoGUI_API;
@@ -161,7 +164,12 @@ server.tool(
                 api.executeMethod(
                     ${JSON.stringify(iface)},
                     ${JSON.stringify(method)},
-                    ${JSON.stringify(params)}
+                    ${JSON.stringify(params)},
+                    {
+                        isAssociated: ${isAssociated},
+                        masterHandleId: ${masterHandleId ? JSON.stringify(masterHandleId) : 'null'},
+                        interfaceId: ${interfaceId}
+                    }
                 );
                 
                 return { success: true, message: 'Method execution started asynchronously' };
@@ -177,9 +185,12 @@ server.tool(
     {
         interface: z.string().describe('The interface name'),
         method: z.string().describe('The method name'),
-        params: z.record(z.any()).optional().default({}).describe('Parameter values as key-value pairs')
+        params: z.record(z.any()).optional().default({}).describe('Parameter values as key-value pairs'),
+        isAssociated: z.boolean().optional().default(false).describe('If true, bind as an associated interface to an existing master handle'),
+        masterHandleId: z.string().optional().describe('The ID of the master handle to bind to (required if isAssociated is true)'),
+        interfaceId: z.number().optional().default(0).describe('The interface ordinal ID for the associated interface')
     },
-    async ({ interface: iface, method, params = {} }) => {
+    async ({ interface: iface, method, params = {}, isAssociated = false, masterHandleId, interfaceId = 0 }) => {
         const code = `
             (async () => {
                 const api = window.MojoGUI_API;
@@ -188,7 +199,12 @@ server.tool(
                 return api.generateCode(
                     ${JSON.stringify(iface)},
                     ${JSON.stringify(method)},
-                    ${JSON.stringify(params)}
+                    ${JSON.stringify(params)},
+                    {
+                        isAssociated: ${isAssociated},
+                        masterHandleId: ${masterHandleId ? JSON.stringify(masterHandleId) : 'null'},
+                        interfaceId: ${interfaceId}
+                    }
                 );
             })()
         `;
@@ -347,6 +363,80 @@ server.tool(
                 );
                 
                 return result;
+            })()
+        `;
+        const result = await executeInMojoGUI(code);
+        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
+    }
+);
+
+// ---- Handle Management Tools ----
+
+server.tool(
+    'create_message_pipe',
+    'Create a new Mojo message pipe. Returns the IDs of the two new handles.',
+    {},
+    async () => {
+        const code = `
+            (async () => {
+                const api = window.MojoGUI_API;
+                if (!api) throw new Error('MojoGUI API not available');
+                return api.createMessagePipe();
+            })()
+        `;
+        const result = await executeInMojoGUI(code);
+        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
+    }
+);
+
+server.tool(
+    'get_handle_details',
+    'Get details about a specific handle by its trackable ID.',
+    {
+        id: z.union([z.string(), z.number()]).describe('The trackable handle ID')
+    },
+    async ({ id }) => {
+        const code = `
+            (async () => {
+                const api = window.MojoGUI_API;
+                if (!api) throw new Error('MojoGUI API not available');
+                return api.getHandleDetails(${JSON.stringify(id)});
+            })()
+        `;
+        const result = await executeInMojoGUI(code);
+        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
+    }
+);
+
+server.tool(
+    'close_handle',
+    'Close a specific Mojo handle by its ID.',
+    {
+        id: z.union([z.string(), z.number()]).describe('The trackable handle ID')
+    },
+    async ({ id }) => {
+        const code = `
+            (async () => {
+                const api = window.MojoGUI_API;
+                if (!api) throw new Error('MojoGUI API not available');
+                return api.closeHandle(${JSON.stringify(id)});
+            })()
+        `;
+        const result = await executeInMojoGUI(code);
+        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
+    }
+);
+
+server.tool(
+    'list_handles',
+    'List all currently trackable Mojo handle IDs.',
+    {},
+    async () => {
+        const code = `
+            (async () => {
+                const api = window.MojoGUI_API;
+                if (!api) throw new Error('MojoGUI API not available');
+                return api.listHandles();
             })()
         `;
         const result = await executeInMojoGUI(code);
