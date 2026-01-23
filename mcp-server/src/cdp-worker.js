@@ -103,6 +103,15 @@ parentPort.on('message', async (msg) => {
                 parentPort.postMessage({ id, success: true });
                 break;
 
+            case 'get_logs':
+                parentPort.postMessage({ id, success: true, result: client.getConsoleLogs(options?.clear) });
+                break;
+
+            case 'clear_logs':
+                client.clearConsoleLogs();
+                parentPort.postMessage({ id, success: true });
+                break;
+
             default:
                 parentPort.postMessage({ id, success: false, error: `Unknown command: ${type}` });
         }

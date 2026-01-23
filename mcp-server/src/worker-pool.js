@@ -148,6 +148,20 @@ export class WorkerPool {
     }
 
     /**
+     * Get captured console logs
+     */
+    async getLogs(clear = false) {
+        return await this.send('get_logs', { options: { clear } });
+    }
+
+    /**
+     * Clear captured console logs
+     */
+    async clearLogs() {
+        return await this.send('clear_logs');
+    }
+
+    /**
      * Reset the worker (reconnect after crash)
      */
     async reset() {

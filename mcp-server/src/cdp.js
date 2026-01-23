@@ -32,6 +32,8 @@ export class CDPClient {
         this.crashed = false;
         this.lastCrashInfo = null;
         this.crashListeners = [];
+        this.consoleLogs = [];
+        this.maxLogs = options.maxLogs || 1000;
     }
 
     /**
@@ -39,6 +41,24 @@ export class CDPClient {
      */
     onCrash(callback) {
         this.crashListeners.push(callback);
+    }
+
+    /**
+     * Get and optionally clear console logs
+     */
+    getConsoleLogs(clear = false) {
+        const logs = [...this.consoleLogs];
+        if (clear) {
+            this.consoleLogs = [];
+        }
+        return logs;
+    }
+
+    /**
+     * Clear console logs
+     */
+    clearConsoleLogs() {
+        this.consoleLogs = [];
     }
     /**
      * Discover available Chrome pages/targets
@@ -355,6 +375,40 @@ export class CDPClient {
      * Handle incoming CDP messages
      */
     _handleMessage(message) {
+        // Handle session-based events
+        if (message.sessionId && message.sessionId === this.sessionId) {
+            if (message.method === 'Runtime.consoleAPICalled') {
+                const { type, args, timestamp, stackTrace } = message.params;
+                const logEntry = {
+                    type: 'console',
+                    level: type,
+                    timestamp,
+                    text: args.map(arg => arg.value !== undefined ? arg.value : (arg.description || JSON.stringify(arg))).join(' '),
+                    stackTrace
+                };
+                this.consoleLogs.push(logEntry);
+                if (this.consoleLogs.length > this.maxLogs) this.consoleLogs.shift();
+                return;
+            }
+
+            if (message.method === 'Runtime.exceptionThrown') {
+                const { timestamp, exceptionDetails } = message.params;
+                const logEntry = {
+                    type: 'exception',
+                    level: 'error',
+                    timestamp,
+                    text: exceptionDetails.exception?.description || exceptionDetails.text || 'Unknown exception',
+                    url: exceptionDetails.url,
+                    line: exceptionDetails.lineNumber,
+                    column: exceptionDetails.columnNumber,
+                    stackTrace: exceptionDetails.stackTrace
+                };
+                this.consoleLogs.push(logEntry);
+                if (this.consoleLogs.length > this.maxLogs) this.consoleLogs.shift();
+                return;
+            }
+        }
+
         // Handle crash events from Target domain
         if (message.method === 'Target.targetCrashed') {
             const { targetId, errorCode, status } = message.params;
@@ -407,6 +461,17 @@ export class CDPClient {
             timestamp: Date.now(),
             formattedError: formatCrashError(exitCode)
         };
+
+        // Record crash in console logs
+        this.consoleLogs.push({
+            type: 'crash',
+            level: 'fatal',
+            timestamp: Date.now(),
+            text: `RENDERER CRASHED: ${this.lastCrashInfo.formattedError}`,
+            exitCode: exitCode,
+            codeName: codeInfo.name
+        });
+        if (this.consoleLogs.length > this.maxLogs) this.consoleLogs.shift();
 
         console.error(`[CDP] Renderer crashed: ${codeInfo.name} (${exitCode})`);
         console.error(`[CDP] ${codeInfo.note}`);

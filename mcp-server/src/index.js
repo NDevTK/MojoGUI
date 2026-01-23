@@ -40,8 +40,31 @@ async function executeInMojoGUI(code, retryCount = 0, options = {}) {
         throw error;
     }
 
-    const result = await pool.evaluate(code, options);
-    return result;
+    try {
+        const result = await pool.evaluate(code, options);
+        return result;
+    } catch (error) {
+        // If renderer crashed, try to get last logs and reset
+        if (error.crashed) {
+            let logs = [];
+            try {
+                // Get last 10 logs for context
+                logs = await pool.getLogs();
+                logs = logs.slice(-10);
+            } catch (logError) {
+                console.error('[MojoGUI MCP] Failed to get logs after crash:', logError.message);
+            }
+
+            // Append logs to error message
+            if (logs.length > 0) {
+                error.message += '\n\nRecent console logs:\n' + 
+                    logs.map(l => `[${l.type}] ${l.text}`).join('\n');
+            }
+
+            await resetWorkerPool();
+        }
+        throw error;
+    }
 }
 
 // Register tools
@@ -396,13 +419,12 @@ server.tool(
 // New tool: Get version info
 server.tool(
     'get_version_info',
-    'Get browser and Chromium version information. Useful for checking binding compatibility.',
+    'Get browser and Chromium version information. Useful for checking compatibility.',
     {},
     async () => {
         const code = `
             (async () => {
                 let version = { raw: navigator.userAgent };
-                
                 try {
                     if (navigator.userAgentData) {
                         const hints = await navigator.userAgentData.getHighEntropyValues([
@@ -411,7 +433,6 @@ server.tool(
                         version.platform = hints.platform;
                         version.platformVersion = hints.platformVersion;
                         version.fullVersionList = hints.fullVersionList;
-                        
                         const chrome = hints.fullVersionList?.find(b => b.brand === 'Google Chrome' || b.brand === 'Chromium');
                         if (chrome) {
                             version.chromiumVersion = chrome.version;
@@ -421,12 +442,26 @@ server.tool(
                 } catch (e) {
                     version.error = 'Could not get high-entropy version info: ' + e.message;
                 }
-                
                 return version;
             })()
         `;
         const result = await executeInMojoGUI(code);
         return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
+    }
+);
+
+server.tool(
+    'get_console_logs',
+    'Retrieve captured console logs, exceptions, and renderer crashes from the browser. Useful for debugging and detecting vulnerabilities.',
+    {
+        limit: z.number().optional().default(100).describe('Maximum number of log entries to return'),
+        clear: z.boolean().optional().default(false).describe('If true, clear the log buffer after retrieval')
+    },
+    async ({ limit = 100, clear = false }) => {
+        const pool = await getWorkerPool({ targetUrl: MOJOGUI_URL });
+        const logs = await pool.getLogs(clear);
+        const slicedLogs = logs.slice(-limit);
+        return { content: [{ type: 'text', text: JSON.stringify(slicedLogs, null, 2) }] };
     }
 );
 
