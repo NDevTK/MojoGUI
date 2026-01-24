@@ -1037,6 +1037,24 @@ server.tool(
   }
 );
 
+server.tool(
+  "get_research_progress",
+  "Retrieve filtered history of Mojo interface research and identified capability gaps.",
+  {
+    interface: z.string().optional().describe("Filter research by interface name (regex supported)"),
+    result: z.string().optional().describe("Filter research by result status (e.g. 'Bypass', 'Crashed')"),
+    status: z.enum(["Open", "Closed"]).optional().describe("Filter capability gaps by status"),
+    search: z.string().optional().describe("Global text search in notes, tasks, and impacts"),
+    limit: z.number().optional().default(50).describe("Maximum number of entries to return per category"),
+  },
+  async (filters) => {
+    const data = SelfImprovement.getProgress(filters);
+    return {
+      content: [{ type: "text", text: JSON.stringify(data, null, 2) }],
+    };
+  }
+);
+
 // Start the server
 async function main() {
   const transport = new StdioServerTransport();

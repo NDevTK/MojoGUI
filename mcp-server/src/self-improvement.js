@@ -1,60 +1,114 @@
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
+import os from "os";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const PROJECT_ROOT = path.resolve(__dirname, "../../");
-const PROGRESS_FILE = path.join(PROJECT_ROOT, "PROGRESS.md");
+const APPDATA = process.env.APPDATA || (process.platform === 'darwin' ? path.join(os.homedir(), 'Library', 'Application Support') : path.join(os.homedir(), '.config'));
+const DATA_DIR = path.join(APPDATA, "MojoGUI");
+const PROGRESS_FILE = path.join(DATA_DIR, "PROGRESS.json");
 
 /**
- * Tracks Mojo interface research coverage and capability gaps.
+ * Tracks Mojo interface research coverage and capability gaps in JSON format.
+ * Optimized for Chromium security research with advanced filtering.
  */
 export const SelfImprovement = {
   /**
-   * Log a capability gap (when a tool fails or is missing).
+   * Log a capability gap.
    */
   logGap(task, gap, impact) {
-    const entry = `
-### [GAP] ${new Date().toISOString().split('T')[0]} - ${task}
-- **Gap:** ${gap}
-- **Impact:** ${impact}
-- **Status:** Open
-`;
-    fs.appendFileSync(PROGRESS_FILE, entry);
-    return { success: true, message: "Capability gap logged to PROGRESS.md" };
+    const data = this._read();
+    data.gaps.push({
+      id: Math.random().toString(36).substr(2, 9),
+      timestamp: new Date().toISOString(),
+      task,
+      gap,
+      impact,
+      status: "Open"
+    });
+    this._write(data);
+    return { success: true, message: "Capability gap logged to " + PROGRESS_FILE };
   },
 
   /**
-   * Log research progress for a specific interface/method.
+   * Log research progress.
    */
   logResearch(interfaceName, method, result, notes) {
-    const entry = `
-### [RESEARCH] ${interfaceName}.${method}
-- **Date:** ${new Date().toISOString().split('T')[0]}
-- **Result:** ${result}
-- **Notes:** ${notes}
-`;
-    fs.appendFileSync(PROGRESS_FILE, entry);
-    return { success: true, message: "Research progress logged to PROGRESS.md" };
+    const data = this._read();
+    data.research.push({
+      id: Math.random().toString(36).substr(2, 9),
+      timestamp: new Date().toISOString(),
+      interface: interfaceName,
+      method,
+      result,
+      notes
+    });
+    this._write(data);
+    return { success: true, message: "Research progress logged to " + PROGRESS_FILE };
   },
 
   /**
-   * Initialize PROGRESS.md if it doesn't exist.
+   * Get filtered progress data.
    */
+  getProgress(filters = {}) {
+    let { gaps, research } = this._read();
+
+    if (filters.interface) {
+      const regex = new RegExp(filters.interface, 'i');
+      research = research.filter(r => regex.test(r.interface));
+    }
+
+    if (filters.result) {
+      research = research.filter(r => r.result.toLowerCase().includes(filters.result.toLowerCase()));
+    }
+
+    if (filters.status) {
+      gaps = gaps.filter(g => g.status.toLowerCase() === filters.status.toLowerCase());
+    }
+
+    if (filters.search) {
+      const q = filters.search.toLowerCase();
+      research = research.filter(r => 
+        r.notes.toLowerCase().includes(q) || 
+        r.method.toLowerCase().includes(q)
+      );
+      gaps = gaps.filter(g => 
+        g.task.toLowerCase().includes(q) || 
+        g.gap.toLowerCase().includes(q) || 
+        g.impact.toLowerCase().includes(q)
+      );
+    }
+
+    // Sort by newest first
+    research.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    gaps.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+    if (filters.limit) {
+      research = research.slice(0, filters.limit);
+      gaps = gaps.slice(0, filters.limit);
+    }
+
+    return { gaps, research, count: { gaps: gaps.length, research: research.length }, path: PROGRESS_FILE };
+  },
+
+  _read() {
+    this.init();
+    try {
+      return JSON.parse(fs.readFileSync(PROGRESS_FILE, "utf8"));
+    } catch (e) {
+      return { gaps: [], research: [], error: "Failed to parse PROGRESS.json" };
+    }
+  },
+
+  _write(data) {
+    this.init();
+    fs.writeFileSync(PROGRESS_FILE, JSON.stringify(data, null, 2));
+  },
+
   init() {
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
     if (!fs.existsSync(PROGRESS_FILE)) {
-      const header = `# MojoGUI Research & Self-Improvement Progress
-
-This file tracks tested interfaces, discovered vulnerabilities, and identified capability gaps in the MojoGUI tooling.
-
-## Capability Gaps
-<!-- Log tool failures and missing features here -->
-
-## Research Log
-<!-- Log interface coverage and findings here -->
-`;
-      fs.writeFileSync(PROGRESS_FILE, header);
+      fs.writeFileSync(PROGRESS_FILE, JSON.stringify({ gaps: [], research: [] }, null, 2));
     }
   }
 };
