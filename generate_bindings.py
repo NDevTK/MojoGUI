@@ -230,54 +230,58 @@ def parse_mojom(file_path):
     # Fix: Allow inheritance (e.g. interface A : B {) by matching usually non-brace chars until {
     interface_pattern = r'interface\s+(\w+)[^{]*\{'
 
-    for match in re.finditer(interface_pattern, content_no_comments):
-        interface_name = match.group(1)
-        start_pos = match.end()
-        
-        # Find matching closing brace
-        brace_count = 1
-        end_pos = start_pos
-        while brace_count > 0 and end_pos < len(content_no_comments):
-            if content_no_comments[end_pos] == '{':
-                brace_count += 1
-            elif content_no_comments[end_pos] == '}':
-                brace_count -= 1
-            end_pos += 1
-        
-        interface_body = content_no_comments[start_pos:end_pos-1]
-        
-        methods = []
-        # Capture optional Ordinal: Name@123(...)
-        # Fix: Allow lowercase method names (camelCase) which is standard usage
-        # Update: Capture Attributes [Attr] preceding method
-        method_pattern = r'((?:\[[^\]]+\]\s*)*)([a-zA-Z][a-zA-Z0-9_]*)(?:@(\d+))?\s*\(([^)]*)\)\s*(?:=>\s*\(([^)]*)\))?'
-        
-        for method_match in re.finditer(method_pattern, interface_body):
-            attributes_str = method_match.group(1)
-            method_name = method_match.group(2)
-            ordinal_str = method_match.group(3)
-            params_str = method_match.group(4).strip()
-            returns_str = method_match.group(5)
-            
-            # Skip false positives
-            if method_name in ('TODO', 'NOTE', 'FIXME', 'DEPRECATED', 'If', 'For', 'While', 'Switch'):
-                continue
+        # Extract interfaces with their methods
+        # Fix: Allow inheritance (e.g. interface A : B {) by matching usually non-brace chars until {
+        interface_pattern = r'interface\s+(\w+)[^{]*\{'
 
-            # Check EnableIf
-            if not check_enable_if(attributes_str):
-                print(f"[Generator] Skipping disabled method {interface_name}.{method_name} (Attrs: {attributes_str.strip()})")
-                continue
+        for match in re.finditer(interface_pattern, content_no_comments):
+            interface_name = match.group(1)
+            start_pos = match.end()
             
-            params = parse_params(params_str) if params_str else []
-            returns = parse_params(returns_str) if returns_str is not None else None
+            # Find matching closing brace
+            brace_count = 1
+            end_pos = start_pos
+            while brace_count > 0 and end_pos < len(content_no_comments):
+                if content_no_comments[end_pos] == '{':
+                    brace_count += 1
+                elif content_no_comments[end_pos] == '}':
+                    brace_count -= 1
+                end_pos += 1
             
-            methods.append({
-                'name': method_name,
-                'ordinal': int(ordinal_str) if ordinal_str else None,
-                'params': params,
-                'returns': returns,
-                'is_one_way': returns is None
-            })
+            interface_body = content_no_comments[start_pos:end_pos-1]
+            
+            methods = []
+            # Capture optional Ordinal: Name@123(...)
+            # Fix: Use re.DOTALL (via flag or inline) to allow parameters to span multiple lines
+            # Update: Capture Attributes [Attr] preceding method
+            method_pattern = r'((?:\[[^\]]+\]\s*)*)([a-zA-Z][a-zA-Z0-9_]*)(?:@(\d+))?\s*\((.*?)\)\s*(?:=>\s*\((.*?)\))?'
+            
+            for method_match in re.finditer(method_pattern, interface_body, re.DOTALL):
+                attributes_str = method_match.group(1)
+                method_name = method_match.group(2)
+                ordinal_str = method_match.group(3)
+                params_str = method_match.group(4).strip()
+                returns_str = method_match.group(5)
+                
+                # Skip false positives
+                if method_name in ('TODO', 'NOTE', 'FIXME', 'DEPRECATED', 'If', 'For', 'While', 'Switch', 'const', 'enum', 'struct', 'union'):
+                    continue
+
+                # Check EnableIf
+                if not check_enable_if(attributes_str):
+                    continue
+                
+                params = parse_params(params_str) if params_str else []
+                # returns_str might be None if no => present, or empty string if => ()
+                returns = parse_params(returns_str) if (returns_str is not None and returns_str.strip()) else ([] if returns_str is not None else None)
+                
+                methods.append({
+                    'name': method_name,
+                    'ordinal': int(ordinal_str) if ordinal_str else None,
+                    'params': params,
+                    'returns': returns,
+                    'is_one_way': returns is None
+                })
         
         # Deduplicate methods
         seen = set()
@@ -558,8 +562,15 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
 
     def resolve_mojo_type(type_name):
         # Recursive parsing for complex types (Array/Map)
-        type_name = type_name.strip()
+        type_name = type_name.strip().replace('\n', ' ')
+        # Normalize whitespace
+        type_name = ' '.join(type_name.split())
         
+        if not type_name or any(c in type_name for c in '(),'):
+             # If it's not a known container and has junk, it's a failed parse
+             if not (type_name.startswith('array<') or type_name.startswith('map<') or type_name.startswith('pending_')):
+                 return 'mojo.internal.OpaqueStruct'
+
         if type_name.startswith('array<'):
             is_nullable = False
             if type_name.endswith('?'):
