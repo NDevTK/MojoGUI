@@ -402,15 +402,17 @@ def parse_params(params_str):
     return params
 
 def parse_single_param(param_str):
-    """Parse a single parameter like 'string name'."""
+    """Parse a single parameter like '[EnableIf=is_win] string name'."""
     param_str = param_str.strip()
     if not param_str:
         return None
     
+    # Remove comments
     param_str = re.sub(r'//.*$', '', param_str, flags=re.MULTILINE).strip()
     
-    # Check EnableIf
-    attributes_match = re.search(r'^\[(.*?)\]', param_str)
+    # Check EnableIf (More robust regex)
+    # Search for [ ... EnableIf=X ... ] anywhere in the param definition
+    attributes_match = re.search(r'\[([^\]]*EnableIf=[^\]]+)\]', param_str, re.DOTALL)
     if attributes_match:
         if not check_enable_if(attributes_match.group(1)):
             return None
