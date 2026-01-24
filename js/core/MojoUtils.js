@@ -215,8 +215,16 @@
             const firstTag = Object.keys(typeInfo.unionSpec.fields)[0];
             return { [firstTag]: value };
         }
-        if (typeInfo.arraySpec && Array.isArray(value)) {
-            return value.map(v => inflateType(v, typeInfo.arraySpec.elementType.$ || typeInfo.arraySpec.elementType));
+        if (typeInfo.arraySpec) {
+            if (Array.isArray(value)) {
+                return value.map(v => inflateType(v, typeInfo.arraySpec.elementType.$ || typeInfo.arraySpec.elementType));
+            }
+            // Special Case: String -> uint16 array (for FilePath on Windows)
+            if (typeof value === 'string' && typeInfo.arraySpec.elementType === mojo.internal.Uint16) {
+                const arr = [];
+                for (let i = 0; i < value.length; i++) arr.push(value.charCodeAt(i));
+                return arr;
+            }
         }
         return value;
     }
