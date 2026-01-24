@@ -43,27 +43,47 @@
                 }
             }
 
-                        // 2. Prepare Parameters
-                        const reconciledParams = MojoUtils.reconcileKeys(params, null, false);
-                        const methodDef = MojoReflectionService.findMethodDefinition(interfaceName, methodName);
-            
-                        let finalArgs = [];
-                        if (reconciledParams) {
-                            if (Array.isArray(reconciledParams)) {
-                                finalArgs = reconciledParams;
-                            } else if (methodDef && methodDef.parameters && methodDef.parameters.length > 0) {
-                                finalArgs = methodDef.parameters.map(p => {
-                                    const val = reconciledParams[p.name];
-                                    // Auto-inflate complex types if spec is available
-                                    if (p.structSpec) {
-                                        return MojoUtils.inflateStruct(val, p.structSpec);
+                                    // 2. Prepare Parameters
+
+                                    const methodDef = MojoReflectionService.findMethodDefinition(interfaceName, methodName);
+
+                                    const reconciledParams = MojoUtils.reconcileKeys(params, null, true); // Use heuristics to add arg_ prefixes
+
+                        
+
+                                    let finalArgs = [];
+
+                                    if (reconciledParams && methodDef && methodDef.parameters) {
+
+                                        if (Array.isArray(reconciledParams)) {
+
+                                            finalArgs = reconciledParams;
+
+                                        } else {
+
+                                            finalArgs = methodDef.parameters.map(p => {
+
+                                                const val = reconciledParams[p.name];
+
+                                                if (p.structSpec) {
+
+                                                    return MojoUtils.inflateStruct(val, p.structSpec);
+
+                                                }
+
+                                                return val;
+
+                                            });
+
+                                        }
+
+                                    } else if (reconciledParams) {
+
+                                        finalArgs = Array.isArray(reconciledParams) ? reconciledParams : [reconciledParams];
+
                                     }
-                                    return val;
-                                });
-                            } else {
-                                finalArgs = [reconciledParams];
-                            }
-                        }
+
+                        
             // 3. Execute
             const tryFindMethod = (obj, name) => {
                 if (!obj) return null;
