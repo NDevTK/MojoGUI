@@ -115,10 +115,10 @@
         const { handle0, handle1 } = Mojo.createMessagePipe();
         MojoHandleRegistry.register(handle0);
         MojoHandleRegistry.register(handle1);
-        const realHandle = handle1;
         const mockEndpoint = {
           releasePipe: () => realHandle,
           handle: realHandle,
+          isPendingAssociation: true
         };
         return {
           handle: mockEndpoint,
