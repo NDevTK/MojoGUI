@@ -115,7 +115,16 @@
         const { handle0, handle1 } = Mojo.createMessagePipe();
         MojoHandleRegistry.register(handle0);
         MojoHandleRegistry.register(handle1);
-        return handle1; // Return the raw handle directly
+        const realHandle = handle1;
+        // Return a wrapper that satisfies Lite bindings encoder (needs unbind)
+        return {
+          handle: realHandle,
+          unbind: () => ({ releasePipe: () => realHandle }),
+          // Legacy support
+          writeMessage: (...args) => realHandle.writeMessage(...args),
+          readMessage: (...args) => realHandle.readMessage(...args),
+          close: () => realHandle.close()
+        };
       }
       if (action === "use_handle") {
         const handleInput = handleData.customHandle;
@@ -132,7 +141,14 @@
           realHandle = MojoHandleRegistry.get(parseInt(handleInput, 10));
         }
 
-        return realHandle || original;
+        if (!realHandle) return original;
+        return {
+          handle: realHandle,
+          unbind: () => ({ releasePipe: () => realHandle }),
+          writeMessage: (...args) => realHandle.writeMessage(...args),
+          readMessage: (...args) => realHandle.readMessage(...args),
+          close: () => realHandle.close()
+        };
       }
       return original;
     }
