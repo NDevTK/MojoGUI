@@ -238,6 +238,7 @@
   }
 
   function inflateType(value, typeInfo) {
+    if (value === null || value === undefined) return null;
     if (!typeInfo) return value;
     if (typeInfo.structSpec) return inflateStruct(value, typeInfo.structSpec);
     if (typeInfo.unionSpec) {
