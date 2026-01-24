@@ -14,6 +14,12 @@ An MCP (Model Context Protocol) server that enables agentic usage of MojoGUI for
 
 3. **Node.js** (v18+)
 
+4. **Python 3** (for advanced screenshots):
+   Required for `take_browser_screenshot` tool. Ensure dependencies are installed:
+   ```bash
+   pip install requests pygetwindow mss Pillow pywin32
+   ```
+
 ## Installation
 
 ```bash
@@ -61,6 +67,8 @@ npm start
 | `check_mojo_status` | Check if MojoJS is enabled in browser |
 | `get_traffic_stats` | Get intercepted traffic statistics |
 | `get_version_info` | Get browser/Chromium version info |
+| `get_console_logs` | Retrieve browser console logs and crash info |
+| `take_browser_screenshot` | Capture entire browser window via `capture_chrome.py` |
 
 ## Example Usage
 

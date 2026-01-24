@@ -271,29 +271,6 @@ export class CDPClient {
         return this.sendToSession('Page.reload');
     }
     /**
-     * Take a screenshot of the current page
-     * @returns {Promise<string>} Base64 encoded screenshot data
-     */
-    async takeScreenshot() {
-        if (!this.sessionId) {
-            await this.connect();
-        }
-        const result = await this.sendToSession('Page.captureScreenshot', {
-            format: 'png',
-            fromSurface: true
-        });
-        return result.data;
-    }
-    /**
-     * Get the PID of the browser process
-     * @returns {Promise<number>} The browser process ID
-     */
-    async getBrowserPid() {
-        const info = await this.send('SystemInfo.getProcessInfo');
-        const browserProc = info.processInfo.find(p => p.type === 'browser');
-        return browserProc ? browserProc.id : null;
-    }
-    /**
      * Send a CDP command to the browser and wait for response
      */
     async send(method, params = {}) {
