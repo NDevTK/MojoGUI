@@ -17,7 +17,7 @@ An MCP (Model Context Protocol) server that enables agentic usage of MojoGUI for
 4. **Python 3** (for advanced screenshots):
    Required for `take_browser_screenshot` tool. Ensure dependencies are installed:
    ```bash
-   pip install requests pygetwindow mss Pillow pywin32
+   pip install psutil pywin32 Pillow
    ```
 
 ## Installation
