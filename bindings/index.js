@@ -54,13 +54,16 @@
         if (fileEntry && fileEntry.imports && fileEntry.imports.length > 0) {
           const loadPromises = fileEntry.imports.map(async (importPath) => {
             // Find the file entry that matches this import source
-            // Use suffix matching to handle path discrepancies (e.g. chromium_src/ prefix)
-            const importEntry = data.files.find(f => f.source === importPath || f.source.endsWith(importPath) || f.source.endsWith('/' + importPath));
+            const importEntry = data.files.find(f => {
+                const s1 = f.source.replace(/\\/g, '/').toLowerCase();
+                const s2 = importPath.replace(/\\/g, '/').toLowerCase();
+                return s1 === s2 || s1.endsWith('/' + s2) || s2.endsWith('/' + s1);
+            });
             if (importEntry) {
-              console.log(`[MojoBindings] Found dependency: ${importPath} -> ${importEntry.filename}`);
+              console.log(`[MojoBindings] Dependency: ${importPath} -> ${importEntry.filename}`);
               await this.loadBinding(importEntry.filename);
             } else {
-              console.warn(`[MojoBindings] Import not found in index: ${importPath}`);
+              console.warn(`[MojoBindings] Import not found: ${importPath}`);
             }
           });
           await Promise.all(loadPromises);
