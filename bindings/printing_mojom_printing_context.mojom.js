@@ -141,9 +141,6 @@ mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec = mojo.internal.bindi
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
-mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
-mojo.internal.bindings.mojo_base.mojom.ValueSpec = mojo.internal.bindings.mojo_base.mojom.ValueSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.printing.mojom.ColorModelSpec = mojo.internal.bindings.printing.mojom.ColorModelSpec || { $: mojo.internal.Enum().$ };
@@ -208,7 +205,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_rasterize_pdf', 8, 5, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_landscape', 8, 6, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_modifiable', 8, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_send_user_info', 9, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_margin_type', 12, 0, mojo.internal.bindings.printing.mojom.MarginTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
@@ -224,9 +220,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_scale_factor', 88, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_requested_custom_margins_in_microns', 96, 0, mojo.internal.bindings.printing.mojom.PageMarginsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_pages_per_sheet', 104, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_advanced_settings', 112, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo_base.mojom.ValueSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_username', 120, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pin_value', 128, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_system_print_dialog_data', 136, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_system_print_dialog_data', 112, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
     ],
-    [[0, 152]]);
+    [[0, 128]]);

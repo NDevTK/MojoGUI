@@ -1278,15 +1278,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_has_vendor_id', 22, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_has_product_id', 22, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_connected', 22, 2, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_alternate_path', 24, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_usb_driver_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_device_instance_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_product_id', 48, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bluetooth_service_class_id', 56, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_display_name', 64, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_serial_number', 72, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_device_instance_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_product_id', 32, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bluetooth_service_class_id', 40, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_display_name', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_serial_number', 56, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 72]]);
 
 // Struct: SerialConnectionOptions
 mojo.internal.Struct(

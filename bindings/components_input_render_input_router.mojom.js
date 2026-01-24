@@ -169,9 +169,6 @@ mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
-mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
-mojo.internal.bindings.ui.mojom.CachedMotionEventAndroidSpec = mojo.internal.bindings.ui.mojom.CachedMotionEventAndroidSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.FrameSinkIdSpec = mojo.internal.bindings.viz.mojom.FrameSinkIdSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -654,9 +651,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_web_contents_y_offset_pix', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_dip_scale', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_browser_would_have_handled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_down_event', 32, 0, mojo.internal.bindings.ui.mojom.CachedMotionEventAndroidSpec, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 mojo.internal.Struct(
     mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_Params', [
       mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.input.mojom.TouchTransferStateSpec, null, false, 0, undefined),

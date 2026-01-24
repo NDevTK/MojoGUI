@@ -128,7 +128,6 @@ mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec = { $: {} };
 // Struct: GpuFenceHandle
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec, 'gfx.mojom.GpuFenceHandle', [
-      mojo.internal.StructField('arg_native_fd', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_native_handle', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_native_handle', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);

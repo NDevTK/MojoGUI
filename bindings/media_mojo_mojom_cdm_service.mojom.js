@@ -468,8 +468,8 @@ mojo.internal.bindings.media.mojom.CdmServiceBrokerRemote = class {
   close() {
     this.proxy.close();
   }
-  getService(arg_cdm_path, arg_token_provider, arg_receiver) {
-    return this.$.getService(arg_cdm_path, arg_token_provider, arg_receiver);
+  getService(arg_cdm_path, arg_receiver) {
+    return this.$.getService(arg_cdm_path, arg_receiver);
   }
 };
 
@@ -481,12 +481,12 @@ mojo.internal.bindings.media.mojom.CdmServiceBrokerRemoteCallHandler = class {
     ]);
   }
 
-  getService(arg_cdm_path, arg_token_provider, arg_receiver) {
+  getService(arg_cdm_path, arg_receiver) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec,
       null,
-      [arg_cdm_path, arg_token_provider, arg_receiver],
+      [arg_cdm_path, arg_receiver],
       false);
   }
 
@@ -556,7 +556,7 @@ mojo.internal.bindings.media.mojom.CdmServiceBrokerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getService');
-          const result = this.impl.getService(params.arg_cdm_path, params.arg_token_provider, params.arg_receiver);
+          const result = this.impl.getService(params.arg_cdm_path, params.arg_receiver);
           break;
         }
       }
@@ -595,8 +595,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec, 'media.mojom.CdmServiceBroker_GetService_Params', [
       mojo.internal.StructField('arg_cdm_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_token_provider', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmServicePendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmServicePendingReceiver), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 

@@ -153,19 +153,9 @@ mojo.internal.Union(
         'type': mojo.internal.bindings.gfx.mojom.NativePixmapHandleSpec,
         'nullable': false,
       },
-      'arg_io_surface_handle': {
-        'ordinal': 2,
-        'type': mojo.internal.bindings.gfx.mojom.IOSurfaceHandleSpec,
-        'nullable': false,
-      },
       'arg_dxgi_handle': {
-        'ordinal': 3,
+        'ordinal': 2,
         'type': mojo.internal.bindings.gfx.mojom.DXGIHandleSpec,
-        'nullable': false,
-      },
-      'arg_android_hardware_buffer_handle': {
-        'ordinal': 4,
-        'type': mojo.internal.bindings.gfx.mojom.AHardwareBufferHandleSpec,
         'nullable': false,
       },
     });
@@ -184,13 +174,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.NativePixmapHandleSpec, 'gfx.mojom.NativePixmapHandle', [
       mojo.internal.StructField('arg_planes', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.NativePixmapPlaneSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_modifier', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_supports_zero_copy_webgpu_import', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ram_coherency', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_index', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_collection_handle', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 16]]);
 
 // Struct: AHardwareBufferHandle
 mojo.internal.Struct(
@@ -220,8 +205,5 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.IOSurfaceHandleSpec, 'gfx.mojom.IOSurfaceHandle', [
       mojo.internal.StructField('arg_mach_send_right', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_memory_handle', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_plane_strides', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_plane_offsets', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 16]]);

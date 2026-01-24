@@ -217,9 +217,6 @@ mojo.internal.bindings.gpu.mojom.ExportedSharedImageSpec = mojo.internal.binding
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.SyncTokenSpec = mojo.internal.bindings.gpu.mojom.SyncTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
-mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
-mojo.internal.bindings.gpu.mojom.VulkanYCbCrInfoSpec = mojo.internal.bindings.gpu.mojom.VulkanYCbCrInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.DecoderBufferSideDataNextConfigSpec = mojo.internal.bindings.media.mojom.DecoderBufferSideDataNextConfigSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -576,11 +573,6 @@ mojo.internal.Union(
         'type': mojo.internal.bindings.media.mojom.OpaqueVideoFrameDataSpec,
         'nullable': false,
       },
-      'arg_dmabuf_data': {
-        'ordinal': 4,
-        'type': mojo.internal.bindings.media.mojom.DmabufVideoFrameDataSpec,
-        'nullable': false,
-      },
     });
 
 // Struct: MediaLogRecord
@@ -835,9 +827,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_shared_image', 0, 0, mojo.internal.bindings.gpu.mojom.ExportedSharedImageSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_sync_token', 8, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_mappable', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ycbcr_data', 24, 0, mojo.internal.bindings.gpu.mojom.VulkanYCbCrInfoSpec, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: OpaqueVideoFrameData
 mojo.internal.Struct(

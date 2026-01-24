@@ -728,20 +728,18 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AuthenticationExtensionsClientOutputsSpec, 'blink.mojom.AuthenticationExtensionsClientOutputs', [
       mojo.internal.StructField('arg_echo_appid_extension', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_appid_extension', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_echo_user_verification_methods', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_echo_prf', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_prf_not_evaluated', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_echo_large_blob', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_echo_large_blob_written', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_large_blob_written', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_user_verification_methods', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.UvmEntrySpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_prf_results', 16, 0, mojo.internal.bindings.blink.mojom.PRFValuesSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_large_blob', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_get_cred_blob', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_supplemental_pub_keys', 40, 0, mojo.internal.bindings.blink.mojom.SupplementalPubKeysResponseSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_payment', 48, 0, mojo.internal.bindings.blink.mojom.AuthenticationExtensionsPaymentResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_echo_prf', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_prf_not_evaluated', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_echo_large_blob', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_echo_large_blob_written', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_large_blob_written', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_prf_results', 8, 0, mojo.internal.bindings.blink.mojom.PRFValuesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_large_blob', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_get_cred_blob', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_supplemental_pub_keys', 32, 0, mojo.internal.bindings.blink.mojom.SupplementalPubKeysResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_payment', 40, 0, mojo.internal.bindings.blink.mojom.AuthenticationExtensionsPaymentResponseSpec, null, true, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 // Struct: PublicKeyCredentialRpEntity
 mojo.internal.Struct(
@@ -856,10 +854,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AuthenticationExtensionsClientInputsSpec, 'blink.mojom.AuthenticationExtensionsClientInputs', [
       mojo.internal.StructField('arg_appid', 0, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_cable_authentication_data', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CableAuthenticationSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_user_verification_methods', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_prf', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_large_blob_read', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_get_cred_blob', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_prf', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_large_blob_read', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_get_cred_blob', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_prf_inputs', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PRFValuesSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_large_blob_write', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_remote_desktop_client_override', 40, 0, mojo.internal.bindings.blink.mojom.RemoteDesktopClientOverrideSpec, null, true, 0, undefined),

@@ -152,11 +152,6 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.IPAddressSpec = mojo.internal.bindings.network.mojom.IPAddressSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
-mojo.internal.bindings.network.mojom.SocketConnectionTrackerSpec = mojo.internal.bindings.network.mojom.SocketConnectionTrackerSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.network.mojom.SocketConnectionTrackerRemote = mojo.internal.bindings.network.mojom.SocketConnectionTrackerRemote || class {};
-mojo.internal.bindings.network.mojom.SocketConnectionTrackerPendingReceiver = mojo.internal.bindings.network.mojom.SocketConnectionTrackerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
-mojo.internal.bindings.network = mojo.internal.bindings.network || {};
-mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.UDPSocketOptionsSpec = mojo.internal.bindings.network.mojom.UDPSocketOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: RestrictedUDPSocketMode
@@ -434,9 +429,8 @@ mojo.internal.bindings.network.mojom.RestrictedUDPSocketRequest = mojo.internal.
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.RestrictedUDPSocketParamsSpec, 'network.mojom.RestrictedUDPSocketParams', [
       mojo.internal.StructField('arg_socket_options', 0, 0, mojo.internal.bindings.network.mojom.UDPSocketOptionsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_connection_tracker', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SocketConnectionTrackerRemote), null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec, 'network.mojom.RestrictedUDPSocket_JoinGroup_Params', [
       mojo.internal.StructField('arg_group_address', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),

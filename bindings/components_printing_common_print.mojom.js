@@ -745,8 +745,8 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemote = class {
   printForSystemDialog() {
     return this.$.printForSystemDialog();
   }
-  initiatePrintPreview(arg_print_renderer, arg_has_selection) {
-    return this.$.initiatePrintPreview(arg_print_renderer, arg_has_selection);
+  initiatePrintPreview(arg_has_selection) {
+    return this.$.initiatePrintPreview(arg_has_selection);
   }
   setPrintPreviewUI(arg_preview) {
     return this.$.setPrintPreviewUI(arg_preview);
@@ -816,12 +816,12 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRemoteCallHandler = class 
       false);
   }
 
-  initiatePrintPreview(arg_print_renderer, arg_has_selection) {
+  initiatePrintPreview(arg_has_selection) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.printing.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec,
       null,
-      [arg_print_renderer, arg_has_selection],
+      [arg_has_selection],
       false);
   }
 
@@ -985,7 +985,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initiatePrintPreview');
-          const result = this.impl.initiatePrintPreview(params.arg_print_renderer, params.arg_has_selection);
+          const result = this.impl.initiatePrintPreview(params.arg_has_selection);
           break;
         }
         case 4: {
@@ -1537,11 +1537,10 @@ mojo.internal.Struct(
 // Struct: RequestPrintPreviewParams
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.RequestPrintPreviewParamsSpec, 'printing.mojom.RequestPrintPreviewParams', [
-      mojo.internal.StructField('arg_is_from_arc', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_modifiable', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_webnode_only', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_selection', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_selection_only', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_modifiable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_webnode_only', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_selection', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_only', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1768,10 +1767,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec, 'printing.mojom.PrintRenderFrame_InitiatePrintPreview_Params', [
-      mojo.internal.StructField('arg_print_renderer', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.printing.mojom.PrintRendererRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_has_selection', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_selection', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrintRenderFrame_SetPrintPreviewUI_ParamsSpec, 'printing.mojom.PrintRenderFrame_SetPrintPreviewUI_Params', [

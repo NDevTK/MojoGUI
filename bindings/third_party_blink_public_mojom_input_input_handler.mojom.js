@@ -1924,7 +1924,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_native_key_code', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_system_key', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_browser_shortcut', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_confirmed_physical_keyboard_input', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_text', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_unmodified_text', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],

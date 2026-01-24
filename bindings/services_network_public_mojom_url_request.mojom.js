@@ -455,7 +455,5 @@ mojo.internal.Struct(
 // Struct: SocketTag
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SocketTagSpec, 'network.mojom.SocketTag', [
-      mojo.internal.StructField('arg_uid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tag', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 8]]);

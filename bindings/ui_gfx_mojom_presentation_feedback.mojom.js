@@ -125,9 +125,6 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.gfx.mojom.PresentationFeedbackSpec = { $: {} };
 
 // External type stubs (from imports)
-mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
-mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
-mojo.internal.bindings.gfx.mojom.CALayerResultSpec = mojo.internal.bindings.gfx.mojom.CALayerResultSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -143,12 +140,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_interval', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_flags', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ca_layer_error_code', 20, 0, mojo.internal.bindings.gfx.mojom.CALayerResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_trace_id_$flag', 20, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_display_trace_id_$value', originalFieldName: 'arg_display_trace_id' }),
       mojo.internal.StructField('arg_available_timestamp', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_ready_timestamp', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_latch_timestamp', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_writes_done_timestamp', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_trace_id_$flag', 56, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_display_trace_id_$value', originalFieldName: 'arg_display_trace_id' }),
-      mojo.internal.StructField('arg_display_trace_id_$value', 64, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_display_trace_id_$flag', originalFieldName: 'arg_display_trace_id' }),
+      mojo.internal.StructField('arg_display_trace_id_$value', 56, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_display_trace_id_$flag', originalFieldName: 'arg_display_trace_id' }),
     ],
-    [[0, 80]]);
+    [[0, 72]]);

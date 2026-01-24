@@ -506,13 +506,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.SupportSessionParamsSpec, 'remoting.mojom.SupportSessionParams', [
       mojo.internal.StructField('arg_user_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_oauth_access_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suppress_user_dialogs', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_suppress_notifications', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_terminate_upon_input', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_curtain_local_user_session', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_authorized_helper', 24, 0, mojo.internal.String, null, true, 2, undefined),
+      mojo.internal.StructField('arg_authorized_helper', 16, 0, mojo.internal.String, null, true, 2, undefined),
     ],
-    [[0, 32], [2, 40]]);
+    [[0, 24], [2, 32]]);
 
 // Struct: NatPolicyState
 mojo.internal.Struct(

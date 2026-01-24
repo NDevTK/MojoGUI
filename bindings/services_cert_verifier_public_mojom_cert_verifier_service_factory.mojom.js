@@ -166,9 +166,6 @@ mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_ba
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.network = mojo.internal.bindings.network || {};
-mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
-mojo.internal.bindings.network.mojom.CTPolicySpec = mojo.internal.bindings.network.mojom.CTPolicySpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: CertificateTrust
 mojo.internal.bindings.cert_verifier.mojom.CertificateTrust = {
@@ -371,9 +368,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.cert_verifier.mojom.CertVerifierCreationParamsSpec, 'cert_verifier.mojom.CertVerifierCreationParams', [
       mojo.internal.StructField('arg_initial_additional_certificates', 0, 0, mojo.internal.bindings.cert_verifier.mojom.AdditionalCertificatesSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_wait_for_update', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ct_policy', 16, 0, mojo.internal.bindings.network.mojom.CTPolicySpec, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: ChromeRootCertInfo
 mojo.internal.Struct(

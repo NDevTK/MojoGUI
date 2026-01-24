@@ -139,6 +139,5 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_disable_one_component_textures', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_shared_image_d3d', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_shared_image_swap_chain', 1, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_texture_target_for_io_surfaces', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);

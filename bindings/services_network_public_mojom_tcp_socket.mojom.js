@@ -173,11 +173,6 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.SSLInfoSpec = mojo.internal.bindings.network.mojom.SSLInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
-mojo.internal.bindings.network.mojom.SocketConnectionTrackerSpec = mojo.internal.bindings.network.mojom.SocketConnectionTrackerSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.network.mojom.SocketConnectionTrackerRemote = mojo.internal.bindings.network.mojom.SocketConnectionTrackerRemote || class {};
-mojo.internal.bindings.network.mojom.SocketConnectionTrackerPendingReceiver = mojo.internal.bindings.network.mojom.SocketConnectionTrackerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
-mojo.internal.bindings.network = mojo.internal.bindings.network || {};
-mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.TLSClientSocketSpec = mojo.internal.bindings.network.mojom.TLSClientSocketSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network.mojom.TLSClientSocketRemote = mojo.internal.bindings.network.mojom.TLSClientSocketRemote || class {};
 mojo.internal.bindings.network.mojom.TLSClientSocketPendingReceiver = mojo.internal.bindings.network.mojom.TLSClientSocketPendingReceiver || class { constructor(handle) { this.handle = handle; } };
@@ -962,9 +957,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_backlog', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_ipv6_only_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_ipv6_only_$value', originalFieldName: 'arg_ipv6_only' }),
       mojo.internal.StructField('arg_ipv6_only_$value', 4, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_ipv6_only_$flag', originalFieldName: 'arg_ipv6_only' }),
-      mojo.internal.StructField('arg_connection_tracker', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SocketConnectionTrackerRemote), null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TCPBoundSocket_Listen_ParamsSpec, 'network.mojom.TCPBoundSocket_Listen_Params', [
       mojo.internal.StructField('arg_backlog', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),

@@ -146,9 +146,6 @@ mojo.internal.bindings.printing.mojom.ColorModelSpec = mojo.internal.bindings.pr
 mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.printing.mojom.DuplexModeSpec = mojo.internal.bindings.printing.mojom.DuplexModeSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
-mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
-mojo.internal.bindings.printing.mojom.PrintScalingTypeSpec = mojo.internal.bindings.printing.mojom.PrintScalingTypeSpec || { $: mojo.internal.Enum().$ };
 
 // Enum: AdvancedCapabilityType
 mojo.internal.bindings.printing.mojom.AdvancedCapabilityType = {
@@ -189,9 +186,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_printable_area_um', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_max_height_um', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_has_borderless_variant', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_margins_um', 40, 0, mojo.internal.bindings.printing.mojom.PaperMarginsSpec, null, true, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Struct: MediaType
 mojo.internal.Struct(
@@ -243,22 +239,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_collate_default', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_color_changeable', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_color_default', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_pin_supported', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_copies_max', 4, 0, mojo.internal.Int32, 1, false, 0, undefined),
       mojo.internal.StructField('arg_duplex_modes', 8, 0, mojo.internal.Array(mojo.internal.bindings.printing.mojom.DuplexModeSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_duplex_default', 16, 0, mojo.internal.bindings.printing.mojom.DuplexModeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_color_model', 20, 0, mojo.internal.bindings.printing.mojom.ColorModelSpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_bw_model', 24, 0, mojo.internal.bindings.printing.mojom.ColorModelSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_print_scaling_type_default', 28, 0, mojo.internal.bindings.printing.mojom.PrintScalingTypeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_papers', 32, 0, mojo.internal.Array(mojo.internal.bindings.printing.mojom.PaperSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_user_defined_papers', 40, 0, mojo.internal.Array(mojo.internal.bindings.printing.mojom.PaperSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_default_paper', 48, 0, mojo.internal.bindings.printing.mojom.PaperSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_dpis', 56, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.SizeSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_default_dpi', 64, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_advanced_capabilities', 72, 0, mojo.internal.Array(mojo.internal.bindings.printing.mojom.AdvancedCapabilitySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_output_quality', 80, 0, mojo.internal.bindings.printing.mojom.PageOutputQualitySpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_media_types', 88, 0, mojo.internal.Array(mojo.internal.bindings.printing.mojom.MediaTypeSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_default_media_type', 96, 0, mojo.internal.bindings.printing.mojom.MediaTypeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_print_scaling_types', 104, 0, mojo.internal.Array(mojo.internal.bindings.printing.mojom.PrintScalingTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_output_quality', 72, 0, mojo.internal.bindings.printing.mojom.PageOutputQualitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_media_types', 80, 0, mojo.internal.Array(mojo.internal.bindings.printing.mojom.MediaTypeSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_default_media_type', 88, 0, mojo.internal.bindings.printing.mojom.MediaTypeSpec, null, true, 0, undefined),
     ],
-    [[0, 120]]);
+    [[0, 104]]);

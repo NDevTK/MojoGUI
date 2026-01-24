@@ -1207,14 +1207,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_resident_set_kb', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_peak_resident_set_kb', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_peak_rss_resettable', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_mappings_count', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_platform_private_footprint', 16, 0, mojo.internal.bindings.memory_instrumentation.mojom.PlatformPrivateFootprintSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_memory_maps', 24, 0, mojo.internal.Array(mojo.internal.bindings.memory_instrumentation.mojom.VmRegionSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_native_library_pages_bitmap', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_pss_kb', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_swap_pss_kb', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 // Struct: OSMemDump
 mojo.internal.Struct(
@@ -1224,12 +1221,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_peak_rss_resettable', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_private_footprint_kb', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_shared_footprint_kb', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_private_footprint_swap_kb', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_mappings_count', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pss_kb', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_swap_pss_kb', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 32]]);
 
 // Struct: AllocatorMemDump
 mojo.internal.Struct(

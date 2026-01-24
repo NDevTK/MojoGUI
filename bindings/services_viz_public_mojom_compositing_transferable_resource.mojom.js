@@ -142,9 +142,6 @@ mojo.internal.bindings.gpu.mojom.ExportedSharedImageSpec = mojo.internal.binding
 mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.SyncTokenSpec = mojo.internal.bindings.gpu.mojom.SyncTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
-mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
-mojo.internal.bindings.gpu.mojom.VulkanYCbCrInfoSpec = mojo.internal.bindings.gpu.mojom.VulkanYCbCrInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.AlphaTypeSpec = mojo.internal.bindings.skia.mojom.AlphaTypeSpec || { $: mojo.internal.Enum().$ };
@@ -203,12 +200,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_sync_token', 16, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_synchronization_type', 24, 0, mojo.internal.bindings.viz.mojom.SynchronizationTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_low_latency_rendering', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_backed_by_surface_view', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_wants_promotion_hint', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_needs_detiling', 28, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_needs_detiling', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_hdr_metadata', 32, 0, mojo.internal.bindings.gfx.mojom.HDRMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ycbcr_info', 40, 0, mojo.internal.bindings.gpu.mojom.VulkanYCbCrInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_resource_source', 48, 0, mojo.internal.bindings.viz.mojom.ResourceSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata_override', 56, 0, mojo.internal.bindings.viz.mojom.MetadataOverrideSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resource_source', 40, 0, mojo.internal.bindings.viz.mojom.ResourceSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata_override', 48, 0, mojo.internal.bindings.viz.mojom.MetadataOverrideSpec, null, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 64]]);

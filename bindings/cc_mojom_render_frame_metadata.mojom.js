@@ -147,9 +147,6 @@ mojo.internal.bindings.gfx.mojom.PointFSpec = mojo.internal.bindings.gfx.mojom.P
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
-mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
-mojo.internal.bindings.gfx.mojom.SizeFSpec = mojo.internal.bindings.gfx.mojom.SizeFSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.SkColor4fSpec = mojo.internal.bindings.skia.mojom.SkColor4fSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -477,8 +474,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_root_scroll_offset', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_is_scroll_offset_at_top', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_mobile_optimized', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_root_overflow_y_hidden', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_transparent_background', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_device_scale_factor', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_selection', 24, 0, mojo.internal.bindings.viz.mojom.SelectionSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_delegated_ink_metadata', 32, 0, mojo.internal.bindings.cc.mojom.DelegatedInkBrowserMetadataSpec, null, true, 0, undefined),
@@ -489,18 +484,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_top_controls_height', 64, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_top_controls_shown_ratio', 68, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_new_vertical_scroll_direction', 72, 0, mojo.internal.bindings.viz.mojom.VerticalScrollDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bottom_controls_height', 76, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_primary_main_frame_item_sequence_number', 80, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_tracked_element_bounds', 88, 0, mojo.internal.bindings.cc.mojom.TrackedElementBoundsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bottom_controls_shown_ratio', 96, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_top_controls_min_height_offset', 100, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bottom_controls_min_height_offset', 104, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_min_page_scale_factor', 108, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_page_scale_factor', 112, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_scrollable_viewport_size', 120, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_root_layer_size', 128, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
     ],
-    [[0, 144]]);
+    [[0, 104]]);
 mojo.internal.Struct(
     mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec, 'cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_Params', [
       mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),

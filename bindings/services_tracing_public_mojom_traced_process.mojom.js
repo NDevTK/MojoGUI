@@ -128,13 +128,6 @@ mojo.internal.bindings.tracing.mojom.TracedProcess.$interfaceName = 'tracing.moj
 mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec = { $: {} };
 mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec = { $: {} };
 
-// External type stubs (from imports)
-mojo.internal.bindings.tracing = mojo.internal.bindings.tracing || {};
-mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {};
-mojo.internal.bindings.tracing.mojom.PerfettoServiceSpec = mojo.internal.bindings.tracing.mojom.PerfettoServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.tracing.mojom.PerfettoServiceRemote = mojo.internal.bindings.tracing.mojom.PerfettoServiceRemote || class {};
-mojo.internal.bindings.tracing.mojom.PerfettoServicePendingReceiver = mojo.internal.bindings.tracing.mojom.PerfettoServicePendingReceiver || class { constructor(handle) { this.handle = handle; } };
-
 // Interface: TracedProcess
 mojo.internal.bindings.tracing.mojom.TracedProcessPendingReceiver = class {
   constructor(handle) {
@@ -285,9 +278,8 @@ mojo.internal.bindings.tracing.mojom.TracedProcessRequest = mojo.internal.bindin
 // Struct: ConnectToTracingRequest
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.ConnectToTracingRequestSpec, 'tracing.mojom.ConnectToTracingRequest', [
-      mojo.internal.StructField('arg_perfetto_service', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.PerfettoServiceRemote), null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 8]]);
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec, 'tracing.mojom.TracedProcess_ConnectToTracingService_Params', [
       mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.tracing.mojom.ConnectToTracingRequestSpec, null, false, 0, undefined),

@@ -2492,7 +2492,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_enabled_features', 32, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.XRSessionFeatureSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_device_config', 40, 0, mojo.internal.bindings.device.mojom.XRSessionDeviceConfigSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_interaction_mode', 48, 0, mojo.internal.bindings.device.mojom.XRInteractionModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_wants_fullscreen', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 64]]);
 

@@ -206,6 +206,5 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_year_of_manufacture', 136, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_variable_refresh_rate_state', 140, 0, mojo.internal.bindings.display.mojom.VariableRefreshRateStateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_maximum_cursor_size', 144, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_drm_formats_and_modifiers', 152, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Array(mojo.internal.Uint64, false), false), null, false, 0, undefined),
     ],
-    [[0, 168]]);
+    [[0, 160]]);
