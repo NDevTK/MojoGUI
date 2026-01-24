@@ -48,8 +48,22 @@
                 get: (target, prop, receiver) => {
                     if (prop in target) return target[prop];
                     if (typeof prop === 'string' && target.realRemote) {
-                        const call = target.realRemote[prop] || (target.realRemote.$ && target.realRemote.$[prop]);
-                        if (typeof call === 'function') return (...args) => target.interceptCall(prop, args);
+                        const tryFindMethod = (obj, name) => {
+                            if (!obj) return null;
+                            if (typeof obj[name] === 'function') return { func: obj[name], ctx: obj };
+                            // Try camelCase
+                            const camel = name.charAt(0).toLowerCase() + name.slice(1);
+                            if (typeof obj[camel] === 'function') return { func: obj[camel], ctx: obj };
+                            // Try PascalCase
+                            const pascal = name.charAt(0).toUpperCase() + name.slice(1);
+                            if (typeof obj[pascal] === 'function') return { func: obj[pascal], ctx: obj };
+                            return null;
+                        };
+
+                        const found = tryFindMethod(target.realRemote, prop) || tryFindMethod(target.realRemote.$, prop);
+                        if (found) {
+                            return (...args) => target.interceptCall(prop, args);
+                        }
                     }
                     return Reflect.get(target, prop, receiver);
                 }

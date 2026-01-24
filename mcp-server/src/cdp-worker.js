@@ -107,6 +107,24 @@ parentPort.on('message', async (msg) => {
                 parentPort.postMessage({ id, success: true, result: client.getConsoleLogs(options?.clear) });
                 break;
 
+            case 'take_screenshot':
+                if (!connected) {
+                    await client.connect();
+                    connected = true;
+                }
+                const screenshot = await client.takeScreenshot();
+                parentPort.postMessage({ id, success: true, result: screenshot });
+                break;
+
+            case 'get_browser_pid':
+                if (!connected) {
+                    await client.connect();
+                    connected = true;
+                }
+                const pid = await client.getBrowserPid();
+                parentPort.postMessage({ id, success: true, result: pid });
+                break;
+
             case 'clear_logs':
                 client.clearConsoleLogs();
                 parentPort.postMessage({ id, success: true });

@@ -16,9 +16,11 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
+import { exec } from 'child_process';
+import { promisify } from 'util';
 import { getWorkerPool, resetWorkerPool } from './worker-pool.js';
-import { formatCrashError } from './result_codes.js';
-import { MOJOGUI_URL } from './cdp.js';
+
+const execAsync = promisify(exec);
 
 // Create the MCP server
 const server = new McpServer({
@@ -575,6 +577,88 @@ server.tool(
         const logs = await pool.getLogs(clear);
         const slicedLogs = logs.slice(-limit);
         return { content: [{ type: 'text', text: JSON.stringify(slicedLogs, null, 2) }] };
+    }
+);
+
+server.tool(
+    'take_screenshot',
+    'Capture a PNG screenshot of the current MojoGUI page. Returns base64 encoded PNG data. Useful for confirming page-level UI state.',
+    {},
+    async () => {
+        const pool = await getWorkerPool({ targetUrl: MOJOGUI_URL });
+        const data = await pool.takeScreenshot();
+        return { 
+            content: [
+                { type: 'text', text: 'Page screenshot captured successfully.' },
+                { type: 'image', data: data, mimeType: 'image/png' }
+            ] 
+        };
+    }
+);
+
+server.tool(
+    'take_browser_screenshot',
+    'Capture a PNG screenshot of the entire browser window, including native UI like permission prompts, the address bar, and dialogs. This uses OS-level tools to target the specific browser PID.',
+    {},
+    async () => {
+        const pool = await getWorkerPool({ targetUrl: MOJOGUI_URL });
+        try {
+            const pid = await pool.getBrowserPid();
+            if (!pid) throw new Error('Could not determine browser PID');
+
+            // PowerShell script to capture specific window by PID
+            // We use Add-Type to access Win32 API for reliable window bounds
+            const psScript = `
+                [Reflection.Assembly]::LoadWithPartialName('System.Drawing') | Out-Null
+                [Reflection.Assembly]::LoadWithPartialName('System.Windows.Forms') | Out-Null
+                $proc = Get-Process -Id ${pid} -ErrorAction SilentlyContinue
+                if (!$proc) { throw "Process ${pid} not found" }
+                $handle = $proc.MainWindowHandle
+                if ($handle -eq 0) { throw "No window handle found for PID ${pid}" }
+                
+                $signature = @"
+                    [DllImport("user32.dll")]
+                    public static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
+                    public struct RECT { public int Left; public int Top; public int Right; public int Bottom; }
+"@
+                $type = Add-Type -MemberDefinition $signature -Name "Win32Utils" -Namespace "MojoGUI" -PassThru
+                $rect = New-Object MojoGUI.Win32Utils+RECT
+                if (![MojoGUI.Win32Utils]::GetWindowRect($handle, [ref]$rect)) { throw "GetWindowRect failed" }
+                
+                $width = $rect.Right - $rect.Left
+                $height = $rect.Bottom - $rect.Top
+                if ($width -le 0 -or $height -le 0) { throw "Invalid window dimensions" }
+                
+                $bmp = New-Object Drawing.Bitmap($width, $height)
+                $graphics = [Drawing.Graphics]::FromImage($bmp)
+                $graphics.CopyFromScreen($rect.Left, $rect.Top, 0, 0, $bmp.Size)
+                
+                $ms = New-Object IO.MemoryStream
+                $bmp.Save($ms, [Drawing.Imaging.ImageFormat]::Png)
+                $bmp.Dispose()
+                $graphics.Dispose()
+                [Convert]::ToBase64String($ms.ToArray())
+            `.replace(/\n/g, ' ');
+
+            const { stdout, stderr } = await execAsync(`powershell.exe -Command "${psScript}"`);
+            
+            if (stderr && !stdout) {
+                throw new Error('PowerShell error: ' + stderr);
+            }
+
+            const data = stdout.trim();
+            return { 
+                content: [
+                    { type: 'text', text: 'Browser window screenshot (PID: ' + pid + ') captured successfully.' },
+                    { type: 'image', data: data, mimeType: 'image/png' }
+                ] 
+            };
+        } catch (e) {
+            return {
+                content: [{ type: 'text', text: 'Error capturing browser screenshot: ' + e.message }],
+                isError: true
+            };
+        }
     }
 );
 

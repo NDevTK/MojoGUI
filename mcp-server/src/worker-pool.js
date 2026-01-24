@@ -155,6 +155,22 @@ export class WorkerPool {
     }
 
     /**
+     * Take a screenshot of the MojoGUI page
+     * @returns {Promise<string>} Base64 encoded PNG data
+     */
+    async takeScreenshot() {
+        return await this.send('take_screenshot');
+    }
+
+    /**
+     * Get the PID of the browser process
+     * @returns {Promise<number>} Browser PID
+     */
+    async getBrowserPid() {
+        return await this.send('get_browser_pid');
+    }
+
+    /**
      * Clear captured console logs
      */
     async clearLogs() {
