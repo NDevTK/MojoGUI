@@ -443,16 +443,28 @@ def parse_single_param(param_str):
     if param_str.endswith('&'):
         param_str = f"pending_receiver<{param_str[:-1].strip()}>"
         
-    parts = param_str.split()
-    if len(parts) >= 2:
-        param_type = ' '.join(parts[:-1])
-        raw_name = parts[-1].rstrip(';')
-        param_name = raw_name if raw_name.startswith('arg_') else "arg_" + raw_name 
-    elif len(parts) == 1:
-        param_type = parts[0].rstrip(';')
-        param_name = "arg_val"
+    # Handle types with spaces like 'handle<data_pipe_producer>'
+    # Strategy: find the last segment which is the name
+    param_str = param_str.strip()
+    if not param_str: return None
+    
+    # Check for name after closing bracket/brace/parens
+    # e.g. "array<uint8> data" or "handle<data_pipe_producer> pipe"
+    last_space_idx = -1
+    depth = 0
+    for i, char in enumerate(param_str):
+        if char in '<([': depth += 1
+        elif char in '>)]': depth -= 1
+        elif char == ' ' and depth == 0:
+            last_space_idx = i
+            
+    if last_space_idx != -1:
+        param_type = param_str[:last_space_idx].strip()
+        raw_name = param_str[last_space_idx+1:].strip().rstrip(';')
+        param_name = raw_name if raw_name.startswith('arg_') else "arg_" + raw_name
     else:
-        return None
+        param_type = param_str.rstrip(';')
+        param_name = "arg_val"
     
     # MinVersion was handled in the attribute loop
     min_version = 0 
@@ -494,6 +506,13 @@ def mojo_type_map(mojom_type):
         return 'mojo.internal.AssociatedInterfaceRequest'
     if type_clean.startswith('pending_associated_remote<'):
         return 'mojo.internal.AssociatedInterfaceProxy'
+    
+    # Check for raw handles with types
+    if type_clean.startswith('handle<'):
+        if 'data_pipe_producer' in type_clean: return 'mojo.internal.Handle'
+        if 'data_pipe_consumer' in type_clean: return 'mojo.internal.Handle'
+        if 'message_pipe' in type_clean: return 'mojo.internal.Handle'
+        return 'mojo.internal.Handle'
     
     # Look up in type map
     if type_clean in TYPE_MAPPING:
@@ -606,6 +625,10 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
         # Basic types
         if type_name in TYPE_MAPPING:
              return TYPE_MAPPING[type_name]
+        
+        # Raw Handles
+        if type_name.startswith('handle<'):
+            return 'mojo.internal.Handle'
         
         # Pending Types
         if type_name.startswith('pending_remote<'):
