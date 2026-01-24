@@ -143,13 +143,6 @@ mojo.internal.bindings.network.mojom.URLLoaderClient_OnTransferSizeUpdated_Param
 mojo.internal.bindings.network.mojom.URLLoaderClient_OnComplete_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
-mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network = mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network || {};
-mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom = mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom || {};
-mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network = mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network || {};
-mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network.mojom = mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network.mojom || {};
-mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network.mojom.HttpRequestHeaders modified_cors_exempt_headers, url = mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network.mojom.HttpRequestHeaders modified_cors_exempt_headers, url || {};
-mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network.mojom.HttpRequestHeaders modified_cors_exempt_headers, url.mojom = mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network.mojom.HttpRequestHeaders modified_cors_exempt_headers, url.mojom || {};
-mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network.mojom.HttpRequestHeaders modified_cors_exempt_headers, url.mojom.UrlSpec = mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network.mojom.HttpRequestHeaders modified_cors_exempt_headers, url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -162,9 +155,6 @@ mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec = mojo.internal.bind
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.RequestPrioritySpec = mojo.internal.bindings.network.mojom.RequestPrioritySpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.network = mojo.internal.bindings.network || {};
-mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
-mojo.internal.bindings.network.mojom.SetPriority(RequestPriority priority, int32Spec = mojo.internal.bindings.network.mojom.SetPriority(RequestPriority priority, int32Spec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec = mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -595,8 +585,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec, 'network.mojom.URLRequestRedirectInfo', [
       mojo.internal.StructField('arg_kClientDisconnectReason', 0, 0, mojo.internal.OpaqueStruct, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_new_url)', 8, 0, mojo.internal.bindings.FollowRedirect(array<string> removed_headers, network.mojom.HttpRequestHeaders modified_headers, network.mojom.HttpRequestHeaders modified_cors_exempt_headers, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_intra_priority_value)', 16, 0, mojo.internal.bindings.network.mojom.SetPriority(RequestPriority priority, int32Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_url)', 8, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_intra_priority_value)', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

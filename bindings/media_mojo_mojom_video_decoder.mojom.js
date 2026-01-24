@@ -154,11 +154,6 @@ mojo.internal.bindings.media.mojom.VideoDecoderClient_OnWaiting_ParamsSpec = { $
 mojo.internal.bindings.media.mojom.VideoDecoderClient_RequestOverlayInfo_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
-mojo.internal.bindings.ReleaseVideoFrame(mojo_base = mojo.internal.bindings.ReleaseVideoFrame(mojo_base || {};
-mojo.internal.bindings.ReleaseVideoFrame(mojo_base.mojom = mojo.internal.bindings.ReleaseVideoFrame(mojo_base.mojom || {};
-mojo.internal.bindings.ReleaseVideoFrame(mojo_base.mojom.UnguessableToken release_token, gpu = mojo.internal.bindings.ReleaseVideoFrame(mojo_base.mojom.UnguessableToken release_token, gpu || {};
-mojo.internal.bindings.ReleaseVideoFrame(mojo_base.mojom.UnguessableToken release_token, gpu.mojom = mojo.internal.bindings.ReleaseVideoFrame(mojo_base.mojom.UnguessableToken release_token, gpu.mojom || {};
-mojo.internal.bindings.ReleaseVideoFrame(mojo_base.mojom.UnguessableToken release_token, gpu.mojom.SharedImageExportResultSpec = mojo.internal.bindings.ReleaseVideoFrame(mojo_base.mojom.UnguessableToken release_token, gpu.mojom.SharedImageExportResultSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.ColorSpaceSpec = mojo.internal.bindings.gfx.mojom.ColorSpaceSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -845,7 +840,7 @@ mojo.internal.Struct(
 // Struct: OverlayInfo
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.OverlayInfoSpec, 'media.mojom.OverlayInfo', [
-      mojo.internal.StructField('arg_release_export_result)', 0, 0, mojo.internal.bindings.ReleaseVideoFrame(mojo_base.mojom.UnguessableToken release_token, gpu.mojom.SharedImageExportResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_release_export_result)', 0, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
     ],
     [[0, 16]]);
 mojo.internal.Struct(
