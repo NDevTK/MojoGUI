@@ -116,11 +116,15 @@
         MojoHandleRegistry.register(handle0);
         MojoHandleRegistry.register(handle1);
         const realHandle = handle1;
-        // Return a wrapper that satisfies Lite bindings encoder (needs unbind)
-        return {
+        const mockEndpoint = {
+          releasePipe: () => realHandle,
           handle: realHandle,
-          unbind: () => ({ releasePipe: () => realHandle }),
-          // Legacy support
+        };
+        return {
+          handle: mockEndpoint,
+          proxy: { unbind: () => mockEndpoint },
+          unbind: () => mockEndpoint,
+          // Native support
           writeMessage: (...args) => realHandle.writeMessage(...args),
           readMessage: (...args) => realHandle.readMessage(...args),
           close: () => realHandle.close()
@@ -142,9 +146,14 @@
         }
 
         if (!realHandle) return original;
-        return {
+        const mockEndpoint = {
+          releasePipe: () => realHandle,
           handle: realHandle,
-          unbind: () => ({ releasePipe: () => realHandle }),
+        };
+        return {
+          handle: mockEndpoint,
+          proxy: { unbind: () => mockEndpoint },
+          unbind: () => mockEndpoint,
           writeMessage: (...args) => realHandle.writeMessage(...args),
           readMessage: (...args) => realHandle.readMessage(...args),
           close: () => realHandle.close()
