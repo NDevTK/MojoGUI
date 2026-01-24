@@ -1999,20 +1999,20 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.ConnectToServiceResultSpec, 'bluetooth.mojom.ConnectToServiceResult', [
       mojo.internal.StructField('arg_socket', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.bluetooth.mojom.SocketRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_receive_stream', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_send_stream', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receive_stream', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_send_stream', 12, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: AcceptConnectionResult
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.AcceptConnectionResultSpec, 'bluetooth.mojom.AcceptConnectionResult', [
       mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.bluetooth.mojom.DeviceInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_socket', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.bluetooth.mojom.SocketRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_receive_stream', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_send_stream', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receive_stream', 16, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_send_stream', 20, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: AdapterInfo
 mojo.internal.Struct(

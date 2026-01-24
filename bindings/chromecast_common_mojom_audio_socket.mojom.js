@@ -281,7 +281,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec, 'chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParams', [
-      mojo.internal.StructField('arg_fd', 0, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_fd', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

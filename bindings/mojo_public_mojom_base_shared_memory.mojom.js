@@ -130,20 +130,20 @@ mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec = { $: {} };
 // Struct: ReadOnlySharedMemoryRegion
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, 'mojo_base.mojom.ReadOnlySharedMemoryRegion', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: WritableSharedMemoryRegion
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.WritableSharedMemoryRegionSpec, 'mojo_base.mojom.WritableSharedMemoryRegion', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: UnsafeSharedMemoryRegion
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, 'mojo_base.mojom.UnsafeSharedMemoryRegion', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);

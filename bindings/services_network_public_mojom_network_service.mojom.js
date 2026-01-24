@@ -1824,22 +1824,22 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec, 'network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_Params', [
       mojo.internal.StructField('arg_content_encoding_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.SourceTypeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_body', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dest_body', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_url_loader', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_url_loader_client', 32, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderClientPendingReceiver), null, false, 0, undefined),
-      mojo.internal.StructField('arg_dest_url_loader', 36, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderPendingReceiver), null, false, 0, undefined),
-      mojo.internal.StructField('arg_dest_url_loader_client', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_body', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dest_body', 12, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_url_loader', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_url_loader_client', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderClientPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_dest_url_loader', 28, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_dest_url_loader_client', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderClientRemote), null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec, 'network.mojom.NetworkService_DecodeContentEncoding_Params', [
       mojo.internal.StructField('arg_content_encoding_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.SourceTypeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_body', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dest_body', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_body', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dest_body', 12, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_DecodeContentEncoding_ResponseParamsSpec, 'network.mojom.NetworkService_DecodeContentEncoding_ResponseParams', [

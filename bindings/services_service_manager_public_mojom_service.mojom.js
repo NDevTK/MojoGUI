@@ -377,7 +377,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.Service_OnBindInterface_ParamsSpec, 'service_manager.mojom.Service_OnBindInterface_Params', [
       mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.service_manager.mojom.BindSourceInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_interface_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interface_pipe', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interface_pipe', 16, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

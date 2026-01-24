@@ -183,13 +183,13 @@ mojo.internal.Struct(
 // Struct: PauseUntilFlushCompletes
 mojo.internal.Struct(
     mojo.internal.bindings.mojo.pipe_control.PauseUntilFlushCompletesSpec, 'mojo.pipe_control.PauseUntilFlushCompletes', [
-      mojo.internal.StructField('arg_flush_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_flush_pipe', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: FlushAsync
 mojo.internal.Struct(
     mojo.internal.bindings.mojo.pipe_control.FlushAsyncSpec, 'mojo.pipe_control.FlushAsync', [
-      mojo.internal.StructField('arg_flusher_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_flusher_pipe', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);

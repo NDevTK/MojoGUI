@@ -1546,12 +1546,12 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Remoter_StartDataStreams_ParamsSpec, 'media.mojom.Remoter_StartDataStreams_Params', [
-      mojo.internal.StructField('arg_audio_pipe', 0, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_video_pipe', 8, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_audio_sender', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RemotingDataStreamSenderPendingReceiver), null, true, 0, undefined),
-      mojo.internal.StructField('arg_video_sender', 20, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RemotingDataStreamSenderPendingReceiver), null, true, 0, undefined),
+      mojo.internal.StructField('arg_audio_pipe', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
+      mojo.internal.StructField('arg_video_pipe', 4, 0, mojo.internal.Handle, null, true, 0, undefined),
+      mojo.internal.StructField('arg_audio_sender', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RemotingDataStreamSenderPendingReceiver), null, true, 0, undefined),
+      mojo.internal.StructField('arg_video_sender', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RemotingDataStreamSenderPendingReceiver), null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.Remoter_Stop_ParamsSpec, 'media.mojom.Remoter_Stop_Params', [
@@ -1650,7 +1650,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec, 'media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_Params', [
-      mojo.internal.StructField('arg_data_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_pipe', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

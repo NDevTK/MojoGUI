@@ -144,7 +144,7 @@ mojo.internal.Union(
       },
       'arg_io_surface_mach_port': {
         'ordinal': 1,
-        'type': mojo.internal.OpaqueStruct,
+        'type': mojo.internal.Handle,
         'nullable': false,
       },
     });

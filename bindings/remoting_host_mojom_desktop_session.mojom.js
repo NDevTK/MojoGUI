@@ -2817,7 +2817,7 @@ mojo.internal.Struct(
     [[0, 32]]);
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec, 'remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_Params', [
-      mojo.internal.StructField('arg_desktop_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_desktop_pipe', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

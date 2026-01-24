@@ -668,8 +668,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.Blob_ReadAll_ParamsSpec, 'blink.mojom.Blob_ReadAll_Params', [
-      mojo.internal.StructField('arg_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BlobReaderClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_pipe', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BlobReaderClientRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -677,8 +677,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.Blob_ReadRange_ParamsSpec, 'blink.mojom.Blob_ReadRange_Params', [
       mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pipe', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BlobReaderClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_pipe', 16, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BlobReaderClientRemote), null, true, 0, undefined),
     ],
     [[0, 40]]);
 

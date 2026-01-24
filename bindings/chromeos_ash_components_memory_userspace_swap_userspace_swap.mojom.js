@@ -480,7 +480,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec, 'userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_Params', [
       mojo.internal.StructField('arg_uffd_error', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_uffd_handle', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uffd_handle', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
       mojo.internal.StructField('arg_mmap_error', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_swap_area', 24, 0, mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec, null, false, 0, undefined),
     ],

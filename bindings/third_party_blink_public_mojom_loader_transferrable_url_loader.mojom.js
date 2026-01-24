@@ -151,7 +151,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_url_loader', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_url_loader_client', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderClientPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_body', 20, 0, mojo.internal.Handle, null, true, 0, undefined),
       mojo.internal.StructField('arg_head', 24, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_body', 32, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);

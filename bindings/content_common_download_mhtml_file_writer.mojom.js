@@ -311,7 +311,7 @@ mojo.internal.Union(
       },
       'arg_producer_handle': {
         'ordinal': 1,
-        'type': mojo.internal.OpaqueStruct,
+        'type': mojo.internal.Handle,
         'nullable': false,
       },
     });

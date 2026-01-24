@@ -1307,7 +1307,7 @@ mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.VideoBufferHandleSpec, 'crosapi.mojom.VideoBufferHandle', {
       'arg_shared_buffer_handle': {
         'ordinal': 0,
-        'type': mojo.internal.OpaqueStruct,
+        'type': mojo.internal.Handle,
         'nullable': false,
       },
       'arg_gpu_memory_buffer_handle': {

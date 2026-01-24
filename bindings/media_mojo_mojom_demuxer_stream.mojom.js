@@ -357,11 +357,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec, 'media.mojom.DemuxerStream_Initialize_ResponseParams', [
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.media.mojom.TypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_config', 16, 0, mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_video_config', 24, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_pipe', 4, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_config', 8, 0, mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_video_config', 16, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.DemuxerStream_Read_ParamsSpec, 'media.mojom.DemuxerStream_Read_Params', [

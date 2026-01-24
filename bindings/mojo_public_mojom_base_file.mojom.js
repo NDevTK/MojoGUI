@@ -129,15 +129,15 @@ mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec = { $: {} };
 // Struct: File
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.FileSpec, 'mojo_base.mojom.File', [
-      mojo.internal.StructField('arg_fd', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_async', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_fd', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_async', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Struct: ReadOnlyFile
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, 'mojo_base.mojom.ReadOnlyFile', [
-      mojo.internal.StructField('arg_fd', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_async', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_fd', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_async', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);

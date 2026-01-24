@@ -685,7 +685,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec, 'media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParams', [
-      mojo.internal.StructField('arg_secure_buffer', 0, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_secure_buffer', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

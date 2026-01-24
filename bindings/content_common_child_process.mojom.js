@@ -690,9 +690,9 @@ mojo.internal.bindings.content.mojom.ChildProcessRequest = mojo.internal.binding
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.LoggingSettingsSpec, 'content.mojom.LoggingSettings', [
       mojo.internal.StructField('arg_logging_dest', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_log_file_descriptor', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_log_file_descriptor', 4, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.ChildProcessHost_Ping_ParamsSpec, 'content.mojom.ChildProcessHost_Ping_Params', [
     ],

@@ -289,10 +289,10 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackRequest = mojo.int
 // Struct: ServiceWorkerStreamHandle
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerStreamHandleSpec, 'blink.mojom.ServiceWorkerStreamHandle', [
-      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_callback_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_callback_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackPendingReceiver), null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec, 'blink.mojom.ServiceWorkerStreamCallback_OnCompleted_Params', [
     ],

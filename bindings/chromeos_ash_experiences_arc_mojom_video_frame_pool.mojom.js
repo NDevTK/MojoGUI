@@ -469,9 +469,9 @@ mojo.internal.bindings.arc.mojom.VideoFramePoolClientRequest = mojo.internal.bin
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoFrameSpec, 'arc.mojom.VideoFrame', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 4, 0, mojo.internal.bindings.arc.mojom.HalPixelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_handle_fd', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_coded_size', 16, 0, mojo.internal.bindings.arc.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_handle_fd', 4, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_coded_size', 8, 0, mojo.internal.bindings.arc.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 16, 0, mojo.internal.bindings.arc.mojom.HalPixelFormatSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_planes', 24, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.VideoFramePlaneSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_modifier', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
