@@ -138,9 +138,9 @@ mojo.internal.bindings.arc.keymanagement = mojo.internal.bindings.arc.keymanagem
 mojo.internal.bindings.arc.keymanagement.mojom = mojo.internal.bindings.arc.keymanagement.mojom || {};
 mojo.internal.bindings.arc.keymanagement.mojom.ChapsSlotSpec = mojo.internal.bindings.arc.keymanagement.mojom.ChapsSlotSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
-mojo.internal.bindings.arc.keymint = mojo.internal.bindings.arc.keymint || {};
-mojo.internal.bindings.arc.keymint.mojom = mojo.internal.bindings.arc.keymint.mojom || {};
-mojo.internal.bindings.arc.keymint.mojom.KeyDataSpec = mojo.internal.bindings.arc.keymint.mojom.KeyDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.arc.keymaster = mojo.internal.bindings.arc.keymaster || {};
+mojo.internal.bindings.arc.keymaster.mojom = mojo.internal.bindings.arc.keymaster.mojom || {};
+mojo.internal.bindings.arc.keymaster.mojom.KeyDataSpec = mojo.internal.bindings.arc.keymaster.mojom.KeyDataSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: CertStoreInstance
 mojo.internal.bindings.arc.keymint.mojom.CertStoreInstancePendingReceiver = class {
@@ -334,7 +334,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.keymint.mojom.ChromeOsKeySpec, 'arc.keymint.mojom.ChromeOsKey', [
       mojo.internal.StructField('arg_base64_subject_public_key_info', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_data', 8, 0, mojo.internal.bindings.arc.keymint.mojom.KeyDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_data', 8, 0, mojo.internal.bindings.arc.keymaster.mojom.KeyDataSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 mojo.internal.Struct(

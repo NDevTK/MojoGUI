@@ -170,6 +170,9 @@ mojo.internal.bindings.tab_strip_internals.mojom.Page.$interfaceName = 'tab_stri
 mojo.internal.bindings.tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec = { $: {} };
 
 // External type stubs (from imports)
+mojo.internal.bindings.downloads = mojo.internal.bindings.downloads || {};
+mojo.internal.bindings.downloads.mojom = mojo.internal.bindings.downloads.mojom || {};
+mojo.internal.bindings.downloads.mojom.DataSpec = mojo.internal.bindings.downloads.mojom.DataSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
@@ -182,9 +185,6 @@ mojo.internal.bindings.mojo_base.mojom.TokenSpec = mojo.internal.bindings.mojo_b
 mojo.internal.bindings.tab_groups = mojo.internal.bindings.tab_groups || {};
 mojo.internal.bindings.tab_groups.mojom = mojo.internal.bindings.tab_groups.mojom || {};
 mojo.internal.bindings.tab_groups.mojom.ColorSpec = mojo.internal.bindings.tab_groups.mojom.ColorSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.tab_strip_internals = mojo.internal.bindings.tab_strip_internals || {};
-mojo.internal.bindings.tab_strip_internals.mojom = mojo.internal.bindings.tab_strip_internals.mojom || {};
-mojo.internal.bindings.tab_strip_internals.mojom.DataSpec = mojo.internal.bindings.tab_strip_internals.mojom.DataSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.tab_strip_internals = mojo.internal.bindings.tab_strip_internals || {};
 mojo.internal.bindings.tab_strip_internals.mojom = mojo.internal.bindings.tab_strip_internals.mojom || {};
 mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreEntrySpec = mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreEntrySpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -732,10 +732,10 @@ mojo.internal.Struct(
 // Struct: Node
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.NodeSpec, 'tab_strip_internals.mojom.Node', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.DataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_children', 16, 0, mojo.internal.Array(mojo.internal.bindings.tab_strip_internals.mojom.NodeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.downloads.mojom.DataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_children', 8, 0, mojo.internal.Array(mojo.internal.bindings.tab_strip_internals.mojom.NodeSpec, false), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: Tab
 mojo.internal.Struct(

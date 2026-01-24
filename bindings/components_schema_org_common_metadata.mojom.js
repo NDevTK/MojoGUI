@@ -127,8 +127,9 @@ mojo.internal.bindings.schema_org.mojom.EntitySpec = { $: {} };
 
 // External type stubs (from imports)
 mojo.internal.bindings.schema_org = mojo.internal.bindings.schema_org || {};
-mojo.internal.bindings.schema_org.mojom = mojo.internal.bindings.schema_org.mojom || {};
-mojo.internal.bindings.schema_org.mojom.ValuesSpec = mojo.internal.bindings.schema_org.mojom.ValuesSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.schema_org.improved = mojo.internal.bindings.schema_org.improved || {};
+mojo.internal.bindings.schema_org.improved.mojom = mojo.internal.bindings.schema_org.improved.mojom || {};
+mojo.internal.bindings.schema_org.improved.mojom.ValuesSpec = mojo.internal.bindings.schema_org.improved.mojom.ValuesSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 
@@ -161,9 +162,9 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.schema_org.mojom.PropertySpec, 'schema_org.mojom.Property', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_values', 8, 0, mojo.internal.bindings.schema_org.mojom.ValuesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_values', 8, 0, mojo.internal.bindings.schema_org.improved.mojom.ValuesSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: Entity
 mojo.internal.Struct(

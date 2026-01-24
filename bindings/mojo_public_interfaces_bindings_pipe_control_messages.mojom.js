@@ -130,8 +130,8 @@ mojo.internal.bindings.mojo.pipe_control.FlushAsyncSpec = { $: {} };
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo = mojo.internal.bindings.mojo || {};
-mojo.internal.bindings.mojo.pipe_control = mojo.internal.bindings.mojo.pipe_control || {};
-mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeInputSpec = mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeInputSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo.interface_control = mojo.internal.bindings.mojo.interface_control || {};
+mojo.internal.bindings.mojo.interface_control.RunOrClosePipeInputSpec = mojo.internal.bindings.mojo.interface_control.RunOrClosePipeInputSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 mojo.internal.bindings.mojo.pipe_control.kRunOrClosePipeMessageId = 0xFFFFFFFE;
 
@@ -160,7 +160,7 @@ mojo.internal.Union(
 // Struct: RunOrClosePipeMessageParams
 mojo.internal.Struct(
     mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeMessageParamsSpec, 'mojo.pipe_control.RunOrClosePipeMessageParams', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeInputSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.mojo.interface_control.RunOrClosePipeInputSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

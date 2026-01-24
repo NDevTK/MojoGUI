@@ -134,6 +134,9 @@ mojo.internal.bindings.IPC.mojom.ChannelBootstrapSpec = { $ : {} };
 mojo.internal.bindings.IPC.mojom.ChannelBootstrap.$interfaceName = 'IPC.mojom.ChannelBootstrap';
 
 // External type stubs (from imports)
+mojo.internal.bindings.mojo = mojo.internal.bindings.mojo || {};
+mojo.internal.bindings.mojo.native = mojo.internal.bindings.mojo.native || {};
+mojo.internal.bindings.mojo.native.mojo.native.SerializedHandleSpec = mojo.internal.bindings.mojo.native.mojo.native.SerializedHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.GenericPendingAssociatedReceiverSpec = mojo.internal.bindings.mojo_base.mojom.GenericPendingAssociatedReceiverSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -414,7 +417,7 @@ mojo.internal.bindings.IPC.mojom.ChannelBootstrapRequest = mojo.internal.binding
 mojo.internal.Struct(
     mojo.internal.bindings.IPC.mojom.MessageSpec, 'IPC.mojom.Message', [
       mojo.internal.StructField('arg_bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handles', 8, 0, mojo.internal.Array(mojo.internal.OpaqueStruct, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_handles', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo.native.mojo.native.SerializedHandleSpec, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 mojo.internal.Struct(
