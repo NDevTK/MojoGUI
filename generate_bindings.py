@@ -582,7 +582,8 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
         
         if not type_name or any(c in type_name for c in '(),'):
              # If it's not a known container and has junk, it's a failed parse
-             if not (type_name.startswith('array<') or type_name.startswith('map<') or type_name.startswith('pending_')):
+             if not (type_name.startswith('array<') or type_name.startswith('map<') or 
+                     type_name.startswith('pending_') or type_name.startswith('handle<')):
                  return 'mojo.internal.OpaqueStruct'
 
         if type_name.startswith('array<'):
