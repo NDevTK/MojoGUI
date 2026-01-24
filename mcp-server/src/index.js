@@ -729,8 +729,11 @@ server.tool(
   async () => {
     const code = `
             (async () => {
+                const api = window.MojoGUI_API;
                 const mojoAvailable = typeof Mojo !== 'undefined';
                 const mojoJSTestAvailable = typeof MojoInterfaceInterceptor !== 'undefined';
+                
+                const state = api ? api.getState() : {};
                 
                 return {
                     mojoJS: mojoAvailable,
@@ -740,7 +743,8 @@ server.tool(
                         ? (mojoJSTestAvailable 
                             ? 'MojoJS and MojoJSTest are both enabled. All features available.'
                             : 'MojoJS enabled but MojoJSTest not available. Interception may not work.')
-                        : 'MojoJS not enabled. Start Chrome with --enable-blink-features=MojoJS,MojoJSTest'
+                        : 'MojoJS not enabled. Start Chrome with --enable-blink-features=MojoJS,MojoJSTest',
+                    ...state
                 };
             })()
         `;
