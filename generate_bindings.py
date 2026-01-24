@@ -230,58 +230,54 @@ def parse_mojom(file_path):
     # Fix: Allow inheritance (e.g. interface A : B {) by matching usually non-brace chars until {
     interface_pattern = r'interface\s+(\w+)[^{]*\{'
 
-        # Extract interfaces with their methods
-        # Fix: Allow inheritance (e.g. interface A : B {) by matching usually non-brace chars until {
-        interface_pattern = r'interface\s+(\w+)[^{]*\{'
+    for match in re.finditer(interface_pattern, content_no_comments):
+        interface_name = match.group(1)
+        start_pos = match.end()
+        
+        # Find matching closing brace
+        brace_count = 1
+        end_pos = start_pos
+        while brace_count > 0 and end_pos < len(content_no_comments):
+            if content_no_comments[end_pos] == '{':
+                brace_count += 1
+            elif content_no_comments[end_pos] == '}':
+                brace_count -= 1
+            end_pos += 1
+        
+        interface_body = content_no_comments[start_pos:end_pos-1]
+        
+        methods = []
+        # Capture optional Ordinal: Name@123(...)
+        # Fix: Use re.DOTALL (via flag or inline) to allow parameters to span multiple lines
+        # Update: Capture Attributes [Attr] preceding method
+        method_pattern = r'((?:\[[^\]]+\]\s*)*)([a-zA-Z][a-zA-Z0-9_]*)(?:@(\d+))?\s*\((.*?)\)\s*(?:=>\s*\((.*?)\))?'
+        
+        for method_match in re.finditer(method_pattern, interface_body, re.DOTALL):
+            attributes_str = method_match.group(1)
+            method_name = method_match.group(2)
+            ordinal_str = method_match.group(3)
+            params_str = method_match.group(4).strip()
+            returns_str = method_match.group(5)
+            
+            # Skip false positives
+            if method_name in ('TODO', 'NOTE', 'FIXME', 'DEPRECATED', 'If', 'For', 'While', 'Switch', 'const', 'enum', 'struct', 'union'):
+                continue
 
-        for match in re.finditer(interface_pattern, content_no_comments):
-            interface_name = match.group(1)
-            start_pos = match.end()
+            # Check EnableIf
+            if not check_enable_if(attributes_str):
+                continue
             
-            # Find matching closing brace
-            brace_count = 1
-            end_pos = start_pos
-            while brace_count > 0 and end_pos < len(content_no_comments):
-                if content_no_comments[end_pos] == '{':
-                    brace_count += 1
-                elif content_no_comments[end_pos] == '}':
-                    brace_count -= 1
-                end_pos += 1
+            params = parse_params(params_str) if params_str else []
+            # returns_str might be None if no => present, or empty string if => ()
+            returns = parse_params(returns_str) if (returns_str is not None and returns_str.strip()) else ([] if returns_str is not None else None)
             
-            interface_body = content_no_comments[start_pos:end_pos-1]
-            
-            methods = []
-            # Capture optional Ordinal: Name@123(...)
-            # Fix: Use re.DOTALL (via flag or inline) to allow parameters to span multiple lines
-            # Update: Capture Attributes [Attr] preceding method
-            method_pattern = r'((?:\[[^\]]+\]\s*)*)([a-zA-Z][a-zA-Z0-9_]*)(?:@(\d+))?\s*\((.*?)\)\s*(?:=>\s*\((.*?)\))?'
-            
-            for method_match in re.finditer(method_pattern, interface_body, re.DOTALL):
-                attributes_str = method_match.group(1)
-                method_name = method_match.group(2)
-                ordinal_str = method_match.group(3)
-                params_str = method_match.group(4).strip()
-                returns_str = method_match.group(5)
-                
-                # Skip false positives
-                if method_name in ('TODO', 'NOTE', 'FIXME', 'DEPRECATED', 'If', 'For', 'While', 'Switch', 'const', 'enum', 'struct', 'union'):
-                    continue
-
-                # Check EnableIf
-                if not check_enable_if(attributes_str):
-                    continue
-                
-                params = parse_params(params_str) if params_str else []
-                # returns_str might be None if no => present, or empty string if => ()
-                returns = parse_params(returns_str) if (returns_str is not None and returns_str.strip()) else ([] if returns_str is not None else None)
-                
-                methods.append({
-                    'name': method_name,
-                    'ordinal': int(ordinal_str) if ordinal_str else None,
-                    'params': params,
-                    'returns': returns,
-                    'is_one_way': returns is None
-                })
+            methods.append({
+                'name': method_name,
+                'ordinal': int(ordinal_str) if ordinal_str else None,
+                'params': params,
+                'returns': returns,
+                'is_one_way': returns is None
+            })
         
         # Deduplicate methods
         seen = set()
