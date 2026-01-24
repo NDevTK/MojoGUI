@@ -83,6 +83,7 @@
             if (!found) throw new Error(`Method ${methodName} not found on ${interfaceName}`);
 
             console.log(`[ExecutionService] ${interfaceName}.${methodName}`, finalArgs);
+            finalArgs.forEach((arg, i) => console.log(`  Arg[${i}]: type=${typeof arg}`, arg));
             const result = await found.func.apply(found.ctx, finalArgs);
 
             // 4. Register remote if it's new, so we can chain calls
