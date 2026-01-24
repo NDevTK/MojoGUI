@@ -771,10 +771,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.EagerResponseSpec, 'blink.mojom.EagerResponse', [
       mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.blink.mojom.FetchAPIResponseSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobReaderClientPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pipe', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_receiver', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobReaderClientPendingReceiver), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: CacheEntry
 mojo.internal.Struct(

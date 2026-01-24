@@ -415,7 +415,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BytesProvider_RequestAsStream_ParamsSpec, 'blink.mojom.BytesProvider_RequestAsStream_Params', [
-      mojo.internal.StructField('arg_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pipe', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

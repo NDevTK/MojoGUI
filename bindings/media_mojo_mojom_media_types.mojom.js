@@ -852,7 +852,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_multi_planar', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_buffer_addr_align', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_modifier', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_fds', 32, 0, mojo.internal.Array(mojo.internal.OpaqueStruct, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_fds', 32, 0, mojo.internal.Array(mojo.internal.Handle, false), null, false, 0, undefined),
     ],
     [[0, 48]]);
 

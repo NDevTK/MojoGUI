@@ -627,7 +627,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec, 'ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_Params', [
-      mojo.internal.StructField('arg_socket', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_socket', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

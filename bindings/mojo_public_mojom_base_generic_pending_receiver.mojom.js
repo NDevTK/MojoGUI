@@ -129,6 +129,6 @@ mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec = { $: {} };
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec, 'mojo_base.mojom.GenericPendingReceiver', [
       mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiving_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiving_pipe', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 24]]);

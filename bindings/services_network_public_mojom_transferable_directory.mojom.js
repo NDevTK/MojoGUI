@@ -136,7 +136,7 @@ mojo.internal.Union(
     mojo.internal.bindings.network.mojom.TransferableDirectorySpec, 'network.mojom.TransferableDirectory', {
       'arg_handle_for_ipc': {
         'ordinal': 0,
-        'type': mojo.internal.OpaqueStruct,
+        'type': mojo.internal.Handle,
         'nullable': false,
       },
       'arg_path': {

@@ -724,7 +724,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.cast_streaming.mojom.AudioStreamInfoSpec, 'cast_streaming.mojom.AudioStreamInfo', [
       mojo.internal.StructField('arg_decoder_config', 0, 0, mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_pipe', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -732,7 +732,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.cast_streaming.mojom.VideoStreamInfoSpec, 'cast_streaming.mojom.VideoStreamInfo', [
       mojo.internal.StructField('arg_decoder_config', 0, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_pipe', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

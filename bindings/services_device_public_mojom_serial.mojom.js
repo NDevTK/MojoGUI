@@ -1383,13 +1383,13 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SerialPort_StartWriting_ParamsSpec, 'device.mojom.SerialPort_StartWriting_Params', [
-      mojo.internal.StructField('arg_consumer', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_consumer', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SerialPort_StartReading_ParamsSpec, 'device.mojom.SerialPort_StartReading_Params', [
-      mojo.internal.StructField('arg_producer', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_producer', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

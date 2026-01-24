@@ -3632,7 +3632,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec, 'drivefs.mojom.HttpDelegate_GetRequestBody_Params', [
-      mojo.internal.StructField('arg_request_body', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_body', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -3644,7 +3644,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec, 'drivefs.mojom.HttpDelegate_OnReceiveBody_Params', [
-      mojo.internal.StructField('arg_response_body', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response_body', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

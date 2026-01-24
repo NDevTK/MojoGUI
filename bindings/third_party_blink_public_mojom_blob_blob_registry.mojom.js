@@ -486,8 +486,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_content_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_content_disposition', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_length_hint', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_progress_client', 32, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.ProgressClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_data', 24, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_progress_client', 28, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.ProgressClientRemote), null, true, 0, undefined),
     ],
     [[0, 48]]);
 

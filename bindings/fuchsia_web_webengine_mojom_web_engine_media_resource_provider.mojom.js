@@ -300,7 +300,7 @@ mojo.internal.bindings.mojom.WebEngineMediaResourceProviderRequest = mojo.intern
 // Struct: AudioConsumerRequest
 mojo.internal.Struct(
     mojo.internal.bindings.mojom.AudioConsumerRequestSpec, 'mojom.AudioConsumerRequest', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);
 mojo.internal.Struct(

@@ -471,10 +471,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec, 'network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParams', [
       mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_receive_stream', 8, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_send_stream', 16, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_receive_stream', 4, 0, mojo.internal.Handle, null, true, 0, undefined),
+      mojo.internal.StructField('arg_send_stream', 8, 0, mojo.internal.Handle, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec, 'network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_Params', [
@@ -490,10 +490,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec, 'network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParams', [
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_receive_stream', 4, 0, mojo.internal.Handle, null, true, 0, undefined),
       mojo.internal.StructField('arg_local_addr', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_peer_addr', 16, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_receive_stream', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_send_stream', 32, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_send_stream', 24, 0, mojo.internal.Handle, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 

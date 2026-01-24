@@ -488,12 +488,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec, 'blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParams', [
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_receive_stream', 4, 0, mojo.internal.Handle, null, true, 0, undefined),
       mojo.internal.StructField('arg_local_addr', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_peer_addr', 16, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_receive_stream', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_send_stream', 32, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_send_stream', 24, 0, mojo.internal.Handle, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec, 'blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_Params', [

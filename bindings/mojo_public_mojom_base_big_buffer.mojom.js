@@ -149,7 +149,7 @@ mojo.internal.Union(
 // Struct: BigBufferSharedMemoryRegion
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.BigBufferSharedMemoryRegionSpec, 'mojo_base.mojom.BigBufferSharedMemoryRegion', [
-      mojo.internal.StructField('arg_buffer_handle', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);

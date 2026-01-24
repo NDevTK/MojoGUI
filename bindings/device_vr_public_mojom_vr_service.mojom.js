@@ -3128,10 +3128,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec, 'device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_Params', [
       mojo.internal.StructField('arg_frame_id', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_texture', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sync_token', 16, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_texture', 4, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sync_token', 8, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec, 'device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_Params', [

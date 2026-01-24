@@ -134,7 +134,7 @@ mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bind
 // Struct: MessagePortDescriptor
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec, 'blink.mojom.MessagePortDescriptor', [
-      mojo.internal.StructField('arg_pipe_handle', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pipe_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
       mojo.internal.StructField('arg_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_sequence_number', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],

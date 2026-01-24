@@ -282,10 +282,10 @@ mojo.internal.bindings.download.mojom.DownloadStreamClientRequest = mojo.interna
 // Struct: DownloadStreamHandle
 mojo.internal.Struct(
     mojo.internal.bindings.download.mojom.DownloadStreamHandleSpec, 'download.mojom.DownloadStreamHandle', [
-      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.download.mojom.DownloadStreamClientPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.download.mojom.DownloadStreamClientPendingReceiver), null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 mojo.internal.Struct(
     mojo.internal.bindings.download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec, 'download.mojom.DownloadStreamClient_OnStreamCompleted_Params', [
       mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.download.mojom.NetworkRequestStatusSpec, null, false, 0, undefined),

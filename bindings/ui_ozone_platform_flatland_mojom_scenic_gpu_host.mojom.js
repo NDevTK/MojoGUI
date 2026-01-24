@@ -265,7 +265,7 @@ mojo.internal.bindings.ui.mojom.ScenicGpuHostRequest = mojo.internal.bindings.ui
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec, 'ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_Params', [
       mojo.internal.StructField('arg_window_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_view_holder_token', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_view_holder_token', 4, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 

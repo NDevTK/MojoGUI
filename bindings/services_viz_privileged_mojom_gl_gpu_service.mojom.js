@@ -1024,7 +1024,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec, 'viz.mojom.GpuService_EstablishGpuChannel_ResponseParams', [
-      mojo.internal.StructField('arg_channel_handle', 0, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_channel_handle', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
       mojo.internal.StructField('arg_gpu_info', 8, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_gpu_feature_info', 16, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_shared_image_capabilities', 24, 0, mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec, null, false, 0, undefined),
@@ -1067,7 +1067,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ParamsSpec, 'viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_Params', [
-      mojo.internal.StructField('arg_surface_handle', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_surface_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

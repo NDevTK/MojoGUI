@@ -265,7 +265,7 @@ mojo.internal.bindings.service_manager.mojom.InterfaceProviderRequest = mojo.int
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec, 'service_manager.mojom.InterfaceProvider_GetInterface_Params', [
       mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pipe', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

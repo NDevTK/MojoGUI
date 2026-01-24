@@ -383,7 +383,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriterRequest = mojo.inte
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec, 'blink.mojom.FileSystemAccessFileWriter_Write_Params', [
       mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_stream', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

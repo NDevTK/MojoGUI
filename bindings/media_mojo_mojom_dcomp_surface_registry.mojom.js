@@ -304,7 +304,7 @@ mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistryRequest = mojo.internal.b
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ParamsSpec, 'media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_Params', [
-      mojo.internal.StructField('arg_surface_handle', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_surface_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

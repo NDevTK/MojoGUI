@@ -309,7 +309,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec, 'network.mojom.ChunkedDataPipeGetter_StartReading_Params', [
-      mojo.internal.StructField('arg_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pipe', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

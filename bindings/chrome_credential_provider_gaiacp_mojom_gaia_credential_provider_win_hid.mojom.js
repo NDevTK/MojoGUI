@@ -288,7 +288,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec, 'gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParams', [
-      mojo.internal.StructField('arg_out_handle', 0, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_out_handle', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

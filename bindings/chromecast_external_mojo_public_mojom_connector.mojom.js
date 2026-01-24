@@ -530,7 +530,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec, 'chromecast.external_mojo.mojom.ExternalService_OnBindInterface_Params', [
       mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interface_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interface_pipe', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -544,7 +544,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec, 'chromecast.external_mojo.mojom.ExternalConnector_BindInterface_Params', [
       mojo.internal.StructField('arg_service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_interface_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interface_pipe', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interface_pipe', 16, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -556,7 +556,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec, 'chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_Params', [
-      mojo.internal.StructField('arg_interface_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interface_pipe', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

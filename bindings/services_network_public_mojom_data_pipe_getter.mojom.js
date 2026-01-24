@@ -297,7 +297,7 @@ mojo.internal.bindings.network.mojom.DataPipeGetterRequest = mojo.internal.bindi
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ParamsSpec, 'network.mojom.DataPipeGetter_Read_Params', [
-      mojo.internal.StructField('arg_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pipe', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

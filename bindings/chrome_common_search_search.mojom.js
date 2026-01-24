@@ -734,11 +734,11 @@ mojo.internal.Struct(
 // Struct: InstantMostVisitedInfo
 mojo.internal.Struct(
     mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec, 'search.mojom.InstantMostVisitedInfo', [
-      mojo.internal.StructField('arg_page_seq_no)', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason)', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_most_visited_info)', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_in_progress)', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_theme)', 32, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 32, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
     [[0, 48]]);
 mojo.internal.Struct(

@@ -591,8 +591,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.Connector_BindInterface_ParamsSpec, 'service_manager.mojom.Connector_BindInterface_Params', [
       mojo.internal.StructField('arg_filter', 0, 0, mojo.internal.bindings.service_manager.mojom.ServiceFilterSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_interface_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interface_pipe', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_priority', 24, 0, mojo.internal.bindings.service_manager.mojom.BindInterfacePrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interface_pipe', 16, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 20, 0, mojo.internal.bindings.service_manager.mojom.BindInterfacePrioritySpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -631,10 +631,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec, 'service_manager.mojom.Connector_RegisterServiceInstance_Params', [
       mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.service_manager.mojom.ProcessMetadataPendingReceiver), null, true, 0, undefined),
+      mojo.internal.StructField('arg_service', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata_receiver', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.service_manager.mojom.ProcessMetadataPendingReceiver), null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec, 'service_manager.mojom.Connector_RegisterServiceInstance_ResponseParams', [

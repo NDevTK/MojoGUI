@@ -577,9 +577,9 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.BufferSpec, 'arc.mojom.Buffer', [
       mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_handle_fd', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_offset', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_handle_fd', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_offset', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

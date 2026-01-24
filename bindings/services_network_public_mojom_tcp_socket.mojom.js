@@ -984,12 +984,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec, 'network.mojom.TCPBoundSocket_Connect_ResponseParams', [
       mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_receive_stream', 4, 0, mojo.internal.Handle, null, true, 0, undefined),
       mojo.internal.StructField('arg_local_addr', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_peer_addr', 16, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_receive_stream', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_send_stream', 32, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_send_stream', 24, 0, mojo.internal.Handle, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec, 'network.mojom.TCPConnectedSocket_UpgradeToTLS_Params', [
@@ -1004,11 +1004,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec, 'network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParams', [
       mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_receive_stream', 8, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_send_stream', 16, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_ssl_info', 24, 0, mojo.internal.bindings.network.mojom.SSLInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_receive_stream', 4, 0, mojo.internal.Handle, null, true, 0, undefined),
+      mojo.internal.StructField('arg_send_stream', 8, 0, mojo.internal.Handle, null, true, 0, undefined),
+      mojo.internal.StructField('arg_ssl_info', 16, 0, mojo.internal.bindings.network.mojom.SSLInfoSpec, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec, 'network.mojom.TCPConnectedSocket_SetSendBufferSize_Params', [
@@ -1080,10 +1080,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TCPServerSocket_Accept_ResponseParamsSpec, 'network.mojom.TCPServerSocket_Accept_ResponseParams', [
       mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_send_stream', 4, 0, mojo.internal.Handle, null, true, 0, undefined),
       mojo.internal.StructField('arg_remote_addr', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_connected_socket', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.TCPConnectedSocketRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_send_stream', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_receive_stream', 32, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_receive_stream', 24, 0, mojo.internal.Handle, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 

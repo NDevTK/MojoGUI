@@ -518,7 +518,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_common_params', 0, 0, mojo.internal.bindings.blink.mojom.CommonNavigationParamsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_request_params', 8, 0, mojo.internal.bindings.blink.mojom.CommitNavigationParamsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_response_head', 16, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response_body', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_response_body', 24, 0, mojo.internal.Handle, null, true, 0, undefined),
       mojo.internal.StructField('arg_url_loader_client_endpoints', 32, 0, mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_subresource_loader_factories', 40, 0, mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_subresource_overrides', 48, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.TransferrableURLLoaderSpec, false), null, true, 0, undefined),

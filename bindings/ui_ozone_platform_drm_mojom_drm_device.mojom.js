@@ -875,7 +875,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec, 'ui.ozone.mojom.DrmDevice_AddGraphicsDevice_Params', [
       mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fd_mojo_handle', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fd_mojo_handle', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

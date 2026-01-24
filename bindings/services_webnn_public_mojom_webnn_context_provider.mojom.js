@@ -338,10 +338,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_context_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.webnn.mojom.WebNNContextRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_context_properties', 8, 0, mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_context_handle', 16, 0, mojo.internal.bindings.blink.mojom.WebNNContextTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_write_tensor_producer', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_read_tensor_consumer', 32, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_write_tensor_producer', 24, 0, mojo.internal.Handle, null, true, 0, undefined),
+      mojo.internal.StructField('arg_read_tensor_consumer', 28, 0, mojo.internal.Handle, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec, 'webnn.mojom.WebNNContextProvider_CreateWebNNContext_Params', [
       mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec, null, false, 0, undefined),

@@ -131,11 +131,11 @@ mojo.internal.bindings.media.stable.mojom.NativePixmapHandleSpec = { $: {} };
 mojo.internal.Struct(
     mojo.internal.bindings.media.stable.mojom.NativePixmapPlaneSpec, 'media.stable.mojom.NativePixmapPlane', [
       mojo.internal.StructField('arg_stride', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_handle', 4, 0, mojo.internal.Handle, null, false, 0, undefined),
       mojo.internal.StructField('arg_offset', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_handle', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: NativePixmapHandle
 mojo.internal.Struct(

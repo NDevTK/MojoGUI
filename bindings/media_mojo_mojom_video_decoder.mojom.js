@@ -840,7 +840,7 @@ mojo.internal.Struct(
 // Struct: OverlayInfo
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.OverlayInfoSpec, 'media.mojom.OverlayInfo', [
-      mojo.internal.StructField('arg_release_export_result)', 0, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_val', 0, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
     ],
     [[0, 16]]);
 mojo.internal.Struct(
@@ -867,11 +867,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.VideoDecoderClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_media_log', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.MediaLogRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_video_frame_handle_releaser', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoFrameHandleReleaserPendingReceiver), null, false, 0, undefined),
-      mojo.internal.StructField('arg_decoder_buffer_pipe', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_command_buffer_id', 32, 0, mojo.internal.bindings.media.mojom.CommandBufferIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_target_color_space', 40, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_decoder_buffer_pipe', 20, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_command_buffer_id', 24, 0, mojo.internal.bindings.media.mojom.CommandBufferIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_target_color_space', 32, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoDecoder_Initialize_ParamsSpec, 'media.mojom.VideoDecoder_Initialize_Params', [
