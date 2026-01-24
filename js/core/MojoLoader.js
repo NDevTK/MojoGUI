@@ -63,17 +63,36 @@
          * Scans mojo.internal.bindings to see if a class is already defined
          */
         resolveGlobal(name) {
+            // Use ReflectionService for consistent resolution
+            if (typeof MojoReflectionService !== 'undefined') {
+                const parts = name.split('.');
+                const leafName = parts.pop();
+                const moduleName = parts.join('.');
+                
+                if (!moduleName) {
+                    // Search in all roots for the leaf name
+                    const roots = [mojo.internal.bindings];
+                    for (const root of roots) {
+                        if (root[leafName]) return root[leafName];
+                        for (const key in root) {
+                            if (root[key] && root[key][leafName]) return root[key][leafName];
+                        }
+                    }
+                    return null;
+                }
+
+                const ns = MojoReflectionService.resolveNamespace(moduleName);
+                if (ns && ns[leafName]) return ns[leafName];
+            }
+
+            // Fallback to basic search
             if (typeof mojo === 'undefined' || !mojo.internal || !mojo.internal.bindings) return null;
             
             let current = mojo.internal.bindings;
             const parts = name.split('.');
             for (const part of parts) {
                 if (current[part]) current = current[part];
-                else {
-                    // Try case-insensitive or partial match if needed?
-                    // For now, stick to exact parts.
-                    return null;
-                }
+                else return null;
             }
             return current;
         }

@@ -152,6 +152,45 @@ def build_interface_scramble_map(all_parsed_files, mojom_file_scramble):
     no_scramble_count = sum(1 for v in INTERFACE_SCRAMBLE_MAP.values() if not v)
     print(f"[Scramble] {no_scramble_count} interfaces marked as no-scramble")
 
+# Feature flags for EnableIf
+# This should ideally be configurable, but for now we default to a Windows Desktop environment
+# matching the user's OS context where typical debugging happens.
+ENABLED_FEATURES = {
+    'is_win': True,
+    'is_android': False,
+    'is_linux': False,
+    'is_mac': False,
+    'is_chromeos': False,
+    'is_ios': False,
+    'is_fuchsia': False,
+    'USE_RENDERER_SPELLCHECKER': True, # Enabled to include CallSpellingService
+    'USE_BROWSER_SPELLCHECKER': True,
+    'USE_BROWSER_SPELLCHECKER_AND_SPELLING_SERVICE': True,
+}
+
+def check_enable_if(attributes):
+    if not attributes:
+        return True
+    
+    # Simple parser for [EnableIf=Condition] or [EnableIf=Condition, Sync]
+    # We only care about EnableIf
+    matches = re.finditer(r'EnableIf=([^,\]]+)', attributes)
+    for m in matches:
+        condition = m.group(1).strip()
+        # Simple boolean logic could be added here if needed (AND/OR), 
+        # but usually it's a single flag in mojom.
+        if condition not in ENABLED_FEATURES:
+            # If unknown flag, assume True (include it) or False? 
+            # Better to be conservative and include it unless we KNOW it's disabled?
+            # Or excluded? Let's check if it starts with 'is_'
+            if condition.startswith('is_'):
+                return False # Unknown platform flag -> False
+            return True # Unknown feature flag -> True (to be safe)
+        
+        if not ENABLED_FEATURES[condition]:
+            return False
+    return True
+
 def parse_mojom(file_path):
     """Parse a .mojom file and extract interface definitions using regex."""
     try:
@@ -188,44 +227,6 @@ def parse_mojom(file_path):
     # Extract interfaces with their methods
     # Fix: Allow inheritance (e.g. interface A : B {) by matching usually non-brace chars until {
     interface_pattern = r'interface\s+(\w+)[^{]*\{'
-    # Feature flags for EnableIf
-    # This should ideally be configurable, but for now we default to a Windows Desktop environment
-    # matching the user's OS context where typical debugging happens.
-    ENABLED_FEATURES = {
-        'is_win': True,
-        'is_android': False,
-        'is_linux': False,
-        'is_mac': False,
-        'is_chromeos': False,
-        'is_ios': False,
-        'is_fuchsia': False,
-        'USE_RENDERER_SPELLCHECKER': True, # Enabled to include CallSpellingService
-        'USE_BROWSER_SPELLCHECKER': True,
-        'USE_BROWSER_SPELLCHECKER_AND_SPELLING_SERVICE': True,
-    }
-
-    def check_enable_if(attributes):
-        if not attributes:
-            return True
-        
-        # Simple parser for [EnableIf=Condition] or [EnableIf=Condition, Sync]
-        # We only care about EnableIf
-        matches = re.finditer(r'EnableIf=([^,\]]+)', attributes)
-        for m in matches:
-            condition = m.group(1).strip()
-            # Simple boolean logic could be added here if needed (AND/OR), 
-            # but usually it's a single flag in mojom.
-            if condition not in ENABLED_FEATURES:
-                # If unknown flag, assume True (include it) or False? 
-                # Better to be conservative and include it unless we KNOW it's disabled?
-                # Or excluded? Let's check if it starts with 'is_'
-                if condition.startswith('is_'):
-                    return False # Unknown platform flag -> False
-                return True # Unknown feature flag -> True (to be safe)
-            
-            if not ENABLED_FEATURES[condition]:
-                return False
-        return True
 
     for match in re.finditer(interface_pattern, content_no_comments):
         interface_name = match.group(1)
@@ -408,6 +409,12 @@ def parse_single_param(param_str):
     
     param_str = re.sub(r'//.*$', '', param_str, flags=re.MULTILINE).strip()
     
+    # Check EnableIf
+    attributes_match = re.search(r'^\[(.*?)\]', param_str)
+    if attributes_match:
+        if not check_enable_if(attributes_match.group(1)):
+            return None
+
     # Extract MinVersion
     min_version_match = re.search(r'\[MinVersion=(\d+)\]', param_str)
     min_version = int(min_version_match.group(1)) if min_version_match else 0

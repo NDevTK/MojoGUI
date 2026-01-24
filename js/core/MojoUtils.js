@@ -167,11 +167,73 @@
         return restored;
     }
 
+    /**
+     * Inflates a simple object or value into a full Mojo struct based on a spec.
+     * e.g. "C:\foo" -> { arg_path: "C:\foo" } for FilePath
+     */
+    function inflateStruct(value, spec) {
+        if (value === null || value === undefined) return value;
+        if (!spec) return value;
+
+        // 1. If it's already an object that looks like the struct, just ensure arg_ prefixes
+        if (typeof value === 'object' && !Array.isArray(value)) {
+            const inflated = {};
+            for (const field of spec.fields) {
+                let val = value[field.name];
+                if (val === undefined && field.name.startsWith('arg_')) {
+                    val = value[field.name.substring(4)];
+                }
+                
+                if (val !== undefined) {
+                    inflated[field.name] = inflateType(val, field.type.$ || field.type);
+                } else if (field.defaultValue !== null) {
+                    inflated[field.name] = field.defaultValue;
+                } else if (field.nullable) {
+                    inflated[field.name] = null;
+                }
+            }
+            return inflated;
+        }
+
+        // 2. Heuristic: Single-field structs can be inflated from a single value
+        if (spec.fields && spec.fields.length === 1) {
+            return { [spec.fields[0].name]: inflateType(value, spec.fields[0].type.$ || spec.fields[0].type) };
+        }
+
+        // 3. Special case for FilePath (which has two fields with same name due to EnableIf issues, fixed in generator)
+        // But if it still has multiple fields, try to find the best match
+        if (spec.name && spec.name.includes('FilePath')) {
+            const stringField = spec.fields.find(f => f.type === mojo.internal.String);
+            if (stringField) return { [stringField.name]: value };
+        }
+
+        return value;
+    }
+
+    function inflateType(value, typeInfo) {
+        if (!typeInfo) return value;
+        if (typeInfo.structSpec) return inflateStruct(value, typeInfo.structSpec);
+        if (typeInfo.unionSpec) {
+            // For unions, if it's not already a union-wrapped object, we might need a default tag
+            if (typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length === 1) {
+                return value;
+            }
+            // Heuristic: wrap in first tag
+            const firstTag = Object.keys(typeInfo.unionSpec.fields)[0];
+            return { [firstTag]: value };
+        }
+        if (typeInfo.arraySpec && Array.isArray(value)) {
+            return value.map(v => inflateType(v, typeInfo.arraySpec.elementType.$ || typeInfo.arraySpec.elementType));
+        }
+        return value;
+    }
+
     const MojoUtils = {
         safeStringify,
         safeParse,
         sanitizeKeys,
-        reconcileKeys
+        reconcileKeys,
+        inflateStruct
     };
 
     global.MojoUtils = MojoUtils;

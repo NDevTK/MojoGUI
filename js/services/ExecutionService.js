@@ -43,21 +43,27 @@
                 }
             }
 
-            // 2. Prepare Parameters
-            const reconciledParams = MojoUtils.reconcileKeys(params, null, false);
-            const methodDef = MojoReflectionService.findMethodDefinition(interfaceName, methodName);
+                        // 2. Prepare Parameters
+                        const reconciledParams = MojoUtils.reconcileKeys(params, null, false);
+                        const methodDef = MojoReflectionService.findMethodDefinition(interfaceName, methodName);
             
-            let finalArgs = [];
-            if (reconciledParams) {
-                if (Array.isArray(reconciledParams)) {
-                    finalArgs = reconciledParams;
-                } else if (methodDef && methodDef.parameters && methodDef.parameters.length > 0) {
-                    finalArgs = methodDef.parameters.map(p => reconciledParams[p.name]);
-                } else {
-                    finalArgs = [reconciledParams];
-                }
-            }
-
+                        let finalArgs = [];
+                        if (reconciledParams) {
+                            if (Array.isArray(reconciledParams)) {
+                                finalArgs = reconciledParams;
+                            } else if (methodDef && methodDef.parameters && methodDef.parameters.length > 0) {
+                                finalArgs = methodDef.parameters.map(p => {
+                                    const val = reconciledParams[p.name];
+                                    // Auto-inflate complex types if spec is available
+                                    if (p.structSpec) {
+                                        return MojoUtils.inflateStruct(val, p.structSpec);
+                                    }
+                                    return val;
+                                });
+                            } else {
+                                finalArgs = [reconciledParams];
+                            }
+                        }
             // 3. Execute
             const tryFindMethod = (obj, name) => {
                 if (!obj) return null;

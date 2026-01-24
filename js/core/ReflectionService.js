@@ -11,12 +11,51 @@
          */
         resolveNamespace(moduleName) {
             if (typeof mojo === 'undefined' || !mojo.internal || !mojo.internal.bindings) return null;
-            let current = mojo.internal.bindings;
-            for (const part of moduleName.split('.')) {
-                if (current[part]) current = current[part];
-                else return null;
+            
+            const roots = [mojo.internal.bindings];
+            // Add other potential roots if they exist (sometimes bindings are slightly elsewhere)
+            if (global.mojo && global.mojo.internal && global.mojo.internal.bindings) {
+                if (!roots.includes(global.mojo.internal.bindings)) roots.push(global.mojo.internal.bindings);
             }
-            return current;
+
+            const parts = moduleName.split('.');
+            
+            for (const root of roots) {
+                let current = root;
+                let found = true;
+                for (const part of parts) {
+                    if (current[part]) {
+                        current = current[part];
+                    } else {
+                        // Try alternative: some modules use underscore instead of dots in the JS object
+                        // e.g. "mojo.base" -> "mojo_base"
+                        const joined = parts.join('_');
+                        if (root[joined]) {
+                            current = root[joined];
+                            break; 
+                        }
+                        found = false;
+                        break;
+                    }
+                }
+                if (found && current !== root) return current;
+            }
+
+            // Deep search fallback for common modules
+            const lastPart = parts[parts.length - 1];
+            for (const root of roots) {
+                for (const key in root) {
+                    if (key === lastPart || key === moduleName.replace(/\./g, '_')) {
+                        return root[key];
+                    }
+                    // One level deeper search
+                    if (typeof root[key] === 'object' && root[key] !== null) {
+                        if (root[key][lastPart]) return root[key][lastPart];
+                    }
+                }
+            }
+
+            return null;
         },
 
         /**
