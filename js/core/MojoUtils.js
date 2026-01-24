@@ -200,13 +200,6 @@
             return { [spec.fields[0].name]: inflateType(value, spec.fields[0].type.$ || spec.fields[0].type) };
         }
 
-        // 3. Special case for FilePath (which has two fields with same name due to EnableIf issues, fixed in generator)
-        // But if it still has multiple fields, try to find the best match
-        if (spec.name && spec.name.includes('FilePath')) {
-            const stringField = spec.fields.find(f => f.type === mojo.internal.String);
-            if (stringField) return { [stringField.name]: value };
-        }
-
         return value;
     }
 

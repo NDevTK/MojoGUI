@@ -166,6 +166,8 @@ ENABLED_FEATURES = {
     'USE_RENDERER_SPELLCHECKER': True, # Enabled to include CallSpellingService
     'USE_BROWSER_SPELLCHECKER': True,
     'USE_BROWSER_SPELLCHECKER_AND_SPELLING_SERVICE': True,
+    'file_path_is_string': False,
+    'file_path_is_string16': True,
 }
 
 def check_enable_if(attributes):
@@ -398,7 +400,7 @@ def parse_params(params_str):
         p = parse_single_param(current.strip())
         if p:
             params.append(p)
-    
+                
     return params
 
 def parse_single_param(param_str):
@@ -407,62 +409,62 @@ def parse_single_param(param_str):
     if not param_str:
         return None
     
-    # Remove comments
+    # 1. Remove comments
     param_str = re.sub(r'//.*$', '', param_str, flags=re.MULTILINE).strip()
     
-    # Check EnableIf (More robust regex)
-    # Search for [ ... EnableIf=X ... ] anywhere in the param definition
-    attributes_match = re.search(r'\[([^\]]*EnableIf=[^\]]+)\]', param_str, re.DOTALL)
-    if attributes_match:
-        if not check_enable_if(attributes_match.group(1)):
-            return None
-
-    # Extract MinVersion
-    min_version_match = re.search(r'\[MinVersion=(\d+)\]', param_str)
-    min_version = int(min_version_match.group(1)) if min_version_match else 0
-    param_str = re.sub(r'\[.*?\]', '', param_str).strip() # Remove attributes
+    # 2. Extract and check ALL attribute blocks
+    attribute_blocks = re.findall(r'\[([^\]]+)\]', param_str)
+    for attr_content in attribute_blocks:
+        if not check_enable_if(attr_content):
+            return None # Skip this field entirely
+            
+    # 3. Strip all attribute blocks from the string for further parsing
+    param_str = re.sub(r'\[[^\]]+\]', '', param_str).strip()
     
+    # 4. Extract explicit ordinal (@123)
+    ordinal = None
     ordinal_match = re.search(r'@(\d+)', param_str)
-    ordinal = int(ordinal_match.group(1)) if ordinal_match else None
-    param_str = re.sub(r'@\d+', '', param_str).strip() # Remove explicit ordinals
+    if ordinal_match:
+        ordinal = int(ordinal_match.group(1))
+        param_str = re.sub(r'@\d+', '', param_str).strip()
     
-    # Capture default value if exists
+    # 5. Extract default value (= value)
     default_value = None
-    default_match = re.search(r'=\s*([^;@\[]+)', param_str)
-    if default_match:
-        default_value = default_match.group(1).strip()
+    if '=' in param_str:
+        parts = param_str.split('=', 1)
+        param_str = parts[0].strip()
+        default_value = parts[1].strip().rstrip(';').strip()
     
-    param_str = re.sub(r'=.*$', '', param_str, flags=re.DOTALL).strip()
-    param_str = param_str.rstrip(';').strip()
-    
-    if not param_str:
-        return {'name': None, 'type': None, 'min_version': min_version, 'ordinal': ordinal, 'default_value': default_value}
-    
+    # 6. Detect optionality
     optional = '?' in param_str
     param_str = param_str.replace('?', '').strip()
     
+    # 7. Parse Type and Name
     if param_str.endswith('&'):
         param_str = f"pending_receiver<{param_str[:-1].strip()}>"
-    
+        
     parts = param_str.split()
-    
     if len(parts) >= 2:
         param_type = ' '.join(parts[:-1])
-        raw_name = parts[-1]
-        if raw_name.startswith('arg_'):
-            param_name = raw_name
-        else:
-            param_name = "arg_" + raw_name 
+        raw_name = parts[-1].rstrip(';')
+        param_name = raw_name if raw_name.startswith('arg_') else "arg_" + raw_name 
     elif len(parts) == 1:
-        param_type = parts[0]
+        param_type = parts[0].rstrip(';')
         param_name = "arg_val"
     else:
         return None
     
-    if param_name and not re.match(r'^[a-zA-Z_][a-zA-Z0-9_]*$', param_name):
-        return None
+    # MinVersion was handled in the attribute loop
+    min_version = 0 
     
-    return {'type': param_type, 'name': param_name, 'optional': optional, 'ordinal': ordinal, 'min_version': min_version, 'default_value': default_value}
+    return {
+        'type': param_type, 
+        'name': param_name, 
+        'optional': optional, 
+        'ordinal': ordinal, 
+        'min_version': min_version, 
+        'default_value': default_value
+    }
 
 def to_camel_case(name):
     """Convert PascalCase to camelCase."""
