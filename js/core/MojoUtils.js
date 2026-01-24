@@ -97,19 +97,7 @@
           entry.remote,
         );
         if (realHandle) {
-          const mockEndpoint = {
-            handle: realHandle,
-            isPrimary: () => true,
-            releasePipe: () => realHandle,
-            unbind: () => mockEndpoint,
-          };
-          return {
-            proxy: { endpoint: mockEndpoint, unbind: () => mockEndpoint },
-            unbind: () => mockEndpoint,
-            handle: realHandle,
-            __mojoHandle: realHandle,
-            value: realHandle.value,
-          };
+          return realHandle; // Return raw handle directly for native compatibility
         }
       }
       return original;

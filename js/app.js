@@ -3601,6 +3601,11 @@
       interfaceCount: state.interfaces.length,
       trafficCount: state.trafficCount,
       interceptResponses: state.interceptResponses,
+      userActivation: {
+        isActive: navigator.userActivation?.isActive,
+        hasBeenActive: navigator.userActivation?.hasBeenActive,
+      },
+      visibilityState: document.visibilityState,
     }),
     // ---- Handle Management ----
     /**
@@ -3630,7 +3635,9 @@
         const { producer, consumer } = Mojo.createDataPipe(options);
         const pId = MojoHandleRegistry.register(producer);
         const cId = MojoHandleRegistry.register(consumer);
-        console.log(`[MojoGUI_API] Created data pipe: ${pId} (P) <-> ${cId} (C)`);
+        console.log(
+          `[MojoGUI_API] Created data pipe: ${pId} (P) <-> ${cId} (C)`,
+        );
         return { producer: pId, consumer: cId };
       } catch (e) {
         return { error: e.message };
@@ -3639,28 +3646,90 @@
     /**
      * Read data from a Mojo data pipe consumer handle
      * @param {string|number} id - Consumer handle ID
-     * @returns {Object} Object containing result and data (as Array of bytes)
+     * @param {string} encoding - Optional encoding ('utf8', 'hex', 'base64')
+     * @returns {Object} Object containing result and data
      */
-    readDataPipe: (id) => {
-      if (typeof MojoHandleRegistry === "undefined") return { error: "Registry not available" };
+    readDataPipe: (id, encoding = null) => {
+      if (typeof MojoHandleRegistry === "undefined")
+        return { error: "Registry not available" };
       const handle = MojoHandleRegistry.get(id);
       if (!handle) return { error: "Handle not found" };
       try {
         // First query how much data is available
         const query = handle.queryData();
         if (query.result !== Mojo.RESULT_OK) return { result: query.result };
-        if (query.numBytes === 0) return { result: Mojo.RESULT_OK, data: [] };
+        if (query.numBytes === 0)
+          return { result: Mojo.RESULT_OK, data: encoding === "utf8" ? "" : [] };
 
         // Allocate buffer and read
         const buffer = new Uint8Array(query.numBytes);
         const read = handle.readData(buffer);
-        return { 
-          result: read.result, 
-          data: Array.from(buffer.slice(0, read.numBytes)) 
+        const data = buffer.slice(0, read.numBytes);
+
+        if (encoding === "utf8") {
+          return { result: read.result, data: new TextDecoder().decode(data) };
+        } else if (encoding === "hex") {
+          return {
+            result: read.result,
+            data: Array.from(data)
+              .map((b) => b.toString(16).padStart(2, "0"))
+              .join(""),
+          };
+        } else if (encoding === "base64") {
+          return {
+            result: read.result,
+            data: btoa(String.fromCharCode(...data)),
+          };
+        }
+
+        return {
+          result: read.result,
+          data: Array.from(data),
         };
       } catch (e) {
         return { error: e.message };
       }
+    },
+    /**
+     * Inspect a registered object or handle
+     * @param {string|number} id - Object ID (obj_N) or Handle ID
+     * @returns {Object} Inspection details
+     */
+    inspectObject: (id) => {
+      let target = null;
+      let type = "unknown";
+
+      if (typeof id === "string" && id.startsWith("obj_")) {
+        const entry = MojoObjectRegistry.get(id);
+        if (entry) {
+          target = entry.remote;
+          type = entry.type;
+        }
+      } else {
+        target = MojoHandleRegistry.get(id);
+        type = "MojoHandle";
+      }
+
+      if (!target) return { error: "Object not found" };
+
+      const getProps = (obj) => {
+        const props = new Set();
+        let current = obj;
+        // Go up 2 levels of prototype
+        for (let i = 0; i < 2 && current; i++) {
+          Object.getOwnPropertyNames(current).forEach((p) => props.add(p));
+          current = Object.getPrototypeOf(current);
+        }
+        return Array.from(props).sort();
+      };
+
+      return {
+        id,
+        type,
+        constructor: target.constructor?.name,
+        properties: getProps(target),
+        innerProperties: target.$ ? getProps(target.$) : null,
+      };
     },
     /**
      * Get details about a specific handle

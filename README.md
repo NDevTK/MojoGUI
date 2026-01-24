@@ -63,6 +63,17 @@ Visit the hosted version: <https://ndevtk.github.io/MojoGUI>
 5. **Replay Requests** - Re-send captured requests with modified parameters
 6. **Copy or Execute** - Get the generated code or run it directly
 
+## Vulnerability Research Workflow
+
+To ensure accurate vulnerability assessment and prevent false positives, researchers should follow this standard methodology:
+
+1.  **Identify Target**: Locate a sensitive Mojo interface (e.g., File System, Clipboard, Camera).
+2.  **Establish Baseline**: Research the **intended behavior** of the corresponding Web API (JavaScript) and the security constraints implemented in the Chromium source code (C++).
+    - Use `search_chromium_code` to find the implementation (e.g., `interface_impl.cc`).
+    - Verify requirements like **User Gestures**, **Origin Checks**, or **Permission Prompts**.
+3.  **Test for Bypasses**: Attempt to call the Mojo methods directly using the GUI, intentionally omitting required constraints (like `userGesture: false`).
+4.  **Confirm Impact**: Provide concrete evidence of security impact, such as reading unauthorized data or modifying state across origins.
+
 ## Enabling MojoJS in Chrome
 
 MojoJS is disabled by default in Chrome. To enable it for security research:

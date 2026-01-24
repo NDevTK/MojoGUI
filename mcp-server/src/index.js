@@ -602,16 +602,36 @@ server.tool(
   "read_data_pipe",
   "Read data from a Mojo data pipe consumer handle.",
   {
-    id: z
-      .union([z.string(), z.number()])
-      .describe("The trackable handle ID of the consumer"),
+    id: z.union([z.string(), z.number()]).describe("The trackable handle ID of the consumer"),
+    encoding: z.enum(["utf8", "hex", "base64"]).optional().describe("Optional text encoding for the result"),
+  },
+  async ({ id, encoding }) => {
+    const code = `
+            (async () => {
+                const api = window.MojoGUI_API;
+                if (!api) throw new Error('MojoGUI API not available');
+                return api.readDataPipe(${JSON.stringify(id)}, ${encoding ? JSON.stringify(encoding) : "null"});
+            })()
+        `;
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
+);
+
+server.tool(
+  "inspect_object",
+  "Get detailed information about a registered object or handle (methods, properties, constructor).",
+  {
+    id: z.union([z.string(), z.number()]).describe("The ID of the object (obj_N) or handle to inspect"),
   },
   async ({ id }) => {
     const code = `
             (async () => {
                 const api = window.MojoGUI_API;
                 if (!api) throw new Error('MojoGUI API not available');
-                return api.readDataPipe(${JSON.stringify(id)});
+                return api.inspectObject(${JSON.stringify(id)});
             })()
         `;
     const result = await executeInMojoGUI(code);
