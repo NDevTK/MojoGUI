@@ -22,8 +22,12 @@ import fs from "fs";
 import path from "path";
 import { getWorkerPool, resetWorkerPool } from "./worker-pool.js";
 import { MOJOGUI_URL } from "./cdp.js";
+import { SelfImprovement } from "./self-improvement.js";
 
 const execAsync = promisify(exec);
+
+// Initialize self-improvement tracking
+SelfImprovement.init();
 
 // Create the MCP server
 const server = new McpServer({
@@ -996,6 +1000,41 @@ server.tool(
       content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
     };
   },
+);
+
+// ---- Self-Improvement Tools ----
+
+server.tool(
+  "log_capability_gap",
+  "Record a failure or missing feature in the current tooling to prioritize future improvements.",
+  {
+    task: z.string().describe("The task that was being attempted (e.g. 'Reading Blob data')"),
+    gap: z.string().describe("Description of what is missing or broken (e.g. 'MojoHandle conversion fails in ReadAll')"),
+    impact: z.string().describe("How this affects research (e.g. 'Prevents confirming file content leakage')"),
+  },
+  async ({ task, gap, impact }) => {
+    const result = SelfImprovement.logGap(task, gap, impact);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  }
+);
+
+server.tool(
+  "log_research_progress",
+  "Record coverage and findings for a specific Mojo interface and method.",
+  {
+    interface: z.string().describe("The interface name"),
+    method: z.string().describe("The method name"),
+    result: z.string().describe("Summary of the outcome (e.g. 'Confirmed Bypass', 'Crashed', 'Permission Denied')"),
+    notes: z.string().describe("Detailed observations or exploit details"),
+  },
+  async ({ interface: iface, method, result, notes }) => {
+    const res = SelfImprovement.logResearch(iface, method, result, notes);
+    return {
+      content: [{ type: "text", text: JSON.stringify(res, null, 2) }],
+    };
+  }
 );
 
 // Start the server
