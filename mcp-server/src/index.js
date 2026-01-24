@@ -566,6 +566,62 @@ server.tool(
 );
 
 server.tool(
+  "create_data_pipe",
+  "Create a new Mojo data pipe. Returns the IDs of the producer and consumer handles.",
+  {
+    elementNumBytes: z
+      .number()
+      .optional()
+      .default(1)
+      .describe("The size of each element in bytes"),
+    capacityNumBytes: z
+      .number()
+      .optional()
+      .default(65536)
+      .describe("The capacity of the pipe in bytes"),
+  },
+  async ({ elementNumBytes = 1, capacityNumBytes = 65536 }) => {
+    const code = `
+            (async () => {
+                const api = window.MojoGUI_API;
+                if (!api) throw new Error('MojoGUI API not available');
+                return api.createDataPipe({
+                    elementNumBytes: ${elementNumBytes},
+                    capacityNumBytes: ${capacityNumBytes}
+                });
+            })()
+        `;
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
+);
+
+server.tool(
+  "read_data_pipe",
+  "Read data from a Mojo data pipe consumer handle.",
+  {
+    id: z
+      .union([z.string(), z.number()])
+      .describe("The trackable handle ID of the consumer"),
+  },
+  async ({ id }) => {
+    const code = `
+            (async () => {
+                const api = window.MojoGUI_API;
+                if (!api) throw new Error('MojoGUI API not available');
+                return api.readDataPipe(${JSON.stringify(id)});
+            })()
+        `;
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
+);
+
+server.tool(
   "get_handle_details",
   "Get details about a specific handle by its trackable ID.",
   {
@@ -797,7 +853,7 @@ server.tool(
 
 server.tool(
   "run_javascript",
-  'Execute arbitrary JavaScript in the MojoGUI context. Use the "async" parameter for code that might block (e.g. waiting for an intercepted Mojo call). IMPORTANT: You MUST use the "return" keyword to capture results. Data logged with console.log() will not appear in the tool output or the MojoGUI result section.',
+  'Execute arbitrary JavaScript in the MojoGUI context. DANGER: This tool is highly fragile due to complex Mojo binding environments and should ONLY be used as a LAST RESORT for complex logic that cannot be accomplished with native tools (like call_method, bind_interface, etc.). NEVER use it as a replacement for existing specific tools. Use the "async" parameter for code that might block (e.g. waiting for an intercepted Mojo call). IMPORTANT: You MUST use the "return" keyword to capture results. Data logged with console.log() will not appear in the tool output or the MojoGUI result section.',
   {
     code: z.string().describe("The JavaScript code to execute"),
     async: z

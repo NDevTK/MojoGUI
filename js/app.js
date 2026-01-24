@@ -3620,6 +3620,42 @@
       }
     },
     /**
+     * Create a new Mojo data pipe
+     * @param {Object} options - Data pipe options { elementNumBytes, capacityNumBytes }
+     * @returns {Object} Object containing IDs of producer and consumer handles
+     */
+    createDataPipe: (options = {}) => {
+      if (typeof Mojo === "undefined") return { error: "Mojo not available" };
+      try {
+        const { producer, consumer } = Mojo.createDataPipe(options);
+        const pId = MojoHandleRegistry.register(producer);
+        const cId = MojoHandleRegistry.register(consumer);
+        console.log(`[MojoGUI_API] Created data pipe: ${pId} (P) <-> ${cId} (C)`);
+        return { producer: pId, consumer: cId };
+      } catch (e) {
+        return { error: e.message };
+      }
+    },
+    /**
+     * Read data from a Mojo data pipe consumer handle
+     * @param {string|number} id - Consumer handle ID
+     * @returns {Object} Object containing result and data (as Array of bytes)
+     */
+    readDataPipe: (id) => {
+      if (typeof MojoHandleRegistry === "undefined") return { error: "Registry not available" };
+      const handle = MojoHandleRegistry.get(id);
+      if (!handle) return { error: "Handle not found" };
+      try {
+        const { result, buffer } = handle.readData();
+        return { 
+          result, 
+          data: buffer ? Array.from(new Uint8Array(buffer)) : null 
+        };
+      } catch (e) {
+        return { error: e.message };
+      }
+    },
+    /**
      * Get details about a specific handle
      * @param {string|number} id - Handle ID
      * @returns {Object} Handle details
