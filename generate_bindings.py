@@ -528,22 +528,10 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
         if name in valid_types:
             return module
         
-        # 2. Global FQN match?
-        if name in global_kind_map or f"{name}.{module}" in global_kind_map: 
-            # This logic is weak for FQNs, simplified below
-            pass
-
-        # 3. Check imports
-        # Iterate imports to find one that exports this type
+        # 2. Check imports
         for imp in imports:
-            # Try to resolve import path to module
-            # file_to_module keys should match import strings if paths are consistent
             imp_mod = file_to_module.get(imp)
             if not imp_mod:
-                # Try normalizing or guessing? 
-                # If import is "foo/bar.mojom", and we have "chromium_src/foo/bar.mojom"
-                # file_to_module keys might be different. 
-                # Check suffix?
                 for k, v in file_to_module.items():
                    if k.endswith(imp):
                        imp_mod = v
@@ -554,6 +542,17 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
                 if fqn in global_kind_map:
                     return imp_mod
         
+        # 3. Global FQN match (if name itself is a FQN)?
+        if name in global_kind_map:
+            # Name is already fully qualified, return its module part
+            return '.'.join(name.split('.')[:-1])
+        
+        # 4. Check all modules in global_kind_map for this name (Aggressive fallback)
+        # This handles cases where imports might be missing or unresolved
+        for fqn, kind in global_kind_map.items():
+            if fqn.endswith(f".{name}"):
+                return '.'.join(fqn.split('.')[:-1])
+
         return None
 
     def resolve_mojo_type(type_name):
