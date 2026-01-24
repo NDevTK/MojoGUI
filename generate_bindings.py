@@ -174,23 +174,45 @@ def check_enable_if(attributes):
     if not attributes:
         return True
     
-    # Simple parser for [EnableIf=Condition] or [EnableIf=Condition, Sync]
-    # We only care about EnableIf
-    matches = re.finditer(r'EnableIf=([^,\]]+)', attributes)
-    for m in matches:
-        condition = m.group(1).strip()
-        # Simple boolean logic could be added here if needed (AND/OR), 
-        # but usually it's a single flag in mojom.
-        if condition not in ENABLED_FEATURES:
-            # If unknown flag, assume True (include it) or False? 
-            # Better to be conservative and include it unless we KNOW it's disabled?
-            # Or excluded? Let's check if it starts with 'is_'
-            if condition.startswith('is_'):
-                return False # Unknown platform flag -> False
-            return True # Unknown feature flag -> True (to be safe)
+    # Parse EnableIf=Condition (supports OR with |)
+    enable_if_matches = re.finditer(r'EnableIf=([^,\]]+)', attributes)
+    for m in enable_if_matches:
+        condition_expr = m.group(1).strip()
         
-        if not ENABLED_FEATURES[condition]:
+        # Handle OR operator: is_chromeos|is_linux means ANY must be true
+        conditions = [c.strip() for c in condition_expr.split('|')]
+        
+        any_enabled = False
+        for condition in conditions:
+            if condition in ENABLED_FEATURES:
+                if ENABLED_FEATURES[condition]:
+                    any_enabled = True
+                    break
+            else:
+                # Unknown flag handling
+                if condition.startswith('is_'):
+                    # Unknown platform flag - don't count as enabled
+                    pass
+                else:
+                    # Unknown feature flag - assume enabled (safer)
+                    any_enabled = True
+                    break
+        
+        if not any_enabled:
             return False
+    
+    # Parse EnableIfNot=Condition (supports OR with |)
+    enable_if_not_matches = re.finditer(r'EnableIfNot=([^,\]]+)', attributes)
+    for m in enable_if_not_matches:
+        condition_expr = m.group(1).strip()
+        
+        # Handle OR operator: EnableIfNot=is_chromeos|is_linux means exclude if ANY is true
+        conditions = [c.strip() for c in condition_expr.split('|')]
+        
+        for condition in conditions:
+            if condition in ENABLED_FEATURES and ENABLED_FEATURES[condition]:
+                return False  # One of the excluded conditions is enabled
+    
     return True
 
 def parse_mojom(file_path):
@@ -218,20 +240,83 @@ def parse_mojom(file_path):
     if module_match:
         result['module'] = module_match.group(1)
 
-    # Extract imports
-    imports = re.findall(r'import\s+"([^"]+)"', content)
+    # Extract imports (with optional [EnableIf/EnableIfNot] attributes)
+    # Pattern matches: [Attributes] import "path";
+    import_pattern = r'(?:\[([^\]]+)\]\s*)?import\s+"([^"]+)"'
+    imports = []
+    for match in re.finditer(import_pattern, content):
+        attributes = match.group(1)
+        import_path = match.group(2)
+        
+        # Check EnableIf/EnableIfNot conditions
+        if check_enable_if(attributes):
+            imports.append(import_path)
+    
     result['imports'] = imports
 
-    # Remove comments for cleaner parsing
-    content_no_comments = re.sub(r'//[^\n]*', '', content)
-    content_no_comments = re.sub(r'/\*.*?\*/', '', content_no_comments, flags=re.DOTALL)
+    # Remove comments for cleaner parsing (but preserve // inside strings!)
+    # Use a state machine approach to handle strings properly
+    def remove_comments_preserve_strings(text):
+        result = []
+        i = 0
+        in_string = False
+        string_char = None
+        
+        while i < len(text):
+            # Handle string literals
+            if not in_string and text[i] in '"\'':
+                in_string = True
+                string_char = text[i]
+                result.append(text[i])
+                i += 1
+            elif in_string:
+                if text[i] == '\\' and i + 1 < len(text):
+                    # Escape sequence - add both characters
+                    result.append(text[i])
+                    result.append(text[i + 1])
+                    i += 2
+                elif text[i] == string_char:
+                    # End of string
+                    in_string = False
+                    string_char = None
+                    result.append(text[i])
+                    i += 1
+                else:
+                    result.append(text[i])
+                    i += 1
+            # Handle // comments (only outside strings)
+            elif text[i:i+2] == '//':
+                # Skip until newline
+                while i < len(text) and text[i] != '\n':
+                    i += 1
+            # Handle /* */ comments (only outside strings)
+            elif text[i:i+2] == '/*':
+                # Skip until */
+                i += 2
+                while i < len(text) - 1 and text[i:i+2] != '*/':
+                    i += 1
+                i += 2  # Skip the */
+            else:
+                result.append(text[i])
+                i += 1
+        
+        return ''.join(result)
+    
+    content_no_comments = remove_comments_preserve_strings(content)
 
     # Extract interfaces with their methods
     # Fix: Allow inheritance (e.g. interface A : B {) by matching usually non-brace chars until {
-    interface_pattern = r'interface\s+(\w+)[^{]*\{'
+    # Also handle [EnableIf=...] and other attributes like [ServiceSandbox=...]
+    interface_pattern = r'(?:\[([^\]]+)\]\s*)?interface\s+(\w+)[^{]*\{'
 
     for match in re.finditer(interface_pattern, content_no_comments):
-        interface_name = match.group(1)
+        attributes = match.group(1)
+        interface_name = match.group(2)
+        
+        # Check EnableIf/EnableIfNot conditions
+        if not check_enable_if(attributes):
+            continue
+            
         start_pos = match.end()
         
         # Find matching closing brace
@@ -293,10 +378,17 @@ def parse_mojom(file_path):
         })
 
     # Extract enums (handle both defined { ... } and native/forward declared ;)
-    enum_pattern = r'enum\s+(\w+)\s*(?:\{([^}]*)\}|;)'
+    # Also handle [EnableIf=...] attributes
+    enum_pattern = r'(?:\[([^\]]+)\]\s*)?enum\s+(\w+)\s*(?:\{([^}]*)\}|;)'
     for match in re.finditer(enum_pattern, content_no_comments, re.DOTALL):
-        enum_name = match.group(1)
-        enum_body = match.group(2)
+        attributes = match.group(1)
+        enum_name = match.group(2)
+        enum_body = match.group(3)
+        
+        # Check EnableIf/EnableIfNot conditions
+        if not check_enable_if(attributes):
+            continue
+            
         values = []
         
         if enum_body:
@@ -316,16 +408,30 @@ def parse_mojom(file_path):
     # Extract structs (regular and native ;)
     # Fix: Use manual brace counting to handle nested enums/structs correctly
     
-    # Universal Fix 4.0: Parse Native/Forward-Declared Structs (e.g. "struct Foo;")
-    native_struct_pattern = r'struct\s+(\w+)\s*;'
+    # Universal Fix 4.0: Parse Native/Forward-Declared Structs (e.g. "[Stable] struct Foo;")
+    # Also handle [EnableIf=...] attributes
+    native_struct_pattern = r'(?:\[([^\]]+)\]\s*)?struct\s+(\w+)\s*;'
     for match in re.finditer(native_struct_pattern, content_no_comments):
-         struct_name = match.group(1)
-         # Add as empty struct (opaque handle/native type behavior)
-         result['structs'].append({'name': struct_name, 'fields': []})
+        attributes = match.group(1)
+        struct_name = match.group(2)
+        
+        # Check EnableIf/EnableIfNot conditions
+        if not check_enable_if(attributes):
+            continue
+            
+        # Add as empty struct (opaque handle/native type behavior)
+        result['structs'].append({'name': struct_name, 'fields': []})
 
-    struct_start_pattern = r'struct\s+(\w+)[^{]*\{'
+    # Regular structs with bodies - also handle [EnableIf=...] attributes
+    struct_start_pattern = r'(?:\[([^\]]+)\]\s*)?struct\s+(\w+)[^{]*\{'
     for match in re.finditer(struct_start_pattern, content_no_comments):
-        struct_name = match.group(1)
+        attributes = match.group(1)
+        struct_name = match.group(2)
+        
+        # Check EnableIf/EnableIfNot conditions
+        if not check_enable_if(attributes):
+            continue
+            
         start_pos = match.end()
         
         brace_count = 1
@@ -353,19 +459,31 @@ def parse_mojom(file_path):
         fields = parse_params(body_clean) if body_clean else []
         result['structs'].append({'name': struct_name, 'fields': fields})
 
-    # Extract constants (module level)
-    const_pattern = r'const\s+([\w\.]+)\s+(\w+)\s*=\s*([^;]+);'
+    # Extract constants (module level and interface level, with attribute support)
+    # Pattern matches: [Attributes] const Type Name = Value;
+    const_pattern = r'(?:\[([^\]]+)\]\s*)?const\s+([\w\.]+)\s+(\w+)\s*=\s*([^;]+);'
     for match in re.finditer(const_pattern, content_no_comments):
-        c_type = match.group(1)
-        c_name = match.group(2)
-        c_value = match.group(3).strip()
-        result['constants'].append({'name': c_name, 'type': c_type, 'value': c_value})
+        attributes = match.group(1)
+        c_type = match.group(2)
+        c_name = match.group(3)
+        c_value = match.group(4).strip()
+        
+        # Check EnableIf/EnableIfNot conditions using unified function
+        if check_enable_if(attributes):
+            result['constants'].append({'name': c_name, 'type': c_type, 'value': c_value})
 
     # Extract unions (regular and native ;)
-    union_pattern = r'union\s+(\w+)\s*(?:\{([^}]*)\}|;)'
+    # Also handle [EnableIf=...] attributes
+    union_pattern = r'(?:\[([^\]]+)\]\s*)?union\s+(\w+)\s*(?:\{([^}]*)\}|;)'
     for match in re.finditer(union_pattern, content_no_comments, re.DOTALL):
-        union_name = match.group(1)
-        union_body = match.group(2)
+        attributes = match.group(1)
+        union_name = match.group(2)
+        union_body = match.group(3)
+        
+        # Check EnableIf/EnableIfNot conditions
+        if not check_enable_if(attributes):
+            continue
+            
         fields = parse_params(union_body) if union_body else []
         # Unions in Mojo have ordinals, often explicit. parse_params handles basic "Type Name".
         # We need to ensure ordinals are parsed if possible, or auto-assigned.
@@ -1260,6 +1378,12 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
     # Generate constants
     for const in parsed.get('constants', []):
         val = str(const['value'])
+        # Normalize whitespace (multi-line values)
+        val = ' '.join(val.split())
+        
+        if not val:  # Skip empty values
+            continue
+            
         # Heuristic for FQN references
         if not val.startswith(('0x', "'", '"', 'true', 'false', '-')) and not val[0].isdigit() and val not in ('Infinity', 'NaN'):
             # Use regex to replace all occurrences of `mod.mojom.Type` with `mojo.internal.bindings.mod.mojom.Type`

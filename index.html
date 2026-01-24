@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
         default-src 'self';
         script-src 'self' 'unsafe-inline' 'unsafe-eval';
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
@@ -15,243 +16,377 @@
         form-action 'self';
         require-trusted-types-for 'script';
         trusted-types mojoGUI mojoBindings default;
-    ">
-    <meta name="description" content="MojoJS Security Research GUI - No-code interface for Chromium Mojo IPC testing">
+    "
+    />
+    <meta
+      name="description"
+      content="MojoJS Security Research GUI - No-code interface for Chromium Mojo IPC testing"
+    />
     <title>MojoJS Security Research GUI</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
-</head>
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <div class="app-container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <div class="logo">
-                    <div class="logo-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                            <path d="M2 17l10 5 10-5" />
-                            <path d="M2 12l10 5 10-5" />
-                        </svg>
-                    </div>
-                    <h1>MojoJS<span class="accent">Research</span></h1>
-                </div>
-                <nav class="header-nav">
-                    <div class="settings-group">
-                        <label class="switch-label" title="Force sequential ordinals (0, 1, 2...) for all cold-starts">
-                            <input type="checkbox" id="noScrambleToggle">
-                            <span class="switch-slider"></span>
-                            Force No Scramble
-                        </label>
-                    </div>
-                    <button class="btn btn-secondary btn-small" id="viewTrafficBtn" title="View Captured Mojo Traffic">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
-                            height="16">
-                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                        </svg>
-                        Traffic Log <span class="badge" id="trafficBadge" style="display: none;">0</span>
-                    </button>
-                    <a href="https://github.com/NDevTK/MojoGUI/tree/main" target="_blank" class="nav-link">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
-                            height="16">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                            <polyline points="15,3 21,3 21,9" />
-                            <line x1="10" y1="14" x2="21" y2="3" />
-                        </svg>
-                        Docs
-                    </a>
-                    <div class="status-badge" id="mojoStatus">
-                        <span class="status-dot"></span>
-                        <span class="status-text">Checking...</span>
-                    </div>
-                </nav>
+      <!-- Header -->
+      <header class="header">
+        <div class="header-content">
+          <div class="logo">
+            <div class="logo-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                <path d="M2 17l10 5 10-5" />
+                <path d="M2 12l10 5 10-5" />
+              </svg>
             </div>
-        </header>
+            <h1>MojoJS<span class="accent">Research</span></h1>
+          </div>
+          <nav class="header-nav">
+            <div class="settings-group">
+              <label
+                class="switch-label"
+                title="Force sequential ordinals (0, 1, 2...) for all cold-starts"
+              >
+                <input type="checkbox" id="noScrambleToggle" />
+                <span class="switch-slider"></span>
+                Force No Scramble
+              </label>
+            </div>
+            <button
+              class="btn btn-secondary btn-small"
+              id="viewTrafficBtn"
+              title="View Captured Mojo Traffic"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                width="16"
+                height="16"
+              >
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+              Traffic Log
+              <span class="badge" id="trafficBadge" style="display: none"
+                >0</span
+              >
+            </button>
+            <a
+              href="https://github.com/NDevTK/MojoGUI/tree/main"
+              target="_blank"
+              class="nav-link"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                width="16"
+                height="16"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                />
+                <polyline points="15,3 21,3 21,9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+              Docs
+            </a>
+            <div class="status-badge" id="mojoStatus">
+              <span class="status-dot"></span>
+              <span class="status-text">Checking...</span>
+            </div>
+          </nav>
+        </div>
+      </header>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Sidebar - Interface Browser -->
-            <aside class="sidebar">
-                <div class="sidebar-header">
-                    <h2>Interfaces</h2>
-                    <div style="display: flex; gap: 8px;">
-                        <span class="interface-count" id="interfaceCount">0</span>
-                    </div>
-                </div>
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Sidebar - Interface Browser -->
+        <aside class="sidebar">
+          <div class="sidebar-header">
+            <h2>Interfaces</h2>
+            <div style="display: flex; gap: 8px">
+              <span class="interface-count" id="interfaceCount">0</span>
+            </div>
+          </div>
 
-                <div class="search-box">
-                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8" />
-                        <path d="M21 21l-4.35-4.35" />
-                    </svg>
-                    <input type="text" id="interfaceSearch" placeholder="Search interfaces..." autocomplete="off">
-                </div>
+          <div class="search-box">
+            <svg
+              class="search-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="M21 21l-4.35-4.35" />
+            </svg>
+            <input
+              type="text"
+              id="interfaceSearch"
+              placeholder="Search interfaces..."
+              autocomplete="off"
+            />
+          </div>
 
-                <div class="interface-list" id="interfaceList">
-                    <div class="loading-state">
-                        <div class="spinner"></div>
-                        <p>Loading interfaces...</p>
-                    </div>
-                </div>
-            </aside>
+          <div class="interface-list" id="interfaceList">
+            <div class="loading-state">
+              <div class="spinner"></div>
+              <p>Loading interfaces...</p>
+            </div>
+          </div>
+        </aside>
 
-            <!-- Main Panel -->
-            <div class="main-panel">
-                <!-- Interface Details -->
-                <section class="panel interface-panel" id="interfacePanel">
-                    <div class="panel-header">
-                        <div class="panel-title">
-                            <h3 id="selectedInterfaceName">Select an Interface</h3>
-                            <span class="module-badge" id="selectedModule"></span>
-                        </div>
-                        <div class="panel-actions">
-                            <button class="btn btn-secondary btn-small" id="interceptToggleBtn" disabled
-                                title="Requires MojoJS & MojoJSTest">
-                                <span class="status-dot" id="interceptStatusDot"></span>
-                                Intercept
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="methods-list" id="methodsList">
-                        <div class="empty-state">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48"
-                                height="48">
-                                <path
-                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                            </svg>
-                            <p>Select an interface from the sidebar to view its methods</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Parameter Form -->
-                <section class="panel params-panel" id="paramsPanel">
-                    <div class="panel-header">
-                        <div class="panel-title">
-                            <h3 id="selectedMethodName">Method Parameters</h3>
-                        </div>
-                        <div class="panel-actions">
-                            <button class="btn btn-secondary" id="resetBtn" disabled>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
-                                    height="16">
-                                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-                                    <path d="M3 3v5h5" />
-                                </svg>
-                                Reset
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="params-form" id="paramsForm">
-                        <div class="empty-state small">
-                            <p>Select a method to configure parameters</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Interceptor Panel (Moved to Main Panel) -->
-                <section class="panel interceptor-panel" id="interceptorPanel"
-                    style="display: none; flex: 1; flex-direction: column;">
-                    <div class="panel-header">
-                        <div class="panel-title">
-                            <h4>Traffic Log</h4>
-                        </div>
-                        <div class="settings-group" style="margin-right: 16px;">
-                            <label class="switch-label"
-                                title="Pause execution when a response is received relative to an intercepted call, allowing you to edit values.">
-                                <input type="checkbox" id="interceptRespToggle">
-                                <span class="switch-slider"></span>
-                                Intercept Responses
-                            </label>
-                        </div>
-                        <div class="panel-actions">
-                            <button class="btn btn-icon btn-small" id="clearActivityBtn" title="Clear History">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
-                                    height="14">
-                                    <path d="M3 6h18"></path>
-                                    <path
-                                        d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                                    </path>
-                                </svg>
-                            </button>
-                            <button class="btn btn-icon btn-small" id="closeInterceptorBtn" title="Close Traffic View">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
-                                    height="14">
-                                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="interceptor-list-container"
-                        style="flex: 1; overflow: auto; border-bottom: 1px solid var(--border-subtle);">
-                        <table class="interceptor-table" style="width: 100%; border-collapse: collapse;">
-                            <thead>
-                                <tr
-                                    style="text-align: left; border-bottom: 1px solid var(--border-subtle); background: rgba(0,0,0,0.1);">
-                                    <th style="padding: 8px;">Time</th>
-                                    <th style="padding: 8px;">Interface.Method</th>
-                                    <th style="padding: 8px;">Status</th>
-                                    <th style="padding: 8px;">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="interceptorTableBody">
-                                <!-- Items will be added here -->
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="interceptor-details" id="interceptorDetails"
-                        style="height: 300px; overflow: auto; padding: 16px; border-top: 1px solid var(--border-subtle);">
-                        <div class="empty-state small">
-                            <p>Select a request to view details</p>
-                        </div>
-                    </div>
-                </section>
+        <!-- Main Panel -->
+        <div class="main-panel">
+          <!-- Interface Details -->
+          <section class="panel interface-panel" id="interfacePanel">
+            <div class="panel-header">
+              <div class="panel-title">
+                <h3 id="selectedInterfaceName">Select an Interface</h3>
+                <span class="module-badge" id="selectedModule"></span>
+              </div>
+              <div class="panel-actions">
+                <button
+                  class="btn btn-secondary btn-small"
+                  id="interceptToggleBtn"
+                  disabled
+                  title="Requires MojoJS & MojoJSTest"
+                >
+                  <span class="status-dot" id="interceptStatusDot"></span>
+                  Intercept
+                </button>
+              </div>
             </div>
 
-            <!-- Code Panel -->
-            <aside class="code-panel">
-                <div class="panel-header">
-                    <div class="panel-title">
-                        <h3>Generated Code</h3>
-                    </div>
-                    <div class="panel-actions">
-                        <button class="btn btn-icon" id="copyBtn" title="Copy to clipboard">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
-                                height="18">
-                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-                            </svg>
-                        </button>
-                        <button class="btn btn-primary" id="executeBtn" disabled>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
-                                height="16">
-                                <polygon points="5,3 19,12 5,21" />
-                            </svg>
-                            Execute
-                        </button>
-                    </div>
-                </div>
+            <div class="methods-list" id="methodsList">
+              <div class="empty-state">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  width="48"
+                  height="48"
+                >
+                  <path
+                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                  />
+                </svg>
+                <p>Select an interface from the sidebar to view its methods</p>
+              </div>
+            </div>
+          </section>
 
-                <div class="code-container" id="codeContainer">
-                    <pre
-                        class="code-block"><code id="generatedCode">// Select an interface and method to generate code</code></pre>
-                </div>
+          <!-- Parameter Form -->
+          <section class="panel params-panel" id="paramsPanel">
+            <div class="panel-header">
+              <div class="panel-title">
+                <h3 id="selectedMethodName">Method Parameters</h3>
+              </div>
+              <div class="panel-actions">
+                <button class="btn btn-secondary" id="resetBtn" disabled>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    width="16"
+                    height="16"
+                  >
+                    <path
+                      d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"
+                    />
+                    <path d="M3 3v5h5" />
+                  </svg>
+                  Reset
+                </button>
+              </div>
+            </div>
 
-                <!-- Interceptor Panel (Removed from here) -->
+            <div class="params-form" id="paramsForm">
+              <div class="empty-state small">
+                <p>Select a method to configure parameters</p>
+              </div>
+            </div>
+          </section>
 
-                <!-- Results Section Removed (Now integrated into Traffic Log) -->
-            </aside>
-        </main>
+          <!-- Interceptor Panel (Moved to Main Panel) -->
+          <section
+            class="panel interceptor-panel"
+            id="interceptorPanel"
+            style="display: none; flex: 1; flex-direction: column"
+          >
+            <div class="panel-header">
+              <div class="panel-title">
+                <h4>Traffic Log</h4>
+              </div>
+              <div class="settings-group" style="margin-right: 16px">
+                <label
+                  class="switch-label"
+                  title="Pause execution when a response is received relative to an intercepted call, allowing you to edit values."
+                >
+                  <input type="checkbox" id="interceptRespToggle" />
+                  <span class="switch-slider"></span>
+                  Intercept Responses
+                </label>
+              </div>
+              <div class="panel-actions">
+                <button
+                  class="btn btn-icon btn-small"
+                  id="clearActivityBtn"
+                  title="Clear History"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    width="14"
+                    height="14"
+                  >
+                    <path d="M3 6h18"></path>
+                    <path
+                      d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                    ></path>
+                  </svg>
+                </button>
+                <button
+                  class="btn btn-icon btn-small"
+                  id="closeInterceptorBtn"
+                  title="Close Traffic View"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    width="14"
+                    height="14"
+                  >
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div
+              class="interceptor-list-container"
+              style="
+                flex: 1;
+                overflow: auto;
+                border-bottom: 1px solid var(--border-subtle);
+              "
+            >
+              <table
+                class="interceptor-table"
+                style="width: 100%; border-collapse: collapse"
+              >
+                <thead>
+                  <tr
+                    style="
+                      text-align: left;
+                      border-bottom: 1px solid var(--border-subtle);
+                      background: rgba(0, 0, 0, 0.1);
+                    "
+                  >
+                    <th style="padding: 8px">Time</th>
+                    <th style="padding: 8px">Interface.Method</th>
+                    <th style="padding: 8px">Status</th>
+                    <th style="padding: 8px">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="interceptorTableBody">
+                  <!-- Items will be added here -->
+                </tbody>
+              </table>
+            </div>
+            <div
+              class="interceptor-details"
+              id="interceptorDetails"
+              style="
+                height: 300px;
+                overflow: auto;
+                padding: 16px;
+                border-top: 1px solid var(--border-subtle);
+              "
+            >
+              <div class="empty-state small">
+                <p>Select a request to view details</p>
+              </div>
+            </div>
+          </section>
+        </div>
 
-        <!-- Toast Notifications -->
-        <div class="toast-container" id="toastContainer"></div>
+        <!-- Code Panel -->
+        <aside class="code-panel">
+          <div class="panel-header">
+            <div class="panel-title">
+              <h3>Generated Code</h3>
+            </div>
+            <div class="panel-actions">
+              <button
+                class="btn btn-icon"
+                id="copyBtn"
+                title="Copy to clipboard"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  width="18"
+                  height="18"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path
+                    d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                  />
+                </svg>
+              </button>
+              <button class="btn btn-primary" id="executeBtn" disabled>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  width="16"
+                  height="16"
+                >
+                  <polygon points="5,3 19,12 5,21" />
+                </svg>
+                Execute
+              </button>
+            </div>
+          </div>
+
+          <div class="code-container" id="codeContainer">
+            <pre
+              class="code-block"
+            ><code id="generatedCode">// Select an interface and method to generate code</code></pre>
+          </div>
+
+          <!-- Interceptor Panel (Removed from here) -->
+
+          <!-- Results Section Removed (Now integrated into Traffic Log) -->
+        </aside>
+      </main>
+
+      <!-- Toast Notifications -->
+      <div class="toast-container" id="toastContainer"></div>
     </div>
 
     <!-- Scripts -->
@@ -259,57 +394,66 @@
     <script src="bindings/mojo_bindings.js"></script>
     <script src="bindings/bindings_lite.js"></script>
     <script>
-        // Core polyfills needed by mojom dependencies
-        if (typeof mojo !== 'undefined') {
-            mojo.internal = mojo.internal || {};
-            mojo.internal.interfaceSupport = mojo.internal.interfaceSupport || {};
-            mojo.internal.Union = function (objectToBlessAsType, name, fields) {
-                const unionSpec = { name, fields };
-                objectToBlessAsType.$ = {
-                    unionSpec: unionSpec,
-                    encode: function (value, encoder, byteOffset, bitOffset, nullable) {
-                        encoder.encodeUnion(unionSpec, byteOffset, value);
-                    },
-                    decode: function (decoder, byteOffset, bitOffset, nullable) {
-                        return decoder.decodeUnion(unionSpec, byteOffset);
-                    },
-                    computeDimensions: function (value, nullable) {
-                        return mojo.internal.computeUnionDimensions(unionSpec, nullable, value);
-                    },
-                    arrayElementSize: nullable => (nullable ? 8 : 16),
-                    encodeNull: function (encoder, byteOffset) { },
-                    isValidObjectKeyType: false,
-                };
-            };
-        }
+      // Core polyfills needed by mojom dependencies
+      if (typeof mojo !== "undefined") {
+        mojo.internal = mojo.internal || {};
+        mojo.internal.interfaceSupport = mojo.internal.interfaceSupport || {};
+        mojo.internal.Union = function (objectToBlessAsType, name, fields) {
+          const unionSpec = { name, fields };
+          objectToBlessAsType.$ = {
+            unionSpec: unionSpec,
+            encode: function (value, encoder, byteOffset, bitOffset, nullable) {
+              encoder.encodeUnion(unionSpec, byteOffset, value);
+            },
+            decode: function (decoder, byteOffset, bitOffset, nullable) {
+              return decoder.decodeUnion(unionSpec, byteOffset);
+            },
+            computeDimensions: function (value, nullable) {
+              return mojo.internal.computeUnionDimensions(
+                unionSpec,
+                nullable,
+                value,
+              );
+            },
+            arrayElementSize: (nullable) => (nullable ? 8 : 16),
+            encodeNull: function (encoder, byteOffset) {},
+            isValidObjectKeyType: false,
+          };
+        };
+      }
     </script>
     <script src="bindings/mojo_public_interfaces_bindings_pipe_control_messages.mojom.js"></script>
     <script src="bindings/mojo_public_interfaces_bindings_interface_control_messages.mojom.js"></script>
     <script>
-        // Post-load aliasing (bridges internal Mojom paths to short names expected by interface_support.js)
-        if (typeof mojo !== 'undefined') {
-            const b = mojo.internal.bindings && mojo.internal.bindings.mojo;
+      // Post-load aliasing (bridges internal Mojom paths to short names expected by interface_support.js)
+      if (typeof mojo !== "undefined") {
+        const b = mojo.internal.bindings && mojo.internal.bindings.mojo;
 
-            // Pipe Control
-            if (b && b.pipe_control) {
-                mojo.pipeControl = b.pipe_control;
-                mojo.pipeControl.RUN_OR_CLOSE_PIPE_MESSAGE_ID = b.pipe_control.kRunOrClosePipeMessageId || 0xFFFFFFFE;
-            } else {
-                mojo.pipeControl = mojo.pipeControl || { RUN_OR_CLOSE_PIPE_MESSAGE_ID: 0xFFFFFFFE };
-            }
-
-            // Interface Control
-            if (b && b.interface_control) {
-                mojo.interfaceControl = b.interface_control;
-                mojo.interfaceControl.RUN_MESSAGE_ID = b.interface_control.kRunMessageId || 0xFFFFFFFF;
-                mojo.interfaceControl.RUN_OUTPUT_MESSAGE_ID = b.interface_control.kRunMessageId || 0xFFFFFFFF;
-            } else {
-                mojo.interfaceControl = mojo.interfaceControl || {
-                    RUN_MESSAGE_ID: 0xFFFFFFFF,
-                    RUN_OUTPUT_MESSAGE_ID: 0xFFFFFFFF
-                };
-            }
+        // Pipe Control
+        if (b && b.pipe_control) {
+          mojo.pipeControl = b.pipe_control;
+          mojo.pipeControl.RUN_OR_CLOSE_PIPE_MESSAGE_ID =
+            b.pipe_control.kRunOrClosePipeMessageId || 0xfffffffe;
+        } else {
+          mojo.pipeControl = mojo.pipeControl || {
+            RUN_OR_CLOSE_PIPE_MESSAGE_ID: 0xfffffffe,
+          };
         }
+
+        // Interface Control
+        if (b && b.interface_control) {
+          mojo.interfaceControl = b.interface_control;
+          mojo.interfaceControl.RUN_MESSAGE_ID =
+            b.interface_control.kRunMessageId || 0xffffffff;
+          mojo.interfaceControl.RUN_OUTPUT_MESSAGE_ID =
+            b.interface_control.kRunMessageId || 0xffffffff;
+        } else {
+          mojo.interfaceControl = mojo.interfaceControl || {
+            RUN_MESSAGE_ID: 0xffffffff,
+            RUN_OUTPUT_MESSAGE_ID: 0xffffffff,
+          };
+        }
+      }
     </script>
     <script src="bindings/interface_support.js"></script>
     <script src="bindings/index.js"></script>
@@ -329,6 +473,5 @@
     <script src="js/version_tracker.js"></script>
     <script src="js/welcome_manager.js"></script>
     <script src="js/app.js"></script>
-</body>
-
+  </body>
 </html>

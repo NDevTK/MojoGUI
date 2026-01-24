@@ -2,18 +2,18 @@ name: Update Mojo JS Bindings
 
 on:
   schedule:
-    - cron: '0 10 * * *'  # Daily at 10:00 UTC (matches Canary release timing)
-  workflow_dispatch:  # Manual trigger
+    - cron: "0 10 * * *" # Daily at 10:00 UTC (matches Canary release timing)
+  workflow_dispatch: # Manual trigger
     inputs:
       chromium_version:
         description: 'Chromium version tag (e.g. 120.0.6099.109) or "canary"'
         required: true
-        default: 'canary'
+        default: "canary"
   push:
     branches: [main]
     paths:
-      - '.github/workflows/update-mojo-bindings.yml'
-      - 'generate_bindings.py'
+      - ".github/workflows/update-mojo-bindings.yml"
+      - "generate_bindings.py"
 
 permissions:
   contents: write
@@ -21,7 +21,7 @@ permissions:
 jobs:
   update-bindings:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -45,7 +45,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Create working directories
         run: |
@@ -58,7 +58,7 @@ jobs:
           git init
           git remote add origin https://chromium.googlesource.com/chromium/src.git
           git config core.sparseCheckout true
-          
+
           # Get .mojom files, BUILD.gn for scrambling detection, and chrome/VERSION for salt
           cat > .git/info/sparse-checkout << 'EOF'
           mojo/public/
@@ -66,20 +66,19 @@ jobs:
           **/BUILD.gn
           chrome/VERSION
           EOF
-          
+
           git pull --depth=1 origin main || git pull --depth=1 origin master
           if [ ! -z "$TARGET_VERSION" ]; then
             echo "Switching to tag: $TARGET_VERSION"
             git fetch --depth=1 origin refs/tags/$TARGET_VERSION:refs/tags/$TARGET_VERSION
             git checkout $TARGET_VERSION
           fi
-          
-          
+
       - name: Create stub mojoms for generated files
         run: |
           # These mojoms are generated at build time in Chromium and thus missing from source tree.
           # We create stubs so that other mojoms importing them can resolve their types.
-          
+
           mkdir -p chromium_src/third_party/blink/public/mojom/runtime_feature_state
           cat > chromium_src/third_party/blink/public/mojom/runtime_feature_state/runtime_feature.mojom << 'EOF'
           module blink.mojom;
@@ -87,7 +86,7 @@ jobs:
             kDummyFeature,
           };
           EOF
-          
+
           echo "Created stub mojoms"
 
       - name: List .mojom files
@@ -95,17 +94,17 @@ jobs:
           # Finds all .mojom files in chromium_src
           # We sort them to help with stability, though dependencies matter more
           find chromium_src -name "*.mojom" | sort > mojom_files.txt
-          
+
           echo "Found $(wc -l < mojom_files.txt) .mojom files"
           head -10 mojom_files.txt
 
       - name: Generate Mojo JS bindings
         run: |
           echo "Generating Mojo JS bindings..."
-          
+
           # Set up paths
           export PYTHONPATH="$PYTHONPATH:$(pwd)/chromium_src"
-          
+
           # Directory for bindings
           mkdir -p bindings
           # Run the generation script
@@ -122,17 +121,17 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
+
           # Only add generated binding files - NOT core runtime files
           # Core files (bindings_lite.js, interface_support.js, etc.) should not be modified
           git add bindings/*.mojom.js
           git add bindings/index.js
           git add bindings/index.json
-          
+
           # Show what will be committed
           echo "Files staged for commit:"
           git diff --staged --name-only
-          
+
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
@@ -140,6 +139,3 @@ jobs:
             git commit -m "Update Mojo JS bindings - $(date -u +%Y-%m-%d) [$CHANGED_COUNT files]"
             git push
           fi
-
-
-

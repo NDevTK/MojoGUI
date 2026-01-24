@@ -1,87 +1,98 @@
 #!/usr/bin/env node
 /**
  * MojoGUI MCP Server
- * 
+ *
  * An MCP (Model Context Protocol) server that enables agentic usage of MojoGUI
  * for Chromium Mojo interface security research.
- * 
+ *
  * Prerequisites:
  * - Chrome running with: --remote-debugging-port=9222 --enable-blink-features=MojoJS,MojoJSTest
  * - MojoGUI page open at https://ndevtk.github.io/MojoGUI
- * 
+ *
  * Usage:
  * - Add to MCP config to use with AI agents
  * - Or run directly: node src/index.js
  */
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
-import { z } from 'zod';
-import { exec } from 'child_process';
-import { promisify } from 'util';
-import fs from 'fs';
-import path from 'path';
-import { getWorkerPool, resetWorkerPool } from './worker-pool.js';
-import { MOJOGUI_URL } from './cdp.js';
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { z } from "zod";
+import { exec } from "child_process";
+import { promisify } from "util";
+import fs from "fs";
+import path from "path";
+import { getWorkerPool, resetWorkerPool } from "./worker-pool.js";
+import { MOJOGUI_URL } from "./cdp.js";
 
 const execAsync = promisify(exec);
 
 // Create the MCP server
 const server = new McpServer({
-    name: 'mojogui-mcp-server',
-    version: '1.0.0'
+  name: "mojogui-mcp-server",
+  version: "1.0.0",
 });
 
 // Helper to execute code in MojoGUI via worker (non-blocking)
 async function executeInMojoGUI(code, retryCount = 0, options = {}) {
-    let pool;
-    try {
-        pool = await getWorkerPool({ targetUrl: MOJOGUI_URL });
-    } catch (error) {
-        // If we can't get pool, reset and retry once
-        if (retryCount === 0) {
-            await resetWorkerPool();
-            return executeInMojoGUI(code, 1, options);
-        }
-        throw error;
+  let pool;
+  try {
+    pool = await getWorkerPool({ targetUrl: MOJOGUI_URL });
+  } catch (error) {
+    // If we can't get pool, reset and retry once
+    if (retryCount === 0) {
+      await resetWorkerPool();
+      return executeInMojoGUI(code, 1, options);
     }
+    throw error;
+  }
 
-    try {
-        const result = await pool.evaluate(code, options);
-        return result;
-    } catch (error) {
-        // If renderer crashed, try to get last logs and reset
-        if (error.crashed) {
-            let logs = [];
-            try {
-                // Get last 10 logs for context
-                logs = await pool.getLogs();
-                logs = logs.slice(-10);
-            } catch (logError) {
-                console.error('[MojoGUI MCP] Failed to get logs after crash:', logError.message);
-            }
+  try {
+    const result = await pool.evaluate(code, options);
+    return result;
+  } catch (error) {
+    // If renderer crashed, try to get last logs and reset
+    if (error.crashed) {
+      let logs = [];
+      try {
+        // Get last 10 logs for context
+        logs = await pool.getLogs();
+        logs = logs.slice(-10);
+      } catch (logError) {
+        console.error(
+          "[MojoGUI MCP] Failed to get logs after crash:",
+          logError.message,
+        );
+      }
 
-            // Append logs to error message
-            if (logs.length > 0) {
-                error.message += '\n\nRecent console logs:\n' +
-                    logs.map(l => `[${l.type}] ${l.text}`).join('\n');
-            }
+      // Append logs to error message
+      if (logs.length > 0) {
+        error.message +=
+          "\n\nRecent console logs:\n" +
+          logs.map((l) => `[${l.type}] ${l.text}`).join("\n");
+      }
 
-            await resetWorkerPool();
-        }
-        throw error;
+      await resetWorkerPool();
     }
+    throw error;
+  }
 }
 
 // Register tools
 server.tool(
-    'list_interfaces',
-    'Search and list available Mojo interfaces. Returns interface names, modules, and method counts.',
-    {
-        query: z.string().optional().describe('Search query to filter interfaces by name or module'),
-        limit: z.number().optional().default(50).describe('Maximum number of interfaces to return')
-    },
-    async ({ query = '', limit = 50 }) => {
-        const code = `
+  "list_interfaces",
+  "Search and list available Mojo interfaces. Returns interface names, modules, and method counts.",
+  {
+    query: z
+      .string()
+      .optional()
+      .describe("Search query to filter interfaces by name or module"),
+    limit: z
+      .number()
+      .optional()
+      .default(50)
+      .describe("Maximum number of interfaces to return"),
+  },
+  async ({ query = "", limit = 50 }) => {
+    const code = `
             (async () => {
                 const api = window.MojoGUI_API;
                 if (!api) throw new Error('MojoGUI API not available');
@@ -104,18 +115,24 @@ server.tool(
                 }));
             })()
         `;
-        const result = await executeInMojoGUI(code);
-        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
-    }
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
 );
 server.tool(
-    'get_interface_details',
-    'Get detailed information about a Mojo interface including all methods and their parameter signatures.',
-    {
-        name: z.string().describe('The interface name (e.g., "BatteryMonitor" or "device.mojom.BatteryMonitor")')
-    },
-    async ({ name }) => {
-        const code = `
+  "get_interface_details",
+  "Get detailed information about a Mojo interface including all methods and their parameter signatures.",
+  {
+    name: z
+      .string()
+      .describe(
+        'The interface name (e.g., "BatteryMonitor" or "device.mojom.BatteryMonitor")',
+      ),
+  },
+  async ({ name }) => {
+    const code = `
             (async () => {
                 const api = window.MojoGUI_API;
                 if (!api) throw new Error('MojoGUI API not available');
@@ -126,18 +143,22 @@ server.tool(
                 return details;
             })()
         `;
-        const result = await executeInMojoGUI(code);
-        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
-    }
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
 );
 server.tool(
-    'bind_interface',
-    'Bind a Mojo interface and return a persistent objectId for future calls.',
-    {
-        interface: z.string().describe('The interface name (e.g. "blink.mojom.ClipboardHost")')
-    },
-    async ({ interface: iface }) => {
-        const code = `
+  "bind_interface",
+  "Bind a Mojo interface and return a persistent objectId for future calls.",
+  {
+    interface: z
+      .string()
+      .describe('The interface name (e.g. "blink.mojom.ClipboardHost")'),
+  },
+  async ({ interface: iface }) => {
+    const code = `
             (async () => {
                 const executor = window.MojoExecutionService;
                 if (!executor) throw new Error('MojoExecutionService not available');
@@ -160,25 +181,69 @@ server.tool(
                 return { objectId: id, type: name };
             })()
         `;
-        const result = await executeInMojoGUI(code);
-        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
-    }
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
 );
 server.tool(
-    'call_method',
-    'Execute a Mojo method with the given parameters. Use "objectId" from bind_interface or previous calls to chain. Note: To retrieve the results of intercepted calls or raw message data, you must use the "get_intercepted_calls" tool.',
-    {
-        interface: z.string().optional().describe('The interface name (e.g. "blink.mojom.FileSystemManager")'),
-        objectId: z.string().optional().describe('ID of an existing object/remote returned by a previous call (e.g. "obj_1")'),
-        method: z.string().describe('The method name to call'),
-        params: z.record(z.any()).optional().default({}).describe('Parameter values as key-value pairs'),
-        isAssociated: z.boolean().optional().default(false).describe('If true, bind as an associated interface to an existing master handle'),
-        masterHandleId: z.string().optional().describe('The ID of the master handle to bind to (required if isAssociated is true)'),
-        interfaceId: z.number().optional().default(0).describe('The interface ordinal ID for the associated interface'),
-        userGesture: z.boolean().optional().default(false).describe('If true, simulate a user gesture (activation) for the execution')
-    },
-    async ({ interface: iface, objectId, method, params = {}, isAssociated = false, masterHandleId, interfaceId = 0, userGesture = false }) => {
-        const code = `
+  "call_method",
+  'Execute a Mojo method with the given parameters. Use "objectId" from bind_interface or previous calls to chain. Note: To retrieve the results of intercepted calls or raw message data, you must use the "get_intercepted_calls" tool.',
+  {
+    interface: z
+      .string()
+      .optional()
+      .describe('The interface name (e.g. "blink.mojom.FileSystemManager")'),
+    objectId: z
+      .string()
+      .optional()
+      .describe(
+        'ID of an existing object/remote returned by a previous call (e.g. "obj_1")',
+      ),
+    method: z.string().describe("The method name to call"),
+    params: z
+      .record(z.any())
+      .optional()
+      .default({})
+      .describe("Parameter values as key-value pairs"),
+    isAssociated: z
+      .boolean()
+      .optional()
+      .default(false)
+      .describe(
+        "If true, bind as an associated interface to an existing master handle",
+      ),
+    masterHandleId: z
+      .string()
+      .optional()
+      .describe(
+        "The ID of the master handle to bind to (required if isAssociated is true)",
+      ),
+    interfaceId: z
+      .number()
+      .optional()
+      .default(0)
+      .describe("The interface ordinal ID for the associated interface"),
+    userGesture: z
+      .boolean()
+      .optional()
+      .default(false)
+      .describe(
+        "If true, simulate a user gesture (activation) for the execution",
+      ),
+  },
+  async ({
+    interface: iface,
+    objectId,
+    method,
+    params = {},
+    isAssociated = false,
+    masterHandleId,
+    interfaceId = 0,
+    userGesture = false,
+  }) => {
+    const code = `
             (async () => {
                 const api = window.MojoGUI_API;
                 const executor = window.MojoExecutionService;
@@ -187,9 +252,9 @@ server.tool(
                 
                 const res = await executor.call(
                     { 
-                        interface: ${iface ? JSON.stringify(iface) : 'null'},
-                        objectId: ${objectId ? JSON.stringify(objectId) : 'null'},
-                        masterHandleId: ${masterHandleId ? JSON.stringify(masterHandleId) : 'null'}
+                        interface: ${iface ? JSON.stringify(iface) : "null"},
+                        objectId: ${objectId ? JSON.stringify(objectId) : "null"},
+                        masterHandleId: ${masterHandleId ? JSON.stringify(masterHandleId) : "null"}
                     },
                     ${JSON.stringify(method)},
                     ${JSON.stringify(params)},
@@ -202,24 +267,50 @@ server.tool(
                 return utils.safeStringify(res, 2);
             })()
         `;
-        const result = await executeInMojoGUI(code, 0, { userGesture });
-        // result is already a JSON string from safeStringify
-        return { content: [{ type: 'text', text: result || "{}" }] };
-    }
+    const result = await executeInMojoGUI(code, 0, { userGesture });
+    // result is already a JSON string from safeStringify
+    return { content: [{ type: "text", text: result || "{}" }] };
+  },
 );
 server.tool(
-    'generate_code',
-    'Generate MojoJS code for calling a method with the given parameters. Useful for understanding the API.',
-    {
-        interface: z.string().describe('The interface name'),
-        method: z.string().describe('The method name'),
-        params: z.record(z.any()).optional().default({}).describe('Parameter values as key-value pairs'),
-        isAssociated: z.boolean().optional().default(false).describe('If true, bind as an associated interface to an existing master handle'),
-        masterHandleId: z.string().optional().describe('The ID of the master handle to bind to (required if isAssociated is true)'),
-        interfaceId: z.number().optional().default(0).describe('The interface ordinal ID for the associated interface')
-    },
-    async ({ interface: iface, method, params = {}, isAssociated = false, masterHandleId, interfaceId = 0 }) => {
-        const code = `
+  "generate_code",
+  "Generate MojoJS code for calling a method with the given parameters. Useful for understanding the API.",
+  {
+    interface: z.string().describe("The interface name"),
+    method: z.string().describe("The method name"),
+    params: z
+      .record(z.any())
+      .optional()
+      .default({})
+      .describe("Parameter values as key-value pairs"),
+    isAssociated: z
+      .boolean()
+      .optional()
+      .default(false)
+      .describe(
+        "If true, bind as an associated interface to an existing master handle",
+      ),
+    masterHandleId: z
+      .string()
+      .optional()
+      .describe(
+        "The ID of the master handle to bind to (required if isAssociated is true)",
+      ),
+    interfaceId: z
+      .number()
+      .optional()
+      .default(0)
+      .describe("The interface ordinal ID for the associated interface"),
+  },
+  async ({
+    interface: iface,
+    method,
+    params = {},
+    isAssociated = false,
+    masterHandleId,
+    interfaceId = 0,
+  }) => {
+    const code = `
             (async () => {
                 const api = window.MojoGUI_API;
                 if (!api) throw new Error('MojoGUI API not available');
@@ -230,25 +321,29 @@ server.tool(
                     ${JSON.stringify(params)},
                     {
                         isAssociated: ${isAssociated},
-                        masterHandleId: ${masterHandleId ? JSON.stringify(masterHandleId) : 'null'},
+                        masterHandleId: ${masterHandleId ? JSON.stringify(masterHandleId) : "null"},
                         interfaceId: ${interfaceId}
                     }
                 );
             })()
         `;
-        const result = await executeInMojoGUI(code);
-        return { content: [{ type: 'text', text: result }] };
-    }
+    const result = await executeInMojoGUI(code);
+    return { content: [{ type: "text", text: result }] };
+  },
 );
 server.tool(
-    'set_interceptor_mode',
-    'Set the interceptor mode for a Mojo interface. The interceptor is always active - this controls whether it blocks calls (INTERCEPT) or passively logs them (LOG).',
-    {
-        interface: z.string().describe('The interface name'),
-        mode: z.enum(['INTERCEPT', 'LOG']).describe('INTERCEPT blocks calls for modification/dropping, LOG passively records without blocking')
-    },
-    async ({ interface: iface, mode }) => {
-        const code = `
+  "set_interceptor_mode",
+  "Set the interceptor mode for a Mojo interface. The interceptor is always active - this controls whether it blocks calls (INTERCEPT) or passively logs them (LOG).",
+  {
+    interface: z.string().describe("The interface name"),
+    mode: z
+      .enum(["INTERCEPT", "LOG"])
+      .describe(
+        "INTERCEPT blocks calls for modification/dropping, LOG passively records without blocking",
+      ),
+  },
+  async ({ interface: iface, mode }) => {
+    const code = `
             (async () => {
                 const api = window.MojoGUI_API;
                 if (!api) throw new Error('MojoGUI API not available');
@@ -273,18 +368,22 @@ server.tool(
                 };
             })()
         `;
-        const result = await executeInMojoGUI(code);
-        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
-    }
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
 );
 server.tool(
-    'set_response_interception',
-    'Enable or disable response interception. When enabled, responses from Mojo calls can also be intercepted and modified.',
-    {
-        enabled: z.boolean().describe('true to intercept responses, false for requests only')
-    },
-    async ({ enabled }) => {
-        const code = `
+  "set_response_interception",
+  "Enable or disable response interception. When enabled, responses from Mojo calls can also be intercepted and modified.",
+  {
+    enabled: z
+      .boolean()
+      .describe("true to intercept responses, false for requests only"),
+  },
+  async ({ enabled }) => {
+    const code = `
             (async () => {
                 const api = window.MojoGUI_API;
                 if (!api) throw new Error('MojoGUI API not available');
@@ -300,20 +399,40 @@ server.tool(
                 };
             })()
         `;
-        const result = await executeInMojoGUI(code);
-        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
-    }
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
 );
 server.tool(
-    'get_intercepted_calls',
-    'Get list of intercepted Mojo calls. Returns call details including interface, method, parameters, and status.',
-    {
-        status: z.enum(['Pending', 'Done', 'Error', 'Logged', 'Response Edit', 'Forwarded', 'Dropped', 'Pending Response', 'Running', 'all']).optional().default('all')
-            .describe('Filter by status'),
-        limit: z.number().optional().default(20).describe('Maximum number of calls to return')
-    },
-    async ({ status = 'all', limit = 20 }) => {
-        const code = `
+  "get_intercepted_calls",
+  "Get list of intercepted Mojo calls. Returns call details including interface, method, parameters, and status.",
+  {
+    status: z
+      .enum([
+        "Pending",
+        "Done",
+        "Error",
+        "Logged",
+        "Response Edit",
+        "Forwarded",
+        "Dropped",
+        "Pending Response",
+        "Running",
+        "all",
+      ])
+      .optional()
+      .default("all")
+      .describe("Filter by status"),
+    limit: z
+      .number()
+      .optional()
+      .default(20)
+      .describe("Maximum number of calls to return"),
+  },
+  async ({ status = "all", limit = 20 }) => {
+    const code = `
             (async () => {
                 const api = window.MojoGUI_API;
                 if (!api) throw new Error('MojoGUI API not available');
@@ -327,22 +446,42 @@ server.tool(
                 return calls.slice(0, ${limit});
             })()
         `;
-        const result = await executeInMojoGUI(code);
-        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
-    }
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
 );
 server.tool(
-    'resume_call',
-    'Resume, modify, or drop an intercepted call that is pending. If the call is in "Response Edit" status, this tool will send the modified response.',
-    {
-        id: z.string().describe('The call ID from get_intercepted_calls'),
-        params: z.array(z.any()).optional().describe('Modified parameters (uses original if not provided for request modification)'),
-        result: z.any().optional().describe('Modified result (for response modification when status is "Response Edit")'),
-        drop: z.boolean().optional().default(false).describe('If true, drop the call instead of forwarding'),
-        intercept_response: z.boolean().optional().default(false).describe('If true, also intercept the response')
-    },
-    async ({ id, params, result, drop = false, intercept_response = false }) => {
-        const code = `
+  "resume_call",
+  'Resume, modify, or drop an intercepted call that is pending. If the call is in "Response Edit" status, this tool will send the modified response.',
+  {
+    id: z.string().describe("The call ID from get_intercepted_calls"),
+    params: z
+      .array(z.any())
+      .optional()
+      .describe(
+        "Modified parameters (uses original if not provided for request modification)",
+      ),
+    result: z
+      .any()
+      .optional()
+      .describe(
+        'Modified result (for response modification when status is "Response Edit")',
+      ),
+    drop: z
+      .boolean()
+      .optional()
+      .default(false)
+      .describe("If true, drop the call instead of forwarding"),
+    intercept_response: z
+      .boolean()
+      .optional()
+      .default(false)
+      .describe("If true, also intercept the response"),
+  },
+  async ({ id, params, result, drop = false, intercept_response = false }) => {
+    const code = `
             (async () => {
                 const api = window.MojoGUI_API;
                 if (!api) throw new Error('MojoGUI API not available');
@@ -354,131 +493,146 @@ server.tool(
                 if (call && call.status === 'Response Edit') {
                     return api.sendResponse(
                         ${JSON.stringify(id)},
-                        ${result !== undefined ? JSON.stringify(result) : 'call.result'}
+                        ${result !== undefined ? JSON.stringify(result) : "call.result"}
                     );
                 }
 
                 return api.resumeCall(
                     ${JSON.stringify(id)},
-                    ${params ? JSON.stringify(params) : 'null'},
+                    ${params ? JSON.stringify(params) : "null"},
                     ${drop},
                     ${intercept_response}
                 );
             })()
         `;
-        const mcpResult = await executeInMojoGUI(code);
-        return { content: [{ type: 'text', text: JSON.stringify(mcpResult, null, 2) }] };
-    }
+    const mcpResult = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(mcpResult, null, 2) }],
+    };
+  },
 );
 
 // New tool: Replay a captured call
 server.tool(
-    'replay_call',
-    'Re-execute a previously captured call with optional parameter modifications. The call must exist in the activity log.',
-    {
-        id: z.string().describe('The call ID to replay from activity log'),
-        params: z.record(z.any()).optional().describe('Optional modified parameters')
-    },
-    async ({ id, params }) => {
-        const code = `
+  "replay_call",
+  "Re-execute a previously captured call with optional parameter modifications. The call must exist in the activity log.",
+  {
+    id: z.string().describe("The call ID to replay from activity log"),
+    params: z
+      .record(z.any())
+      .optional()
+      .describe("Optional modified parameters"),
+  },
+  async ({ id, params }) => {
+    const code = `
             (async () => {
                 const api = window.MojoGUI_API;
                 if (!api) throw new Error('MojoGUI API not available');
                 
                 const result = await api.replayCall(
                     ${JSON.stringify(id)},
-                    ${params ? JSON.stringify(params) : 'null'}
+                    ${params ? JSON.stringify(params) : "null"}
                 );
                 
                 return result;
             })()
         `;
-        const result = await executeInMojoGUI(code);
-        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
-    }
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
 );
 
 // ---- Handle Management Tools ----
 
 server.tool(
-    'create_message_pipe',
-    'Create a new Mojo message pipe. Returns the IDs of the two new handles.',
-    {},
-    async () => {
-        const code = `
+  "create_message_pipe",
+  "Create a new Mojo message pipe. Returns the IDs of the two new handles.",
+  {},
+  async () => {
+    const code = `
             (async () => {
                 const api = window.MojoGUI_API;
                 if (!api) throw new Error('MojoGUI API not available');
                 return api.createMessagePipe();
             })()
         `;
-        const result = await executeInMojoGUI(code);
-        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
-    }
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
 );
 
 server.tool(
-    'get_handle_details',
-    'Get details about a specific handle by its trackable ID.',
-    {
-        id: z.union([z.string(), z.number()]).describe('The trackable handle ID')
-    },
-    async ({ id }) => {
-        const code = `
+  "get_handle_details",
+  "Get details about a specific handle by its trackable ID.",
+  {
+    id: z.union([z.string(), z.number()]).describe("The trackable handle ID"),
+  },
+  async ({ id }) => {
+    const code = `
             (async () => {
                 const api = window.MojoGUI_API;
                 if (!api) throw new Error('MojoGUI API not available');
                 return api.getHandleDetails(${JSON.stringify(id)});
             })()
         `;
-        const result = await executeInMojoGUI(code);
-        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
-    }
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
 );
 
 server.tool(
-    'close_handle',
-    'Close a specific Mojo handle by its ID.',
-    {
-        id: z.union([z.string(), z.number()]).describe('The trackable handle ID')
-    },
-    async ({ id }) => {
-        const code = `
+  "close_handle",
+  "Close a specific Mojo handle by its ID.",
+  {
+    id: z.union([z.string(), z.number()]).describe("The trackable handle ID"),
+  },
+  async ({ id }) => {
+    const code = `
             (async () => {
                 const api = window.MojoGUI_API;
                 if (!api) throw new Error('MojoGUI API not available');
                 return api.closeHandle(${JSON.stringify(id)});
             })()
         `;
-        const result = await executeInMojoGUI(code);
-        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
-    }
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
 );
 
 server.tool(
-    'list_handles',
-    'List all currently trackable Mojo handle IDs.',
-    {},
-    async () => {
-        const code = `
+  "list_handles",
+  "List all currently trackable Mojo handle IDs.",
+  {},
+  async () => {
+    const code = `
             (async () => {
                 const api = window.MojoGUI_API;
                 if (!api) throw new Error('MojoGUI API not available');
                 return api.listHandles();
             })()
         `;
-        const result = await executeInMojoGUI(code);
-        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
-    }
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
 );
 
 // New tool: Check MojoJS status
 server.tool(
-    'check_mojo_status',
-    'Check if MojoJS is available in the browser. Returns status and helpful error messages if not enabled.',
-    {},
-    async () => {
-        const code = `
+  "check_mojo_status",
+  "Check if MojoJS is available in the browser. Returns status and helpful error messages if not enabled.",
+  {},
+  async () => {
+    const code = `
             (async () => {
                 const mojoAvailable = typeof Mojo !== 'undefined';
                 const mojoJSTestAvailable = typeof MojoInterfaceInterceptor !== 'undefined';
@@ -495,18 +649,20 @@ server.tool(
                 };
             })()
         `;
-        const result = await executeInMojoGUI(code);
-        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
-    }
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
 );
 
 // New tool: Get traffic stats
 server.tool(
-    'get_traffic_stats',
-    'Get statistics about intercepted traffic including total calls, pending, completed, and errors.',
-    {},
-    async () => {
-        const code = `
+  "get_traffic_stats",
+  "Get statistics about intercepted traffic including total calls, pending, completed, and errors.",
+  {},
+  async () => {
+    const code = `
             (async () => {
                 const api = window.MojoGUI_API;
                 if (!api) throw new Error('MojoGUI API not available');
@@ -529,18 +685,20 @@ server.tool(
                 return stats;
             })()
         `;
-        const result = await executeInMojoGUI(code);
-        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
-    }
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
 );
 
 // New tool: Get version info
 server.tool(
-    'get_version_info',
-    'Get browser and Chromium version information. Useful for checking compatibility.',
-    {},
-    async () => {
-        const code = `
+  "get_version_info",
+  "Get browser and Chromium version information. Useful for checking compatibility.",
+  {},
+  async () => {
+    const code = `
             (async () => {
                 let version = { raw: navigator.userAgent };
                 try {
@@ -563,66 +721,100 @@ server.tool(
                 return version;
             })()
         `;
-        const result = await executeInMojoGUI(code);
-        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
-    }
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
 );
 
 server.tool(
-    'get_console_logs',
-    'Retrieve captured console logs, exceptions, and renderer crashes from the browser. Useful for debugging and detecting vulnerabilities.',
-    {
-        limit: z.number().optional().default(100).describe('Maximum number of log entries to return'),
-        clear: z.boolean().optional().default(false).describe('If true, clear the log buffer after retrieval')
-    },
-    async ({ limit = 100, clear = false }) => {
-        const pool = await getWorkerPool({ targetUrl: MOJOGUI_URL });
-        const logs = await pool.getLogs(clear);
-        const slicedLogs = logs.slice(-limit);
-        return { content: [{ type: 'text', text: JSON.stringify(slicedLogs, null, 2) }] };
-    }
+  "get_console_logs",
+  "Retrieve captured console logs, exceptions, and renderer crashes from the browser. Useful for debugging and detecting vulnerabilities.",
+  {
+    limit: z
+      .number()
+      .optional()
+      .default(100)
+      .describe("Maximum number of log entries to return"),
+    clear: z
+      .boolean()
+      .optional()
+      .default(false)
+      .describe("If true, clear the log buffer after retrieval"),
+  },
+  async ({ limit = 100, clear = false }) => {
+    const pool = await getWorkerPool({ targetUrl: MOJOGUI_URL });
+    const logs = await pool.getLogs(clear);
+    const slicedLogs = logs.slice(-limit);
+    return {
+      content: [{ type: "text", text: JSON.stringify(slicedLogs, null, 2) }],
+    };
+  },
 );
 
 server.tool(
-    'take_browser_screenshot',
-    'Capture a PNG screenshot of the entire browser window using the local capture_chrome.py script.',
-    {},
-    async () => {
-        try {
-            // Execute the local capture_chrome.py script
-            await execAsync('python capture_chrome.py');
+  "take_browser_screenshot",
+  "Capture a PNG screenshot of the entire browser window using the local capture_chrome.py script.",
+  {},
+  async () => {
+    try {
+      // Execute the local capture_chrome.py script
+      await execAsync("python capture_chrome.py");
 
-            const filename = 'chrome_capture.png';
-            const filepath = path.resolve(process.cwd(), filename);
+      const filename = "chrome_capture.png";
+      const filepath = path.resolve(process.cwd(), filename);
 
-            if (!fs.existsSync(filepath)) {
-                throw new Error('capture_chrome.py failed to create chrome_capture.png');
-            }
+      if (!fs.existsSync(filepath)) {
+        throw new Error(
+          "capture_chrome.py failed to create chrome_capture.png",
+        );
+      }
 
-            return {
-                content: [
-                    { type: 'text', text: 'Browser window screenshot captured successfully via capture_chrome.py and saved to: ' + filepath }
-                ]
-            };
-        } catch (e) {
-            return {
-                content: [{ type: 'text', text: 'Error running capture_chrome.py: ' + e.message }],
-                isError: true
-            };
-        }
+      return {
+        content: [
+          {
+            type: "text",
+            text:
+              "Browser window screenshot captured successfully via capture_chrome.py and saved to: " +
+              filepath,
+          },
+        ],
+      };
+    } catch (e) {
+      return {
+        content: [
+          {
+            type: "text",
+            text: "Error running capture_chrome.py: " + e.message,
+          },
+        ],
+        isError: true,
+      };
     }
+  },
 );
 
 server.tool(
-    'run_javascript',
-    'Execute arbitrary JavaScript in the MojoGUI context. Use the "async" parameter for code that might block (e.g. waiting for an intercepted Mojo call). IMPORTANT: You MUST use the "return" keyword to capture results. Data logged with console.log() will not appear in the tool output or the MojoGUI result section.',
-    {
-        code: z.string().describe('The JavaScript code to execute'),
-        async: z.boolean().optional().default(false).describe('If true, don\'t wait for the code to complete'),
-        userGesture: z.boolean().optional().default(false).describe('If true, simulate a user gesture (activation) for the execution')
-    },
-    async ({ code, async: isAsync = false, userGesture = false }) => {
-        const wrappedCode = `
+  "run_javascript",
+  'Execute arbitrary JavaScript in the MojoGUI context. Use the "async" parameter for code that might block (e.g. waiting for an intercepted Mojo call). IMPORTANT: You MUST use the "return" keyword to capture results. Data logged with console.log() will not appear in the tool output or the MojoGUI result section.',
+  {
+    code: z.string().describe("The JavaScript code to execute"),
+    async: z
+      .boolean()
+      .optional()
+      .default(false)
+      .describe("If true, don't wait for the code to complete"),
+    userGesture: z
+      .boolean()
+      .optional()
+      .default(false)
+      .describe(
+        "If true, simulate a user gesture (activation) for the execution",
+      ),
+  },
+  async ({ code, async: isAsync = false, userGesture = false }) => {
+    const wrappedCode = `
             (async () => {
                 const api = window.MojoGUI_API;
                 
@@ -659,30 +851,35 @@ server.tool(
                 }
             })()
         `;
-        const result = await executeInMojoGUI(wrappedCode, 0, { userGesture });
+    const result = await executeInMojoGUI(wrappedCode, 0, { userGesture });
 
-        // Add helpful hint for common mistake (forgotten return on IIFE)
-        if (result && result.success && result.result === undefined) {
-            const trimmed = code.trim();
-            // Check for (async () => {})() or (() => {})() or similar patterns
-            if (trimmed.startsWith('(') && (trimmed.endsWith(')') || trimmed.endsWith(');'))) {
-                result._hint = 'Result is undefined but code looks like an expression/IIFE. Did you forget to add "return"?';
-            }
-        }
-
-        return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
+    // Add helpful hint for common mistake (forgotten return on IIFE)
+    if (result && result.success && result.result === undefined) {
+      const trimmed = code.trim();
+      // Check for (async () => {})() or (() => {})() or similar patterns
+      if (
+        trimmed.startsWith("(") &&
+        (trimmed.endsWith(")") || trimmed.endsWith(");"))
+      ) {
+        result._hint =
+          'Result is undefined but code looks like an expression/IIFE. Did you forget to add "return"?';
+      }
     }
+
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
 );
 
 // Start the server
 async function main() {
-    const transport = new StdioServerTransport();
-    await server.connect(transport);
-    console.error('[MojoGUI MCP] Server started');
+  const transport = new StdioServerTransport();
+  await server.connect(transport);
+  console.error("[MojoGUI MCP] Server started");
 }
 
 main().catch((error) => {
-    console.error('[MojoGUI MCP] Fatal error:', error);
-    process.exit(1);
+  console.error("[MojoGUI MCP] Fatal error:", error);
+  process.exit(1);
 });
-

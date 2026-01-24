@@ -1,7 +1,7 @@
 // Copyright 2018 The Chromium Authors
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-'use strict';
+"use strict";
 
 /**
  * @fileoverview Preamble for JavaScript to be compiled with Closure Compiler.
@@ -17,43 +17,38 @@ var goog = {};
 /** @const */
 goog.global = this;
 
-
 /**
  * @param {string} name
  * @param {*} object
  * @param {Object=} opt_objectToExportTo
  */
-goog.exportSymbol = function(name, object, opt_objectToExportTo) {
-  let parts = name.split('.');
+goog.exportSymbol = function (name, object, opt_objectToExportTo) {
+  let parts = name.split(".");
   let cur = opt_objectToExportTo || mojo.internal.globalScope;
-  for (let part; parts.length && (part = parts.shift());) {
-    if (!parts.length && object !== undefined)
-      cur[part] = object;
-    else if (cur[part] && cur[part] != Object.prototype[part])
-      cur = cur[part];
-    else
-      cur = cur[part] = {};
+  for (let part; parts.length && (part = parts.shift()); ) {
+    if (!parts.length && object !== undefined) cur[part] = object;
+    else if (cur[part] && cur[part] != Object.prototype[part]) cur = cur[part];
+    else cur = cur[part] = {};
   }
 };
-
 
 /**
  * @param {Object} object
  * @param {string} publicName
  * @param {*} symbol
  */
-goog.exportProperty = function(object, publicName, symbol) {
+goog.exportProperty = function (object, publicName, symbol) {
   object[publicName] = symbol;
 };
 
 /**
  * @param {string} name
  */
-goog.provide = function(name) {
+goog.provide = function (name) {
   goog.exportSymbol(name, null, null);
 };
 
 /**
  * @param {string} namespace
  */
-goog.require = function(namespace) {};
+goog.require = function (namespace) {};

@@ -2,10 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-'use strict';
+"use strict";
 
-if ((typeof mojo !== 'undefined') && mojo.bindingsLibraryInitialized) {
-  throw new Error('The Mojo bindings library has been initialized.');
+if (typeof mojo !== "undefined" && mojo.bindingsLibraryInitialized) {
+  throw new Error("The Mojo bindings library has been initialized.");
 }
 
 var mojo = mojo || {};
@@ -14,11 +14,11 @@ mojo.bindingsLibraryInitialized = true;
 mojo.internal = mojo.internal || {};
 
 mojo.config = mojo.config || {};
-if (typeof mojo.config.global === 'undefined') {
+if (typeof mojo.config.global === "undefined") {
   mojo.config.global = this;
 }
 
-if (typeof mojo.config.autoLoadMojomDeps === 'undefined') {
+if (typeof mojo.config.autoLoadMojomDeps === "undefined") {
   // Whether to automatically load mojom dependencies.
   // For example, if foo.mojom imports bar.mojom, |autoLoadMojomDeps| set to
   // true means that loading foo.mojom.js will insert a <script> tag to load
@@ -62,22 +62,22 @@ if (typeof mojo.config.autoLoadMojomDeps === 'undefined') {
   mojo.config.autoLoadMojomDeps = true;
 }
 
-(function() {
+(function () {
   var internal = mojo.internal;
   var config = mojo.config;
 
   var LoadState = {
     PENDING_LOAD: 1,
-    LOADED: 2
+    LOADED: 2,
   };
 
   var mojomRegistry = new Map();
 
   function exposeNamespace(namespace) {
     var current = config.global;
-    var parts = namespace.split('.');
+    var parts = namespace.split(".");
 
-    for (var part; parts.length && (part = parts.shift());) {
+    for (var part; parts.length && (part = parts.shift()); ) {
       if (!current[part]) {
         current[part] = {};
       }
@@ -97,7 +97,7 @@ if (typeof mojo.config.autoLoadMojomDeps === 'undefined') {
 
   function markMojomPendingLoad(id) {
     if (isMojomLoaded(id)) {
-      throw new Error('The following mojom file has been loaded: ' + id);
+      throw new Error("The following mojom file has been loaded: " + id);
     }
 
     mojomRegistry.set(id, LoadState.PENDING_LOAD);
@@ -114,26 +114,28 @@ if (typeof mojo.config.autoLoadMojomDeps === 'undefined') {
 
     if (config.global.document === undefined) {
       throw new Error(
-          'Mojom dependency autoloading is not implemented in workers. ' +
-          'Please see config variable mojo.config.autoLoadMojomDeps for more ' +
-          'details.');
+        "Mojom dependency autoloading is not implemented in workers. " +
+          "Please see config variable mojo.config.autoLoadMojomDeps for more " +
+          "details.",
+      );
     }
 
     markMojomPendingLoad(id);
     var url = new URL(relativePath, document.currentScript.src).href;
 
-    if (config.global.document.readyState === 'loading') {
+    if (config.global.document.readyState === "loading") {
       // We can't use dynamic script loading here (such as
       // `document.createElement(...)` because the loaded script will be
       // evaluated after the following scripts (if they exist). Thus
       // `document.write` guarantees the proper evaluation order.
-      config.global.document.write('<script type="text/javascript" src="' +
-                                   url + '"><' + '/script>');
+      config.global.document.write(
+        '<script type="text/javascript" src="' + url + '"><' + "/script>",
+      );
     } else {
       // If the parent script is being loaded lazily, we can't use
       // `document.write` because the document has already been loaded.
-      var scriptElement = document.createElement('script');
-      scriptElement.type = 'text/javascript';
+      var scriptElement = document.createElement("script");
+      scriptElement.type = "text/javascript";
       scriptElement.async = false;
       scriptElement.src = url;
       document.currentScript.parentElement.appendChild(scriptElement);

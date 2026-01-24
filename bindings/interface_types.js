@@ -2,13 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-(function() {
+(function () {
   var internal = mojo.internal;
 
   // Constants ----------------------------------------------------------------
   var kInterfaceIdNamespaceMask = 0x80000000;
   var kPrimaryInterfaceId = 0x00000000;
-  var kInvalidInterfaceId = 0xFFFFFFFF;
+  var kInvalidInterfaceId = 0xffffffff;
 
   // ---------------------------------------------------------------------------
 
@@ -17,13 +17,12 @@
     this.version = version;
   }
 
-  InterfacePtrInfo.prototype.isValid = function() {
+  InterfacePtrInfo.prototype.isValid = function () {
     return this.handle instanceof MojoHandle;
   };
 
-  InterfacePtrInfo.prototype.close = function() {
-    if (!this.isValid())
-      return;
+  InterfacePtrInfo.prototype.close = function () {
+    if (!this.isValid()) return;
 
     this.handle.close();
     this.handle = null;
@@ -35,7 +34,7 @@
     this.version = version;
   }
 
-  AssociatedInterfacePtrInfo.prototype.isValid = function() {
+  AssociatedInterfacePtrInfo.prototype.isValid = function () {
     return this.interfaceEndpointHandle.isValid();
   };
 
@@ -45,13 +44,12 @@
     this.handle = handle;
   }
 
-  InterfaceRequest.prototype.isValid = function() {
+  InterfaceRequest.prototype.isValid = function () {
     return this.handle instanceof MojoHandle;
   };
 
-  InterfaceRequest.prototype.close = function() {
-    if (!this.isValid())
-      return;
+  InterfaceRequest.prototype.close = function () {
+    if (!this.isValid()) return;
 
     this.handle.close();
     this.handle = null;
@@ -61,11 +59,11 @@
     this.interfaceEndpointHandle = interfaceEndpointHandle;
   }
 
-  AssociatedInterfaceRequest.prototype.isValid = function() {
+  AssociatedInterfaceRequest.prototype.isValid = function () {
     return this.interfaceEndpointHandle.isValid();
   };
 
-  AssociatedInterfaceRequest.prototype.resetWithReason = function(reason) {
+  AssociatedInterfaceRequest.prototype.resetWithReason = function (reason) {
     this.interfaceEndpointHandle.reset(reason);
   };
 

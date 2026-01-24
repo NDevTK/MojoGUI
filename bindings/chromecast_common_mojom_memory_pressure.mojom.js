@@ -2,25 +2,23 @@
 // Source: chromium_src/chromecast/common/mojom/memory_pressure.mojom
 // Module: chromecast.mojom
 
-'use strict';
+"use strict";
 
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
 
-
 // Interface: MemoryPressureController
 chromecast.mojom.MemoryPressureControllerPtr = class {
   constructor() {
     this.ptr = null;
-    this.interfaceName = 'chromecast.mojom.MemoryPressureController';
+    this.interfaceName = "chromecast.mojom.MemoryPressureController";
   }
 
   addObserver(observer) {
     // Method: AddObserver
     // Call: AddObserver(observer)
   }
-
 };
 
 chromecast.mojom.MemoryPressureControllerRequest = class {
@@ -33,14 +31,13 @@ chromecast.mojom.MemoryPressureControllerRequest = class {
 chromecast.mojom.MemoryPressureObserverPtr = class {
   constructor() {
     this.ptr = null;
-    this.interfaceName = 'chromecast.mojom.MemoryPressureObserver';
+    this.interfaceName = "chromecast.mojom.MemoryPressureObserver";
   }
 
   memoryPressureLevelChanged(pressure_level) {
     // Method: MemoryPressureLevelChanged
     // Call: MemoryPressureLevelChanged(pressure_level)
   }
-
 };
 
 chromecast.mojom.MemoryPressureObserverRequest = class {

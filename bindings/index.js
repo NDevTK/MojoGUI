@@ -2,17 +2,17 @@
 // Auto-generated - Do not edit manually
 
 (function (global) {
-  'use strict';
+  "use strict";
 
   // Create trusted types policy for script URLs
   let trustedPolicy = null;
-  if (typeof window.trustedTypes !== 'undefined') {
+  if (typeof window.trustedTypes !== "undefined") {
     try {
-      trustedPolicy = window.trustedTypes.createPolicy('mojoBindings', {
-        createScriptURL: (input) => input
+      trustedPolicy = window.trustedTypes.createPolicy("mojoBindings", {
+        createScriptURL: (input) => input,
       });
     } catch (e) {
-      console.warn('Could not create trusted types policy:', e);
+      console.warn("Could not create trusted types policy:", e);
     }
   }
 
@@ -22,7 +22,7 @@
 
     async loadIndex() {
       if (this._indexData) return this._indexData;
-      const response = await fetch('./bindings/index.json');
+      const response = await fetch("./bindings/index.json");
       this._indexData = await response.json();
       return this._indexData;
     },
@@ -35,9 +35,10 @@
     async searchInterfaces(query) {
       const interfaces = await this.getInterfaces();
       const q = query.toLowerCase();
-      return interfaces.filter(i =>
-        i.name.toLowerCase().includes(q) ||
-        i.module.toLowerCase().includes(q)
+      return interfaces.filter(
+        (i) =>
+          i.name.toLowerCase().includes(q) ||
+          i.module.toLowerCase().includes(q),
       );
     },
 
@@ -49,18 +50,22 @@
       this._loadedModules[filename] = (async () => {
         // Load index to resolve dependencies
         const data = await this.loadIndex();
-        const fileEntry = data.files.find(f => f.filename === filename);
+        const fileEntry = data.files.find((f) => f.filename === filename);
 
         if (fileEntry && fileEntry.imports && fileEntry.imports.length > 0) {
           const loadPromises = fileEntry.imports.map(async (importPath) => {
             // Find the file entry that matches this import source
-            const importEntry = data.files.find(f => {
-                const s1 = f.source.replace(/\\/g, '/').toLowerCase();
-                const s2 = importPath.replace(/\\/g, '/').toLowerCase();
-                return s1 === s2 || s1.endsWith('/' + s2) || s2.endsWith('/' + s1);
+            const importEntry = data.files.find((f) => {
+              const s1 = f.source.replace(/\\/g, "/").toLowerCase();
+              const s2 = importPath.replace(/\\/g, "/").toLowerCase();
+              return (
+                s1 === s2 || s1.endsWith("/" + s2) || s2.endsWith("/" + s1)
+              );
             });
             if (importEntry) {
-              console.log(`[MojoBindings] Dependency: ${importPath} -> ${importEntry.filename}`);
+              console.log(
+                `[MojoBindings] Dependency: ${importPath} -> ${importEntry.filename}`,
+              );
               await this.loadBinding(importEntry.filename);
             } else {
               console.warn(`[MojoBindings] Import not found: ${importPath}`);
@@ -70,7 +75,7 @@
         }
 
         return new Promise((resolve, reject) => {
-          const script = document.createElement('script');
+          const script = document.createElement("script");
           const scriptUrl = `./bindings/${filename}`;
 
           if (trustedPolicy) {
@@ -92,11 +97,10 @@
       return this._loadedModules[filename];
     },
 
-
     getMetadata() {
       return this._indexData;
-    }
+    },
   };
 
   global.MojoBindings = MojoBindings;
-})(typeof window !== 'undefined' ? window : this);
+})(typeof window !== "undefined" ? window : this);

@@ -30,16 +30,18 @@ Visit the hosted version: <https://ndevtk.github.io/MojoGUI>
 ### Option 2: Local Development
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/ndevtk/MojoGUI.git
    cd MojoGUI
    ```
 
 2. Serve the files (any static server works):
+
    ```bash
    # Using Python
    python -m http.server 8080
-   
+
    # Using Node.js
    npx serve .
    ```

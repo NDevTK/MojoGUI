@@ -4,519 +4,573 @@
  */
 
 (function () {
-    'use strict';
+  "use strict";
 
-    // ========================================
-    // State Management
-    // ========================================
-    const state = {
-        interfaces: [],
-        selectedInterface: null,
-        selectedMethod: null,
-        paramValues: {},
-        mojoAvailable: false,
-        panelVisible: false,
-        trafficCount: 0,
-        interceptResponses: false
+  // ========================================
+  // State Management
+  // ========================================
+  const state = {
+    interfaces: [],
+    selectedInterface: null,
+    selectedMethod: null,
+    paramValues: {},
+    mojoAvailable: false,
+    panelVisible: false,
+    trafficCount: 0,
+    interceptResponses: false,
+  };
+
+  // ========================================
+  // Security Helpers
+  // ========================================
+  function escapeHtml(str) {
+    if (typeof str !== "string") return str;
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  // ========================================
+  // Trusted Types Policy
+  // ========================================
+  let trustedPolicy = null;
+  if (typeof window.trustedTypes !== "undefined") {
+    trustedPolicy = window.trustedTypes.createPolicy("mojoGUI", {
+      createHTML: (input) => input,
+      createScript: (input) => input,
+      createScriptURL: (input) => input,
+    });
+  }
+
+  function safeHTML(html) {
+    // Replace this with a proper Trusted Types policy :)
+    if (trustedPolicy) {
+      return trustedPolicy.createHTML(html);
+    }
+    return html;
+  }
+
+  const safeStringify = MojoUtils.safeStringify;
+
+  const safeParse = MojoUtils.safeParse;
+
+  // ========================================
+  // Mojo Dependency Loader Patch
+  // ========================================
+  // Ensure we take control of dependency loading to prevent race conditions and 404s
+  if (typeof mojo !== "undefined" && mojo.config) {
+    mojo.config.autoLoadMojomDeps = false;
+    console.log(
+      "[MojoGUI] Disabled autoLoadMojomDeps to handle dependencies manually.",
+    );
+  }
+
+  // Overwrite MojoBindings.loadBinding to be more robust
+  if (typeof MojoBindings !== "undefined") {
+    const originalLoadBinding = MojoBindings.loadBinding;
+
+    MojoBindings.loadBinding = async function (filename) {
+      if (this._loadedModules[filename]) {
+        return this._loadedModules[filename];
+      }
+
+      this._loadedModules[filename] = (async () => {
+        // Load index to resolve dependencies
+        const data = await this.loadIndex();
+        const fileEntry = data.files.find((f) => f.filename === filename);
+
+        if (fileEntry && fileEntry.imports && fileEntry.imports.length > 0) {
+          const loadPromises = fileEntry.imports.map(async (importPath) => {
+            // Improved matching logic:
+            // 1. Exact match
+            // 2. Ends with match (handling relative paths)
+            // 3. Handle 'skia' vs 'skia.public' discrepancies if needed
+
+            let importEntry = data.files.find((f) => f.source === importPath);
+
+            if (!importEntry) {
+              // Try looser matching
+              importEntry = data.files.find(
+                (f) =>
+                  f.source.endsWith(importPath) ||
+                  f.source.endsWith("/" + importPath),
+              );
+            }
+
+            if (importEntry) {
+              console.log(
+                `[MojoGUI] Resolving ${importPath} -> ${importEntry.filename}`,
+              );
+              try {
+                await this.loadBinding(importEntry.filename);
+              } catch (e) {
+                console.error(
+                  `[MojoGUI] Failed to load dependency ${importEntry.filename}`,
+                  e,
+                );
+                throw e;
+              }
+            } else {
+              console.warn(
+                `[MojoGUI] Import not found in index: ${importPath}. This may cause undefined types.`,
+              );
+            }
+          });
+
+          try {
+            await Promise.all(loadPromises);
+          } catch (e) {
+            console.error(
+              `[MojoGUI] Dependency loading failed for ${filename}`,
+              e,
+            );
+            // We continue anyway, hoping for the best? Or fail hard?
+            // Fail hard is safer to avoid confusing TypeErrors.
+            throw e;
+          }
+        }
+
+        return new Promise((resolve, reject) => {
+          const script = document.createElement("script");
+          const scriptUrl = `./bindings/${filename}`;
+
+          if (trustedPolicy) {
+            script.src = trustedPolicy.createScriptURL(scriptUrl);
+          } else {
+            script.src = scriptUrl;
+          }
+
+          script.onload = () => {
+            console.log(`[MojoGUI] Loaded ${filename}`);
+            resolve(true);
+          };
+          script.onerror = () => {
+            console.error(`[MojoGUI] Failed to load script: ${filename}`);
+            reject(new Error(`Failed to load binding: ${filename}`));
+          };
+          document.head.appendChild(script);
+        });
+      })();
+
+      return this._loadedModules[filename];
     };
+  }
 
-    // ========================================
-    // Security Helpers
-    // ========================================
-    function escapeHtml(str) {
-        if (typeof str !== 'string') return str;
-        const div = document.createElement('div');
-        div.textContent = str;
-        return div.innerHTML;
-    }
+  // ========================================
+  // DOM Elements
+  // ========================================
+  const elements = {
+    // Status
+    mojoStatus: document.getElementById("mojoStatus"),
 
-    // ========================================
-    // Trusted Types Policy
-    // ========================================
-    let trustedPolicy = null;
-    if (typeof window.trustedTypes !== 'undefined') {
-        trustedPolicy = window.trustedTypes.createPolicy('mojoGUI', {
-            createHTML: (input) => input,
-            createScript: (input) => input,
-            createScriptURL: (input) => input
-        });
-    }
+    // Search & List
+    interfaceSearch: document.getElementById("interfaceSearch"),
+    interfaceList: document.getElementById("interfaceList"),
+    interfaceCount: document.getElementById("interfaceCount"),
 
-    function safeHTML(html) {
-        // Replace this with a proper Trusted Types policy :)
-        if (trustedPolicy) {
-            return trustedPolicy.createHTML(html);
-        }
-        return html;
-    }
+    // Interface Panel
+    selectedInterfaceName: document.getElementById("selectedInterfaceName"),
+    selectedModule: document.getElementById("selectedModule"),
+    methodsList: document.getElementById("methodsList"),
 
-    const safeStringify = MojoUtils.safeStringify;
+    // Params Panel
+    selectedMethodName: document.getElementById("selectedMethodName"),
+    paramsForm: document.getElementById("paramsForm"),
+    resetBtn: document.getElementById("resetBtn"),
 
-    const safeParse = MojoUtils.safeParse;
+    // Code Panel
+    generatedCode: document.getElementById("generatedCode"),
+    copyBtn: document.getElementById("copyBtn"),
+    executeBtn: document.getElementById("executeBtn"),
 
-    // ========================================
-    // Mojo Dependency Loader Patch
-    // ========================================
-    // Ensure we take control of dependency loading to prevent race conditions and 404s
-    if (typeof mojo !== 'undefined' && mojo.config) {
-        mojo.config.autoLoadMojomDeps = false;
-        console.log('[MojoGUI] Disabled autoLoadMojomDeps to handle dependencies manually.');
-    }
+    // Toast
+    toastContainer: document.getElementById("toastContainer"),
 
-    // Overwrite MojoBindings.loadBinding to be more robust
-    if (typeof MojoBindings !== 'undefined') {
-        const originalLoadBinding = MojoBindings.loadBinding;
+    // Interceptor
+    interceptToggleBtn: document.getElementById("interceptToggleBtn"),
+    interceptStatusDot: document.getElementById("interceptStatusDot"),
+    noScrambleToggle: document.getElementById("noScrambleToggle"),
+    viewTrafficBtn: document.getElementById("viewTrafficBtn"),
+    trafficBadge: document.getElementById("trafficBadge"),
+    interceptorPanel: document.getElementById("interceptorPanel"),
+    interceptorTableBody: document.getElementById("interceptorTableBody"),
+    interceptorDetails: document.getElementById("interceptorDetails"),
+    codeContainer: document.getElementById("codeContainer"),
+    // resultsSection duplicate in original, keeping last
 
-        MojoBindings.loadBinding = async function (filename) {
-            if (this._loadedModules[filename]) {
-                return this._loadedModules[filename];
-            }
+    clearActivityBtn: document.getElementById("clearActivityBtn"),
 
-            this._loadedModules[filename] = (async () => {
-                // Load index to resolve dependencies
-                const data = await this.loadIndex();
-                const fileEntry = data.files.find(f => f.filename === filename);
+    // New UI Elements
+    closeInterceptorBtn: document.getElementById("closeInterceptorBtn"),
+    interfacePanel: document.getElementById("interfacePanel"),
+    paramsPanel: document.getElementById("paramsPanel"),
+  };
 
-                if (fileEntry && fileEntry.imports && fileEntry.imports.length > 0) {
-                    const loadPromises = fileEntry.imports.map(async (importPath) => {
-                        // Improved matching logic:
-                        // 1. Exact match
-                        // 2. Ends with match (handling relative paths)
-                        // 3. Handle 'skia' vs 'skia.public' discrepancies if needed
+  // ========================================
+  // Initialization
+  // ========================================
+  async function init() {
+    checkMojoAvailability();
 
-                        let importEntry = data.files.find(f => f.source === importPath);
-
-                        if (!importEntry) {
-                            // Try looser matching
-                            importEntry = data.files.find(f => f.source.endsWith(importPath) || f.source.endsWith('/' + importPath));
-                        }
-
-                        if (importEntry) {
-                            console.log(`[MojoGUI] Resolving ${importPath} -> ${importEntry.filename}`);
-                            try {
-                                await this.loadBinding(importEntry.filename);
-                            } catch (e) {
-                                console.error(`[MojoGUI] Failed to load dependency ${importEntry.filename}`, e);
-                                throw e;
-                            }
-                        } else {
-                            console.warn(`[MojoGUI] Import not found in index: ${importPath}. This may cause undefined types.`);
-                        }
-                    });
-
-                    try {
-                        await Promise.all(loadPromises);
-                    } catch (e) {
-                        console.error(`[MojoGUI] Dependency loading failed for ${filename}`, e);
-                        // We continue anyway, hoping for the best? Or fail hard?
-                        // Fail hard is safer to avoid confusing TypeErrors.
-                        throw e;
-                    }
-                }
-
-                return new Promise((resolve, reject) => {
-                    const script = document.createElement('script');
-                    const scriptUrl = `./bindings/${filename}`;
-
-                    if (trustedPolicy) {
-                        script.src = trustedPolicy.createScriptURL(scriptUrl);
-                    } else {
-                        script.src = scriptUrl;
-                    }
-
-                    script.onload = () => {
-                        console.log(`[MojoGUI] Loaded ${filename}`);
-                        resolve(true);
-                    };
-                    script.onerror = () => {
-                        console.error(`[MojoGUI] Failed to load script: ${filename}`);
-                        reject(new Error(`Failed to load binding: ${filename}`));
-                    };
-                    document.head.appendChild(script);
-                });
-            })();
-
-            return this._loadedModules[filename];
-        };
-    }
-
-    // ========================================
-    // DOM Elements
-    // ========================================
-    const elements = {
-        // Status
-        mojoStatus: document.getElementById('mojoStatus'),
-
-        // Search & List
-        interfaceSearch: document.getElementById('interfaceSearch'),
-        interfaceList: document.getElementById('interfaceList'),
-        interfaceCount: document.getElementById('interfaceCount'),
-
-        // Interface Panel
-        selectedInterfaceName: document.getElementById('selectedInterfaceName'),
-        selectedModule: document.getElementById('selectedModule'),
-        methodsList: document.getElementById('methodsList'),
-
-        // Params Panel
-        selectedMethodName: document.getElementById('selectedMethodName'),
-        paramsForm: document.getElementById('paramsForm'),
-        resetBtn: document.getElementById('resetBtn'),
-
-        // Code Panel
-        generatedCode: document.getElementById('generatedCode'),
-        copyBtn: document.getElementById('copyBtn'),
-        executeBtn: document.getElementById('executeBtn'),
-
-        // Toast
-        toastContainer: document.getElementById('toastContainer'),
-
-        // Interceptor
-        interceptToggleBtn: document.getElementById('interceptToggleBtn'),
-        interceptStatusDot: document.getElementById('interceptStatusDot'),
-        noScrambleToggle: document.getElementById('noScrambleToggle'),
-        viewTrafficBtn: document.getElementById('viewTrafficBtn'),
-        trafficBadge: document.getElementById('trafficBadge'),
-        interceptorPanel: document.getElementById('interceptorPanel'),
-        interceptorTableBody: document.getElementById('interceptorTableBody'),
-        interceptorDetails: document.getElementById('interceptorDetails'),
-        codeContainer: document.getElementById('codeContainer'),
-        // resultsSection duplicate in original, keeping last
-
-        clearActivityBtn: document.getElementById('clearActivityBtn'),
-
-        // New UI Elements
-        closeInterceptorBtn: document.getElementById('closeInterceptorBtn'),
-        interfacePanel: document.getElementById('interfacePanel'),
-        paramsPanel: document.getElementById('paramsPanel')
-    };
-
-    // ========================================
-    // Initialization
-    // ========================================
-    async function init() {
-        checkMojoAvailability();
-
-        // Version Extraction for Scrambler
-        if (navigator.userAgentData) {
-            try {
-                const ua = await navigator.userAgentData.getHighEntropyValues(['fullVersionList']);
-                const ver = ua.fullVersionList.find(v => v.brand === 'Google Chrome' || v.brand === 'Chromium');
-                if (ver) {
-                    window.mojoVersion = ver.version;
-                    console.log('[MojoGUI] Detected Chrome Version:', window.mojoVersion);
-                }
-            } catch (e) {
-                console.warn('[MojoGUI] Failed to get version:', e);
-            }
-        }
-
-        await loadInterfaces();
-        if (window.MojoLoader) {
-            window.MojoLoader.init(state.interfaces);
-        }
-
-        // Initialize Welcome/Update Manager
-        let trackerVersion = window.mojoVersion;
-        if (typeof MojoBindings !== 'undefined' && MojoBindings.getMetadata) {
-            const meta = MojoBindings.getMetadata();
-            if (meta && meta.version) {
-                trackerVersion = meta.version;
-                console.log('[MojoGUI] Bindings Version:', trackerVersion);
-            }
-        }
-
-        if (window.WelcomeManager) {
-            WelcomeManager.init(state.interfaces, safeHTML, trackerVersion);
-        }
-
-        setupEventListeners();
-    }
-
-
-
-    function checkMojoAvailability() {
-        // Check for both legacy (Mojo) and standard (mojo) namespaces
-        state.mojoAvailable = (typeof Mojo !== 'undefined' && Mojo.bindInterface) ||
-            (typeof mojo !== 'undefined' && mojo.bindInterface);
-
-        const statusEl = elements.mojoStatus;
-        const statusText = statusEl.querySelector('.status-text');
-
-        if (state.mojoAvailable) {
-            statusEl.classList.add('connected');
-            statusEl.classList.remove('error');
-            statusText.textContent = 'MojoJS Enabled';
-            elements.interceptToggleBtn.disabled = false;
-        } else {
-            statusEl.classList.add('error');
-            statusEl.classList.remove('connected');
-            statusEl.querySelector('.status-text').textContent = 'MojoJS Disabled';
-            elements.interceptToggleBtn.disabled = true;
-        }
-    }
-
-    async function loadInterfaces() {
-        try {
-            // Try to load from bindings index
-            if (typeof MojoBindings !== 'undefined') {
-                const interfaces = await MojoBindings.getInterfaces();
-                if (interfaces && interfaces.length > 0) {
-                    state.interfaces = interfaces;
-                    renderInterfaceList(interfaces);
-                    // AUTO-MONITOR ALL (Quietly)
-                    setTimeout(() => toggleMonitorAll(true), 100);
-                    return;
-                }
-            }
-
-            // Fallback: load demo interfaces
-            loadDemoInterfaces();
-            setTimeout(() => toggleMonitorAll(true), 100);
-        } catch (error) {
-            console.error('Error loading interfaces:', error);
-            loadDemoInterfaces();
-        }
-    }
-
-    function loadDemoInterfaces() {
-        // Demo interfaces removed as requested.
-        // We rely solely on bindings loaded from the page/extension context.
-        state.interfaces = [];
-    }
-
-    // ========================================
-    // Mojo Loader Service
-    // ========================================
-    // Now provided by js/core/MojoLoader.js
-    const MojoLoader = window.MojoLoader;
-
-    // ========================================
-    // Event Listeners
-    // ========================================
-    function setupEventListeners() {
-        // Search
-        elements.interfaceSearch.addEventListener('input', handleSearch);
-
-        // Copy button
-        elements.copyBtn.addEventListener('click', copyCode);
-
-        // Execute button
-        elements.executeBtn.addEventListener('click', executeCode);
-
-        // Reset button
-        elements.resetBtn.addEventListener('click', resetParams);
-
-        // Manual Params Form Delegation (Unified State Management)
-        if (elements.paramsForm) {
-            const handleParamChange = (e) => {
-                const input = e.target;
-                if (input.matches('input, textarea, select')) {
-                    // Re-collect entire form to ensure deep structure (Arrays/Maps) is synced
-                    state.paramValues = collectFormData(elements.paramsForm, false);
-                    updateGeneratedCode();
-                }
-            };
-            elements.paramsForm.addEventListener('input', handleParamChange);
-            elements.paramsForm.addEventListener('change', handleParamChange);
-        }
-
-
-
-        // Registry for lazy-loaded array templates
-        window.MojoTemplateRegistry = {};
-
-        // Interceptor
-        elements.interceptToggleBtn.addEventListener('click', toggleInterceptor);
-        elements.clearActivityBtn?.addEventListener('click', clearActivityLog);
-
-        // No Scramble Toggle
-        if (elements.noScrambleToggle) {
-            elements.noScrambleToggle.addEventListener('change', (e) => {
-                window.mojoNoScramble = e.target.checked;
-                showToast(`Force No Scramble: ${window.mojoNoScramble ? 'ON' : 'OFF'}`);
-            });
-        }
-
-        // Intercept Responses Toggle
-        elements.interceptRespToggle = document.getElementById('interceptRespToggle');
-        if (elements.interceptRespToggle) {
-            elements.interceptRespToggle.checked = state.interceptResponses || false;
-            elements.interceptRespToggle.addEventListener('change', (e) => {
-                state.interceptResponses = e.target.checked;
-                showToast(state.interceptResponses ? 'Response Interception Enabled' : 'Response Interception Disabled');
-            });
-        }
-
-        // Traffic Events
-        window.addEventListener('mojo-protocol-ready', (e) => {
-            const { interface: iface } = e.detail;
-            showToast(`Protocol Synchronized for ${iface}`, 'success');
-
-            // Update UI if the current interface list is showing this interface
-            const items = elements.interfaceList.querySelectorAll(`[data-name="${iface}"]`);
-            items.forEach(item => {
-                if (!item.querySelector('.sync-badge')) {
-                    const badge = document.createElement('span');
-                    badge.className = 'sync-badge';
-                    badge.title = 'Protocol Synchronized';
-                    badge.innerHTML = '✓';
-                    item.appendChild(badge);
-                }
-            });
-        });
-
-        // Traffic View
-        if (elements.viewTrafficBtn) {
-            elements.viewTrafficBtn.addEventListener('click', () => showInterceptorPanel(!state.panelVisible));
-        }
-
-        if (elements.closeInterceptorBtn) {
-            elements.closeInterceptorBtn.addEventListener('click', () => showInterceptorPanel(false));
-        }
-
-        // Global functions for inline handlers
-        window.resumeIntercept = resumeIntercept;
-        window.addEventListener('mojo-intercept', handleMojoIntercept);
-        window.addEventListener('mojo-response', handleMojoResponse);
-        window.addEventListener('mojo-response-intercept', handleMojoResponseIntercept); // Fix: Add missing listener
-        window.addEventListener('mojo-error', handleMojoError);
-        window.switchToInterceptMode = switchToInterceptMode;
-    }
-
-    function toggleMonitorAll(quiet = false) {
-        if (!state.mojoAvailable) {
-            if (!quiet) showToast('MojoJS not available', 'error');
-            return;
-        }
-
-        // Monitoring is now always background/automatic by default
-        let count = 0;
-        state.interfaces.forEach(iface => {
-            let started = false;
-            if (!InterceptorManager.isActive(iface.name)) {
-                if (InterceptorManager.start(iface.name, 'LOG')) started = true;
-            }
-            const fqn = iface.module ? `${iface.module}.${iface.name}` : null;
-            if (fqn && fqn !== iface.name && !InterceptorManager.isActive(fqn)) {
-                if (InterceptorManager.start(fqn, 'LOG')) started = true;
-            }
-            if (started) count++;
-        });
-
-        if (!quiet) {
-            if (count > 0) showToast(`Started monitoring ${count} new interfaces`, 'success');
-            showInterceptorPanel(true);
-        } else {
-            console.log(`[AutoMonitor] Background monitoring active for ${count} interfaces.`);
-        }
-    }
-
-    function switchToInterceptMode(interfaceName) {
-        InterceptorManager.start(interfaceName, 'INTERCEPT');
-        showToast(`Switched ${interfaceName} to Intercept Mode`, 'success');
-        // Update UI if needed
-    }
-
-    function handleSearch(e) {
-        const query = e.target.value.toLowerCase();
-        const filtered = state.interfaces.filter(iface =>
-            iface.name.toLowerCase().includes(query) ||
-            iface.module.toLowerCase().includes(query) ||
-            (iface.methods && iface.methods.some(m => m.toLowerCase().includes(query)))
+    // Version Extraction for Scrambler
+    if (navigator.userAgentData) {
+      try {
+        const ua = await navigator.userAgentData.getHighEntropyValues([
+          "fullVersionList",
+        ]);
+        const ver = ua.fullVersionList.find(
+          (v) => v.brand === "Google Chrome" || v.brand === "Chromium",
         );
-        renderInterfaceList(filtered);
+        if (ver) {
+          window.mojoVersion = ver.version;
+          console.log("[MojoGUI] Detected Chrome Version:", window.mojoVersion);
+        }
+      } catch (e) {
+        console.warn("[MojoGUI] Failed to get version:", e);
+      }
     }
 
-    // ========================================
-    // Rendering
-    // ========================================
-    function renderInterfaceList(interfaces) {
-        elements.interfaceCount.textContent = interfaces.length;
+    await loadInterfaces();
+    if (window.MojoLoader) {
+      window.MojoLoader.init(state.interfaces);
+    }
 
-        if (interfaces.length === 0) {
-            elements.interfaceList.innerHTML = safeHTML(`
+    // Initialize Welcome/Update Manager
+    let trackerVersion = window.mojoVersion;
+    if (typeof MojoBindings !== "undefined" && MojoBindings.getMetadata) {
+      const meta = MojoBindings.getMetadata();
+      if (meta && meta.version) {
+        trackerVersion = meta.version;
+        console.log("[MojoGUI] Bindings Version:", trackerVersion);
+      }
+    }
+
+    if (window.WelcomeManager) {
+      WelcomeManager.init(state.interfaces, safeHTML, trackerVersion);
+    }
+
+    setupEventListeners();
+  }
+
+  function checkMojoAvailability() {
+    // Check for both legacy (Mojo) and standard (mojo) namespaces
+    state.mojoAvailable =
+      (typeof Mojo !== "undefined" && Mojo.bindInterface) ||
+      (typeof mojo !== "undefined" && mojo.bindInterface);
+
+    const statusEl = elements.mojoStatus;
+    const statusText = statusEl.querySelector(".status-text");
+
+    if (state.mojoAvailable) {
+      statusEl.classList.add("connected");
+      statusEl.classList.remove("error");
+      statusText.textContent = "MojoJS Enabled";
+      elements.interceptToggleBtn.disabled = false;
+    } else {
+      statusEl.classList.add("error");
+      statusEl.classList.remove("connected");
+      statusEl.querySelector(".status-text").textContent = "MojoJS Disabled";
+      elements.interceptToggleBtn.disabled = true;
+    }
+  }
+
+  async function loadInterfaces() {
+    try {
+      // Try to load from bindings index
+      if (typeof MojoBindings !== "undefined") {
+        const interfaces = await MojoBindings.getInterfaces();
+        if (interfaces && interfaces.length > 0) {
+          state.interfaces = interfaces;
+          renderInterfaceList(interfaces);
+          // AUTO-MONITOR ALL (Quietly)
+          setTimeout(() => toggleMonitorAll(true), 100);
+          return;
+        }
+      }
+
+      // Fallback: load demo interfaces
+      loadDemoInterfaces();
+      setTimeout(() => toggleMonitorAll(true), 100);
+    } catch (error) {
+      console.error("Error loading interfaces:", error);
+      loadDemoInterfaces();
+    }
+  }
+
+  function loadDemoInterfaces() {
+    // Demo interfaces removed as requested.
+    // We rely solely on bindings loaded from the page/extension context.
+    state.interfaces = [];
+  }
+
+  // ========================================
+  // Mojo Loader Service
+  // ========================================
+  // Now provided by js/core/MojoLoader.js
+  const MojoLoader = window.MojoLoader;
+
+  // ========================================
+  // Event Listeners
+  // ========================================
+  function setupEventListeners() {
+    // Search
+    elements.interfaceSearch.addEventListener("input", handleSearch);
+
+    // Copy button
+    elements.copyBtn.addEventListener("click", copyCode);
+
+    // Execute button
+    elements.executeBtn.addEventListener("click", executeCode);
+
+    // Reset button
+    elements.resetBtn.addEventListener("click", resetParams);
+
+    // Manual Params Form Delegation (Unified State Management)
+    if (elements.paramsForm) {
+      const handleParamChange = (e) => {
+        const input = e.target;
+        if (input.matches("input, textarea, select")) {
+          // Re-collect entire form to ensure deep structure (Arrays/Maps) is synced
+          state.paramValues = collectFormData(elements.paramsForm, false);
+          updateGeneratedCode();
+        }
+      };
+      elements.paramsForm.addEventListener("input", handleParamChange);
+      elements.paramsForm.addEventListener("change", handleParamChange);
+    }
+
+    // Registry for lazy-loaded array templates
+    window.MojoTemplateRegistry = {};
+
+    // Interceptor
+    elements.interceptToggleBtn.addEventListener("click", toggleInterceptor);
+    elements.clearActivityBtn?.addEventListener("click", clearActivityLog);
+
+    // No Scramble Toggle
+    if (elements.noScrambleToggle) {
+      elements.noScrambleToggle.addEventListener("change", (e) => {
+        window.mojoNoScramble = e.target.checked;
+        showToast(`Force No Scramble: ${window.mojoNoScramble ? "ON" : "OFF"}`);
+      });
+    }
+
+    // Intercept Responses Toggle
+    elements.interceptRespToggle = document.getElementById(
+      "interceptRespToggle",
+    );
+    if (elements.interceptRespToggle) {
+      elements.interceptRespToggle.checked = state.interceptResponses || false;
+      elements.interceptRespToggle.addEventListener("change", (e) => {
+        state.interceptResponses = e.target.checked;
+        showToast(
+          state.interceptResponses
+            ? "Response Interception Enabled"
+            : "Response Interception Disabled",
+        );
+      });
+    }
+
+    // Traffic Events
+    window.addEventListener("mojo-protocol-ready", (e) => {
+      const { interface: iface } = e.detail;
+      showToast(`Protocol Synchronized for ${iface}`, "success");
+
+      // Update UI if the current interface list is showing this interface
+      const items = elements.interfaceList.querySelectorAll(
+        `[data-name="${iface}"]`,
+      );
+      items.forEach((item) => {
+        if (!item.querySelector(".sync-badge")) {
+          const badge = document.createElement("span");
+          badge.className = "sync-badge";
+          badge.title = "Protocol Synchronized";
+          badge.innerHTML = "✓";
+          item.appendChild(badge);
+        }
+      });
+    });
+
+    // Traffic View
+    if (elements.viewTrafficBtn) {
+      elements.viewTrafficBtn.addEventListener("click", () =>
+        showInterceptorPanel(!state.panelVisible),
+      );
+    }
+
+    if (elements.closeInterceptorBtn) {
+      elements.closeInterceptorBtn.addEventListener("click", () =>
+        showInterceptorPanel(false),
+      );
+    }
+
+    // Global functions for inline handlers
+    window.resumeIntercept = resumeIntercept;
+    window.addEventListener("mojo-intercept", handleMojoIntercept);
+    window.addEventListener("mojo-response", handleMojoResponse);
+    window.addEventListener(
+      "mojo-response-intercept",
+      handleMojoResponseIntercept,
+    ); // Fix: Add missing listener
+    window.addEventListener("mojo-error", handleMojoError);
+    window.switchToInterceptMode = switchToInterceptMode;
+  }
+
+  function toggleMonitorAll(quiet = false) {
+    if (!state.mojoAvailable) {
+      if (!quiet) showToast("MojoJS not available", "error");
+      return;
+    }
+
+    // Monitoring is now always background/automatic by default
+    let count = 0;
+    state.interfaces.forEach((iface) => {
+      let started = false;
+      if (!InterceptorManager.isActive(iface.name)) {
+        if (InterceptorManager.start(iface.name, "LOG")) started = true;
+      }
+      const fqn = iface.module ? `${iface.module}.${iface.name}` : null;
+      if (fqn && fqn !== iface.name && !InterceptorManager.isActive(fqn)) {
+        if (InterceptorManager.start(fqn, "LOG")) started = true;
+      }
+      if (started) count++;
+    });
+
+    if (!quiet) {
+      if (count > 0)
+        showToast(`Started monitoring ${count} new interfaces`, "success");
+      showInterceptorPanel(true);
+    } else {
+      console.log(
+        `[AutoMonitor] Background monitoring active for ${count} interfaces.`,
+      );
+    }
+  }
+
+  function switchToInterceptMode(interfaceName) {
+    InterceptorManager.start(interfaceName, "INTERCEPT");
+    showToast(`Switched ${interfaceName} to Intercept Mode`, "success");
+    // Update UI if needed
+  }
+
+  function handleSearch(e) {
+    const query = e.target.value.toLowerCase();
+    const filtered = state.interfaces.filter(
+      (iface) =>
+        iface.name.toLowerCase().includes(query) ||
+        iface.module.toLowerCase().includes(query) ||
+        (iface.methods &&
+          iface.methods.some((m) => m.toLowerCase().includes(query))),
+    );
+    renderInterfaceList(filtered);
+  }
+
+  // ========================================
+  // Rendering
+  // ========================================
+  function renderInterfaceList(interfaces) {
+    elements.interfaceCount.textContent = interfaces.length;
+
+    if (interfaces.length === 0) {
+      elements.interfaceList.innerHTML = safeHTML(`
                 <div class="empty-state small">
                     <p>No interfaces found</p>
                 </div>
             `);
-            return;
-        }
+      return;
+    }
 
-        elements.interfaceList.innerHTML = safeHTML(interfaces.map(iface => {
-            const isSynced = window.MojoLearnedProtocols && window.MojoLearnedProtocols.has(iface.name);
-            return `
+    elements.interfaceList.innerHTML = safeHTML(
+      interfaces
+        .map((iface) => {
+          const isSynced =
+            window.MojoLearnedProtocols &&
+            window.MojoLearnedProtocols.has(iface.name);
+          return `
             <div class="interface-item" data-name="${escapeHtml(iface.name)}" data-module="${escapeHtml(iface.module)}">
                 <span class="name">${escapeHtml(iface.name)}</span>
                 <span class="module">${escapeHtml(iface.module)}</span>
                 <span class="method-count">${iface.methods?.length || 0} methods</span>
-                ${isSynced ? '<span class="sync-badge" title="Protocol Synchronized">✓</span>' : ''}
+                ${isSynced ? '<span class="sync-badge" title="Protocol Synchronized">✓</span>' : ""}
             </div>
         `;
-        }).join(''));
+        })
+        .join(""),
+    );
 
-        // Add click handlers + Staggered Animation
-        elements.interfaceList.querySelectorAll('.interface-item').forEach((item, index) => {
-            item.style.animation = `listItemEnter 0.3s ease-out backwards`;
-            item.style.animationDelay = `${Math.min(index * 0.03, 0.5)}s`; // Cap delay at 0.5s
-            item.addEventListener('click', () => selectInterface(item.dataset.name, item.dataset.module));
-        });
+    // Add click handlers + Staggered Animation
+    elements.interfaceList
+      .querySelectorAll(".interface-item")
+      .forEach((item, index) => {
+        item.style.animation = `listItemEnter 0.3s ease-out backwards`;
+        item.style.animationDelay = `${Math.min(index * 0.03, 0.5)}s`; // Cap delay at 0.5s
+        item.addEventListener("click", () =>
+          selectInterface(item.dataset.name, item.dataset.module),
+        );
+      });
+  }
+
+  async function selectInterface(name, module) {
+    // Find interface by both name and module to ensure uniqueness
+    const iface = state.interfaces.find(
+      (i) => i.name === name && i.module === module,
+    );
+    if (!iface) return;
+
+    state.selectedInterface = iface;
+    state.selectedMethod = null;
+    state.paramValues = {};
+
+    // Update UI
+    elements.interfaceList
+      .querySelectorAll(".interface-item")
+      .forEach((item) => {
+        const isActive =
+          item.dataset.name === name && item.dataset.module === module;
+        item.classList.toggle("active", isActive);
+        if (isActive)
+          item.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+
+    elements.selectedInterfaceName.textContent = iface.name;
+    elements.selectedModule.textContent = iface.module;
+
+    // Auto-load the binding file
+    if (iface.file && typeof MojoBindings !== "undefined") {
+      try {
+        elements.selectedModule.textContent = iface.module + " (loading...)";
+        await MojoBindings.loadBinding(iface.file);
+        elements.selectedModule.textContent = iface.module + " ✓";
+        showToast(`Loaded binding: ${iface.file}`, "success");
+      } catch (error) {
+        console.warn("Failed to load binding file:", iface.file, error);
+        elements.selectedModule.textContent =
+          iface.module + " (file not found)";
+      }
     }
 
-    async function selectInterface(name, module) {
-        // Find interface by both name and module to ensure uniqueness
-        const iface = state.interfaces.find(i => i.name === name && i.module === module);
-        if (!iface) return;
+    // Render "Associated" toggle
+    renderAssociatedToggle();
 
-        state.selectedInterface = iface;
-        state.selectedMethod = null;
-        state.paramValues = {};
+    renderMethods(iface);
+    renderParamsForm(null);
+    updateGeneratedCode();
 
-        // Update UI
-        elements.interfaceList.querySelectorAll('.interface-item').forEach(item => {
-            const isActive = item.dataset.name === name && item.dataset.module === module;
-            item.classList.toggle('active', isActive);
-            if (isActive) item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        });
-
-        elements.selectedInterfaceName.textContent = iface.name;
-        elements.selectedModule.textContent = iface.module;
-
-        // Auto-load the binding file
-        if (iface.file && typeof MojoBindings !== 'undefined') {
-            try {
-                elements.selectedModule.textContent = iface.module + ' (loading...)';
-                await MojoBindings.loadBinding(iface.file);
-                elements.selectedModule.textContent = iface.module + ' ✓';
-                showToast(`Loaded binding: ${iface.file}`, 'success');
-            } catch (error) {
-                console.warn('Failed to load binding file:', iface.file, error);
-                elements.selectedModule.textContent = iface.module + ' (file not found)';
-            }
-        }
-
-        // Render "Associated" toggle
-        renderAssociatedToggle();
-
-        renderMethods(iface);
-        renderParamsForm(null);
-        updateGeneratedCode();
-
-        // Auto-hide traffic log when switching interfaces
-        if (state.panelVisible) {
-            showInterceptorPanel(false);
-        }
+    // Auto-hide traffic log when switching interfaces
+    if (state.panelVisible) {
+      showInterceptorPanel(false);
     }
+  }
 
-    function renderAssociatedToggle() {
-        const header = elements.interfacePanel.querySelector('.panel-title');
-        // Remove existing toggle if present
-        const existing = header.querySelector('.associated-toggle');
-        if (existing) existing.remove();
+  function renderAssociatedToggle() {
+    const header = elements.interfacePanel.querySelector(".panel-title");
+    // Remove existing toggle if present
+    const existing = header.querySelector(".associated-toggle");
+    if (existing) existing.remove();
 
-        const toggle = document.createElement('div');
-        toggle.className = 'associated-toggle';
-        toggle.style.marginTop = '8px';
-        toggle.innerHTML = safeHTML(`
+    const toggle = document.createElement("div");
+    toggle.className = "associated-toggle";
+    toggle.style.marginTop = "8px";
+    toggle.innerHTML = safeHTML(`
             <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9em; cursor: pointer;">
                 <input type="checkbox" id="associatedInterfaceToggle">
                 Associated Interface (requires Master Handle)
@@ -533,271 +587,291 @@
                 </div>
             </div>
         `);
-        header.appendChild(toggle);
+    header.appendChild(toggle);
 
-        const checkbox = toggle.querySelector('#associatedInterfaceToggle');
-        const inputs = toggle.querySelector('#associatedInputs');
-        const masterInput = toggle.querySelector('#masterHandleInput');
-        const idInput = toggle.querySelector('#interfaceIdInput');
+    const checkbox = toggle.querySelector("#associatedInterfaceToggle");
+    const inputs = toggle.querySelector("#associatedInputs");
+    const masterInput = toggle.querySelector("#masterHandleInput");
+    const idInput = toggle.querySelector("#interfaceIdInput");
 
-        checkbox.addEventListener('change', (e) => {
-            inputs.style.display = e.target.checked ? 'block' : 'none';
-            state.isAssociated = e.target.checked;
-            updateGeneratedCode();
-        });
+    checkbox.addEventListener("change", (e) => {
+      inputs.style.display = e.target.checked ? "block" : "none";
+      state.isAssociated = e.target.checked;
+      updateGeneratedCode();
+    });
 
-        masterInput.addEventListener('input', (e) => {
-            state.masterHandleId = e.target.value;
-            updateGeneratedCode();
-        });
+    masterInput.addEventListener("input", (e) => {
+      state.masterHandleId = e.target.value;
+      updateGeneratedCode();
+    });
 
-        idInput.addEventListener('input', (e) => {
-            state.interfaceId = e.target.value;
-            updateGeneratedCode();
-        });
-    }
+    idInput.addEventListener("input", (e) => {
+      state.interfaceId = e.target.value;
+      updateGeneratedCode();
+    });
+  }
 
-    function renderMethods(iface) {
-        if (!iface.methods || iface.methods.length === 0) {
-            elements.methodsList.innerHTML = safeHTML(`
+  function renderMethods(iface) {
+    if (!iface.methods || iface.methods.length === 0) {
+      elements.methodsList.innerHTML = safeHTML(`
                 <div class="empty-state">
                     <p>No methods available</p>
                 </div>
             `);
-            return;
-        }
+      return;
+    }
 
-        elements.methodsList.innerHTML = safeHTML(iface.methods.map(method => {
-            const methodName = typeof method === 'string' ? method : method.name;
-            return `
+    elements.methodsList.innerHTML = safeHTML(
+      iface.methods
+        .map((method) => {
+          const methodName = typeof method === "string" ? method : method.name;
+          return `
                 <div class="method-item" data-method="${escapeHtml(methodName)}">
                     <span class="name">${escapeHtml(methodName)}</span>
                     <span class="returns">→</span>
                 </div>
             `;
-        }).join(''));
+        })
+        .join(""),
+    );
 
-        // Add click handlers
-        elements.methodsList.querySelectorAll('.method-item').forEach(item => {
-            item.addEventListener('click', () => selectMethod(item.dataset.method));
-        });
-    }
+    // Add click handlers
+    elements.methodsList.querySelectorAll(".method-item").forEach((item) => {
+      item.addEventListener("click", () => selectMethod(item.dataset.method));
+    });
+  }
 
-    function selectMethod(methodName) {
-        state.selectedMethod = methodName;
-        state.paramValues = {};
+  function selectMethod(methodName) {
+    state.selectedMethod = methodName;
+    state.paramValues = {};
 
-        // Update UI
-        elements.methodsList.querySelectorAll('.method-item').forEach(item => {
-            item.classList.toggle('active', item.dataset.method === methodName);
-        });
+    // Update UI
+    elements.methodsList.querySelectorAll(".method-item").forEach((item) => {
+      item.classList.toggle("active", item.dataset.method === methodName);
+    });
 
-        elements.selectedMethodName.textContent = `${methodName}()`;
+    elements.selectedMethodName.textContent = `${methodName}()`;
 
-        // Get method params (demo data)
-        const params = getMethodParams(state.selectedInterface.name, methodName);
-        renderParamsForm(params);
-        updateGeneratedCode();
+    // Get method params (demo data)
+    const params = getMethodParams(state.selectedInterface.name, methodName);
+    renderParamsForm(params);
+    updateGeneratedCode();
 
-        elements.executeBtn.disabled = !state.mojoAvailable;
-        elements.resetBtn.disabled = false;
-    }
+    elements.executeBtn.disabled = !state.mojoAvailable;
+    elements.resetBtn.disabled = false;
+  }
 
+  function getMethodParams(interfaceName, methodName) {
+    // Logic to prioritize current selected interface omitted for brevity as it's handled by finding proper interface name
+    // But for UI "Demo Data" or defaults, we usually just need the params def.
+    const def = MojoReflectionService.findMethodDefinition(
+      interfaceName,
+      methodName,
+    );
+    return def ? def.parameters : null;
+  }
 
-    function getMethodParams(interfaceName, methodName) {
-        // Logic to prioritize current selected interface omitted for brevity as it's handled by finding proper interface name
-        // But for UI "Demo Data" or defaults, we usually just need the params def.
-        const def = MojoReflectionService.findMethodDefinition(interfaceName, methodName);
-        return def ? def.parameters : null;
-    }
+  function findMethodDefinition(interfaceName, methodName) {
+    return MojoReflectionService.findMethodDefinition(
+      interfaceName,
+      methodName,
+    );
+  }
 
-    function findMethodDefinition(interfaceName, methodName) {
-        return MojoReflectionService.findMethodDefinition(interfaceName, methodName);
-    }
+  // Helper for Array rendering
+  window.reindexArrayItems = function (container, prefix) {
+    if (!container) return;
+    Array.from(container.children).forEach((item, index) => {
+      // Update names in inputs
+      // Helper to replace [x] with [index] in names
+      const updateName = (el) => {
+        if (el.name) {
+          // Replace the last [...] segment or typical array pattern
+          // Logic: replace `[oldIndex]` with `[index]`
+          // But specifically for this array's level.
+          // Simplified: Just use the prefix + [index] + suffix?
+          // Too complex to parse reliably.
+          // Alternative: just update the [index] that corresponds to THIS array.
+          // For now, simpler approach: names are mostly for debugging or manual mode.
+          // Manual mode requires correct paths.
 
-    // Helper for Array rendering
-    window.reindexArrayItems = function (container, prefix) {
-        if (!container) return;
-        Array.from(container.children).forEach((item, index) => {
-            // Update names in inputs
-            // Helper to replace [x] with [index] in names
-            const updateName = (el) => {
-                if (el.name) {
-                    // Replace the last [...] segment or typical array pattern
-                    // Logic: replace `[oldIndex]` with `[index]`
-                    // But specifically for this array's level.
-                    // Simplified: Just use the prefix + [index] + suffix?
-                    // Too complex to parse reliably.
-                    // Alternative: just update the [index] that corresponds to THIS array.
-                    // For now, simpler approach: names are mostly for debugging or manual mode.
-                    // Manual mode requires correct paths.
+          // Let's try to infer from data-original-name or just patch the string.
+          // Assume name ends with `[digits]` or `[digits].subprop`
+          // This is hard.
 
-                    // Let's try to infer from data-original-name or just patch the string.
-                    // Assume name ends with `[digits]` or `[digits].subprop`
-                    // This is hard.
+          // Better approach: Re-render? No.
+          // Let's rely on the fact that for Manual Mode, users might not delete/add complex nested arrays much?
+          // Actually, let's just use a monotonically increasing counter for names to avoid collision,
+          // and rely on Order for value collection (Interceptor).
+          // For Manual Mode, `updateParamValue` maps names to object structure.
+          // If we have `arr[5]` and `arr[9]`, that creates a sparse array.
+          // `JSON.stringify` will show nulls.
+          // That might be okay for Mojo (it might filter nulls? No array is strict).
 
-                    // Better approach: Re-render? No.
-                    // Let's rely on the fact that for Manual Mode, users might not delete/add complex nested arrays much?
-                    // Actually, let's just use a monotonically increasing counter for names to avoid collision, 
-                    // and rely on Order for value collection (Interceptor).
-                    // For Manual Mode, `updateParamValue` maps names to object structure.
-                    // If we have `arr[5]` and `arr[9]`, that creates a sparse array. 
-                    // `JSON.stringify` will show nulls.
-                    // That might be okay for Mojo (it might filter nulls? No array is strict).
+          // Robust Solution: reindex manually.
+          const inputs = item.querySelectorAll("[name]");
+          inputs.forEach((input) => {
+            // naive replace of the specific index in the path?
+            // Difficult without knowing which [x] belongs to us.
+            // The input name is fully qualified: `a.b[0].c`.
+            // We want to change it to `a.b[index].c`.
+            // The prefix stored in data-prefix is `a.b`.
+            // Replace the last index in the name, which corresponds to THIS array's index
+            // Name format: prefix[oldIndex].suffix or prefix[oldIndex]
+            // We can't rely on prefix matching exactly due to complex nesting,
+            // but we know we are iterating over immediate children.
+            // The safest way: find the part of the name corresponding to this item's index.
 
-                    // Robust Solution: reindex manually.
-                    const inputs = item.querySelectorAll('[name]');
-                    inputs.forEach(input => {
-                        // naive replace of the specific index in the path?
-                        // Difficult without knowing which [x] belongs to us.
-                        // The input name is fully qualified: `a.b[0].c`.
-                        // We want to change it to `a.b[index].c`.
-                        // The prefix stored in data-prefix is `a.b`.
-                        // Replace the last index in the name, which corresponds to THIS array's index
-                        // Name format: prefix[oldIndex].suffix or prefix[oldIndex]
-                        // We can't rely on prefix matching exactly due to complex nesting,
-                        // but we know we are iterating over immediate children.
-                        // The safest way: find the part of the name corresponding to this item's index.
+            // Actually, since we have the prefix (e.g. "param.list"),
+            // and the input name is "param.list[5].subfield",
+            // we can replace the first occurrence of `[number]` after the prefix.
 
-                        // Actually, since we have the prefix (e.g. "param.list"), 
-                        // and the input name is "param.list[5].subfield",
-                        // we can replace the first occurrence of `[number]` after the prefix.
-
-                        if (prefix && input.name.startsWith(prefix)) {
-                            const suffix = input.name.substring(prefix.length);
-                            // suffix starts with `[oldIndex]`
-                            const newSuffix = suffix.replace(/^\[\d+\]/, `[${index}]`);
-                            input.name = prefix + newSuffix;
-                        } else if (input.name.startsWith('[')) {
-                            // Root array case: `[oldIndex].subfield`
-                            input.name = input.name.replace(/^\[\d+\]/, `[${index}]`);
-                        }
-                    });
-                }
-            };
-            updateName(item); // Process the item itself if it's an input? Likely a wrapper.
-            item.querySelectorAll('[name]').forEach(updateName);
-
-            // Update label or badge if present?
-            const label = item.querySelector('.array-index-label');
-            if (label) label.textContent = index;
-        });
-        // Notify change for state inputs
-        container.dispatchEvent(new Event('change', { bubbles: true }));
-    };
-
-    window.removeArrayItem = function (btn, prefix) {
-        const item = btn.closest('.array-item, .map-entry');
-        if (!item) return;
-        const container = item.parentElement;
-        item.remove();
-        if (container) {
-            reindexArrayItems(container, prefix);
-            updateContainerCount(container);
-        }
-    };
-
-    window.updateContainerCount = function (container) {
-        const group = container.closest('.array-group, .map-group');
-        if (!group) return;
-        const badge = group.querySelector('.count-badge');
-        if (badge) {
-            const count = container.children.length;
-            badge.textContent = `${count} ${count === 1 ? 'item' : 'items'}`;
-        }
-    };
-
-    window.addArrayItem = function (btn) {
-        const group = btn.closest('.array-group') || btn.closest('.map-group');
-        const container = group.querySelector('.array-items-container') || group.querySelector('.map-entries-container');
-        const template = group.querySelector('.item-template').innerHTML;
-        const prefix = group.dataset.prefix;
-
-        // Use current length as index for new item
-        const index = container.children.length;
-
-        let newItemHtml;
-        if (!template || template.trim() === '') {
-            const spec = window.MojoTemplateRegistry[group.id];
-            if (spec) {
-                let itemType = inferTypeFromMojomType(spec.elementSpec);
-                if (itemType !== 'string16' && spec.structSpec) {
-                    itemType = 'struct';
-                }
-                const itemParam = {
-                    name: `[${index}]`,
-                    type: itemType,
-                    structSpec: spec.structSpec,
-                    elementSpec: (spec.elementSpec.elementType || (spec.elementSpec.$ && spec.elementSpec.$.elementType)) || null
-                };
-
-                const siblingInput = group.querySelector('.param-input');
-                const interceptId = siblingInput ? siblingInput.dataset.id : '';
-                const isInterceptor = !!interceptId;
-
-                newItemHtml = renderInput(itemParam, null, {
-                    isInterceptor,
-                    interceptId,
-                    parentName: prefix,
-                    isTemplate: false
-                });
-            } else {
-                console.error("No template and no registry spec found for", group.id);
-                return;
+            if (prefix && input.name.startsWith(prefix)) {
+              const suffix = input.name.substring(prefix.length);
+              // suffix starts with `[oldIndex]`
+              const newSuffix = suffix.replace(/^\[\d+\]/, `[${index}]`);
+              input.name = prefix + newSuffix;
+            } else if (input.name.startsWith("[")) {
+              // Root array case: `[oldIndex].subfield`
+              input.name = input.name.replace(/^\[\d+\]/, `[${index}]`);
             }
-        } else {
-            newItemHtml = template.replace(/\{index\}/g, index);
+          });
         }
+      };
+      updateName(item); // Process the item itself if it's an input? Likely a wrapper.
+      item.querySelectorAll("[name]").forEach(updateName);
 
-        // Create temp div to parse HTML
-        const temp = document.createElement('div');
-        temp.innerHTML = safeHTML(newItemHtml);
-        // Actually templateHtml usually has one root element? No, renderedItems joining.
-        // renderInput returns a string... wait.
-        // My template generator wrapped it in nothing?
-        // See code: `const templateHtml = renderItemHtml(...)`.
-        // renderInput returns a `div.form-group` or string.
+      // Update label or badge if present?
+      const label = item.querySelector(".array-index-label");
+      if (label) label.textContent = index;
+    });
+    // Notify change for state inputs
+    container.dispatchEvent(new Event("change", { bubbles: true }));
+  };
 
-        // Wait, my loop code was:
-        // `const renderedItems = items.map(...) => <div class="array-item">...</div>`
-        // So the template should also represent the inner content of `.array-item`?
-        // No, `renderItemHtml` returns the CONTENT of the item.
-        // The wrapper `<div class="array-item">` is in the loop in `renderInput`.
+  window.removeArrayItem = function (btn, prefix) {
+    const item = btn.closest(".array-item, .map-entry");
+    if (!item) return;
+    const container = item.parentElement;
+    item.remove();
+    if (container) {
+      reindexArrayItems(container, prefix);
+      updateContainerCount(container);
+    }
+  };
 
-        // I need to ensure the template includes the wrapper if I want consistent styling?
-        // Or I construct the wrapper here.
+  window.updateContainerCount = function (container) {
+    const group = container.closest(".array-group, .map-group");
+    if (!group) return;
+    const badge = group.querySelector(".count-badge");
+    if (badge) {
+      const count = container.children.length;
+      badge.textContent = `${count} ${count === 1 ? "item" : "items"}`;
+    }
+  };
 
-        const wrapper = document.createElement('div');
-        wrapper.className = 'array-item';
+  window.addArrayItem = function (btn) {
+    const group = btn.closest(".array-group") || btn.closest(".map-group");
+    const container =
+      group.querySelector(".array-items-container") ||
+      group.querySelector(".map-entries-container");
+    const template = group.querySelector(".item-template").innerHTML;
+    const prefix = group.dataset.prefix;
 
-        // If templateHtml is just the input, we wrapper it.
-        wrapper.innerHTML = safeHTML(`<div class="item-content">${newItemHtml}</div>
-                        <button type="button" class="remove-item-btn" onclick="removeArrayItem(this, '${prefix || ''}')">&times;</button>`);
+    // Use current length as index for new item
+    const index = container.children.length;
 
-        container.appendChild(wrapper);
-        updateContainerCount(container);
+    let newItemHtml;
+    if (!template || template.trim() === "") {
+      const spec = window.MojoTemplateRegistry[group.id];
+      if (spec) {
+        let itemType = inferTypeFromMojomType(spec.elementSpec);
+        if (itemType !== "string16" && spec.structSpec) {
+          itemType = "struct";
+        }
+        const itemParam = {
+          name: `[${index}]`,
+          type: itemType,
+          structSpec: spec.structSpec,
+          elementSpec:
+            spec.elementSpec.elementType ||
+            (spec.elementSpec.$ && spec.elementSpec.$.elementType) ||
+            null,
+        };
 
-        // No need to reindex since we appended, unless we want to be safe.
-        // But typically we should just valid index.
-        container.dispatchEvent(new Event('change', { bubbles: true }));
-    };
+        const siblingInput = group.querySelector(".param-input");
+        const interceptId = siblingInput ? siblingInput.dataset.id : "";
+        const isInterceptor = !!interceptId;
 
-    function renderInput(param, value, options = {}) {
-        const { isInterceptor, index, interceptId, parentName, isTemplate, depth } = options;
+        newItemHtml = renderInput(itemParam, null, {
+          isInterceptor,
+          interceptId,
+          parentName: prefix,
+          isTemplate: false,
+        });
+      } else {
+        console.error("No template and no registry spec found for", group.id);
+        return;
+      }
+    } else {
+      newItemHtml = template.replace(/\{index\}/g, index);
+    }
 
-        const typeString = typeof param.type === 'object' ? param.type.type : param.type;
-        let inputType = MojoParser.getInputType(typeString);
+    // Create temp div to parse HTML
+    const temp = document.createElement("div");
+    temp.innerHTML = safeHTML(newItemHtml);
+    // Actually templateHtml usually has one root element? No, renderedItems joining.
+    // renderInput returns a string... wait.
+    // My template generator wrapped it in nothing?
+    // See code: `const templateHtml = renderItemHtml(...)`.
+    // renderInput returns a `div.form-group` or string.
 
-        // Special Handling for Common Mojo Types
-        // 1. URL: Unwrap { arg_url: "..." } to simple string
-        if (typeString === 'Url' || typeString.endsWith('.Url') || (typeof value === 'object' && value && (value.arg_url || value.url))) {
-            const urlVal = value ? (value.arg_url || value.url || '') : '';
-            return `
+    // Wait, my loop code was:
+    // `const renderedItems = items.map(...) => <div class="array-item">...</div>`
+    // So the template should also represent the inner content of `.array-item`?
+    // No, `renderItemHtml` returns the CONTENT of the item.
+    // The wrapper `<div class="array-item">` is in the loop in `renderInput`.
+
+    // I need to ensure the template includes the wrapper if I want consistent styling?
+    // Or I construct the wrapper here.
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "array-item";
+
+    // If templateHtml is just the input, we wrapper it.
+    wrapper.innerHTML = safeHTML(`<div class="item-content">${newItemHtml}</div>
+                        <button type="button" class="remove-item-btn" onclick="removeArrayItem(this, '${prefix || ""}')">&times;</button>`);
+
+    container.appendChild(wrapper);
+    updateContainerCount(container);
+
+    // No need to reindex since we appended, unless we want to be safe.
+    // But typically we should just valid index.
+    container.dispatchEvent(new Event("change", { bubbles: true }));
+  };
+
+  function renderInput(param, value, options = {}) {
+    const { isInterceptor, index, interceptId, parentName, isTemplate, depth } =
+      options;
+
+    const typeString =
+      typeof param.type === "object" ? param.type.type : param.type;
+    let inputType = MojoParser.getInputType(typeString);
+
+    // Special Handling for Common Mojo Types
+    // 1. URL: Unwrap { arg_url: "..." } to simple string
+    if (
+      typeString === "Url" ||
+      typeString.endsWith(".Url") ||
+      (typeof value === "object" && value && (value.arg_url || value.url))
+    ) {
+      const urlVal = value ? value.arg_url || value.url || "" : "";
+      return `
                 <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
-                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
+                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, "") : "")}
                         <span class="type">Url</span>
-                        ${param.optional ? '<span class="optional">(optional)</span>' : ''}
+                        ${param.optional ? '<span class="optional">(optional)</span>' : ""}
                     </label>
                     <input type="text" 
                    class="intercept-input param-input" 
@@ -807,63 +881,91 @@
                            value="${escapeHtml(urlVal)}" 
                            placeholder="https://...">
                 </div>`;
+    }
+
+    // 1.5 String16 and BigString16 (Prioritize over Struct)
+    let effectiveType = param.type;
+    if (effectiveType === "struct" && param.structSpec) {
+      const manualInfer = inferTypeFromMojomType(param.structSpec);
+      if (
+        manualInfer === "string16" ||
+        manualInfer === "bigstring16" ||
+        manualInfer === "bigstring"
+      ) {
+        effectiveType = manualInfer;
+      } else {
+        if (
+          param.structSpec.fields &&
+          param.structSpec.fields.length === 1 &&
+          param.structSpec.fields[0].name === "data"
+        ) {
+          if (value && value.data && typeof value.data === "object") {
+            if (
+              "bytes" in value.data ||
+              "arg_bytes" in value.data ||
+              "shared_memory" in value.data
+            ) {
+              effectiveType = "bigstring16";
+            } else if (
+              Array.isArray(value.data) ||
+              value.data.length !== undefined
+            ) {
+              effectiveType = "string16";
+            }
+          }
         }
+      }
+    }
 
+    if (effectiveType === "string16") {
+      let displayValue = value;
+      const arrayData = value ? value.arg_data || value.data : null;
 
-        // 1.5 String16 and BigString16 (Prioritize over Struct)
-        let effectiveType = param.type;
-        if (effectiveType === 'struct' && param.structSpec) {
-            const manualInfer = inferTypeFromMojomType(param.structSpec);
-            if (manualInfer === 'string16' || manualInfer === 'bigstring16' || manualInfer === 'bigstring') {
-                effectiveType = manualInfer;
-            } else {
-                if (param.structSpec.fields && param.structSpec.fields.length === 1 && param.structSpec.fields[0].name === 'data') {
-                    if (value && value.data && typeof value.data === 'object') {
-                        if ('bytes' in value.data || 'arg_bytes' in value.data || 'shared_memory' in value.data) {
-                            effectiveType = 'bigstring16';
-                        } else if (Array.isArray(value.data) || value.data.length !== undefined) {
-                            effectiveType = 'string16';
-                        }
-                    }
-                }
-            }
+      // Handle BigBuffer union wrap if incorrectly tagged as string16
+      let realBytes = arrayData;
+      if (
+        arrayData &&
+        typeof arrayData === "object" &&
+        !Array.isArray(arrayData)
+      ) {
+        realBytes = arrayData.arg_bytes || arrayData.bytes;
+      }
+
+      if (
+        realBytes &&
+        (Array.isArray(realBytes) ||
+          (realBytes.length !== undefined && typeof realBytes !== "string"))
+      ) {
+        try {
+          let u8;
+          if (realBytes instanceof Uint8Array) {
+            u8 = realBytes;
+          } else if (realBytes instanceof Uint16Array) {
+            u8 = new Uint8Array(
+              realBytes.buffer,
+              realBytes.byteOffset,
+              realBytes.byteLength,
+            );
+          } else {
+            // Regular array
+            u8 = new Uint8Array(new Uint16Array(realBytes).buffer);
+          }
+          displayValue = new TextDecoder("utf-16le").decode(u8);
+        } catch (e) {
+          displayValue = Array.isArray(realBytes)
+            ? String.fromCharCode(...realBytes)
+            : safeStringify(sanitizeKeys(value), 2);
         }
+      } else if (typeof value === "object" && value !== null) {
+        displayValue = safeStringify(sanitizeKeys(value), 2);
+      }
 
-        if (effectiveType === 'string16') {
-            let displayValue = value;
-            const arrayData = value ? (value.arg_data || value.data) : null;
-            
-            // Handle BigBuffer union wrap if incorrectly tagged as string16
-            let realBytes = arrayData;
-            if (arrayData && typeof arrayData === 'object' && !Array.isArray(arrayData)) {
-                realBytes = arrayData.arg_bytes || arrayData.bytes;
-            }
-
-            if (realBytes && (Array.isArray(realBytes) || (realBytes.length !== undefined && typeof realBytes !== 'string'))) {
-                try {
-                    let u8;
-                    if (realBytes instanceof Uint8Array) {
-                        u8 = realBytes;
-                    } else if (realBytes instanceof Uint16Array) {
-                        u8 = new Uint8Array(realBytes.buffer, realBytes.byteOffset, realBytes.byteLength);
-                    } else {
-                        // Regular array
-                        u8 = new Uint8Array(new Uint16Array(realBytes).buffer);
-                    }
-                    displayValue = new TextDecoder('utf-16le').decode(u8);
-                } catch (e) {
-                    displayValue = Array.isArray(realBytes) ? String.fromCharCode(...realBytes) : safeStringify(sanitizeKeys(value), 2);
-                }
-            } else if (typeof value === 'object' && value !== null) {
-                displayValue = safeStringify(sanitizeKeys(value), 2);
-            }
-
-            return `
+      return `
                 <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
-                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
+                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, "") : "")}
                         <span class="type">String16</span>
-                        ${param.optional ? '<span class="optional">(optional)</span>' : ''}
+                        ${param.optional ? '<span class="optional">(optional)</span>' : ""}
                     </label>
                     <textarea 
                            class="intercept-input param-input" 
@@ -874,41 +976,48 @@
                            rows="2"
                            style="width: 100%; font-family: monospace;">${escapeHtml(displayValue)}</textarea>
                 </div>`;
+    }
+
+    if (effectiveType === "bigstring16") {
+      let displayValue = value;
+      const bigBuffer = value ? value.arg_data || value.data : null;
+      let arrayData = null;
+
+      if (bigBuffer) {
+        if (bigBuffer.arg_bytes) arrayData = bigBuffer.arg_bytes;
+        else if (bigBuffer.bytes) arrayData = bigBuffer.bytes;
+        else if (typeof bigBuffer === "object" && !Array.isArray(bigBuffer)) {
+          // Fallback for nested wrap
+          arrayData = bigBuffer.arg_bytes || bigBuffer.bytes;
+        } else if (Array.isArray(bigBuffer)) {
+          arrayData = bigBuffer;
         }
+      }
 
-        if (effectiveType === 'bigstring16') {
-            let displayValue = value;
-            const bigBuffer = value ? (value.arg_data || value.data) : null;
-            let arrayData = null;
+      if (
+        arrayData &&
+        (Array.isArray(arrayData) ||
+          (arrayData.length !== undefined && typeof arrayData !== "string"))
+      ) {
+        try {
+          const u8 =
+            arrayData instanceof Uint8Array
+              ? arrayData
+              : new Uint8Array(arrayData);
+          displayValue = new TextDecoder("utf-16le").decode(u8);
+        } catch (e) {
+          displayValue = safeStringify(sanitizeKeys(value), 2);
+        }
+      } else if (typeof value === "object" && value !== null) {
+        displayValue = safeStringify(sanitizeKeys(value), 2);
+      }
 
-            if (bigBuffer) {
-                if (bigBuffer.arg_bytes) arrayData = bigBuffer.arg_bytes;
-                else if (bigBuffer.bytes) arrayData = bigBuffer.bytes;
-                else if (typeof bigBuffer === 'object' && !Array.isArray(bigBuffer)) {
-                    // Fallback for nested wrap
-                    arrayData = bigBuffer.arg_bytes || bigBuffer.bytes;
-                } else if (Array.isArray(bigBuffer)) {
-                    arrayData = bigBuffer;
-                }
-            }
-
-            if (arrayData && (Array.isArray(arrayData) || (arrayData.length !== undefined && typeof arrayData !== 'string'))) {
-                try {
-                    const u8 = (arrayData instanceof Uint8Array) ? arrayData : new Uint8Array(arrayData);
-                    displayValue = new TextDecoder('utf-16le').decode(u8);
-                } catch (e) {
-                    displayValue = safeStringify(sanitizeKeys(value), 2);
-                }
-            } else if (typeof value === 'object' && value !== null) {
-                displayValue = safeStringify(sanitizeKeys(value), 2);
-            }
-
-            return `
+      return `
                 <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
-                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
+                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, "") : "")}
                         <span class="type">BigString16</span>
-                        ${param.optional ? '<span class="optional">(optional)</span>' : ''}
+                        ${param.optional ? '<span class="optional">(optional)</span>' : ""}
                     </label>
                     <textarea
                            class="intercept-input param-input" 
@@ -919,36 +1028,43 @@
                            rows="4"
                            style="width: 100%; font-family: monospace;">${escapeHtml(displayValue)}</textarea>
                 </div>`;
+    }
+
+    if (effectiveType === "bigstring") {
+      let displayValue = value;
+      const bigBuffer = value ? value.arg_data || value.data : null;
+      let arrayData = null;
+
+      if (bigBuffer) {
+        if (bigBuffer.bytes) arrayData = bigBuffer.bytes;
+        else if (bigBuffer.arg_bytes) arrayData = bigBuffer.arg_bytes;
+      }
+
+      if (
+        arrayData &&
+        (Array.isArray(arrayData) ||
+          (arrayData.length !== undefined && typeof arrayData !== "string"))
+      ) {
+        try {
+          const u8 =
+            arrayData instanceof Uint8Array
+              ? arrayData
+              : new Uint8Array(arrayData);
+          // Decode using TextDecoder (utf-8 for BigString)
+          displayValue = new TextDecoder("utf-8").decode(u8);
+        } catch (e) {
+          displayValue = safeStringify(sanitizeKeys(value), 2);
         }
+      } else if (typeof value === "object" && value !== null) {
+        displayValue = safeStringify(sanitizeKeys(value), 2);
+      }
 
-        if (effectiveType === 'bigstring') {
-            let displayValue = value;
-            const bigBuffer = value ? (value.arg_data || value.data) : null;
-            let arrayData = null;
-
-            if (bigBuffer) {
-                if (bigBuffer.bytes) arrayData = bigBuffer.bytes;
-                else if (bigBuffer.arg_bytes) arrayData = bigBuffer.arg_bytes;
-            }
-
-            if (arrayData && (Array.isArray(arrayData) || (arrayData.length !== undefined && typeof arrayData !== 'string'))) {
-                try {
-                    const u8 = (arrayData instanceof Uint8Array) ? arrayData : new Uint8Array(arrayData);
-                    // Decode using TextDecoder (utf-8 for BigString)
-                    displayValue = new TextDecoder('utf-8').decode(u8);
-                } catch (e) {
-                    displayValue = safeStringify(sanitizeKeys(value), 2);
-                }
-            } else if (typeof value === 'object' && value !== null) {
-                displayValue = safeStringify(sanitizeKeys(value), 2);
-            }
-
-            return `
+      return `
                 <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
-                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
+                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, "") : "")}
                         <span class="type">BigString</span>
-                        ${param.optional ? '<span class="optional">(optional)</span>' : ''}
+                        ${param.optional ? '<span class="optional">(optional)</span>' : ""}
                     </label>
                     <textarea
                            class="intercept-input param-input" 
@@ -959,71 +1075,101 @@
                            rows="4"
                            style="width: 100%; font-family: monospace;">${escapeHtml(displayValue)}</textarea>
                 </div>`;
+    }
+
+    // 2. Mojo Handles: Special Card UI
+    const isHandleType =
+      (typeof effectiveType === "object" &&
+        effectiveType.type === "mojo_handle") ||
+      effectiveType === "mojo_handle" ||
+      typeString === "mojo_handle";
+    const isHandleValue =
+      (value && value.__mojoType === "Handle") ||
+      (value && value.$ && value.proxy && typeof value.$ === "object") ||
+      (value && value.handle && value.handle.router_) ||
+      (value && value.$ref); // Recognizes registry references
+
+    if (isHandleType || isHandleValue) {
+      let ifaceName = "Unknown";
+      let ifaceId = "0";
+      let typeLabel = "Mojo Handle";
+      let currentAction = "preserve";
+      let isReceiver = false;
+
+      if (value && value.$ref) {
+        ifaceName = value.type || "Unknown";
+        ifaceId = value.$ref;
+        typeLabel = "Mojo Object";
+      } else if (value && value.__mojoType === "Handle") {
+        ifaceName = value.interface;
+        ifaceId = value.interfaceId;
+        typeLabel = value.isReceiver ? "Pending Receiver" : "Mojo Remote";
+        currentAction = value.action || "preserve";
+        isReceiver = !!value.isReceiver;
+      } else if (value && value.$ && value.proxy) {
+        const meta = value.$;
+        ifaceName =
+          meta.interfaceName ||
+          (meta.proxy && meta.proxy.interfaceName) ||
+          "Unknown";
+        // Try to get ID from registry
+        const rawHandle =
+          typeof MojoProxy !== "undefined"
+            ? MojoProxy.getRawHandleFromMojoObject(value)
+            : null;
+        ifaceId =
+          typeof MojoHandleRegistry !== "undefined" && rawHandle
+            ? MojoHandleRegistry.register(rawHandle)
+            : meta.interfaceId || "0";
+        typeLabel = "Mojo Remote";
+      } else if (value && (value.handle || value.router_ || value.endpoint_)) {
+        typeLabel = "Pending Receiver";
+        const rawHandle =
+          typeof MojoProxy !== "undefined"
+            ? MojoProxy.getRawHandleFromMojoObject(value)
+            : null;
+        ifaceId =
+          typeof MojoHandleRegistry !== "undefined" && rawHandle
+            ? MojoHandleRegistry.register(rawHandle)
+            : "0";
+        ifaceName = "PendingReceiver";
+        isReceiver = true;
+      } else if (
+        value &&
+        (value.__mojoGuiId !== undefined ||
+          value.value !== undefined ||
+          (value.writeMessage && value.readMessage))
+      ) {
+        // Raw MojoHandle object
+        ifaceId =
+          typeof MojoHandleRegistry !== "undefined"
+            ? MojoHandleRegistry.register(value)
+            : value.value || "0";
+        ifaceName = "MojoHandle";
+        typeLabel = "Handle";
+      } else if (isHandleType) {
+        // Manual Mode, no value yet.
+        if (typeof effectiveType === "object" && effectiveType.interface) {
+          ifaceName = effectiveType.interface;
+        } else if (param.structSpec?.name) {
+          ifaceName = param.structSpec.name;
         }
+        typeLabel = "Mojo Handle";
+        currentAction = "new_pipe";
+      }
 
-        // 2. Mojo Handles: Special Card UI
-        const isHandleType = (typeof effectiveType === 'object' && effectiveType.type === 'mojo_handle') || effectiveType === 'mojo_handle' || typeString === 'mojo_handle';
-        const isHandleValue = (value && value.__mojoType === 'Handle') ||
-            (value && value.$ && value.proxy && typeof value.$ === 'object') ||
-            (value && value.handle && value.handle.router_) ||
-            (value && value.$ref); // Recognizes registry references
+      const displayName = escapeHtml(
+        param.name ? param.name.replace(/^arg_/, "") : "",
+      );
 
-        if (isHandleType || isHandleValue) {
-            let ifaceName = 'Unknown';
-            let ifaceId = '0';
-            let typeLabel = 'Mojo Handle';
-            let currentAction = 'preserve';
-            let isReceiver = false;
-
-            if (value && value.$ref) {
-                ifaceName = value.type || 'Unknown';
-                ifaceId = value.$ref;
-                typeLabel = 'Mojo Object';
-            } else if (value && value.__mojoType === 'Handle') {
-                ifaceName = value.interface;
-                ifaceId = value.interfaceId;
-                typeLabel = value.isReceiver ? 'Pending Receiver' : 'Mojo Remote';
-                currentAction = value.action || 'preserve';
-                isReceiver = !!value.isReceiver;
-            } else if (value && value.$ && value.proxy) {
-                const meta = value.$;
-                ifaceName = meta.interfaceName || (meta.proxy && meta.proxy.interfaceName) || 'Unknown';
-                // Try to get ID from registry
-                const rawHandle = (typeof MojoProxy !== 'undefined') ? MojoProxy.getRawHandleFromMojoObject(value) : null;
-                ifaceId = (typeof MojoHandleRegistry !== 'undefined' && rawHandle) ? MojoHandleRegistry.register(rawHandle) : (meta.interfaceId || '0');
-                typeLabel = 'Mojo Remote';
-            } else if (value && (value.handle || value.router_ || value.endpoint_)) {
-                typeLabel = 'Pending Receiver';
-                const rawHandle = (typeof MojoProxy !== 'undefined') ? MojoProxy.getRawHandleFromMojoObject(value) : null;
-                ifaceId = (typeof MojoHandleRegistry !== 'undefined' && rawHandle) ? MojoHandleRegistry.register(rawHandle) : '0';
-                ifaceName = 'PendingReceiver';
-                isReceiver = true;
-            } else if (value && (value.__mojoGuiId !== undefined || value.value !== undefined || (value.writeMessage && value.readMessage))) {
-                // Raw MojoHandle object
-                ifaceId = (typeof MojoHandleRegistry !== 'undefined') ? MojoHandleRegistry.register(value) : (value.value || '0');
-                ifaceName = 'MojoHandle';
-                typeLabel = 'Handle';
-            } else if (isHandleType) {
-                // Manual Mode, no value yet.
-                if (typeof effectiveType === 'object' && effectiveType.interface) {
-                    ifaceName = effectiveType.interface;
-                } else if (param.structSpec?.name) {
-                    ifaceName = param.structSpec.name;
-                }
-                typeLabel = 'Mojo Handle';
-                currentAction = 'new_pipe';
-            }
-
-            const displayName = escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '');
-
-            return `
+      return `
                 <div class="form-group handle-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
                         ${displayName}
                         <span class="type">${typeLabel}</span>
                     </label>
-                    <div class="mojo-handle-card ${currentAction === 'close' ? 'closed' : (currentAction === 'new_pipe' ? 'new' : '')}">
-                        <div class="handle-icon">${currentAction === 'close' ? '❌' : (currentAction === 'new_pipe' ? '🆕' : '🔌')}</div>
+                    <div class="mojo-handle-card ${currentAction === "close" ? "closed" : currentAction === "new_pipe" ? "new" : ""}">
+                        <div class="handle-icon">${currentAction === "close" ? "❌" : currentAction === "new_pipe" ? "🆕" : "🔌"}</div>
                         <div class="handle-info">
                             <div class="handle-interface">${escapeHtml(ifaceName)}</div>
                             <div class="handle-meta">ID: ${escapeHtml(ifaceId)}</div>
@@ -1054,108 +1200,127 @@
                                 updateHidden();
                                 customInput.oninput = updateHidden;
                             ">
-                                <option value="preserve" ${currentAction === 'preserve' ? 'selected' : ''}>Keep Original</option>
-                                <option value="close" ${currentAction === 'close' ? 'selected' : ''}>Close Handle</option>
-                                <option value="new_pipe" ${currentAction === 'new_pipe' ? 'selected' : ''}>New Pipe</option>
-                                <option value="use_handle" ${currentAction === 'use_handle' ? 'selected' : ''}>Use Handle ID</option>
+                                <option value="preserve" ${currentAction === "preserve" ? "selected" : ""}>Keep Original</option>
+                                <option value="close" ${currentAction === "close" ? "selected" : ""}>Close Handle</option>
+                                <option value="new_pipe" ${currentAction === "new_pipe" ? "selected" : ""}>New Pipe</option>
+                                <option value="use_handle" ${currentAction === "use_handle" ? "selected" : ""}>Use Handle ID</option>
                             </select>
-                            <input type="hidden" class="param-input" name="${escapeHtml(param.name)}" data-type="mojo_handle" value='${escapeHtml(JSON.stringify({ __mojoType: 'Handle', interface: ifaceName, interfaceId: ifaceId, isReceiver: isReceiver, action: currentAction }))}'>
+                            <input type="hidden" class="param-input" name="${escapeHtml(param.name)}" data-type="mojo_handle" value='${escapeHtml(JSON.stringify({ __mojoType: "Handle", interface: ifaceName, interfaceId: ifaceId, isReceiver: isReceiver, action: currentAction }))}'>
                             <input type="number" class="handle-custom-input" placeholder="Handle ID" style="display:none; width: 100%; margin-top: 5px; padding: 4px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-input); color: var(--text-main);">
                         </div>
                     </div>
                 </div>
             `;
-        }
+    }
 
-        // 3. Structs: Recursive Rendering
-        if (param.type === 'struct' && param.structSpec) {
-            const childParams = mapFieldsToUIParams(param.structSpec.fields);
-            const childValues = (value && typeof value === 'object') ? value : {};
+    // 3. Structs: Recursive Rendering
+    if (param.type === "struct" && param.structSpec) {
+      const childParams = mapFieldsToUIParams(param.structSpec.fields);
+      const childValues = value && typeof value === "object" ? value : {};
 
-            const renderedFields = childParams.map(p => {
-                let pValue = childValues[p.name];
-                if (pValue === undefined && p.name.startsWith('arg_')) {
-                    pValue = childValues[p.name.substring(4)];
-                }
-                return renderInput(p, pValue, {
-                    isInterceptor,
-                    interceptId,
-                    parentName: parentName ? `${parentName}.${param.name}` : param.name,
-                    isTemplate
-                });
-            }).join('');
+      const renderedFields = childParams
+        .map((p) => {
+          let pValue = childValues[p.name];
+          if (pValue === undefined && p.name.startsWith("arg_")) {
+            pValue = childValues[p.name.substring(4)];
+          }
+          return renderInput(p, pValue, {
+            isInterceptor,
+            interceptId,
+            parentName: parentName ? `${parentName}.${param.name}` : param.name,
+            isTemplate,
+          });
+        })
+        .join("");
 
-            return `
+      return `
                 <div class="form-group struct-group" 
                      data-type="struct" 
                      data-original-name="${escapeHtml(param.name)}">
                     <label style="cursor: pointer;" onclick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden">
                         <span style="display:inline-block; transform: rotate(90deg); font-size: 0.8em;">&#10095;</span>
-                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
+                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, "") : "")}
                         <span class="type">Struct</span>
-                        ${param.optional ? '<span class="optional">(optional)</span>' : ''}
+                        ${param.optional ? '<span class="optional">(optional)</span>' : ""}
                     </label>
                     <div class="struct-content" style="padding-left: 10px; border-left: 2px solid var(--border-subtle); margin-left: 4px; margin-top: 4px;">
                         ${renderedFields}
                     </div>
                 </div>`;
+    }
+
+    // 4. Arrays: Recursive List Rendering
+    if (param.type === "array" && param.elementSpec) {
+      const items = Array.isArray(value) ? value : [];
+      const prefix = parentName
+        ? `${parentName}${param.name.startsWith("[") ? "" : "."}${param.name}`
+        : param.name;
+
+      const renderItemHtml = (val, idx, options = {}) => {
+        let itemType = inferTypeFromMojomType(param.elementSpec);
+        const itemStructSpec =
+          param.elementSpec.$ && param.elementSpec.$.structSpec
+            ? param.elementSpec.$.structSpec
+            : null;
+
+        // Prioritize string16, but upgrade generic strings to struct if available
+        if (itemType !== "string16" && itemStructSpec) {
+          itemType = "struct";
         }
 
-        // 4. Arrays: Recursive List Rendering
-        if (param.type === 'array' && param.elementSpec) {
-            const items = (Array.isArray(value)) ? value : [];
-            const prefix = parentName ? `${parentName}${param.name.startsWith('[') ? '' : '.'}${param.name}` : param.name;
+        const itemParam = {
+          name: `[${idx}]`,
+          type: itemType,
+          structSpec: itemStructSpec,
+          elementSpec:
+            param.elementSpec.elementType ||
+            (param.elementSpec.$ && param.elementSpec.$.elementType) ||
+            null,
+        };
+        return renderInput(itemParam, val, {
+          isInterceptor,
+          interceptId,
+          parentName: prefix,
+          isTemplate: options.isTemplate || isTemplate,
+        });
+      };
 
-            const renderItemHtml = (val, idx, options = {}) => {
-                let itemType = inferTypeFromMojomType(param.elementSpec);
-                const itemStructSpec = (param.elementSpec.$ && param.elementSpec.$.structSpec) ? param.elementSpec.$.structSpec : null;
-
-                // Prioritize string16, but upgrade generic strings to struct if available
-                if (itemType !== 'string16' && itemStructSpec) {
-                    itemType = 'struct';
-                }
-
-                const itemParam = {
-                    name: `[${idx}]`,
-                    type: itemType,
-                    structSpec: itemStructSpec,
-                    elementSpec: (param.elementSpec.elementType || (param.elementSpec.$ && param.elementSpec.$.elementType)) || null
-                };
-                return renderInput(itemParam, val, {
-                    isInterceptor,
-                    interceptId,
-                    parentName: prefix,
-                    isTemplate: options.isTemplate || isTemplate
-                });
-            };
-
-            const renderedItems = items.map((val, i) => `
+      const renderedItems = items
+        .map(
+          (val, i) => `
                 <div class="array-item">
                     <div class="item-content">${renderItemHtml(val, i)}</div>
-                    <button type="button" class="remove-item-btn" onclick="removeArrayItem(this, '${prefix || ''}')">&times;</button>
+                    <button type="button" class="remove-item-btn" onclick="removeArrayItem(this, '${prefix || ""}')">&times;</button>
                 </div>
-            `).join('');
+            `,
+        )
+        .join("");
 
-            // Template for new items
-            // If we are already inside a template (isTemplate=true), we do NOT generate the inner template to avoid infinite recursion.
-            let templateHtml = '';
+      // Template for new items
+      // If we are already inside a template (isTemplate=true), we do NOT generate the inner template to avoid infinite recursion.
+      let templateHtml = "";
 
-            // Generate a unique ID for this array container to link it to the registry
-            const containerId = 'array_group_' + Math.random().toString(36).substr(2, 9);
+      // Generate a unique ID for this array container to link it to the registry
+      const containerId =
+        "array_group_" + Math.random().toString(36).substr(2, 9);
 
-            if (!isTemplate) {
-                templateHtml = renderItemHtml(null, 'TEMPLATE_INDEX', { isTemplate: true })
-                    .replace(/name="([^"]*?)\[TEMPLATE_INDEX\]"/g, 'name="$1[{index}]"');
-            } else {
-                // Register the spec for lazy loading
-                window.MojoTemplateRegistry[containerId] = {
-                    elementSpec: param.elementSpec,
-                    structSpec: (param.elementSpec.$ && param.elementSpec.$.structSpec) ? param.elementSpec.$.structSpec : null,
-                    type: param.type
-                };
-            }
+      if (!isTemplate) {
+        templateHtml = renderItemHtml(null, "TEMPLATE_INDEX", {
+          isTemplate: true,
+        }).replace(/name="([^"]*?)\[TEMPLATE_INDEX\]"/g, 'name="$1[{index}]"');
+      } else {
+        // Register the spec for lazy loading
+        window.MojoTemplateRegistry[containerId] = {
+          elementSpec: param.elementSpec,
+          structSpec:
+            param.elementSpec.$ && param.elementSpec.$.structSpec
+              ? param.elementSpec.$.structSpec
+              : null,
+          type: param.type,
+        };
+      }
 
-            return `
+      return `
                 <div class="form-group array-group" 
                      id="${containerId}"
                      data-type="array" 
@@ -1163,9 +1328,9 @@
                      data-prefix="${escapeHtml(prefix)}">
                     <label style="cursor: pointer;" onclick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden">
                         <span style="display:inline-block; transform: rotate(90deg); font-size: 0.8em;">&#10095;</span>
-                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
+                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, "") : "")}
                         <span class="type">Array&lt;${inferTypeFromMojomType(param.elementSpec)}&gt;</span>
-                        <span class="badge count-badge" style="margin-left: 8px; font-size: 0.8em; background: var(--bg-hover);">${items.length} ${items.length === 1 ? 'item' : 'items'}</span>
+                        <span class="badge count-badge" style="margin-left: 8px; font-size: 0.8em; background: var(--bg-hover);">${items.length} ${items.length === 1 ? "item" : "items"}</span>
                     </label>
                     <div class="array-content" style="padding-left: 10px; border-left: 2px solid var(--border-subtle); margin-left: 4px; margin-top: 4px;">
                         <div class="array-items-container">
@@ -1176,61 +1341,94 @@
                                 onclick="addArrayItem(this)">+ Add Item</button>
                     </div>
                 </div>`;
-        }
+    }
 
-        // 5. Maps: Key/Value Pairs
-        if (param.type === 'map' && param.mapSpec) {
-            let entries = [];
-            if (Array.isArray(value)) {
-                // Manual Mode State: [{key, value}, ...]
-                entries = value.map(item => [item.key, item.value]);
-            } else {
-                const mapObj = (value && typeof value === 'object') ? value : {};
-                entries = Object.entries(mapObj);
-            }
-            const prefix = parentName ? `${parentName}${param.name.startsWith('[') ? '' : '.'}${param.name}` : param.name;
+    // 5. Maps: Key/Value Pairs
+    if (param.type === "map" && param.mapSpec) {
+      let entries = [];
+      if (Array.isArray(value)) {
+        // Manual Mode State: [{key, value}, ...]
+        entries = value.map((item) => [item.key, item.value]);
+      } else {
+        const mapObj = value && typeof value === "object" ? value : {};
+        entries = Object.entries(mapObj);
+      }
+      const prefix = parentName
+        ? `${parentName}${param.name.startsWith("[") ? "" : "."}${param.name}`
+        : param.name;
 
-            const renderEntryHtml = (entryKey, entryValue, idx) => {
-                const keyParam = {
-                    name: 'key',
-                    type: inferTypeFromMojomType(param.mapSpec.key),
-                };
-                const valParam = {
-                    name: 'value',
-                    type: inferTypeFromMojomType(param.mapSpec.value),
-                    structSpec: param.mapSpec.value && param.mapSpec.value.$ ? param.mapSpec.value.$.structSpec : null,
-                    elementSpec: param.mapSpec.value && (param.mapSpec.value.elementType || param.mapSpec.value.$.elementType) || null,
-                    mapSpec: param.mapSpec.value && (param.mapSpec.value.keyType || param.mapSpec.value.$.keyType) ? {
-                        key: param.mapSpec.value.keyType || param.mapSpec.value.$.keyType,
-                        value: param.mapSpec.value.valueType || param.mapSpec.value.$.valueType
-                    } : null
-                };
+      const renderEntryHtml = (entryKey, entryValue, idx) => {
+        const keyParam = {
+          name: "key",
+          type: inferTypeFromMojomType(param.mapSpec.key),
+        };
+        const valParam = {
+          name: "value",
+          type: inferTypeFromMojomType(param.mapSpec.value),
+          structSpec:
+            param.mapSpec.value && param.mapSpec.value.$
+              ? param.mapSpec.value.$.structSpec
+              : null,
+          elementSpec:
+            (param.mapSpec.value &&
+              (param.mapSpec.value.elementType ||
+                param.mapSpec.value.$.elementType)) ||
+            null,
+          mapSpec:
+            param.mapSpec.value &&
+            (param.mapSpec.value.keyType || param.mapSpec.value.$.keyType)
+              ? {
+                  key:
+                    param.mapSpec.value.keyType ||
+                    param.mapSpec.value.$.keyType,
+                  value:
+                    param.mapSpec.value.valueType ||
+                    param.mapSpec.value.$.valueType,
+                }
+              : null,
+        };
 
-                const keyHtml = renderInput(keyParam, entryKey, { isInterceptor, interceptId, parentName: `${prefix}[${idx}]`, depth: (depth || 0) + 1 });
-                const valHtml = renderInput(valParam, entryValue, { isInterceptor, interceptId, parentName: `${prefix}[${idx}]`, depth: (depth || 0) + 1 });
+        const keyHtml = renderInput(keyParam, entryKey, {
+          isInterceptor,
+          interceptId,
+          parentName: `${prefix}[${idx}]`,
+          depth: (depth || 0) + 1,
+        });
+        const valHtml = renderInput(valParam, entryValue, {
+          isInterceptor,
+          interceptId,
+          parentName: `${prefix}[${idx}]`,
+          depth: (depth || 0) + 1,
+        });
 
-                return `
+        return `
                         <div class="form-group struct-group map-entry" 
-                             data-original-name="${idx === 'TEMPLATE_INDEX' ? 'TEMPLATE_INDEX' : idx}"
+                             data-original-name="${idx === "TEMPLATE_INDEX" ? "TEMPLATE_INDEX" : idx}"
                              style="margin-bottom: 0;">
                             <div class="struct-content" style="display: flex; gap: 8px; align-items: flex-start;">
                                 <div style="flex: 1;">${keyHtml}</div>
                                 <div style="flex: 2;">${valHtml}</div>
                             </div>
                         </div>`;
-            };
+      };
 
-            const renderedEntries = entries.map((entry, i) => `
+      const renderedEntries = entries
+        .map(
+          (entry, i) => `
                     <div class="array-item" style="display: flex; align-items: flex-start; margin-bottom: 4px;">
                         <div style="flex-grow: 1;">${renderEntryHtml(entry[0], entry[1], i)}</div>
                         <button type="button" class="remove-item-btn" onclick="this.closest('.array-item').remove()" style="margin-left: 8px; padding: 4px 8px; background: transparent; border: 1px solid var(--border-subtle); color: var(--text-muted); cursor: pointer;">&times;</button>
                     </div>
-                `).join('');
+                `,
+        )
+        .join("");
 
-            const templateHtml = renderEntryHtml('', null, 'TEMPLATE_INDEX')
-                .replace(/name="([^"]*?)\[TEMPLATE_INDEX\]"/g, 'name="$1[{index}]"');
+      const templateHtml = renderEntryHtml("", null, "TEMPLATE_INDEX").replace(
+        /name="([^"]*?)\[TEMPLATE_INDEX\]"/g,
+        'name="$1[{index}]"',
+      );
 
-            return `
+      return `
                 <div class="form-group map-group" 
                      data-type="map" 
                      data-original-name="${escapeHtml(param.name)}"
@@ -1238,9 +1436,9 @@
                      style="margin-bottom: 8px;">
                     <label style="cursor: pointer;" onclick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden">
                         <span style="display:inline-block; transform: rotate(90deg); font-size: 0.8em;">&#10095;</span>
-                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
+                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, "") : "")}
                         <span class="type">Map&lt;${inferTypeFromMojomType(param.mapSpec.keySpec)}, ${inferTypeFromMojomType(param.mapSpec.valueSpec)}&gt;</span>
-                        <span class="badge count-badge" style="margin-left: 8px; font-size: 0.8em; background: var(--bg-hover);">${entries.length} ${entries.length === 1 ? 'item' : 'items'}</span>
+                        <span class="badge count-badge" style="margin-left: 8px; font-size: 0.8em; background: var(--bg-hover);">${entries.length} ${entries.length === 1 ? "item" : "items"}</span>
                     </label>
                     <div class="map-content" style="padding-left: 10px; border-left: 2px solid var(--border-subtle); margin-left: 4px; margin-top: 4px;">
                         <div class="map-entries-container">
@@ -1251,59 +1449,64 @@
                                 onclick="addArrayItem(this, true)">+ Add Entry</button>
                     </div>
                 </div>`;
+    }
+
+    // 6. Unions: Discriminator + Active Field
+    if (param.type === "union" && param.structSpec) {
+      const unionFields = mapFieldsToUIParams(param.structSpec.fields);
+
+      if (!unionFields || unionFields.length === 0) {
+        return `<div class="form-group error-state">Union ${escapeHtml(param.name)} has no fields.</div>`;
+      }
+
+      // Value for a Union is an object like { tag: value }
+      // We need to find the active tag.
+      let activeTag = unionFields[0].name; // Default to first
+      let activeValue = undefined;
+
+      if (value && typeof value === "object") {
+        const keys = Object.keys(value);
+        // If we have keys, find the one that matches a field name
+        for (const k of keys) {
+          if (unionFields.some((f) => f.name === k)) {
+            activeTag = k;
+            activeValue = value[k];
+            break;
+          }
         }
+      }
 
-        // 6. Unions: Discriminator + Active Field
-        if (param.type === 'union' && param.structSpec) {
-            const unionFields = mapFieldsToUIParams(param.structSpec.fields);
+      const options = unionFields
+        .map(
+          (f) =>
+            `<option value="${f.name}" ${f.name === activeTag ? "selected" : ""}>${f.name.replace(/^arg_/, "")}</option>`,
+        )
+        .join("");
 
-            if (!unionFields || unionFields.length === 0) {
-                return `<div class="form-group error-state">Union ${escapeHtml(param.name)} has no fields.</div>`;
-            }
+      const renderedFields = unionFields
+        .map((f) => {
+          const isHidden = f.name !== activeTag;
+          // We pre-render all fields but hide inactive ones
+          // We pass the activeValue ONLY to the active field to avoid confusion,
+          // or we could pass null to others.
+          const val = f.name === activeTag ? activeValue : undefined;
 
-            // Value for a Union is an object like { tag: value }
-            // We need to find the active tag.
-            let activeTag = unionFields[0].name; // Default to first
-            let activeValue = undefined;
-
-            if (value && typeof value === 'object') {
-                const keys = Object.keys(value);
-                // If we have keys, find the one that matches a field name
-                for (const k of keys) {
-                    if (unionFields.some(f => f.name === k)) {
-                        activeTag = k;
-                        activeValue = value[k];
-                        break;
-                    }
-                }
-            }
-
-            const options = unionFields.map(f =>
-                `<option value="${f.name}" ${f.name === activeTag ? 'selected' : ''}>${f.name.replace(/^arg_/, '')}</option>`
-            ).join('');
-
-            const renderedFields = unionFields.map(f => {
-                const isHidden = f.name !== activeTag;
-                // We pre-render all fields but hide inactive ones
-                // We pass the activeValue ONLY to the active field to avoid confusion, 
-                // or we could pass null to others.
-                const val = f.name === activeTag ? activeValue : undefined;
-
-                // We need to prevent ID conflicts if we render all? No, IDs are fine.
-                return `
-                    <div class="union-field" data-tag="${f.name}" ${isHidden ? 'hidden' : ''}>
+          // We need to prevent ID conflicts if we render all? No, IDs are fine.
+          return `
+                    <div class="union-field" data-tag="${f.name}" ${isHidden ? "hidden" : ""}>
                         ${renderInput(f, val, { isInterceptor, interceptId, parentName: parentName ? `${parentName}.${param.name}` : param.name, depth: (depth || 0) + 1 })}
                     </div>
                  `;
-            }).join('');
+        })
+        .join("");
 
-            return `
+      return `
                 <div class="form-group union-group" 
                      data-type="union" 
                      data-original-name="${escapeHtml(param.name)}"
                      style="margin-bottom: 8px; border-left: 3px solid var(--primary); padding-left: 8px;">
                      <label>
-                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
+                        ${escapeHtml(param.name ? param.name.replace(/^arg_/, "") : "")}
                         <span class="type">Union</span>
                      </label>
                      <div style="margin-bottom: 6px;">
@@ -1323,830 +1526,914 @@
                      </div>
                 </div>
              `;
+    }
+
+    let displayValue = value;
+
+    // 2. BigBuffer: Handle as raw text/bytes
+    if (typeString.endsWith("BigBuffer")) {
+      // simplified display for big buffer
+      inputType = "textarea";
+    }
+
+    // Force textarea for 'json', complex types, or if it's a BigInt value (to allow editing as text)
+    // Auto-switch to textarea if simple string is long or has newlines
+    if (
+      typeString === "string" &&
+      typeof value === "string" &&
+      (value.length > 50 || value.includes("\n"))
+    ) {
+      inputType = "textarea";
+    }
+
+    if (
+      typeString === "json" ||
+      typeString.includes("array") ||
+      typeString.includes("map") ||
+      (value &&
+        typeof value === "object" &&
+        typeString !== "string16" &&
+        typeString !== "bigstring16" &&
+        typeString !== "bigstring")
+    ) {
+      inputType = "textarea";
+    }
+
+    // Clean handling of BigInts/Objects for display
+    if (typeof value === "bigint") {
+      displayValue = value.toString() + "n";
+      if (inputType === "number") inputType = "text";
+    } else if (
+      typeof value === "object" &&
+      value !== null &&
+      typeString !== "string16" &&
+      typeString !== "bigstring16" &&
+      typeString !== "bigstring"
+    ) {
+      // DEEP Sanitize before stringifying to remove inner arg_
+      displayValue = safeStringify(sanitizeKeys(value), 2);
+    } else if (value === undefined || value === null) {
+      // Handle defaults if value is not provided (for Manual Form)
+      if (!isInterceptor) {
+        const def = MojoParser.getDefaultValue(typeString);
+        if (def !== undefined) {
+          displayValue = def;
+          if (typeof def === "object") displayValue = safeStringify(def, 2);
+        } else if (typeString === "json") {
+          displayValue = "{}";
         }
+      }
+    }
 
-        let displayValue = value;
-
-        // 2. BigBuffer: Handle as raw text/bytes
-        if (typeString.endsWith('BigBuffer')) {
-            // simplified display for big buffer
-            inputType = 'textarea';
-        }
-
-
-
-
-
-        // Force textarea for 'json', complex types, or if it's a BigInt value (to allow editing as text)
-        // Auto-switch to textarea if simple string is long or has newlines
-        if (typeString === 'string' && typeof value === 'string' && (value.length > 50 || value.includes('\n'))) {
-            inputType = 'textarea';
-        }
-
-        if (typeString === 'json' || typeString.includes('array') || typeString.includes('map') || (value && typeof value === 'object' && typeString !== 'string16' && typeString !== 'bigstring16' && typeString !== 'bigstring')) {
-            inputType = 'textarea';
-        }
-
-        // Clean handling of BigInts/Objects for display
-        if (typeof value === 'bigint') {
-            displayValue = value.toString() + 'n';
-            if (inputType === 'number') inputType = 'text';
-        } else if (typeof value === 'object' && value !== null && typeString !== 'string16' && typeString !== 'bigstring16' && typeString !== 'bigstring') {
-            // DEEP Sanitize before stringifying to remove inner arg_
-            displayValue = safeStringify(sanitizeKeys(value), 2);
-        } else if (value === undefined || value === null) {
-            // Handle defaults if value is not provided (for Manual Form)
-            if (!isInterceptor) {
-                const def = MojoParser.getDefaultValue(typeString);
-                if (def !== undefined) {
-                    displayValue = def;
-                    if (typeof def === 'object') displayValue = safeStringify(def, 2);
-                } else if (typeString === 'json') {
-                    displayValue = '{}';
-                }
-            }
-        }
-
-        // Attributes generation
-        let attributes = '';
-        if (isInterceptor) {
-            attributes = `class="intercept-input param-input ${inputType === 'textarea' ? 'params-editor' : ''}"
+    // Attributes generation
+    let attributes = "";
+    if (isInterceptor) {
+      attributes = `class="intercept-input param-input ${inputType === "textarea" ? "params-editor" : ""}"
                           name="${escapeHtml(param.name)}"
                           data-id="${interceptId}"
                           data-index="${index}"
                           data-type="${escapeHtml(typeString)}"`;
-            if (inputType === 'textarea') attributes += ' style="min-height: 100px;"';
-        } else {
-            // Manual Form attributes
-            const sep = param.name.startsWith('[') ? '' : '.';
-            const fullName = parentName ? `${parentName}${sep}${param.name}` : param.name;
-            attributes = `class="param-input" name="${escapeHtml(fullName)}" data-type="${escapeHtml(typeString)}"`;
-        }
+      if (inputType === "textarea") attributes += ' style="min-height: 100px;"';
+    } else {
+      // Manual Form attributes
+      const sep = param.name.startsWith("[") ? "" : ".";
+      const fullName = parentName
+        ? `${parentName}${sep}${param.name}`
+        : param.name;
+      attributes = `class="param-input" name="${escapeHtml(fullName)}" data-type="${escapeHtml(typeString)}"`;
+    }
 
-        const displayName = escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '');
+    const displayName = escapeHtml(
+      param.name ? param.name.replace(/^arg_/, "") : "",
+    );
 
-        if (inputType === 'checkbox') {
-            return `
+    if (inputType === "checkbox") {
+      return `
                 <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
-                        <input type="checkbox" ${attributes} ${displayValue ? 'checked' : ''}>
+                        <input type="checkbox" ${attributes} ${displayValue ? "checked" : ""}>
                         ${displayName}
                         <span class="type">${escapeHtml(typeString)}</span>
-                        ${param.optional ? '<span class="optional">(optional)</span>' : ''}
+                        ${param.optional ? '<span class="optional">(optional)</span>' : ""}
                     </label>
                 </div>
             `;
-        } else if (inputType === 'textarea') {
-            return `
+    } else if (inputType === "textarea") {
+      return `
                 <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
                         ${displayName}
                         <span class="type">${escapeHtml(typeString)}</span>
-                        ${param.optional ? '<span class="optional">(optional)</span>' : ''}
+                        ${param.optional ? '<span class="optional">(optional)</span>' : ""}
                     </label>
-                    <textarea ${attributes} placeholder="Enter ${typeString}...">${escapeHtml(displayValue || '')}</textarea>
+                    <textarea ${attributes} placeholder="Enter ${typeString}...">${escapeHtml(displayValue || "")}</textarea>
                 </div>
             `;
-        } else if (typeof param.type === 'object' && param.type.type === 'enum') {
-            // Render Enum Dropdown
-            let optionsHtml = '';
-            const options = param.type.options || {};
-            // Helper to find the key for the current value (if any)
-            // displayValue might be the number.
-            for (const [key, val] of Object.entries(options)) {
-                const isSelected = (String(val) === String(displayValue));
-                optionsHtml += `<option value="${val}" ${isSelected ? 'selected' : ''}>${escapeHtml(key)} (${val})</option>`;
-            }
+    } else if (typeof param.type === "object" && param.type.type === "enum") {
+      // Render Enum Dropdown
+      let optionsHtml = "";
+      const options = param.type.options || {};
+      // Helper to find the key for the current value (if any)
+      // displayValue might be the number.
+      for (const [key, val] of Object.entries(options)) {
+        const isSelected = String(val) === String(displayValue);
+        optionsHtml += `<option value="${val}" ${isSelected ? "selected" : ""}>${escapeHtml(key)} (${val})</option>`;
+      }
 
-            return `
+      return `
                  <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                      <label>
                          ${displayName}
                          <span class="type">enum</span>
-                         ${param.optional ? '<span class="optional">(optional)</span>' : ''}
+                         ${param.optional ? '<span class="optional">(optional)</span>' : ""}
                      </label>
                      <select class="param-input" data-type="enum" ${attributes} style="background:var(--bg-dark); color:var(--text-light); border:1px solid var(--border-color); padding:4px; border-radius:4px; width:100%;">
                          ${optionsHtml}
                      </select>
                  </div>
              `;
-        } else {
-            return `
+    } else {
+      return `
                 <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                     <label>
                         ${displayName}
                         <span class="type">${escapeHtml(typeString)}</span>
-                        ${param.optional ? '<span class="optional">(optional)</span>' : ''}
+                        ${param.optional ? '<span class="optional">(optional)</span>' : ""}
                     </label>
-                    <input type="${inputType === 'number' && typeof displayValue === 'string' && displayValue.endsWith('n') ? 'text' : inputType}"
+                    <input type="${inputType === "number" && typeof displayValue === "string" && displayValue.endsWith("n") ? "text" : inputType}"
                            ${attributes}
-                           value="${escapeHtml(displayValue ?? '')}"
+                           value="${escapeHtml(displayValue ?? "")}"
                            placeholder="Enter ${typeString}...">
                 </div>
             `;
+    }
+  }
+
+  window.parseInputValue = function (input) {
+    const type = input.dataset.type;
+    let val = input.value;
+
+    if (input.type === "checkbox") {
+      val = input.checked;
+    } else if (type === "number" || input.type === "number") {
+      val = Number(val);
+    } else if (type === "int64" || type === "uint64") {
+      if (val.endsWith("n")) val = val.slice(0, -1);
+      try {
+        val = BigInt(val);
+      } catch (e) {
+        val = BigInt(0);
+      }
+    } else if (
+      type === "json" ||
+      (type &&
+        (type.includes("array") ||
+          type.includes("map") ||
+          type.includes("object")))
+    ) {
+      try {
+        val = JSON.parse(val);
+      } catch (e) {}
+    } else if (type === "url_wrapped") {
+      val = { arg_url: val };
+    } else if (type === "string16") {
+      // Convert string to array of char codes (uint16)
+      const data = [];
+      for (let i = 0; i < val.length; i++) {
+        data.push(val.charCodeAt(i));
+      }
+      val = { arg_data: data };
+    } else if (type === "bigstring16") {
+      // Convert to Little Endian Uint16 bytes
+      const bytes = [];
+      for (let i = 0; i < val.length; i++) {
+        const code = val.charCodeAt(i);
+        bytes.push(code & 0xff);
+        bytes.push((code >> 8) & 0xff);
+      }
+      // BigString16 struct wraps BigBuffer union
+      val = { arg_data: { arg_bytes: bytes } };
+    } else if (type === "enum") {
+    } else if (type === "bigstring") {
+      // Convert to UTF-8 bytes
+      const encoder = new TextEncoder(); // defaults to utf-8
+      const u8 = encoder.encode(val);
+      // Array.from needed because Mojo expects regular array, not TypedArray sometimes?
+      // Or TypedArray is fine. Let's send regular array to be safe.
+      val = { arg_data: { arg_bytes: Array.from(u8) } };
+    }
+    return val;
+  };
+
+  window.collectFormData = function (container, isArray) {
+    const result = isArray ? [] : {};
+    const nodes = Array.from(container.children);
+
+    nodes.forEach((node) => {
+      let group = node;
+
+      if (!group.classList.contains("form-group")) {
+        const inner = group.querySelector(".form-group");
+        if (inner) group = inner;
+      }
+      if (!group || !group.classList.contains("form-group")) return;
+
+      let value;
+      let key;
+
+      if (group.classList.contains("struct-group")) {
+        key = group.dataset.originalName;
+        const content = group.querySelector(".struct-content");
+        value = collectFormData(content, false);
+      } else if (group.classList.contains("array-group")) {
+        key = group.dataset.originalName;
+        const content = group.querySelector(".array-items-container");
+        value = collectFormData(content, true);
+      } else if (group.classList.contains("map-group")) {
+        key = group.dataset.originalName;
+        const content = group.querySelector(".map-entries-container");
+        value = {};
+        if (content && content.children) {
+          const entries = collectFormData(content, true);
+          entries.forEach((entry) => {
+            if (entry.key !== undefined) value[entry.key] = entry.value;
+          });
         }
+      } else if (group.classList.contains("union-group")) {
+        key = group.dataset.originalName;
+        const activeTag = group.querySelector(".union-discriminator").value;
+        if (activeTag) {
+          const activeContent = group.querySelector(
+            `.union-field[data-tag="${activeTag}"]`,
+          );
+          // We need to collect the value from the active field NO MATTER WHAT
+          // The active field is a .form-group wrapper, so we need to recurse into it?
+          // But collectFormData iterates children.
+          // Let's create a temporary container or just target the input/content directly?
+          // Actually, activeContent contains the rendered input from renderInput.
+          // We can just call collectFormData on activeContent.parentNode? No.
+
+          // Better: The union-field div CONTAINS the rendered input from renderInput.
+          // renderInput returns a .form-group.
+          // So activeContent has a single .form-group child.
+          const innerGroup = activeContent.querySelector(".form-group");
+          if (innerGroup) {
+            const innerData = collectFormData(
+              { children: [innerGroup] },
+              false,
+            );
+            // innerData is { fieldName: value }
+            // We want { activeTag: value }
+            // But wait, the inner field name IS the activeTag (usually args are named).
+            // Mojo Union JS format: { tag: value }
+            value = { [activeTag]: Object.values(innerData)[0] };
+          }
+        }
+      } else {
+        const input = group.querySelector(".param-input");
+        if (!input) return;
+
+        // key fallback: dataset.originalName (Struct/Map), or input.name (Manual Primitive)
+        key = group.dataset.originalName || input.name;
+        if (!isArray && !key) return; // Should not happen for named params
+
+        value = parseInputValue(input);
+      }
+
+      if (isArray) {
+        result.push(value);
+      } else {
+        // Ensure key is valid string
+        if (key) result[key] = value;
+      }
+    });
+    return result;
+  };
+
+  function getInterceptorFormValues(id) {
+    const formContainer = document.getElementById(`interceptForm_${id}`);
+    if (!formContainer) return {};
+    // Intercept params are named arguments, so return Object
+    return collectFormData(formContainer, false);
+  }
+
+  function convertParamsObjectToArray(paramsObj, methodDef) {
+    if (!methodDef || !methodDef.parameters) return [];
+    return methodDef.parameters.map((p) => {
+      // paramsObj keys match p.name exactly (including arg_ prefix if present in mojom)
+      // collectFormData uses dataset.originalName which is exact param.name
+      return paramsObj[p.name];
+    });
+  }
+
+  function renderInterceptorForm(paramsDef, values, interceptId) {
+    if (!paramsDef || paramsDef.length === 0) {
+      return `<div class="empty-state small"><p>No parameters</p></div>`;
     }
 
-    window.parseInputValue = function (input) {
-        const type = input.dataset.type;
-        let val = input.value;
-
-        if (input.type === 'checkbox') {
-            val = input.checked;
-        } else if (type === 'number' || input.type === 'number') {
-            val = Number(val);
-        } else if (type === 'int64' || type === 'uint64') {
-            if (val.endsWith('n')) val = val.slice(0, -1);
-            try { val = BigInt(val); } catch (e) { val = BigInt(0); }
-        } else if (type === 'json' || (type && (type.includes('array') || type.includes('map') || type.includes('object')))) {
-            try { val = JSON.parse(val); } catch (e) { }
-        } else if (type === 'url_wrapped') {
-            val = { arg_url: val };
-        } else if (type === 'string16') {
-            // Convert string to array of char codes (uint16)
-            const data = [];
-            for (let i = 0; i < val.length; i++) {
-                data.push(val.charCodeAt(i));
-            }
-            val = { arg_data: data };
-        } else if (type === 'bigstring16') {
-            // Convert to Little Endian Uint16 bytes
-            const bytes = [];
-            for (let i = 0; i < val.length; i++) {
-                const code = val.charCodeAt(i);
-                bytes.push(code & 0xFF);
-                bytes.push((code >> 8) & 0xFF);
-            }
-            // BigString16 struct wraps BigBuffer union
-            val = { arg_data: { arg_bytes: bytes } };
-        } else if (type === 'enum') {
-        } else if (type === 'bigstring') {
-            // Convert to UTF-8 bytes
-            const encoder = new TextEncoder(); // defaults to utf-8
-            const u8 = encoder.encode(val);
-            // Array.from needed because Mojo expects regular array, not TypedArray sometimes? 
-            // Or TypedArray is fine. Let's send regular array to be safe.
-            val = { arg_data: { arg_bytes: Array.from(u8) } };
+    const inputs = paramsDef
+      .map((param, index) => {
+        let value;
+        if (Array.isArray(values)) {
+          value = values[index];
+        } else if (values && typeof values === "object") {
+          // Try exact name, then name without arg_ prefix (since values might be sanitized)
+          value = values[param.name];
+          if (value === undefined && param.name.startsWith("arg_")) {
+            value = values[param.name.substring(4)];
+          }
         }
-        return val;
-    };
-
-    window.collectFormData = function (container, isArray) {
-        const result = isArray ? [] : {};
-        const nodes = Array.from(container.children);
-
-        nodes.forEach((node) => {
-            let group = node;
-
-            if (!group.classList.contains('form-group')) {
-                const inner = group.querySelector('.form-group');
-                if (inner) group = inner;
-            }
-            if (!group || !group.classList.contains('form-group')) return;
-
-            let value;
-            let key;
-
-            if (group.classList.contains('struct-group')) {
-                key = group.dataset.originalName;
-                const content = group.querySelector('.struct-content');
-                value = collectFormData(content, false);
-            } else if (group.classList.contains('array-group')) {
-                key = group.dataset.originalName;
-                const content = group.querySelector('.array-items-container');
-                value = collectFormData(content, true);
-            } else if (group.classList.contains('map-group')) {
-                key = group.dataset.originalName;
-                const content = group.querySelector('.map-entries-container');
-                value = {};
-                if (content && content.children) {
-                    const entries = collectFormData(content, true);
-                    entries.forEach(entry => {
-                        if (entry.key !== undefined) value[entry.key] = entry.value;
-                    });
-                }
-            } else if (group.classList.contains('union-group')) {
-                key = group.dataset.originalName;
-                const activeTag = group.querySelector('.union-discriminator').value;
-                if (activeTag) {
-                    const activeContent = group.querySelector(`.union-field[data-tag="${activeTag}"]`);
-                    // We need to collect the value from the active field NO MATTER WHAT
-                    // The active field is a .form-group wrapper, so we need to recurse into it?
-                    // But collectFormData iterates children.
-                    // Let's create a temporary container or just target the input/content directly?
-                    // Actually, activeContent contains the rendered input from renderInput.
-                    // We can just call collectFormData on activeContent.parentNode? No.
-
-                    // Better: The union-field div CONTAINS the rendered input from renderInput.
-                    // renderInput returns a .form-group.
-                    // So activeContent has a single .form-group child.
-                    const innerGroup = activeContent.querySelector('.form-group');
-                    if (innerGroup) {
-                        const innerData = collectFormData({ children: [innerGroup] }, false);
-                        // innerData is { fieldName: value }
-                        // We want { activeTag: value }
-                        // But wait, the inner field name IS the activeTag (usually args are named).
-                        // Mojo Union JS format: { tag: value }
-                        value = { [activeTag]: Object.values(innerData)[0] };
-                    }
-                }
-            } else {
-                const input = group.querySelector('.param-input');
-                if (!input) return;
-
-                // key fallback: dataset.originalName (Struct/Map), or input.name (Manual Primitive)
-                key = group.dataset.originalName || input.name;
-                if (!isArray && !key) return; // Should not happen for named params
-
-                value = parseInputValue(input);
-            }
-
-            if (isArray) {
-                result.push(value);
-            } else {
-                // Ensure key is valid string
-                if (key) result[key] = value;
-            }
+        return renderInput(param, value, {
+          isInterceptor: true,
+          index,
+          interceptId,
         });
-        return result;
-    };
+      })
+      .join("");
 
-    function getInterceptorFormValues(id) {
-        const formContainer = document.getElementById(`interceptForm_${id}`);
-        if (!formContainer) return {};
-        // Intercept params are named arguments, so return Object
-        return collectFormData(formContainer, false);
-    }
+    return `<div id="interceptForm_${interceptId}">${inputs}</div>`;
+  }
 
-    function convertParamsObjectToArray(paramsObj, methodDef) {
-        if (!methodDef || !methodDef.parameters) return [];
-        return methodDef.parameters.map(p => {
-            // paramsObj keys match p.name exactly (including arg_ prefix if present in mojom)
-            // collectFormData uses dataset.originalName which is exact param.name
-            return paramsObj[p.name];
-        });
-    }
-
-    function renderInterceptorForm(paramsDef, values, interceptId) {
-        if (!paramsDef || paramsDef.length === 0) {
-            return `<div class="empty-state small"><p>No parameters</p></div>`;
-        }
-
-        const inputs = paramsDef.map((param, index) => {
-            let value;
-            if (Array.isArray(values)) {
-                value = values[index];
-            } else if (values && typeof values === 'object') {
-                // Try exact name, then name without arg_ prefix (since values might be sanitized)
-                value = values[param.name];
-                if (value === undefined && param.name.startsWith('arg_')) {
-                    value = values[param.name.substring(4)];
-                }
-            }
-            return renderInput(param, value, { isInterceptor: true, index, interceptId });
-        }).join('');
-
-        return `<div id="interceptForm_${interceptId}">${inputs}</div>`;
-    }
-
-
-    function renderParamsForm(params) {
-        if (!params || params.length === 0) {
-            elements.paramsForm.innerHTML = safeHTML(`
+  function renderParamsForm(params) {
+    if (!params || params.length === 0) {
+      elements.paramsForm.innerHTML = safeHTML(`
                     <p>This method has no parameters</p>
                 </div>
             `);
-            return;
+      return;
+    }
+
+    elements.paramsForm.innerHTML = safeHTML(
+      params
+        .map((param) => {
+          return renderInput(param, undefined, { isInterceptor: false });
+        })
+        .join(""),
+    );
+
+    // Initialize state from default values in DOM
+    // We use a small timeout to ensure DOM is ready? No, synchronous is fine.
+    state.paramValues = collectFormData(elements.paramsForm, false);
+    updateGeneratedCode();
+  }
+
+  const resolveNamespace = MojoReflectionService.resolveNamespace;
+
+  function inferTypeFromMojomType(mojomType) {
+    // Delegate to shared service
+    return MojoReflectionService.inferType(mojomType);
+  }
+
+  function mapFieldsToUIParams(fields) {
+    return MojoReflectionService.mapFieldsToParams(fields);
+  }
+
+  // ========================================
+  // Code Generation
+  // ========================================
+  function updateGeneratedCode() {
+    if (!state.selectedInterface) {
+      elements.generatedCode.textContent =
+        "// Select an interface and method to generate code";
+      return;
+    }
+
+    const code = generateCode();
+    // Use syntax highlighting and safeHTML
+    const highlighted = highlightSyntax(code);
+    elements.generatedCode.innerHTML = safeHTML(highlighted);
+  }
+
+  function generateCode(isExecution = false) {
+    const iface = state.selectedInterface;
+    const method = state.selectedMethod;
+
+    if (!iface) return "// Select an interface";
+
+    const moduleParts = iface.module.split(".");
+    const namespace = moduleParts.join(".");
+
+    let code = `// MojoJS Code for ${iface.name}${method ? "." + method : ""}\n`;
+    code += `// Module: ${iface.module}\n`;
+    code += `// File: ${iface.file}\n\n`;
+
+    if (!method) {
+      code += `// Step 1: Get the interface remote\n`;
+      code += `// The binding file defines the interface strictly in 'mojo.internal.bindings'\n`;
+      code += `const root = mojo.internal.bindings.${namespace};\n\n`;
+
+      code += `let ${iface.name.toLowerCase()}Remote;\n`;
+      code += `if (typeof root.${iface.name}.getRemote === 'function') {\n`;
+      code += `    ${iface.name.toLowerCase()}Remote = root.${iface.name}.getRemote();\n`;
+      code += `} else {\n`;
+      code += `    ${iface.name.toLowerCase()}Remote = new root.${iface.name}Remote();\n`;
+      code += `    const receiver = ${iface.name.toLowerCase()}Remote.bindNewPipeAndPassReceiver();\n`;
+      code += `    const handle = receiver.handle || receiver;\n`;
+      code += `    Mojo.bindInterface("${iface.module + "." + iface.name}", handle, "context");\n`;
+      code += `}\n`;
+      code += `// Select a method to see the full call...`;
+      return code;
+    }
+
+    const remoteName =
+      iface.name.charAt(0).toLowerCase() + iface.name.slice(1) + "Remote";
+    const methodName = method.charAt(0).toLowerCase() + method.slice(1);
+
+    code += `// Define Root Namespace\n`;
+    code += `const root = mojo.internal.bindings.${namespace};\n\n`;
+
+    code += `// Get remote for the interface\n`;
+    code += `let ${remoteName};\n`;
+
+    if (state.isAssociated) {
+      const masterHandleId =
+        state.masterHandleId || "/* INSERT_MASTER_HANDLE_ID */";
+      const interfaceId = state.interfaceId || "/* INSERT_INTERFACE_ID */";
+
+      code += `// Associated Interface Binding\n`;
+      code += `// Requires an existing Master Pipe Handle (e.g. from a parent interface interception)\n`;
+      if (state.masterHandleId) {
+        code += `const masterHandle = (typeof MojoHandleRegistry !== 'undefined') ? MojoHandleRegistry.get(${masterHandleId}) : null;\n`;
+        code += `if (!masterHandle) {\n`;
+        code += `    throw new Error("[MojoGUI] Master Handle ID ${masterHandleId} not found in MojoHandleRegistry. Associated interfaces require a REAL handle object.");\n`;
+        code += `}\n`;
+      } else {
+        code += `const masterHandle = { value: /* INSERT_MASTER_HANDLE_ID */ }; // ERROR: Real handle object required\n`;
+      }
+      code += `const router = new mojo.internal.interfaceSupport.Router(masterHandle);\n`;
+      code += `const endpoint = new mojo.internal.interfaceSupport.Endpoint(router, ${interfaceId});\n`;
+      code += `${remoteName} = new root.${iface.name}Remote(endpoint);\n`;
+    } else {
+      code += `if (typeof root.${iface.name}.getRemote === 'function') {\n`;
+      code += `    ${remoteName} = root.${iface.name}.getRemote();\n`;
+      code += `} else {\n`;
+      code += `    // Manual binding for Lite bindings without getRemote()\n`;
+      code += `    ${remoteName} = new root.${iface.name}Remote();\n`;
+      code += `    const receiver = ${remoteName}.bindNewPipeAndPassReceiver();\n`;
+      code += `    const handle = receiver.handle || receiver;\n`;
+      code += `    // Default to 'context' scope for safety, can be 'process'\n`;
+      code += `    Mojo.bindInterface("${iface.module + "." + iface.name}", handle, "context");\n`;
+      code += `}\n`;
+    }
+    code += `\n`;
+
+    // Generate method call with params
+    const paramsDef = getMethodParams(state.selectedInterface.name, method);
+    const args = [];
+
+    if (paramsDef && paramsDef.length > 0) {
+      code += `// Method parameters\n`;
+      paramsDef.forEach((p) => {
+        const key = p.name;
+        // Strip 'arg_' from variable name if present
+        const safeVarName = key.startsWith("arg_") ? key.substring(4) : key;
+        let value = state.paramValues[key];
+
+        // Logic needed for Execution:
+        // If isExecution=true, we reconcile keys (add arg_).
+        // If isExecution=false (Display), we keep them clean.
+        if (isExecution && value && typeof value === "object") {
+          // Disable heuristics for Execution because state.paramValues keys come from form inputs
+          // which already have correct names (with arg_ prefix if needed).
+          value = reconcileKeys(value, null, false);
         }
 
-        elements.paramsForm.innerHTML = safeHTML(params.map(param => {
-            return renderInput(param, undefined, { isInterceptor: false });
-        }).join(''));
-
-        // Initialize state from default values in DOM
-        // We use a small timeout to ensure DOM is ready? No, synchronous is fine.
-        state.paramValues = collectFormData(elements.paramsForm, false);
-        updateGeneratedCode();
-    }
-
-    const resolveNamespace = MojoReflectionService.resolveNamespace;
-
-    function inferTypeFromMojomType(mojomType) {
-        // Delegate to shared service
-        return MojoReflectionService.inferType(mojomType);
-    }
-
-
-
-    function mapFieldsToUIParams(fields) {
-        return MojoReflectionService.mapFieldsToParams(fields);
-    }
-
-    // ========================================
-    // Code Generation
-    // ========================================
-    function updateGeneratedCode() {
-        if (!state.selectedInterface) {
-            elements.generatedCode.textContent = '// Select an interface and method to generate code';
-            return;
-        }
-
-        const code = generateCode();
-        // Use syntax highlighting and safeHTML
-        const highlighted = highlightSyntax(code);
-        elements.generatedCode.innerHTML = safeHTML(highlighted);
-    }
-
-    function generateCode(isExecution = false) {
-        const iface = state.selectedInterface;
-        const method = state.selectedMethod;
-
-        if (!iface) return '// Select an interface';
-
-        const moduleParts = iface.module.split('.');
-        const namespace = moduleParts.join('.');
-
-        let code = `// MojoJS Code for ${iface.name}${method ? '.' + method : ''}\n`;
-        code += `// Module: ${iface.module}\n`;
-        code += `// File: ${iface.file}\n\n`;
-
-        if (!method) {
-            code += `// Step 1: Get the interface remote\n`;
-            code += `// The binding file defines the interface strictly in 'mojo.internal.bindings'\n`;
-            code += `const root = mojo.internal.bindings.${namespace};\n\n`;
-
-            code += `let ${iface.name.toLowerCase()}Remote;\n`;
-            code += `if (typeof root.${iface.name}.getRemote === 'function') {\n`;
-            code += `    ${iface.name.toLowerCase()}Remote = root.${iface.name}.getRemote();\n`;
-            code += `} else {\n`;
-            code += `    ${iface.name.toLowerCase()}Remote = new root.${iface.name}Remote();\n`;
-            code += `    const receiver = ${iface.name.toLowerCase()}Remote.bindNewPipeAndPassReceiver();\n`;
-            code += `    const handle = receiver.handle || receiver;\n`;
-            code += `    Mojo.bindInterface("${iface.module + '.' + iface.name}", handle, "context");\n`;
-            code += `}\n`;
-            code += `// Select a method to see the full call...`;
-            return code;
-        }
-
-        const remoteName = iface.name.charAt(0).toLowerCase() + iface.name.slice(1) + 'Remote';
-        const methodName = method.charAt(0).toLowerCase() + method.slice(1);
-
-        code += `// Define Root Namespace\n`;
-        code += `const root = mojo.internal.bindings.${namespace};\n\n`;
-
-        code += `// Get remote for the interface\n`;
-        code += `let ${remoteName};\n`;
-
-        if (state.isAssociated) {
-            const masterHandleId = state.masterHandleId || '/* INSERT_MASTER_HANDLE_ID */';
-            const interfaceId = state.interfaceId || '/* INSERT_INTERFACE_ID */';
-
-            code += `// Associated Interface Binding\n`;
-            code += `// Requires an existing Master Pipe Handle (e.g. from a parent interface interception)\n`;
-            if (state.masterHandleId) {
-                code += `const masterHandle = (typeof MojoHandleRegistry !== 'undefined') ? MojoHandleRegistry.get(${masterHandleId}) : null;\n`;
-                code += `if (!masterHandle) {\n`;
-                code += `    throw new Error("[MojoGUI] Master Handle ID ${masterHandleId} not found in MojoHandleRegistry. Associated interfaces require a REAL handle object.");\n`;
-                code += `}\n`;
-            } else {
-                code += `const masterHandle = { value: /* INSERT_MASTER_HANDLE_ID */ }; // ERROR: Real handle object required\n`;
-            }
-            code += `const router = new mojo.internal.interfaceSupport.Router(masterHandle);\n`;
-            code += `const endpoint = new mojo.internal.interfaceSupport.Endpoint(router, ${interfaceId});\n`;
-            code += `${remoteName} = new root.${iface.name}Remote(endpoint);\n`;
+        let valueStr;
+        if (typeof value === "bigint") {
+          valueStr = value.toString() + "n";
+        } else if (p.type === "map" && Array.isArray(value)) {
+          // Fix for Manual Mode: Convert Array of {key, value} entries back to Map Object
+          const mapObj = {};
+          value.forEach((item) => {
+            if (item.key !== undefined) mapObj[item.key] = item.value;
+          });
+          // Reconcile keys on the constructed object if needed
+          // Disable heuristics here too as we just built it from form data
+          const processedMap = isExecution
+            ? reconcileKeys(mapObj, null, false)
+            : mapObj;
+          valueStr = safeStringify(processedMap);
         } else {
-            code += `if (typeof root.${iface.name}.getRemote === 'function') {\n`;
-            code += `    ${remoteName} = root.${iface.name}.getRemote();\n`;
-            code += `} else {\n`;
-            code += `    // Manual binding for Lite bindings without getRemote()\n`;
-            code += `    ${remoteName} = new root.${iface.name}Remote();\n`;
-            code += `    const receiver = ${remoteName}.bindNewPipeAndPassReceiver();\n`;
-            code += `    const handle = receiver.handle || receiver;\n`;
-            code += `    // Default to 'context' scope for safety, can be 'process'\n`;
-            code += `    Mojo.bindInterface("${iface.module + '.' + iface.name}", handle, "context");\n`;
-            code += `}\n`;
-        }
-        code += `\n`;
-
-        // Generate method call with params
-        const paramsDef = getMethodParams(state.selectedInterface.name, method);
-        const args = [];
-
-        if (paramsDef && paramsDef.length > 0) {
-            code += `// Method parameters\n`;
-            paramsDef.forEach(p => {
-                const key = p.name;
-                // Strip 'arg_' from variable name if present
-                const safeVarName = key.startsWith('arg_') ? key.substring(4) : key;
-                let value = state.paramValues[key];
-
-                // Logic needed for Execution:
-                // If isExecution=true, we reconcile keys (add arg_).
-                // If isExecution=false (Display), we keep them clean.
-                if (isExecution && value && typeof value === 'object') {
-                    // Disable heuristics for Execution because state.paramValues keys come from form inputs 
-                    // which already have correct names (with arg_ prefix if needed).
-                    value = reconcileKeys(value, null, false);
-                }
-
-                let valueStr;
-                if (typeof value === 'bigint') {
-                    valueStr = value.toString() + 'n';
-                } else if (p.type === 'map' && Array.isArray(value)) {
-                    // Fix for Manual Mode: Convert Array of {key, value} entries back to Map Object
-                    const mapObj = {};
-                    value.forEach(item => {
-                        if (item.key !== undefined) mapObj[item.key] = item.value;
-                    });
-                    // Reconcile keys on the constructed object if needed
-                    // Disable heuristics here too as we just built it from form data
-                    const processedMap = isExecution ? reconcileKeys(mapObj, null, false) : mapObj;
-                    valueStr = safeStringify(processedMap);
-                } else {
-                    valueStr = typeof value === 'string' ? `"${value}"` : safeStringify(value);
-                }
-
-                // If value is undefined (optional/skipped), we might want to pass null or undefined
-                // But for the generated code, let's show what's in the state or null
-                const safeValue = valueStr === undefined ? 'null' : valueStr;
-
-                code += `const ${safeVarName} = ${safeValue};\n`;
-                args.push(safeVarName);
-            });
-            code += `\n`;
+          valueStr =
+            typeof value === "string" ? `"${value}"` : safeStringify(value);
         }
 
-        code += `// Call the method\n`;
-        code += `try {\n`;
-        if (args.length > 0) {
-            code += `  const result = await ${remoteName}.${methodName}(${args.join(', ')});\n`;
-        } else {
-            code += `  const result = await ${remoteName}.${methodName}();\n`;
-        }
-        code += `  console.log('Success:', result);\n`;
-        code += `} catch (error) {\n`;
-        code += `  console.error('Error:', error);\n`;
-        code += `}`;
+        // If value is undefined (optional/skipped), we might want to pass null or undefined
+        // But for the generated code, let's show what's in the state or null
+        const safeValue = valueStr === undefined ? "null" : valueStr;
 
-        return code;
+        code += `const ${safeVarName} = ${safeValue};\n`;
+        args.push(safeVarName);
+      });
+      code += `\n`;
     }
 
-    function highlightSyntax(code) {
-        // Escape HTML
-        let escaped = code
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;');
+    code += `// Call the method\n`;
+    code += `try {\n`;
+    if (args.length > 0) {
+      code += `  const result = await ${remoteName}.${methodName}(${args.join(", ")});\n`;
+    } else {
+      code += `  const result = await ${remoteName}.${methodName}();\n`;
+    }
+    code += `  console.log('Success:', result);\n`;
+    code += `} catch (error) {\n`;
+    code += `  console.error('Error:', error);\n`;
+    code += `}`;
 
-        // Define patterns (Order matters for priority!)
-        const patterns = {
-            comment: /\/\/.*$|\/\*[\s\S]*?\*\//,
-            string: /'(?:\\.|[^'\\])*'|"(?:\\.|[^"\\])*"|`(?:\\.|[^`\\])*`/,
-            // Regex literals: Simplified version to avoid catastrophic backtracking, matches common cases
-            regex: /\/(?![*+?])(?:[^\r\n\[/\\]|\\.|\[(?:[^\r\n\]\\]|\\.)*\])+\/[gimuy]*/,
-            keyword: /\b(const|let|var|function|return|new|async|await|if|else|try|catch|throw|import|from|export|class|extends|static|yield|debugger|switch|case|default|for|while|do|break|continue|typeof|instanceof|void|delete)\b/,
-            builtin: /\b(this|window|document|console|mojo|Mojo|InterceptorManager|MojoObjectRegistry|MojoProxy|MojoBindings|JSON|Math|Date|Promise|Error)\b/,
-            const: /\b(true|false|null|undefined|NaN|Infinity)\b/,
-            number: /\b(?:0x[a-fA-F0-9]+|0b[01]+|0o[0-7]+|\d+(?:\.\d+)?(?:e[+-]?\d+)?)n?\b/,
-            property: /\.[a-zA-Z_$][\w$]*/,
-            class: /\b[A-Z][a-zA-Z0-9_$]*\b/,
-            function: /\b[a-zA-Z_$][\w$]*(?=\()/,
-            operator: /[+\-*/%=&|!^~<>?:]+/
-        };
+    return code;
+  }
 
-        // Construct combined regex with named groups: (?<name>pattern)|...
-        const combinedSource = Object.entries(patterns)
-            .map(([name, regex]) => `(?<${name}>${regex.source})`)
-            .join('|');
+  function highlightSyntax(code) {
+    // Escape HTML
+    let escaped = code
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
 
-        const combinedRegex = new RegExp(combinedSource, 'gm');
+    // Define patterns (Order matters for priority!)
+    const patterns = {
+      comment: /\/\/.*$|\/\*[\s\S]*?\*\//,
+      string: /'(?:\\.|[^'\\])*'|"(?:\\.|[^"\\])*"|`(?:\\.|[^`\\])*`/,
+      // Regex literals: Simplified version to avoid catastrophic backtracking, matches common cases
+      regex:
+        /\/(?![*+?])(?:[^\r\n\[/\\]|\\.|\[(?:[^\r\n\]\\]|\\.)*\])+\/[gimuy]*/,
+      keyword:
+        /\b(const|let|var|function|return|new|async|await|if|else|try|catch|throw|import|from|export|class|extends|static|yield|debugger|switch|case|default|for|while|do|break|continue|typeof|instanceof|void|delete)\b/,
+      builtin:
+        /\b(this|window|document|console|mojo|Mojo|InterceptorManager|MojoObjectRegistry|MojoProxy|MojoBindings|JSON|Math|Date|Promise|Error)\b/,
+      const: /\b(true|false|null|undefined|NaN|Infinity)\b/,
+      number:
+        /\b(?:0x[a-fA-F0-9]+|0b[01]+|0o[0-7]+|\d+(?:\.\d+)?(?:e[+-]?\d+)?)n?\b/,
+      property: /\.[a-zA-Z_$][\w$]*/,
+      class: /\b[A-Z][a-zA-Z0-9_$]*\b/,
+      function: /\b[a-zA-Z_$][\w$]*(?=\()/,
+      operator: /[+\-*/%=&|!^~<>?:]+/,
+    };
 
-        return escaped.replace(combinedRegex, (...args) => {
-            const groups = args.pop(); // Last arg is groups object in replace callback for named groups
-            const match = args[0]; // Full match
+    // Construct combined regex with named groups: (?<name>pattern)|...
+    const combinedSource = Object.entries(patterns)
+      .map(([name, regex]) => `(?<${name}>${regex.source})`)
+      .join("|");
 
-            for (const [name, groupMatch] of Object.entries(groups)) {
-                if (groupMatch !== undefined) {
-                    if (name === 'property') {
-                        // Property includes the dot, highlight only the name
-                        return `.<span class="property">${match.substring(1)}</span>`;
-                    }
-                    if (name === 'class') {
-                        // Heuristic: Don't highlight ALL CAPS as class (usually constants) unless it looks like a type
-                        if (match === match.toUpperCase() && match.length > 1) return match;
-                    }
-                    return `<span class="${name}">${match}</span>`;
-                }
-            }
-            return match;
-        });
+    const combinedRegex = new RegExp(combinedSource, "gm");
+
+    return escaped.replace(combinedRegex, (...args) => {
+      const groups = args.pop(); // Last arg is groups object in replace callback for named groups
+      const match = args[0]; // Full match
+
+      for (const [name, groupMatch] of Object.entries(groups)) {
+        if (groupMatch !== undefined) {
+          if (name === "property") {
+            // Property includes the dot, highlight only the name
+            return `.<span class="property">${match.substring(1)}</span>`;
+          }
+          if (name === "class") {
+            // Heuristic: Don't highlight ALL CAPS as class (usually constants) unless it looks like a type
+            if (match === match.toUpperCase() && match.length > 1) return match;
+          }
+          return `<span class="${name}">${match}</span>`;
+        }
+      }
+      return match;
+    });
+  }
+
+  // ========================================
+  // Actions
+  // ========================================
+  async function copyCode() {
+    const code = generateCode();
+
+    try {
+      await navigator.clipboard.writeText(code);
+      showToast("Code copied to clipboard!", "success");
+    } catch (error) {
+      // Fallback
+      const textarea = document.createElement("textarea");
+      textarea.value = code;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      showToast("Code copied to clipboard!", "success");
+    }
+  }
+
+  async function executeCode() {
+    if (!state.mojoAvailable) {
+      showToast(
+        "MojoJS is not available. Enable with --enable-blink-features=MojoJS",
+        "error",
+      );
+      return;
     }
 
-    // ========================================
-    // Actions
-    // ========================================
-    async function copyCode() {
-        const code = generateCode();
+    const iface = state.selectedInterface;
+    const method = state.selectedMethod;
+    if (!iface || !method) return;
 
-        try {
-            await navigator.clipboard.writeText(code);
-            showToast('Code copied to clipboard!', 'success');
-        } catch (error) {
-            // Fallback
-            const textarea = document.createElement('textarea');
-            textarea.value = code;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-            showToast('Code copied to clipboard!', 'success');
-        }
+    const manualId = "manual_" + Date.now();
+    showInterceptorPanel(true);
+
+    // Map param values (handle Maps)
+    const params = {};
+    Object.entries(state.paramValues).forEach(([key, val]) => {
+      params[key] = val;
+    });
+
+    // Only add manual activity if this call WON'T be intercepted by the global interceptor.
+    // Standard calls use Mojo.bindInterface which is intercepted.
+    // Associated interfaces use a private Master Pipe and are NOT intercepted by MojoInterfaceInterceptor.
+    const needsManualEvent = state.isAssociated;
+
+    if (needsManualEvent) {
+      window.MojoGUI_API.addActivity({
+        id: manualId,
+        interface: iface.name,
+        method: method,
+        params: params,
+        status: "Running",
+      });
     }
 
-    async function executeCode() {
-        if (!state.mojoAvailable) {
-            showToast('MojoJS is not available. Enable with --enable-blink-features=MojoJS', 'error');
-            return;
-        }
+    try {
+      const result = await window.MojoExecutionService.call(
+        {
+          interface: iface.module
+            ? `${iface.module}.${iface.name}`
+            : iface.name,
+          masterHandleId: state.masterHandleId,
+        },
+        method,
+        params,
+        {
+          isAssociated: state.isAssociated,
+          interfaceId: state.interfaceId,
+        },
+      );
 
-        const iface = state.selectedInterface;
-        const method = state.selectedMethod;
-        if (!iface || !method) return;
-
-        const manualId = 'manual_' + Date.now();
-        showInterceptorPanel(true);
-
-        // Map param values (handle Maps)
-        const params = {};
-        Object.entries(state.paramValues).forEach(([key, val]) => {
-            params[key] = val;
-        });
-
-        // Only add manual activity if this call WON'T be intercepted by the global interceptor.
-        // Standard calls use Mojo.bindInterface which is intercepted.
-        // Associated interfaces use a private Master Pipe and are NOT intercepted by MojoInterfaceInterceptor.
-        const needsManualEvent = state.isAssociated;
-
-        if (needsManualEvent) {
-            window.MojoGUI_API.addActivity({
-                id: manualId,
-                interface: iface.name,
-                method: method,
-                params: params,
-                status: 'Running'
-            });
-        }
-
-        try {
-            const result = await window.MojoExecutionService.call(
-                { 
-                    interface: iface.module ? `${iface.module}.${iface.name}` : iface.name,
-                    masterHandleId: state.masterHandleId
-                },
-                method,
-                params,
-                {
-                    isAssociated: state.isAssociated,
-                    interfaceId: state.interfaceId
-                }
-            );
-
-            if (needsManualEvent) {
-                window.MojoGUI_API.updateActivity(manualId, 'Done', result);
-            }
-            showToast('Execution Success', 'success');
-        } catch (error) {
-            console.error('[Execution] Error:', error);
-            if (needsManualEvent) {
-                window.MojoGUI_API.updateActivity(manualId, 'Error', error.message);
-            }
-            showToast('Execution Error: ' + error.message, 'error');
-        }
+      if (needsManualEvent) {
+        window.MojoGUI_API.updateActivity(manualId, "Done", result);
+      }
+      showToast("Execution Success", "success");
+    } catch (error) {
+      console.error("[Execution] Error:", error);
+      if (needsManualEvent) {
+        window.MojoGUI_API.updateActivity(manualId, "Error", error.message);
+      }
+      showToast("Execution Error: " + error.message, "error");
     }
+  }
 
-
-
-    function resetParams() {
-        state.paramValues = {};
-        if (state.selectedMethod) {
-            const params = getMethodParams(state.selectedInterface.name, state.selectedMethod);
-            renderParamsForm(params);
-            updateGeneratedCode();
-        }
+  function resetParams() {
+    state.paramValues = {};
+    if (state.selectedMethod) {
+      const params = getMethodParams(
+        state.selectedInterface.name,
+        state.selectedMethod,
+      );
+      renderParamsForm(params);
+      updateGeneratedCode();
     }
+  }
 
-    function clearResults() {
-        elements.executionResults.innerHTML = safeHTML(`
+  function clearResults() {
+    elements.executionResults.innerHTML = safeHTML(`
             <div class="empty-state small">
                 <p>Results will appear here</p>
             </div>
         `);
+  }
+
+  // ========================================
+  // Interceptor Logic
+  // ========================================
+  function toggleInterceptor() {
+    if (!state.selectedInterface) {
+      showToast("Select an interface first", "warning");
+      return;
     }
 
-    // ========================================
-    // Interceptor Logic
-    // ========================================
-    function toggleInterceptor() {
-        if (!state.selectedInterface) {
-            showToast('Select an interface first', 'warning');
-            return;
+    // Use Fully Qualified Name if available (module + . + name)
+    // MojoInterfaceInterceptor for Blink services usually requires FQN OR the Name_ string
+    // If module is present, try FQN.
+    const shortName = state.selectedInterface.name;
+    const moduleName = state.selectedInterface.module;
+
+    // Try FQN first if module exists
+    const nameTypeToUse =
+      moduleName && moduleName.length > 0
+        ? `${moduleName}.${shortName}`
+        : shortName;
+
+    const isActive = InterceptorManager.toggle(nameTypeToUse);
+
+    updateInterceptButtonState(isActive, nameTypeToUse);
+
+    if (isActive) {
+      showToast(`Blocking ${nameTypeToUse}`, "success");
+      // Show panel
+      showInterceptorPanel(true);
+    } else {
+      showToast(`Logging ${nameTypeToUse}`, "info");
+    }
+  }
+
+  // State for Selective Interception (Auto-Forwarding)
+  // Key: "InterfaceName.MethodName" -> true (Auto Forward / Ignored)
+  state.autoForwardMethods = new Set();
+
+  function updateInterceptButtonState(isActive, interfaceName = null) {
+    // 1. Update Main Detail Panel Button
+    if (state.selectedInterface) {
+      const currentFQN = state.selectedInterface.module
+        ? `${state.selectedInterface.module}.${state.selectedInterface.name}`
+        : state.selectedInterface.name;
+      const currentShort = state.selectedInterface.name;
+
+      if (
+        !interfaceName ||
+        interfaceName === currentFQN ||
+        interfaceName === currentShort
+      ) {
+        const targetName = interfaceName || currentFQN;
+        const isRunning = InterceptorManager.isActive(targetName);
+        const mode = InterceptorManager.getMode(targetName);
+        const isBlocking = isRunning && mode === "INTERCEPT";
+
+        elements.interceptStatusDot.classList.toggle("active", isBlocking);
+        elements.interceptToggleBtn.classList.toggle("active", isBlocking);
+        const text = elements.interceptToggleBtn.childNodes[2];
+        if (text) {
+          if (!isRunning) text.textContent = " Intercept";
+          else text.textContent = isBlocking ? " Blocking" : " Logging";
+        }
+      }
+    }
+
+    // 2. Update Traffic Log Buttons (Granular Sync)
+    const logButtons = document.querySelectorAll(
+      `button[data-action="toggle-intercept"]`,
+    );
+    logButtons.forEach((btn) => {
+      const btnIface = btn.dataset.interface;
+      const btnMethod = btn.dataset.method;
+
+      if (btnIface) {
+        const isIfaceActive = InterceptorManager.isActive(btnIface);
+        let isMethodActive = isIfaceActive;
+
+        // If interface is active, check if this specific method is Auto-Forwarded (Ignored)
+        // OR if we are in LOG mode (which is effectively Forwarding)
+        const mode = InterceptorManager.getMode(btnIface);
+
+        if (mode === "LOG") {
+          isMethodActive = false; // LOG mode = Forwarding
+        } else if (isIfaceActive && btnMethod) {
+          const key = `${btnIface}.${btnMethod}`;
+          if (state.autoForwardMethods.has(key)) {
+            isMethodActive = false;
+          }
         }
 
-        // Use Fully Qualified Name if available (module + . + name)
-        // MojoInterfaceInterceptor for Blink services usually requires FQN OR the Name_ string
-        // If module is present, try FQN.
-        const shortName = state.selectedInterface.name;
-        const moduleName = state.selectedInterface.module;
+        btn.classList.toggle("active", isMethodActive);
+        btn.textContent = isMethodActive ? "Blocking" : "Logging";
+      }
+    });
+  }
 
-        // Try FQN first if module exists
-        const nameTypeToUse = (moduleName && moduleName.length > 0) ? `${moduleName}.${shortName}` : shortName;
+  // Helper for Traffic Log Buttons
+  window.toggleInterceptFromLog = function (ifaceName, methodName) {
+    const isIfaceActive = InterceptorManager.isActive(ifaceName);
+    const key = `${ifaceName}.${methodName}`;
 
-        const isActive = InterceptorManager.toggle(nameTypeToUse);
+    if (!isIfaceActive) {
+      // Turning ON Interface. By default, Block everything
+      // "Intercept" on a method means "Make sure Interface is ON and this method is NOT ignored"
+      InterceptorManager.toggle(ifaceName);
+      state.autoForwardMethods.delete(key);
+      showToast(`Started intercepting ${ifaceName}`, "success");
+    } else {
+      // Interface is ALREADY ON.
+      const mode = InterceptorManager.getMode(ifaceName);
 
-        updateInterceptButtonState(isActive, nameTypeToUse);
-
-        if (isActive) {
-            showToast(`Blocking ${nameTypeToUse}`, 'success');
-            // Show panel
-            showInterceptorPanel(true);
+      if (mode === "LOG") {
+        // In LOG mode (Logging). User clicked "Logging", so they want to BLOCK (Intercept).
+        // Use shared toggle logic to switch to INTERCEPT mode.
+        InterceptorManager.toggle(ifaceName);
+        // Ensure this method is NOT ignored (so it blocks).
+        state.autoForwardMethods.delete(key);
+        showToast(`Switched ${ifaceName} to Blocking Mode`, "success");
+      } else {
+        // Already in INTERCEPT mode. Toggle granular method blocking.
+        if (state.autoForwardMethods.has(key)) {
+          // Was Ignored -> Enable Blocking
+          state.autoForwardMethods.delete(key);
+          showToast(`Resumed intercepting ${methodName}`, "success");
         } else {
-            showToast(`Logging ${nameTypeToUse}`, 'info');
+          // Was Blocking -> Set to Ignore
+          state.autoForwardMethods.add(key);
+          showToast(`Logging ${methodName}`, "info");
         }
+      }
     }
 
-    // State for Selective Interception (Auto-Forwarding)
-    // Key: "InterfaceName.MethodName" -> true (Auto Forward / Ignored)
-    state.autoForwardMethods = new Set();
+    updateInterceptButtonState(true, ifaceName);
+  };
 
-    function updateInterceptButtonState(isActive, interfaceName = null) {
-        // 1. Update Main Detail Panel Button
-        if (state.selectedInterface) {
-            const currentFQN = state.selectedInterface.module ? `${state.selectedInterface.module}.${state.selectedInterface.name}` : state.selectedInterface.name;
-            const currentShort = state.selectedInterface.name;
-
-            if (!interfaceName || interfaceName === currentFQN || interfaceName === currentShort) {
-                const targetName = interfaceName || currentFQN;
-                const isRunning = InterceptorManager.isActive(targetName);
-                const mode = InterceptorManager.getMode(targetName);
-                const isBlocking = isRunning && mode === 'INTERCEPT';
-
-                elements.interceptStatusDot.classList.toggle('active', isBlocking);
-                elements.interceptToggleBtn.classList.toggle('active', isBlocking);
-                const text = elements.interceptToggleBtn.childNodes[2];
-                if (text) {
-                    if (!isRunning) text.textContent = ' Intercept';
-                    else text.textContent = isBlocking ? ' Blocking' : ' Logging';
-                }
-            }
-        }
-
-        // 2. Update Traffic Log Buttons (Granular Sync)
-        const logButtons = document.querySelectorAll(`button[data-action="toggle-intercept"]`);
-        logButtons.forEach(btn => {
-            const btnIface = btn.dataset.interface;
-            const btnMethod = btn.dataset.method;
-
-            if (btnIface) {
-                const isIfaceActive = InterceptorManager.isActive(btnIface);
-                let isMethodActive = isIfaceActive;
-
-                // If interface is active, check if this specific method is Auto-Forwarded (Ignored)
-                // OR if we are in LOG mode (which is effectively Forwarding)
-                const mode = InterceptorManager.getMode(btnIface);
-
-                if (mode === 'LOG') {
-                    isMethodActive = false; // LOG mode = Forwarding
-                } else if (isIfaceActive && btnMethod) {
-                    const key = `${btnIface}.${btnMethod}`;
-                    if (state.autoForwardMethods.has(key)) {
-                        isMethodActive = false;
-                    }
-                }
-
-                btn.classList.toggle('active', isMethodActive);
-                btn.textContent = isMethodActive ? 'Blocking' : 'Logging';
-            }
-        });
+  function clearActivityLog() {
+    elements.interceptorTableBody.textContent = "";
+    state.trafficCount = 0;
+    if (elements.trafficBadge) {
+      elements.trafficBadge.textContent = "0";
+      elements.trafficBadge.style.display = "none";
     }
-
-    // Helper for Traffic Log Buttons
-    window.toggleInterceptFromLog = function (ifaceName, methodName) {
-        const isIfaceActive = InterceptorManager.isActive(ifaceName);
-        const key = `${ifaceName}.${methodName}`;
-
-        if (!isIfaceActive) {
-            // Turning ON Interface. By default, Block everything 
-            // "Intercept" on a method means "Make sure Interface is ON and this method is NOT ignored"
-            InterceptorManager.toggle(ifaceName);
-            state.autoForwardMethods.delete(key);
-            showToast(`Started intercepting ${ifaceName}`, 'success');
-        } else {
-            // Interface is ALREADY ON.
-            const mode = InterceptorManager.getMode(ifaceName);
-
-            if (mode === 'LOG') {
-                // In LOG mode (Logging). User clicked "Logging", so they want to BLOCK (Intercept).
-                // Use shared toggle logic to switch to INTERCEPT mode.
-                InterceptorManager.toggle(ifaceName);
-                // Ensure this method is NOT ignored (so it blocks).
-                state.autoForwardMethods.delete(key);
-                showToast(`Switched ${ifaceName} to Blocking Mode`, 'success');
-            } else {
-                // Already in INTERCEPT mode. Toggle granular method blocking.
-                if (state.autoForwardMethods.has(key)) {
-                    // Was Ignored -> Enable Blocking
-                    state.autoForwardMethods.delete(key);
-                    showToast(`Resumed intercepting ${methodName}`, 'success');
-                } else {
-                    // Was Blocking -> Set to Ignore
-                    state.autoForwardMethods.add(key);
-                    showToast(`Logging ${methodName}`, 'info');
-                }
-            }
-        }
-
-        updateInterceptButtonState(true, ifaceName);
-    };
-
-    function clearActivityLog() {
-        elements.interceptorTableBody.textContent = '';
-        state.trafficCount = 0;
-        if (elements.trafficBadge) {
-            elements.trafficBadge.textContent = '0';
-            elements.trafficBadge.style.display = 'none';
-        }
-        elements.interceptorDetails.innerHTML = safeHTML(`
+    elements.interceptorDetails.innerHTML = safeHTML(`
             <div class="empty-state small">
                 <p>Select a request to view details</p>
             </div>
         `);
+  }
+
+  function showInterceptorPanel(show) {
+    state.panelVisible = show;
+
+    if (show) {
+      // Update header button to look active
+      elements.viewTrafficBtn?.classList.add("active");
+
+      // Hide standard panels
+      elements.interfacePanel.style.display = "none";
+      elements.paramsPanel.style.display = "none";
+
+      // Show Interceptor Panel (Full Width)
+      elements.interceptorPanel.style.display = "flex";
+    } else {
+      // Update header button
+      elements.viewTrafficBtn?.classList.remove("active");
+
+      // Show standard panels
+      elements.interfacePanel.style.display = "block";
+      elements.paramsPanel.style.display = "block";
+
+      // Hide Interceptor Panel
+      elements.interceptorPanel.style.display = "none";
+    }
+  }
+
+  // Unified function to add rows to the table
+  function addActivityRow(data) {
+    // Ensure status is initialized
+    if (!data.status) data.status = "Pending";
+
+    const {
+      id,
+      interface: iface,
+      method,
+      params,
+      timestamp,
+      type,
+      status,
+    } = data;
+    const rowId = `row_${id}`;
+
+    // Correctly handle duplicates: Update existing row if ID matches
+    // Use getElementById for absolute reliability
+    const existingRow = document.getElementById(rowId);
+    if (existingRow) {
+      updateActivityRow(id, status || "Pending", data.result);
+      return;
     }
 
-    function showInterceptorPanel(show) {
-        state.panelVisible = show;
+    const row = document.createElement("tr");
+    row.id = rowId; // Set ID for fast lookup
+    row.dataset.id = id;
+    row.dataset.type = type || "INTERCEPT"; // 'INTERCEPT' or 'MANUAL'
+    if (data.proxyId) row.dataset.proxyId = data.proxyId;
 
-        if (show) {
-            // Update header button to look active
-            elements.viewTrafficBtn?.classList.add('active');
+    // Visual indicator for manual vs intercept
+    let typeIcon = "📡";
+    if (type === "MANUAL") typeIcon = "🛠️";
+    if (type === "SYSTEM") typeIcon = "⚠️";
 
-            // Hide standard panels
-            elements.interfacePanel.style.display = 'none';
-            elements.paramsPanel.style.display = 'none';
+    let displayStatus = status;
+    let statusClass =
+      displayStatus === "Done"
+        ? "active"
+        : displayStatus === "Error"
+          ? "error"
+          : displayStatus === "Logged"
+            ? "logged"
+            : "";
 
-            // Show Interceptor Panel (Full Width)
-            elements.interceptorPanel.style.display = 'flex';
-        } else {
-            // Update header button
-            elements.viewTrafficBtn?.classList.remove('active');
-
-            // Show standard panels
-            elements.interfacePanel.style.display = 'block';
-            elements.paramsPanel.style.display = 'block';
-
-            // Hide Interceptor Panel
-            elements.interceptorPanel.style.display = 'none';
-        }
+    // Check mode: LOG mode is effectively 'Logged' from the start
+    if (data.mode === "LOG" && type !== "MANUAL") {
+      displayStatus = "Logged";
+      statusClass = "logged";
+      data.status = "Logged"; // Sync with details
     }
 
-    // Unified function to add rows to the table
-    function addActivityRow(data) {
-        // Ensure status is initialized
-        if (!data.status) data.status = 'Pending';
-
-        const { id, interface: iface, method, params, timestamp, type, status } = data;
-        const rowId = `row_${id}`;
-
-        // Correctly handle duplicates: Update existing row if ID matches
-        // Use getElementById for absolute reliability
-        const existingRow = document.getElementById(rowId);
-        if (existingRow) {
-            updateActivityRow(id, status || 'Pending', data.result);
-            return;
-        }
-
-        const row = document.createElement('tr');
-        row.id = rowId; // Set ID for fast lookup
-        row.dataset.id = id;
-        row.dataset.type = type || 'INTERCEPT'; // 'INTERCEPT' or 'MANUAL'
-        if (data.proxyId) row.dataset.proxyId = data.proxyId;
-
-        // Visual indicator for manual vs intercept
-        let typeIcon = '📡';
-        if (type === 'MANUAL') typeIcon = '🛠️';
-        if (type === 'SYSTEM') typeIcon = '⚠️';
-
-        let displayStatus = status;
-        let statusClass = displayStatus === 'Done' ? 'active' : (displayStatus === 'Error' ? 'error' :
-            (displayStatus === 'Logged' ? 'logged' : ''));
-
-        // Check mode: LOG mode is effectively 'Logged' from the start
-        if (data.mode === 'LOG' && type !== 'MANUAL') {
-            displayStatus = 'Logged';
-            statusClass = 'logged';
-            data.status = 'Logged'; // Sync with details
-        }
-
-        row.innerHTML = safeHTML(`
+    row.innerHTML = safeHTML(`
             <td>
                 ${new Date(timestamp).toLocaleTimeString()}
                 <div style="font-size:0.8em;opacity:0.7;font-family:monospace;">${id}</div>
@@ -2154,256 +2441,300 @@
             <td><span class="type-icon">${typeIcon}</span> ${escapeHtml(iface)}.${escapeHtml(method)}</td>
             <td><span class="status-dot ${statusClass}"></span> ${escapeHtml(displayStatus)}</td>
             <td>
-                ${(type === 'INTERCEPT') ?
-                (() => {
-                    const isIfaceActive = typeof InterceptorManager !== 'undefined' && InterceptorManager.isActive(iface);
-                    let isBtnActive = isIfaceActive;
+                ${
+                  type === "INTERCEPT"
+                    ? (() => {
+                        const isIfaceActive =
+                          typeof InterceptorManager !== "undefined" &&
+                          InterceptorManager.isActive(iface);
+                        let isBtnActive = isIfaceActive;
 
-                    // Check Mode: LOG mode is Logging (Inactive Button)
-                    if (isIfaceActive && typeof InterceptorManager !== 'undefined') {
-                        const mode = InterceptorManager.getMode(iface);
-                        if (mode === 'LOG') {
+                        // Check Mode: LOG mode is Logging (Inactive Button)
+                        if (
+                          isIfaceActive &&
+                          typeof InterceptorManager !== "undefined"
+                        ) {
+                          const mode = InterceptorManager.getMode(iface);
+                          if (mode === "LOG") {
                             isBtnActive = false;
-                        } else if (state.autoForwardMethods.has(`${iface}.${method}`)) {
+                          } else if (
+                            state.autoForwardMethods.has(`${iface}.${method}`)
+                          ) {
                             isBtnActive = false;
+                          }
                         }
-                    }
 
-                    return `<button class="btn btn-small ${isBtnActive ? 'active' : ''}" data-action="toggle-intercept" data-interface="${escapeHtml(iface)}" data-method="${escapeHtml(method)}" onclick="event.stopPropagation(); window.toggleInterceptFromLog('${escapeHtml(iface)}', '${escapeHtml(method)}')">${isBtnActive ? 'Blocking' : 'Logging'}</button>`;
-                })() :
-                ''}
+                        return `<button class="btn btn-small ${isBtnActive ? "active" : ""}" data-action="toggle-intercept" data-interface="${escapeHtml(iface)}" data-method="${escapeHtml(method)}" onclick="event.stopPropagation(); window.toggleInterceptFromLog('${escapeHtml(iface)}', '${escapeHtml(method)}')">${isBtnActive ? "Blocking" : "Logging"}</button>`;
+                      })()
+                    : ""
+                }
             </td>
         `);
 
-        // Attach full details for the details view
-        row.__details = data;
-        row.addEventListener('click', () => showInterceptDetails(row.__details));
+    // Attach full details for the details view
+    row.__details = data;
+    row.addEventListener("click", () => showInterceptDetails(row.__details));
 
-        elements.interceptorTableBody.prepend(row);
+    elements.interceptorTableBody.prepend(row);
+  }
+
+  function updateActivityRow(id, status, resultData) {
+    // Use getElementById for consistency with addActivityRow
+    const row = document.getElementById(`row_${id}`);
+    if (row) {
+      const statusCell = row.cells[2];
+      let displayStatus = status;
+      let statusDotClass =
+        status === "Done"
+          ? "active"
+          : status === "Error"
+            ? "error"
+            : status === "Forwarded"
+              ? "logged"
+              : "";
+      let colorStyle =
+        status === "Error" ? 'style="background:var(--error)"' : "";
+
+      // Preserve 'Logged' status visual
+      if (
+        row.__details &&
+        (row.__details.status === "Logged" || row.__details.mode === "LOG")
+      ) {
+        if (status === "Done") {
+          displayStatus = "Logged";
+          statusDotClass = "logged";
+        }
+      }
+
+      statusCell.innerHTML = safeHTML(
+        `<span class="status-dot ${statusDotClass}" ${colorStyle}></span> ${escapeHtml(displayStatus)}`,
+      );
+
+      // Merge result into the stored details so showInterceptDetails can display it
+      if (row.__details) {
+        row.__details.result = resultData;
+        row.__details.status = status;
+
+        // If this is currently selected, refresh the details view
+        if (row.classList.contains("active")) {
+          showInterceptDetails(row.__details);
+        }
+      }
+    } else {
+      console.warn(
+        `[UI] updateActivityRow failed: Row ${id} not found (row_${id}).`,
+      );
+    }
+  }
+
+  function handleMojoIntercept(e) {
+    state.trafficCount++;
+    if (elements.trafficBadge) {
+      elements.trafficBadge.textContent = state.trafficCount;
+      elements.trafficBadge.style.display = "inline-block";
     }
 
-    function updateActivityRow(id, status, resultData) {
-        // Use getElementById for consistency with addActivityRow
-        const row = document.getElementById(`row_${id}`);
-        if (row) {
-            const statusCell = row.cells[2];
-            let displayStatus = status;
-            let statusDotClass = status === 'Done' ? 'active' : (status === 'Error' ? 'error' : (status === 'Forwarded' ? 'logged' : ''));
-            let colorStyle = status === 'Error' ? 'style="background:var(--error)"' : '';
+    // Check if we should Auto-Forward
+    const autoForwardKey = `${e.detail.interface}.${e.detail.method}`;
+    if (state.autoForwardMethods.has(autoForwardKey)) {
+      // Auto-Forward: Resume immediately
+      const entry = MojoObjectRegistry.get(e.detail.proxyId);
+      if (entry && entry.remote) {
+        entry.remote.resumeCall(e.detail.id, null, false); // false = don't drop, just continue
+      }
 
-            // Preserve 'Logged' status visual
-            if (row.__details && (row.__details.status === 'Logged' || row.__details.mode === 'LOG')) {
-                if (status === 'Done') {
-                    displayStatus = 'Logged';
-                    statusDotClass = 'logged';
-                }
-            }
-
-            statusCell.innerHTML = safeHTML(`<span class="status-dot ${statusDotClass}" ${colorStyle}></span> ${escapeHtml(displayStatus)}`);
-
-            // Merge result into the stored details so showInterceptDetails can display it
-            if (row.__details) {
-                row.__details.result = resultData;
-                row.__details.status = status;
-
-                // If this is currently selected, refresh the details view
-                if (row.classList.contains('active')) {
-                    showInterceptDetails(row.__details);
-                }
-            }
-        } else {
-            console.warn(`[UI] updateActivityRow failed: Row ${id} not found (row_${id}).`);
-        }
+      // Log as 'Logged' (Pending -> Done instantly)
+      addActivityRow({
+        ...e.detail,
+        type: "INTERCEPT",
+        status: "Logged", // Special status
+      });
+      return;
     }
 
-    function handleMojoIntercept(e) {
-        state.trafficCount++;
-        if (elements.trafficBadge) {
-            elements.trafficBadge.textContent = state.trafficCount;
-            elements.trafficBadge.style.display = 'inline-block';
-        }
+    // Forward to unified handler
+    addActivityRow({
+      ...e.detail,
+      type: "INTERCEPT",
+      status: "Pending",
+    });
 
-        // Check if we should Auto-Forward
-        const autoForwardKey = `${e.detail.interface}.${e.detail.method}`;
-        if (state.autoForwardMethods.has(autoForwardKey)) {
-            // Auto-Forward: Resume immediately
-            const entry = MojoObjectRegistry.get(e.detail.proxyId);
-            if (entry && entry.remote) {
-                entry.remote.resumeCall(e.detail.id, null, false); // false = don't drop, just continue
-            }
-
-            // Log as 'Logged' (Pending -> Done instantly)
-            addActivityRow({
-                ...e.detail,
-                type: 'INTERCEPT',
-                status: 'Logged' // Special status
-            });
-            return;
-        }
-
-        // Forward to unified handler
-        addActivityRow({
-            ...e.detail,
-            type: 'INTERCEPT',
-            status: 'Pending'
-        });
-
-        // Ensure panel is visible if not already
-        if (elements.interceptorPanel.style.display === 'none') {
-            // Optional: highlight tab
-        }
+    // Ensure panel is visible if not already
+    if (elements.interceptorPanel.style.display === "none") {
+      // Optional: highlight tab
     }
+  }
 
-    function handleMojoResponse(e) {
-        updateActivityRow(e.detail.id, 'Done', e.detail.result);
-    }
+  function handleMojoResponse(e) {
+    updateActivityRow(e.detail.id, "Done", e.detail.result);
+  }
 
-    function handleMojoResponseIntercept(e) {
-        const detail = e.detail;
-        const row = elements.interceptorTableBody.querySelector(`tr[data-id="${detail.id}"]`);
+  function handleMojoResponseIntercept(e) {
+    const detail = e.detail;
+    const row = elements.interceptorTableBody.querySelector(
+      `tr[data-id="${detail.id}"]`,
+    );
 
-        if (row) {
-            // Update status to indicate we are editing response
-            updateActivityRow(detail.id, 'Response Edit', detail.result);
+    if (row) {
+      // Update status to indicate we are editing response
+      updateActivityRow(detail.id, "Response Edit", detail.result);
 
-            // If row is active, refresh detail view
-            if (row.classList.contains('active')) {
-                // Ensure detail includes result so we can edit it
-                if (row.__details) {
-                    row.__details.result = detail.result;
-                    row.__details.status = 'Response Edit';
-                    showInterceptDetails(row.__details);
-                }
-            }
+      // If row is active, refresh detail view
+      if (row.classList.contains("active")) {
+        // Ensure detail includes result so we can edit it
+        if (row.__details) {
+          row.__details.result = detail.result;
+          row.__details.status = "Response Edit";
+          showInterceptDetails(row.__details);
         }
+      }
     }
+  }
 
-    window.sendResponse = function (id) {
-        let result = null;
-        try {
-            const formContainer = document.getElementById(`interceptForm_${id}_res`);
-            if (formContainer) {
-                // Try to map array values back to object keys if definition exists
-                const values = getInterceptorFormValues(id + '_res');
-
-                const row = document.querySelector(`tr[data-id="${id}"]`);
-                const iface = row.__details.interface;
-                const method = row.__details.method;
-                const methodDef = findMethodDefinition(iface, method);
-
-                if (methodDef && methodDef.responseParams) {
-                    const keys = methodDef.responseParams.map(p => p.name);
-                    result = {};
-                    keys.forEach((key, i) => {
-                        result[key] = values[key];
-                    });
-                } else {
-                    // Fallback if no def found (shouldn't happen)
-                    // console.warn('Form container exists but no def found for mapping?');
-                    result = values;
-                }
-            } else {
-                // Fallback textarea
-                const textarea = document.getElementById(`interceptParams_${id}_res`);
-                if (textarea) result = safeParse(textarea.value);
-            }
-
-            // SAFETY CHECK: If result is null but we expect a Struct (responseParams exists), return {}
-            // This fixes crash in BatteryMonitor.queryNextStatus where it expects a struct but gets null.
-            const row = document.querySelector(`tr[data-id="${id}"]`);
-            if (row && row.__details) {
-                const iface = row.__details.interface;
-                const method = row.__details.method;
-                const methodDef = findMethodDefinition(iface, method);
-
-                if (result === null && methodDef && methodDef.responseParams && methodDef.responseParams.length > 0) {
-                    // console.warn('[UI] Response is null but method expects parameters. Defaulting to empty object {} to prevent crash.');
-                    result = {};
-                }
-            }
-
-        } catch (e) {
-            alert('Error parsing response: ' + e.message);
-            return;
-        }
+  window.sendResponse = function (id) {
+    let result = null;
+    try {
+      const formContainer = document.getElementById(`interceptForm_${id}_res`);
+      if (formContainer) {
+        // Try to map array values back to object keys if definition exists
+        const values = getInterceptorFormValues(id + "_res");
 
         const row = document.querySelector(`tr[data-id="${id}"]`);
-        const proxyId = row.dataset.proxyId;
-        const entry = MojoObjectRegistry.get(proxyId);
+        const iface = row.__details.interface;
+        const method = row.__details.method;
+        const methodDef = findMethodDefinition(iface, method);
 
-        if (entry && entry.remote) {
-            // Fix: Use reconcileKeys to restore original field names (e.g. status -> arg_status)
-            const originalResult = (row && row.__details) ? row.__details.result : null;
-            const restoredResult = reconcileKeys(result, originalResult);
-
-            // console.log(`[UI] Sending Response for ${id}`, restoredResult);
-            entry.remote.sendResponse(id, restoredResult);
-            updateActivityRow(id, 'Done', restoredResult);
-            showToast('Response Sent', 'success');
+        if (methodDef && methodDef.responseParams) {
+          const keys = methodDef.responseParams.map((p) => p.name);
+          result = {};
+          keys.forEach((key, i) => {
+            result[key] = values[key];
+          });
+        } else {
+          // Fallback if no def found (shouldn't happen)
+          // console.warn('Form container exists but no def found for mapping?');
+          result = values;
         }
-    };
+      } else {
+        // Fallback textarea
+        const textarea = document.getElementById(`interceptParams_${id}_res`);
+        if (textarea) result = safeParse(textarea.value);
+      }
 
-    function handleMojoError(e) {
-        const { id, error } = e.detail;
-        const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
+      // SAFETY CHECK: If result is null but we expect a Struct (responseParams exists), return {}
+      // This fixes crash in BatteryMonitor.queryNextStatus where it expects a struct but gets null.
+      const row = document.querySelector(`tr[data-id="${id}"]`);
+      if (row && row.__details) {
+        const iface = row.__details.interface;
+        const method = row.__details.method;
+        const methodDef = findMethodDefinition(iface, method);
 
-        if (!row) {
-            // If row doesn't exist (e.g. system error or protocol mismatch), create one
-            addActivityRow({
-                id: id,
-                interface: 'System',
-                method: 'Error',
-                params: null,
-                timestamp: Date.now(),
-                type: 'SYSTEM',
-                status: 'Error',
-                error: error
-            });
-            return;
+        if (
+          result === null &&
+          methodDef &&
+          methodDef.responseParams &&
+          methodDef.responseParams.length > 0
+        ) {
+          // console.warn('[UI] Response is null but method expects parameters. Defaulting to empty object {} to prevent crash.');
+          result = {};
         }
-
-        updateActivityRow(id, 'Error', { error: error });
+      }
+    } catch (e) {
+      alert("Error parsing response: " + e.message);
+      return;
     }
 
-    const sanitizeKeys = MojoUtils.sanitizeKeys;
-    const reconcileKeys = MojoUtils.reconcileKeys;
+    const row = document.querySelector(`tr[data-id="${id}"]`);
+    const proxyId = row.dataset.proxyId;
+    const entry = MojoObjectRegistry.get(proxyId);
 
-    function showInterceptDetails(detail) {
-        const { id, interface: iface, method, params } = detail;
+    if (entry && entry.remote) {
+      // Fix: Use reconcileKeys to restore original field names (e.g. status -> arg_status)
+      const originalResult = row && row.__details ? row.__details.result : null;
+      const restoredResult = reconcileKeys(result, originalResult);
 
-        // Highlight row
-        elements.interceptorTableBody.querySelectorAll('tr').forEach(tr => tr.classList.remove('active'));
-        const row = elements.interceptorTableBody.querySelector(`tr[data-id="${id}"]`);
-        if (row) row.classList.add('active');
+      // console.log(`[UI] Sending Response for ${id}`, restoredResult);
+      entry.remote.sendResponse(id, restoredResult);
+      updateActivityRow(id, "Done", restoredResult);
+      showToast("Response Sent", "success");
+    }
+  };
 
-        // Show details with action buttons
-        const isPending = detail.status === 'Pending';
-        const isManual = detail.type === 'MANUAL';
+  function handleMojoError(e) {
+    const { id, error } = e.detail;
+    const row = elements.interceptorTableBody.querySelector(
+      `tr[data-id="${id}"]`,
+    );
 
-        const methodDef = findMethodDefinition(iface, method);
-        let paramsHtml;
+    if (!row) {
+      // If row doesn't exist (e.g. system error or protocol mismatch), create one
+      addActivityRow({
+        id: id,
+        interface: "System",
+        method: "Error",
+        params: null,
+        timestamp: Date.now(),
+        type: "SYSTEM",
+        status: "Error",
+        error: error,
+      });
+      return;
+    }
 
-        // Special handling for Script interface (Job-like data)
-        if (iface === 'Script') {
-            const displayParams = typeof params === 'string' ? params : safeStringify(sanitizeKeys(params), 2);
-            paramsHtml = `<div class="result-code" style="background: var(--bg-primary); border-color: var(--accent-primary);">${escapeHtml(displayParams)}</div>`;
+    updateActivityRow(id, "Error", { error: error });
+  }
 
-            let resultHtml = '';
-            if (detail.result || detail.status === 'Done' || detail.error || detail.status === 'Error') {
-                if (detail.error || detail.status === 'Error') {
-                    resultHtml = `<div class="result-section">
+  const sanitizeKeys = MojoUtils.sanitizeKeys;
+  const reconcileKeys = MojoUtils.reconcileKeys;
+
+  function showInterceptDetails(detail) {
+    const { id, interface: iface, method, params } = detail;
+
+    // Highlight row
+    elements.interceptorTableBody
+      .querySelectorAll("tr")
+      .forEach((tr) => tr.classList.remove("active"));
+    const row = elements.interceptorTableBody.querySelector(
+      `tr[data-id="${id}"]`,
+    );
+    if (row) row.classList.add("active");
+
+    // Show details with action buttons
+    const isPending = detail.status === "Pending";
+    const isManual = detail.type === "MANUAL";
+
+    const methodDef = findMethodDefinition(iface, method);
+    let paramsHtml;
+
+    // Special handling for Script interface (Job-like data)
+    if (iface === "Script") {
+      const displayParams =
+        typeof params === "string"
+          ? params
+          : safeStringify(sanitizeKeys(params), 2);
+      paramsHtml = `<div class="result-code" style="background: var(--bg-primary); border-color: var(--accent-primary);">${escapeHtml(displayParams)}</div>`;
+
+      let resultHtml = "";
+      if (
+        detail.result ||
+        detail.status === "Done" ||
+        detail.error ||
+        detail.status === "Error"
+      ) {
+        if (detail.error || detail.status === "Error") {
+          resultHtml = `<div class="result-section">
                                     <div class="result-section-title">Error</div>
-                                    <div class="error-text code-block" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(typeof detail.error === 'object' ? safeStringify(detail.error, 2) : detail.error)}</div>
+                                    <div class="error-text code-block" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(typeof detail.error === "object" ? safeStringify(detail.error, 2) : detail.error)}</div>
                                   </div>`;
-                } else {
-                    resultHtml = `<div class="result-section">
+        } else {
+          resultHtml = `<div class="result-section">
                                     <div class="result-section-title">Result</div>
                                     <div class="result-code" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(safeStringify(sanitizeKeys(detail.result), 2))}</div>
                                   </div>`;
-                }
-            }
+        }
+      }
 
-            elements.interceptorDetails.innerHTML = safeHTML(`
+      elements.interceptorDetails.innerHTML = safeHTML(`
                 <div class="interceptor-actions">
                     <h4>${escapeHtml(iface)}: ${escapeHtml(method)}</h4>
                 </div>
@@ -2413,51 +2744,57 @@
                     ${resultHtml}
                 </div>
             `);
-            return;
-        }
+      return;
+    }
 
-        if (methodDef && methodDef.parameters) {
-            paramsHtml = `<div class="params-form-container">
+    if (methodDef && methodDef.parameters) {
+      paramsHtml = `<div class="params-form-container">
                            ${renderInterceptorForm(methodDef.parameters, params, id)}
                            </div>`;
-        } else {
-            // Fallback for unknown methods or if no methodDef, sanitize keys for display
-            // ALWAYS enable editing to allow Replay modification
-            const displayParams = sanitizeKeys(params);
-            paramsHtml = `<textarea id="interceptParams_${id}" class="params-editor">${escapeHtml(safeStringify(displayParams, 2))}</textarea>`;
-        }
+    } else {
+      // Fallback for unknown methods or if no methodDef, sanitize keys for display
+      // ALWAYS enable editing to allow Replay modification
+      const displayParams = sanitizeKeys(params);
+      paramsHtml = `<textarea id="interceptParams_${id}" class="params-editor">${escapeHtml(safeStringify(displayParams, 2))}</textarea>`;
+    }
 
-        let contentHtml = '';
+    let contentHtml = "";
 
-        // If we have a result or error, use split view for compactness
-        if (detail.result || detail.status === 'Done' || detail.error || detail.status === 'Error') {
-            let responseHtml = '';
+    // If we have a result or error, use split view for compactness
+    if (
+      detail.result ||
+      detail.status === "Done" ||
+      detail.error ||
+      detail.status === "Error"
+    ) {
+      let responseHtml = "";
 
-            if (detail.error || detail.status === 'Error') {
-                responseHtml = `<div class="error-text code-block" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(typeof detail.error === 'object' ? safeStringify(detail.error, 2) : detail.error)}</div>`;
-            } else {
-                // Try to use Nice GUI for Response if definition exists
-                // Mojo definitions often store response params in 'responseParams' or similar
-                // We will check methodDef.responseParams
-                if (methodDef && methodDef.responseParams) {
-                    // Editable if Response Edit, otherwise read-only look
-                    const style = (detail.status === 'Response Edit') ? '' : 'opacity: 0.9;';
-                    responseHtml = `<div class="params-form-container" style="${style}">
-                                        ${renderInterceptorForm(methodDef.responseParams, detail.result, id + '_res')}
+      if (detail.error || detail.status === "Error") {
+        responseHtml = `<div class="error-text code-block" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(typeof detail.error === "object" ? safeStringify(detail.error, 2) : detail.error)}</div>`;
+      } else {
+        // Try to use Nice GUI for Response if definition exists
+        // Mojo definitions often store response params in 'responseParams' or similar
+        // We will check methodDef.responseParams
+        if (methodDef && methodDef.responseParams) {
+          // Editable if Response Edit, otherwise read-only look
+          const style =
+            detail.status === "Response Edit" ? "" : "opacity: 0.9;";
+          responseHtml = `<div class="params-form-container" style="${style}">
+                                        ${renderInterceptorForm(methodDef.responseParams, detail.result, id + "_res")}
                                       </div>`;
-                } else {
-                    if (detail.status === 'Response Edit') {
-                        // Editable Textarea for fallback
-                        const displayParams = sanitizeKeys(detail.result);
-                        responseHtml = `<textarea id="interceptParams_${id}_res" class="params-editor">${escapeHtml(safeStringify(displayParams, 2))}</textarea>`;
-                    } else {
-                        // Read-only view
-                        responseHtml = `<div class="result-code" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(safeStringify(sanitizeKeys(detail.result), 2))}</div>`;
-                    }
-                }
-            }
+        } else {
+          if (detail.status === "Response Edit") {
+            // Editable Textarea for fallback
+            const displayParams = sanitizeKeys(detail.result);
+            responseHtml = `<textarea id="interceptParams_${id}_res" class="params-editor">${escapeHtml(safeStringify(displayParams, 2))}</textarea>`;
+          } else {
+            // Read-only view
+            responseHtml = `<div class="result-code" style="border:none;background:transparent;padding:0;min-height:50px;">${escapeHtml(safeStringify(sanitizeKeys(detail.result), 2))}</div>`;
+          }
+        }
+      }
 
-            contentHtml = `
+      contentHtml = `
                 <div class="details-split-view">
                     <div class="details-column">
                         <h5>Request</h5>
@@ -2469,773 +2806,877 @@
                     </div>
                 </div>
             `;
-        } else {
-            // Single view for pending
-            contentHtml = `
+    } else {
+      // Single view for pending
+      contentHtml = `
                 <div class="details-column" style="margin-top:10px;">
                     <h5>Request</h5>
                     ${paramsHtml}
                 </div>
             `;
-        }
+    }
 
-        elements.interceptorDetails.innerHTML = safeHTML(`
+    elements.interceptorDetails.innerHTML = safeHTML(`
             <div class="interceptor-actions">
                 <h4>${escapeHtml(iface)}.${escapeHtml(method)}</h4>
-                ${(isPending && !isManual) ? `
+                ${
+                  isPending && !isManual
+                    ? `
                 <div class="action-buttons">
                     <button class="btn btn-primary btn-small" onclick="resumeIntercept('${id}', false)">Resume</button>
                     <button class="btn btn-small" onclick="resumeIntercept('${id}', true)">Drop</button>
                 </div>
-                ` : (!isPending && detail.status !== 'Response Edit') ? `
+                `
+                    : !isPending && detail.status !== "Response Edit"
+                      ? `
                 <div class="action-buttons">
                     <button class="btn btn-primary btn-small" onclick="replayIntercept('${id}')">Replay</button>
                 </div>
-                ` : (detail.status === 'Response Edit') ? `
+                `
+                      : detail.status === "Response Edit"
+                        ? `
                 <div class="action-buttons">
                     <button class="btn btn-primary btn-small" onclick="sendResponse('${id}')">Send Response</button>
                     <!-- Maybe Drop Response? Proxy doesn't support dropResponse explicitly, but we could just drop connection? For now just Send. -->
                 </div>
-                ` : ''}
+                `
+                        : ""
+                }
             </div>
             ${contentHtml}
         `);
-    }
+  }
 
-    // Modify request function (globally accessible for onclick)
-    window.resumeIntercept = function (id, drop) {
-        let params = null;
-        let useHeuristic = true;
+  // Modify request function (globally accessible for onclick)
+  window.resumeIntercept = function (id, drop) {
+    let params = null;
+    let useHeuristic = true;
 
-        if (!drop) {
-            const formContainer = document.getElementById(`interceptForm_${id}`);
-            const row = document.getElementById(`row_${id}`);
+    if (!drop) {
+      const formContainer = document.getElementById(`interceptForm_${id}`);
+      const row = document.getElementById(`row_${id}`);
 
-            if (formContainer && row && row.__details) {
-                // New logic: gather from form inputs AND map to array
-                try {
-                    const paramsObj = getInterceptorFormValues(id);
-                    useHeuristic = false; // Form data has correct keys
-
-                    // Convert Object back to Array using Method Definition
-                    const iface = row.__details.interface;
-                    const method = row.__details.method;
-                    const methodDef = findMethodDefinition(iface, method);
-
-                    if (methodDef && methodDef.parameters) {
-                        params = convertParamsObjectToArray(paramsObj, methodDef);
-                    } else {
-                        // Fallback if no def found (shouldn't happen)
-                        params = Object.values(paramsObj);
-                    }
-                } catch (e) {
-                    showToast('Error parsing form values: ' + e.message, 'error');
-                    return;
-                }
-            } else {
-                // Fallback: old textarea logic
-                const textarea = document.getElementById(`interceptParams_${id}`);
-                if (textarea) {
-                    try {
-                        params = safeParse(textarea.value);
-                    } catch (e) {
-                        showToast('Invalid JSON params', 'error');
-                        return;
-                    }
-                }
-            }
-        }
-
-        if (params && !Array.isArray(params)) {
-            showToast('Invalid Parameters: Must be an Array [...] of arguments.', 'error');
-            return;
-        }
-
-        // Use consistent ID lookup
-        const row = document.getElementById(`row_${id}`);
-        if (!row) {
-            console.error(`[UI] resumeIntercept: Row ${id} not found.`);
-            return;
-        }
-
-        const proxyId = row.dataset.proxyId;
-
-        if (drop) {
-            // We need to call resumeCall on the proxy
-            const entry = MojoObjectRegistry.get(proxyId);
-            if (entry && entry.remote) {
-                entry.remote.resumeCall(id, null, true);
-                updateActivityRow(id, 'Dropped');
-            }
-        } else {
-            const entry = MojoObjectRegistry.get(proxyId);
-            if (entry && entry.remote) {
-                // Reconcile keys with original source of truth
-                const originalParams = (row && row.__details) ? row.__details.params : null;
-
-                // Fix: params might contain JSON strings if they came from a textarea or specific form field
-                // We need to parse them into objects for reconcileKeys to work
-                if (Array.isArray(params)) {
-                    params = params.map(p => {
-                        if (typeof p === 'string') {
-                            try { return JSON.parse(p); } catch (e) { return p; }
-                        }
-                        return p;
-                    });
-                }
-
-                // Note: reconcileKeys expects Array vs Array if we pass Array.
-                const restoredParams = reconcileKeys(params, originalParams, useHeuristic);
-
-                entry.remote.resumeCall(id, restoredParams, false, state.interceptResponses);
-
-                // Update UI immediately
-                if (state.interceptResponses) {
-                    updateActivityRow(id, 'Pending Response');
-                } else {
-                    updateActivityRow(id, 'Forwarded');
-                }
-
-                // Update history with modified params
-                if (row && row.__details) {
-                    row.__details.params = restoredParams;
-                }
-            } else {
-                console.error(`[UI] Proxy ${proxyId} not found for call ${id}`);
-            }
-        }
-    }
-
-    window.replayIntercept = function (id) {
-        let params = null;
-        let useHeuristic = true;
+      if (formContainer && row && row.__details) {
+        // New logic: gather from form inputs AND map to array
         try {
-            // Gather params from the UI (interceptForm or textarea)
-            const formContainer = document.getElementById(`interceptForm_${id}`);
-            const row = document.querySelector(`tr[data-id="${id}"]`);
+          const paramsObj = getInterceptorFormValues(id);
+          useHeuristic = false; // Form data has correct keys
 
-            if (formContainer && row && row.__details) {
-                const paramsObj = getInterceptorFormValues(id);
-                useHeuristic = false;
+          // Convert Object back to Array using Method Definition
+          const iface = row.__details.interface;
+          const method = row.__details.method;
+          const methodDef = findMethodDefinition(iface, method);
 
-                // Convert Object back to Array using Method Definition
-                const iface = row.__details.interface;
-                const method = row.__details.method;
-                const methodDef = findMethodDefinition(iface, method);
-
-                if (methodDef && methodDef.parameters) {
-                    params = convertParamsObjectToArray(paramsObj, methodDef);
-                } else {
-                    params = Object.values(paramsObj);
-                }
-
-            } else {
-                const textarea = document.getElementById(`interceptParams_${id}`);
-                if (textarea) params = safeParse(textarea.value);
-            }
+          if (methodDef && methodDef.parameters) {
+            params = convertParamsObjectToArray(paramsObj, methodDef);
+          } else {
+            // Fallback if no def found (shouldn't happen)
+            params = Object.values(paramsObj);
+          }
         } catch (e) {
-            showToast('Error parsing form values: ' + e.message, 'error');
+          showToast("Error parsing form values: " + e.message, "error");
+          return;
+        }
+      } else {
+        // Fallback: old textarea logic
+        const textarea = document.getElementById(`interceptParams_${id}`);
+        if (textarea) {
+          try {
+            params = safeParse(textarea.value);
+          } catch (e) {
+            showToast("Invalid JSON params", "error");
             return;
+          }
         }
-
-        if (params && !Array.isArray(params)) {
-            showToast('Invalid Parameters: Must be an Array [...] of arguments.', 'error');
-            return;
-        }
-
-        const row = document.querySelector(`tr[data-id="${id}"]`);
-        if (!row || !row.__details) return;
-
-        const detail = row.__details;
-        const proxyId = detail.proxyId;
-        const method = detail.method;
-
-        const entry = MojoObjectRegistry.get(proxyId);
-        const remote = entry ? entry.remote : null;
-        
-        // Attempt Replay via Proxy first (maintains connection context)
-        if (remote && remote.realRemote && typeof remote.realRemote[method] === 'function') {
-            try {
-                const newId = 'replay_' + Date.now();
-
-                // Fix: params might be JSON strings
-                if (Array.isArray(params)) {
-                    params = params.map(p => {
-                        if (typeof p === 'string') {
-                            try { return JSON.parse(p); } catch (e) { return p; }
-                        }
-                        return p;
-                    });
-                }
-
-                // Restore Mojo handles if present
-                const originalParams = (row && row.__details) ? row.__details.params : null;
-                const restoredParams = reconcileKeys(params, originalParams, useHeuristic);
-
-                // Add new activity row for the replay
-                addActivityRow({
-                    id: newId,
-                    interface: detail.interface,
-                    method: method,
-                    params: restoredParams,
-                    timestamp: Date.now(),
-                    type: 'MANUAL',
-                    status: 'Replaying...',
-                    proxyId: proxyId
-                });
-
-                showInterceptDetails({ ...detail, id: newId, params: restoredParams, status: 'Replaying...', type: 'MANUAL', result: null, error: null });
-
-                const resultPromise = remote.realRemote[method](...restoredParams);
-
-                if (resultPromise && resultPromise.then) {
-                    resultPromise.then(res => {
-                        updateActivityRow(newId, 'Done', res);
-                        const activeRow = document.querySelector(`tr[data-id="${newId}"]`);
-                        if (activeRow && activeRow.classList.contains('active')) {
-                            showInterceptDetails({ ...detail, id: newId, params: params, result: res, status: 'Done', type: 'MANUAL' });
-                        }
-                    }).catch(err => {
-                        updateActivityRow(newId, 'Error', { error: err.toString() });
-                    });
-                } else {
-                    updateActivityRow(newId, 'Done', { result: 'Sent (No Response)' });
-                }
-            } catch (e) {
-                showToast('Proxy Replay Failed: ' + e.message, 'error');
-            }
-            return;
-        }
-
-        // Fallback: Fresh Execution via MojoExecutionService
-        console.log('[Replay] Proxy lost, falling back to fresh execution...');
-        const newId = 'replay_fresh_' + Date.now();
-        
-        // Normalize params for ExecutionService
-        // reconcileKeys returns an Array for positional args if originalParams was an array
-        // But ExecutionService expects an object if we want it to map keys? 
-        // No, ExecutionService handles Arrays or Objects.
-        // If we have an Array of params from the log, we can pass it directly.
-        // BUT we must reconcile keys first to restore handles.
-        const originalParams = (row && row.__details) ? row.__details.params : null;
-        let finalParams = params;
-        if (typeof MojoUtils !== 'undefined') {
-             finalParams = MojoUtils.reconcileKeys(params, originalParams, useHeuristic);
-        }
-
-        addActivityRow({
-            id: newId,
-            interface: detail.interface,
-            method: method,
-            params: finalParams,
-            timestamp: Date.now(),
-            type: 'MANUAL',
-            status: 'Replaying (Fresh)...'
-        });
-        
-        showInterceptDetails({ ...detail, id: newId, params: finalParams, status: 'Replaying (Fresh)...', type: 'MANUAL', result: null, error: null });
-
-        window.MojoExecutionService.call(
-            { interface: detail.interface },
-            method,
-            finalParams
-        ).then(res => {
-            updateActivityRow(newId, 'Done', res);
-            const activeRow = document.querySelector(`tr[data-id="${newId}"]`);
-            if (activeRow && activeRow.classList.contains('active')) {
-                showInterceptDetails({ ...detail, id: newId, params: params, result: res, status: 'Done', type: 'MANUAL' });
-            }
-            showToast('Replay Successful (Fresh Connection)', 'success');
-        }).catch(err => {
-            console.error(err);
-            updateActivityRow(newId, 'Error', { error: err.message });
-            showToast('Replay Failed: ' + err.message, 'error');
-        });
+      }
     }
 
-    // ========================================
-    // Utilities
-    // ========================================
-    function showToast(message, type = 'info') {
-        const toast = document.createElement('div');
-        toast.className = `toast toast-${type}`;
+    if (params && !Array.isArray(params)) {
+      showToast(
+        "Invalid Parameters: Must be an Array [...] of arguments.",
+        "error",
+      );
+      return;
+    }
 
-        // Icon based on type
-        let icon = 'ℹ️';
-        if (type === 'success') icon = '✅';
-        if (type === 'error') icon = '❌';
-        if (type === 'warning') icon = '⚠️';
+    // Use consistent ID lookup
+    const row = document.getElementById(`row_${id}`);
+    if (!row) {
+      console.error(`[UI] resumeIntercept: Row ${id} not found.`);
+      return;
+    }
 
-        toast.innerHTML = safeHTML(`
+    const proxyId = row.dataset.proxyId;
+
+    if (drop) {
+      // We need to call resumeCall on the proxy
+      const entry = MojoObjectRegistry.get(proxyId);
+      if (entry && entry.remote) {
+        entry.remote.resumeCall(id, null, true);
+        updateActivityRow(id, "Dropped");
+      }
+    } else {
+      const entry = MojoObjectRegistry.get(proxyId);
+      if (entry && entry.remote) {
+        // Reconcile keys with original source of truth
+        const originalParams =
+          row && row.__details ? row.__details.params : null;
+
+        // Fix: params might contain JSON strings if they came from a textarea or specific form field
+        // We need to parse them into objects for reconcileKeys to work
+        if (Array.isArray(params)) {
+          params = params.map((p) => {
+            if (typeof p === "string") {
+              try {
+                return JSON.parse(p);
+              } catch (e) {
+                return p;
+              }
+            }
+            return p;
+          });
+        }
+
+        // Note: reconcileKeys expects Array vs Array if we pass Array.
+        const restoredParams = reconcileKeys(
+          params,
+          originalParams,
+          useHeuristic,
+        );
+
+        entry.remote.resumeCall(
+          id,
+          restoredParams,
+          false,
+          state.interceptResponses,
+        );
+
+        // Update UI immediately
+        if (state.interceptResponses) {
+          updateActivityRow(id, "Pending Response");
+        } else {
+          updateActivityRow(id, "Forwarded");
+        }
+
+        // Update history with modified params
+        if (row && row.__details) {
+          row.__details.params = restoredParams;
+        }
+      } else {
+        console.error(`[UI] Proxy ${proxyId} not found for call ${id}`);
+      }
+    }
+  };
+
+  window.replayIntercept = function (id) {
+    let params = null;
+    let useHeuristic = true;
+    try {
+      // Gather params from the UI (interceptForm or textarea)
+      const formContainer = document.getElementById(`interceptForm_${id}`);
+      const row = document.querySelector(`tr[data-id="${id}"]`);
+
+      if (formContainer && row && row.__details) {
+        const paramsObj = getInterceptorFormValues(id);
+        useHeuristic = false;
+
+        // Convert Object back to Array using Method Definition
+        const iface = row.__details.interface;
+        const method = row.__details.method;
+        const methodDef = findMethodDefinition(iface, method);
+
+        if (methodDef && methodDef.parameters) {
+          params = convertParamsObjectToArray(paramsObj, methodDef);
+        } else {
+          params = Object.values(paramsObj);
+        }
+      } else {
+        const textarea = document.getElementById(`interceptParams_${id}`);
+        if (textarea) params = safeParse(textarea.value);
+      }
+    } catch (e) {
+      showToast("Error parsing form values: " + e.message, "error");
+      return;
+    }
+
+    if (params && !Array.isArray(params)) {
+      showToast(
+        "Invalid Parameters: Must be an Array [...] of arguments.",
+        "error",
+      );
+      return;
+    }
+
+    const row = document.querySelector(`tr[data-id="${id}"]`);
+    if (!row || !row.__details) return;
+
+    const detail = row.__details;
+    const proxyId = detail.proxyId;
+    const method = detail.method;
+
+    const entry = MojoObjectRegistry.get(proxyId);
+    const remote = entry ? entry.remote : null;
+
+    // Attempt Replay via Proxy first (maintains connection context)
+    if (
+      remote &&
+      remote.realRemote &&
+      typeof remote.realRemote[method] === "function"
+    ) {
+      try {
+        const newId = "replay_" + Date.now();
+
+        // Fix: params might be JSON strings
+        if (Array.isArray(params)) {
+          params = params.map((p) => {
+            if (typeof p === "string") {
+              try {
+                return JSON.parse(p);
+              } catch (e) {
+                return p;
+              }
+            }
+            return p;
+          });
+        }
+
+        // Restore Mojo handles if present
+        const originalParams =
+          row && row.__details ? row.__details.params : null;
+        const restoredParams = reconcileKeys(
+          params,
+          originalParams,
+          useHeuristic,
+        );
+
+        // Add new activity row for the replay
+        addActivityRow({
+          id: newId,
+          interface: detail.interface,
+          method: method,
+          params: restoredParams,
+          timestamp: Date.now(),
+          type: "MANUAL",
+          status: "Replaying...",
+          proxyId: proxyId,
+        });
+
+        showInterceptDetails({
+          ...detail,
+          id: newId,
+          params: restoredParams,
+          status: "Replaying...",
+          type: "MANUAL",
+          result: null,
+          error: null,
+        });
+
+        const resultPromise = remote.realRemote[method](...restoredParams);
+
+        if (resultPromise && resultPromise.then) {
+          resultPromise
+            .then((res) => {
+              updateActivityRow(newId, "Done", res);
+              const activeRow = document.querySelector(
+                `tr[data-id="${newId}"]`,
+              );
+              if (activeRow && activeRow.classList.contains("active")) {
+                showInterceptDetails({
+                  ...detail,
+                  id: newId,
+                  params: params,
+                  result: res,
+                  status: "Done",
+                  type: "MANUAL",
+                });
+              }
+            })
+            .catch((err) => {
+              updateActivityRow(newId, "Error", { error: err.toString() });
+            });
+        } else {
+          updateActivityRow(newId, "Done", { result: "Sent (No Response)" });
+        }
+      } catch (e) {
+        showToast("Proxy Replay Failed: " + e.message, "error");
+      }
+      return;
+    }
+
+    // Fallback: Fresh Execution via MojoExecutionService
+    console.log("[Replay] Proxy lost, falling back to fresh execution...");
+    const newId = "replay_fresh_" + Date.now();
+
+    // Normalize params for ExecutionService
+    // reconcileKeys returns an Array for positional args if originalParams was an array
+    // But ExecutionService expects an object if we want it to map keys?
+    // No, ExecutionService handles Arrays or Objects.
+    // If we have an Array of params from the log, we can pass it directly.
+    // BUT we must reconcile keys first to restore handles.
+    const originalParams = row && row.__details ? row.__details.params : null;
+    let finalParams = params;
+    if (typeof MojoUtils !== "undefined") {
+      finalParams = MojoUtils.reconcileKeys(
+        params,
+        originalParams,
+        useHeuristic,
+      );
+    }
+
+    addActivityRow({
+      id: newId,
+      interface: detail.interface,
+      method: method,
+      params: finalParams,
+      timestamp: Date.now(),
+      type: "MANUAL",
+      status: "Replaying (Fresh)...",
+    });
+
+    showInterceptDetails({
+      ...detail,
+      id: newId,
+      params: finalParams,
+      status: "Replaying (Fresh)...",
+      type: "MANUAL",
+      result: null,
+      error: null,
+    });
+
+    window.MojoExecutionService.call(
+      { interface: detail.interface },
+      method,
+      finalParams,
+    )
+      .then((res) => {
+        updateActivityRow(newId, "Done", res);
+        const activeRow = document.querySelector(`tr[data-id="${newId}"]`);
+        if (activeRow && activeRow.classList.contains("active")) {
+          showInterceptDetails({
+            ...detail,
+            id: newId,
+            params: params,
+            result: res,
+            status: "Done",
+            type: "MANUAL",
+          });
+        }
+        showToast("Replay Successful (Fresh Connection)", "success");
+      })
+      .catch((err) => {
+        console.error(err);
+        updateActivityRow(newId, "Error", { error: err.message });
+        showToast("Replay Failed: " + err.message, "error");
+      });
+  };
+
+  // ========================================
+  // Utilities
+  // ========================================
+  function showToast(message, type = "info") {
+    const toast = document.createElement("div");
+    toast.className = `toast toast-${type}`;
+
+    // Icon based on type
+    let icon = "ℹ️";
+    if (type === "success") icon = "✅";
+    if (type === "error") icon = "❌";
+    if (type === "warning") icon = "⚠️";
+
+    toast.innerHTML = safeHTML(`
             <span class="toast-icon">${icon}</span>
             <span class="toast-message">${escapeHtml(message)}</span>
         `);
 
-        // Create progress bar
-        const progressBar = document.createElement('div');
-        progressBar.className = 'toast-progress';
-        toast.appendChild(progressBar);
+    // Create progress bar
+    const progressBar = document.createElement("div");
+    progressBar.className = "toast-progress";
+    toast.appendChild(progressBar);
 
-        // Remove inline styles to rely on CSS
-        elements.toastContainer.appendChild(toast);
+    // Remove inline styles to rely on CSS
+    elements.toastContainer.appendChild(toast);
 
-        // Auto-remove
-        setTimeout(() => {
-            toast.style.animation = 'slideOut 0.3s ease forwards';
-            setTimeout(() => toast.remove(), 300);
-        }, 3000);
-    }
+    // Auto-remove
+    setTimeout(() => {
+      toast.style.animation = "slideOut 0.3s ease forwards";
+      setTimeout(() => toast.remove(), 300);
+    }, 3000);
+  }
 
-    // ========================================
-    // MCP Server API
-    // ========================================
-    // Expose internal functions for scriptable MCP server access via CDP
-    window.MojoGUI_API = {
-        // ---- Interface Browsing ----
-        /**
-         * Get all loaded interfaces
-         * @returns {Array} Array of interface objects
-         */
-        getInterfaces: async () => {
-            if (!state.interfaces || state.interfaces.length === 0) {
-                await loadInterfaces();
-            }
-            return state.interfaces;
+  // ========================================
+  // MCP Server API
+  // ========================================
+  // Expose internal functions for scriptable MCP server access via CDP
+  window.MojoGUI_API = {
+    // ---- Interface Browsing ----
+    /**
+     * Get all loaded interfaces
+     * @returns {Array} Array of interface objects
+     */
+    getInterfaces: async () => {
+      if (!state.interfaces || state.interfaces.length === 0) {
+        await loadInterfaces();
+      }
+      return state.interfaces;
+    },
+    /**
+     * Search interfaces by name or module
+     * @param {string} query - Search query
+     * @returns {Array} Filtered interfaces
+     */
+    searchInterfaces: async (query) => {
+      const interfaces = await window.MojoGUI_API.getInterfaces();
+      const q = (query || "").toLowerCase();
+      if (!q) return interfaces;
+      return interfaces.filter(
+        (i) =>
+          i.name.toLowerCase().includes(q) ||
+          i.module.toLowerCase().includes(q),
+      );
+    },
+    /**
+     * Get detailed information about an interface including methods
+     * @param {string} name - Interface name (simple or fully qualified)
+     * @returns {Object} Interface details with methods and parameters
+     */
+    getInterfaceDetails: async (name) => {
+      const interfaces = await window.MojoGUI_API.getInterfaces();
+      const isFQN = name.includes(".");
+      let iface = interfaces.find(
+        (i) =>
+          (isFQN && i.module + "." + i.name === name) ||
+          (!isFQN && i.name === name),
+      );
+      if (!iface) return null;
+      // Load binding if available
+      if (iface.file && typeof MojoBindings !== "undefined") {
+        try {
+          await MojoBindings.loadBinding(iface.file);
+        } catch (e) {
+          console.warn("[MojoGUI_API] Failed to load binding:", e);
+        }
+      }
+      // Get method details with parameters
+      const methods = (iface.methods || []).map((m) => {
+        const methodName = typeof m === "string" ? m : m.name;
+        const params = getMethodParams(iface.name, methodName);
+        const methodDef = findMethodDefinition(iface.name, methodName);
+        return {
+          name: methodName,
+          parameters: params || [],
+          responseParams: methodDef?.responseParams || null,
+        };
+      });
+      return {
+        name: iface.name,
+        module: iface.module,
+        file: iface.file,
+        methods,
+      };
+    },
+    // ---- Method Metadata ----
+    getMethodParams: (iface, method) => getMethodParams(iface, method),
+    findMethodDefinition: (iface, method) =>
+      findMethodDefinition(iface, method),
+    // ---- Code Generation ----
+    /**
+     * Generate MojoJS code for calling a method
+     * @param {string} ifaceName - Interface name
+     * @param {string} methodName - Method name
+     * @param {Object} params - Parameter values
+     * @param {Object} options - Association options { isAssociated, masterHandleId, interfaceId }
+     * @returns {string} Generated code
+     */
+    generateCode: async (ifaceName, methodName, params = {}, options = {}) => {
+      // Load binding first to ensure params can be resolved
+      await MojoLoader.ensureBinding(ifaceName);
+
+      // Temporarily set state for code generation
+      const prevIface = state.selectedInterface;
+      const prevMethod = state.selectedMethod;
+      const prevParams = state.paramValues;
+      const prevAssoc = state.isAssociated;
+      const prevMaster = state.masterHandleId;
+      const prevIfaceId = state.interfaceId;
+
+      const iface = state.interfaces.find(
+        (i) => i.name === ifaceName || i.module + "." + i.name === ifaceName,
+      );
+      if (!iface) return `// Interface not found: ${ifaceName}`;
+
+      state.selectedInterface = iface;
+      state.selectedMethod = methodName || null;
+      state.paramValues = params || {};
+      state.isAssociated = !!options.isAssociated;
+      state.masterHandleId = options.masterHandleId || null;
+      state.interfaceId = options.interfaceId || 0;
+
+      const code = generateCode(false);
+
+      // Restore state
+      state.selectedInterface = prevIface;
+      state.selectedMethod = prevMethod;
+      state.paramValues = prevParams;
+      state.isAssociated = prevAssoc;
+      state.masterHandleId = prevMaster;
+      state.interfaceId = prevIfaceId;
+      return code;
+    },
+    // ---- Execution ----
+    /**
+     * Execute a Mojo method with parameters
+     * Uses existing generateCode and script execution logic
+     * @param {string} ifaceName - Interface name
+     * @param {string} methodName - Method name
+     * @param {Object} params - Object of parameter key-value pairs
+     * @param {Object} options - Association options { isAssociated, masterHandleId, interfaceId }
+     * @returns {Object} Result or error
+     */
+    executeMethod: async (ifaceName, methodName, params = {}, options = {}) => {
+      if (!state.mojoAvailable) {
+        return { error: "MojoJS is not available" };
+      }
+
+      return await window.MojoExecutionService.call(
+        {
+          interface: ifaceName,
+          masterHandleId: options.masterHandleId,
         },
-        /**
-         * Search interfaces by name or module
-         * @param {string} query - Search query
-         * @returns {Array} Filtered interfaces
-         */
-        searchInterfaces: async (query) => {
-            const interfaces = await window.MojoGUI_API.getInterfaces();
-            const q = (query || '').toLowerCase();
-            if (!q) return interfaces;
-            return interfaces.filter(i =>
-                i.name.toLowerCase().includes(q) ||
-                i.module.toLowerCase().includes(q)
-            );
-        },
-        /**
-         * Get detailed information about an interface including methods
-         * @param {string} name - Interface name (simple or fully qualified)
-         * @returns {Object} Interface details with methods and parameters
-         */
-        getInterfaceDetails: async (name) => {
-            const interfaces = await window.MojoGUI_API.getInterfaces();
-            const isFQN = name.includes('.');
-            let iface = interfaces.find(i =>
-                (isFQN && (i.module + '.' + i.name === name)) ||
-                (!isFQN && i.name === name)
-            );
-            if (!iface) return null;
-            // Load binding if available
-            if (iface.file && typeof MojoBindings !== 'undefined') {
-                try {
-                    await MojoBindings.loadBinding(iface.file);
-                } catch (e) {
-                    console.warn('[MojoGUI_API] Failed to load binding:', e);
-                }
-            }
-            // Get method details with parameters
-            const methods = (iface.methods || []).map(m => {
-                const methodName = typeof m === 'string' ? m : m.name;
-                const params = getMethodParams(iface.name, methodName);
-                const methodDef = findMethodDefinition(iface.name, methodName);
-                return {
-                    name: methodName,
-                    parameters: params || [],
-                    responseParams: methodDef?.responseParams || null
-                };
-            });
+        methodName,
+        params,
+        options,
+      );
+    },
+    // ---- Interceptor Control ----
+    startInterceptor: (ifaceName, mode = "INTERCEPT") => {
+      if (typeof InterceptorManager === "undefined") return false;
+      return InterceptorManager.start(ifaceName, mode);
+    },
+    stopInterceptor: (ifaceName) => {
+      if (typeof InterceptorManager === "undefined") return;
+      InterceptorManager.stop(ifaceName);
+    },
+    toggleInterceptor: (ifaceName) => {
+      if (typeof InterceptorManager === "undefined") return false;
+      return InterceptorManager.toggle(ifaceName);
+    },
+    isInterceptorActive: (ifaceName) => {
+      if (typeof InterceptorManager === "undefined") return false;
+      return InterceptorManager.isActive(ifaceName);
+    },
+    getInterceptorMode: (ifaceName) => {
+      if (typeof InterceptorManager === "undefined") return null;
+      return InterceptorManager.getMode(ifaceName);
+    },
+    listActiveInterceptors: () => {
+      if (typeof InterceptorManager === "undefined") return [];
+      return Array.from(InterceptorManager.interceptors.keys());
+    },
+    // ---- Intercepted Calls ----
+    /**
+     * Log a custom activity to the traffic log
+     * @param {Object} data - Activity data (interface, method, params, etc.)
+     * @returns {string} The activity ID
+     */
+    addActivity: (data) => {
+      const id = data.id || "act_" + Math.random().toString(36).substr(2, 9);
+      const activityData = {
+        id,
+        timestamp: Date.now(),
+        type: "MANUAL",
+        status: "Pending",
+        ...data,
+      };
+      addActivityRow(activityData);
+      return id;
+    },
+    /**
+     * Update an existing activity in the traffic log
+     * @param {string} id - Activity ID
+     * @param {string} status - New status
+     * @param {Object} result - Result data
+     */
+    updateActivity: (id, status, result) => {
+      updateActivityRow(id, status, result);
+    },
+    /**
+     * Get list of intercepted calls from the activity table
+     * @returns {Array} Array of call details
+     */
+    getInterceptedCalls: () => {
+      const rows = elements.interceptorTableBody?.querySelectorAll("tr") || [];
+
+      // Local serialization helper to handle BigInt and Mojo objects for CDP
+      // without stripping arg_ prefixes like sanitizeKeys does.
+      const serializeForCDP = (obj, seen = new WeakSet()) => {
+        if (obj === null || typeof obj !== "object") {
+          if (typeof obj === "bigint") return obj.toString() + "n";
+          return obj;
+        }
+        if (seen.has(obj)) return "[Circular]";
+        seen.add(obj);
+
+        // Detect Mojo objects to avoid CDP serialization errors
+        const rawHandle =
+          typeof MojoProxy !== "undefined"
+            ? MojoProxy.getRawHandleFromMojoObject(obj)
+            : null;
+        if (rawHandle) {
+          const guiId =
+            typeof MojoHandleRegistry !== "undefined"
+              ? MojoHandleRegistry.register(rawHandle)
+              : 0;
+          if (obj.$ && obj.proxy) {
+            const meta = obj.$;
             return {
-                name: iface.name,
-                module: iface.module,
-                file: iface.file,
-                methods
+              __mojoType: "Handle",
+              interface:
+                meta.interfaceName ||
+                (meta.proxy && meta.proxy.interfaceName) ||
+                "Unknown",
+              interfaceId: guiId,
+              namespace: meta.interfaceNameNamespace || "",
+              isReceiver: false,
             };
-        },
-        // ---- Method Metadata ----
-        getMethodParams: (iface, method) => getMethodParams(iface, method),
-        findMethodDefinition: (iface, method) => findMethodDefinition(iface, method),
-        // ---- Code Generation ----
-        /**
-         * Generate MojoJS code for calling a method
-         * @param {string} ifaceName - Interface name
-         * @param {string} methodName - Method name
-         * @param {Object} params - Parameter values
-         * @param {Object} options - Association options { isAssociated, masterHandleId, interfaceId }
-         * @returns {string} Generated code
-         */
-        generateCode: async (ifaceName, methodName, params = {}, options = {}) => {
-            // Load binding first to ensure params can be resolved
-            await MojoLoader.ensureBinding(ifaceName);
-
-            // Temporarily set state for code generation
-            const prevIface = state.selectedInterface;
-            const prevMethod = state.selectedMethod;
-            const prevParams = state.paramValues;
-            const prevAssoc = state.isAssociated;
-            const prevMaster = state.masterHandleId;
-            const prevIfaceId = state.interfaceId;
-
-            const iface = state.interfaces.find(i => i.name === ifaceName || (i.module + '.' + i.name === ifaceName));
-            if (!iface) return `// Interface not found: ${ifaceName}`;
-            
-            state.selectedInterface = iface;
-            state.selectedMethod = methodName || null;
-            state.paramValues = params || {};
-            state.isAssociated = !!options.isAssociated;
-            state.masterHandleId = options.masterHandleId || null;
-            state.interfaceId = options.interfaceId || 0;
-
-            const code = generateCode(false);
-
-            // Restore state
-            state.selectedInterface = prevIface;
-            state.selectedMethod = prevMethod;
-            state.paramValues = prevParams;
-            state.isAssociated = prevAssoc;
-            state.masterHandleId = prevMaster;
-            state.interfaceId = prevIfaceId;
-            return code;
-        },
-        // ---- Execution ----
-        /**
-         * Execute a Mojo method with parameters
-         * Uses existing generateCode and script execution logic
-         * @param {string} ifaceName - Interface name
-         * @param {string} methodName - Method name
-         * @param {Object} params - Object of parameter key-value pairs
-         * @param {Object} options - Association options { isAssociated, masterHandleId, interfaceId }
-         * @returns {Object} Result or error
-         */
-        executeMethod: async (ifaceName, methodName, params = {}, options = {}) => {
-            if (!state.mojoAvailable) {
-                return { error: 'MojoJS is not available' };
-            }
-            
-            return await window.MojoExecutionService.call(
-                { 
-                    interface: ifaceName,
-                    masterHandleId: options.masterHandleId
-                },
-                methodName,
-                params,
-                options
-            );
-        },
-        // ---- Interceptor Control ----
-        startInterceptor: (ifaceName, mode = 'INTERCEPT') => {
-            if (typeof InterceptorManager === 'undefined') return false;
-            return InterceptorManager.start(ifaceName, mode);
-        },
-        stopInterceptor: (ifaceName) => {
-            if (typeof InterceptorManager === 'undefined') return;
-            InterceptorManager.stop(ifaceName);
-        },
-        toggleInterceptor: (ifaceName) => {
-            if (typeof InterceptorManager === 'undefined') return false;
-            return InterceptorManager.toggle(ifaceName);
-        },
-        isInterceptorActive: (ifaceName) => {
-            if (typeof InterceptorManager === 'undefined') return false;
-            return InterceptorManager.isActive(ifaceName);
-        },
-        getInterceptorMode: (ifaceName) => {
-            if (typeof InterceptorManager === 'undefined') return null;
-            return InterceptorManager.getMode(ifaceName);
-        },
-        listActiveInterceptors: () => {
-            if (typeof InterceptorManager === 'undefined') return [];
-            return Array.from(InterceptorManager.interceptors.keys());
-        },
-        // ---- Intercepted Calls ----
-        /**
-         * Log a custom activity to the traffic log
-         * @param {Object} data - Activity data (interface, method, params, etc.)
-         * @returns {string} The activity ID
-         */
-        addActivity: (data) => {
-            const id = data.id || 'act_' + Math.random().toString(36).substr(2, 9);
-            const activityData = {
-                id,
-                timestamp: Date.now(),
-                type: 'MANUAL',
-                status: 'Pending',
-                ...data
-            };
-            addActivityRow(activityData);
-            return id;
-        },
-        /**
-         * Update an existing activity in the traffic log
-         * @param {string} id - Activity ID
-         * @param {string} status - New status
-         * @param {Object} result - Result data
-         */
-        updateActivity: (id, status, result) => {
-            updateActivityRow(id, status, result);
-        },
-        /**
-         * Get list of intercepted calls from the activity table
-         * @returns {Array} Array of call details
-         */
-        getInterceptedCalls: () => {
-            const rows = elements.interceptorTableBody?.querySelectorAll('tr') || [];
-
-            // Local serialization helper to handle BigInt and Mojo objects for CDP
-            // without stripping arg_ prefixes like sanitizeKeys does.
-            const serializeForCDP = (obj, seen = new WeakSet()) => {
-                if (obj === null || typeof obj !== 'object') {
-                    if (typeof obj === 'bigint') return obj.toString() + 'n';
-                    return obj;
-                }
-                if (seen.has(obj)) return '[Circular]';
-                seen.add(obj);
-
-                // Detect Mojo objects to avoid CDP serialization errors
-                const rawHandle = (typeof MojoProxy !== 'undefined') ? MojoProxy.getRawHandleFromMojoObject(obj) : null;
-                if (rawHandle) {
-                    const guiId = (typeof MojoHandleRegistry !== 'undefined') ? MojoHandleRegistry.register(rawHandle) : 0;
-                    if (obj.$ && obj.proxy) {
-                        const meta = obj.$;
-                        return {
-                            __mojoType: 'Handle',
-                            interface: meta.interfaceName || (meta.proxy && meta.proxy.interfaceName) || 'Unknown',
-                            interfaceId: guiId,
-                            namespace: meta.interfaceNameNamespace || '',
-                            isReceiver: false
-                        };
-                    } else {
-                        return {
-                            __mojoType: 'Handle',
-                            interface: 'PendingReceiver',
-                            interfaceId: guiId,
-                            namespace: '',
-                            isReceiver: true
-                        };
-                    }
-                }
-
-                if (Array.isArray(obj)) return obj.map(v => serializeForCDP(v, seen));
-
-                const result = {};
-                for (const key in obj) {
-                    try {
-                        result[key] = serializeForCDP(obj[key], seen);
-                    } catch (e) {
-                        result[key] = "[Serialization Error]";
-                    }
-                }
-                return result;
-            };
-
-            return Array.from(rows).map(row => {
-                const details = row.__details || {};
-                return {
-                    id: row.dataset.id,
-                    type: row.dataset.type,
-                    proxyId: row.dataset.proxyId,
-                    interface: details.interface,
-                    method: details.method,
-                    params: serializeForCDP(details.params),
-                    status: details.status,
-                    result: serializeForCDP(details.result),
-                    error: details.error,
-                    timestamp: details.timestamp
-                };
-            });
-        },
-        /**
-         * Resume, modify, or drop an intercepted call
-         * @param {string} id - Call ID
-         * @param {Array} params - Modified parameters (null to use original)
-         * @param {boolean} drop - Whether to drop the call
-         * @param {boolean} interceptResponse - Whether to intercept the response
-         */
-        resumeCall: (id, params, drop = false, interceptResponse = false) => {
-            const row = document.getElementById(`row_${id}`);
-            if (!row) return { error: `Call not found: ${id}` };
-
-            if (row.__details?.status !== 'Pending') {
-                return { error: `Call ${id} is not in Pending status (current status: ${row.__details?.status})` };
-            }
-
-            const proxyId = row.dataset.proxyId;
-            const entry = MojoObjectRegistry.get(proxyId);
-            if (!entry || !entry.remote) return { error: `Proxy not found for call: ${id}` };
-            const remote = entry.remote;
-
-            if (drop) {
-                remote.resumeCall(id, null, true);
-                updateActivityRow(id, 'Dropped');
-                return { success: true, action: 'dropped' };
-            }
-            // Get original params if not provided
-            const originalParams = row.__details?.params;
-            const finalParams = params || originalParams;
-            // Restore arg_ prefixes if needed
-            const restoredParams = reconcileKeys(finalParams, originalParams, false);
-            remote.resumeCall(id, restoredParams, false, interceptResponse);
-            if (interceptResponse) {
-                updateActivityRow(id, 'Pending Response');
-            } else {
-                updateActivityRow(id, 'Forwarded');
-            }
-            return { success: true, action: 'resumed', interceptResponse };
-        },
-        /**
-         * Send a modified response for an intercepted call
-         * @param {string} id - Call ID
-         * @param {Object} result - Modified result
-         */
-        sendResponse: (id, result) => {
-            const row = document.getElementById(`row_${id}`);
-            if (!row) return { error: `Call not found: ${id}` };
-
-            if (row.__details?.status !== 'Response Edit') {
-                return { error: `Call ${id} is not in Response Edit status (current status: ${row.__details?.status})` };
-            }
-
-            const proxyId = row.dataset.proxyId;
-            const entry = MojoObjectRegistry.get(proxyId);
-            if (!entry || !entry.remote) return { error: `Proxy not found for call: ${id}` };
-            const remote = entry.remote;
-
-            const originalResult = row.__details?.result;
-            const restoredResult = reconcileKeys(result, originalResult);
-
-            remote.sendResponse(id, restoredResult);
-            updateActivityRow(id, 'Done', restoredResult);
-            return { success: true, action: 'sent_response' };
-        },
-        /**
-         * Replay a captured call with optional parameter modifications
-         * @param {string} id - Call ID from activity log
-         * @param {Object} params - Optional modified parameters
-         * @returns {Object} Result of the replay operation
-         */
-        replayCall: async (id, params = null) => {
-            const row = document.getElementById(`row_${id}`) ||
-                document.querySelector(`tr[data-id="${id}"]`);
-            if (!row) return { error: `Call not found: ${id}` };
-
-            const details = row.__details;
-            if (!details) return { error: `No details found for call: ${id}` };
-
-            const proxyId = row.dataset.proxyId;
-            const entry = MojoObjectRegistry.get(proxyId);
-            if (!entry || !entry.remote || !entry.remote.realRemote) {
-                return { error: `Proxy not found or invalid for call: ${id}` };
-            }
-            const remote = entry.remote;
-
-            const method = details.method;
-            if (!method || typeof remote.realRemote[method] !== 'function') {
-                return { error: `Method ${method} not found on remote` };
-            }
-
-            try {
-                // Use modified params or original
-                const originalParams = details.params;
-                let finalParams = params || originalParams;
-
-                // Restore keys if needed
-                if (params && typeof reconcileKeys === 'function') {
-                    finalParams = reconcileKeys(params, originalParams, false);
-                }
-
-                // Execute the call
-                const result = await remote.realRemote[method](...(Array.isArray(finalParams) ? finalParams : [finalParams]));
-                return { success: true, result };
-            } catch (e) {
-                return { success: false, error: e.message, stack: e.stack };
-            }
-        },
-        // ---- State Access ----
-        getState: () => ({
-            mojoAvailable: state.mojoAvailable,
-            selectedInterface: state.selectedInterface?.name || null,
-            selectedMethod: state.selectedMethod,
-            interfaceCount: state.interfaces.length,
-            trafficCount: state.trafficCount,
-            interceptResponses: state.interceptResponses
-        }),
-        // ---- Handle Management ----
-        /**
-         * Create a new Mojo message pipe
-         * @returns {Object} Object containing IDs of handle0 and handle1
-         */
-        createMessagePipe: () => {
-            if (typeof Mojo === 'undefined') return { error: 'Mojo not available' };
-            try {
-                const { handle0, handle1 } = Mojo.createMessagePipe();
-                const id0 = MojoHandleRegistry.register(handle0);
-                const id1 = MojoHandleRegistry.register(handle1);
-                console.log(`[MojoGUI_API] Created message pipe: ${id0} <-> ${id1}`);
-                return { handle0: id0, handle1: id1 };
-            } catch (e) {
-                return { error: e.message };
-            }
-        },
-        /**
-         * Get details about a specific handle
-         * @param {string|number} id - Handle ID
-         * @returns {Object} Handle details
-         */
-        getHandleDetails: (id) => {
-            if (typeof MojoHandleRegistry === 'undefined') return { error: 'Registry not available' };
-            const handle = MojoHandleRegistry.get(id);
-            if (!handle) return { error: 'Handle not found' };
+          } else {
             return {
-                id: handle.__mojoGuiId,
-                nativeValue: handle.value,
-                isClosed: !handle.value && handle.value !== 0 && !handle.watch // Heuristic check
+              __mojoType: "Handle",
+              interface: "PendingReceiver",
+              interfaceId: guiId,
+              namespace: "",
+              isReceiver: true,
             };
-        },
-        /**
-         * Close a specific handle
-         * @param {string|number} id - Handle ID
-         * @returns {Object} Success or error
-         */
-        closeHandle: (id) => {
-            if (typeof MojoHandleRegistry === 'undefined') return { error: 'Registry not available' };
-            const handle = MojoHandleRegistry.get(id);
-            if (!handle) return { error: 'Handle not found' };
-            try {
-                handle.close();
-                console.log(`[MojoGUI_API] Closed handle ${id}`);
-                return { success: true };
-            } catch (e) {
-                return { error: e.message };
-            }
-        },
-        /**
-         * List all registered handles
-         * @returns {Array} Array of handle IDs
-         */
-        listHandles: () => {
-            if (typeof MojoHandleRegistry === 'undefined') return [];
-            return Array.from(MojoHandleRegistry.handles.keys());
-        },
-        /**
-         * Set response interception mode
-         * @param {boolean} enabled - Whether to intercept responses
-         */
-        setInterceptResponses: (enabled) => {
-            state.interceptResponses = !!enabled;
-            // Update UI toggle if present
-            if (elements.interceptRespToggle) {
-                elements.interceptRespToggle.checked = state.interceptResponses;
-            }
-            return state.interceptResponses;
-        },
-        // ---- Binding Loading ----
-        ensureBinding: (ifaceName) => MojoLoader.ensureBinding(ifaceName)
-    };
+          }
+        }
 
-    // Start
-    init();
+        if (Array.isArray(obj)) return obj.map((v) => serializeForCDP(v, seen));
 
+        const result = {};
+        for (const key in obj) {
+          try {
+            result[key] = serializeForCDP(obj[key], seen);
+          } catch (e) {
+            result[key] = "[Serialization Error]";
+          }
+        }
+        return result;
+      };
+
+      return Array.from(rows).map((row) => {
+        const details = row.__details || {};
+        return {
+          id: row.dataset.id,
+          type: row.dataset.type,
+          proxyId: row.dataset.proxyId,
+          interface: details.interface,
+          method: details.method,
+          params: serializeForCDP(details.params),
+          status: details.status,
+          result: serializeForCDP(details.result),
+          error: details.error,
+          timestamp: details.timestamp,
+        };
+      });
+    },
+    /**
+     * Resume, modify, or drop an intercepted call
+     * @param {string} id - Call ID
+     * @param {Array} params - Modified parameters (null to use original)
+     * @param {boolean} drop - Whether to drop the call
+     * @param {boolean} interceptResponse - Whether to intercept the response
+     */
+    resumeCall: (id, params, drop = false, interceptResponse = false) => {
+      const row = document.getElementById(`row_${id}`);
+      if (!row) return { error: `Call not found: ${id}` };
+
+      if (row.__details?.status !== "Pending") {
+        return {
+          error: `Call ${id} is not in Pending status (current status: ${row.__details?.status})`,
+        };
+      }
+
+      const proxyId = row.dataset.proxyId;
+      const entry = MojoObjectRegistry.get(proxyId);
+      if (!entry || !entry.remote)
+        return { error: `Proxy not found for call: ${id}` };
+      const remote = entry.remote;
+
+      if (drop) {
+        remote.resumeCall(id, null, true);
+        updateActivityRow(id, "Dropped");
+        return { success: true, action: "dropped" };
+      }
+      // Get original params if not provided
+      const originalParams = row.__details?.params;
+      const finalParams = params || originalParams;
+      // Restore arg_ prefixes if needed
+      const restoredParams = reconcileKeys(finalParams, originalParams, false);
+      remote.resumeCall(id, restoredParams, false, interceptResponse);
+      if (interceptResponse) {
+        updateActivityRow(id, "Pending Response");
+      } else {
+        updateActivityRow(id, "Forwarded");
+      }
+      return { success: true, action: "resumed", interceptResponse };
+    },
+    /**
+     * Send a modified response for an intercepted call
+     * @param {string} id - Call ID
+     * @param {Object} result - Modified result
+     */
+    sendResponse: (id, result) => {
+      const row = document.getElementById(`row_${id}`);
+      if (!row) return { error: `Call not found: ${id}` };
+
+      if (row.__details?.status !== "Response Edit") {
+        return {
+          error: `Call ${id} is not in Response Edit status (current status: ${row.__details?.status})`,
+        };
+      }
+
+      const proxyId = row.dataset.proxyId;
+      const entry = MojoObjectRegistry.get(proxyId);
+      if (!entry || !entry.remote)
+        return { error: `Proxy not found for call: ${id}` };
+      const remote = entry.remote;
+
+      const originalResult = row.__details?.result;
+      const restoredResult = reconcileKeys(result, originalResult);
+
+      remote.sendResponse(id, restoredResult);
+      updateActivityRow(id, "Done", restoredResult);
+      return { success: true, action: "sent_response" };
+    },
+    /**
+     * Replay a captured call with optional parameter modifications
+     * @param {string} id - Call ID from activity log
+     * @param {Object} params - Optional modified parameters
+     * @returns {Object} Result of the replay operation
+     */
+    replayCall: async (id, params = null) => {
+      const row =
+        document.getElementById(`row_${id}`) ||
+        document.querySelector(`tr[data-id="${id}"]`);
+      if (!row) return { error: `Call not found: ${id}` };
+
+      const details = row.__details;
+      if (!details) return { error: `No details found for call: ${id}` };
+
+      const proxyId = row.dataset.proxyId;
+      const entry = MojoObjectRegistry.get(proxyId);
+      if (!entry || !entry.remote || !entry.remote.realRemote) {
+        return { error: `Proxy not found or invalid for call: ${id}` };
+      }
+      const remote = entry.remote;
+
+      const method = details.method;
+      if (!method || typeof remote.realRemote[method] !== "function") {
+        return { error: `Method ${method} not found on remote` };
+      }
+
+      try {
+        // Use modified params or original
+        const originalParams = details.params;
+        let finalParams = params || originalParams;
+
+        // Restore keys if needed
+        if (params && typeof reconcileKeys === "function") {
+          finalParams = reconcileKeys(params, originalParams, false);
+        }
+
+        // Execute the call
+        const result = await remote.realRemote[method](
+          ...(Array.isArray(finalParams) ? finalParams : [finalParams]),
+        );
+        return { success: true, result };
+      } catch (e) {
+        return { success: false, error: e.message, stack: e.stack };
+      }
+    },
+    // ---- State Access ----
+    getState: () => ({
+      mojoAvailable: state.mojoAvailable,
+      selectedInterface: state.selectedInterface?.name || null,
+      selectedMethod: state.selectedMethod,
+      interfaceCount: state.interfaces.length,
+      trafficCount: state.trafficCount,
+      interceptResponses: state.interceptResponses,
+    }),
+    // ---- Handle Management ----
+    /**
+     * Create a new Mojo message pipe
+     * @returns {Object} Object containing IDs of handle0 and handle1
+     */
+    createMessagePipe: () => {
+      if (typeof Mojo === "undefined") return { error: "Mojo not available" };
+      try {
+        const { handle0, handle1 } = Mojo.createMessagePipe();
+        const id0 = MojoHandleRegistry.register(handle0);
+        const id1 = MojoHandleRegistry.register(handle1);
+        console.log(`[MojoGUI_API] Created message pipe: ${id0} <-> ${id1}`);
+        return { handle0: id0, handle1: id1 };
+      } catch (e) {
+        return { error: e.message };
+      }
+    },
+    /**
+     * Get details about a specific handle
+     * @param {string|number} id - Handle ID
+     * @returns {Object} Handle details
+     */
+    getHandleDetails: (id) => {
+      if (typeof MojoHandleRegistry === "undefined")
+        return { error: "Registry not available" };
+      const handle = MojoHandleRegistry.get(id);
+      if (!handle) return { error: "Handle not found" };
+      return {
+        id: handle.__mojoGuiId,
+        nativeValue: handle.value,
+        isClosed: !handle.value && handle.value !== 0 && !handle.watch, // Heuristic check
+      };
+    },
+    /**
+     * Close a specific handle
+     * @param {string|number} id - Handle ID
+     * @returns {Object} Success or error
+     */
+    closeHandle: (id) => {
+      if (typeof MojoHandleRegistry === "undefined")
+        return { error: "Registry not available" };
+      const handle = MojoHandleRegistry.get(id);
+      if (!handle) return { error: "Handle not found" };
+      try {
+        handle.close();
+        console.log(`[MojoGUI_API] Closed handle ${id}`);
+        return { success: true };
+      } catch (e) {
+        return { error: e.message };
+      }
+    },
+    /**
+     * List all registered handles
+     * @returns {Array} Array of handle IDs
+     */
+    listHandles: () => {
+      if (typeof MojoHandleRegistry === "undefined") return [];
+      return Array.from(MojoHandleRegistry.handles.keys());
+    },
+    /**
+     * Set response interception mode
+     * @param {boolean} enabled - Whether to intercept responses
+     */
+    setInterceptResponses: (enabled) => {
+      state.interceptResponses = !!enabled;
+      // Update UI toggle if present
+      if (elements.interceptRespToggle) {
+        elements.interceptRespToggle.checked = state.interceptResponses;
+      }
+      return state.interceptResponses;
+    },
+    // ---- Binding Loading ----
+    ensureBinding: (ifaceName) => MojoLoader.ensureBinding(ifaceName),
+  };
+
+  // Start
+  init();
 })();
