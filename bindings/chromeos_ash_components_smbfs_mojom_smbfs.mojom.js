@@ -697,9 +697,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_kerberos_config', 40, 0, mojo.internal.bindings.smbfs.mojom.KerberosConfigSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_allow_ntlm', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_skip_connect', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_credential_storage_options', 56, 0, mojo.internal.bindings.smbfs.mojom.CredentialStorageOptionsSpec, null, true, 1, undefined),
+      mojo.internal.StructField('arg_credential_storage_options', 56, 0, mojo.internal.bindings.smbfs.mojom.CredentialStorageOptionsSpec, null, true, 0, undefined),
     ],
-    [[0, 64], [1, 72]]);
+    [[0, 72]]);
 
 // Struct: Credentials
 mojo.internal.Struct(

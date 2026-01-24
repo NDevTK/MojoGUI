@@ -416,9 +416,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.PasskeyAssertionResponseSpec, 'crosapi.mojom.PasskeyAssertionResponse', [
       mojo.internal.StructField('arg_signature', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_authenticator_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 1, undefined),
+      mojo.internal.StructField('arg_authenticator_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
     ],
-    [[0, 16], [1, 24]]);
+    [[0, 24]]);
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec, 'crosapi.mojom.PasskeyAuthenticator_Create_Params', [
       mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec, null, false, 0, undefined),

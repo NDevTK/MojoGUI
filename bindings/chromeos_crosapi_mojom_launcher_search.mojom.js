@@ -673,16 +673,16 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_additional_contents', 64, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
       mojo.internal.StructField('arg_description', 72, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
       mojo.internal.StructField('arg_additional_description', 80, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_stripped_destination_url', 88, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 2, undefined),
-      mojo.internal.StructField('arg_page_transition', 96, 0, mojo.internal.bindings.crosapi.mojom.PageTransitionSpec, null, false, 2, undefined),
-      mojo.internal.StructField('arg_contents_type', 100, 0, mojo.internal.bindings.crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
-      mojo.internal.StructField('arg_additional_contents_type', 104, 0, mojo.internal.bindings.crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
-      mojo.internal.StructField('arg_description_type', 108, 0, mojo.internal.bindings.crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
-      mojo.internal.StructField('arg_description_a11y_label', 112, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 3, undefined),
-      mojo.internal.StructField('arg_metrics_type', 120, 0, mojo.internal.bindings.crosapi.mojom.MetricsTypeSpec, null, false, 5, undefined),
-      mojo.internal.StructField('arg_receiver', 124, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.SearchResultConsumerPendingReceiver), null, true, 5, undefined),
+      mojo.internal.StructField('arg_stripped_destination_url', 88, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_page_transition', 96, 0, mojo.internal.bindings.crosapi.mojom.PageTransitionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_contents_type', 100, 0, mojo.internal.bindings.crosapi.mojom.TextTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_additional_contents_type', 104, 0, mojo.internal.bindings.crosapi.mojom.TextTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description_type', 108, 0, mojo.internal.bindings.crosapi.mojom.TextTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description_a11y_label', 112, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_metrics_type', 120, 0, mojo.internal.bindings.crosapi.mojom.MetricsTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 124, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.SearchResultConsumerPendingReceiver), null, true, 0, undefined),
     ],
-    [[0, 96], [2, 120], [3, 128], [5, 136]]);
+    [[0, 136]]);
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec, 'crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_Params', [
       mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.crosapi.mojom.SearchStatusSpec, null, false, 0, undefined),

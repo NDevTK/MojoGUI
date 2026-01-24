@@ -922,23 +922,23 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_ap', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_version', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_existence_checker_path', 40, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ap_path', 48, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 1, undefined),
-      mojo.internal.StructField('arg_ap_key', 56, 0, mojo.internal.String, null, true, 1, undefined),
-      mojo.internal.StructField('arg_version_path', 64, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 1, undefined),
-      mojo.internal.StructField('arg_version_key', 72, 0, mojo.internal.String, null, true, 1, undefined),
-      mojo.internal.StructField('arg_install_id', 80, 0, mojo.internal.String, null, true, 2, undefined),
-      mojo.internal.StructField('arg_lang', 88, 0, mojo.internal.String, null, true, 3, undefined),
-      mojo.internal.StructField('arg_dla_$flag', 96, 0, mojo.internal.Bool, false, false, 4, { isPrimary: true, linkedValueFieldName: 'arg_dla_$value', originalFieldName: 'arg_dla' }),
-      mojo.internal.StructField('arg_dlrc_$flag', 96, 1, mojo.internal.Bool, false, false, 4, { isPrimary: true, linkedValueFieldName: 'arg_dlrc_$value', originalFieldName: 'arg_dlrc' }),
-      mojo.internal.StructField('arg_install_date_$flag', 96, 2, mojo.internal.Bool, false, false, 4, { isPrimary: true, linkedValueFieldName: 'arg_install_date_$value', originalFieldName: 'arg_install_date' }),
-      mojo.internal.StructField('arg_dla_$value', 100, 0, mojo.internal.Int32, 0, false, 4, { isPrimary: false, linkedValueFieldName: 'arg_dla_$flag', originalFieldName: 'arg_dla' }),
-      mojo.internal.StructField('arg_dlrc_$value', 104, 0, mojo.internal.Int32, 0, false, 4, { isPrimary: false, linkedValueFieldName: 'arg_dlrc_$flag', originalFieldName: 'arg_dlrc' }),
-      mojo.internal.StructField('arg_install_date_$value', 108, 0, mojo.internal.Int32, 0, false, 4, { isPrimary: false, linkedValueFieldName: 'arg_install_date_$flag', originalFieldName: 'arg_install_date' }),
-      mojo.internal.StructField('arg_cohort', 112, 0, mojo.internal.String, null, true, 4, undefined),
-      mojo.internal.StructField('arg_cohort_name', 120, 0, mojo.internal.String, null, true, 4, undefined),
-      mojo.internal.StructField('arg_cohort_hint', 128, 0, mojo.internal.String, null, true, 4, undefined),
+      mojo.internal.StructField('arg_ap_path', 48, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_ap_key', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_version_path', 64, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_version_key', 72, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_install_id', 80, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_lang', 88, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_dla_$flag', 96, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_dla_$value', originalFieldName: 'arg_dla' }),
+      mojo.internal.StructField('arg_dlrc_$flag', 96, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_dlrc_$value', originalFieldName: 'arg_dlrc' }),
+      mojo.internal.StructField('arg_install_date_$flag', 96, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_install_date_$value', originalFieldName: 'arg_install_date' }),
+      mojo.internal.StructField('arg_dla_$value', 100, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_dla_$flag', originalFieldName: 'arg_dla' }),
+      mojo.internal.StructField('arg_dlrc_$value', 104, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_dlrc_$flag', originalFieldName: 'arg_dlrc' }),
+      mojo.internal.StructField('arg_install_date_$value', 108, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_install_date_$flag', originalFieldName: 'arg_install_date' }),
+      mojo.internal.StructField('arg_cohort', 112, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cohort_name', 120, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cohort_hint', 128, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 56], [1, 88], [2, 96], [3, 104], [4, 144]]);
+    [[0, 144]]);
 
 // Struct: UpdateState
 mojo.internal.Struct(
@@ -966,13 +966,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_brand_code', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_brand_path', 32, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_ecp', 40, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ap_path', 48, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 1, undefined),
-      mojo.internal.StructField('arg_ap_key', 56, 0, mojo.internal.String, null, true, 1, undefined),
-      mojo.internal.StructField('arg_version_path', 64, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 1, undefined),
-      mojo.internal.StructField('arg_version_key', 72, 0, mojo.internal.String, null, true, 1, undefined),
-      mojo.internal.StructField('arg_cohort', 80, 0, mojo.internal.String, null, true, 2, undefined),
+      mojo.internal.StructField('arg_ap_path', 48, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_ap_key', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_version_path', 64, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_version_key', 72, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cohort', 80, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 56], [1, 88], [2, 96]]);
+    [[0, 96]]);
 
 // Struct: UpdaterState
 mojo.internal.Struct(
@@ -996,9 +996,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateService_FetchPolicies_ParamsSpec, 'updater.mojom.UpdateService_FetchPolicies_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.enterprise_companion.mojom.PolicyFetchReasonSpec, null, false, 4, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.enterprise_companion.mojom.PolicyFetchReasonSpec, null, false, 0, undefined),
     ],
-    [[0, 8], [4, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateService_FetchPolicies_ResponseParamsSpec, 'updater.mojom.UpdateService_FetchPolicies_ResponseParams', [
@@ -1056,10 +1056,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_install_data_index', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_priority', 16, 0, mojo.internal.bindings.updater.mojom.PrioritySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_policy_same_version_update', 20, 0, mojo.internal.bindings.updater.mojom.PolicySameVersionUpdateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_do_update_check_only', 24, 0, mojo.internal.Bool, false, false, 1, undefined),
-      mojo.internal.StructField('arg_language', 32, 0, mojo.internal.String, null, true, 3, undefined),
+      mojo.internal.StructField('arg_do_update_check_only', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_language', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 32], [1, 40], [3, 48]]);
+    [[0, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateService_Update_ResponseParamsSpec, 'updater.mojom.UpdateService_Update_ResponseParams', [
@@ -1073,9 +1073,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_client_install_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_install_data_index', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_priority', 24, 0, mojo.internal.bindings.updater.mojom.PrioritySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_language', 32, 0, mojo.internal.String, null, true, 3, undefined),
+      mojo.internal.StructField('arg_language', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 40], [3, 48]]);
+    [[0, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateService_Install_ResponseParamsSpec, 'updater.mojom.UpdateService_Install_ResponseParams', [
@@ -1096,9 +1096,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_install_args', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_install_data', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_install_settings', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_language', 40, 0, mojo.internal.String, null, true, 3, undefined),
+      mojo.internal.StructField('arg_language', 40, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 48], [3, 56]]);
+    [[0, 56]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec, 'updater.mojom.UpdateService_RunInstaller_ResponseParams', [
@@ -1111,9 +1111,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_priority', 8, 0, mojo.internal.bindings.updater.mojom.PrioritySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_policy_same_version_update', 12, 0, mojo.internal.bindings.updater.mojom.PolicySameVersionUpdateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_language', 16, 0, mojo.internal.String, null, true, 3, undefined),
+      mojo.internal.StructField('arg_language', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 24], [3, 32]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec, 'updater.mojom.UpdateService_CheckForUpdate_ResponseParams', [

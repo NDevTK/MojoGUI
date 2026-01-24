@@ -129,15 +129,13 @@ mojo.internal.bindings.mojo_base.mojom.RelativeFilePathSpec = { $: {} };
 // Struct: FilePath
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.FilePathSpec, 'mojo_base.mojom.FilePath', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_path', 8, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Struct: RelativeFilePath
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.RelativeFilePathSpec, 'mojo_base.mojom.RelativeFilePath', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_path', 8, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);

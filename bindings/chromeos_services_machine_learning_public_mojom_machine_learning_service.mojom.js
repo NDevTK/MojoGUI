@@ -881,9 +881,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ParamsSpec, 'chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterPendingReceiver), null, false, 0, undefined),
-      mojo.internal.StructField('arg_spec', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpecSpec, null, true, 3, undefined),
+      mojo.internal.StructField('arg_spec', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpecSpec, null, true, 0, undefined),
     ],
-    [[0, 16], [3, 24]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec, 'chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParams', [
@@ -907,9 +907,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ParamsSpec, 'chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerPendingReceiver), null, false, 0, undefined),
-      mojo.internal.StructField('arg_config', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerConfigSpec, null, true, 6, undefined),
+      mojo.internal.StructField('arg_config', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.DocumentScannerConfigSpec, null, true, 0, undefined),
     ],
-    [[0, 16], [6, 24]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec, 'chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParams', [

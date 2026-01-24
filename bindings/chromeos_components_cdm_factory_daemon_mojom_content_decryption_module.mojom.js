@@ -1032,9 +1032,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_encrypted_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_decrypt_config_in', 8, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptConfigSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_is_video', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_secure_handle', 24, 0, mojo.internal.Uint64, 0, false, 3, undefined),
+      mojo.internal.StructField('arg_secure_handle', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 32], [3, 40]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParams', [

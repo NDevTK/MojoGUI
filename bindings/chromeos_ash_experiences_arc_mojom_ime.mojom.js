@@ -748,9 +748,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_start_offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_end_offset', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_emphasized', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_style', 12, 0, mojo.internal.bindings.arc.mojom.SegmentStyleSpec, null, false, 18, undefined),
+      mojo.internal.StructField('arg_style', 12, 0, mojo.internal.bindings.arc.mojom.SegmentStyleSpec, null, false, 0, undefined),
     ],
-    [[0, 24], [18, 24]]);
+    [[0, 24]]);
 
 // Struct: KeyEventData
 mojo.internal.Struct(
@@ -760,19 +760,19 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_control_down', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_alt_down', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_capslock_on', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_alt_gr_down', 0, 5, mojo.internal.Bool, false, false, 20, undefined),
-      mojo.internal.StructField('arg_is_repeat', 0, 6, mojo.internal.Bool, false, false, 23, undefined),
+      mojo.internal.StructField('arg_is_alt_gr_down', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_repeat', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_key_code', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_scan_code', 8, 0, mojo.internal.Uint32, 0, false, 16, undefined),
+      mojo.internal.StructField('arg_scan_code', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 16], [16, 24], [20, 16], [23, 16]]);
+    [[0, 24]]);
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec, 'arc.mojom.ImeHost_OnTextInputTypeChanged_Params', [
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.TextInputTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_personalized_learning_allowed', 4, 0, mojo.internal.Bool, false, false, 10, undefined),
-      mojo.internal.StructField('arg_flags', 8, 0, mojo.internal.Int32, 0, false, 11, undefined),
+      mojo.internal.StructField('arg_is_personalized_learning_allowed', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_flags', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 16], [10, 16], [11, 24]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec, 'arc.mojom.ImeHost_OnCursorRectChanged_Params', [
@@ -828,9 +828,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ImeInstance_SetCompositionText_ParamsSpec, 'arc.mojom.ImeInstance_SetCompositionText_Params', [
       mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_segments', 8, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.CompositionSegmentSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_selection_range', 16, 0, mojo.internal.bindings.arc.mojom.RangeSpec, null, true, 21, undefined),
+      mojo.internal.StructField('arg_selection_range', 16, 0, mojo.internal.bindings.arc.mojom.RangeSpec, null, true, 0, undefined),
     ],
-    [[0, 24], [21, 32]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ImeInstance_SetSelectionText_ParamsSpec, 'arc.mojom.ImeInstance_SetSelectionText_Params', [
@@ -846,16 +846,16 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ImeInstance_InsertText_ParamsSpec, 'arc.mojom.ImeInstance_InsertText_Params', [
       mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_cursor_position', 8, 0, mojo.internal.Int32, 0, false, 17, undefined),
+      mojo.internal.StructField('arg_new_cursor_position', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 16], [17, 24]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec, 'arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_Params', [
       mojo.internal.StructField('arg_new_bounds', 0, 0, mojo.internal.bindings.arc.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_available', 8, 0, mojo.internal.Bool, false, false, 7, undefined),
+      mojo.internal.StructField('arg_is_available', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16], [7, 24]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec, 'arc.mojom.ImeInstance_ExtendSelectionAndDelete_Params', [

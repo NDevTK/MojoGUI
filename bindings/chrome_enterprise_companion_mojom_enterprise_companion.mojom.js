@@ -336,9 +336,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.enterprise_companion.mojom.PolicyFetchReasonSpec, null, false, 1, undefined),
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.enterprise_companion.mojom.PolicyFetchReasonSpec, null, false, 0, undefined),
     ],
-    [[0, 8], [1, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParams', [

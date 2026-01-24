@@ -503,10 +503,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec, 'mantis.mojom.MantisService_Initialize_Params', [
       mojo.internal.StructField('arg_progress_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_processor', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mantis.mojom.MantisProcessorPendingReceiver), null, false, 0, undefined),
-      mojo.internal.StructField('arg_dlc_uuid', 16, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, true, 3, undefined),
-      mojo.internal.StructField('arg_text_classifier', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierRemote), null, true, 4, undefined),
+      mojo.internal.StructField('arg_dlc_uuid', 16, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_text_classifier', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierRemote), null, true, 0, undefined),
     ],
-    [[0, 24], [3, 32], [4, 40]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec, 'mantis.mojom.MantisService_Initialize_ResponseParams', [

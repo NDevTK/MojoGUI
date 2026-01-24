@@ -402,10 +402,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_coded_size_width', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_coded_size_height', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_quality', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_input_modifier', 44, 0, mojo.internal.Bool, false, false, 1, undefined),
-      mojo.internal.StructField('arg_input_modifier', 48, 0, mojo.internal.Uint64, 0, false, 1, undefined),
+      mojo.internal.StructField('arg_has_input_modifier', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_input_modifier', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 56], [1, 64]]);
+    [[0, 64]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec, 'chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParams', [

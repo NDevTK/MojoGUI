@@ -338,9 +338,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterQuerySpec, 'chromeos.machine_learning.mojom.TextSuggesterQuery', [
       mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_next_word_candidates', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestion_mode', 16, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionModeSpec, null, false, 1, undefined),
+      mojo.internal.StructField('arg_suggestion_mode', 16, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionModeSpec, null, false, 0, undefined),
     ],
-    [[0, 24], [1, 32]]);
+    [[0, 32]]);
 
 // Struct: MultiWordSuggestionCandidate
 mojo.internal.Struct(

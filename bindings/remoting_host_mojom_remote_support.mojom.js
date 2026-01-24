@@ -506,9 +506,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.SupportSessionParamsSpec, 'remoting.mojom.SupportSessionParams', [
       mojo.internal.StructField('arg_user_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_oauth_access_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_authorized_helper', 16, 0, mojo.internal.String, null, true, 2, undefined),
+      mojo.internal.StructField('arg_authorized_helper', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 24], [2, 32]]);
+    [[0, 32]]);
 
 // Struct: NatPolicyState
 mojo.internal.Struct(
@@ -547,9 +547,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateDisconnected_Params', [
-      mojo.internal.StructField('arg_disconnect_reason', 0, 0, mojo.internal.String, null, true, 1, undefined),
+      mojo.internal.StructField('arg_disconnect_reason', 0, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 8], [1, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnNatPolicyChanged_Params', [

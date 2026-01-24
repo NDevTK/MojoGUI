@@ -175,11 +175,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_free_trial_period', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_introductory_price', 48, 0, mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_introductory_price_period', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_introductory_price_cycles', 64, 0, mojo.internal.Uint32, 0, false, 1, undefined),
-      mojo.internal.StructField('arg_type', 68, 0, mojo.internal.bindings.payments.mojom.ItemTypeSpec, null, false, 1, undefined),
-      mojo.internal.StructField('arg_icon_urls', 72, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, true, 1, undefined),
+      mojo.internal.StructField('arg_introductory_price_cycles', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 68, 0, mojo.internal.bindings.payments.mojom.ItemTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_urls', 72, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, true, 0, undefined),
     ],
-    [[0, 72], [1, 88]]);
+    [[0, 88]]);
 
 // Struct: PurchaseReference
 mojo.internal.Struct(

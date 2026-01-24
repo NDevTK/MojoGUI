@@ -292,10 +292,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_heatmap_hidraw_device', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_input_node', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_output_node', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_palm_threshold', 24, 0, mojo.internal.Double, 0, false, 1, undefined),
-      mojo.internal.StructField('arg_crop_heatmap', 32, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.CropHeatmapSpec, null, true, 3, undefined),
+      mojo.internal.StructField('arg_palm_threshold', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_crop_heatmap', 32, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.CropHeatmapSpec, null, true, 0, undefined),
     ],
-    [[0, 32], [1, 40], [3, 48]]);
+    [[0, 48]]);
 
 // Struct: HeatmapProcessedEvent
 mojo.internal.Struct(

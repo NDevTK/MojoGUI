@@ -663,9 +663,9 @@ mojo.internal.Union(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryAudioJackEventInfoSpec, 'crosapi.mojom.TelemetryAudioJackEventInfo', [
       mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_type', 4, 0, mojo.internal.bindings.crosapi.mojom.DeviceTypeSpec, null, false, 1, undefined),
+      mojo.internal.StructField('arg_device_type', 4, 0, mojo.internal.bindings.crosapi.mojom.DeviceTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 16], [1, 16]]);
+    [[0, 16]]);
 
 // Struct: TelemetryLidEventInfo
 mojo.internal.Struct(
@@ -690,9 +690,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryExternalDisplayEventInfoSpec, 'crosapi.mojom.TelemetryExternalDisplayEventInfo', [
       mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_info', 8, 0, mojo.internal.bindings.crosapi.mojom.ProbeExternalDisplayInfoSpec, null, true, 1, undefined),
+      mojo.internal.StructField('arg_display_info', 8, 0, mojo.internal.bindings.crosapi.mojom.ProbeExternalDisplayInfoSpec, null, true, 0, undefined),
     ],
-    [[0, 16], [1, 24]]);
+    [[0, 24]]);
 
 // Struct: TelemetrySdCardEventInfo
 mojo.internal.Struct(

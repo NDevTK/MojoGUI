@@ -795,10 +795,10 @@ mojo.internal.Struct(
 // Struct: EmbeddingOptions
 mojo.internal.Struct(
     mojo.internal.bindings.coral.mojom.EmbeddingOptionsSpec, 'coral.mojom.EmbeddingOptions', [
-      mojo.internal.StructField('arg_check_safety_filter_$flag', 0, 0, mojo.internal.Bool, false, false, 1, { isPrimary: true, linkedValueFieldName: 'arg_check_safety_filter_$value', originalFieldName: 'arg_check_safety_filter' }),
-      mojo.internal.StructField('arg_check_safety_filter_$value', 0, 1, mojo.internal.Bool, false, false, 1, { isPrimary: false, linkedValueFieldName: 'arg_check_safety_filter_$flag', originalFieldName: 'arg_check_safety_filter' }),
+      mojo.internal.StructField('arg_check_safety_filter_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_check_safety_filter_$value', originalFieldName: 'arg_check_safety_filter' }),
+      mojo.internal.StructField('arg_check_safety_filter_$value', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_check_safety_filter_$flag', originalFieldName: 'arg_check_safety_filter' }),
     ],
-    [[0, 8], [1, 16]]);
+    [[0, 16]]);
 
 // Struct: ClusteringOptions
 mojo.internal.Struct(
@@ -833,9 +833,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_embedding_options', 8, 0, mojo.internal.bindings.coral.mojom.EmbeddingOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_clustering_options', 16, 0, mojo.internal.bindings.coral.mojom.ClusteringOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_title_generation_options', 24, 0, mojo.internal.bindings.coral.mojom.TitleGenerationOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suppression_context', 32, 0, mojo.internal.Array(mojo.internal.bindings.coral.mojom.EntitySpec, false), null, true, 1, undefined),
+      mojo.internal.StructField('arg_suppression_context', 32, 0, mojo.internal.Array(mojo.internal.bindings.coral.mojom.EntitySpec, false), null, true, 0, undefined),
     ],
-    [[0, 40], [1, 48]]);
+    [[0, 48]]);
 
 // Struct: GroupResponse
 mojo.internal.Struct(
@@ -923,7 +923,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.coral.mojom.CoralService_Initialize_ParamsSpec, 'coral.mojom.CoralService_Initialize_Params', [
       mojo.internal.StructField('arg_ml_service', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_processor', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.coral.mojom.CoralProcessorPendingReceiver), null, false, 0, undefined),
-      mojo.internal.StructField('arg_language_code', 16, 0, mojo.internal.String, null, true, 2, undefined),
+      mojo.internal.StructField('arg_language_code', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 24], [2, 32]]);
+    [[0, 32]]);
 

@@ -743,9 +743,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_format', 4, 0, mojo.internal.bindings.arc.mojom.HalPixelFormatSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_handle_fd', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
       mojo.internal.StructField('arg_planes', 16, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.VideoFramePlaneSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_modifier', 24, 0, mojo.internal.bindings.arc.mojom.BufferModifierSpec, null, true, 4, undefined),
+      mojo.internal.StructField('arg_modifier', 24, 0, mojo.internal.bindings.arc.mojom.BufferModifierSpec, null, true, 0, undefined),
     ],
-    [[0, 32], [4, 40]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoDecodeAccelerator_ReusePictureBuffer_ParamsSpec, 'arc.mojom.VideoDecodeAccelerator_ReusePictureBuffer_Params', [

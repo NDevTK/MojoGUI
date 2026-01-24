@@ -504,9 +504,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec, 'arc.mojom.WallpaperHost_SetWallpaper_Params', [
       mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_wallpaper_id', 8, 0, mojo.internal.Int32, 0, false, 2, undefined),
+      mojo.internal.StructField('arg_wallpaper_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 16], [2, 24]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec, 'arc.mojom.WallpaperHost_SetDefaultWallpaper_Params', [
@@ -526,7 +526,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec, 'arc.mojom.WallpaperInstance_OnWallpaperChanged_Params', [
-      mojo.internal.StructField('arg_wallpaper_id', 0, 0, mojo.internal.Int32, 0, false, 2, undefined),
+      mojo.internal.StructField('arg_wallpaper_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 8], [2, 16]]);
+    [[0, 16]]);
 

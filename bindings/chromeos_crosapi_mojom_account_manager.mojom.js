@@ -986,10 +986,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_invalid_gaia_credentials_reason', 4, 0, mojo.internal.bindings.crosapi.mojom.InvalidGaiaCredentialsReasonSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_network_error', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_error_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_token_binding_challenge', 24, 0, mojo.internal.String, null, true, 14, undefined),
-      mojo.internal.StructField('arg_scope_limited_unrecoverable_error_reason', 32, 0, mojo.internal.bindings.crosapi.mojom.ScopeLimitedUnrecoverableErrorReasonSpec, null, false, 15, undefined),
+      mojo.internal.StructField('arg_token_binding_challenge', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_scope_limited_unrecoverable_error_reason', 32, 0, mojo.internal.bindings.crosapi.mojom.ScopeLimitedUnrecoverableErrorReasonSpec, null, false, 0, undefined),
     ],
-    [[0, 32], [14, 40], [15, 48]]);
+    [[0, 48]]);
 
 // Struct: AccountAdditionOptions
 mojo.internal.Struct(
@@ -1075,9 +1075,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ParamsSpec, 'crosapi.mojom.AccountManager_ShowAddAccountDialog_Params', [
-      mojo.internal.StructField('arg_add_account_options', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountAdditionOptionsSpec, null, true, 8, undefined),
+      mojo.internal.StructField('arg_add_account_options', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountAdditionOptionsSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [8, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec, 'crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParams', [
@@ -1093,9 +1093,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec, 'crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountUpsertionResultSpec, null, true, 13, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountUpsertionResultSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [13, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.AccountManager_ShowManageAccountsSettings_ParamsSpec, 'crosapi.mojom.AccountManager_ShowManageAccountsSettings_Params', [

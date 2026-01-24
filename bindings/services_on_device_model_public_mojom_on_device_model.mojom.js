@@ -1805,11 +1805,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec, 'on_device_model.mojom.SessionParams', [
       mojo.internal.StructField('arg_max_tokens', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_top_k', 4, 0, mojo.internal.Uint32, 0, false, 1, undefined),
+      mojo.internal.StructField('arg_top_k', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_capabilities', 8, 0, mojo.internal.bindings.on_device_model.mojom.CapabilitiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_temperature', 16, 0, mojo.internal.Float, 0, false, 1, undefined),
+      mojo.internal.StructField('arg_temperature', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 24], [1, 32]]);
+    [[0, 32]]);
 
 // Struct: Input
 mojo.internal.Struct(
@@ -1830,9 +1830,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.GenerateOptionsSpec, 'on_device_model.mojom.GenerateOptions', [
       mojo.internal.StructField('arg_max_output_tokens', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_constraint', 8, 0, mojo.internal.bindings.on_device_model.mojom.ResponseConstraintSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_constraint', 8, 0, mojo.internal.bindings.on_device_model.mojom.ResponseConstraintSpec, null, true, 0, undefined),
     ],
-    [[0, 16], [2, 32]]);
+    [[0, 32]]);
 
 // Struct: AudioData
 mojo.internal.Struct(
@@ -1967,9 +1967,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_StartSession_ParamsSpec, 'on_device_model.mojom.OnDeviceModel_StartSession_Params', [
       mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.SessionPendingReceiver), null, false, 0, undefined),
-      mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec, null, true, 1, undefined),
+      mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec, null, true, 0, undefined),
     ],
-    [[0, 16], [1, 24]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ParamsSpec, 'on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_Params', [

@@ -740,10 +740,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec, 'arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_Params', [
       mojo.internal.StructField('arg_video_decoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorPendingReceiver), null, false, 0, undefined),
-      mojo.internal.StructField('arg_protected_buffer_manager', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ProtectedBufferManagerRemote), null, true, 8, undefined),
-      mojo.internal.StructField('arg_browser_cdm_factory', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemote), null, true, 10, undefined),
+      mojo.internal.StructField('arg_protected_buffer_manager', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ProtectedBufferManagerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_browser_cdm_factory', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemote), null, true, 0, undefined),
     ],
-    [[0, 16], [8, 24], [10, 32]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec, 'arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_Params', [

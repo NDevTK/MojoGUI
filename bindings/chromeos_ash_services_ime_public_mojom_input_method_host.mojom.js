@@ -804,10 +804,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.CandidatesWindowSpec, 'ash.ime.mojom.CandidatesWindow', [
       mojo.internal.StructField('arg_candidates', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.ime.mojom.CandidateSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_DEPRECATED_highlighted_candidate', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_auxiliary_text', 16, 0, mojo.internal.String, null, true, 4, undefined),
-      mojo.internal.StructField('arg_highlighted_candidate', 24, 0, mojo.internal.bindings.ash.ime.mojom.HighlightedCandidateSpec, null, true, 6, undefined),
+      mojo.internal.StructField('arg_auxiliary_text', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_highlighted_candidate', 24, 0, mojo.internal.bindings.ash.ime.mojom.HighlightedCandidateSpec, null, true, 0, undefined),
     ],
-    [[0, 24], [4, 32], [6, 40]]);
+    [[0, 40]]);
 
 // Struct: BucketedHistogram
 mojo.internal.Struct(
@@ -877,9 +877,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DisplaySuggestions_Params', [
       mojo.internal.StructField('arg_suggestions', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.ime.mojom.SuggestionCandidateSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_context', 8, 0, mojo.internal.bindings.ash.ime.mojom.SuggestionsTextContextSpec, null, true, 10, undefined),
+      mojo.internal.StructField('arg_context', 8, 0, mojo.internal.bindings.ash.ime.mojom.SuggestionsTextContextSpec, null, true, 0, undefined),
     ],
-    [[0, 16], [10, 24]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec, 'ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_Params', [

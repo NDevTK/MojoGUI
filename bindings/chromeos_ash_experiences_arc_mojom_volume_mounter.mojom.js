@@ -556,9 +556,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_mount_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_fs_uuid', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_label', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visible', 40, 0, mojo.internal.Bool, false, false, 2, undefined),
+      mojo.internal.StructField('arg_visible', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48], [2, 56]]);
+    [[0, 56]]);
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VolumeMounterHost_RequestAllMountPoints_ParamsSpec, 'arc.mojom.VolumeMounterHost_RequestAllMountPoints_Params', [
     ],

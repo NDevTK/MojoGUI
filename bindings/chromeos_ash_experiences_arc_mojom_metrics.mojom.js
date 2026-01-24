@@ -1518,9 +1518,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportBootProgress_ParamsSpec, 'arc.mojom.MetricsHost_ReportBootProgress_Params', [
       mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.BootProgressEventSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_boot_type', 8, 0, mojo.internal.bindings.arc.mojom.BootTypeSpec, null, false, 1, undefined),
+      mojo.internal.StructField('arg_boot_type', 8, 0, mojo.internal.bindings.arc.mojom.BootTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 16], [1, 24]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.MetricsHost_ReportNativeBridge_ParamsSpec, 'arc.mojom.MetricsHost_ReportNativeBridge_Params', [

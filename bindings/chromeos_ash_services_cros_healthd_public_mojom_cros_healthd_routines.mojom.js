@@ -1371,9 +1371,9 @@ mojo.internal.Struct(
 // Struct: RoutineStateRunning
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.RoutineStateRunningSpec, 'ash.cros_healthd.mojom.RoutineStateRunning', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineRunningInfoSpec, null, true, 1, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineRunningInfoSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [1, 24]]);
+    [[0, 24]]);
 
 // Struct: NetworkBandwidthRoutineRunningInfo
 mojo.internal.Struct(
@@ -1388,9 +1388,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.RoutineStateWaitingSpec, 'ash.cros_healthd.mojom.RoutineStateWaiting', [
       mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ReasonSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interaction', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineInteractionSpec, null, true, 1, undefined),
+      mojo.internal.StructField('arg_interaction', 16, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineInteractionSpec, null, true, 0, undefined),
     ],
-    [[0, 24], [1, 40]]);
+    [[0, 40]]);
 
 // Struct: CheckLedLitUpStateInquiry
 mojo.internal.Struct(
@@ -1509,9 +1509,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_rssi_history', 0, 0, mojo.internal.Array(mojo.internal.Int16, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_peripheral_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_uuids', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.UuidSpec, false), null, true, 1, undefined),
+      mojo.internal.StructField('arg_uuids', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.UuidSpec, false), null, true, 0, undefined),
     ],
-    [[0, 32], [1, 40]]);
+    [[0, 40]]);
 
 // Struct: BluetoothScanningRoutineDetail
 mojo.internal.Struct(

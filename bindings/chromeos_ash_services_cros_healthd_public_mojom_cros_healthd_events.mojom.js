@@ -1919,10 +1919,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_vid', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('arg_pid', 18, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 20, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec, null, false, 1, undefined),
+      mojo.internal.StructField('arg_state', 20, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_categories', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
-    [[0, 40], [1, 32]]);
+    [[0, 40]]);
 
 // Struct: ThunderboltEventInfo
 mojo.internal.Struct(
@@ -1963,9 +1963,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.AudioJackEventInfoSpec, 'ash.cros_healthd.mojom.AudioJackEventInfo', [
       mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_type', 4, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DeviceTypeSpec, null, false, 1, undefined),
+      mojo.internal.StructField('arg_device_type', 4, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DeviceTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 16], [1, 16]]);
+    [[0, 16]]);
 
 // Struct: SdCardEventInfo
 mojo.internal.Struct(
@@ -2015,9 +2015,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.ExternalDisplayEventInfoSpec, 'ash.cros_healthd.mojom.ExternalDisplayEventInfo', [
       mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.StateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_info', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ExternalDisplayInfoSpec, null, true, 1, undefined),
+      mojo.internal.StructField('arg_display_info', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ExternalDisplayInfoSpec, null, true, 0, undefined),
     ],
-    [[0, 16], [1, 24]]);
+    [[0, 24]]);
 
 // Struct: TouchscreenTouchEvent
 mojo.internal.Struct(

@@ -405,10 +405,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizerSpecSpec, 'chromeos.machine_learning.mojom.HandwritingRecognizerSpec', [
       mojo.internal.StructField('arg_language', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_language_pack_path', 8, 0, mojo.internal.String, null, true, 1, undefined),
-      mojo.internal.StructField('arg_library_dlc_path', 16, 0, mojo.internal.String, null, true, 2, undefined),
+      mojo.internal.StructField('arg_language_pack_path', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_library_dlc_path', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 16], [1, 24], [2, 32]]);
+    [[0, 32]]);
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ParamsSpec, 'chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_Params', [
       mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.HandwritingRecognitionQuerySpec, null, false, 0, undefined),

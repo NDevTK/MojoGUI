@@ -1026,10 +1026,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_orientation', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_device_version', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_static_camera_characteristics', 16, 0, mojo.internal.bindings.cros.mojom.CameraMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_resource_cost', 24, 0, mojo.internal.bindings.cros.mojom.CameraResourceCostSpec, null, true, 1, undefined),
-      mojo.internal.StructField('arg_conflicting_devices', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 1, undefined),
+      mojo.internal.StructField('arg_resource_cost', 24, 0, mojo.internal.bindings.cros.mojom.CameraResourceCostSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_conflicting_devices', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
     ],
-    [[0, 32], [1, 48]]);
+    [[0, 48]]);
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec, 'cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_Params', [
       mojo.internal.StructField('arg_camera_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),

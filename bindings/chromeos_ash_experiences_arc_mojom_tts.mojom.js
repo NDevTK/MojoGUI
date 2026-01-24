@@ -517,12 +517,12 @@ mojo.internal.bindings.arc.mojom.TtsInstanceRequest = mojo.internal.bindings.arc
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.TtsUtteranceSpec, 'arc.mojom.TtsUtterance', [
       mojo.internal.StructField('arg_utteranceId', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_voice_id', 4, 0, mojo.internal.Uint32, 0, false, 2, undefined),
+      mojo.internal.StructField('arg_voice_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_rate', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_pitch', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
-    [[0, 40], [2, 16]]);
+    [[0, 40]]);
 
 // Struct: TtsVoice
 mojo.internal.Struct(

@@ -1535,9 +1535,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec, 'crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_Params', [
-      mojo.internal.StructField('arg_percentage_used_threshold', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 1, undefined),
+      mojo.internal.StructField('arg_percentage_used_threshold', 0, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [1, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec, 'crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParams', [

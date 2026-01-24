@@ -574,21 +574,21 @@ mojo.internal.bindings.ash.language.mojom.LanguagePacksRequest = mojo.internal.b
 mojo.internal.Struct(
     mojo.internal.bindings.ash.language.mojom.LanguagePackInfoSpec, 'ash.language.mojom.LanguagePackInfo', [
       mojo.internal.StructField('arg_pack_state', 0, 0, mojo.internal.bindings.ash.language.mojom.PackStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 4, 0, mojo.internal.bindings.ash.language.mojom.ErrorCodeSpec, null, false, 2, undefined),
+      mojo.internal.StructField('arg_error', 4, 0, mojo.internal.bindings.ash.language.mojom.ErrorCodeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_feature_id', 16, 0, mojo.internal.bindings.ash.language.mojom.FeatureIdSpec, null, false, 3, undefined),
-      mojo.internal.StructField('arg_locale', 24, 0, mojo.internal.String, null, true, 3, undefined),
+      mojo.internal.StructField('arg_feature_id', 16, 0, mojo.internal.bindings.ash.language.mojom.FeatureIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_locale', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 24], [2, 16], [3, 40]]);
+    [[0, 40]]);
 
 // Struct: BasePackInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.language.mojom.BasePackInfoSpec, 'ash.language.mojom.BasePackInfo', [
       mojo.internal.StructField('arg_pack_state', 0, 0, mojo.internal.bindings.ash.language.mojom.PackStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 4, 0, mojo.internal.bindings.ash.language.mojom.ErrorCodeSpec, null, false, 2, undefined),
+      mojo.internal.StructField('arg_error', 4, 0, mojo.internal.bindings.ash.language.mojom.ErrorCodeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 24], [2, 16]]);
+    [[0, 24]]);
 mojo.internal.Struct(
     mojo.internal.bindings.ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec, 'ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_Params', [
       mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.ash.language.mojom.LanguagePackInfoSpec, null, false, 0, undefined),

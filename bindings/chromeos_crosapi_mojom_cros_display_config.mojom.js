@@ -840,7 +840,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_auto_rotation_allowed', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_has_touch_support', 24, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_has_accelerometer_support', 24, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_detected', 24, 6, mojo.internal.Bool, false, false, 1, undefined),
+      mojo.internal.StructField('arg_is_detected', 24, 6, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_rotation_options', 28, 0, mojo.internal.bindings.crosapi.mojom.DisplayRotationOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_dpi_x', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_dpi_y', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
@@ -852,7 +852,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_display_zoom_factor', 88, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_available_display_zoom_factors', 96, 0, mojo.internal.Array(mojo.internal.Double, false), null, false, 0, undefined),
     ],
-    [[0, 112], [1, 40]]);
+    [[0, 112]]);
 
 // Struct: DisplayConfigProperties
 mojo.internal.Struct(
