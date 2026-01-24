@@ -344,10 +344,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_DEPRECATED_confidence', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('arg_mid', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_score', 24, 0, mojo.internal.Float, 0, false, 1, undefined),
-      mojo.internal.StructField('arg_bounding_box', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 1, undefined),
+      mojo.internal.StructField('arg_score', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bounding_box', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
     ],
-    [[0, 32], [1, 48]]);
+    [[0, 48]]);
 
 // Struct: ImageAnnotationResult
 mojo.internal.Struct(

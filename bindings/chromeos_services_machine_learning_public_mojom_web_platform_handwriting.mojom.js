@@ -343,9 +343,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_input_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_deprecated_text_context', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_alternatives', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_text_context', 32, 0, mojo.internal.String, null, true, 1, undefined),
+      mojo.internal.StructField('arg_text_context', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 40], [1, 48]]);
+    [[0, 48]]);
 
 // Struct: HandwritingModelConstraint
 mojo.internal.Struct(

@@ -2635,9 +2635,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_Params', [
-      mojo.internal.StructField('arg_percentage_used_threshold', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec, null, true, 6, undefined),
+      mojo.internal.StructField('arg_percentage_used_threshold', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec, null, true, 0, undefined),
     ],
-    [[0, 8], [6, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ResponseParams', [
@@ -2784,10 +2784,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_Params', [
-      mojo.internal.StructField('arg_max_testing_mem_kib_$flag', 0, 0, mojo.internal.Bool, false, false, 10, { isPrimary: true, linkedValueFieldName: 'arg_max_testing_mem_kib_$value', originalFieldName: 'arg_max_testing_mem_kib' }),
-      mojo.internal.StructField('arg_max_testing_mem_kib_$value', 4, 0, mojo.internal.Uint32, 0, false, 10, { isPrimary: false, linkedValueFieldName: 'arg_max_testing_mem_kib_$flag', originalFieldName: 'arg_max_testing_mem_kib' }),
+      mojo.internal.StructField('arg_max_testing_mem_kib_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_testing_mem_kib_$value', originalFieldName: 'arg_max_testing_mem_kib' }),
+      mojo.internal.StructField('arg_max_testing_mem_kib_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_testing_mem_kib_$flag', originalFieldName: 'arg_max_testing_mem_kib' }),
     ],
-    [[0, 8], [10, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ResponseParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ResponseParams', [

@@ -169,9 +169,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_favicon_image', 32, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_IsDistillable_$flag', 40, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_IsDistillable_$value', originalFieldName: 'arg_IsDistillable' }),
       mojo.internal.StructField('arg_IsDistillable_$value', 40, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_IsDistillable_$flag', originalFieldName: 'arg_IsDistillable' }),
-      mojo.internal.StructField('arg_is_incognito', 40, 2, mojo.internal.Bool, false, false, 1, undefined),
+      mojo.internal.StructField('arg_is_incognito', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 56], [1, 56]]);
+    [[0, 56]]);
 
 // Struct: MahiContextMenuRequest
 mojo.internal.Struct(
@@ -179,9 +179,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_action_type', 8, 0, mojo.internal.bindings.crosapi.mojom.MahiContextMenuActionTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_question', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_mahi_menu_bounds', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 1, undefined),
+      mojo.internal.StructField('arg_mahi_menu_bounds', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
     ],
-    [[0, 32], [1, 40]]);
+    [[0, 40]]);
 
 // Struct: MahiPageContent
 mojo.internal.Struct(

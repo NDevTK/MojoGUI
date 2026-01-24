@@ -408,12 +408,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_default_locales', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_detected_text_language_tags', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_annotation_usecase', 24, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.AnnotationUsecaseSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_trigger_dictionary_on_beginner_words', 28, 0, mojo.internal.Bool, false, false, 1, undefined),
+      mojo.internal.StructField('arg_trigger_dictionary_on_beginner_words', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_reference_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_reference_timezone', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_enabled_entities', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
     ],
-    [[0, 64], [1, 40]]);
+    [[0, 64]]);
 
 // Struct: CodepointSpan
 mojo.internal.Struct(

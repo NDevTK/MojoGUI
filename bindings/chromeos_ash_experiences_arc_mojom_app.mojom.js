@@ -1717,9 +1717,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.InstallationResultSpec, 'arc.mojom.InstallationResult', [
       mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_launchable_app', 8, 1, mojo.internal.Bool, false, false, 62, undefined),
+      mojo.internal.StructField('arg_is_launchable_app', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24], [62, 24]]);
+    [[0, 24]]);
 
 // Struct: AppStorage
 mojo.internal.Struct(
@@ -1735,17 +1735,17 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_package_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_activity', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sticky', 24, 0, mojo.internal.Bool, false, false, 2, undefined),
-      mojo.internal.StructField('arg_notifications_enabled', 24, 1, mojo.internal.Bool, false, false, 7, undefined),
-      mojo.internal.StructField('arg_suspended', 24, 2, mojo.internal.Bool, false, false, 35, undefined),
-      mojo.internal.StructField('arg_need_fixup', 24, 3, mojo.internal.Bool, false, false, 54, undefined),
-      mojo.internal.StructField('arg_resize_lock_state', 28, 0, mojo.internal.bindings.arc.mojom.ArcResizeLockStateSpec, null, false, 47, undefined),
-      mojo.internal.StructField('arg_initial_layout', 32, 0, mojo.internal.bindings.arc.mojom.WindowLayoutSpec, null, true, 50, undefined),
-      mojo.internal.StructField('arg_version_name', 40, 0, mojo.internal.String, null, true, 51, undefined),
-      mojo.internal.StructField('arg_app_storage', 48, 0, mojo.internal.bindings.arc.mojom.AppStorageSpec, null, true, 52, undefined),
-      mojo.internal.StructField('arg_app_category', 56, 0, mojo.internal.bindings.arc.mojom.AppCategorySpec, null, false, 57, undefined),
+      mojo.internal.StructField('arg_sticky', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_notifications_enabled', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_suspended', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_need_fixup', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_resize_lock_state', 28, 0, mojo.internal.bindings.arc.mojom.ArcResizeLockStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_initial_layout', 32, 0, mojo.internal.bindings.arc.mojom.WindowLayoutSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_version_name', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_app_storage', 48, 0, mojo.internal.bindings.arc.mojom.AppStorageSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_app_category', 56, 0, mojo.internal.bindings.arc.mojom.AppCategorySpec, null, false, 0, undefined),
     ],
-    [[0, 32], [2, 40], [7, 40], [35, 40], [47, 40], [50, 48], [51, 56], [52, 64], [54, 40], [57, 72]]);
+    [[0, 72]]);
 
 // Struct: WebAppInfo
 mojo.internal.Struct(
@@ -1754,10 +1754,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_start_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_scope_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_theme_color', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_web_only_twa', 32, 0, mojo.internal.Bool, false, false, 44, undefined),
-      mojo.internal.StructField('arg_certificate_sha256_fingerprint', 40, 0, mojo.internal.String, null, true, 45, undefined),
+      mojo.internal.StructField('arg_is_web_only_twa', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_certificate_sha256_fingerprint', 40, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 40], [44, 48], [45, 56]]);
+    [[0, 56]]);
 
 // Struct: WindowLayout
 mojo.internal.Struct(
@@ -1782,20 +1782,20 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_package_version', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_sync', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_deprecated_system', 12, 1, mojo.internal.Bool, false, false, 11, undefined),
-      mojo.internal.StructField('arg_vpn_provider', 12, 2, mojo.internal.Bool, false, false, 25, undefined),
-      mojo.internal.StructField('arg_preinstalled', 12, 3, mojo.internal.Bool, false, false, 55, undefined),
-      mojo.internal.StructField('arg_game_controls_opt_out', 12, 4, mojo.internal.Bool, false, false, 61, undefined),
+      mojo.internal.StructField('arg_deprecated_system', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_vpn_provider', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_preinstalled', 12, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_game_controls_opt_out', 12, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_last_backup_android_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_last_backup_time', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_web_app_info', 32, 0, mojo.internal.bindings.arc.mojom.WebAppInfoSpec, null, true, 38, undefined),
-      mojo.internal.StructField('arg_deprecated_permissions', 40, 0, mojo.internal.Map(mojo.internal.bindings.arc.mojom.AppPermissionSpec, mojo.internal.Bool, false), null, true, 41, undefined),
-      mojo.internal.StructField('arg_permission_states', 48, 0, mojo.internal.Map(mojo.internal.bindings.arc.mojom.AppPermissionSpec, mojo.internal.bindings.arc.mojom.PermissionStateSpec, false), null, true, 43, undefined),
-      mojo.internal.StructField('arg_version_name', 56, 0, mojo.internal.String, null, true, 51, undefined),
-      mojo.internal.StructField('arg_priority', 64, 0, mojo.internal.bindings.arc.mojom.InstallPrioritySpec, null, false, 56, undefined),
-      mojo.internal.StructField('arg_locale_info', 72, 0, mojo.internal.bindings.arc.mojom.PackageLocaleInfoSpec, null, true, 60, undefined),
+      mojo.internal.StructField('arg_web_app_info', 32, 0, mojo.internal.bindings.arc.mojom.WebAppInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_deprecated_permissions', 40, 0, mojo.internal.Map(mojo.internal.bindings.arc.mojom.AppPermissionSpec, mojo.internal.Bool, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_permission_states', 48, 0, mojo.internal.Map(mojo.internal.bindings.arc.mojom.AppPermissionSpec, mojo.internal.bindings.arc.mojom.PermissionStateSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_version_name', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_priority', 64, 0, mojo.internal.bindings.arc.mojom.InstallPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_locale_info', 72, 0, mojo.internal.bindings.arc.mojom.PackageLocaleInfoSpec, null, true, 0, undefined),
     ],
-    [[0, 40], [11, 24], [25, 24], [38, 48], [41, 56], [43, 64], [51, 72], [55, 24], [56, 80], [60, 88], [61, 24]]);
+    [[0, 88]]);
 
 // Struct: ShortcutInfo
 mojo.internal.Struct(
@@ -1839,10 +1839,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_publisher_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_formatted_price', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_icon_png_data', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_package_name', 56, 0, mojo.internal.String, null, true, 22, undefined),
-      mojo.internal.StructField('arg_icon', 64, 0, mojo.internal.bindings.arc.mojom.RawIconPngDataSpec, null, true, 46, undefined),
+      mojo.internal.StructField('arg_package_name', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_icon', 64, 0, mojo.internal.bindings.arc.mojom.RawIconPngDataSpec, null, true, 0, undefined),
     ],
-    [[0, 64], [22, 72], [46, 80]]);
+    [[0, 80]]);
 
 // Struct: AppShortcutItem
 mojo.internal.Struct(
@@ -1850,12 +1850,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_shortcut_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_short_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_icon_png', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_package_name', 24, 0, mojo.internal.String, null, true, 31, undefined),
-      mojo.internal.StructField('arg_type', 32, 0, mojo.internal.bindings.arc.mojom.AppShortcutItemTypeSpec, null, false, 32, undefined),
-      mojo.internal.StructField('arg_rank', 36, 0, mojo.internal.Int32, 0, false, 32, undefined),
-      mojo.internal.StructField('arg_icon', 40, 0, mojo.internal.bindings.arc.mojom.RawIconPngDataSpec, null, true, 46, undefined),
+      mojo.internal.StructField('arg_package_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 32, 0, mojo.internal.bindings.arc.mojom.AppShortcutItemTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rank', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_icon', 40, 0, mojo.internal.bindings.arc.mojom.RawIconPngDataSpec, null, true, 0, undefined),
     ],
-    [[0, 32], [31, 40], [32, 48], [46, 56]]);
+    [[0, 56]]);
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec, 'arc.mojom.AppHost_OnAppAddedDeprecated_Params', [
       mojo.internal.StructField('arg_app', 0, 0, mojo.internal.bindings.arc.mojom.AppInfoSpec, null, false, 0, undefined),
@@ -1902,13 +1902,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AppHost_OnTaskCreated_ParamsSpec, 'arc.mojom.AppHost_OnTaskCreated_Params', [
       mojo.internal.StructField('arg_task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 4, 0, mojo.internal.Int32, 0, false, 48, undefined),
+      mojo.internal.StructField('arg_session_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_package_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_activity', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 24, 0, mojo.internal.String, null, true, 13, undefined),
-      mojo.internal.StructField('arg_intent', 32, 0, mojo.internal.String, null, true, 15, undefined),
+      mojo.internal.StructField('arg_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_intent', 32, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 32], [13, 40], [15, 48], [48, 16]]);
+    [[0, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec, 'arc.mojom.AppHost_OnTaskDescriptionUpdated_Params', [
@@ -1921,12 +1921,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec, 'arc.mojom.AppHost_OnTaskDescriptionChanged_Params', [
       mojo.internal.StructField('arg_task_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_primary_color', 4, 0, mojo.internal.Uint32, 0, false, 49, undefined),
+      mojo.internal.StructField('arg_primary_color', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_icon', 16, 0, mojo.internal.bindings.arc.mojom.RawIconPngDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status_bar_color', 24, 0, mojo.internal.Uint32, 0, false, 49, undefined),
+      mojo.internal.StructField('arg_status_bar_color', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 32], [49, 40]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec, 'arc.mojom.AppHost_OnTaskDestroyed_Params', [
@@ -1955,15 +1955,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AppHost_OnInstallationStarted_ParamsSpec, 'arc.mojom.AppHost_OnInstallationStarted_Params', [
-      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, true, 17, undefined),
+      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 8], [17, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AppHost_OnInstallationFinished_ParamsSpec, 'arc.mojom.AppHost_OnInstallationFinished_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.InstallationResultSpec, null, true, 17, undefined),
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.InstallationResultSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [17, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec, 'arc.mojom.AppHost_OnUninstallShortcut_Params', [

@@ -326,9 +326,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.arc.keymint.mojom.ChapsKeyDataSpec, 'arc.keymint.mojom.ChapsKeyData', [
       mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_slot', 16, 0, mojo.internal.bindings.arc.keymanagement.mojom.ChapsSlotSpec, null, false, 1, undefined),
+      mojo.internal.StructField('arg_slot', 16, 0, mojo.internal.bindings.arc.keymanagement.mojom.ChapsSlotSpec, null, false, 0, undefined),
     ],
-    [[0, 24], [1, 32]]);
+    [[0, 32]]);
 
 // Struct: ChromeOsKey
 mojo.internal.Struct(

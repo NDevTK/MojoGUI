@@ -356,9 +356,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.TracingInstance_StartTracing_ParamsSpec, 'arc.mojom.TracingInstance_StartTracing_Params', [
       mojo.internal.StructField('arg_categories', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_socket', 8, 0, mojo.internal.Handle, null, true, 1, undefined),
+      mojo.internal.StructField('arg_socket', 8, 0, mojo.internal.Handle, null, true, 0, undefined),
     ],
-    [[0, 16], [1, 24]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.TracingInstance_StartTracing_ResponseParamsSpec, 'arc.mojom.TracingInstance_StartTracing_ResponseParams', [

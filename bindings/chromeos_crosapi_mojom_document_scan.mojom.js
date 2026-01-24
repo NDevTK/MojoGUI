@@ -668,9 +668,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_connection_type', 40, 0, mojo.internal.bindings.crosapi.mojom.ConnectionTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_secure', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_image_formats', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_protocol_type', 56, 0, mojo.internal.String, null, true, 1, undefined),
+      mojo.internal.StructField('arg_protocol_type', 56, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 64], [1, 72]]);
+    [[0, 72]]);
 
 // Struct: ScannerEnumFilter
 mojo.internal.Struct(
@@ -756,10 +756,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.StartScanOptionsSpec, 'crosapi.mojom.StartScanOptions', [
       mojo.internal.StructField('arg_format', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_read_size_$flag', 8, 0, mojo.internal.Bool, false, false, 1, { isPrimary: true, linkedValueFieldName: 'arg_max_read_size_$value', originalFieldName: 'arg_max_read_size' }),
-      mojo.internal.StructField('arg_max_read_size_$value', 12, 0, mojo.internal.Uint32, 0, false, 1, { isPrimary: false, linkedValueFieldName: 'arg_max_read_size_$flag', originalFieldName: 'arg_max_read_size' }),
+      mojo.internal.StructField('arg_max_read_size_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_read_size_$value', originalFieldName: 'arg_max_read_size' }),
+      mojo.internal.StructField('arg_max_read_size_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_read_size_$flag', originalFieldName: 'arg_max_read_size' }),
     ],
-    [[0, 16], [1, 24]]);
+    [[0, 24]]);
 
 // Struct: StartPreparedScanResponse
 mojo.internal.Struct(

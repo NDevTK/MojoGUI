@@ -488,18 +488,18 @@ mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec, 'arc.mojom.CrashCollectorHost_DumpCrash_Params', [
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_pipe', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('arg_uptime', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 6, undefined),
+      mojo.internal.StructField('arg_uptime', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
     ],
-    [[0, 24], [6, 32]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec, 'arc.mojom.CrashCollectorHost_SetBuildProperties_Params', [
       mojo.internal.StructField('arg_device', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_board', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_cpu_abi', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fingerprint', 24, 0, mojo.internal.String, null, true, 3, undefined),
+      mojo.internal.StructField('arg_fingerprint', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 32], [3, 40]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec, 'arc.mojom.CrashCollectorHost_DumpNativeCrash_Params', [

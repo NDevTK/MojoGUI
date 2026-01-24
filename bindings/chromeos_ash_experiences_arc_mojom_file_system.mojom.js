@@ -1661,16 +1661,16 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_size', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_last_modified', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_android_file_system_path', 40, 0, mojo.internal.String, null, true, 5, undefined),
-      mojo.internal.StructField('arg_supports_delete', 48, 0, mojo.internal.Bool, false, false, 12, undefined),
-      mojo.internal.StructField('arg_supports_rename', 48, 1, mojo.internal.Bool, false, false, 12, undefined),
-      mojo.internal.StructField('arg_supports_write', 48, 2, mojo.internal.Bool, false, false, 12, undefined),
-      mojo.internal.StructField('arg_dir_supports_create', 48, 3, mojo.internal.Bool, false, false, 12, undefined),
-      mojo.internal.StructField('arg_supports_copy', 48, 4, mojo.internal.Bool, false, false, 12, undefined),
-      mojo.internal.StructField('arg_supports_move', 48, 5, mojo.internal.Bool, false, false, 12, undefined),
-      mojo.internal.StructField('arg_supports_thumbnail', 48, 6, mojo.internal.Bool, false, false, 15, undefined),
+      mojo.internal.StructField('arg_android_file_system_path', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_supports_delete', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_rename', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_write', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_dir_supports_create', 48, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_copy', 48, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_move', 48, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_thumbnail', 48, 6, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 48], [5, 56], [12, 64], [15, 64]]);
+    [[0, 64]]);
 
 // Struct: Root
 mojo.internal.Struct(
@@ -1681,10 +1681,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_title', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_summary', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_icon', 40, 0, mojo.internal.bindings.arc.mojom.ArcBitmapSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_supports_create', 48, 0, mojo.internal.Bool, false, false, 12, undefined),
-      mojo.internal.StructField('arg_mime_types', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 12, undefined),
+      mojo.internal.StructField('arg_supports_create', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_types', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
     ],
-    [[0, 56], [12, 72]]);
+    [[0, 72]]);
 
 // Struct: ContentUrlWithMimeType
 mojo.internal.Struct(
@@ -1700,9 +1700,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_action_type', 0, 0, mojo.internal.bindings.arc.mojom.ActionTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_activity_name', 8, 0, mojo.internal.bindings.arc.mojom.ActivityNameSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_urls', 16, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.ContentUrlWithMimeTypeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_extras', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 17, undefined),
+      mojo.internal.StructField('arg_extras', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
     ],
-    [[0, 32], [17, 40]]);
+    [[0, 40]]);
 
 // Struct: SelectFilesRequest
 mojo.internal.Struct(
@@ -1724,9 +1724,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.DocumentPathSpec, 'arc.mojom.DocumentPath', [
       mojo.internal.StructField('arg_authority', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_path', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_root_id', 16, 0, mojo.internal.String, null, true, 24, undefined),
+      mojo.internal.StructField('arg_root_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 24], [24, 32]]);
+    [[0, 32]]);
 
 // Struct: SelectFilesResult
 mojo.internal.Struct(

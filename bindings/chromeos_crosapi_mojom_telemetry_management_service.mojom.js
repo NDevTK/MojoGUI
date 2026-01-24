@@ -317,9 +317,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec, 'crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParams', [
-      mojo.internal.StructField('arg_is_success', 0, 0, mojo.internal.Bool, false, false, 2, undefined),
+      mojo.internal.StructField('arg_is_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 8], [2, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec, 'crosapi.mojom.TelemetryManagementService_SetAudioVolume_Params', [

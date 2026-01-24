@@ -455,11 +455,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_capturing_camera', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_capturing_microphone', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_capturing_screen', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_app_type', 20, 0, mojo.internal.bindings.crosapi.mojom.VideoConferenceAppTypeSpec, null, false, 1, undefined),
+      mojo.internal.StructField('arg_app_type', 20, 0, mojo.internal.bindings.crosapi.mojom.VideoConferenceAppTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
-    [[0, 48], [1, 32]]);
+    [[0, 48]]);
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec, 'crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_Params', [
     ],

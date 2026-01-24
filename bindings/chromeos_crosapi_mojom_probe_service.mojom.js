@@ -924,9 +924,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_scaling_current_frequency_khz', 16, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_idle_time_ms', 24, 0, mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_c_states', 32, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.ProbeCpuCStateInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_core_id', 40, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 1, undefined),
+      mojo.internal.StructField('arg_core_id', 40, 0, mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec, null, true, 0, undefined),
     ],
-    [[0, 48], [1, 56]]);
+    [[0, 56]]);
 
 // Struct: ProbePhysicalCpuInfo
 mojo.internal.Struct(
@@ -1052,10 +1052,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ProbeOsInfoSpec, 'crosapi.mojom.ProbeOsInfo', [
       mojo.internal.StructField('arg_oem_name', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_os_version', 8, 0, mojo.internal.bindings.crosapi.mojom.ProbeOsVersionSpec, null, true, 1, undefined),
-      mojo.internal.StructField('arg_marketing_name', 16, 0, mojo.internal.String, null, true, 2, undefined),
+      mojo.internal.StructField('arg_os_version', 8, 0, mojo.internal.bindings.crosapi.mojom.ProbeOsVersionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_marketing_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 16], [1, 24], [2, 32]]);
+    [[0, 32]]);
 
 // Struct: ProbeSystemInfo
 mojo.internal.Struct(
@@ -1198,12 +1198,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_system_result', 160, 0, mojo.internal.bindings.crosapi.mojom.ProbeSystemResultSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_network_result', 176, 0, mojo.internal.bindings.crosapi.mojom.ProbeNetworkResultSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_tpm_result', 192, 0, mojo.internal.bindings.crosapi.mojom.ProbeTpmResultSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_audio_result', 208, 0, mojo.internal.bindings.crosapi.mojom.ProbeAudioResultSpec, null, true, 1, undefined),
-      mojo.internal.StructField('arg_bus_result', 224, 0, mojo.internal.bindings.crosapi.mojom.ProbeBusResultSpec, null, true, 2, undefined),
-      mojo.internal.StructField('arg_display_result', 240, 0, mojo.internal.bindings.crosapi.mojom.ProbeDisplayResultSpec, null, true, 3, undefined),
-      mojo.internal.StructField('arg_thermal_result', 256, 0, mojo.internal.bindings.crosapi.mojom.ProbeThermalResultSpec, null, true, 4, undefined),
+      mojo.internal.StructField('arg_audio_result', 208, 0, mojo.internal.bindings.crosapi.mojom.ProbeAudioResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_bus_result', 224, 0, mojo.internal.bindings.crosapi.mojom.ProbeBusResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_display_result', 240, 0, mojo.internal.bindings.crosapi.mojom.ProbeDisplayResultSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_thermal_result', 256, 0, mojo.internal.bindings.crosapi.mojom.ProbeThermalResultSpec, null, true, 0, undefined),
     ],
-    [[0, 216], [1, 232], [2, 248], [3, 264], [4, 280]]);
+    [[0, 280]]);
 
 // Struct: ProbeOemData
 mojo.internal.Struct(

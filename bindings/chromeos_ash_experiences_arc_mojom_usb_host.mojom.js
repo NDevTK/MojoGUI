@@ -595,14 +595,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec, 'arc.mojom.UsbHostInstance_OnDeviceAdded_Params', [
       mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_receiver_packages', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 2, undefined),
+      mojo.internal.StructField('arg_event_receiver_packages', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
     ],
-    [[0, 16], [2, 24]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec, 'arc.mojom.UsbHostInstance_OnDeviceRemoved_Params', [
       mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_receiver_packages', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 2, undefined),
+      mojo.internal.StructField('arg_event_receiver_packages', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
     ],
-    [[0, 16], [2, 24]]);
+    [[0, 24]]);
 

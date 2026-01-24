@@ -1473,11 +1473,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_configured_via_policy', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_uri', 32, 0, mojo.internal.String, null, true, 3, undefined),
-      mojo.internal.StructField('arg_printer_status', 40, 0, mojo.internal.bindings.crosapi.mojom.PrinterStatusSpec, null, true, 4, undefined),
-      mojo.internal.StructField('arg_managed_print_options', 48, 0, mojo.internal.bindings.crosapi.mojom.ManagedPrintOptionsSpec, null, true, 5, undefined),
+      mojo.internal.StructField('arg_uri', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_printer_status', 40, 0, mojo.internal.bindings.crosapi.mojom.PrinterStatusSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_managed_print_options', 48, 0, mojo.internal.bindings.crosapi.mojom.ManagedPrintOptionsSpec, null, true, 0, undefined),
     ],
-    [[0, 40], [3, 48], [4, 56], [5, 64]]);
+    [[0, 64]]);
 
 // Struct: PrinterStatus
 mojo.internal.Struct(
@@ -1620,9 +1620,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_default_color_mode_deprecated', 32, 0, mojo.internal.bindings.printing.mojom.ColorModeRestrictionSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_default_duplex_mode_deprecated', 36, 0, mojo.internal.bindings.printing.mojom.DuplexModeRestrictionSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_default_pin_mode_deprecated', 40, 0, mojo.internal.bindings.printing.mojom.PinModeRestrictionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_pin_modes_deprecated_version_1', 44, 0, mojo.internal.bindings.printing.mojom.PinModeRestrictionSpec, null, false, 1, undefined),
+      mojo.internal.StructField('arg_allowed_pin_modes_deprecated_version_1', 44, 0, mojo.internal.bindings.printing.mojom.PinModeRestrictionSpec, null, false, 0, undefined),
     ],
-    [[0, 56], [1, 56]]);
+    [[0, 56]]);
 
 // Struct: Policies
 mojo.internal.Struct(
@@ -1634,15 +1634,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_paper_size_default', 16, 0, mojo.internal.bindings.crosapi.mojom.SizeSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_max_sheets_allowed', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_max_sheets_allowed_has_value', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_color_modes', 32, 0, mojo.internal.Uint32, 0, false, 1, undefined),
-      mojo.internal.StructField('arg_allowed_duplex_modes', 36, 0, mojo.internal.Uint32, 0, false, 1, undefined),
-      mojo.internal.StructField('arg_allowed_pin_modes', 40, 0, mojo.internal.bindings.printing.mojom.PinModeRestrictionSpec, null, false, 1, undefined),
-      mojo.internal.StructField('arg_default_color_mode', 44, 0, mojo.internal.bindings.printing.mojom.ColorModeRestrictionSpec, null, false, 1, undefined),
-      mojo.internal.StructField('arg_default_duplex_mode', 48, 0, mojo.internal.bindings.printing.mojom.DuplexModeRestrictionSpec, null, false, 1, undefined),
-      mojo.internal.StructField('arg_default_pin_mode', 52, 0, mojo.internal.bindings.printing.mojom.PinModeRestrictionSpec, null, false, 1, undefined),
-      mojo.internal.StructField('arg_default_print_pdf_as_image', 56, 0, mojo.internal.bindings.crosapi.mojom.OptionalBoolSpec, null, false, 2, undefined),
+      mojo.internal.StructField('arg_allowed_color_modes', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_duplex_modes', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_pin_modes', 40, 0, mojo.internal.bindings.printing.mojom.PinModeRestrictionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_color_mode', 44, 0, mojo.internal.bindings.printing.mojom.ColorModeRestrictionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_duplex_mode', 48, 0, mojo.internal.bindings.printing.mojom.DuplexModeRestrictionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_pin_mode', 52, 0, mojo.internal.bindings.printing.mojom.PinModeRestrictionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_print_pdf_as_image', 56, 0, mojo.internal.bindings.crosapi.mojom.OptionalBoolSpec, null, false, 0, undefined),
     ],
-    [[0, 40], [1, 64], [2, 72]]);
+    [[0, 72]]);
 
 // Struct: PrintJobUpdate
 mojo.internal.Struct(

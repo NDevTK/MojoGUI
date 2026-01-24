@@ -1579,12 +1579,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_categories', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_data', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_type', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_clip_data_uri', 32, 0, mojo.internal.String, null, true, 13, undefined),
-      mojo.internal.StructField('arg_ui_bypassed', 40, 0, mojo.internal.Bool, false, false, 20, undefined),
-      mojo.internal.StructField('arg_extras', 48, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 22, undefined),
-      mojo.internal.StructField('arg_uri_components', 56, 0, mojo.internal.bindings.arc.mojom.UriComponentsSpec, null, true, 30, undefined),
+      mojo.internal.StructField('arg_clip_data_uri', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_ui_bypassed', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_extras', 48, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_uri_components', 56, 0, mojo.internal.bindings.arc.mojom.UriComponentsSpec, null, true, 0, undefined),
     ],
-    [[0, 40], [13, 48], [20, 56], [22, 64], [30, 72]]);
+    [[0, 72]]);
 
 // Struct: IntentFilter
 mojo.internal.Struct(
@@ -1592,15 +1592,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_actions', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_categories', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_data_schemes', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_data_authorities', 24, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.AuthorityEntrySpec, false), null, true, 10, undefined),
-      mojo.internal.StructField('arg_data_paths', 32, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.PatternMatcherSpec, false), null, true, 10, undefined),
-      mojo.internal.StructField('arg_deprecated_data_scheme_specific_parts', 40, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.PatternMatcherSpec, false), null, true, 10, undefined),
-      mojo.internal.StructField('arg_package_name', 48, 0, mojo.internal.String, null, true, 21, undefined),
-      mojo.internal.StructField('arg_mime_types', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 38, undefined),
-      mojo.internal.StructField('arg_activity_name', 64, 0, mojo.internal.String, null, true, 39, undefined),
-      mojo.internal.StructField('arg_activity_label', 72, 0, mojo.internal.String, null, true, 41, undefined),
+      mojo.internal.StructField('arg_data_authorities', 24, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.AuthorityEntrySpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_data_paths', 32, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.PatternMatcherSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_deprecated_data_scheme_specific_parts', 40, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.PatternMatcherSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_package_name', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_mime_types', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_activity_name', 64, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_activity_label', 72, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 32], [10, 56], [21, 64], [38, 72], [39, 80], [41, 88]]);
+    [[0, 88]]);
 
 // Struct: IntentHandlerInfo
 mojo.internal.Struct(
@@ -1608,12 +1608,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_package_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_activity_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_action_type', 24, 0, mojo.internal.bindings.arc.mojom.ActionTypeSpec, null, false, 4, undefined),
-      mojo.internal.StructField('arg_is_preferred', 28, 0, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('arg_action', 32, 0, mojo.internal.String, null, true, 11, undefined),
-      mojo.internal.StructField('arg_fallback_url', 40, 0, mojo.internal.String, null, true, 14, undefined),
+      mojo.internal.StructField('arg_action_type', 24, 0, mojo.internal.bindings.arc.mojom.ActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_preferred', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_fallback_url', 40, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 32], [4, 40], [6, 40], [11, 48], [14, 56]]);
+    [[0, 56]]);
 
 // Struct: ActivityIcon
 mojo.internal.Struct(
@@ -1622,9 +1622,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_width', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_height', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_icon', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_png_data', 24, 0, mojo.internal.bindings.arc.mojom.RawIconPngDataSpec, null, true, 40, undefined),
+      mojo.internal.StructField('arg_icon_png_data', 24, 0, mojo.internal.bindings.arc.mojom.RawIconPngDataSpec, null, true, 0, undefined),
     ],
-    [[0, 32], [40, 40]]);
+    [[0, 40]]);
 
 // Struct: UrlWithMimeType
 mojo.internal.Struct(
@@ -1641,10 +1641,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_activity', 8, 0, mojo.internal.bindings.arc.mojom.ActivityNameSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_action_intent', 24, 0, mojo.internal.bindings.arc.mojom.IntentInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_classifier_action', 32, 0, mojo.internal.Bool, false, false, 23, undefined),
-      mojo.internal.StructField('arg_bitmap_icon', 40, 0, mojo.internal.bindings.arc.mojom.ArcBitmapSpec, null, true, 23, undefined),
+      mojo.internal.StructField('arg_text_classifier_action', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_bitmap_icon', 40, 0, mojo.internal.bindings.arc.mojom.ArcBitmapSpec, null, true, 0, undefined),
     ],
-    [[0, 40], [23, 56]]);
+    [[0, 56]]);
 
 // Struct: LaunchFileInfo
 mojo.internal.Struct(
@@ -1653,9 +1653,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_removed_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 32, 0, mojo.internal.bindings.mojo_base.mojom.SafeBaseNameSpec, null, true, 48, undefined),
+      mojo.internal.StructField('arg_name', 32, 0, mojo.internal.bindings.mojo_base.mojom.SafeBaseNameSpec, null, true, 0, undefined),
     ],
-    [[0, 40], [48, 48]]);
+    [[0, 48]]);
 
 // Struct: LaunchIntent
 mojo.internal.Struct(
@@ -1762,9 +1762,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec, 'arc.mojom.IntentHelperHost_OnOpenChromePage_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.arc.mojom.ChromePageSpec, null, false, 18, undefined),
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.arc.mojom.ChromePageSpec, null, false, 0, undefined),
     ],
-    [[0, 8], [18, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec, 'arc.mojom.IntentHelperHost_OnOpenWebApp_Params', [
@@ -1784,9 +1784,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_should_handle_result', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_should_down_scale', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_secure', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_task_id', 12, 0, mojo.internal.Int32, 0, false, 36, undefined),
+      mojo.internal.StructField('arg_task_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 24], [36, 24]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec, 'arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_Params', [
@@ -1816,9 +1816,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec, 'arc.mojom.IntentHelperHost_OnSupportedLinksChanged_Params', [
       mojo.internal.StructField('arg_added_packages', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.SupportedLinksPackageSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_removed_packages', 8, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.SupportedLinksPackageSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 16, 0, mojo.internal.bindings.arc.mojom.SupportedLinkChangeSourceSpec, null, false, 48, undefined),
+      mojo.internal.StructField('arg_source', 16, 0, mojo.internal.bindings.arc.mojom.SupportedLinkChangeSourceSpec, null, false, 0, undefined),
     ],
-    [[0, 24], [48, 32]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec, 'arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_Params', [

@@ -1052,9 +1052,9 @@ mojo.internal.Struct(
 // Struct: TelemetryDiagnosticRoutineStateRunning
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineStateRunningSpec, 'crosapi.mojom.TelemetryDiagnosticRoutineStateRunning', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineRunningInfoSpec, null, true, 1, undefined),
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineRunningInfoSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [1, 24]]);
+    [[0, 24]]);
 
 // Struct: TelemetryDiagnosticCheckLedLitUpStateReply
 mojo.internal.Struct(
@@ -1087,9 +1087,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineStateWaitingSpec, 'crosapi.mojom.TelemetryDiagnosticRoutineStateWaiting', [
       mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.crosapi.mojom.ReasonSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interaction', 16, 0, mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineInteractionSpec, null, true, 1, undefined),
+      mojo.internal.StructField('arg_interaction', 16, 0, mojo.internal.bindings.crosapi.mojom.TelemetryDiagnosticRoutineInteractionSpec, null, true, 0, undefined),
     ],
-    [[0, 24], [1, 40]]);
+    [[0, 40]]);
 
 // Struct: TelemetryDiagnosticMemtesterResult
 mojo.internal.Struct(

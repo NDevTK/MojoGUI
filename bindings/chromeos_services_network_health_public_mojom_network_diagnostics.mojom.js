@@ -1247,12 +1247,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, 'chromeos.network_diagnostics.mojom.RoutineResult', [
       mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineVerdictSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 4, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, false, 2, undefined),
+      mojo.internal.StructField('arg_source', 4, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_problems', 8, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineProblemsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_timestamp', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result_value', 32, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultValueSpec, null, true, 1, undefined),
+      mojo.internal.StructField('arg_result_value', 32, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultValueSpec, null, true, 0, undefined),
     ],
-    [[0, 40], [1, 56], [2, 16]]);
+    [[0, 56]]);
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_Params', [
       mojo.internal.StructField('arg_routine', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineTypeSpec, null, false, 0, undefined),
@@ -1278,9 +1278,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [2, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ResponseParams', [
@@ -1290,9 +1290,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [2, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ResponseParams', [
@@ -1302,9 +1302,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [2, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ResponseParams', [
@@ -1314,9 +1314,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [2, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ResponseParams', [
@@ -1326,9 +1326,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [2, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ResponseParams', [
@@ -1338,9 +1338,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [2, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ResponseParams', [
@@ -1350,9 +1350,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [2, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ResponseParams', [
@@ -1362,9 +1362,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [2, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ResponseParams', [
@@ -1374,9 +1374,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [2, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ResponseParams', [
@@ -1386,9 +1386,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [2, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ResponseParams', [
@@ -1398,9 +1398,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [2, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ResponseParams', [
@@ -1411,9 +1411,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_Params', [
       mojo.internal.StructField('arg_stun_server_hostname', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 0, undefined),
     ],
-    [[0, 16], [2, 24]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ResponseParams', [
@@ -1423,9 +1423,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [2, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ResponseParams', [
@@ -1435,9 +1435,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [2, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ResponseParams', [
@@ -1447,9 +1447,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [2, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ResponseParams', [
@@ -1459,9 +1459,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 0, undefined),
     ],
-    [[0, 8], [2, 16]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ResponseParams', [

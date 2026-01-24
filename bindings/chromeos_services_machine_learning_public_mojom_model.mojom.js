@@ -364,10 +364,10 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.ModelRequest = mojo.inter
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorOptionsSpec, 'chromeos.machine_learning.mojom.GraphExecutorOptions', [
       mojo.internal.StructField('arg_use_nnapi', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_use_gpu', 0, 1, mojo.internal.Bool, false, false, 1, undefined),
-      mojo.internal.StructField('arg_gpu_delegate_api', 4, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.GpuDelegateApiSpec, 0, false, 2, undefined),
+      mojo.internal.StructField('arg_use_gpu', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_delegate_api', 4, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.GpuDelegateApiSpec, 0, false, 0, undefined),
     ],
-    [[0, 16], [1, 16], [2, 16]]);
+    [[0, 16]]);
 
 // Struct: BuiltinModelSpec
 mojo.internal.Struct(

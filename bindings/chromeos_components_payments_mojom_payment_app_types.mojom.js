@@ -198,11 +198,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_stringified_method_data', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_top_level_origin', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_payment_request_origin', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_payment_request_id', 40, 0, mojo.internal.String, null, true, 2, undefined),
-      mojo.internal.StructField('arg_request_token', 48, 0, mojo.internal.String, null, true, 3, undefined),
-      mojo.internal.StructField('arg_twa_instance_identifier', 56, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 4, undefined),
+      mojo.internal.StructField('arg_payment_request_id', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_request_token', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_twa_instance_identifier', 56, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
     ],
-    [[0, 48], [2, 56], [3, 64], [4, 72]]);
+    [[0, 72]]);
 
 // Struct: InvokePaymentAppValidResult
 mojo.internal.Struct(

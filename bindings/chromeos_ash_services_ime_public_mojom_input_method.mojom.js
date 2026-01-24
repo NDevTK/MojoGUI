@@ -1001,9 +1001,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.ime.mojom.InputFieldTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_autocorrect', 4, 0, mojo.internal.bindings.ash.ime.mojom.AutocorrectModeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_personalization', 8, 0, mojo.internal.bindings.ash.ime.mojom.PersonalizationModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_prediction', 12, 0, mojo.internal.bindings.ash.ime.mojom.TextPredictionModeSpec, null, false, 10, undefined),
+      mojo.internal.StructField('arg_text_prediction', 12, 0, mojo.internal.bindings.ash.ime.mojom.TextPredictionModeSpec, null, false, 0, undefined),
     ],
-    [[0, 24], [10, 24]]);
+    [[0, 24]]);
 
 // Struct: KoreanSettings
 mojo.internal.Struct(
@@ -1017,9 +1017,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.LatinSettingsSpec, 'ash.ime.mojom.LatinSettings', [
       mojo.internal.StructField('arg_autocorrect', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_predictive_writing', 0, 1, mojo.internal.Bool, false, false, 5, undefined),
+      mojo.internal.StructField('arg_predictive_writing', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16], [5, 16]]);
+    [[0, 16]]);
 
 // Struct: FuzzyPinyinSettings
 mojo.internal.Struct(
@@ -1042,44 +1042,44 @@ mojo.internal.Struct(
 // Struct: PinyinSettings
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.PinyinSettingsSpec, 'ash.ime.mojom.PinyinSettings', [
-      mojo.internal.StructField('arg_fuzzy_pinyin', 0, 0, mojo.internal.bindings.ash.ime.mojom.FuzzyPinyinSettingsSpec, null, true, 6, undefined),
-      mojo.internal.StructField('arg_layout', 8, 0, mojo.internal.bindings.ash.ime.mojom.PinyinLayoutSpec, null, false, 6, undefined),
-      mojo.internal.StructField('arg_use_hyphen_and_equals_to_page_candidates', 12, 0, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('arg_use_comma_and_period_to_page_candidates', 12, 1, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('arg_default_to_chinese', 12, 2, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('arg_default_to_full_width_characters', 12, 3, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('arg_default_to_full_width_punctuation', 12, 4, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('arg_fuzzy_pinyin', 0, 0, mojo.internal.bindings.ash.ime.mojom.FuzzyPinyinSettingsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_layout', 8, 0, mojo.internal.bindings.ash.ime.mojom.PinyinLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_use_hyphen_and_equals_to_page_candidates', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_comma_and_period_to_page_candidates', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_default_to_chinese', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_default_to_full_width_characters', 12, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_default_to_full_width_punctuation', 12, 4, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 8], [6, 24]]);
+    [[0, 24]]);
 
 // Struct: JapaneseSettings
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.JapaneseSettingsSpec, 'ash.ime.mojom.JapaneseSettings', [
       mojo.internal.StructField('arg_unused', 0, 0, mojo.internal.bindings.ash.ime.mojom.JpUnusedStructSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_input_mode', 8, 0, mojo.internal.bindings.ash.ime.mojom.InputModeSpec, null, false, 22, undefined),
-      mojo.internal.StructField('arg_punctuation_style', 12, 0, mojo.internal.bindings.ash.ime.mojom.PunctuationStyleSpec, null, false, 22, undefined),
-      mojo.internal.StructField('arg_symbol_style', 16, 0, mojo.internal.bindings.ash.ime.mojom.SymbolStyleSpec, null, false, 22, undefined),
-      mojo.internal.StructField('arg_space_input_style', 20, 0, mojo.internal.bindings.ash.ime.mojom.SpaceInputStyleSpec, null, false, 22, undefined),
-      mojo.internal.StructField('arg_selection_shortcut', 24, 0, mojo.internal.bindings.ash.ime.mojom.SelectionShortcutSpec, null, false, 22, undefined),
-      mojo.internal.StructField('arg_keymap_style', 28, 0, mojo.internal.bindings.ash.ime.mojom.KeymapStyleSpec, null, false, 22, undefined),
-      mojo.internal.StructField('arg_automatically_switch_to_halfwidth', 32, 0, mojo.internal.Bool, false, false, 22, undefined),
-      mojo.internal.StructField('arg_use_input_history', 32, 1, mojo.internal.Bool, false, false, 22, undefined),
-      mojo.internal.StructField('arg_use_system_dictionary', 32, 2, mojo.internal.Bool, false, false, 22, undefined),
-      mojo.internal.StructField('arg_disable_personalized_suggestions', 32, 3, mojo.internal.Bool, false, false, 22, undefined),
-      mojo.internal.StructField('arg_unused2', 32, 4, mojo.internal.Bool, false, false, 22, undefined),
-      mojo.internal.StructField('arg_shift_key_mode_style', 36, 0, mojo.internal.bindings.ash.ime.mojom.ShiftKeyModeStyleSpec, null, false, 22, undefined),
-      mojo.internal.StructField('arg_number_of_suggestions', 40, 0, mojo.internal.Uint32, 0, false, 22, undefined),
+      mojo.internal.StructField('arg_input_mode', 8, 0, mojo.internal.bindings.ash.ime.mojom.InputModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_punctuation_style', 12, 0, mojo.internal.bindings.ash.ime.mojom.PunctuationStyleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_symbol_style', 16, 0, mojo.internal.bindings.ash.ime.mojom.SymbolStyleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_space_input_style', 20, 0, mojo.internal.bindings.ash.ime.mojom.SpaceInputStyleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_shortcut', 24, 0, mojo.internal.bindings.ash.ime.mojom.SelectionShortcutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keymap_style', 28, 0, mojo.internal.bindings.ash.ime.mojom.KeymapStyleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_automatically_switch_to_halfwidth', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_input_history', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_system_dictionary', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_disable_personalized_suggestions', 32, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_unused2', 32, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_shift_key_mode_style', 36, 0, mojo.internal.bindings.ash.ime.mojom.ShiftKeyModeStyleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_number_of_suggestions', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 16], [22, 56]]);
+    [[0, 56]]);
 
 // Struct: ZhuyinSettings
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.ZhuyinSettingsSpec, 'ash.ime.mojom.ZhuyinSettings', [
-      mojo.internal.StructField('arg_layout', 0, 0, mojo.internal.bindings.ash.ime.mojom.ZhuyinLayoutSpec, null, false, 7, undefined),
-      mojo.internal.StructField('arg_selection_keys', 4, 0, mojo.internal.bindings.ash.ime.mojom.ZhuyinSelectionKeysSpec, null, false, 7, undefined),
-      mojo.internal.StructField('arg_page_size', 8, 0, mojo.internal.Uint32, 0, false, 7, undefined),
+      mojo.internal.StructField('arg_layout', 0, 0, mojo.internal.bindings.ash.ime.mojom.ZhuyinLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_keys', 4, 0, mojo.internal.bindings.ash.ime.mojom.ZhuyinSelectionKeysSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 8], [7, 24]]);
+    [[0, 24]]);
 
 // Struct: ChineseQuickSettings
 mojo.internal.Struct(
@@ -1103,9 +1103,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.ash.ime.mojom.SuggestionModeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 4, 0, mojo.internal.bindings.ash.ime.mojom.SuggestionTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_confirmed_length', 16, 0, mojo.internal.Int32, 0, false, 13, undefined),
+      mojo.internal.StructField('arg_confirmed_length', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 24], [13, 32]]);
+    [[0, 32]]);
 
 // Struct: InputMethodMetadata
 mojo.internal.Struct(
@@ -1129,9 +1129,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_new_style_tone_mark_placement', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_enable_insert_double_horn_on_uo', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_enable_w_for_u_horn_shortcut', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_show_underline_for_composition_text', 0, 4, mojo.internal.Bool, false, false, 20, undefined),
+      mojo.internal.StructField('arg_show_underline_for_composition_text', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16], [20, 16]]);
+    [[0, 16]]);
 
 // Struct: VietnameseVniSettings
 mojo.internal.Struct(
@@ -1139,15 +1139,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_allow_flexible_diacritics', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_new_style_tone_mark_placement', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_enable_insert_double_horn_on_uo', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_show_underline_for_composition_text', 0, 3, mojo.internal.Bool, false, false, 20, undefined),
+      mojo.internal.StructField('arg_show_underline_for_composition_text', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16], [20, 16]]);
+    [[0, 16]]);
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec, 'ash.ime.mojom.InputMethod_OnFocusDeprecated_Params', [
       mojo.internal.StructField('arg_input_field_info', 0, 0, mojo.internal.bindings.ash.ime.mojom.InputFieldInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.ash.ime.mojom.InputMethodSettingsSpec, null, true, 4, undefined),
+      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.ash.ime.mojom.InputMethodSettingsSpec, null, true, 0, undefined),
     ],
-    [[0, 16], [4, 32]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ParamsSpec, 'ash.ime.mojom.InputMethod_OnFocus_Params', [
@@ -1159,9 +1159,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec, 'ash.ime.mojom.InputMethod_OnFocus_ResponseParams', [
       mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.ash.ime.mojom.InputMethodMetadataSpec, null, true, 17, undefined),
+      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.ash.ime.mojom.InputMethodMetadataSpec, null, true, 0, undefined),
     ],
-    [[0, 16], [17, 24]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.InputMethod_OnBlur_ParamsSpec, 'ash.ime.mojom.InputMethod_OnBlur_Params', [

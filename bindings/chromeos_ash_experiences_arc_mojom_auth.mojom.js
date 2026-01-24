@@ -1050,10 +1050,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_auth_code', 0, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_account_type', 8, 0, mojo.internal.bindings.arc.mojom.ChromeAccountTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_managed', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_DEPRECATED_enrollment_token', 16, 0, mojo.internal.String, null, true, 6, undefined),
-      mojo.internal.StructField('arg_account_name', 24, 0, mojo.internal.String, null, true, 9, undefined),
+      mojo.internal.StructField('arg_DEPRECATED_enrollment_token', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_account_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 24], [6, 32], [9, 40]]);
+    [[0, 40]]);
 
 // Struct: ArcAccountInfo
 mojo.internal.Struct(
@@ -1121,10 +1121,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec, 'arc.mojom.AuthHost_RequestAccountInfo_ResponseParams', [
       mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.ArcAuthCodeStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_persistent_error', 4, 0, mojo.internal.Bool, false, false, 24, undefined),
+      mojo.internal.StructField('arg_persistent_error', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_account_info', 8, 0, mojo.internal.bindings.arc.mojom.AccountInfoSpec, null, true, 0, undefined),
     ],
-    [[0, 24], [24, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec, 'arc.mojom.AuthHost_IsAccountManagerAvailable_Params', [

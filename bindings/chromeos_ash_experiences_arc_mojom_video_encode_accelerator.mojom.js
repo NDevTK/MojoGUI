@@ -714,10 +714,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_has_initial_framerate_deprecated', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_has_h264_output_level', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_h264_output_level', 25, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_storage_type', 28, 0, mojo.internal.bindings.arc.mojom.VideoFrameStorageTypeSpec, null, false, 1, undefined),
-      mojo.internal.StructField('arg_bitrate', 32, 0, mojo.internal.bindings.arc.mojom.BitrateSpec, null, true, 5, undefined),
+      mojo.internal.StructField('arg_storage_type', 28, 0, mojo.internal.bindings.arc.mojom.VideoFrameStorageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bitrate', 32, 0, mojo.internal.bindings.arc.mojom.BitrateSpec, null, true, 0, undefined),
     ],
-    [[0, 40], [1, 40], [5, 56]]);
+    [[0, 56]]);
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ParamsSpec, 'arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_Params', [
     ],
