@@ -1805,7 +1805,7 @@
             // Regex literals: Simplified version to avoid catastrophic backtracking, matches common cases
             regex: /\/(?![*+?])(?:[^\r\n\[/\\]|\\.|\[(?:[^\r\n\]\\]|\\.)*\])+\/[gimuy]*/,
             keyword: /\b(const|let|var|function|return|new|async|await|if|else|try|catch|throw|import|from|export|class|extends|static|yield|debugger|switch|case|default|for|while|do|break|continue|typeof|instanceof|void|delete)\b/,
-            builtin: /\b(this|window|document|console|mojo|Mojo|InterceptorManager|MojoProxyRegistry|MojoProxy|MojoBindings|JSON|Math|Date|Promise|Error)\b/,
+            builtin: /\b(this|window|document|console|mojo|Mojo|InterceptorManager|MojoObjectRegistry|MojoProxy|MojoBindings|JSON|Math|Date|Promise|Error)\b/,
             const: /\b(true|false|null|undefined|NaN|Infinity)\b/,
             number: /\b(?:0x[a-fA-F0-9]+|0b[01]+|0o[0-7]+|\d+(?:\.\d+)?(?:e[+-]?\d+)?)n?\b/,
             property: /\.[a-zA-Z_$][\w$]*/,
@@ -2227,9 +2227,9 @@
         const autoForwardKey = `${e.detail.interface}.${e.detail.method}`;
         if (state.autoForwardMethods.has(autoForwardKey)) {
             // Auto-Forward: Resume immediately
-            const proxy = MojoObjectRegistry.get(e.detail.proxyId);
-            if (proxy) {
-                proxy.resumeCall(e.detail.id, null, false); // false = don't drop, just continue
+            const entry = MojoObjectRegistry.get(e.detail.proxyId);
+            if (entry && entry.remote) {
+                entry.remote.resumeCall(e.detail.id, null, false); // false = don't drop, just continue
             }
 
             // Log as 'Logged' (Pending -> Done instantly)
@@ -2329,15 +2329,15 @@
 
         const row = document.querySelector(`tr[data-id="${id}"]`);
         const proxyId = row.dataset.proxyId;
-        const proxy = MojoObjectRegistry.get(proxyId);
+        const entry = MojoObjectRegistry.get(proxyId);
 
-        if (proxy) {
+        if (entry && entry.remote) {
             // Fix: Use reconcileKeys to restore original field names (e.g. status -> arg_status)
             const originalResult = (row && row.__details) ? row.__details.result : null;
             const restoredResult = reconcileKeys(result, originalResult);
 
             // console.log(`[UI] Sending Response for ${id}`, restoredResult);
-            proxy.sendResponse(id, restoredResult);
+            entry.remote.sendResponse(id, restoredResult);
             updateActivityRow(id, 'Done', restoredResult);
             showToast('Response Sent', 'success');
         }
@@ -2562,14 +2562,14 @@
 
         if (drop) {
             // We need to call resumeCall on the proxy
-            const proxy = MojoObjectRegistry.get(proxyId);
-            if (proxy) {
-                proxy.resumeCall(id, null, true);
+            const entry = MojoObjectRegistry.get(proxyId);
+            if (entry && entry.remote) {
+                entry.remote.resumeCall(id, null, true);
                 updateActivityRow(id, 'Dropped');
             }
         } else {
-            const proxy = MojoObjectRegistry.get(proxyId);
-            if (proxy) {
+            const entry = MojoObjectRegistry.get(proxyId);
+            if (entry && entry.remote) {
                 // Reconcile keys with original source of truth
                 const originalParams = (row && row.__details) ? row.__details.params : null;
 
@@ -2587,7 +2587,7 @@
                 // Note: reconcileKeys expects Array vs Array if we pass Array.
                 const restoredParams = reconcileKeys(params, originalParams, useHeuristic);
 
-                proxy.resumeCall(id, restoredParams, false, state.interceptResponses);
+                entry.remote.resumeCall(id, restoredParams, false, state.interceptResponses);
 
                 // Update UI immediately
                 if (state.interceptResponses) {
@@ -2650,10 +2650,11 @@
         const proxyId = detail.proxyId;
         const method = detail.method;
 
-        const proxy = window.MojoProxyRegistry?.get(proxyId);
+        const entry = MojoObjectRegistry.get(proxyId);
+        const remote = entry ? entry.remote : null;
         
         // Attempt Replay via Proxy first (maintains connection context)
-        if (proxy && proxy.realRemote && typeof proxy.realRemote[method] === 'function') {
+        if (remote && remote.realRemote && typeof remote.realRemote[method] === 'function') {
             try {
                 const newId = 'replay_' + Date.now();
 
@@ -2685,7 +2686,7 @@
 
                 showInterceptDetails({ ...detail, id: newId, params: restoredParams, status: 'Replaying...', type: 'MANUAL', result: null, error: null });
 
-                const resultPromise = proxy.realRemote[method](...restoredParams);
+                const resultPromise = remote.realRemote[method](...restoredParams);
 
                 if (resultPromise && resultPromise.then) {
                     resultPromise.then(res => {
@@ -3062,10 +3063,12 @@
             }
 
             const proxyId = row.dataset.proxyId;
-            const proxy = window.MojoProxyRegistry?.get(proxyId);
-            if (!proxy) return { error: `Proxy not found for call: ${id}` };
+            const entry = MojoObjectRegistry.get(proxyId);
+            if (!entry || !entry.remote) return { error: `Proxy not found for call: ${id}` };
+            const remote = entry.remote;
+
             if (drop) {
-                proxy.resumeCall(id, null, true);
+                remote.resumeCall(id, null, true);
                 updateActivityRow(id, 'Dropped');
                 return { success: true, action: 'dropped' };
             }
@@ -3074,7 +3077,7 @@
             const finalParams = params || originalParams;
             // Restore arg_ prefixes if needed
             const restoredParams = reconcileKeys(finalParams, originalParams, false);
-            proxy.resumeCall(id, restoredParams, false, interceptResponse);
+            remote.resumeCall(id, restoredParams, false, interceptResponse);
             if (interceptResponse) {
                 updateActivityRow(id, 'Pending Response');
             } else {
@@ -3096,13 +3099,14 @@
             }
 
             const proxyId = row.dataset.proxyId;
-            const proxy = window.MojoProxyRegistry?.get(proxyId);
-            if (!proxy) return { error: `Proxy not found for call: ${id}` };
+            const entry = MojoObjectRegistry.get(proxyId);
+            if (!entry || !entry.remote) return { error: `Proxy not found for call: ${id}` };
+            const remote = entry.remote;
 
             const originalResult = row.__details?.result;
             const restoredResult = reconcileKeys(result, originalResult);
 
-            proxy.sendResponse(id, restoredResult);
+            remote.sendResponse(id, restoredResult);
             updateActivityRow(id, 'Done', restoredResult);
             return { success: true, action: 'sent_response' };
         },
@@ -3121,13 +3125,14 @@
             if (!details) return { error: `No details found for call: ${id}` };
 
             const proxyId = row.dataset.proxyId;
-            const proxy = window.MojoProxyRegistry?.get(proxyId);
-            if (!proxy || !proxy.realRemote) {
+            const entry = MojoObjectRegistry.get(proxyId);
+            if (!entry || !entry.remote || !entry.remote.realRemote) {
                 return { error: `Proxy not found or invalid for call: ${id}` };
             }
+            const remote = entry.remote;
 
             const method = details.method;
-            if (!method || typeof proxy.realRemote[method] !== 'function') {
+            if (!method || typeof remote.realRemote[method] !== 'function') {
                 return { error: `Method ${method} not found on remote` };
             }
 
@@ -3142,7 +3147,7 @@
                 }
 
                 // Execute the call
-                const result = await proxy.realRemote[method](...(Array.isArray(finalParams) ? finalParams : [finalParams]));
+                const result = await remote.realRemote[method](...(Array.isArray(finalParams) ? finalParams : [finalParams]));
                 return { success: true, result };
             } catch (e) {
                 return { success: false, error: e.message, stack: e.stack };
