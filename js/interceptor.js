@@ -293,7 +293,13 @@
       if (mode === "LOG") {
         try {
           const bridgedArgs = this.processArgs(args);
-          const result = await this.realRemote[methodName](...bridgedArgs);
+          let result = undefined;
+          
+          if (this.realRemote) {
+            result = await this.realRemote[methodName](...bridgedArgs);
+          } else {
+            console.log(`[MojoProxy] Sink received ${this.interfaceName}.${methodName}`);
+          }
 
           // Auto-register any returned handles/proxies
           const finalResult = global.MojoObjectRegistry

@@ -406,6 +406,27 @@ server.tool(
   },
 );
 server.tool(
+  "bind_mock_listener",
+  "Create a Mojo handle that acts as a sink for a specific listener interface. Incoming calls to this handle will be logged to the traffic log. Useful for methods that require a callback/listener handle.",
+  {
+    interface: z.string().describe('The listener interface name (e.g. "blink.mojom.FileSystemAccessDirectoryEntriesListener")'),
+  },
+  async ({ interface: iface }) => {
+    const code = `
+            (async () => {
+                const api = window.MojoGUI_API;
+                if (!api) throw new Error('MojoGUI API not available');
+                return await api.bindMockListener(${JSON.stringify(iface)});
+            })()
+        `;
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
+);
+
+server.tool(
   "get_intercepted_calls",
   "Get list of intercepted Mojo calls. Returns call details including interface, method, parameters, and status.",
   {
@@ -425,13 +446,14 @@ server.tool(
       .optional()
       .default("all")
       .describe("Filter by status"),
+    interface: z.string().optional().describe("Optional interface name filter"),
     limit: z
       .number()
       .optional()
       .default(20)
       .describe("Maximum number of calls to return"),
   },
-  async ({ status = "all", limit = 20 }) => {
+  async ({ status = "all", interface: ifaceFilter, limit = 20 }) => {
     const code = `
             (async () => {
                 const api = window.MojoGUI_API;
@@ -441,6 +463,11 @@ server.tool(
                 
                 if (${JSON.stringify(status)} !== 'all') {
                     calls = calls.filter(c => c.status === ${JSON.stringify(status)});
+                }
+
+                if (${JSON.stringify(ifaceFilter || null)}) {
+                    const q = ${JSON.stringify(ifaceFilter || "")}.toLowerCase();
+                    calls = calls.filter(c => c.interface?.toLowerCase().includes(q));
                 }
                 
                 return calls.slice(0, ${limit});

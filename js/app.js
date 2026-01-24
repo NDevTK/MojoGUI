@@ -3609,6 +3609,25 @@
     }),
     // ---- Handle Management ----
     /**
+     * Bind a mock listener (sink) for an interface and return a handleId.
+     * Incoming calls will be logged to the Interceptor.
+     * @param {string} ifaceName - The listener interface name
+     * @returns {Object} { handleId, proxyId }
+     */
+    bindMockListener: async (ifaceName) => {
+      const fqn = await MojoLoader.ensureBinding(ifaceName);
+      const name = fqn || ifaceName;
+      const comps = MojoProxy.getInterfaceComponents(name);
+      if (!comps.Receiver) throw new Error("No Receiver found for " + name);
+
+      const { handle0, handle1 } = Mojo.createMessagePipe();
+      const proxyImpl = new MojoProxy(name, null, comps); // realRemote is null (Sink)
+      new comps.Receiver(proxyImpl).bind(handle0);
+
+      const hId = MojoHandleRegistry.register(handle1);
+      return { handleId: hId, proxyId: proxyImpl.id };
+    },
+    /**
      * Create a new Mojo message pipe
      * @returns {Object} Object containing IDs of handle0 and handle1
      */
