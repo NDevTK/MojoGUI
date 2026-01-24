@@ -3646,10 +3646,17 @@
       const handle = MojoHandleRegistry.get(id);
       if (!handle) return { error: "Handle not found" };
       try {
-        const { result, buffer } = handle.readData();
+        // First query how much data is available
+        const query = handle.queryData();
+        if (query.result !== Mojo.RESULT_OK) return { result: query.result };
+        if (query.numBytes === 0) return { result: Mojo.RESULT_OK, data: [] };
+
+        // Allocate buffer and read
+        const buffer = new Uint8Array(query.numBytes);
+        const read = handle.readData(buffer);
         return { 
-          result, 
-          data: buffer ? Array.from(new Uint8Array(buffer)) : null 
+          result: read.result, 
+          data: Array.from(buffer.slice(0, read.numBytes)) 
         };
       } catch (e) {
         return { error: e.message };
@@ -3696,6 +3703,14 @@
     listHandles: () => {
       if (typeof MojoHandleRegistry === "undefined") return [];
       return Array.from(MojoHandleRegistry.handles.keys());
+    },
+    /**
+     * List all registered high-level objects
+     * @returns {Array} Array of object IDs
+     */
+    listObjects: () => {
+      if (typeof MojoObjectRegistry === "undefined") return [];
+      return MojoObjectRegistry.list();
     },
     /**
      * Set response interception mode

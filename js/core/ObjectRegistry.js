@@ -31,6 +31,14 @@
     },
 
     /**
+     * List all registered IDs
+     * @returns {Array<string>}
+     */
+    list() {
+      return Array.from(objects.keys());
+    },
+
+    /**
      * Checks a value and automatically registers it if it's a Mojo Remote.
      * Returns a reference object {$ref, type} or the original value.
      */

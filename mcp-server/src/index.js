@@ -682,6 +682,25 @@ server.tool(
   },
 );
 
+server.tool(
+  "list_objects",
+  "List all currently registered high-level Mojo interface objects (obj_N).",
+  {},
+  async () => {
+    const code = `
+            (async () => {
+                const api = window.MojoGUI_API;
+                if (!api) throw new Error('MojoGUI API not available');
+                return api.listObjects();
+            })()
+        `;
+    const result = await executeInMojoGUI(code);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
+);
+
 // New tool: Check MojoJS status
 server.tool(
   "check_mojo_status",
