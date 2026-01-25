@@ -445,11 +445,11 @@ def parse_mojom(file_path):
         
         struct_body = content_no_comments[start_pos:end_pos-1]
         
-        # Remove nested definitions from body before parsing fields
+        # Remove nested definitions and constants from body before parsing fields
         # We don't need to parse them recursively here, just ignore them for field parsing
         body_clean = struct_body
         while True:
-            nested_match = re.search(r'(enum|struct|union)\s+\w+\s*\{[^{}]*\}', body_clean)
+            nested_match = re.search(r'(?:enum|struct|union)\s+\w+\s*\{[^{}]*\}|const\s+[\w\.]+\s+\w+\s*=[^;]+;', body_clean)
             if not nested_match: break
             # Replace with empty string or semicolon to maintain separation
             body_clean = body_clean[:nested_match.start()] + ";" + body_clean[nested_match.end():]
