@@ -1020,9 +1020,7 @@ server.tool(
         content: [
           {
             type: "text",
-            text:
-              "Browser window screenshot captured successfully via capture_chrome.py and saved to: " +
-              filepath,
+            text: "Read the image file: " + filename,
           },
         ],
       };
@@ -1042,7 +1040,7 @@ server.tool(
 
 server.tool(
   "run_javascript_fragile",
-  'Execute arbitrary JavaScript in the MojoGUI context. DANGER: This tool is highly fragile due to complex Mojo binding environments and should ONLY be used as a LAST RESORT for complex logic that cannot be accomplished with native tools (like call_method, bind_interface, etc.). NEVER use it as a replacement for existing specific tools. Use the "async" parameter for code that might block (e.g. waiting for an intercepted Mojo call). IMPORTANT: You MUST use the "return" keyword to capture results. Data logged with console.log() will not appear in the tool output or the MojoGUI result section.',
+  'Execute arbitrary JavaScript in the MojoGUI context. DANGER: This tool is highly fragile due to complex Mojo binding environments and should ONLY be used as a LAST RESORT for complex logic that cannot be accomplished with native tools (like call_method, bind_interface, etc.). NEVER use it as a replacement for existing specific tools. Use the "async" parameter for code that might block (e.g. waiting for an intercepted Mojo call). IMPORTANT: You MUST use the "return" keyword to capture results.',
   {
     code: z.string().describe("The JavaScript code to execute"),
     async: z
