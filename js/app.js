@@ -1741,7 +1741,7 @@
                <div class="form-group">
                   <label>Object ID (obj_N)</label>
                   <div style="display: flex; gap: 8px;">
-                      <select id="targetObjectId" class="param-input" style="flex: 1;" onchange="state.targetObjectId = this.value; updateGeneratedCode();">
+                       <select id="targetObjectId" class="param-input" style="flex: 1;" onchange="window.updateTargetObjectId(this.value)">
                           <option value="" disabled ${!state.targetObjectId ? "selected" : ""}>Select an object...</option>
                           ${window.renderRegistryOptions ? window.renderRegistryOptions(state.selectedInterface ? state.selectedInterface.module + "." + state.selectedInterface.name : null, state.targetObjectId) : ""}
                       </select>
@@ -1751,7 +1751,7 @@
                   <div style="font-size: 0.8em; margin-top: 4px; display: flex; align-items: center; gap: 4px;">
                      <span style="color: var(--text-muted);">Or type manual ID:</span>
                      <input type="text" style="background: transparent; border: none; border-bottom: 1px solid var(--border-subtle); color: var(--text-main); font-family: monospace;" 
-                            placeholder="obj_..." onchange="document.getElementById('targetObjectId').value = ''; state.targetObjectId = this.value; updateGeneratedCode();">
+                            placeholder="obj_..." onchange="document.getElementById('targetObjectId').value = ''; window.updateTargetObjectId(this.value)">
                   </div>
                </div>
           </div>
@@ -3815,6 +3815,13 @@
       .join("");
   };
 
+  window.updateGeneratedCode = updateGeneratedCode;
+
+  window.updateTargetObjectId = function (value) {
+    state.targetObjectId = value;
+    updateGeneratedCode();
+  };
+
   window.updateTargetType = function (value) {
     state.targetType = value;
     const input = document.getElementById("instanceTargetInput");
@@ -3825,7 +3832,7 @@
         const select = document.getElementById("targetObjectId");
         if (select && select.tagName === "SELECT") {
           // Refresh options
-          const currentVal = select.value;
+          const currentVal = select.value || state.targetObjectId;
           select.innerHTML = safeHTML(
             `<option value="" disabled ${!state.targetObjectId ? "selected" : ""}>Select an object...</option>` +
               window.renderRegistryOptions(
