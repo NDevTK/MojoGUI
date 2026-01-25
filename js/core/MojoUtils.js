@@ -92,9 +92,6 @@
       releasePipe: () => {
         // Return the clean native handle from the wrapper or self
         if (realHandle.nativeHandle) return realHandle.nativeHandle;
-        if (realHandle.handle && typeof realHandle.handle.releasePipe === 'function') {
-          return realHandle.handle.releasePipe();
-        }
         return realHandle;
       },
       handle: realHandle,
