@@ -282,12 +282,18 @@
 
     console.log(`[MojoUtils] inflateStruct for ${spec.name}`, { value, spec });
 
-    // Special case: BigString / BigString16 inflation from string
+    // Special case: Mojo Base Type inflation from string
     if (typeof value === "string") {
       const name = spec.name || "";
-      if (name.endsWith(".BigString") || name.endsWith(".BigString16") || name === "BigString" || name === "BigString16") {
-        console.log(`[MojoUtils] Inflating string to struct ${name}`, value);
-        return inflateBigString(value, name.includes("String16"));
+      if (name.includes("String16")) {
+        console.log(`[MojoUtils] Inflating string to ${name}`, value);
+        return name.includes("Big") ? inflateBigString(value, true) : inflateString16(value);
+      }
+      if (name.includes("Url") || name === "Url") {
+        return { arg_url: value };
+      }
+      if (name.includes("BigString") && !name.includes("16")) {
+        return inflateBigString(value, false);
       }
     }
 

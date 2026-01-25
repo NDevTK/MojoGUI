@@ -1244,9 +1244,12 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
  mojo.internal.OpaqueStruct = mojo.internal.OpaqueStruct || {{
    $: {{
      structSpec: {{ name: 'OpaqueStruct', packedSize: 8, fields: [], versions: [{{version: 0, packedSize: 8}}] }},
-     encode: function(value, encoder, byteOffset, bitOffset, nullable) {{
+     encode: function(value, encoder, byteOffset, bitOffset, nullable) {
+       if (value !== null && value !== undefined) {
+         console.warn('[MojoJS] Encoding OpaqueStruct! Field may be missing its real spec.', value);
+       }
        encoder.encodeOffset(byteOffset, 0);
-     }},
+     },
      encodeNull: function(encoder, byteOffset) {{ }},
      decode: function(decoder, byteOffset, bitOffset, nullable) {{
        try {{
@@ -1272,6 +1275,11 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
     declared_roots = set()
     # Add current module root to avoid redeclaration or logic error
     declared_roots.add(module_parts[0])
+    
+    # Ensure mojo_base is always available
+    js_code += "mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};\n"
+    js_code += "mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};\n"
+    declared_roots.add('mojo_base')
     
     for imp in parsed.get('imports', []):
         mod = None
@@ -1303,20 +1311,31 @@ def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
     
     # Pre-declare all Spec objects to handle circular dependencies
     for enum in parsed.get('enums', []):
-        js_code += f"{current_ns}.{enum['name']}Spec = {{ $: mojo.internal.Enum().$ }};\n"
+        full_name = f"{current_ns}.{enum['name']}Spec"
+        js_code += f"{full_name} = {full_name} || {{ $: mojo.internal.Enum().$ }};\n"
     for union in parsed.get('unions', []):
-        js_code += f"{current_ns}.{union['name']}Spec = {{ $: {{}} }};\n"
+        full_name = f"{current_ns}.{union['name']}Spec"
+        js_code += f"{full_name} = {full_name} || {{ $: {{}} }};\n"
+        js_code += f"if ({full_name}.$.structSpec && {full_name}.$.structSpec.name === 'OpaqueStruct') {full_name}.$ = {{}};\n"
     for struct in parsed.get('structs', []):
-        js_code += f"{current_ns}.{struct['name']}Spec = {{ $: {{}} }};\n"
+        full_name = f"{current_ns}.{struct['name']}Spec"
+        js_code += f"{full_name} = {full_name} || {{ $: {{}} }};\n"
+        js_code += f"if ({full_name}.$.structSpec && {full_name}.$.structSpec.name === 'OpaqueStruct') {full_name}.$ = {{}};\n"
     for interface in parsed.get('interfaces', []):
         iface_name = interface['name']
-        js_code += f"{current_ns}.{iface_name} = {{}};\n"
-        js_code += f"{current_ns}.{iface_name}Spec = {{ $ : {{}} }};\n"
-        js_code += f"{current_ns}.{iface_name}.$interfaceName = '{module}.{iface_name}';\n"
+        full_name = f"{current_ns}.{iface_name}"
+        js_code += f"{full_name} = {full_name} || {{}};\n"
+        js_code += f"{full_name}Spec = {full_name}Spec || {{ $ : {{}} }};\n"
+        js_code += f"if ({full_name}Spec.$.structSpec && {full_name}Spec.$.structSpec.name === 'OpaqueStruct') {full_name}Spec.$ = {{}};\n"
+        js_code += f"{full_name}.$interfaceName = '{module}.{iface_name}';\n"
         for method in interface.get('methods', []):
-            js_code += f"{current_ns}.{iface_name}_{method['name']}_ParamsSpec = {{ $: {{}} }};\n"
+            p_spec = f"{full_name}_{method['name']}_ParamsSpec"
+            js_code += f"{p_spec} = {p_spec} || {{ $: {{}} }};\n"
+            js_code += f"if ({p_spec}.$.structSpec && {p_spec}.$.structSpec.name === 'OpaqueStruct') {p_spec}.$ = {{}};\n"
             if not method.get('is_one_way'):
-                js_code += f"{current_ns}.{iface_name}_{method['name']}_ResponseParamsSpec = {{ $: {{}} }};\n"
+                r_spec = f"{full_name}_{method['name']}_ResponseParamsSpec"
+                js_code += f"{r_spec} = {r_spec} || {{ $: {{}} }};\n"
+                js_code += f"if ({r_spec}.$.structSpec && {r_spec}.$.structSpec.name === 'OpaqueStruct') {r_spec}.$ = {{}};\n"
 
     # Pre-process structs, unions, interfaces to collect external type refs
     # We call resolve_mojo_type on all fields to populate external_type_refs

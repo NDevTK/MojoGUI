@@ -212,6 +212,23 @@
   async function init() {
     checkMojoAvailability();
 
+    // Pre-load core base bindings to prevent stub pollution
+    if (typeof MojoBindings !== "undefined") {
+      try {
+        console.log("[MojoGUI] Pre-loading core base bindings...");
+        // Use Promise.all to load them in parallel
+        await Promise.all([
+          MojoBindings.loadBinding("mojo_public_mojom_base_string16.mojom.js"),
+          MojoBindings.loadBinding("url_mojom_url.mojom.js"),
+          MojoBindings.loadBinding("mojo_public_mojom_base_time.mojom.js"),
+          MojoBindings.loadBinding("skia_public_mojom_bitmap.mojom.js")
+        ]);
+        console.log("[MojoGUI] Core base bindings loaded.");
+      } catch (e) {
+        console.warn("[MojoGUI] Failed to pre-load some core bindings:", e);
+      }
+    }
+
     // Version Extraction for Scrambler
     if (navigator.userAgentData) {
       try {
