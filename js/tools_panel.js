@@ -182,61 +182,17 @@
       const data = document.getElementById("io-write-data").value;
       if (!id) return;
 
-      // Writing is usually sync in our shim, but let's treat as async if needed
-      // Actually app.js interceptor implementation is synchronous for writeDataPipe (wait, let's check app.js/API)
-      // API shim in app.js? No, it's injected by MCP server logic?
-      // Wait, I am writing 'js/tools_panel.js' which runs in the BROWSER.
-      // Does window.MojoGUI_API exist in the browser?
-      // YES, I saw it in `mcp-server/src/index.js` injecting it?
-      // NO. `mcp-server` injects code to RUN in the browser.
-      // BUT `js/app.js` runs in the browser.
-      // Does `js/app.js` EXPOSE `window.MojoGUI_API`?
-      // I need to check `js/app.js` to see if it exposes these methods globally.
-
-      // ... Checking my memory of `js/app.js` ...
-      // In `js/app.js` I saw `window.MojoGUI_API = { ... }` being defined inside `(function(){ ... })()`?
-      // Or was it defined globally?
-      // Most likely it was defined for the MCP server to use.
-      // If not, I need to IMPLEMENT these methods in `js/tools_panel.js` or `js/app.js`.
-
-      // Let's assume for now I need to implement them or verify they exist.
-      // My previous view of `js/app.js` showed `window.MojoGUI_API` being used/defined.
-      // IF strictly defined inside the IIFE, I can't see it.
-
-      // Strategy: I will rely on `window.MojoGUI_API` being available.
-      // If it's not, I'll fix `app.js` to expose it.
-
-      // Back to writing:
-      // The API `write_data_pipe` tool in MCP server uses `MojoHandleRegistry` directly.
-      // So I should do the same here if API isn't exposed.
-
-      // ACTUALLY, checking the `mcp-server/src/index.js`...
-      // It calls `window.MojoGUI_API.createDataPipe`.
-      // This implies `window.MojoGUI_API` IS exposed in the browser context.
-    },
-
-    // Re-implement write locally just in case, or use API
-    async writePipeReal() {
-      const id = document.getElementById("io-write-handle").value;
-      const data = document.getElementById("io-write-data").value;
-      if (!id) return;
-
       if (window.MojoGUI_API && window.MojoGUI_API.writeDataPipe) {
-        // writeDataPipe not yet in API?
-        // Checked mcp-server... it injects code that uses `MojoHandleRegistry` directly for write_data_pipe tool!
-        // BUT `createDataPipe` used `MojoGUI_API`.
-        // So `MojoGUI_API` expects to be there.
-
-        // I should check if `writeDataPipe` is on `MojoGUI_API`.
-        // If not, I'll implement it here using `MojoHandleRegistry`.
-
-        const handle = window.MojoHandleRegistry.get(id);
-        if (!handle) {
-          this.showResult("io-write-output", { error: "Handle not found" });
-          return;
-        }
-
+        const res = window.MojoGUI_API.writeDataPipe(id, data);
+        this.showResult("io-write-output", res);
+      } else {
+        // Fallback to direct handle manipulation if API is unavailable
         try {
+          const handle = window.MojoHandleRegistry.get(id);
+          if (!handle) {
+            this.showResult("io-write-output", { error: "Handle not found" });
+            return;
+          }
           const encoder = new TextEncoder();
           const buffer = encoder.encode(data);
           const result = handle.writeData(buffer);
@@ -257,9 +213,6 @@
       el.textContent = JSON.stringify(res, null, 2);
     },
   };
-
-  // Fix write method binding
-  ToolsPanel.writePipe = ToolsPanel.writePipeReal;
 
   window.ToolsPanel = ToolsPanel;
 

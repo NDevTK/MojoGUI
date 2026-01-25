@@ -689,60 +689,17 @@
   window.reindexArrayItems = function (container, prefix) {
     if (!container) return;
     Array.from(container.children).forEach((item, index) => {
-      // Update names in inputs
-      // Helper to replace [x] with [index] in names
       const updateName = (el) => {
         if (el.name) {
-          // Replace the last [...] segment or typical array pattern
-          // Logic: replace `[oldIndex]` with `[index]`
-          // But specifically for this array's level.
-          // Simplified: Just use the prefix + [index] + suffix?
-          // Too complex to parse reliably.
-          // Alternative: just update the [index] that corresponds to THIS array.
-          // For now, simpler approach: names are mostly for debugging or manual mode.
-          // Manual mode requires correct paths.
-
-          // Let's try to infer from data-original-name or just patch the string.
-          // Assume name ends with `[digits]` or `[digits].subprop`
-          // This is hard.
-
-          // Better approach: Re-render? No.
-          // Let's rely on the fact that for Manual Mode, users might not delete/add complex nested arrays much?
-          // Actually, let's just use a monotonically increasing counter for names to avoid collision,
-          // and rely on Order for value collection (Interceptor).
-          // For Manual Mode, `updateParamValue` maps names to object structure.
-          // If we have `arr[5]` and `arr[9]`, that creates a sparse array.
-          // `JSON.stringify` will show nulls.
-          // That might be okay for Mojo (it might filter nulls? No array is strict).
-
-          // Robust Solution: reindex manually.
-          const inputs = item.querySelectorAll("[name]");
-          inputs.forEach((input) => {
-            // naive replace of the specific index in the path?
-            // Difficult without knowing which [x] belongs to us.
-            // The input name is fully qualified: `a.b[0].c`.
-            // We want to change it to `a.b[index].c`.
-            // The prefix stored in data-prefix is `a.b`.
-            // Replace the last index in the name, which corresponds to THIS array's index
-            // Name format: prefix[oldIndex].suffix or prefix[oldIndex]
-            // We can't rely on prefix matching exactly due to complex nesting,
-            // but we know we are iterating over immediate children.
-            // The safest way: find the part of the name corresponding to this item's index.
-
-            // Actually, since we have the prefix (e.g. "param.list"),
-            // and the input name is "param.list[5].subfield",
-            // we can replace the first occurrence of `[number]` after the prefix.
-
-            if (prefix && input.name.startsWith(prefix)) {
-              const suffix = input.name.substring(prefix.length);
-              // suffix starts with `[oldIndex]`
-              const newSuffix = suffix.replace(/^\[\d+\]/, `[${index}]`);
-              input.name = prefix + newSuffix;
-            } else if (input.name.startsWith("[")) {
-              // Root array case: `[oldIndex].subfield`
-              input.name = input.name.replace(/^\[\d+\]/, `[${index}]`);
-            }
-          });
+          // Robust Solution: find the first `[number]` suffix after the array prefix and update it.
+          if (prefix && el.name.startsWith(prefix)) {
+            const suffix = el.name.substring(prefix.length);
+            const newSuffix = suffix.replace(/^\[\d+\]/, `[${index}]`);
+            el.name = prefix + newSuffix;
+          } else if (el.name.startsWith("[")) {
+            // Root array case: `[oldIndex].prop`
+            el.name = el.name.replace(/^\[\d+\]/, `[${index}]`);
+          }
         }
       };
       updateName(item); // Process the item itself if it's an input? Likely a wrapper.
