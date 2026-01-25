@@ -141,6 +141,8 @@
     // Check if it's already a string
     if (typeof value === "string") return value;
 
+    console.log(`[MojoUtils] decodeBigString (is16=${is16})`, { value });
+
     const bigBuffer = value.arg_data || value.data;
     if (!bigBuffer) {
       // Fallback for raw array (string16)
