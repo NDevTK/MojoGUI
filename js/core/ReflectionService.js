@@ -124,8 +124,9 @@
         let mapSpec = null;
         let enumOptions = null;
 
-        if (type === "struct" || type === "union") {
-          structSpec = f.type.$?.structSpec || f.type.$?.unionSpec;
+        const spec = f.type.$ || f.type;
+        if (type === "struct" || type === "union" || type === "bigstring" || type === "bigstring16" || type === "string16") {
+          structSpec = spec.structSpec || spec.unionSpec;
         } else if (type === "array") {
           elementSpec =
             f.type.elementType ||

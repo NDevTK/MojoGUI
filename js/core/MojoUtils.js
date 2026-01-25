@@ -128,7 +128,7 @@
     } else {
       bytes = new TextEncoder().encode(value);
     }
-    // BigString has field 'data' (union BigBuffer) with tag 'bytes'
+    // BigString has field 'data' (union BigBuffer) with tag 'arg_bytes'
     return { arg_data: { arg_bytes: bytes } };
   }
 
