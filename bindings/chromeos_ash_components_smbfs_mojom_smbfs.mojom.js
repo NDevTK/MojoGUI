@@ -663,11 +663,10 @@ mojo.internal.bindings.smbfs.mojom.SmbFsDelegateRequest = mojo.internal.bindings
 // Struct: Password
 mojo.internal.Struct(
     mojo.internal.bindings.smbfs.mojom.PasswordSpec, 'smbfs.mojom.Password', [
-      mojo.internal.StructField('arg_kMaxLength', 0, 0, mojo.internal.OpaqueStruct, 255, false, 0, undefined),
-      mojo.internal.StructField('arg_fd', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fd', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Struct: KerberosConfig
 mojo.internal.Struct(
@@ -680,11 +679,10 @@ mojo.internal.Struct(
 // Struct: CredentialStorageOptions
 mojo.internal.Struct(
     mojo.internal.bindings.smbfs.mojom.CredentialStorageOptionsSpec, 'smbfs.mojom.CredentialStorageOptions', [
-      mojo.internal.StructField('arg_kMinSaltLength', 0, 0, mojo.internal.OpaqueStruct, 16, false, 0, undefined),
-      mojo.internal.StructField('arg_account_hash', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_salt', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_account_hash', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_salt', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: MountOptions
 mojo.internal.Struct(

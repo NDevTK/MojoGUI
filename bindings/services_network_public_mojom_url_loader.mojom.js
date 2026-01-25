@@ -584,11 +584,10 @@ mojo.internal.Struct(
 // Struct: URLRequestRedirectInfo
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec, 'network.mojom.URLRequestRedirectInfo', [
-      mojo.internal.StructField('arg_kClientDisconnectReason', 0, 0, mojo.internal.OpaqueStruct, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 0, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: URLLoaderClientEndpoints
 mojo.internal.Struct(

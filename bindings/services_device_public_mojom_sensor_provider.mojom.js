@@ -500,9 +500,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_default_configuration', 32, 0, mojo.internal.bindings.device.mojom.SensorConfigurationSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_maximum_frequency', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('arg_minimum_frequency', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_kReadBufferSizeForTests', 56, 0, mojo.internal.OpaqueStruct, 48, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 64]]);
 
 // Struct: VirtualSensorMetadata
 mojo.internal.Struct(

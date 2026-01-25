@@ -184,27 +184,25 @@ mojo.internal.Struct(
 // Struct: NotificationData
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.NotificationDataSpec, 'blink.mojom.NotificationData', [
-      mojo.internal.StructField('arg_kMaximumDeveloperDataSize', 0, 0, mojo.internal.OpaqueStruct, 1048576, false, 0, undefined),
-      mojo.internal.StructField('arg_kMaximumActions', 8, 0, mojo.internal.OpaqueStruct, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_direction', 24, 0, mojo.internal.bindings.blink.mojom.NotificationDirectionSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_renotify', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_silent', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_require_interaction', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_lang', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_body', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tag', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image', 56, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon', 64, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_badge', 72, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_vibration_pattern', 80, 0, mojo.internal.Array(mojo.internal.Int32, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 88, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 96, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_actions', 104, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.NotificationActionSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_show_trigger_timestamp', 112, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_scenario', 120, 0, mojo.internal.bindings.blink.mojom.NotificationScenarioSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_direction', 8, 0, mojo.internal.bindings.blink.mojom.NotificationDirectionSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_renotify', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_silent', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_require_interaction', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_lang', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_body', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tag', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_badge', 56, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_vibration_pattern', 64, 0, mojo.internal.Array(mojo.internal.Int32, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 72, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 80, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_actions', 88, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.NotificationActionSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_show_trigger_timestamp', 96, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_scenario', 104, 0, mojo.internal.bindings.blink.mojom.NotificationScenarioSpec, 0, false, 0, undefined),
     ],
-    [[0, 136]]);
+    [[0, 120]]);
 
 // Struct: NotificationResources
 mojo.internal.Struct(

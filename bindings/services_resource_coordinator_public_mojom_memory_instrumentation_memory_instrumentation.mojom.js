@@ -1168,26 +1168,22 @@ mojo.internal.Struct(
 // Struct: VmRegion
 mojo.internal.Struct(
     mojo.internal.bindings.memory_instrumentation.mojom.VmRegionSpec, 'memory_instrumentation.mojom.VmRegion', [
-      mojo.internal.StructField('arg_kProtectionFlagsRead', 0, 0, mojo.internal.OpaqueStruct, 4, false, 0, undefined),
-      mojo.internal.StructField('arg_kProtectionFlagsWrite', 8, 0, mojo.internal.OpaqueStruct, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_kProtectionFlagsExec', 16, 0, mojo.internal.OpaqueStruct, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_kProtectionFlagsMayshare', 24, 0, mojo.internal.OpaqueStruct, 128, false, 0, undefined),
-      mojo.internal.StructField('arg_start_address', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_size_in_bytes', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_module_timestamp', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_module_debugid', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_module_debug_path', 64, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_protection_flags', 72, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_mapped_file', 80, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_byte_stats_private_dirty_resident', 88, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_byte_stats_private_clean_resident', 96, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_byte_stats_shared_dirty_resident', 104, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_byte_stats_shared_clean_resident', 112, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_byte_stats_swapped', 120, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_byte_locked', 128, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_byte_stats_proportional_resident', 136, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_start_address', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_size_in_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_module_timestamp', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_module_debugid', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_module_debug_path', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_protection_flags', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mapped_file', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_byte_stats_private_dirty_resident', 56, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_byte_stats_private_clean_resident', 64, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_byte_stats_shared_dirty_resident', 72, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_byte_stats_shared_clean_resident', 80, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_byte_stats_swapped', 88, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_byte_locked', 96, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_byte_stats_proportional_resident', 104, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 152]]);
+    [[0, 120]]);
 
 // Struct: PlatformPrivateFootprint
 mojo.internal.Struct(

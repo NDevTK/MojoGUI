@@ -377,12 +377,11 @@ mojo.internal.Union(
 // Struct: DataElementBytes
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DataElementBytesSpec, 'blink.mojom.DataElementBytes', [
-      mojo.internal.StructField('arg_kMaximumEmbeddedDataSize', 0, 0, mojo.internal.OpaqueStruct, 256000, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_embedded_data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_data', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BytesProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_embedded_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_data', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BytesProviderRemote), null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: DataElementFile
 mojo.internal.Struct(

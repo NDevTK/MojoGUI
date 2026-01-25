@@ -1103,9 +1103,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_request', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('arg_value', 10, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('arg_index', 12, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_kSecurityKeyAOAModel', 16, 0, mojo.internal.OpaqueStruct, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: UsbIsochronousPacket
 mojo.internal.Struct(
