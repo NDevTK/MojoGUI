@@ -152,6 +152,7 @@
         return {
           name: f.name,
           type: enumOptions ? { type: "enum", options: enumOptions } : type,
+          rawType: f.type,
           structSpec,
           elementSpec,
           mapSpec,

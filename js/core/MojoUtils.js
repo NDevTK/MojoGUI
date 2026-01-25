@@ -78,58 +78,42 @@
   /**
    * Decorates a raw MojoHandle with properties that make it look like a
    * Remote/Receiver wrapper for compatibility with MojoJS's internal unbind() calls.
-   * This is a non-destructive unified approach.
+   * This version returns a clean wrapper and does NOT pollute the original handle.
    */
   function decorateHandle(realHandle, isPendingAssociation = false) {
     if (!realHandle || typeof realHandle !== "object") return realHandle;
 
-    // Check if it's already a wrapper or has the required properties
-    if (realHandle.proxy && typeof realHandle.proxy.unbind === 'function') {
-      return realHandle;
+    // 1. Extract the underlying raw handle if it's already wrapped
+    let raw = realHandle;
+    if (realHandle.nativeHandle) {
+      raw = realHandle.nativeHandle;
+    } else if (realHandle.handle && typeof realHandle.handle.releasePipe === 'function') {
+      raw = realHandle.handle.releasePipe();
     }
 
+    // 2. Create the mock endpoint that returns the RAW handle
     const mockEndpoint = {
-      releasePipe: () => {
-        // Return the clean native handle from the wrapper or self
-        if (realHandle.nativeHandle) return realHandle.nativeHandle;
-        return realHandle;
-      },
-      handle: realHandle,
+      releasePipe: () => raw,
+      handle: raw,
       isPendingAssociation: isPendingAssociation
     };
 
-    // For native handles (those with writeMessage/readMessage), we MUST NOT add properties
-    // because it breaks native type validation in some versions of MojoJS/V8.
-    if (realHandle.writeMessage && typeof realHandle.writeMessage === 'function') {
-      return {
-        proxy: { unbind: () => mockEndpoint },
-        unbind: () => mockEndpoint,
-        handle: mockEndpoint,
-        nativeHandle: realHandle,
-        // Delegate common methods for convenience
-        writeMessage: (...args) => realHandle.writeMessage(...args),
-        readMessage: (...args) => realHandle.readMessage(...args),
-        close: () => realHandle.close()
-      };
-    }
+    // 3. Return a wrapper object. 
+    // We do NOT use defineProperty on 'raw' to avoid breaking native validation.
+    const wrapper = {
+      proxy: { unbind: () => mockEndpoint },
+      unbind: () => mockEndpoint,
+      handle: mockEndpoint,
+      nativeHandle: raw,
+      // For convenience, forward common handle methods
+      writeMessage: raw.writeMessage ? (...args) => raw.writeMessage(...args) : undefined,
+      readMessage: raw.readMessage ? (...args) => raw.readMessage(...args) : undefined,
+      close: raw.close ? () => raw.close() : undefined,
+      // Metadata for GUI
+      $: { interfaceName: "PendingInterface" }
+    };
 
-    // Fallback: Use defineProperty for objects that aren't native handles (placeholders, etc.)
-    if (!realHandle.hasOwnProperty('handle')) {
-      Object.defineProperty(realHandle, 'handle', { value: mockEndpoint, configurable: true, enumerable: false });
-    }
-    
-    if (!realHandle.hasOwnProperty('proxy')) {
-      const proxy = { unbind: () => mockEndpoint };
-      Object.defineProperty(realHandle, 'proxy', { value: proxy, configurable: true, enumerable: false });
-    } else if (realHandle.proxy && !realHandle.proxy.unbind) {
-      realHandle.proxy.unbind = () => mockEndpoint;
-    }
-
-    if (!realHandle.hasOwnProperty('unbind')) {
-      Object.defineProperty(realHandle, 'unbind', { value: () => mockEndpoint, configurable: true, enumerable: false });
-    }
-
-    return realHandle;
+    return wrapper;
   }
 
   /**
