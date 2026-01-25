@@ -3816,6 +3816,7 @@
 
   // Export safeHTML for external use (Tools Panel)
   window.safeHTML = safeHTML;
+  window.showToast = showToast;
 
   window.renderRegistryOptions = function (selectedInterface) {
     if (!window.MojoObjectRegistry)
