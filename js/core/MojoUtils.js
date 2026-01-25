@@ -244,7 +244,23 @@
   function inflateType(value, typeInfo) {
     if (value === null || value === undefined) return null;
     if (!typeInfo) return value;
-    if (typeInfo.structSpec) return inflateStruct(value, typeInfo.structSpec);
+    if (typeInfo.structSpec) {
+      // Special case: BigString / BigString16 inflation
+      const name = typeInfo.structSpec.name || "";
+      if (typeof value === "string" && (name.includes("BigString") || name.includes("BigString16"))) {
+        const is16 = name.includes("String16");
+        let bytes;
+        if (is16) {
+          const arr = new Uint16Array(value.length);
+          for (let i = 0; i < value.length; i++) arr[i] = value.charCodeAt(i);
+          bytes = new Uint8Array(arr.buffer);
+        } else {
+          bytes = new TextEncoder().encode(value);
+        }
+        return { arg_data: { arg_bytes: bytes } };
+      }
+      return inflateStruct(value, typeInfo.structSpec);
+    }
     if (typeInfo.unionSpec) {
       // For unions, if it's not already a union-wrapped object, we might need a default tag
       if (
