@@ -66,19 +66,24 @@
       let finalArgs = [];
 
       if (reconciledParams && methodDef && methodDef.parameters) {
-        if (Array.isArray(reconciledParams)) {
-          finalArgs = reconciledParams;
-        } else {
-          finalArgs = methodDef.parameters.map((p) => {
-            const val = reconciledParams[p.name];
+        const paramsArray = Array.isArray(reconciledParams)
+          ? reconciledParams
+          : [reconciledParams];
 
-            if (p.structSpec) {
-              return MojoUtils.inflateStruct(val, p.structSpec);
-            }
+        finalArgs = methodDef.parameters.map((p, i) => {
+          let val = paramsArray[i];
 
-            return val;
-          });
-        }
+          // If params is an object but we are here, reconciledParams was an object
+          if (!Array.isArray(reconciledParams)) {
+            val = reconciledParams[p.name];
+          }
+
+          if (p.structSpec) {
+            return MojoUtils.inflateStruct(val, p.structSpec);
+          }
+
+          return val;
+        });
       } else if (reconciledParams) {
         finalArgs = Array.isArray(reconciledParams)
           ? reconciledParams
