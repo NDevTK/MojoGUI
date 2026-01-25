@@ -1077,9 +1077,40 @@ server.tool(
     method: z.string().describe("The method name"),
     result: z.string().describe("Summary of the outcome (e.g. 'Confirmed Bypass', 'Crashed', 'Permission Denied')"),
     notes: z.string().describe("Detailed observations or exploit details"),
+    force: z.boolean().optional().default(false).describe("If true, bypass duplicate detection and force logging"),
   },
-  async ({ interface: iface, method, result, notes }) => {
-    const res = SelfImprovement.logResearch(iface, method, result, notes);
+  async ({ interface: iface, method, result, notes, force }) => {
+    const res = SelfImprovement.logResearch(iface, method, result, notes, force);
+    return {
+      content: [{ type: "text", text: JSON.stringify(res, null, 2) }],
+    };
+  }
+);
+
+server.tool(
+  "update_research_finding",
+  "Update an existing research finding by ID. Useful for correcting mistakes or adding detail to previous logs.",
+  {
+    id: z.string().describe("The ID of the finding to update (from get_research_progress)"),
+    result: z.string().optional().describe("New summary of the outcome"),
+    notes: z.string().optional().describe("New detailed notes"),
+  },
+  async ({ id, result, notes }) => {
+    const res = SelfImprovement.updateResearch(id, { result, notes });
+    return {
+      content: [{ type: "text", text: JSON.stringify(res, null, 2) }],
+    };
+  }
+);
+
+server.tool(
+  "delete_research_finding",
+  "Delete a research finding by ID. Use this to remove duplicate or erroneous entries.",
+  {
+    id: z.string().describe("The ID of the finding to delete (from get_research_progress)"),
+  },
+  async ({ id }) => {
+    const res = SelfImprovement.deleteResearch(id);
     return {
       content: [{ type: "text", text: JSON.stringify(res, null, 2) }],
     };

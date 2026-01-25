@@ -31,8 +31,26 @@ export const SelfImprovement = {
   /**
    * Log research progress.
    */
-  logResearch(interfaceName, method, result, notes) {
+  logResearch(interfaceName, method, result, notes, force = false) {
     const data = this._read();
+    
+    // Check for duplicates
+    if (!force) {
+        const similar = data.research.find(r => 
+            r.interface === interfaceName && 
+            r.method === method &&
+            (r.result === result || this._getSimilarity(r.notes, notes) > 0.8)
+        );
+        
+        if (similar) {
+            return { 
+                success: false, 
+                message: `Duplicate finding detected (ID: ${similar.id}). Use 'update_research_finding' to modify it or set 'force=true' to override.`,
+                duplicateId: similar.id
+            };
+        }
+    }
+
     data.research.push({
       id: Math.random().toString(36).substr(2, 9),
       timestamp: new Date().toISOString(),
@@ -43,6 +61,48 @@ export const SelfImprovement = {
     });
     this._write(data);
     return { success: true, message: "Research progress logged to " + PROGRESS_FILE };
+  },
+
+  /**
+   * Update an existing research entry.
+   */
+  updateResearch(id, { result, notes }) {
+    const data = this._read();
+    const entry = data.research.find(r => r.id === id);
+    if (entry) {
+      if (result) entry.result = result;
+      if (notes) entry.notes = notes;
+      entry.updatedAt = new Date().toISOString();
+      this._write(data);
+      return { success: true, message: `Research entry ${id} updated.` };
+    }
+    return { success: false, message: `Entry ${id} not found.` };
+  },
+
+  /**
+   * Delete a research entry.
+   */
+  deleteResearch(id) {
+    const data = this._read();
+    const initialLength = data.research.length;
+    data.research = data.research.filter(r => r.id !== id);
+    
+    if (data.research.length < initialLength) {
+        this._write(data);
+        return { success: true, message: `Research entry ${id} deleted.` };
+    }
+    return { success: false, message: `Entry ${id} not found.` };
+  },
+
+  _getSimilarity(str1, str2) {
+    if (!str1 || !str2) return 0;
+    const set1 = new Set(str1.toLowerCase().split(/\W+/).filter(x => x.length > 2));
+    const set2 = new Set(str2.toLowerCase().split(/\W+/).filter(x => x.length > 2));
+    if (set1.size === 0 || set2.size === 0) return 0;
+    
+    const intersection = new Set([...set1].filter(x => set2.has(x)));
+    const union = new Set([...set1, ...set2]);
+    return intersection.size / union.size;
   },
 
   /**

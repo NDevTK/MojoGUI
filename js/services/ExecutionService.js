@@ -82,6 +82,14 @@
             return MojoUtils.inflateStruct(val, p.structSpec);
           }
 
+          // Auto-wrap raw handle IDs if the method expects a mojo_handle
+          if (p.type === 'mojo_handle' && typeof val === 'number') {
+            const handle = MojoHandleRegistry.get(val);
+            if (handle) {
+              return MojoUtils.decorateHandle(handle);
+            }
+          }
+
           return val;
         });
       } else if (reconciledParams) {
