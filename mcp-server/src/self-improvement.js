@@ -36,17 +36,16 @@ export const SelfImprovement = {
     
     // Check for duplicates
     if (!force) {
-        const similar = data.research.find(r => 
+        const existing = data.research.find(r => 
             r.interface === interfaceName && 
-            r.method === method &&
-            (r.result === result || this._getSimilarity(r.notes, notes) > 0.8)
+            r.method === method
         );
         
-        if (similar) {
+        if (existing) {
             return { 
                 success: false, 
-                message: `Duplicate finding detected (ID: ${similar.id}). Use 'update_research_finding' to modify it or set 'force=true' to override.`,
-                duplicateId: similar.id
+                message: `This interface and method (${interfaceName}.${method}) have already been researched (ID: ${existing.id}). Use 'update_research_finding' to add details or 'force=true' to create a new entry anyway.`,
+                duplicateId: existing.id
             };
         }
     }
@@ -199,6 +198,53 @@ export const SelfImprovement = {
       gaps: relevantGaps.slice(0, 10),
       patterns: outcomePatterns,
       summary: `Found ${relevantResearch.length} relevant research entries and ${relevantGaps.length} gaps.`
+    };
+  },
+
+  /**
+   * Generates a detailed research summary for a specific interface.
+   */
+  getInterfaceSummary(interfaceName, totalMethods = 0) {
+    const { research, gaps } = this._read();
+    const interfaceResearch = research.filter(r => r.interface === interfaceName);
+    
+    // Also look for module-level context
+    const moduleName = interfaceName.split('.').slice(0, -1).join('.');
+    const moduleResearch = research.filter(r => r.interface.startsWith(moduleName) && r.interface !== interfaceName);
+
+    const researchedMethods = new Set(interfaceResearch.map(r => r.method));
+    const coverage = totalMethods > 0 ? `${researchedMethods.size}/${totalMethods}` : researchedMethods.size;
+
+    const highImpactKeywords = ['bypass', 'leak', 'exploit', 'vulnerability', 'escalation', 'pwned'];
+    const findings = {};
+    
+    interfaceResearch.forEach(r => {
+        if (!findings[r.method]) findings[r.method] = [];
+        const isHighImpact = highImpactKeywords.some(k => 
+            r.result.toLowerCase().includes(k) || r.notes.toLowerCase().includes(k)
+        );
+        findings[r.method].push({
+            id: r.id,
+            result: r.result,
+            isHighImpact,
+            notes: r.notes // Keep full notes for technical context
+        });
+    });
+
+    // Find relevant gaps
+    const relevantGaps = gaps.filter(g => 
+        g.status === "Open" && 
+        (g.task.includes(interfaceName) || g.gap.includes(interfaceName) || g.task.includes(moduleName))
+    );
+
+    return {
+        interfaceName,
+        moduleName,
+        coverage,
+        findings,
+        gaps: relevantGaps,
+        moduleFindingCount: moduleResearch.length,
+        hasModuleVulnerabilities: moduleResearch.some(r => highImpactKeywords.some(k => r.result.toLowerCase().includes(k)))
     };
   },
 

@@ -145,7 +145,7 @@ server.tool(
                 if (!details) throw new Error('Interface not found: ${name}');
                 
                 const cache = new WeakSet();
-                return JSON.stringify(details, (key, value) => {
+                const json = JSON.stringify(details, (key, value) => {
                     if (typeof value === 'object' && value !== null) {
                         if (cache.has(value)) return '[Circular]';
                         cache.add(value);
@@ -153,11 +153,54 @@ server.tool(
                     if (typeof value === 'bigint') return value.toString() + 'n';
                     return value;
                 }, 2);
+                return { json, methodCount: details.methods?.length || 0 };
             })()
         `;
     const result = await executeInMojoGUI(code);
+    
+    // Generate Research Summary
+    const summary = SelfImprovement.getInterfaceSummary(name, result.methodCount);
+    let summaryNote = "";
+    
+    if (summary) {
+        summaryNote = `\n🛡️ SECURITY RESEARCH SUMMARY: ${name}\n`;
+        
+        // Add Component Context
+        if (summary.moduleFindingCount > 0) {
+            const warningIcon = summary.hasModuleVulnerabilities ? "⚠️" : "ℹ️";
+            summaryNote += `${warningIcon} Component Context: ${summary.moduleName} has ${summary.moduleFindingCount} other findings in this session.\n`;
+        }
+
+        summaryNote += `📊 Coverage: ${summary.coverage} methods tested\n\n`;
+        
+        for (const [method, findings] of Object.entries(summary.findings)) {
+            summaryNote += `[${method}]\n`;
+            findings.forEach(f => {
+                const icon = f.isHighImpact ? "🔴 CRITICAL:" : "🔹";
+                summaryNote += `  ${icon} ${f.result} (ID: ${f.id})\n`;
+                summaryNote += `     Technical Context: ${f.notes}\n`;
+            });
+        }
+
+        if (summary.gaps.length > 0) {
+            summaryNote += `\n⚠️ KNOWN CAPABILITY GAPS:\n`;
+            summary.gaps.forEach(g => {
+                summaryNote += `  - ${g.gap} (Impact: ${g.impact})\n`;
+            });
+        }
+        summaryNote += `\n--------------------------------------------\n`;
+    } else {
+        summaryNote = `\n🆕 INTERFACE NOT YET RESEARCHED: ${name}\n`;
+        // Even for new interfaces, show if the module has findings
+        const moduleResearch = SelfImprovement.getInterfaceSummary(name);
+        if (moduleResearch && moduleResearch.moduleFindingCount > 0) {
+             summaryNote += `⚠️  NOTE: Other interfaces in module '${moduleResearch.moduleName}' HAVE been researched.\n`;
+        }
+        summaryNote += `--------------------------------------------\n`;
+    }
+
     return {
-      content: [{ type: "text", text: result }],
+      content: [{ type: "text", text: summaryNote + result.json }],
     };
   },
 );
@@ -280,8 +323,29 @@ server.tool(
             })()
         `;
     const result = await executeInMojoGUI(code, 0, { userGesture });
-    // result is already a JSON string from safeStringify
-    return { content: [{ type: "text", text: result || "{}" }] };
+    
+    // Check for history to remind the agent
+    let warning = "";
+    const name = iface || "";
+    const summary = SelfImprovement.getInterfaceSummary(name);
+    
+    if (summary && summary.findings[method]) {
+        warning = `\n📜 PREVIOUS FINDINGS FOR ${method}:\n`;
+        summary.findings[method].forEach(f => {
+            const icon = f.isHighImpact ? "🔴 CRITICAL:" : "🔹";
+            warning += `  ${icon} ${f.result} (ID: ${f.id})\n`;
+            warning += `     Technical Context: ${f.notes}\n`;
+        });
+        
+        if (summary.hasModuleVulnerabilities) {
+            warning += `⚠️  Module '${summary.moduleName}' has a history of high-impact vulnerabilities.\n`;
+        }
+
+        warning += `\n💡 Hint: Use 'update_research_finding' to add details to these existing entries instead of creating a duplicate.\n`;
+        warning += `--------------------------------------------\n\n`;
+    }
+
+    return { content: [{ type: "text", text: warning + (result || "{}") }] };
   },
 );
 server.tool(
