@@ -3690,6 +3690,37 @@
       }
     },
     /**
+     * Write data to a Mojo data pipe producer handle
+     * @param {string|number} id - Producer handle ID
+     * @param {string|Uint8Array} data - Data to write (string or bytes)
+     * @returns {Object} Result of the write operation
+     */
+    writeDataPipe: (id, data) => {
+      if (typeof MojoHandleRegistry === "undefined")
+        return { error: "Registry not available" };
+      const handle = MojoHandleRegistry.get(id);
+      if (!handle) return { error: "Handle not found" };
+
+      try {
+        let buffer;
+        if (typeof data === "string") {
+          buffer = new TextEncoder().encode(data);
+        } else if (data instanceof Uint8Array) {
+          buffer = data;
+        } else {
+          return { error: "Invalid data format" };
+        }
+
+        const result = handle.writeData(buffer);
+        return {
+          result: result,
+          bytesWritten: result === Mojo.RESULT_OK ? buffer.length : 0,
+        };
+      } catch (e) {
+        return { error: e.message };
+      }
+    },
+    /**
      * Inspect a registered object or handle
      * @param {string|number} id - Object ID (obj_N) or Handle ID
      * @returns {Object} Inspection details
