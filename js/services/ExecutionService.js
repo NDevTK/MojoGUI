@@ -91,16 +91,35 @@
             return MojoUtils.inflateStruct(val, p.structSpec);
           }
 
-          // Auto-decorate objects passed as handles if they look like remotes/handles
-          if (val && typeof val === 'object' && (p.type === 'mojo_handle' || p.type === 'any')) {
-            // Register native handles before wrapping to ensure they're trackable
-            if (val.writeMessage && typeof val.writeMessage === 'function') {
-               MojoHandleRegistry.register(val);
-            }
-            
-            // Only wrap if it doesn't already have the proxy/unbind interface
-            if (!val.proxy || typeof val.proxy.unbind !== 'function') {
-              val = MojoUtils.decorateHandle(val);
+          // Auto-decorate/wrap objects passed as handles
+          if (val !== null && val !== undefined && typeof val === 'object') {
+            const rawVal = val.nativeHandle || val;
+            const isNativeHandle = rawVal.writeMessage && typeof rawVal.writeMessage === 'function';
+
+            if (isNativeHandle) {
+              MojoHandleRegistry.register(rawVal);
+
+              const spec = p.rawType?.$ || p.rawType;
+              if (spec && (p.type === 'pending_remote' || p.type === 'pending_associated_remote') && spec.remoteClass) {
+                try {
+                  val = new spec.remoteClass(rawVal);
+                  console.log(`[ExecutionService] Wrapped handle in official Remote: ${spec.remoteClass.name}`);
+                } catch (e) {
+                  val = MojoUtils.decorateHandle(rawVal);
+                }
+              } else if (spec && (p.type === 'pending_receiver' || p.type === 'pending_associated_receiver') && spec.receiverClass) {
+                try {
+                  val = new spec.receiverClass(rawVal);
+                  console.log(`[ExecutionService] Wrapped handle in official Receiver: ${spec.receiverClass.name}`);
+                } catch (e) {
+                  val = MojoUtils.decorateHandle(rawVal);
+                }
+              } else if (p.type === 'mojo_handle') {
+                // If the method expects a RAW handle, pass it UNWRAPPED
+                val = rawVal;
+              } else if (p.type === 'any') {
+                val = MojoUtils.decorateHandle(rawVal);
+              }
             }
           }
 

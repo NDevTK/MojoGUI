@@ -7,7 +7,8 @@
 
   const MojoHandleRegistry = {
     handles: new Map(),
-    nextId: 1000, // Start high to avoid confusion with small ordinals
+    handleToId: new WeakMap(),
+    nextId: 1000,
 
     /**
      * Register a raw MojoHandle and assign a GUI ID
@@ -17,17 +18,21 @@
     register(handle) {
       if (!handle || typeof handle !== "object") return null;
 
-      // If it already has our GUI ID, just return it
-      if (handle.__mojoGuiId !== undefined) return handle.__mojoGuiId;
+      // Extract the raw handle if it's our non-destructive wrapper
+      if (handle.nativeHandle) {
+        handle = handle.nativeHandle;
+      }
 
-      // Use native .value if available (including 0), otherwise assign our own
-      // Some Mojo versions use .value, others are just objects with methods.
+      // Check WeakMap first to avoid pollution
+      const existingId = this.handleToId.get(handle);
+      if (existingId !== undefined) return existingId;
+
       const id =
         handle.value !== undefined && typeof handle.value === "number"
           ? handle.value
           : this.nextId++;
-      handle.__mojoGuiId = id;
-
+      
+      this.handleToId.set(handle, id);
       this.handles.set(id, handle);
       return id;
     },

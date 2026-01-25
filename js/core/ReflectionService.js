@@ -219,14 +219,13 @@
         return "array";
       if (mojomType.keyType || spec.keyType || spec.mapSpec) return "map";
 
-      if (spec.decode && (
-          spec.decode.toString().includes("decodeHandle") || 
-          spec.decode.toString().includes("decodeInterfaceProxy") ||
-          spec.decode.toString().includes("decodeInterfaceRequest") ||
-          spec.decode.toString().includes("decodeAssociatedInterfaceProxy") ||
-          spec.decode.toString().includes("decodeAssociatedInterfaceRequest")
-      )) {
-        return "mojo_handle";
+      if (spec.decode) {
+        const decStr = spec.decode.toString();
+        if (decStr.includes("decodeInterfaceProxy")) return "pending_remote";
+        if (decStr.includes("decodeInterfaceRequest")) return "pending_receiver";
+        if (decStr.includes("decodeAssociatedInterfaceProxy")) return "pending_associated_remote";
+        if (decStr.includes("decodeAssociatedInterfaceRequest")) return "pending_associated_receiver";
+        if (decStr.includes("decodeHandle")) return "mojo_handle";
       }
 
       return "any";
