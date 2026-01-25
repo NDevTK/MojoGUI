@@ -1021,6 +1021,20 @@ server.tool(
 );
 
 server.tool(
+  "close_capability_gap",
+  "Mark a capability gap as closed after it has been fixed or mitigated.",
+  {
+    id: z.string().describe("The ID of the gap to close (from get_research_progress)"),
+  },
+  async ({ id }) => {
+    const result = SelfImprovement.closeGap(id);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  }
+);
+
+server.tool(
   "log_research_progress",
   "Record coverage and findings for a specific Mojo interface and method.",
   {

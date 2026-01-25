@@ -46,6 +46,21 @@ export const SelfImprovement = {
   },
 
   /**
+   * Close a capability gap.
+   */
+  closeGap(id) {
+    const data = this._read();
+    const gap = data.gaps.find(g => g.id === id);
+    if (gap) {
+      gap.status = "Closed";
+      gap.closedAt = new Date().toISOString();
+      this._write(data);
+      return { success: true, message: `Capability gap ${id} closed.` };
+    }
+    return { success: false, message: `Gap ${id} not found.` };
+  },
+
+  /**
    * Get filtered progress data.
    */
   getProgress(filters = {}) {
