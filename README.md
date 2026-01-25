@@ -114,26 +114,6 @@ Chromium scrambles Mojo method ordinals in official builds using a version-based
 
 Go to **Actions** → **Update Mojo JS Bindings** → **Run workflow**
 
-## Project Structure
-
-```
-MojoGUI/
-├── index.html          # Main HTML file
-├── index.css           # Styling with glassmorphism theme
-├── app.js              # Core application logic
-├── interceptor.js      # Traffic interception & proxy logic
-├── welcome_manager.js  # Interactive welcome & setup UI
-├── version_tracker.js  # LocalStorage snapshot & diff logic
-├── parser.js           # .mojom.js file parser
-├── bindings/
-│   ├── index.js        # Bindings loader module
-│   ├── index.json      # Interface metadata (auto-generated)
-│   └── *.mojom.js      # JavaScript bindings (auto-generated)
-└── .github/
-    └── workflows/
-        └── update-mojo-bindings.yml  # GitHub Action
-```
-
 ## Security Considerations
 
 This tool is designed for **security research purposes only**. MojoJS provides direct access to Chromium's IPC system, which is a privileged interface.
