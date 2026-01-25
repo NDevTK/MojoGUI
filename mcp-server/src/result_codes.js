@@ -24,7 +24,7 @@ export const RESULT_CODES = {
     name: "RESULT_CODE_KILLED_BAD_MESSAGE",
     note:
       "A bad IPC message caused termination. " +
-      "This usually means invalid message format, wrong ordinals, or calling an associated interface without proper setup. " +
+      "This usually means invalid message format or calling an associated interface without proper setup. " +
       "This is NOT a security vulnerability - it indicates the Mojo message validation is working correctly.",
   },
   4: {
