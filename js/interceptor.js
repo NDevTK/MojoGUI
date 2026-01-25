@@ -33,6 +33,7 @@
       this.interfaceName = interfaceName;
       this.realHandle = handleOrEndpoint;
       this.realRemote = null;
+      this.comps = comps;
       this.activeBridges = new Set();
       this.pendingMessages = new Map();
 
@@ -60,7 +61,7 @@
       return new Proxy(this, {
         get: (target, prop, receiver) => {
           if (prop in target) return target[prop];
-          if (typeof prop === "string" && target.realRemote) {
+          if (typeof prop === "string") {
             const tryFindMethod = (obj, name) => {
               if (!obj) return null;
               if (typeof obj[name] === "function")
@@ -76,9 +77,19 @@
               return null;
             };
 
-            const found =
-              tryFindMethod(target.realRemote, prop) ||
-              tryFindMethod(target.realRemote.$, prop);
+            // 1. Try realRemote instance
+            let found = target.realRemote ? (tryFindMethod(target.realRemote, prop) || tryFindMethod(target.realRemote.$, prop)) : null;
+            
+            // 2. Fallback: Check components for method existence if realRemote is null (Sink Mode)
+            if (!found && target.comps) {
+               // Check Remote prototype or static Interface info
+               const remoteProto = target.comps.Remote ? target.comps.Remote.prototype : null;
+               const callHandlerProto = (target.comps.Remote && target.comps.Remote.prototype.$) ? 
+                                         target.comps.Remote.prototype.$.constructor.prototype : null;
+               
+               found = tryFindMethod(remoteProto, prop) || tryFindMethod(callHandlerProto, prop);
+            }
+
             if (found) {
               // ALWAYS route through the remote's instance to maintain correct context ($)
               // Use the actualName found to ensure interceptCall uses the correct case
