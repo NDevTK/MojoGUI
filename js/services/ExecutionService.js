@@ -91,6 +91,12 @@
             return MojoUtils.inflateStruct(val, p.structSpec);
           }
 
+          // Final safety check: if the value is an object but not a handle, 
+          // and it's being passed to a handle-like field, ensure it's decorated.
+          if (val && typeof val === 'object' && (p.type === 'mojo_handle' || p.type === 'any')) {
+             val = MojoUtils.decorateHandle(val);
+          }
+
           return val;
         });
       } else if (reconciledParams) {

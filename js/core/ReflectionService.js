@@ -218,8 +218,15 @@
         return "array";
       if (mojomType.keyType || spec.keyType || spec.mapSpec) return "map";
 
-      if (spec.decode && spec.decode.toString().includes("decodeHandle"))
+      if (spec.decode && (
+          spec.decode.toString().includes("decodeHandle") || 
+          spec.decode.toString().includes("decodeInterfaceProxy") ||
+          spec.decode.toString().includes("decodeInterfaceRequest") ||
+          spec.decode.toString().includes("decodeAssociatedInterfaceProxy") ||
+          spec.decode.toString().includes("decodeAssociatedInterfaceRequest")
+      )) {
         return "mojo_handle";
+      }
 
       return "any";
     },

@@ -89,13 +89,21 @@
       isPendingAssociation: isPendingAssociation
     };
 
-    // Use defineProperty to avoid potential issues with read-only properties on native handles
+    // Use defineProperty to ensure properties exist and are correctly structured for MojoJS
     if (!realHandle.hasOwnProperty('handle')) {
       Object.defineProperty(realHandle, 'handle', { value: mockEndpoint, configurable: true });
     }
+    
+    // The encoder calls value.proxy.unbind()
     if (!realHandle.hasOwnProperty('proxy')) {
-      Object.defineProperty(realHandle, 'proxy', { value: { unbind: () => mockEndpoint }, configurable: true });
+      const proxy = {
+        unbind: () => mockEndpoint
+      };
+      Object.defineProperty(realHandle, 'proxy', { value: proxy, configurable: true });
+    } else if (realHandle.proxy && !realHandle.proxy.unbind) {
+      realHandle.proxy.unbind = () => mockEndpoint;
     }
+
     if (!realHandle.hasOwnProperty('unbind')) {
       Object.defineProperty(realHandle, 'unbind', { value: () => mockEndpoint, configurable: true });
     }
