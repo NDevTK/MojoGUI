@@ -137,15 +137,10 @@
    */
   function decodeBigString(value, is16 = false) {
     if (!value) return "";
-    
-    // Check if it's already a string
     if (typeof value === "string") return value;
 
-    console.log(`[MojoUtils] decodeBigString (is16=${is16})`, { value });
-
-    const bigBuffer = value.arg_data || value.data;
-    if (!bigBuffer) {
-      // Fallback for raw array (string16)
+    const data = value.arg_data || value.data;
+    if (!data) {
       if (Array.isArray(value)) {
         if (is16) return String.fromCharCode(...value);
         return new TextDecoder().decode(new Uint8Array(value));
@@ -153,16 +148,28 @@
       return "";
     }
 
-    let arrayData = bigBuffer.arg_bytes || bigBuffer.bytes;
-    if (!arrayData && Array.isArray(bigBuffer)) {
-      arrayData = bigBuffer;
-    }
-
+    const isBig = data.hasOwnProperty('arg_bytes') || data.hasOwnProperty('arg_shared_memory') || data.hasOwnProperty('bytes') || data.hasOwnProperty('shared_memory');
+    let arrayData = isBig ? (data.arg_bytes || data.bytes) : data;
     if (!arrayData) return "";
 
     try {
       const u8 = arrayData instanceof Uint8Array ? arrayData : new Uint8Array(arrayData);
-      return new TextDecoder(is16 ? "utf-16le" : "utf-8").decode(u8);
+      
+      // Heuristic: If it's a byte stream and every other byte is 0, it's almost certainly UTF-16LE
+      let looksLikeUTF16 = is16;
+      if (!looksLikeUTF16 && u8.length >= 2 && u8.length % 2 === 0) {
+        let nulls = 0;
+        for (let i = 1; i < u8.length; i += 2) if (u8[i] === 0) nulls++;
+        if (nulls > (u8.length / 4)) looksLikeUTF16 = true;
+      }
+
+      if (looksLikeUTF16) {
+        if (!isBig && Array.isArray(arrayData)) {
+          return String.fromCharCode(...arrayData);
+        }
+        return new TextDecoder("utf-16le").decode(u8);
+      }
+      return new TextDecoder("utf-8").decode(u8);
     } catch (e) {
       return "[Decoding Error]";
     }
