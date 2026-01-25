@@ -78,16 +78,17 @@
             val = reconciledParams[p.name];
           }
 
-          if (p.structSpec) {
-            return MojoUtils.inflateStruct(val, p.structSpec);
-          }
-
-          // Auto-wrap raw handle IDs if the method expects a mojo_handle
-          if (p.type === 'mojo_handle' && typeof val === 'number') {
+          // Auto-wrap raw handle IDs if they exist in the registry. 
+          // We do this for all types because Reflection might label interfaces as 'any'.
+          if (typeof val === 'number') {
             const handle = MojoHandleRegistry.get(val);
             if (handle) {
-              return MojoUtils.decorateHandle(handle);
+              val = MojoUtils.decorateHandle(handle);
             }
+          }
+
+          if (p.structSpec) {
+            return MojoUtils.inflateStruct(val, p.structSpec);
           }
 
           return val;
