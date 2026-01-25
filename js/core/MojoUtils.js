@@ -78,34 +78,58 @@
   /**
    * Decorates a raw MojoHandle with properties that make it look like a
    * Remote/Receiver wrapper for compatibility with MojoJS's internal unbind() calls.
-   * This is a unified approach using Object.defineProperty.
+   * This is a non-destructive unified approach.
    */
   function decorateHandle(realHandle, isPendingAssociation = false) {
     if (!realHandle || typeof realHandle !== "object") return realHandle;
 
+    // Check if it's already a wrapper or has the required properties
+    if (realHandle.proxy && typeof realHandle.proxy.unbind === 'function') {
+      return realHandle;
+    }
+
     const mockEndpoint = {
-      releasePipe: () => realHandle,
+      releasePipe: () => {
+        // Return the clean native handle from the wrapper or self
+        if (realHandle.nativeHandle) return realHandle.nativeHandle;
+        if (realHandle.handle && typeof realHandle.handle.releasePipe === 'function') {
+          return realHandle.handle.releasePipe();
+        }
+        return realHandle;
+      },
       handle: realHandle,
       isPendingAssociation: isPendingAssociation
     };
 
-    // Use defineProperty to ensure properties exist and are correctly structured for MojoJS
+    // For native handles (those with writeMessage/readMessage), we MUST NOT add properties
+    // because it breaks native type validation in some versions of MojoJS/V8.
+    if (realHandle.writeMessage && typeof realHandle.writeMessage === 'function') {
+      return {
+        proxy: { unbind: () => mockEndpoint },
+        unbind: () => mockEndpoint,
+        handle: mockEndpoint,
+        nativeHandle: realHandle,
+        // Delegate common methods for convenience
+        writeMessage: (...args) => realHandle.writeMessage(...args),
+        readMessage: (...args) => realHandle.readMessage(...args),
+        close: () => realHandle.close()
+      };
+    }
+
+    // Fallback: Use defineProperty for objects that aren't native handles (placeholders, etc.)
     if (!realHandle.hasOwnProperty('handle')) {
-      Object.defineProperty(realHandle, 'handle', { value: mockEndpoint, configurable: true });
+      Object.defineProperty(realHandle, 'handle', { value: mockEndpoint, configurable: true, enumerable: false });
     }
     
-    // The encoder calls value.proxy.unbind()
     if (!realHandle.hasOwnProperty('proxy')) {
-      const proxy = {
-        unbind: () => mockEndpoint
-      };
-      Object.defineProperty(realHandle, 'proxy', { value: proxy, configurable: true });
+      const proxy = { unbind: () => mockEndpoint };
+      Object.defineProperty(realHandle, 'proxy', { value: proxy, configurable: true, enumerable: false });
     } else if (realHandle.proxy && !realHandle.proxy.unbind) {
       realHandle.proxy.unbind = () => mockEndpoint;
     }
 
     if (!realHandle.hasOwnProperty('unbind')) {
-      Object.defineProperty(realHandle, 'unbind', { value: () => mockEndpoint, configurable: true });
+      Object.defineProperty(realHandle, 'unbind', { value: () => mockEndpoint, configurable: true, enumerable: false });
     }
 
     return realHandle;

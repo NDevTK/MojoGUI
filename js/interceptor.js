@@ -126,7 +126,13 @@
         }
       }
 
-      // 5. Receiver wrapper
+      // 5. Non-destructive wrapper
+      if (obj.nativeHandle) {
+        MojoHandleRegistry.register(obj.nativeHandle);
+        return obj.nativeHandle;
+      }
+
+      // 6. Receiver wrapper
       if (obj.handle) {
         if (obj.handle.writeMessage) {
           MojoHandleRegistry.register(obj.handle);

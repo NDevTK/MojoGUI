@@ -91,10 +91,17 @@
             return MojoUtils.inflateStruct(val, p.structSpec);
           }
 
-          // Final safety check: if the value is an object but not a handle, 
-          // and it's being passed to a handle-like field, ensure it's decorated.
+          // Auto-decorate objects passed as handles if they look like remotes/handles
           if (val && typeof val === 'object' && (p.type === 'mojo_handle' || p.type === 'any')) {
-             val = MojoUtils.decorateHandle(val);
+            // Register native handles before wrapping to ensure they're trackable
+            if (val.writeMessage && typeof val.writeMessage === 'function') {
+               MojoHandleRegistry.register(val);
+            }
+            
+            // Only wrap if it doesn't already have the proxy/unbind interface
+            if (!val.proxy || typeof val.proxy.unbind !== 'function') {
+              val = MojoUtils.decorateHandle(val);
+            }
           }
 
           return val;
