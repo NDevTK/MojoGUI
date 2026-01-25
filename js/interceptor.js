@@ -64,15 +64,15 @@
             const tryFindMethod = (obj, name) => {
               if (!obj) return null;
               if (typeof obj[name] === "function")
-                return { func: obj[name], ctx: obj };
+                return { func: obj[name], ctx: obj, actualName: name };
               // Try camelCase
               const camel = name.charAt(0).toLowerCase() + name.slice(1);
               if (typeof obj[camel] === "function")
-                return { func: obj[camel], ctx: obj };
+                return { func: obj[camel], ctx: obj, actualName: camel };
               // Try PascalCase
               const pascal = name.charAt(0).toUpperCase() + name.slice(1);
               if (typeof obj[pascal] === "function")
-                return { func: obj[pascal], ctx: obj };
+                return { func: obj[pascal], ctx: obj, actualName: pascal };
               return null;
             };
 
@@ -81,7 +81,8 @@
               tryFindMethod(target.realRemote.$, prop);
             if (found) {
               // ALWAYS route through the remote's instance to maintain correct context ($)
-              return (...args) => target.interceptCall(prop, args);
+              // Use the actualName found to ensure interceptCall uses the correct case
+              return (...args) => target.interceptCall(found.actualName, args);
             }
           }
           return Reflect.get(target, prop, receiver);
