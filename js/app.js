@@ -670,7 +670,8 @@
     elements.selectedMethodName.textContent = `${methodName}()`;
 
     // Get method params (demo data)
-    const params = getMethodParams(state.selectedInterface.name, methodName);
+    const fqn = state.selectedInterface.module + "." + state.selectedInterface.name;
+    const params = getMethodParams(fqn, methodName);
     renderParamsForm(params);
     updateGeneratedCode();
 
@@ -2087,8 +2088,9 @@
   function resetParams() {
     state.paramValues = {};
     if (state.selectedMethod) {
+      const fqn = state.selectedInterface.module + "." + state.selectedInterface.name;
       const params = getMethodParams(
-        state.selectedInterface.name,
+        fqn,
         state.selectedMethod,
       );
       renderParamsForm(params);
@@ -3156,10 +3158,11 @@
         }
       }
       // Get method details with parameters
+      const fqn = iface.module ? `${iface.module}.${iface.name}` : iface.name;
       const methods = (iface.methods || []).map((m) => {
         const methodName = typeof m === "string" ? m : m.name;
-        const params = getMethodParams(iface.name, methodName);
-        const methodDef = findMethodDefinition(iface.name, methodName);
+        const params = getMethodParams(fqn, methodName);
+        const methodDef = findMethodDefinition(fqn, methodName);
         return {
           name: methodName,
           parameters: params || [],

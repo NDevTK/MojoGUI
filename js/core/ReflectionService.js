@@ -18,7 +18,7 @@
         return null;
 
       const roots = [mojo.internal.bindings];
-      // Add other potential roots if they exist (sometimes bindings are slightly elsewhere)
+      // Add other potential roots if they exist
       if (
         global.mojo &&
         global.mojo.internal &&
@@ -32,37 +32,34 @@
 
       for (const root of roots) {
         let current = root;
-        let found = true;
+        let foundPath = true;
         for (const part of parts) {
           if (current[part]) {
             current = current[part];
           } else {
-            // Try alternative: some modules use underscore instead of dots in the JS object
-            // e.g. "mojo.base" -> "mojo_base"
-            const joined = parts.join("_");
-            if (root[joined]) {
-              current = root[joined];
-              break;
-            }
-            found = false;
+            foundPath = false;
             break;
           }
         }
-        if (found && current !== root) return current;
+        if (foundPath && current !== root) return current;
+
+        // Try underscore-joined alternative at the root level only if direct path failed
+        // e.g. "mojo.base" -> root["mojo_base"]
+        const joined = moduleName.replace(/\./g, "_");
+        if (root[joined]) return root[joined];
       }
 
-      // Deep search fallback for common modules
+      // Deep search fallback: Only use as last resort for known patterns
       const lastPart = parts[parts.length - 1];
-      for (const root of roots) {
-        for (const key in root) {
-          if (key === lastPart || key === moduleName.replace(/\./g, "_")) {
-            return root[key];
+      if (lastPart !== "mojom") { // Avoid matching generic 'mojom' properties
+          for (const root of roots) {
+            for (const key in root) {
+              if (key === lastPart) return root[key];
+              if (typeof root[key] === "object" && root[key] !== null) {
+                if (root[key][lastPart]) return root[key][lastPart];
+              }
+            }
           }
-          // One level deeper search
-          if (typeof root[key] === "object" && root[key] !== null) {
-            if (root[key][lastPart]) return root[key][lastPart];
-          }
-        }
       }
 
       return null;
@@ -72,14 +69,23 @@
      * Finds a method definition (params/response) for an interface
      */
     findMethodDefinition(interfaceName, methodName) {
-      const iface = MojoLoader._interfaces.find(
-        (i) =>
-          i.name === interfaceName || i.module + "." + i.name === interfaceName,
+      // Prioritize FQN match to avoid ambiguity
+      let iface = MojoLoader._interfaces.find(
+        (i) => i.module + "." + i.name === interfaceName
       );
+      
+      // Fallback to simple name match
+      if (!iface) {
+          iface = MojoLoader._interfaces.find((i) => i.name === interfaceName);
+      }
+
       if (!iface || !iface.module) return null;
 
       const namespace = this.resolveNamespace(iface.module);
-      if (!namespace) return null;
+      if (!namespace) {
+        console.warn(`[ReflectionService] Could not resolve namespace for module: ${iface.module}`);
+        return null;
+      }
 
       const simpleName = iface.name.split(".").pop();
       const pascalMethod =
@@ -88,7 +94,8 @@
       const findSpec = (suffix) => {
         return (
           namespace[`${simpleName}_${methodName}_${suffix}`] ||
-          namespace[`${simpleName}_${pascalMethod}_${suffix}`]
+          namespace[`${simpleName}_${pascalMethod}_${suffix}`] ||
+          namespace[`${methodName}_${suffix}`] // Fallback for some non-standard naming
         );
       };
 
