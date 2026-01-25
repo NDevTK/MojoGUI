@@ -119,6 +119,7 @@
 
       return fieldsArray.map((f) => {
         let type = this.inferType(f.type);
+        console.log(`[ReflectionService] Mapping field ${f.name}, type inferred: ${type}`, f);
         let structSpec = null;
         let elementSpec = null;
         let mapSpec = null;
