@@ -45,6 +45,24 @@
     autoRegister(value, typeNameSuggestion = "Unknown") {
       if (value === null || typeof value !== "object") return value;
 
+      // Special case: BigString / BigString16 decoding
+      // If it looks like a BigString struct, decode it
+      if (value.hasOwnProperty('data') || value.hasOwnProperty('arg_data')) {
+        // We can't be 100% sure it's a BigString without the spec here, 
+        // but it's a very common pattern for these "Big" types.
+        // Let's try to decode if it's a string-like suggestion or we see bytes
+        const data = value.arg_data || value.data;
+        const bytes = data ? (data.arg_bytes || data.bytes || (Array.isArray(data) ? data : null)) : null;
+        
+        if (bytes && (Array.isArray(bytes) || bytes instanceof Uint8Array || bytes instanceof Uint16Array)) {
+           // Heuristic: if it's bigstring16, bytes will be roughly 2x length of a typical string?
+           // Actually, let's just try decode and see if it looks like ASCII/UTF
+           // Better: Use typeNameSuggestion if it contains "String"
+           const is16 = typeNameSuggestion.includes("String16");
+           return MojoUtils.decodeBigString(value, is16);
+        }
+      }
+
       // Detect if this is a Mojo Remote (usually has $ property or bindNewPipeAndPassReceiver)
       // Or if it's a MojoProxy instance
       const isProxy =
