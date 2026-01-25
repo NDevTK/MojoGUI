@@ -33,22 +33,8 @@
   // ========================================
   // Trusted Types Policy
   // ========================================
-  let trustedPolicy = null;
-  if (typeof window.trustedTypes !== "undefined") {
-    trustedPolicy = window.trustedTypes.createPolicy("mojoGUI", {
-      createHTML: (input) => input,
-      createScript: (input) => input,
-      createScriptURL: (input) => input,
-    });
-  }
-
-  function safeHTML(html) {
-    // Replace this with a proper Trusted Types policy :)
-    if (trustedPolicy) {
-      return trustedPolicy.createHTML(html);
-    }
-    return html;
-  }
+  // Uses shared policy from MojoUtils
+  const safeHTML = MojoUtils.safeHTML;
 
   const safeStringify = MojoUtils.safeStringify;
 

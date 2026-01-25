@@ -433,9 +433,42 @@
     return value;
   }
 
+  // ========================================
+  // Trusted Types Helper
+  // ========================================
+  let trustedPolicy = null;
+  if (typeof global.trustedTypes !== "undefined") {
+    try {
+      if (!trustedPolicy) {
+        trustedPolicy = global.trustedTypes.createPolicy("mojoGUI", {
+          createHTML: (input) => input,
+          createScript: (input) => input,
+          createScriptURL: (input) => input,
+        });
+      }
+    } catch (e) {
+      // Policy might already exist
+      if (global.trustedTypes.defaultPolicy) {
+        trustedPolicy = global.trustedTypes.defaultPolicy;
+      }
+      console.warn(
+        "MojoUtils: Failed to create Trusted Types policy or it already exists",
+        e,
+      );
+    }
+  }
+
+  function safeHTML(html) {
+    if (trustedPolicy) {
+      return trustedPolicy.createHTML(html);
+    }
+    return html;
+  }
+
   const MojoUtils = {
     safeStringify,
     safeParse,
+    safeHTML,
     sanitizeKeys,
     reconcileKeys,
     inflateStruct,
@@ -446,4 +479,5 @@
   };
 
   global.MojoUtils = MojoUtils;
+  global.safeHTML = safeHTML; // Export globally for convenience
 })(this);
