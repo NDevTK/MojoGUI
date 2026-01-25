@@ -252,6 +252,19 @@
     }
 
     if (edited === null || typeof edited !== "object") return edited;
+
+    // Detect if it's already a Mojo handle or remote/receiver to avoid corrupting it
+    if (
+      edited.proxy ||
+      edited.unbind ||
+      edited.nativeHandle ||
+      edited.$ ||
+      edited.writeMessage ||
+      edited.readMessage
+    ) {
+      return edited;
+    }
+
     if (Array.isArray(edited)) {
       return edited.map((v, i) =>
         reconcileKeys(
